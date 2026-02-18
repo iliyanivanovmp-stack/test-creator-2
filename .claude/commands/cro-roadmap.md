@@ -69,6 +69,8 @@ Collect in this order:
 12. **Previous A/B Test Results** - Past tests, learnings, what worked/failed
 13. **Competitor Insights** - What competitors do differently, gaps identified
 14. **Known Technical/UX Issues** - Bugs, broken flows, mobile issues
+15. **Inspiration Sites** - URLs of sites with UX, design, or conversion patterns worth emulating. Note what specifically caught your eye.
+16. **Content Calendar** - Upcoming promotions, product launches, seasonal campaigns, or content themes planned for the month
 
 For each data source, use AskUserQuestion with a text input option to collect the data. Be patient and thorough - good data leads to good test ideas.
 
