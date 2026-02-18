@@ -60,17 +60,14 @@ Collect in this order:
 3. **Google Analytics / GA4** - Behavior flow, landing page performance, user journeys
 4. **Survey Responses** - Customer feedback, exit surveys, NPS verbatims, post-purchase surveys
 5. **Ads & Landing Pages** - Ad performance, landing page metrics, CTRs, bounce rates, ROAS by campaign. Include screenshots of top ads and their landing pages to assess message match.
-6. **Session Recordings** - Patterns observed, friction points, user confusion moments
-7. **Site Search Data** - Top searches, zero-result searches, search-to-purchase rate
-8. **Customer Support / Chat Logs** - Common complaints, pre-purchase questions, objections
-9. **Reviews & UGC** - Product review themes, common complaints, what customers love
-10. **Returns / Refund Data** - Return reasons, refund request patterns
-11. **Page Speed / Core Web Vitals** - LCP, CLS, FID scores, slow pages
-12. **Previous A/B Test Results** - Past tests, learnings, what worked/failed
-13. **Competitor Insights** - What competitors do differently, gaps identified
-14. **Known Technical/UX Issues** - Bugs, broken flows, mobile issues
-15. **Inspiration Sites** - URLs of sites with UX, design, or conversion patterns worth emulating. Note what specifically caught your eye.
-16. **Content Calendar** - Upcoming promotions, product launches, seasonal campaigns, or content themes planned for the month
+6. **Site Search Data** - Top searches, zero-result searches, search-to-purchase rate
+7. **Reviews & UGC** - Product review themes, common complaints, what customers love
+8. **Page Speed / Core Web Vitals** - LCP, CLS, FID scores, slow pages
+9. **Previous A/B Test Results** - Past tests, learnings, what worked/failed
+10. **Winning Tests Library** - Fetch the case studies sitemap at `https://convertibles.dev/sitemap_blogs_1.xml` and read relevant case studies using WebFetch. Focus on case studies that match the themes emerging from the client's data (e.g., if cart drop-off is an issue, read the cart drawer case studies). Use these proven test patterns to inform and strengthen test ideas. Do not collect this from the user. Read it yourself.
+11. **Competitor Insights** - What competitors do differently, gaps identified
+12. **Inspiration Sites** - URLs of sites with UX, design, or conversion patterns worth emulating. Note what specifically caught your eye.
+13. **Content Calendar** - Upcoming promotions, product launches, seasonal campaigns, or content themes planned for the month
 
 For each data source, use AskUserQuestion with a text input option to collect the data. Be patient and thorough - good data leads to good test ideas.
 
@@ -94,6 +91,8 @@ Based on your analysis, identify the 4 test ideas with the strongest combination
 **Go where the money is.** A 1% lift on 500K sessions beats a 5% lift on 10K sessions. Prioritize high-traffic problem areas first.
 
 **Critical: Each test must be distinct.** Different page, different element, or different user segment. If two tests solve the same problem, position them as a split test with different approaches (e.g., landing page vs homepage modification). Make the comparison explicit.
+
+**Scheduling constraint: 2-week minimum between tests on the same component.** Tests need at least 2 weeks of runtime for statistical significance. If two tests target the same page or element, stagger them. Call out sequencing dependencies in the brief.
 
 Aim for variety across funnel stages:
 - Landing Page (dedicated, separate from homepage)
@@ -130,6 +129,17 @@ Then present each test with this format. Four lines per test. No separate sectio
 **Brief:** [What design and dev need to build. Role requirements inline. Include sequencing dependencies if any. 1-2 sentences.]
 
 ---
+
+## Step 6: Data Audit File
+
+Before writing the roadmap, save a `[month]-[year]-data-audit.md` file in the client's directory. This file documents all findings from the data collection, organized by source. It serves as a reference for future test ideation and client presentations.
+
+Format:
+- One section per data source (only sources that were collected)
+- Key metrics, quotes, and findings extracted from each source
+- A cross-source analysis section at the end highlighting converging themes
+
+This file is separate from the roadmap. The roadmap is the brief. The audit is the evidence library.
 
 ## Step 7: Monthly Roadmap Summary
 
