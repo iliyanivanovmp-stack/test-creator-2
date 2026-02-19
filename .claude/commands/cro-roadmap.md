@@ -22,6 +22,7 @@ The goal: client reads the roadmap, sees the evidence, approves, and we run. No 
 - When the user provides a store URL, use WebFetch to view the actual site if needed for context.
 - If you lack data to support a test idea, say so. Do not fabricate supporting evidence.
 - Mark confidence scores lower when data is thin. Be honest about uncertainty.
+- **Always include time periods when citing data.** "+40%" or "1,759 searches" means nothing without context. Write "+40% MoM," "1,759 searches in the last 30 days," etc. Every metric needs a time frame.
 
 ## Writing Style
 
@@ -45,6 +46,7 @@ The reader should understand the problem, the solution, and why it matters in un
 First, ask the user for basic client context:
 - Store name or URL
 - Current conversion rate (if known)
+- How many variations per test (e.g., 1 variation vs. control, or multiple)
 - Any specific areas of focus or concern for this month
 
 **Important:** All data collected should be from the **last 30 days** to ensure relevance and consistency across sources.
@@ -59,11 +61,11 @@ Collect in this order:
 2. **Shopify Analytics** - Traffic sources, conversion funnel, device breakdown, top exit pages
 3. **Google Analytics / GA4** - Behavior flow, landing page performance, user journeys
 4. **Survey Responses** - Customer feedback, exit surveys, NPS verbatims, post-purchase surveys
-5. **Ads & Landing Pages** - Ad performance, landing page metrics, CTRs, bounce rates, ROAS by campaign. Include screenshots of top ads and their landing pages to assess message match.
+5. **Ads & Landing Pages** - Ad performance, landing page metrics, CTRs, bounce rates, ROAS by campaign. Include screenshots of top ads and their landing pages to assess message match. When referencing ads in the roadmap, clarify that you analyzed the top-performing ads (e.g., "2 of the top 3 ads by spend"), not all active ads.
 6. **Site Search Data** - Top searches, zero-result searches, search-to-purchase rate
 7. **Reviews & UGC** - Product review themes, common complaints, what customers love
 8. **Page Speed / Core Web Vitals** - LCP, CLS, FID scores, slow pages
-9. **Previous A/B Test Results** - Past tests, learnings, what worked/failed
+9. **Previous A/B Test Results** - Past tests, learnings, what worked/failed. Ask for wireframes, screenshots, and results data of previous tests so you have full context. Do not speculate about why a test won or lost without this evidence. If you're unsure about a test's outcome, ask. When reading test screenshots, use color coding to identify status: yellow = running, green = winner, red = loser.
 10. **Winning Tests Library** - Fetch the case studies sitemap at `https://convertibles.dev/sitemap_blogs_1.xml` and read relevant case studies using WebFetch. Focus on case studies that match the themes emerging from the client's data (e.g., if cart drop-off is an issue, read the cart drawer case studies). Use these proven test patterns to inform and strengthen test ideas. Do not collect this from the user. Read it yourself.
 11. **Competitor Insights** - What competitors do differently, gaps identified
 12. **Inspiration Sites** - URLs of sites with UX, design, or conversion patterns worth emulating. Note what specifically caught your eye.
@@ -118,15 +120,15 @@ Then present each test with this format. Four lines per test. No separate sectio
 
 ## Test #[rank]: [Short, Clear Test Name]
 
-**Page:** [Page]
+**Page:** [Page name] ([URL]). List all pages/URLs referenced in this test.
 
 **Hypothesis:** If we [specific change], [measurable outcome] because [data-backed reason]. One sentence. Two max.
 
-**Data:** [Evidence inline, citing sources in parentheses. Combine multiple data points into one flowing sentence or two. No bullet points.]
+**Data:** [Evidence inline, citing sources in parentheses with the "Source:" prefix (e.g., "(Source: Shopify Analytics)" or "(Source: Surveys, Reviews)"). Combine multiple data points into one flowing sentence or two. No bullet points. Every data point must be directly relevant to this specific test. Do not include data about other pages, ads, or products that could be a separate test.]
 
-**Variation:** [One clear test description in prose. What changes, what stays the same. Specific enough that a designer can mock it up immediately.]
+**Variation:** [One clear test description in prose. What changes, what stays the same. Specific enough that a designer can mock it up immediately. Before writing variations, ask the user for a screenshot of the current page so you have up-to-date context of what exists today.]
 
-**Brief:** [What design and dev need to build. Role requirements inline. Include sequencing dependencies if any. 1-2 sentences.]
+**Brief:** [What design and dev need to build. Role requirements inline. Include sequencing dependencies if any. The number of briefs should match the number of variations (e.g., if 2 variations, describe what's needed for each). 1-2 sentences per variation.]
 
 ---
 
