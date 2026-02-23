@@ -69,7 +69,8 @@ Collect in this order:
 10. **Winning Tests Library** - Fetch the case studies sitemap at `https://convertibles.dev/sitemap_blogs_1.xml` and read relevant case studies using WebFetch. Focus on case studies that match the themes emerging from the client's data (e.g., if cart drop-off is an issue, read the cart drawer case studies). Use these proven test patterns to inform and strengthen test ideas. Do not collect this from the user. Read it yourself.
 11. **Competitor Insights** - What competitors do differently, gaps identified
 12. **Inspiration Sites** - URLs of sites with UX, design, or conversion patterns worth emulating. Note what specifically caught your eye.
-13. **Content Calendar** - Upcoming promotions, product launches, seasonal campaigns, or content themes planned for the month
+13. **Email Campaigns** - Last 5-10 emails sent (screenshots or content), subject lines, open rates, click rates, revenue per email. Identify messaging themes, offers, and CTAs that resonate. Look for message match between emails and landing pages. Note any gaps between what emails promise and what the site delivers.
+14. **Content Calendar** - Upcoming promotions, product launches, seasonal campaigns, or content themes planned for the month
 
 For each data source, use AskUserQuestion with a text input option to collect the data. Be patient and thorough - good data leads to good test ideas.
 
@@ -95,6 +96,10 @@ Based on your analysis, identify the 4 test ideas with the strongest combination
 **Critical: Each test must be distinct.** Different page, different element, or different user segment. If two tests solve the same problem, position them as a split test with different approaches (e.g., landing page vs homepage modification). Make the comparison explicit.
 
 **Scheduling constraint: 2-week minimum between tests on the same component.** Tests need at least 2 weeks of runtime for statistical significance. If two tests target the same page or element, stagger them. Call out sequencing dependencies in the brief.
+
+**1-2 changes per variation. No more.** Each variation should isolate one or two changes so we can attribute the result. If a variation has 4 changes and wins, we don't know which change drove it. When the user requests multiple variations and it makes sense for the test, stack them: V1 adds change A, V2 adds change A + change B, V3 adds A + B + change C. This way each variation builds on the previous one and we can measure incremental impact. Not every test needs stacking. Use the variation count from Step 1 to guide how many variations to write.
+
+**Always specify mobile and desktop.** Describe how each variation looks on both mobile and desktop. Most Shopify traffic is mobile-heavy, so design mobile-first, but desktop must not be an afterthought. If a layout only works on one device (e.g., split hero is desktop-only), say so explicitly and describe the mobile equivalent. Call out any device-specific behavior (e.g., sticky elements, collapsing sections, stacking).
 
 Aim for variety across funnel stages:
 - Landing Page (dedicated, separate from homepage)

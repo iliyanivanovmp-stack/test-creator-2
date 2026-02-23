@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Printfresh PDP V6 Mockup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; display: flex; justify-content: center; gap: 40px; padding: 40px 20px; }
+
+  .phone { width: 375px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.12); flex-shrink: 0; }
+  .phone-header { background: #2d3a6e; color: #fff; text-align: center; padding: 10px 16px; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .phone-header svg { width: 18px; height: 18px; fill: #fff; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #eee; }
+  .nav-logo { font-family: Georgia, serif; font-size: 14px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-icons { display: flex; gap: 12px; font-size: 18px; color: #333; }
+
+  .content { padding: 0 20px 30px; }
+
+  .print-selector { background: #f8f0f2; border-radius: 8px; padding: 12px 16px; margin: 16px 0; display: flex; align-items: center; gap: 12px; }
+  .print-thumb { width: 48px; height: 48px; border-radius: 50%; background: #e8d5e8; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #666; overflow: hidden; }
+  .print-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .print-name { font-size: 14px; font-weight: 600; flex: 1; }
+  .print-link { font-size: 13px; color: #333; text-decoration: underline; }
+
+  .size-tabs { display: flex; align-items: center; margin: 20px 0 12px; }
+  .size-tab { font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding-bottom: 4px; margin-right: 24px; cursor: pointer; color: #333; }
+  .size-tab.active { text-decoration: underline; }
+  .size-guide-link { margin-left: auto; font-size: 14px; color: #333; text-decoration: underline; cursor: pointer; }
+
+  .size-dropdown { background: #f0ece4; border-radius: 8px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 8px; }
+  .size-dropdown span { font-size: 15px; color: #333; }
+  .size-dropdown .arrow { font-size: 18px; color: #666; }
+
+  /* V6 fit strip */
+  .fit-strip { margin: 8px 0 12px; padding: 0 2px; }
+  .fit-strip .fabric-note { font-size: 13px; color: #666; margin-bottom: 4px; }
+  .fit-strip .measurements { font-size: 13px; color: #888; }
+  .fit-strip .measurements span { margin: 0 2px; color: #bbb; }
+
+  /* V6 dropdown version */
+  .size-dropdown-open { background: #f0ece4; border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+  .size-dropdown-open .selected { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .size-dropdown-open .selected span { font-size: 15px; color: #333; }
+  .size-dropdown-open .options { border-top: 1px solid #e0dcd4; }
+  .size-option { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e8e4dc; cursor: pointer; }
+  .size-option:last-child { border-bottom: none; }
+  .size-option:hover { background: #e8e4dc; }
+  .size-option .size-label { font-size: 14px; color: #333; font-weight: 500; }
+  .size-option .size-measurements { font-size: 12px; color: #999; }
+
+  .quiz-rec { font-size: 16px; font-weight: 700; text-decoration: underline; margin: 12px 0; cursor: pointer; color: #333; }
+
+  .social-proof { font-size: 13px; color: #888; margin: 8px 0 4px; display: flex; align-items: center; gap: 6px; }
+  .availability { font-size: 14px; color: #7a9e7a; margin-bottom: 10px; }
+
+  .atc-btn { width: 100%; background: #2d3a6e; color: #fff; border: none; padding: 16px; font-size: 16px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; cursor: pointer; }
+
+  .trust-badges { display: flex; justify-content: space-around; margin: 16px 0; padding: 16px 0; border: 1px solid #eee; border-radius: 8px; }
+  .trust-badge { text-align: center; font-size: 11px; color: #555; line-height: 1.3; }
+  .trust-badge .icon { font-size: 24px; margin-bottom: 4px; display: block; }
+
+  .label { position: absolute; top: -28px; left: 0; right: 0; text-align: center; font-size: 14px; font-weight: 700; color: #2d3a6e; letter-spacing: 1px; }
+  .phone { position: relative; margin-top: 36px; }
+
+  .section-title { text-align: center; font-size: 20px; font-weight: 700; color: #333; margin-bottom: 8px; width: 100%; }
+  .section-subtitle { text-align: center; font-size: 14px; color: #888; margin-bottom: 32px; width: 100%; }
+
+  .wrapper { display: flex; flex-direction: column; align-items: center; }
+  .phones { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+
+  .highlight { background: #e8f5e9; border-left: 3px solid #4caf50; padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 8px 0 12px; }
+  .highlight .fabric-note { font-size: 13px; color: #555; margin-bottom: 4px; }
+  .highlight .measurements { font-size: 13px; color: #777; }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="section-title">V6: Fabric Fit Strip + Inline Measurements</div>
+  <div class="section-subtitle">Two options for placement. Same data, different interaction.</div>
+
+  <div class="phones">
+
+    <!-- Option A: Between dropdown and quiz recommendation -->
+    <div class="phone">
+      <div class="label">Option A: Inline Strip</div>
+      <div class="phone-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Size Inclusive Styles From XXS To 6X
+      </div>
+      <div class="nav">
+        <span style="font-size: 22px;">&#9776;</span>
+        <span class="nav-logo">PRINTFRESH</span>
+        <div class="nav-icons">
+          <span>&#x1F50D;</span>
+          <span>&#9825;</span>
+          <span>&#x1F6D2;</span>
+        </div>
+      </div>
+      <div class="content">
+        <div class="print-selector">
+          <div class="print-thumb" style="background: #d8bfd8;">&#x1F405;</div>
+          <span class="print-name">Tiger Queen - Blush & Bashful</span>
+          <span class="print-link">See 19 more prints</span>
+        </div>
+
+        <div class="size-tabs">
+          <span class="size-tab active">REGULAR</span>
+          <span class="size-tab">PETITE</span>
+          <span class="size-tab">TALL</span>
+          <span class="size-guide-link">Size Guide</span>
+        </div>
+
+        <div class="size-dropdown">
+          <span>S</span>
+          <span class="arrow">&#x25BC;</span>
+        </div>
+
+        <!-- V6 NEW: Fit strip -->
+        <div class="highlight">
+          <div class="fabric-note">Eco Satin runs relaxed. Size down if between sizes.</div>
+          <div class="measurements">S: Bust 36" <span>&middot;</span> Waist 28" <span>&middot;</span> Hip 38" <span>&middot;</span> Inseam 26"</div>
+        </div>
+
+        <div class="quiz-rec">We recommend size S</div>
+
+        <div class="social-proof">&#x1F6D2; In 29 Carts</div>
+        <div class="availability">Available for purchase</div>
+
+        <button class="atc-btn">ADD TO CART</button>
+
+        <div class="trust-badges">
+          <div class="trust-badge"><span class="icon">&#x1F69A;</span>Free Shipping<br>over $195</div>
+          <div class="trust-badge"><span class="icon">&#x1F504;</span>Easy Returns &<br>Free Exchanges</div>
+          <div class="trust-badge"><span class="icon">&#x2705;</span>Guarantee to<br>Quality</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option B: Measurements inside dropdown -->
+    <div class="phone">
+      <div class="label">Option B: In Dropdown</div>
+      <div class="phone-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Size Inclusive Styles From XXS To 6X
+      </div>
+      <div class="nav">
+        <span style="font-size: 22px;">&#9776;</span>
+        <span class="nav-logo">PRINTFRESH</span>
+        <div class="nav-icons">
+          <span>&#x1F50D;</span>
+          <span>&#9825;</span>
+          <span>&#x1F6D2;</span>
+        </div>
+      </div>
+      <div class="content">
+        <div class="print-selector">
+          <div class="print-thumb" style="background: #d8bfd8;">&#x1F405;</div>
+          <span class="print-name">Tiger Queen - Blush & Bashful</span>
+          <span class="print-link">See 19 more prints</span>
+        </div>
+
+        <div class="size-tabs">
+          <span class="size-tab active">REGULAR</span>
+          <span class="size-tab">PETITE</span>
+          <span class="size-tab">TALL</span>
+          <span class="size-guide-link">Size Guide</span>
+        </div>
+
+        <!-- V6 NEW: Fabric note above dropdown -->
+        <div style="font-size: 13px; color: #666; margin-bottom: 8px; padding: 0 2px;">Eco Satin runs relaxed. Size down if between sizes.</div>
+
+        <!-- Dropdown open with measurements -->
+        <div class="size-dropdown-open">
+          <div class="selected">
+            <span>S</span>
+            <span style="font-size: 18px; color: #666;">&#x25B2;</span>
+          </div>
+          <div class="options">
+            <div class="size-option">
+              <span class="size-label">XXS</span>
+              <span class="size-measurements">Bust 32" &middot; Waist 24" &middot; Hip 34"</span>
+            </div>
+            <div class="size-option">
+              <span class="size-label">XS</span>
+              <span class="size-measurements">Bust 34" &middot; Waist 26" &middot; Hip 36"</span>
+            </div>
+            <div class="size-option" style="background: #e8e4dc;">
+              <span class="size-label" style="font-weight: 700;">S</span>
+              <span class="size-measurements">Bust 36" &middot; Waist 28" &middot; Hip 38"</span>
+            </div>
+            <div class="size-option">
+              <span class="size-label">M</span>
+              <span class="size-measurements">Bust 38" &middot; Waist 30" &middot; Hip 40"</span>
+            </div>
+            <div class="size-option">
+              <span class="size-label">L</span>
+              <span class="size-measurements">Bust 40" &middot; Waist 32" &middot; Hip 42"</span>
+            </div>
+            <div class="size-option">
+              <span class="size-label">XL</span>
+              <span class="size-measurements">Bust 42" &middot; Waist 34" &middot; Hip 44"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-rec">We recommend size S</div>
+
+        <div class="social-proof">&#x1F6D2; In 29 Carts</div>
+        <div class="availability">Available for purchase</div>
+
+        <button class="atc-btn">ADD TO CART</button>
+
+        <div class="trust-badges">
+          <div class="trust-badge"><span class="icon">&#x1F69A;</span>Free Shipping<br>over $195</div>
+          <div class="trust-badge"><span class="icon">&#x1F504;</span>Easy Returns &<br>Free Exchanges</div>
+          <div class="trust-badge"><span class="icon">&#x2705;</span>Guarantee to<br>Quality</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
