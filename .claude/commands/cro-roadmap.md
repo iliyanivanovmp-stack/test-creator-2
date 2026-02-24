@@ -131,9 +131,10 @@ Then present each test with this format. Four lines per test. No separate sectio
 
 **Data:** [Evidence inline, citing sources in parentheses with the "Source:" prefix (e.g., "(Source: Shopify Analytics)" or "(Source: Surveys, Reviews)"). Combine multiple data points into one flowing sentence or two. No bullet points. Every data point must be directly relevant to this specific test. Do not include data about other pages, ads, or products that could be a separate test.]
 
-**Variation:** [One clear test description in prose. What changes, what stays the same. Specific enough that a designer can mock it up immediately. Before writing variations, ask the user for a screenshot of the current page so you have up-to-date context of what exists today.]
+**V[N]:** [One clear test description in prose. What changes, what stays the same. Specific enough that a designer can mock it up immediately. Before writing variations, ask the user for a screenshot of the current page so you have up-to-date context of what exists today.]
+**Brief:** [What design and dev need to build for this variation. Specific enough that a designer and developer can implement directly on both mobile and desktop without further clarification. Include sequencing dependencies if any.]
 
-**Brief:** [What design and dev need to build. Role requirements inline. Include sequencing dependencies if any. The number of briefs should match the number of variations (e.g., if 2 variations, describe what's needed for each). 1-2 sentences per variation.]
+Write one Variation + Brief block per variation. The brief goes on a new line directly after its variation, not in a separate combined section at the end of the test.
 
 ---
 
