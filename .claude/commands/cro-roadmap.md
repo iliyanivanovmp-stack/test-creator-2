@@ -71,6 +71,7 @@ Collect in this order:
 12. **Inspiration Sites** - URLs of sites with UX, design, or conversion patterns worth emulating. Note what specifically caught your eye.
 13. **Email Campaigns** - Last 5-10 emails sent (screenshots or content), subject lines, open rates, click rates, revenue per email. Identify messaging themes, offers, and CTAs that resonate. Look for message match between emails and landing pages. Note any gaps between what emails promise and what the site delivers.
 14. **Content Calendar** - Upcoming promotions, product launches, seasonal campaigns, or content themes planned for the month
+15. Intelligems analytics?!
 
 For each data source, use AskUserQuestion with a text input option to collect the data. Be patient and thorough - good data leads to good test ideas.
 
