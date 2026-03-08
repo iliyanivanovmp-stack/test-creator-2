@@ -1,8 +1,8 @@
 # March 2026 Testing Roadmap
 
-**Data Sources:** Trustpilot Reviews, Site Testimonials, Meta Ads (5 ads + LPs), Site Search (directional), Competitor Research, Winning Tests Library, Site Screenshots (desktop + mobile). Shopify Analytics provided directional context only (new theme live for ~1 week).
+**Data Sources:** Trustpilot Reviews, Site Testimonials, Competitor Research, Winning Tests Library, Site Screenshots (desktop + mobile). Shopify Analytics provided directional context only (new theme live for ~1 week).
 
-## What We Found
+## Insights
 
 Performance Golf is transitioning from a Checkout Champ-powered direct response setup to a modern Shopify storefront. The old system was profitable because of one thing: long-form video upsells in the post-purchase flow. A customer buys a club, sees a video, and minutes in, a related product offer appears. That post-purchase mechanism is where the margin lives. Without it, the new Shopify store cannot match the economics of the old setup. Rebuilding this flow as a custom Shopify app is the first priority.
 
@@ -16,7 +16,7 @@ This is a new theme, which means we have a rare opportunity. We can build the pr
 
 ---
 
-## Slots 1-2: Post-Purchase Video Upsell App
+## Slots 1 & 2: Post-Purchase Video Upsell App
 
 **Type:** Custom Shopify app development (2 slots)
 
@@ -37,13 +37,13 @@ This is a new theme, which means we have a rare opportunity. We can build the pr
 
 ## Slot 3: Cart Drawer Trust + Savings
 
-**Type:** A/B test (2 variations vs. control)
+**Type:** A/B test (1 or 2 variations vs. control)
 **Page:** Cart drawer (site-wide, appears on all pages)
-**Revenue potential:** In comparable case studies, adding savings visibility + trust signals to a cart drawer generated +$32.6K/mo, and adding upsells generated +$33.1K/mo. The cart drawer is the last touchpoint before checkout for every buyer who uses the Shopify store. Even small lifts here compound across all products.
+**Revenue potential:** We've seen great results by adding savings visibility + trust signals to a cart drawer and adding upsells. The cart drawer is the last touchpoint before checkout for every buyer who uses the Shopify store. Even small lifts here compound across all products.
 
 **Hypothesis:** If we add trust signals and savings visibility to the cart drawer, more shoppers who add to cart will complete checkout, because the current cart drawer is bare (no trust signals, no savings callout, no social proof) and Trustpilot reviews reveal that hidden charges and subscription fears are the #1 purchase barrier for this brand's audience.
 
-**Data:** The cart drawer currently contains only: a free shipping bar, a product line item, an "Is this a gift?" accordion, and a checkout button, with large empty white space between the product and subtotal (Source: Site Screenshots, desktop + mobile). Trustpilot reviews show 6+ one-star reviews in the last 30 days citing unwanted subscription charges, hidden fees, and difficulty canceling. Linda HP: "SCAM-SCAM-SCAM." Mike C: "Tricking elderly people into committing to a monthly fee." Rose Saylor had to cancel her credit card (Source: Reviews). Site search confirms this anxiety: "login" is the #1 zero-result query (8 searches), and "how do i cancel membership?" also appears (Source: Site Search). PG's 365-day guarantee is 6x longer than the competitive average of 60 days, yet it's completely absent from the cart drawer (Source: Competitor Research, Site Screenshots). The last line buyers see before checkout is "Shipping, taxes, and discount codes are calculated at checkout," which introduces uncertainty rather than reducing it (Source: Site Screenshots).
+**Data:** The cart drawer currently contains only: a free shipping bar, a product line item, an "Is this a gift?" accordion, and a checkout button, with large empty white space between the product and subtotal (Source: Site Screenshots, desktop + mobile). Trustpilot reviews show 6+ one-star reviews in the last 30 days citing unwanted subscription charges, hidden fees, and difficulty canceling. Linda HP: "SCAM-SCAM-SCAM." Mike C: "Tricking elderly people into committing to a monthly fee." Rose Saylor had to cancel her credit card (Source: Reviews). Site search confirms this anxiety: "login" is the #1 zero-result query, and "how do i cancel membership?" also appears (Source: Site Search). PG's 365-day guarantee is 6x longer than the competitive average of 60 days, yet it's completely absent from the cart drawer (Source: Competitor Research, Site Screenshots). The last line buyers see before checkout is "Shipping, taxes, and discount codes are calculated at checkout," which introduces uncertainty rather than reducing it (Source: Site Screenshots).
 
 **V1:** Add three elements to the cart drawer: (1) A savings callout line below the product showing "You're saving $50!" (calculated from the compare-at price), (2) A trust signal strip below the product section with three icons in a row: "365-Day Guarantee," "Free Shipping," and "800K+ Clubs Sold," (3) Replace the "Shipping, taxes, and discount codes are calculated at checkout" text with "Free shipping included. 365-day money-back guarantee." Remove the "Is this a gift?" accordion (low-value feature consuming premium space).
 **Brief:** Desktop: Savings callout appears in green text directly below the product's price line. Trust signal strip: three small icons with text labels in a horizontal row, centered, placed between the product section and subtotal. Use the same icon style as the PDP trust icons (circular outline icons). The "Is this a gift?" accordion is removed. The reassurance text replaces the existing shipping/tax disclaimer below the CHECK OUT button. Mobile: Identical layout. The trust strip icons scale to fit the narrower drawer width. If they don't fit in one row, stack as 2+1.
@@ -59,6 +59,6 @@ The following tests are ready to run in upcoming months once baseline traffic da
 
 1. **Homepage Hero:** The homepage currently leads with the ONE.1 Wedge hero. The 357 Super 7-Wood is the flagship product (most reviewed at 3,700+, most advertised, most searched on-site). Swapping the hero to feature the 357 and surfacing trust signals (4.8 rating, 800K clubs sold) above the fold is the next high-impact test.
 
-2. **Collection Page Trust + Navigation:** The Golf Clubs collection page has no reviews on product cards, no hero banner, and no urgency labels. Adding star ratings, a hero banner with trust signals, and "Best Seller" badges is a proven pattern (+$114.8K/mo in a comparable case study).
+2. **Collection Page Trust + Navigation:** The Golf Clubs collection page has no reviews on product cards, no hero banner, and no urgency labels. Adding star ratings, a hero banner with trust signals, and "Best Seller" badges is a proven pattern (we've seen this win big in the past).
 
 3. **357 PDP Gallery + Customer Voice:** The product gallery uses standard product shots with no text overlays or human context. Replacing the lead image with a text-overlay action shot and swapping brand-voice benefit bullets for customer-voice outcomes (specific numbers from reviews) would strengthen the top product page.

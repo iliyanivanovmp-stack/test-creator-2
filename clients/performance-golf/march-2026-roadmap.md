@@ -2,7 +2,7 @@
 
 **Data Sources:** Shopify Analytics, Meta Ads, Site Search, Reviews (Trustpilot + Testimonials), Competitor Research, Winning Tests Library, Site Screenshots
 
-## What We Found
+## Insights
 
 Performance Golf's biggest problem isn't traffic. It's trust. Across 35+ recent Trustpilot reviews, the same complaint surfaces again and again: customers buy a club and discover unwanted subscription charges on their card weeks later. "SCAM-SCAM-SCAM," wrote one buyer. "Tricking elderly people into committing to a monthly fee," wrote another. These aren't isolated incidents. They're a pattern that poisons every stage of the funnel.
 

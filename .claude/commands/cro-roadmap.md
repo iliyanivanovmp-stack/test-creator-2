@@ -86,6 +86,7 @@ Collect in this order:
 15. **Intelligems Analytics** - Screenshots from Intelligems dashboards: pricing analytics, margin data, revenue per visitor by segment, discount performance, shipping threshold impact. Cross-reference with Shopify Analytics to validate trends and spot discrepancies.
 16. **Non-Data Context** - Notes from client calls, Slack conversations with brand owners/operators, strategic priorities discussed verbally, anything that wouldn't show up in analytics but shapes what we should test. The more context, the better the tests.
 17. **Current Site Screenshots** - Screenshots of the current homepage, top landing page, PDP (top-selling product), collection page, and cart drawer. These provide baseline context for the existing UX and UI, so test variations can be written with specificity. Without seeing what exists today, variation briefs become generic. Ask for top 3 folds for long pages.
+18. ? https://app.intelligems.io/inspiration
 
 For each data source, use AskUserQuestion with a text input option to collect the data. Be patient and thorough - good data leads to good test ideas.
 
@@ -138,7 +139,7 @@ Start with a **Data Sources** line listing only the sources that were used. One 
 
 **Data Sources:** Shopify Analytics, Customer Surveys, Meta Ads, Reviews & UGC, Competitor Research, Previous A/B Tests
 
-Then add a **"What We Found"** executive summary section. This is the most important part of the roadmap. Brand owners and decision-makers read this first and may not read further if it doesn't grab them. Format:
+Then add an **"Insights"** executive summary section. This is the most important part of the roadmap. Brand owners and decision-makers read this first and may not read further if it doesn't grab them. Format:
 
 - Lead with the single biggest insight from the data (usually from surveys or funnel analysis).
 - Highlight 2-3 converging findings across sources. Be specific, use numbers, quote customers directly when the verbatims are strong.
@@ -168,7 +169,7 @@ Write one Variation + Brief block per variation. The brief goes on a new line di
 
 ### For dev/project slots:
 
-## Slots [N-M]: [Short, Clear Project Name]
+## Slots [N & M]: [Short, Clear Project Name]
 
 **Type:** [Custom Shopify app / Theme modification / Integration] ([N] slots)
 
