@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>March 2026 Testing Roadmap - Performance Golf</title>
+  <style>
+    :root {
+      --red: #D93025;
+      --red-glow: rgba(217, 48, 37, 0.15);
+      --dark: #0a0a0a;
+      --charcoal: #1a1a1a;
+      --slate: #2a2a2a;
+      --ash: #888;
+      --silver: #b0b0b0;
+      --bone: #f2f0ed;
+      --white: #ffffff;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes widthReveal {
+      from { width: 0; }
+      to { width: 64px; }
+    }
+
+    @keyframes numberPop {
+      0% { opacity: 0; transform: scale(0.8); }
+      60% { transform: scale(1.05); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO HEADER ── */
+    .hero {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      padding: 56px 48px 48px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--red);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(217, 48, 37, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      animation: slideIn 0.6s ease-out both;
+    }
+
+    .hero h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      animation: fadeUp 0.7s ease-out 0.1s both;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 15px;
+      color: var(--ash);
+      font-weight: 400;
+      animation: fadeUp 0.7s ease-out 0.2s both;
+    }
+
+    /* ── STATS RIBBON ── */
+    .stats {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stats-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0;
+    }
+
+    .stat {
+      padding: 28px 48px;
+      position: relative;
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    .stat:nth-child(1) { animation-delay: 0.3s; }
+    .stat:nth-child(2) { animation-delay: 0.4s; border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); }
+    .stat:nth-child(3) { animation-delay: 0.5s; }
+
+    .stat-number {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 48px 64px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: slideIn 0.6s ease-out 0.4s both;
+    }
+
+    .section-label::after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, rgba(217, 48, 37, 0.3), transparent);
+    }
+
+    /* ── INSIGHTS ── */
+    .insights {
+      margin-bottom: 56px;
+      animation: fadeUp 0.7s ease-out 0.5s both;
+    }
+
+    .insights p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      max-width: 680px;
+    }
+
+    .insights p:last-child {
+      margin-bottom: 0;
+    }
+
+    .insights strong {
+      color: var(--dark);
+    }
+
+    /* ── SLOT CARDS ── */
+    .slots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0;
+      padding: 40px 0;
+      border-top: 1px solid #e8e6e3;
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    .slot:nth-child(1) { animation-delay: 0.6s; }
+    .slot:nth-child(2) { animation-delay: 0.7s; }
+
+    .slot:last-child {
+      border-bottom: 1px solid #e8e6e3;
+    }
+
+    .slot-number-col {
+      padding-top: 4px;
+    }
+
+    .slot-number {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: -0.02em;
+      animation: numberPop 0.5s ease-out both;
+    }
+
+    .slot:nth-child(1) .slot-number { animation-delay: 0.8s; }
+    .slot:nth-child(2) .slot-number { animation-delay: 0.9s; }
+
+    .slot-body {
+      min-width: 0;
+    }
+
+    .slot-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .slot-type {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    .slot-type-dev {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .slot-type-ab {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .slot-page {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      font-weight: 400;
+    }
+
+    .slot h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .slot-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+      max-width: 600px;
+    }
+
+    .slot-revenue {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--bone);
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .slot-revenue-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .slot-revenue-value {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--dark);
+      padding: 32px 48px;
+    }
+
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-mark {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 24px 36px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .stats-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        padding: 20px 24px;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .content {
+        padding: 40px 24px 48px;
+      }
+
+      .slot {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .slot-number-col {
+        padding-top: 0;
+      }
+
+      .slot h3 {
+        font-size: 22px;
+      }
+
+      .footer {
+        padding: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      .hero { padding: 32px; }
+      .hero::after { display: none; }
+      .stat { padding: 16px 32px; }
+      .content { padding: 32px; }
+      .slot { break-inside: avoid; }
+      .footer { padding: 16px 32px; }
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Performance Golf</div>
+      <h1>March 2026<br>Testing <span>Roadmap</span></h1>
+      <div class="hero-subtitle">3 slots &middot; 2 priorities &middot; Shopify migration + trust layer</div>
+    </div>
+  </header>
+
+  <!-- ── STATS ── -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-number">800K+</div>
+        <div class="stat-label">Clubs Sold</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">365-Day</div>
+        <div class="stat-label">Money-Back Guarantee</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4.8 ★</div>
+        <div class="stat-label">Avg Rating &middot; 3,700+ Reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTENT ── -->
+  <main class="content">
+
+    <!-- Insights -->
+    <div class="section-label">Insights</div>
+    <div class="insights">
+      <p>Performance Golf is moving from Checkout Champ to Shopify. The old system's profitability depended on post-purchase video upsells, a mechanism that doesn't exist on the new platform yet. <strong>Rebuilding it is the top priority: without it, the economics don't work.</strong></p>
+      <p>The second priority is trust. Across 35+ recent Trustpilot reviews, customers cite unwanted subscription charges and hidden fees. Yet PG holds the strongest guarantee in the competitive set (365 days vs. the industry average of 60) and has 800K+ clubs sold, 1M+ subscribers, and 3,700+ reviews at 4.8 stars. <strong>These signals are invisible at the point of purchase.</strong></p>
+    </div>
+
+    <!-- Slots -->
+    <div class="section-label">This Month's Slots</div>
+    <div class="slots">
+
+      <div class="slot">
+        <div class="slot-number-col">
+          <div class="slot-number">1-2</div>
+        </div>
+        <div class="slot-body">
+          <div class="slot-meta">
+            <span class="slot-type slot-type-dev">Custom App</span>
+            <span class="slot-page">Post-purchase page</span>
+          </div>
+          <h3>Post-Purchase Video Upsell App</h3>
+          <div class="slot-desc">Rebuild the post-purchase video upsell flow from the old Checkout Champ platform as a custom Shopify app. Customers see a video after purchase, and at timed intervals, a one-click product offer appears. This is the profitability layer the new store needs to match the economics of the old setup.</div>
+          <div class="slot-revenue">
+            <div class="slot-revenue-label">Revenue Impact</div>
+            <div class="slot-revenue-value">To be measured once live</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-number-col">
+          <div class="slot-number">3</div>
+        </div>
+        <div class="slot-body">
+          <div class="slot-meta">
+            <span class="slot-type slot-type-ab">A/B Test</span>
+            <span class="slot-page">Cart drawer (site-wide)</span>
+          </div>
+          <h3>Cart Drawer Trust + Savings</h3>
+          <div class="slot-desc">Add trust signals, savings visibility, and an optional product upsell to the cart drawer. The current drawer has zero reassurance at the moment of purchase, despite PG holding a 365-day guarantee that is 6x the competitive average. Testing trust-first vs. trust + upsell to isolate what drives the lift.</div>
+          <div class="slot-revenue">
+            <div class="slot-revenue-label">Revenue Impact</div>
+            <div class="slot-revenue-value">To be measured once baseline data accumulates</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">March 2026 &middot; Confidential</div>
+      <div class="footer-mark">Convertibles</div>
+    </div>
+  </footer>
+
+</body>
+</html>
