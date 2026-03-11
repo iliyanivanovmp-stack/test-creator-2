@@ -55,9 +55,11 @@ Data collected March 8, 2026. All metrics cover the last 30 days (Feb 6 - Mar 8,
 
 ## Heatmaps (Homepage, Collection, PDP)
 
+**Caveat:** These heatmap screenshots cover the last 30 days, but site conditions changed during the window. The IWD 20% OFF sitewide promo ran for approximately 1 week of the 30-day period. Click patterns on the hero and promo CTAs are therefore skewed toward the non-promo state for most of the data. Findings below should be read with this in mind.
+
 **Homepage (28.7K sessions, 44.2K pageviews):**
-- Scrollmap: Strong engagement through the hero (IWD 20% OFF promo) and 4 category tiles ("Live On The Bright Side"). Drop-off begins at the customer review testimonial section.
-- Heatmap: Heaviest clicks on hero promo CTA, category tiles, and Shop Top Picks product images. Birthday Bagheera and St. Patrick's Day sections get CTA clicks from smaller audience.
+- Scrollmap: Strong engagement through the hero and 4 category tiles ("Live On The Bright Side"). Drop-off begins at the customer review testimonial section.
+- Heatmap: Heaviest clicks on hero CTA, category tiles, and Shop Top Picks product images. Birthday Bagheera and St. Patrick's Day sections get CTA clicks from smaller audience.
 
 **Collection page (pajamas):**
 - Scrollmap: Steep drop-off. Most users see only the first 2-3 rows of products (8-12 items). Content section at the bottom is virtually unseen.
@@ -67,7 +69,7 @@ Data collected March 8, 2026. All metrics cover the last 30 days (Feb 6 - Mar 8,
 - Scrollmap: Strong engagement with product images, price, size selector, ATC button. "You May Also Like" appears twice. Reviews are deep in purple/pink territory (very few users scroll to them).
 - Heatmap: Hottest clicks on product images, price, size selector, ATC. Accordion sections (Description, Details, Shipping & Returns) get clicks. Review photos get some interaction but review text gets minimal engagement.
 
-**Key finding:** Reviews contain sizing and fabric info that addresses the #1 and #2 purchase objections (price/value and sizing), but almost nobody scrolls far enough to see them on PDP.
+**Key finding:** Reviews contain sizing and fabric info that addresses the #1 and #2 purchase objections (price/value and sizing), but almost nobody scrolls far enough to see them on PDP. This finding holds regardless of the promo caveat, as it relates to page structure, not promo-specific behavior.
 
 ---
 
@@ -94,9 +96,23 @@ Data collected March 8, 2026. All metrics cover the last 30 days (Feb 6 - Mar 8,
 - "The feature asking what size you normally wear isn't very helpful when I could look at the measurement chart instead" (size tool criticism)
 - "BRING BACK YOUR CAFTANS!" (product demand, confirmed by zero-result search for "kaftan")
 
+**Low-frequency but actionable signals (mentioned 1-3 times each):**
+These are individually rare but represent fixable issues or untapped opportunities worth flagging to the client:
+
+| Signal | Implication |
+|--------|------------|
+| "checkout button failed to load on mobile and desktop" | Potential intermittent checkout bug. Worth investigating with dev team. |
+| "website was glitchy" | Vague but combined with the checkout bug, suggests intermittent site stability issues. |
+| "$20 off did not work," "Didn't receive discount code after signing up" | Discount/coupon flow may be broken or confusing. 5% of respondents cited this. |
+| "Sewn pockets with monogram" (2x) | Monogram placement on pocketed items may not be clear in the customization flow. |
+| "hoping to buy just the pants," "I would like to be able to buy separate pieces" | Demand for selling set pieces individually. Could be a product strategy insight. |
+| "came here for the bee nightgown I saw in her vlog" | Influencer-driven traffic is converting. Site should make it easy to find specific prints from influencer content. |
+| "fabric to wrinkle annoys me at this price point" | Post-purchase friction on wrinkle-prone fabrics. Could inform fabric education copy. |
+| "The feature asking what size you normally wear isn't very helpful" | The fit quiz/size recommendation tool is not building confidence. Customers prefer raw measurements. |
+
 ---
 
-## Meta Ads (3 active ads, same as March)
+## Meta Ads (Top 3 best-performing ads, out of hundreds of active campaigns)
 
 **Ad #1 & #3:** MacKenzie-Childs collab videos (running since Jan 28-29, 2026). Copy: "iconic ceramic designs," "capsule made for collectors." LP: /collections/mackenzie-childs (43,454 sessions).
 
@@ -154,11 +170,24 @@ Data collected March 8, 2026. All metrics cover the last 30 days (Feb 6 - Mar 8,
 - 94 mentions of gift-related terms (gifting is a real use case)
 - Repeat purchase behavior strong: "I have this set in several patterns"
 
-**Friction:**
-- Sizing inconsistency across fabrics and silhouettes: "1-2 sizes too big, $145 on sale, no returns"
-- Different silhouettes fit differently in the same size: "if you are used to the Wildest Dream sets, the bottoms do not fit the same way"
-- Eco Satin Wildest Dreams runs big: product description says "sizing down is recommended" but this isn't surfaced prominently
-- Price + final sale + sizing uncertainty = high-stakes purchase anxiety
+**Friction (detailed breakdown for client):**
+
+*Sizing inconsistency across fabrics and silhouettes:*
+- "1-2 sizes too big, $145 on sale, no returns"
+- "if you are used to the Wildest Dream sets, the bottoms do not fit the same way" (different silhouettes in the same fabric fit differently)
+- Eco Satin Wildest Dreams runs big: product description says "sizing down is recommended" but this isn't surfaced prominently near the size selector
+- **Client note:** Some Wildest Dreams sets have reportedly been updated to true-to-size. If so, reviews referencing the old fit ("runs big") may now be misleading customers into sizing down incorrectly. Worth auditing which SKUs have been updated and whether the "size down" recommendation has been removed from those product pages.
+
+*Price + final sale + sizing uncertainty = high-stakes purchase anxiety:*
+- The combination of premium pricing ($145-$228), final sale policies, and unclear sizing creates a high-risk purchase. Customers who get the wrong size can't return, amplifying every sizing complaint.
+
+*Fabric-specific friction:*
+- Wrinkling complaints at premium price points: customers expect $150+ pajamas to hold up visually. This is a post-purchase satisfaction issue that could surface in returns and repeat purchase rates.
+
+*Product-specific issues to flag to client:*
+- Wildest Dreams sizing inconsistency (see above, may be partially resolved)
+- Monogram placement on pocketed items unclear in UX
+- "Separate pieces" demand: multiple customers want to buy tops or bottoms individually, not as sets
 
 ---
 
@@ -182,7 +211,7 @@ All metrics green. Slightly improved from March. Not a concern.
 - PF24 - Further Improved Fit & Size (PDP)
 - PF25 - 3x Collection Grid (Collection Pages)
 
-No new results available. Key implication for April: PDP buy box area and collection page grid layout are occupied by running tests. April tests must avoid these zones or note sequencing dependencies.
+No new results available. These tests will complete before April tests launch (the roadmap is built a month ahead). Their results will inform April strategy, but they do not block any page zones for April testing.
 
 **Historical patterns still hold:**
 - Cart drawer optimizations win (3/3)
