@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>March 2026 Testing Roadmap - Vyper Industrial</title>
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0560/8659/3701/files/Vyper_Logo-image.png?v=1723564675&width=1800">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #EB1D24;
+      --red-glow: rgba(235, 29, 36, 0.12);
+      --dark: #0a0a0a;
+      --charcoal: #141414;
+      --slate: #1e1e1e;
+      --ash: #777;
+      --silver: #aaa;
+      --bone: #f2f0ed;
+      --white: #ffffff;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes numberPop {
+      0% { opacity: 0; transform: scale(0.7); }
+      60% { transform: scale(1.06); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes revealWidth {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* ── THEME RESET ── */
+    #cvrt-roadmap,
+    #cvrt-roadmap *,
+    #cvrt-roadmap *::before,
+    #cvrt-roadmap *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    #cvrt-roadmap h1,
+    #cvrt-roadmap h2,
+    #cvrt-roadmap h3,
+    #cvrt-roadmap p,
+    #cvrt-roadmap span,
+    #cvrt-roadmap div {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      margin: 0;
+      padding: 0;
+    }
+
+    #cvrt-roadmap {
+      font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    #cvrt-roadmap .hero {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      padding: 56px 48px 48px;
+    }
+
+    #cvrt-roadmap .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--red);
+    }
+
+    #cvrt-roadmap .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45%;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(235, 29, 36, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    #cvrt-roadmap .hero-logo {
+      height: 44px;
+      width: auto;
+      margin-bottom: 28px;
+      animation: slideIn 0.6s ease-out both;
+    }
+
+    #cvrt-roadmap .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      animation: fadeUp 0.7s ease-out 0.1s both;
+    }
+
+    #cvrt-roadmap .hero h1 span {
+      color: var(--red);
+    }
+
+    #cvrt-roadmap .hero-subtitle {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ash);
+      animation: fadeUp 0.7s ease-out 0.2s both;
+    }
+
+    /* ── STATS RIBBON ── */
+    #cvrt-roadmap .stats {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    #cvrt-roadmap .stats-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    #cvrt-roadmap .stat {
+      padding: 28px 48px;
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    #cvrt-roadmap .stat:nth-child(1) { animation-delay: 0.3s; }
+    #cvrt-roadmap .stat:nth-child(2) { animation-delay: 0.4s; border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); }
+    #cvrt-roadmap .stat:nth-child(3) { animation-delay: 0.5s; }
+
+    #cvrt-roadmap .stat-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    #cvrt-roadmap .stat-number .red {
+      color: var(--red);
+    }
+
+    #cvrt-roadmap .stat-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      color: var(--ash);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 400;
+    }
+
+    /* ── MAIN CONTENT ── */
+    #cvrt-roadmap .content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 48px 64px;
+    }
+
+    /* ── SECTION LABEL ── */
+    #cvrt-roadmap .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: slideIn 0.6s ease-out 0.4s both;
+    }
+
+    #cvrt-roadmap .section-label::after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, rgba(235, 29, 36, 0.3), transparent);
+    }
+
+    /* ── INSIGHTS ── */
+    #cvrt-roadmap .insights {
+      margin-bottom: 56px;
+      animation: fadeUp 0.7s ease-out 0.5s both;
+    }
+
+    #cvrt-roadmap .insights p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      max-width: 680px;
+    }
+
+    #cvrt-roadmap .insights p:last-child {
+      margin-bottom: 0;
+    }
+
+    #cvrt-roadmap .insights strong {
+      color: var(--dark);
+    }
+
+    /* ── REVENUE CALLOUT ── */
+    #cvrt-roadmap .revenue-callout {
+      margin: 32px 0 56px;
+      padding: 20px 24px;
+      background: var(--dark);
+      border-radius: 4px;
+      display: inline-block;
+      animation: fadeUp 0.6s ease-out 0.55s both;
+    }
+
+    #cvrt-roadmap .revenue-callout-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 4px;
+    }
+
+    #cvrt-roadmap .revenue-callout-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: -0.01em;
+    }
+
+    /* ── SLOT CARDS ── */
+    #cvrt-roadmap .slots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    #cvrt-roadmap .slot {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0;
+      padding: 40px 0;
+      border-top: 1px solid #e0deda;
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    #cvrt-roadmap .slot:nth-child(1) { animation-delay: 0.6s; }
+    #cvrt-roadmap .slot:nth-child(2) { animation-delay: 0.7s; }
+    #cvrt-roadmap .slot:nth-child(3) { animation-delay: 0.8s; }
+
+    #cvrt-roadmap .slot:last-child {
+      border-bottom: 1px solid #e0deda;
+    }
+
+    #cvrt-roadmap .slot-number-col {
+      padding-top: 4px;
+    }
+
+    #cvrt-roadmap .slot-number {
+      width: 54px;
+      height: 54px;
+      border: 2.5px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--red);
+      animation: numberPop 0.5s ease-out both;
+    }
+
+    #cvrt-roadmap .slot:nth-child(1) .slot-number { animation-delay: 0.8s; }
+    #cvrt-roadmap .slot:nth-child(2) .slot-number { animation-delay: 0.9s; }
+    #cvrt-roadmap .slot:nth-child(3) .slot-number { animation-delay: 1.0s; }
+
+    #cvrt-roadmap .slot-body {
+      min-width: 0;
+    }
+
+    #cvrt-roadmap .slot-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    #cvrt-roadmap .slot-type {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 2px;
+      background: var(--red);
+      color: var(--white);
+    }
+
+    #cvrt-roadmap .slot-page {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    #cvrt-roadmap .slot h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--dark);
+      line-height: 1.15;
+      letter-spacing: -0.005em;
+      margin-bottom: 4px;
+    }
+
+    #cvrt-roadmap .slot-revenue {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    #cvrt-roadmap .slot-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      max-width: 600px;
+    }
+
+    #cvrt-roadmap .slot-sketch {
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+
+    #cvrt-roadmap .slot-sketch svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    #cvrt-roadmap .slot-sketch-note {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--ash);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    #cvrt-roadmap .slot-launch {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--bone);
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    #cvrt-roadmap .slot-launch-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    #cvrt-roadmap .slot-launch-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    #cvrt-roadmap .footer {
+      background: var(--dark);
+      padding: 32px 48px;
+    }
+
+    #cvrt-roadmap .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #cvrt-roadmap .footer-left {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ash);
+    }
+
+    #cvrt-roadmap .footer-mark {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #cvrt-roadmap .hero {
+        padding: 40px 24px 36px;
+      }
+
+      #cvrt-roadmap .hero h1 {
+        font-size: 36px;
+      }
+
+      #cvrt-roadmap .stats-inner {
+        grid-template-columns: 1fr;
+      }
+
+      #cvrt-roadmap .stat {
+        padding: 20px 24px;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      #cvrt-roadmap .stat:last-child {
+        border-bottom: none;
+      }
+
+      #cvrt-roadmap .content {
+        padding: 40px 24px 48px;
+      }
+
+      #cvrt-roadmap .slot {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      #cvrt-roadmap .slot-number-col {
+        padding-top: 0;
+      }
+
+      #cvrt-roadmap .slot h3 {
+        font-size: 22px;
+      }
+
+      #cvrt-roadmap .footer {
+        padding: 24px;
+      }
+
+      #cvrt-roadmap .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      #cvrt-roadmap .hero { padding: 32px; }
+      #cvrt-roadmap .hero::after { display: none; }
+      #cvrt-roadmap .stat { padding: 16px 32px; }
+      #cvrt-roadmap .content { padding: 32px; }
+      #cvrt-roadmap .slot { break-inside: avoid; }
+      #cvrt-roadmap .footer { padding: 16px 32px; }
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div id="cvrt-roadmap">
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <img src="https://cdn.shopify.com/s/files/1/0560/8659/3701/files/Vyper_Logo-image.png?v=1723564675&width=1800" alt="Vyper Industrial" class="hero-logo">
+      <h1>March 2026<br>Testing <span>Roadmap</span></h1>
+      <div class="hero-subtitle">3 slots &middot; 3 A/B tests &middot; Trust, objection handling + cart optimization</div>
+    </div>
+  </header>
+
+
+  <!-- ── CONTENT ── -->
+  <main class="content">
+
+    <!-- Insights -->
+    <div class="section-label">Insights</div>
+    <div class="insights">
+      <p>54% of Vyper buyers knew about the brand for 3+ months before purchasing. At $622 AOV, every page visit either builds confidence or feeds doubt. Right now, the site feeds doubt.</p>
+      <p>The collection page gets 128,900 sessions/mo from top Facebook ads that sell emotion, but the landing page delivers a product grid with no story or social proof. The cart drawer shows a $625 total with zero trust reinforcement: no guarantee, no warranty, no delivery estimate. <strong>70% of add-to-cart visitors drop before checkout.</strong></p>
+    </div>
+
+    <!-- Slots -->
+    <div class="section-label">This Month's Slots</div>
+    <div class="slots">
+
+      <!-- Slot 1 -->
+      <div class="slot">
+        <div class="slot-number-col">
+          <div class="slot-number">01</div>
+        </div>
+        <div class="slot-body">
+          <div class="slot-meta">
+            <span class="slot-type">A/B Test</span>
+            <span class="slot-page">/collections/all-chairs</span>
+          </div>
+          <h3>Collection Page Hero</h3>
+          <div class="slot-desc">Add a hero section above the product grid with trust signals and social proof. Top Facebook ads sell emotion, but the collection page drops that narrative on arrival. 128,900 sessions/mo with zero reassurance above the fold.</div>
+          <div class="slot-sketch">
+            <svg viewBox="0 0 420 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="416" height="206" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+              <text x="16" y="22" font-family="Oswald, sans-serif" font-size="8" fill="#999" letter-spacing="0.08em">COLLECTION PAGE</text>
+              <!-- Hero section -->
+              <rect x="16" y="32" width="388" height="84" rx="4" stroke="#999" stroke-width="1" stroke-dasharray="4 2" fill="#f2f0ed"/>
+              <text x="130" y="54" font-family="Oswald, sans-serif" font-size="11" font-weight="600" fill="#333" letter-spacing="0.02em">AMERICA'S #1 RATED SHOP CHAIR</text>
+              <!-- Stars -->
+              <text x="166" y="70" font-family="sans-serif" font-size="10" fill="#EB1D24">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+              <text x="218" y="70" font-family="Oswald, sans-serif" font-size="8" fill="#999">3,568 reviews</text>
+              <!-- Trust badges row -->
+              <rect x="68" y="80" width="84" height="22" rx="3" stroke="#bbb" stroke-width="0.7" fill="#fff"/>
+              <text x="76" y="94" font-family="Oswald, sans-serif" font-size="7" fill="#666" letter-spacing="0.03em">105% GUARANTEE</text>
+              <rect x="160" y="80" width="76" height="22" rx="3" stroke="#bbb" stroke-width="0.7" fill="#fff"/>
+              <text x="168" y="94" font-family="Oswald, sans-serif" font-size="7" fill="#666" letter-spacing="0.03em">MADE IN USA</text>
+              <rect x="244" y="80" width="96" height="22" rx="3" stroke="#bbb" stroke-width="0.7" fill="#fff"/>
+              <text x="252" y="94" font-family="Oswald, sans-serif" font-size="7" fill="#666" letter-spacing="0.03em">LIFETIME WARRANTY</text>
+              <!-- Label arrow -->
+              <text x="172" y="110" font-family="Oswald, sans-serif" font-size="7" fill="#EB1D24" letter-spacing="0.06em">NEW HERO SECTION</text>
+              <!-- Product grid -->
+              <rect x="16" y="124" width="92" height="74" rx="3" stroke="#ccc" stroke-width="0.8" fill="#e8e6e3"/>
+              <rect x="16" y="124" width="92" height="46" rx="3" fill="#ddd"/>
+              <text x="44" y="152" font-family="sans-serif" font-size="8" fill="#bbb">IMG</text>
+              <rect x="22" y="178" width="56" height="4" rx="2" fill="#ccc"/>
+              <rect x="22" y="186" width="34" height="4" rx="2" fill="#ddd"/>
+              <rect x="116" y="124" width="92" height="74" rx="3" stroke="#ccc" stroke-width="0.8" fill="#e8e6e3"/>
+              <rect x="116" y="124" width="92" height="46" rx="3" fill="#ddd"/>
+              <text x="144" y="152" font-family="sans-serif" font-size="8" fill="#bbb">IMG</text>
+              <rect x="122" y="178" width="56" height="4" rx="2" fill="#ccc"/>
+              <rect x="122" y="186" width="34" height="4" rx="2" fill="#ddd"/>
+              <rect x="216" y="124" width="92" height="74" rx="3" stroke="#ccc" stroke-width="0.8" fill="#e8e6e3"/>
+              <rect x="216" y="124" width="92" height="46" rx="3" fill="#ddd"/>
+              <text x="244" y="152" font-family="sans-serif" font-size="8" fill="#bbb">IMG</text>
+              <rect x="222" y="178" width="56" height="4" rx="2" fill="#ccc"/>
+              <rect x="222" y="186" width="34" height="4" rx="2" fill="#ddd"/>
+              <rect x="316" y="124" width="92" height="74" rx="3" stroke="#ccc" stroke-width="0.8" fill="#e8e6e3"/>
+              <rect x="316" y="124" width="92" height="46" rx="3" fill="#ddd"/>
+              <text x="344" y="152" font-family="sans-serif" font-size="8" fill="#bbb">IMG</text>
+              <rect x="322" y="178" width="56" height="4" rx="2" fill="#ccc"/>
+              <rect x="322" y="186" width="34" height="4" rx="2" fill="#ddd"/>
+            </svg>
+            <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+          </div>
+          <div class="slot-launch">
+            <div class="slot-launch-label">Estimated Launch</div>
+            <div class="slot-launch-value">1 week after confirmation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slot 2 -->
+      <div class="slot">
+        <div class="slot-number-col">
+          <div class="slot-number">02</div>
+        </div>
+        <div class="slot-body">
+          <div class="slot-meta">
+            <span class="slot-type">A/B Test</span>
+            <span class="slot-page">All chair PDPs</span>
+          </div>
+          <h3>PDP Objection Handling</h3>
+          <div class="slot-desc">Replace the collapsed accordion and bullet list below the ATC button with an open "Before You Buy" section answering the top 3 review objections: comfort, height range, and price justification.</div>
+          <div class="slot-sketch">
+            <svg viewBox="0 0 420 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="416" height="246" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+              <text x="16" y="22" font-family="Oswald, sans-serif" font-size="8" fill="#999" letter-spacing="0.08em">PRODUCT PAGE</text>
+              <!-- Left: product image -->
+              <rect x="16" y="34" width="180" height="204" rx="4" stroke="#ccc" stroke-width="0.8" fill="#e8e6e3"/>
+              <text x="78" y="136" font-family="sans-serif" font-size="9" fill="#bbb">PRODUCT</text>
+              <text x="84" y="148" font-family="sans-serif" font-size="9" fill="#bbb">IMAGE</text>
+              <!-- Right column -->
+              <rect x="210" y="34" width="190" height="14" rx="2" fill="#ddd"/>
+              <rect x="210" y="54" width="110" height="10" rx="2" fill="#e0e0e0"/>
+              <text x="210" y="84" font-family="Oswald, sans-serif" font-size="14" font-weight="600" fill="#333">$625.00</text>
+              <!-- ATC button -->
+              <rect x="210" y="96" width="190" height="26" rx="4" stroke="#333" stroke-width="1" fill="#0a0a0a"/>
+              <text x="264" y="114" font-family="Oswald, sans-serif" font-size="9" fill="#fff" letter-spacing="0.06em">ADD TO CART</text>
+              <!-- Before You Buy -->
+              <rect x="210" y="134" width="190" height="100" rx="4" stroke="#EB1D24" stroke-width="1" stroke-dasharray="4 2" fill="rgba(235,29,36,0.03)"/>
+              <text x="222" y="150" font-family="Oswald, sans-serif" font-size="8" fill="#EB1D24" font-weight="500" letter-spacing="0.08em">BEFORE YOU BUY</text>
+              <!-- Q1 -->
+              <text x="222" y="168" font-family="Oswald, sans-serif" font-size="9" font-weight="500" fill="#333">Comfortable for long sessions?</text>
+              <rect x="222" y="173" width="162" height="3" rx="1" fill="#e0e0e0"/>
+              <!-- Q2 -->
+              <text x="222" y="192" font-family="Oswald, sans-serif" font-size="9" font-weight="500" fill="#333">Will it fit my workstation?</text>
+              <rect x="222" y="197" width="152" height="3" rx="1" fill="#e0e0e0"/>
+              <!-- Q3 -->
+              <text x="222" y="216" font-family="Oswald, sans-serif" font-size="9" font-weight="500" fill="#333">What's included?</text>
+              <rect x="222" y="221" width="140" height="3" rx="1" fill="#e0e0e0"/>
+              <text x="264" y="240" font-family="Oswald, sans-serif" font-size="7" fill="#EB1D24" letter-spacing="0.06em">NEW SECTION</text>
+            </svg>
+            <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+          </div>
+          <div class="slot-launch">
+            <div class="slot-launch-label">Estimated Launch</div>
+            <div class="slot-launch-value">2 weeks after confirmation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slot 3 -->
+      <div class="slot">
+        <div class="slot-number-col">
+          <div class="slot-number">03</div>
+        </div>
+        <div class="slot-body">
+          <div class="slot-meta">
+            <span class="slot-type">A/B Test</span>
+            <span class="slot-page">Cart drawer (site-wide)</span>
+          </div>
+          <h3>Cart Drawer Trust Layer</h3>
+          <div class="slot-desc">Add trust badges, delivery estimate, and social proof to the cart drawer. Currently shows a $625 total with zero reassurance about guarantees, warranty, or shipping. 70% of add-to-cart visitors drop before checkout.</div>
+          <div class="slot-sketch">
+            <svg viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="416" height="276" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+              <!-- Page overlay -->
+              <rect x="12" y="12" width="155" height="256" fill="#e8e6e3" opacity="0.5"/>
+              <text x="58" y="140" font-family="sans-serif" font-size="8" fill="#bbb" transform="rotate(-90 58 140)">PAGE CONTENT</text>
+              <!-- Cart drawer panel -->
+              <rect x="175" y="12" width="230" height="256" rx="4" stroke="#999" stroke-width="1" fill="#fff"/>
+              <!-- Header -->
+              <text x="192" y="36" font-family="Oswald, sans-serif" font-size="11" font-weight="600" fill="#333" letter-spacing="0.06em">YOUR CART</text>
+              <line x1="378" y1="28" x2="388" y2="38" stroke="#999" stroke-width="1"/>
+              <line x1="388" y1="28" x2="378" y2="38" stroke="#999" stroke-width="1"/>
+              <line x1="188" y1="46" x2="392" y2="46" stroke="#e0e0e0" stroke-width="0.7"/>
+              <!-- Cart item -->
+              <rect x="188" y="54" width="44" height="44" rx="3" stroke="#ccc" stroke-width="0.7" fill="#f2f0ed"/>
+              <text x="199" y="80" font-family="sans-serif" font-size="7" fill="#bbb">IMG</text>
+              <text x="240" y="68" font-family="Oswald, sans-serif" font-size="9" fill="#333" letter-spacing="0.02em">ELEVATED STEEL MAX</text>
+              <text x="240" y="80" font-family="sans-serif" font-size="8" fill="#999">Qty: 1</text>
+              <text x="240" y="92" font-family="Oswald, sans-serif" font-size="10" font-weight="600" fill="#333">$625.00</text>
+              <line x1="188" y1="106" x2="392" y2="106" stroke="#e0e0e0" stroke-width="0.7"/>
+              <!-- Trust layer -->
+              <rect x="188" y="114" width="204" height="68" rx="4" stroke="#EB1D24" stroke-width="0.8" stroke-dasharray="4 2" fill="rgba(235,29,36,0.03)"/>
+              <text x="244" y="128" font-family="Oswald, sans-serif" font-size="7" fill="#EB1D24" font-weight="500" letter-spacing="0.08em">NEW TRUST LAYER</text>
+              <!-- Shield -->
+              <path d="M202 140 L208 137 L214 140 L214 147 C214 150 208 154 208 154 C208 154 202 150 202 147Z" stroke="#888" stroke-width="0.8" fill="none"/>
+              <text x="220" y="148" font-family="Oswald, sans-serif" font-size="8" fill="#666">105% Money Back</text>
+              <!-- Flag -->
+              <rect x="202" y="158" width="9" height="7" rx="1" stroke="#888" stroke-width="0.6" fill="none"/>
+              <line x1="202" y1="158" x2="202" y2="169" stroke="#888" stroke-width="0.6"/>
+              <text x="220" y="166" font-family="Oswald, sans-serif" font-size="8" fill="#666">Made in USA</text>
+              <!-- Warranty circle -->
+              <circle cx="207" cy="176" r="5" stroke="#888" stroke-width="0.6" fill="none"/>
+              <text x="220" y="179" font-family="Oswald, sans-serif" font-size="8" fill="#666">Lifetime Warranty</text>
+              <!-- Shipping protection -->
+              <rect x="188" y="192" width="204" height="20" rx="3" stroke="#ccc" stroke-width="0.6" fill="#f8f8f8"/>
+              <text x="198" y="205" font-family="Oswald, sans-serif" font-size="8" fill="#999">Shipping Protection</text>
+              <!-- Total -->
+              <line x1="188" y1="222" x2="392" y2="222" stroke="#e0e0e0" stroke-width="0.7"/>
+              <text x="188" y="238" font-family="Oswald, sans-serif" font-size="10" fill="#666">Total</text>
+              <text x="348" y="238" font-family="Oswald, sans-serif" font-size="11" font-weight="600" fill="#333">$625.00</text>
+              <!-- Checkout CTA -->
+              <rect x="188" y="248" width="204" height="20" rx="3" stroke="#333" stroke-width="1" fill="#0a0a0a"/>
+              <text x="262" y="262" font-family="Oswald, sans-serif" font-size="8" fill="#fff" letter-spacing="0.06em">CHECKOUT</text>
+            </svg>
+            <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+          </div>
+          <div class="slot-launch">
+            <div class="slot-launch-label">Estimated Launch</div>
+            <div class="slot-launch-value">3 weeks after confirmation</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">March 2026 &middot; Confidential</div>
+      <div class="footer-mark">Convertibles</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -15,12 +15,14 @@ Ask the user for:
    - Primary brand color (hex)
    - Secondary/accent color if present
    - Overall visual style (light/dark, minimal/bold)
-3. **Logo URL** (optional). A URL to the client's logo image. If not provided, skip the logo in the header.
+   - **Typography style**: serif vs. sans-serif, condensed vs. regular weight, uppercase vs. mixed case. The roadmap must match the brand's typographic DNA. For example, an industrial brand using bold condensed sans-serif should never get a serif-heavy roadmap.
+3. **Logo URL** (optional). A URL to the client's logo image. If not provided, skip the logo in the header. If provided, invert the logo for visibility on dark hero backgrounds using `filter: brightness(0) invert(1)`. Also use the logo URL as the favicon via `<link rel="icon" href="...">` in the `<head>`.
+4. **Estimated launch dates** (optional). Per-slot timelines, e.g., "2 weeks after confirmation". If not provided, omit the launch date UI.
 
 ## Step 2: Read and Analyze
 
 - Read the selected roadmap markdown file.
-- Analyze the homepage screenshot to determine brand colors and visual tone.
+- Analyze the homepage screenshot to determine brand colors, visual tone, and typography. Pay close attention to whether the brand uses serif or sans-serif fonts, condensed or regular weights, uppercase or mixed case. The roadmap's font choices must follow the brand's typographic structure, not default to a generic pairing.
 - Identify the roadmap structure: does it have an Insights/What We Found section? How many slots? A/B tests vs dev projects?
 
 ## Step 3: Extract and Condense Content
@@ -36,6 +38,7 @@ From the roadmap, extract:
   - Page being tested
   - Revenue potential: the final dollar figure only (e.g., "$180K/mo"), not the math
   - A 1-2 sentence plain-language description of what we're testing/building and why. Rewrite the hypothesis into direct language. No source citations.
+  - Estimated launch date: ask the user for each slot's estimated timeline (e.g., "2 weeks after confirmation", "3rd week after confirmation"). If not provided, omit.
 - **Total revenue opportunity:** Sum the revenue potential figures across all slots.
 
 **Drop entirely:**
@@ -56,7 +59,9 @@ From the roadmap, extract:
 
 ## Step 4: Generate HTML
 
-Build a self-contained HTML file. All CSS in a `<style>` tag in the `<head>`. No external stylesheets, no JavaScript, no CDN links. The file must work offline.
+**IMPORTANT:** Always invoke the `frontend-design` skill before generating the HTML. The roadmap must be a distinctive, branded design, not a generic template. Use the homepage screenshot, brand colors, and visual tone to drive bold typographic and layout choices. Google Fonts are allowed for distinctive typography.
+
+Build a self-contained HTML file. All CSS in a `<style>` tag in the `<head>`. No JavaScript. Google Fonts links are the only allowed external dependency.
 
 ### HTML Template Structure
 
@@ -68,16 +73,42 @@ Build a self-contained HTML file. All CSS in a `<style>` tag in the `<head>`. No
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Month Year] Testing Roadmap - [Client Name]</title>
   <style>
-    /* All CSS here, using --brand and --brand-light custom properties */
+    /* All CSS here */
   </style>
 </head>
 <body>
+<div id="cvrt-roadmap">
   <!-- Header: logo (if provided) + title -->
   <!-- Executive Summary card -->
   <!-- Slot cards grid -->
   <!-- Footer -->
+</div>
 </body>
 </html>
+```
+
+### Shopify-Safe CSS Scoping
+
+All body content must be wrapped in `<div id="cvrt-roadmap">`. This allows the HTML to be pasted into a Shopify page without theme styles overriding the design.
+
+**All CSS selectors must be prefixed with `#cvrt-roadmap`** (e.g., `#cvrt-roadmap .hero`, `#cvrt-roadmap .slot h3`). ID specificity beats theme class selectors without needing `!important`.
+
+Add a reset block at the top of the `<style>` to strip inherited theme styles:
+```css
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
 ```
 
 ### CSS Specifications
@@ -122,6 +153,8 @@ Core styles:
   - **Page:** Below the name, muted text, 13px
   - **Revenue number:** Font-size 28px, font-weight 700, color var(--brand), margin 16px 0
   - **Description:** 14px, line-height 1.5, color var(--text)
+  - **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted greys (#999, #bbb, #ddd), and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test, a PDP layout for a product page test). Keep the style loose and hand-drawn: dashed borders, no fills or light bone fills, rounded rects. Max-width 420px, viewBox sized to content. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." (11px, muted color). This prevents brand owners from confusing the sketch with an actual wireframe or deliverable.
+  - **Estimated launch date** (if provided): A small inline-block box below the description. Background: var(--bg), border-radius 4px, padding 12px 16px. Label "ESTIMATED LAUNCH" in 11px uppercase muted text, value below in 14px semibold.
 
 **Footer:**
 - Margin-top: 48px, padding-top: 24px
@@ -162,6 +195,10 @@ Before saving, verify silently:
 - [ ] Every slot card has a revenue figure (or "Impact to be measured")
 - [ ] Total revenue opportunity matches the sum of individual slots
 - [ ] Brand color from the screenshot is applied consistently
-- [ ] HTML is valid and self-contained (no external dependencies)
+- [ ] HTML is valid and self-contained (no external dependencies, no JavaScript)
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
+- [ ] Each slot has an inline SVG sketch illustration that visually represents the concept
+- [ ] SVG sketches use dashed strokes, muted colors, and the brand accent color consistently
+- [ ] If logo URL was provided, it renders visibly against the header background
+- [ ] If estimated launch dates were provided, each slot displays them

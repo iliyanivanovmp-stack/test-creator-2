@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>March 2026 Testing Roadmap - Performance Golf</title>
+  <link rel="icon" type="image/svg+xml" href="https://shop.performancegolf.com/cdn/shop/files/PG-Logo.svg?v=1770845489&width=400">
   <style>
     :root {
       --red: #D93025;
@@ -38,13 +39,35 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    * {
+    /* ── THEME RESET ── */
+    #cvrt-roadmap,
+    #cvrt-roadmap *,
+    #cvrt-roadmap *::before,
+    #cvrt-roadmap *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: normal;
+      text-transform: none;
     }
 
-    body {
+    #cvrt-roadmap h1,
+    #cvrt-roadmap h2,
+    #cvrt-roadmap h3,
+    #cvrt-roadmap p,
+    #cvrt-roadmap span,
+    #cvrt-roadmap div {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      margin: 0;
+      padding: 0;
+    }
+
+    #cvrt-roadmap {
       font-family: Georgia, 'Times New Roman', serif;
       color: var(--charcoal);
       background: var(--white);
@@ -53,14 +76,14 @@
     }
 
     /* ── HERO HEADER ── */
-    .hero {
+    #cvrt-roadmap .hero {
       background: var(--dark);
       position: relative;
       overflow: hidden;
       padding: 56px 48px 48px;
     }
 
-    .hero::before {
+    #cvrt-roadmap .hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -70,7 +93,7 @@
       background: var(--red);
     }
 
-    .hero::after {
+    #cvrt-roadmap .hero::after {
       content: '';
       position: absolute;
       top: 0;
@@ -81,28 +104,26 @@
       pointer-events: none;
     }
 
-    .hero-inner {
+    #cvrt-roadmap .hero-inner {
       max-width: 960px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
-    .hero-eyebrow {
-      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 20px;
+    #cvrt-roadmap .hero-logo {
+      height: 40px;
+      width: auto;
+      margin-bottom: 24px;
+      filter: brightness(0) invert(1);
       animation: slideIn 0.6s ease-out both;
     }
 
-    .hero h1 {
-      font-family: Georgia, 'Times New Roman', serif;
+    #cvrt-roadmap .hero h1 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 48px;
-      font-weight: 700;
+      font-weight: 800;
+      text-transform: uppercase;
       color: var(--white);
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -110,11 +131,11 @@
       animation: fadeUp 0.7s ease-out 0.1s both;
     }
 
-    .hero h1 span {
+    #cvrt-roadmap .hero h1 span {
       color: var(--red);
     }
 
-    .hero-subtitle {
+    #cvrt-roadmap .hero-subtitle {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 15px;
       color: var(--ash);
@@ -123,12 +144,12 @@
     }
 
     /* ── STATS RIBBON ── */
-    .stats {
+    #cvrt-roadmap .stats {
       background: var(--charcoal);
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .stats-inner {
+    #cvrt-roadmap .stats-inner {
       max-width: 960px;
       margin: 0 auto;
       display: grid;
@@ -136,17 +157,17 @@
       padding: 0;
     }
 
-    .stat {
+    #cvrt-roadmap .stat {
       padding: 28px 48px;
       position: relative;
       animation: fadeUp 0.6s ease-out both;
     }
 
-    .stat:nth-child(1) { animation-delay: 0.3s; }
-    .stat:nth-child(2) { animation-delay: 0.4s; border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); }
-    .stat:nth-child(3) { animation-delay: 0.5s; }
+    #cvrt-roadmap .stat:nth-child(1) { animation-delay: 0.3s; }
+    #cvrt-roadmap .stat:nth-child(2) { animation-delay: 0.4s; border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); }
+    #cvrt-roadmap .stat:nth-child(3) { animation-delay: 0.5s; }
 
-    .stat-number {
+    #cvrt-roadmap .stat-number {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 32px;
       font-weight: 700;
@@ -156,7 +177,7 @@
       margin-bottom: 6px;
     }
 
-    .stat-label {
+    #cvrt-roadmap .stat-label {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 12px;
       color: var(--ash);
@@ -166,14 +187,14 @@
     }
 
     /* ── MAIN CONTENT ── */
-    .content {
+    #cvrt-roadmap .content {
       max-width: 960px;
       margin: 0 auto;
       padding: 56px 48px 64px;
     }
 
     /* ── SECTION LABEL ── */
-    .section-label {
+    #cvrt-roadmap .section-label {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 11px;
       font-weight: 600;
@@ -187,7 +208,7 @@
       animation: slideIn 0.6s ease-out 0.4s both;
     }
 
-    .section-label::after {
+    #cvrt-roadmap .section-label::after {
       content: '';
       height: 1px;
       flex: 1;
@@ -195,12 +216,12 @@
     }
 
     /* ── INSIGHTS ── */
-    .insights {
+    #cvrt-roadmap .insights {
       margin-bottom: 56px;
       animation: fadeUp 0.7s ease-out 0.5s both;
     }
 
-    .insights p {
+    #cvrt-roadmap .insights p {
       font-size: 17px;
       line-height: 1.75;
       color: var(--charcoal);
@@ -208,22 +229,22 @@
       max-width: 680px;
     }
 
-    .insights p:last-child {
+    #cvrt-roadmap .insights p:last-child {
       margin-bottom: 0;
     }
 
-    .insights strong {
+    #cvrt-roadmap .insights strong {
       color: var(--dark);
     }
 
     /* ── SLOT CARDS ── */
-    .slots {
+    #cvrt-roadmap .slots {
       display: grid;
       grid-template-columns: 1fr;
       gap: 0;
     }
 
-    .slot {
+    #cvrt-roadmap .slot {
       display: grid;
       grid-template-columns: 80px 1fr;
       gap: 0;
@@ -232,18 +253,18 @@
       animation: fadeUp 0.6s ease-out both;
     }
 
-    .slot:nth-child(1) { animation-delay: 0.6s; }
-    .slot:nth-child(2) { animation-delay: 0.7s; }
+    #cvrt-roadmap .slot:nth-child(1) { animation-delay: 0.6s; }
+    #cvrt-roadmap .slot:nth-child(2) { animation-delay: 0.7s; }
 
-    .slot:last-child {
+    #cvrt-roadmap .slot:last-child {
       border-bottom: 1px solid #e8e6e3;
     }
 
-    .slot-number-col {
+    #cvrt-roadmap .slot-number-col {
       padding-top: 4px;
     }
 
-    .slot-number {
+    #cvrt-roadmap .slot-number {
       width: 52px;
       height: 52px;
       border: 2px solid var(--red);
@@ -259,21 +280,21 @@
       animation: numberPop 0.5s ease-out both;
     }
 
-    .slot:nth-child(1) .slot-number { animation-delay: 0.8s; }
-    .slot:nth-child(2) .slot-number { animation-delay: 0.9s; }
+    #cvrt-roadmap .slot:nth-child(1) .slot-number { animation-delay: 0.8s; }
+    #cvrt-roadmap .slot:nth-child(2) .slot-number { animation-delay: 0.9s; }
 
-    .slot-body {
+    #cvrt-roadmap .slot-body {
       min-width: 0;
     }
 
-    .slot-meta {
+    #cvrt-roadmap .slot-meta {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-bottom: 8px;
     }
 
-    .slot-type {
+    #cvrt-roadmap .slot-type {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 10px;
       font-weight: 700;
@@ -283,25 +304,25 @@
       border-radius: 2px;
     }
 
-    .slot-type-dev {
+    #cvrt-roadmap .slot-type-dev {
       background: var(--dark);
       color: var(--white);
     }
 
-    .slot-type-ab {
+    #cvrt-roadmap .slot-type-ab {
       background: var(--red);
       color: var(--white);
     }
 
-    .slot-page {
+    #cvrt-roadmap .slot-page {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 12px;
       color: var(--ash);
       font-weight: 400;
     }
 
-    .slot h3 {
-      font-family: Georgia, 'Times New Roman', serif;
+    #cvrt-roadmap .slot h3 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 26px;
       font-weight: 700;
       color: var(--dark);
@@ -310,14 +331,35 @@
       margin-bottom: 16px;
     }
 
-    .slot-desc {
+    #cvrt-roadmap .slot-desc {
       font-size: 15px;
       line-height: 1.7;
       color: #444;
       max-width: 600px;
     }
 
-    .slot-revenue {
+    #cvrt-roadmap .slot-sketch {
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+
+    #cvrt-roadmap .slot-sketch svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    #cvrt-roadmap .slot-sketch-note {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ash);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    #cvrt-roadmap .slot-launch {
       margin-top: 20px;
       padding: 12px 16px;
       background: var(--bone);
@@ -325,7 +367,7 @@
       display: inline-block;
     }
 
-    .slot-revenue-label {
+    #cvrt-roadmap .slot-launch-label {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 11px;
       font-weight: 600;
@@ -334,7 +376,7 @@
       color: var(--ash);
     }
 
-    .slot-revenue-value {
+    #cvrt-roadmap .slot-launch-value {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 14px;
       font-weight: 600;
@@ -343,12 +385,12 @@
     }
 
     /* ── FOOTER ── */
-    .footer {
+    #cvrt-roadmap .footer {
       background: var(--dark);
       padding: 32px 48px;
     }
 
-    .footer-inner {
+    #cvrt-roadmap .footer-inner {
       max-width: 960px;
       margin: 0 auto;
       display: flex;
@@ -356,14 +398,14 @@
       align-items: center;
     }
 
-    .footer-left {
+    #cvrt-roadmap .footer-left {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 12px;
       color: var(--ash);
       letter-spacing: 0.05em;
     }
 
-    .footer-mark {
+    #cvrt-roadmap .footer-mark {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
       font-size: 11px;
       font-weight: 600;
@@ -374,51 +416,51 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .hero {
+      #cvrt-roadmap .hero {
         padding: 40px 24px 36px;
       }
 
-      .hero h1 {
+      #cvrt-roadmap .hero h1 {
         font-size: 32px;
       }
 
-      .stats-inner {
+      #cvrt-roadmap .stats-inner {
         grid-template-columns: 1fr;
       }
 
-      .stat {
+      #cvrt-roadmap .stat {
         padding: 20px 24px;
         border-left: none !important;
         border-right: none !important;
         border-bottom: 1px solid rgba(255,255,255,0.06);
       }
 
-      .stat:last-child {
+      #cvrt-roadmap .stat:last-child {
         border-bottom: none;
       }
 
-      .content {
+      #cvrt-roadmap .content {
         padding: 40px 24px 48px;
       }
 
-      .slot {
+      #cvrt-roadmap .slot {
         grid-template-columns: 1fr;
         gap: 16px;
       }
 
-      .slot-number-col {
+      #cvrt-roadmap .slot-number-col {
         padding-top: 0;
       }
 
-      .slot h3 {
+      #cvrt-roadmap .slot h3 {
         font-size: 22px;
       }
 
-      .footer {
+      #cvrt-roadmap .footer {
         padding: 24px;
       }
 
-      .footer-inner {
+      #cvrt-roadmap .footer-inner {
         flex-direction: column;
         gap: 8px;
         text-align: center;
@@ -427,44 +469,28 @@
 
     /* ── PRINT ── */
     @media print {
-      .hero { padding: 32px; }
-      .hero::after { display: none; }
-      .stat { padding: 16px 32px; }
-      .content { padding: 32px; }
-      .slot { break-inside: avoid; }
-      .footer { padding: 16px 32px; }
+      #cvrt-roadmap .hero { padding: 32px; }
+      #cvrt-roadmap .hero::after { display: none; }
+      #cvrt-roadmap .stat { padding: 16px 32px; }
+      #cvrt-roadmap .content { padding: 32px; }
+      #cvrt-roadmap .slot { break-inside: avoid; }
+      #cvrt-roadmap .footer { padding: 16px 32px; }
       * { animation: none !important; }
     }
   </style>
 </head>
 <body>
+<div id="cvrt-roadmap">
 
   <!-- ── HERO ── -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="hero-eyebrow">Performance Golf</div>
+      <img src="https://shop.performancegolf.com/cdn/shop/files/PG-Logo.svg?v=1770845489&width=400" alt="Performance Golf" class="hero-logo">
       <h1>March 2026<br>Testing <span>Roadmap</span></h1>
       <div class="hero-subtitle">3 slots &middot; 2 priorities &middot; Shopify migration + trust layer</div>
     </div>
   </header>
 
-  <!-- ── STATS ── -->
-  <section class="stats">
-    <div class="stats-inner">
-      <div class="stat">
-        <div class="stat-number">800K+</div>
-        <div class="stat-label">Clubs Sold</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">365-Day</div>
-        <div class="stat-label">Money-Back Guarantee</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">4.8 ★</div>
-        <div class="stat-label">Avg Rating &middot; 3,700+ Reviews</div>
-      </div>
-    </div>
-  </section>
 
   <!-- ── CONTENT ── -->
   <main class="content">
@@ -491,9 +517,34 @@
           </div>
           <h3>Post-Purchase Video Upsell App</h3>
           <div class="slot-desc">Rebuild the post-purchase video upsell flow from the old Checkout Champ platform as a custom Shopify app. Customers see a video after purchase, and at timed intervals, a one-click product offer appears. This is the profitability layer the new store needs to match the economics of the old setup.</div>
-          <div class="slot-revenue">
-            <div class="slot-revenue-label">Revenue Impact</div>
-            <div class="slot-revenue-value">To be measured once live</div>
+          <div class="slot-sketch">
+            <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="416" height="236" rx="8" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 3" fill="#fafaf9"/>
+              <!-- Video player frame -->
+              <rect x="24" y="24" width="372" height="192" rx="5" stroke="#999" stroke-width="1.2" fill="#f2f0ed"/>
+              <!-- Screen area -->
+              <rect x="32" y="44" width="356" height="136" rx="3" stroke="#aaa" stroke-width="1" fill="#e8e6e3"/>
+              <!-- Play button circle -->
+              <circle cx="210" cy="112" r="28" stroke="#888" stroke-width="1.5" fill="none"/>
+              <!-- Play triangle -->
+              <path d="M200 96 L225 112 L200 128Z" stroke="#888" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+              <!-- Progress bar -->
+              <rect x="32" y="188" width="356" height="6" rx="3" stroke="#bbb" stroke-width="0.8" fill="#ddd"/>
+              <rect x="32" y="188" width="140" height="6" rx="3" fill="#D93025" opacity="0.5"/>
+              <!-- Timer text -->
+              <text x="42" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#999" letter-spacing="0.05em">POST-PURCHASE VIDEO</text>
+              <!-- CTA banner at bottom right -->
+              <rect x="248" y="146" width="128" height="28" rx="4" stroke="#D93025" stroke-width="1.2" fill="none" stroke-dasharray="4 2"/>
+              <text x="270" y="164" font-family="-apple-system, sans-serif" font-size="9" fill="#D93025" letter-spacing="0.03em">ONE-CLICK OFFER</text>
+              <!-- Timer badge -->
+              <rect x="42" y="54" width="52" height="20" rx="3" stroke="#999" stroke-width="0.8" fill="#f2f0ed"/>
+              <text x="52" y="68" font-family="-apple-system, sans-serif" font-size="9" fill="#888">03:24</text>
+            </svg>
+            <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+          </div>
+          <div class="slot-launch">
+            <div class="slot-launch-label">Estimated Launch</div>
+            <div class="slot-launch-value">2 weeks after confirmation</div>
           </div>
         </div>
       </div>
@@ -509,9 +560,51 @@
           </div>
           <h3>Cart Drawer Trust + Savings</h3>
           <div class="slot-desc">Add trust signals, savings visibility, and an optional product upsell to the cart drawer. The current drawer has zero reassurance at the moment of purchase, despite PG holding a 365-day guarantee that is 6x the competitive average. Testing trust-first vs. trust + upsell to isolate what drives the lift.</div>
-          <div class="slot-revenue">
-            <div class="slot-revenue-label">Revenue Impact</div>
-            <div class="slot-revenue-value">To be measured once baseline data accumulates</div>
+          <div class="slot-sketch">
+            <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="416" height="316" rx="8" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 3" fill="#fafaf9"/>
+              <!-- Drawer panel -->
+              <rect x="80" y="16" width="324" height="288" rx="6" stroke="#999" stroke-width="1.2" fill="#fff"/>
+              <!-- Drawer header -->
+              <text x="100" y="44" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#333" letter-spacing="0.06em">YOUR CART</text>
+              <!-- X close -->
+              <line x1="374" y1="30" x2="384" y2="40" stroke="#999" stroke-width="1.2"/>
+              <line x1="384" y1="30" x2="374" y2="40" stroke="#999" stroke-width="1.2"/>
+              <!-- Divider -->
+              <line x1="96" y1="54" x2="388" y2="54" stroke="#ddd" stroke-width="0.8"/>
+              <!-- Cart item -->
+              <rect x="96" y="66" width="52" height="52" rx="4" stroke="#bbb" stroke-width="0.8" fill="#f2f0ed"/>
+              <text x="110" y="96" font-family="-apple-system, sans-serif" font-size="8" fill="#bbb">IMG</text>
+              <text x="160" y="82" font-family="-apple-system, sans-serif" font-size="10" fill="#444">Product Name</text>
+              <text x="160" y="96" font-family="-apple-system, sans-serif" font-size="9" fill="#999">Qty: 1</text>
+              <text x="160" y="110" font-family="-apple-system, sans-serif" font-size="10" font-weight="600" fill="#333">$97.00</text>
+              <!-- Divider -->
+              <line x1="96" y1="130" x2="388" y2="130" stroke="#ddd" stroke-width="0.8"/>
+              <!-- Trust signals box -->
+              <rect x="96" y="142" width="292" height="68" rx="5" stroke="#D93025" stroke-width="1" stroke-dasharray="4 2" fill="rgba(217,48,37,0.03)"/>
+              <text x="112" y="160" font-family="-apple-system, sans-serif" font-size="8" font-weight="600" fill="#D93025" letter-spacing="0.08em">TRUST SIGNALS</text>
+              <!-- Shield icon sketch -->
+              <path d="M112 172 L118 169 L124 172 L124 180 C124 184 118 188 118 188 C118 188 112 184 112 180Z" stroke="#888" stroke-width="0.9" fill="none"/>
+              <text x="130" y="180" font-family="-apple-system, sans-serif" font-size="9" fill="#666">365-Day Money-Back Guarantee</text>
+              <!-- Star icon -->
+              <path d="M112 193 L114 197 L118 197 L115 200 L116 204 L112 201 L108 204 L109 200 L106 197 L110 197Z" stroke="#888" stroke-width="0.7" fill="none"/>
+              <text x="130" y="200" font-family="-apple-system, sans-serif" font-size="9" fill="#666">800K+ clubs sold, 4.8 stars</text>
+              <!-- Savings bar -->
+              <rect x="96" y="222" width="292" height="28" rx="4" stroke="#bbb" stroke-width="0.8" fill="#f2f0ed"/>
+              <text x="112" y="240" font-family="-apple-system, sans-serif" font-size="9" fill="#666">You're saving </text>
+              <text x="175" y="240" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#333">$24.00</text>
+              <!-- CTA button -->
+              <rect x="96" y="264" width="292" height="28" rx="4" stroke="#333" stroke-width="1.2" fill="#1a1a1a"/>
+              <text x="196" y="282" font-family="-apple-system, sans-serif" font-size="10" fill="#fff" letter-spacing="0.05em">CHECKOUT</text>
+              <!-- Page overlay hint -->
+              <rect x="16" y="16" width="56" height="288" rx="0" fill="#e8e6e3" opacity="0.5"/>
+              <text x="24" y="160" font-family="-apple-system, sans-serif" font-size="8" fill="#bbb" transform="rotate(-90 24 160)">PAGE CONTENT</text>
+            </svg>
+            <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+          </div>
+          <div class="slot-launch">
+            <div class="slot-launch-label">Estimated Launch</div>
+            <div class="slot-launch-value">3rd week after confirmation</div>
           </div>
         </div>
       </div>
@@ -527,5 +620,6 @@
     </div>
   </footer>
 
+</div>
 </body>
 </html>

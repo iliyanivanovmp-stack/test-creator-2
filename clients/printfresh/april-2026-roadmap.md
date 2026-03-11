@@ -150,4 +150,3 @@ These came from surveys and reviews and may warrant investigation or fixes outsi
 - **Search config fix:** "mckenzie" + "mckenzie childs" = 58 zero-result searches in the last 30 days. These customers are looking for the MacKenzie-Childs collection (43,454 sessions, 2 of the top 3 ads). Adding synonym mappings to site search would fix this immediately.
 - **Monogram UX on pocketed items:** "Sewn pockets with monogram" mentioned twice in surveys. The monogram placement on pocketed items may not be clear in the customization flow.
 - **Separate pieces demand:** Multiple customers want to buy tops or bottoms individually, not as sets. Could be a product strategy consideration.
-
