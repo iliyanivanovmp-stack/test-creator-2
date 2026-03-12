@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>March 2026 Testing Roadmap - Froya Organics</title>
+  <link rel="icon" href="https://froyaorganics.com/cdn/shop/files/Froya_Logo_Black_200x.svg?v=1714168520">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral: #D97B4F;
+      --coral-glow: rgba(217, 123, 79, 0.1);
+      --dark: #1C1714;
+      --charcoal: #2D2520;
+      --warm: #5A4E46;
+      --ash: #9A8E85;
+      --rule: #d8cfc6;
+      --cream: #F2EAE1;
+      --bone: #FAF7F3;
+      --white: #ffffff;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes revealLine {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant', Georgia, serif;
+      color: var(--charcoal);
+      background: var(--bone);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--dark);
+      background: var(--white);
+      animation: fadeIn 0.5s ease-out both;
+    }
+
+    .topbar-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .topbar-tag {
+      font-family: 'Cormorant', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ash);
+    }
+
+    .topbar-date {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ash);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 64px 48px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(217,123,79,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--coral);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(64px, 10vw, 128px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    .hero-title .coral {
+      color: var(--coral);
+      display: block;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 20px;
+      padding-top: 32px;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    }
+
+    .hero-meta-item {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ash);
+    }
+
+    .hero-meta-item::before {
+      content: '[ ';
+      color: rgba(255,255,255,0.2);
+    }
+
+    .hero-meta-item::after {
+      content: ' ]';
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--charcoal);
+      padding-top: 10px;
+      position: relative;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+
+    .section-label::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--coral);
+      animation: revealLine 0.4s ease-out 0.6s both;
+      transform-origin: left;
+    }
+
+    .section-body {
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    /* ── INSIGHTS ── */
+    .insights p {
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+
+    .insights p:last-child {
+      margin-bottom: 0;
+    }
+
+    .insights strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--coral);
+    }
+
+    /* ── SLOTS ── */
+    .slots {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 48px 0;
+      border-top: 1px solid var(--rule);
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .slot:first-child {
+      border-top: none;
+    }
+
+    .slot:nth-child(1) { animation-delay: 0.6s; }
+    .slot:nth-child(2) { animation-delay: 0.7s; }
+    .slot:nth-child(3) { animation-delay: 0.8s; }
+    .slot:nth-child(4) { animation-delay: 0.9s; }
+
+    .slot-index {
+      font-family: 'Cormorant', serif;
+      font-size: 56px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1;
+      color: var(--charcoal);
+      letter-spacing: -0.03em;
+      position: relative;
+    }
+
+    .slot-index::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--coral);
+    }
+
+    .slot-body {
+      min-width: 0;
+    }
+
+    .slot-tags {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .slot-type {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      background: var(--coral);
+      color: var(--white);
+    }
+
+    .slot-page-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      letter-spacing: 0.04em;
+    }
+
+    .slot h3 {
+      font-family: 'Cormorant', serif;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .slot-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--warm);
+      max-width: 580px;
+    }
+
+    .slot-sketch {
+      margin-top: 24px;
+    }
+
+    .slot-sketch svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+    }
+
+    .slot-sketch-note {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--ash);
+      margin-top: 8px;
+    }
+
+    .slot-launch {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--cream);
+      display: inline-block;
+    }
+
+    .slot-launch-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .slot-launch-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid var(--dark);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      animation: fadeIn 0.5s ease-out 1s both;
+    }
+
+    .footer-left {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .footer-mark {
+      font-family: 'Cormorant', serif;
+      font-size: 16px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--charcoal);
+    }
+
+    .footer-mark span {
+      color: var(--coral);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .topbar { padding: 20px 24px; }
+      .topbar-right { gap: 10px; }
+      .hero { padding: 40px 24px 48px; }
+      .hero-title { font-size: 56px; }
+      .hero-meta { flex-wrap: wrap; gap: 12px; }
+      .content { padding: 0 24px; }
+      .section { padding: 40px 0; }
+      .section-header { grid-template-columns: 1fr; gap: 20px; }
+      .slot { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+      .slot-index { font-size: 40px; }
+      .slot h3 { font-size: 26px; }
+      .footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      * { animation: none !important; }
+      .topbar { padding: 16px 32px; }
+      .hero { padding: 32px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .content { padding: 0 32px; }
+      .slot { break-inside: avoid; }
+      .footer { padding: 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <nav class="topbar">
+    <img src="https://froyaorganics.com/cdn/shop/files/Froya_Logo_Black_200x.svg?v=1714168520" alt="Froya Organics" class="topbar-logo">
+    <div class="topbar-right">
+      <div class="topbar-tag">CRO Testing Roadmap</div>
+      <div class="topbar-date">March 2026</div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-title">
+        Testing<br><span class="coral">Roadmap</span>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item">4 Tests</span>
+        <span class="hero-meta-item">4 Pages</span>
+        <span class="hero-meta-item">Trust + Value Perception</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── CONTENT ── -->
+  <main class="content">
+
+    <!-- Insights -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-label">Insights</div>
+        <div class="section-body insights">
+          <p>Price is the #1 purchase objection (54.1% of buyers), but the real problem is value perception. Froya's clinical trial data (+79% hydration, +88% radiance) is buried behind an FAQ accordion on the PDP. <strong>The emails lead with it. The site doesn't.</strong></p>
+          <p>7.6% of buyers questioned if the brand was legitimate. The cart drawer, where doubt peaks, has zero trust signals. The main landing page alone gets 1.2M sessions/mo at 1.62% CR. <strong>Even a small lift here moves the needle significantly.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slots -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-label">This Month</div>
+        <div class="section-body">
+          <div class="slots">
+
+            <!-- Slot 1 -->
+            <div class="slot">
+              <div class="slot-index">01</div>
+              <div class="slot-body">
+                <div class="slot-tags">
+                  <span class="slot-type">A/B Test</span>
+                  <span class="slot-page-name">Main landing page</span>
+                </div>
+                <h3>Landing Page Hero Message Match</h3>
+
+                <div class="slot-desc">Replace the generic hero headline with clinical proof and ingredient story that match the Meta ad hooks driving traffic. Three top ads use different angles, but all land on a hero that echoes none of them.</div>
+                <div class="slot-sketch">
+                  <svg viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="416" height="226" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <text x="16" y="20" font-family="Outfit, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">LANDING PAGE</text>
+                    <rect x="16" y="30" width="356" height="16" rx="3" stroke="#d8cfc6" stroke-width="0.8" fill="#f5f0ea"/>
+                    <rect x="16" y="56" width="180" height="148" rx="4" stroke="#bbb" stroke-width="1" stroke-dasharray="5 3" fill="#F0EDE8"/>
+                    <ellipse cx="106" cy="112" rx="36" ry="9" stroke="#9A8E85" stroke-width="0.8" stroke-dasharray="4 2"/>
+                    <rect x="70" y="98" width="72" height="44" rx="4" stroke="#9A8E85" stroke-width="1" stroke-dasharray="4 2" fill="#FAF5F0"/>
+                    <ellipse cx="106" cy="98" rx="36" ry="9" stroke="#9A8E85" stroke-width="0.8" stroke-dasharray="4 2" fill="#FAF5F0"/>
+                    <line x1="86" y1="112" x2="126" y2="112" stroke="#d8cfc6" stroke-width="0.8"/>
+                    <line x1="90" y1="118" x2="122" y2="118" stroke="#d8cfc6" stroke-width="0.8"/>
+                    <rect x="210" y="64" width="168" height="12" rx="2" fill="#D97B4F" opacity="0.65"/>
+                    <rect x="210" y="80" width="136" height="12" rx="2" fill="#D97B4F" opacity="0.45"/>
+                    <rect x="210" y="104" width="156" height="6" rx="1" fill="#d8cfc6"/>
+                    <rect x="210" y="114" width="124" height="6" rx="1" fill="#d8cfc6"/>
+                    <rect x="210" y="134" width="108" height="30" rx="4" stroke="#D97B4F" stroke-width="1.2" fill="rgba(217,123,79,0.12)"/>
+                    <rect x="228" y="146" width="72" height="6" rx="1" fill="#D97B4F" opacity="0.5"/>
+                    <rect x="210" y="174" width="160" height="14" rx="2" stroke="#bbb" stroke-width="0.8" stroke-dasharray="4 2" fill="#FAF5F0"/>
+                    <line x1="264" y1="176" x2="264" y2="186" stroke="#d8cfc6" stroke-width="0.6"/>
+                    <line x1="318" y1="176" x2="318" y2="186" stroke="#d8cfc6" stroke-width="0.6"/>
+                    <text x="264" y="210" font-family="Outfit, sans-serif" font-size="7" fill="#D97B4F" letter-spacing="0.06em" font-weight="500">NEW HERO CONTENT</text>
+                  </svg>
+                  <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+                <div class="slot-launch">
+                  <div class="slot-launch-label">Estimated Launch</div>
+                  <div class="slot-launch-value">1 week after confirmation</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 2 -->
+            <div class="slot">
+              <div class="slot-index">02</div>
+              <div class="slot-body">
+                <div class="slot-tags">
+                  <span class="slot-type">A/B Test</span>
+                  <span class="slot-page-name">Cart drawer (site-wide)</span>
+                </div>
+                <h3>Cart Drawer Trust Signals</h3>
+
+                <div class="slot-desc">Add trust signals (reviews, customer count, money-back guarantee) above the checkout button. The cart drawer currently has zero reassurance at the moment of purchase decision.</div>
+                <div class="slot-sketch">
+                  <svg viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="416" height="276" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <rect x="12" y="12" width="160" height="256" fill="#F0EDE8" opacity="0.5"/>
+                    <text x="62" y="140" font-family="sans-serif" font-size="8" fill="#bbb" transform="rotate(-90 62 140)">PAGE CONTENT</text>
+                    <rect x="180" y="12" width="228" height="256" rx="4" stroke="#9A8E85" stroke-width="1" fill="#fff"/>
+                    <text x="198" y="36" font-family="Outfit, sans-serif" font-size="10" font-weight="600" fill="#2D2520" letter-spacing="0.04em">YOUR CART</text>
+                    <line x1="388" y1="28" x2="396" y2="36" stroke="#9A8E85" stroke-width="1"/>
+                    <line x1="396" y1="28" x2="388" y2="36" stroke="#9A8E85" stroke-width="1"/>
+                    <line x1="192" y1="46" x2="398" y2="46" stroke="#d8cfc6" stroke-width="0.6"/>
+                    <rect x="192" y="56" width="42" height="42" rx="3" stroke="#bbb" stroke-width="0.7" stroke-dasharray="4 2" fill="#F0EDE8"/>
+                    <rect x="242" y="58" width="86" height="6" rx="1" fill="#d8cfc6"/>
+                    <rect x="242" y="68" width="52" height="6" rx="1" fill="#e5e0da"/>
+                    <rect x="242" y="84" width="44" height="6" rx="1" fill="#bbb0a5"/>
+                    <rect x="192" y="108" width="42" height="42" rx="3" stroke="#bbb" stroke-width="0.7" stroke-dasharray="4 2" fill="#F0EDE8"/>
+                    <rect x="242" y="110" width="76" height="6" rx="1" fill="#d8cfc6"/>
+                    <rect x="242" y="120" width="58" height="6" rx="1" fill="#e5e0da"/>
+                    <rect x="242" y="136" width="44" height="6" rx="1" fill="#bbb0a5"/>
+                    <line x1="192" y1="162" x2="398" y2="162" stroke="#d8cfc6" stroke-width="0.6"/>
+                    <rect x="192" y="172" width="206" height="28" rx="3" stroke="#D97B4F" stroke-width="1.2" fill="rgba(217,123,79,0.06)"/>
+                    <rect x="204" y="183" width="44" height="5" rx="1" fill="#D97B4F" opacity="0.45"/>
+                    <line x1="256" y1="176" x2="256" y2="196" stroke="#D97B4F" stroke-width="0.6" opacity="0.35"/>
+                    <rect x="264" y="183" width="38" height="5" rx="1" fill="#D97B4F" opacity="0.45"/>
+                    <line x1="310" y1="176" x2="310" y2="196" stroke="#D97B4F" stroke-width="0.6" opacity="0.35"/>
+                    <rect x="318" y="183" width="52" height="5" rx="1" fill="#D97B4F" opacity="0.45"/>
+                    <text x="252" y="216" font-family="Outfit, sans-serif" font-size="7" fill="#D97B4F" letter-spacing="0.06em" font-weight="500">NEW TRUST BAR</text>
+                    <line x1="192" y1="226" x2="398" y2="226" stroke="#d8cfc6" stroke-width="0.6"/>
+                    <rect x="192" y="234" width="80" height="6" rx="1" fill="#d8cfc6"/>
+                    <rect x="362" y="234" width="36" height="6" rx="1" fill="#2D2520" opacity="0.5"/>
+                    <rect x="192" y="250" width="206" height="18" rx="3" fill="#2D2520" opacity="0.85"/>
+                    <rect x="256" y="256" width="78" height="6" rx="1" fill="#fff" opacity="0.8"/>
+                  </svg>
+                  <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+                <div class="slot-launch">
+                  <div class="slot-launch-label">Estimated Launch</div>
+                  <div class="slot-launch-value">2 weeks after confirmation</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 3 -->
+            <div class="slot">
+              <div class="slot-index">03</div>
+              <div class="slot-body">
+                <div class="slot-tags">
+                  <span class="slot-type">A/B Test</span>
+                  <span class="slot-page-name">Product detail page</span>
+                </div>
+                <h3>PDP Clinical Proof Above the Fold</h3>
+
+                <div class="slot-desc">Surface clinical trial results above the fold. Buyers question product efficacy and cite price, but the clinical data that addresses both is hidden in an FAQ.</div>
+                <div class="slot-sketch">
+                  <svg viewBox="0 0 420 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="416" height="266" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <text x="16" y="20" font-family="Outfit, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PRODUCT PAGE</text>
+                    <rect x="16" y="34" width="180" height="220" rx="4" stroke="#bbb" stroke-width="1" stroke-dasharray="5 3" fill="#F0EDE8"/>
+                    <ellipse cx="106" cy="126" rx="44" ry="11" stroke="#9A8E85" stroke-width="0.8" stroke-dasharray="4 2"/>
+                    <rect x="62" y="108" width="88" height="56" rx="5" stroke="#9A8E85" stroke-width="1" stroke-dasharray="4 2" fill="#FAF5F0"/>
+                    <ellipse cx="106" cy="108" rx="44" ry="11" stroke="#9A8E85" stroke-width="0.8" stroke-dasharray="4 2" fill="#FAF5F0"/>
+                    <line x1="80" y1="126" x2="132" y2="126" stroke="#d8cfc6" stroke-width="0.8"/>
+                    <line x1="86" y1="134" x2="126" y2="134" stroke="#d8cfc6" stroke-width="0.8"/>
+                    <rect x="210" y="36" width="156" height="10" rx="2" fill="#2D2520" opacity="0.35"/>
+                    <rect x="210" y="52" width="110" height="8" rx="2" fill="#2D2520" opacity="0.2"/>
+                    <text x="210" y="84" font-family="Cormorant, serif" font-size="16" font-weight="600" fill="#2D2520" opacity="0.5">$119.00</text>
+                    <rect x="210" y="100" width="42" height="22" rx="3" stroke="#d8cfc6" stroke-width="0.6" fill="#FAF5F0"/>
+                    <rect x="258" y="100" width="42" height="22" rx="3" stroke="#d8cfc6" stroke-width="0.6" fill="#FAF5F0"/>
+                    <rect x="306" y="100" width="42" height="22" rx="3" stroke="#d8cfc6" stroke-width="0.6" fill="#FAF5F0"/>
+                    <rect x="210" y="134" width="186" height="56" rx="4" stroke="#D97B4F" stroke-width="1.2" fill="rgba(217,123,79,0.04)"/>
+                    <text x="222" y="150" font-family="Outfit, sans-serif" font-size="7" fill="#D97B4F" font-weight="500" letter-spacing="0.08em">CLINICAL RESULTS</text>
+                    <rect x="222" y="158" width="50" height="22" rx="3" fill="#fff" stroke="#D97B4F" stroke-width="0.7"/>
+                    <text x="247" y="172" text-anchor="middle" font-family="Cormorant, serif" font-size="12" font-weight="600" fill="#D97B4F">79%</text>
+                    <rect x="280" y="158" width="50" height="22" rx="3" fill="#fff" stroke="#D97B4F" stroke-width="0.7"/>
+                    <text x="305" y="172" text-anchor="middle" font-family="Cormorant, serif" font-size="12" font-weight="600" fill="#D97B4F">88%</text>
+                    <rect x="338" y="158" width="50" height="22" rx="3" fill="#fff" stroke="#D97B4F" stroke-width="0.7"/>
+                    <text x="363" y="172" text-anchor="middle" font-family="Cormorant, serif" font-size="12" font-weight="600" fill="#D97B4F">73%</text>
+                    <text x="290" y="202" text-anchor="middle" font-family="Outfit, sans-serif" font-size="7" fill="#D97B4F" letter-spacing="0.06em" font-weight="500">NEW SECTION</text>
+                    <rect x="210" y="212" width="186" height="28" rx="4" fill="#2D2520" opacity="0.8"/>
+                    <rect x="266" y="222" width="74" height="8" rx="1" fill="#fff" opacity="0.8"/>
+                  </svg>
+                  <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+                <div class="slot-launch">
+                  <div class="slot-launch-label">Estimated Launch</div>
+                  <div class="slot-launch-value">3 weeks after confirmation</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 4 -->
+            <div class="slot">
+              <div class="slot-index">04</div>
+              <div class="slot-body">
+                <div class="slot-tags">
+                  <span class="slot-type">A/B Test</span>
+                  <span class="slot-page-name">Collection page</span>
+                </div>
+                <h3>Collection Page Trust Hero</h3>
+
+                <div class="slot-desc">Add a trust hero with social proof and concern-based product filtering above the product grid. The page currently jumps to products with zero brand context.</div>
+                <div class="slot-sketch">
+                  <svg viewBox="0 0 420 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="416" height="266" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <text x="16" y="20" font-family="Outfit, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">COLLECTION PAGE</text>
+                    <rect x="16" y="30" width="388" height="18" rx="2" fill="#2D2520" opacity="0.08"/>
+                    <rect x="146" y="35" width="128" height="6" rx="1" fill="#9A8E85"/>
+                    <rect x="16" y="56" width="388" height="80" rx="4" stroke="#D97B4F" stroke-width="1.2" fill="rgba(217,123,79,0.04)"/>
+                    <rect x="114" y="66" width="192" height="10" rx="2" fill="#D97B4F" opacity="0.55"/>
+                    <rect x="152" y="82" width="116" height="6" rx="1" fill="#D97B4F" opacity="0.3"/>
+                    <rect x="80" y="98" width="64" height="22" rx="11" stroke="#D97B4F" stroke-width="0.8" fill="#fff"/>
+                    <rect x="152" y="98" width="58" height="22" rx="11" stroke="#D97B4F" stroke-width="0.8" fill="#fff"/>
+                    <rect x="218" y="98" width="82" height="22" rx="11" stroke="#D97B4F" stroke-width="0.8" fill="#fff"/>
+                    <rect x="308" y="98" width="66" height="22" rx="11" stroke="#D97B4F" stroke-width="0.8" fill="#fff"/>
+                    <text x="210" y="150" text-anchor="middle" font-family="Outfit, sans-serif" font-size="7" fill="#D97B4F" letter-spacing="0.06em" font-weight="500">NEW HERO SECTION</text>
+                    <rect x="16" y="164" width="92" height="92" rx="4" stroke="#bbb" stroke-width="0.8" stroke-dasharray="4 2" fill="#F0EDE8"/>
+                    <rect x="22" y="234" width="60" height="5" rx="1" fill="#d8cfc6"/>
+                    <rect x="22" y="242" width="36" height="5" rx="1" fill="#bbb0a5"/>
+                    <rect x="116" y="164" width="92" height="92" rx="4" stroke="#bbb" stroke-width="0.8" stroke-dasharray="4 2" fill="#F0EDE8"/>
+                    <rect x="122" y="234" width="60" height="5" rx="1" fill="#d8cfc6"/>
+                    <rect x="122" y="242" width="36" height="5" rx="1" fill="#bbb0a5"/>
+                    <rect x="216" y="164" width="92" height="92" rx="4" stroke="#bbb" stroke-width="0.8" stroke-dasharray="4 2" fill="#F0EDE8"/>
+                    <rect x="222" y="234" width="60" height="5" rx="1" fill="#d8cfc6"/>
+                    <rect x="222" y="242" width="36" height="5" rx="1" fill="#bbb0a5"/>
+                    <rect x="316" y="164" width="88" height="92" rx="4" stroke="#bbb" stroke-width="0.8" stroke-dasharray="4 2" fill="#F0EDE8"/>
+                    <rect x="322" y="234" width="56" height="5" rx="1" fill="#d8cfc6"/>
+                    <rect x="322" y="242" width="36" height="5" rx="1" fill="#bbb0a5"/>
+                  </svg>
+                  <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+                <div class="slot-launch">
+                  <div class="slot-launch-label">Estimated Launch</div>
+                  <div class="slot-launch-value">4 weeks after confirmation</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-left">March 2026 / Confidential</div>
+    <div class="footer-mark">Convertible<span>s</span></div>
+  </footer>
+
+</body>
+</html>
