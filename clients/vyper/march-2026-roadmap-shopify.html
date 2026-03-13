@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spring 2026 Testing Roadmap - Vyper Industrial</title>
-  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0560/8659/3701/files/Vyper_Logo-image.png?v=1723564675&width=1800">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --red: #EB1D24;
@@ -49,23 +43,30 @@
       padding: 0;
     }
 
+    /* ── FULL BLEED BREAKOUT ── */
     #cvrt-roadmap {
       font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--charcoal);
       background: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
     }
 
     /* ── HERO ── */
-    #cvrt-roadmap .hero {
+    #cvrt-roadmap .cvrt-hero {
       background: var(--dark);
       position: relative;
       overflow: hidden;
       padding: 56px 48px 48px;
     }
 
-    #cvrt-roadmap .hero::before {
+    #cvrt-roadmap .cvrt-hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -75,7 +76,7 @@
       background: var(--red);
     }
 
-    #cvrt-roadmap .hero::after {
+    #cvrt-roadmap .cvrt-hero::after {
       content: '';
       position: absolute;
       top: 0;
@@ -86,20 +87,20 @@
       pointer-events: none;
     }
 
-    #cvrt-roadmap .hero-inner {
+    #cvrt-roadmap .cvrt-hero-inner {
       max-width: 960px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
-    #cvrt-roadmap .hero-logo {
+    #cvrt-roadmap .cvrt-hero-logo {
       height: 44px;
       width: auto;
       margin-bottom: 28px;
     }
 
-    #cvrt-roadmap .hero h1 {
+    #cvrt-roadmap .cvrt-hero h1 {
       font-family: 'Oswald', sans-serif;
       font-size: 52px;
       font-weight: 700;
@@ -110,11 +111,11 @@
       margin-bottom: 14px;
     }
 
-    #cvrt-roadmap .hero h1 span {
+    #cvrt-roadmap .cvrt-hero h1 span {
       color: var(--red);
     }
 
-    #cvrt-roadmap .hero-subtitle {
+    #cvrt-roadmap .cvrt-hero-subtitle {
       font-family: 'Oswald', sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -123,11 +124,6 @@
       color: var(--ash);
     }
 
-    /* ── BODY RESET ── */
-    body {
-      margin: 0;
-      padding: 0;
-    }
 
     /* ── TABS ── */
     #cvrt-roadmap .tabs {
@@ -538,11 +534,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      #cvrt-roadmap .hero {
+      #cvrt-roadmap .cvrt-hero {
         padding: 40px 24px 36px;
       }
 
-      #cvrt-roadmap .hero h1 {
+      #cvrt-roadmap .cvrt-hero h1 {
         font-size: 36px;
       }
 
@@ -588,8 +584,8 @@
 
     /* ── PRINT ── */
     @media print {
-      #cvrt-roadmap .hero { padding: 32px; }
-      #cvrt-roadmap .hero::after { display: none; }
+      #cvrt-roadmap .cvrt-hero { padding: 32px; }
+      #cvrt-roadmap .cvrt-hero::after { display: none; }
       #cvrt-roadmap .tab-nav { display: none; }
       #cvrt-roadmap .tab-panel { display: block !important; }
       #cvrt-roadmap .content { padding: 32px; }
@@ -597,18 +593,17 @@
       #cvrt-roadmap .footer { padding: 16px 32px; }
     }
   </style>
-</head>
-<body>
+
 <div id="cvrt-roadmap">
 
   <!-- ── HERO ── -->
-  <header class="hero">
-    <div class="hero-inner">
-      <img src="https://cdn.shopify.com/s/files/1/0560/8659/3701/files/Vyper_Logo-image.png?v=1723564675&width=1800" alt="Vyper Industrial" class="hero-logo">
+  <div class="cvrt-hero">
+    <div class="cvrt-hero-inner">
+      <img src="https://cdn.shopify.com/s/files/1/0560/8659/3701/files/Vyper_Logo-image.png?v=1723564675&width=1800" alt="Vyper Industrial" class="cvrt-hero-logo">
       <h1>Spring 2026<br>Testing <span>Roadmap</span></h1>
-      <div class="hero-subtitle">9 slots &middot; 3 months<br>Trust, high impact areas, agentic commerce + SEO/AEO improvements</div>
+      <div class="cvrt-hero-subtitle">9 slots &middot; 3 months<br>Trust, high impact areas, agentic commerce + SEO/AEO improvements</div>
     </div>
-  </header>
+  </div>
 
   <!-- ── TABS ── -->
   <div class="tabs">
@@ -616,13 +611,13 @@
     <input type="radio" name="month" id="tab-month2">
     <input type="radio" name="month" id="tab-month3">
 
-    <nav class="tab-nav">
+    <div class="tab-nav">
       <div class="tab-nav-inner">
         <label for="tab-month1">Month 1 <span class="tab-count">3 slots</span></label>
         <label for="tab-month2">Month 2 <span class="tab-count">3 slots</span></label>
         <label for="tab-month3">Month 3 <span class="tab-count">3 slots</span></label>
       </div>
-    </nav>
+    </div>
 
     <div class="tab-panels">
 
@@ -630,7 +625,7 @@
       <!-- MONTH 1: TRUST & OBJECTION HANDLING    -->
       <!-- ══════════════════════════════════════ -->
       <div class="tab-panel tab-panel-1">
-        <main class="content">
+        <div class="content">
 
           <!-- Insights -->
           <div class="section-label">Insights</div>
@@ -798,14 +793,14 @@
             </div>
 
           </div>
-        </main>
+        </div>
       </div>
 
       <!-- ══════════════════════════════════════ -->
       <!-- MONTH 2: AGENTIC COMMERCE              -->
       <!-- ══════════════════════════════════════ -->
       <div class="tab-panel tab-panel-2">
-        <main class="content">
+        <div class="content">
 
           <div class="month-theme">
             <div class="month-theme-label">Month 2 Focus</div>
@@ -965,14 +960,14 @@
             </div>
 
           </div>
-        </main>
+        </div>
       </div>
 
       <!-- ══════════════════════════════════════ -->
       <!-- MONTH 3: SEO / AEO                     -->
       <!-- ══════════════════════════════════════ -->
       <div class="tab-panel tab-panel-3">
-        <main class="content">
+        <div class="content">
 
           <div class="month-theme">
             <div class="month-theme-label">Month 3 Focus</div>
@@ -1160,20 +1155,18 @@
             </div>
 
           </div>
-        </main>
+        </div>
       </div>
 
     </div>
   </div>
 
   <!-- ── FOOTER ── -->
-  <footer class="footer">
+  <div class="footer">
     <div class="footer-inner">
       <div class="footer-left">Spring 2026 &middot; Confidential</div>
       <div class="footer-mark">Convertibles</div>
     </div>
-  </footer>
+  </div>
 
 </div>
-</body>
-</html>
