@@ -4,7 +4,7 @@ description: Convert a CRO roadmap markdown file into a branded HTML one-pager f
 
 You are converting a CRO testing roadmap from a detailed internal execution format into a branded, client-facing HTML one-pager. The HTML version is what the client sees. The markdown stays internal.
 
-The goal: an executive can scan the HTML in 60 seconds, understand what we're testing, why, and what the revenue opportunity is.
+The goal: an executive can scan the HTML in 60 seconds, understand what we're testing and why.
 
 ## Step 1: Collect Inputs
 
@@ -30,17 +30,14 @@ Ask the user for:
 From the roadmap, extract:
 
 - **Title:** The month and year from the H1.
-- **Insights summary:** If an Insights or "What We Found" section exists, condense it to 2-3 sentences max. Lead with the single biggest finding. Include the revenue opportunity number. If no Insights section exists, synthesize a 1-2 sentence summary from the test hypotheses and revenue potentials.
+- **Insights summary:** If an Insights or "What We Found" section exists, condense it to 2-3 sentences max. Lead with the single biggest finding. If no Insights section exists, synthesize a 1-2 sentence summary from the test hypotheses.
 - **Per-slot cards:** For each slot, extract:
   - Slot number(s) (e.g., "Slot 1" or "Slots 1 & 2")
   - Test or project name
   - Type: "A/B Test" or the dev project type (e.g., "Custom Shopify App")
   - Page being tested
-  - Revenue potential: the final dollar figure only (e.g., "$180K/mo"), not the math
   - A 1-2 sentence plain-language description of what we're testing/building and why. Rewrite the hypothesis into direct language. No source citations.
   - Estimated launch date: ask the user for each slot's estimated timeline (e.g., "2 weeks after confirmation", "3rd week after confirmation"). If not provided, omit.
-- **Total revenue opportunity:** Sum the revenue potential figures across all slots.
-
 **Drop entirely:**
 - Variation descriptions (V1, V2, etc.)
 - Briefs (design and dev specs)
@@ -49,13 +46,12 @@ From the roadmap, extract:
 - Scheduling and sequencing notes
 - Future Slot Candidates section
 - Data Sources line
+- Revenue potential lines and calculations
 
 **Content rules:**
 - No em dashes. Use periods, commas, or colons.
 - Every word earns its place. No filler, no hedging, no fluff.
 - Direct, active voice. Short sentences.
-- Revenue potential: just the final number. "$180K/mo" not "1.2M sessions/mo at $100 AOV. A 0.15% CR lift = ~1,800 orders = ~$180K/mo."
-- Dev projects without clear dollar figures: show "Impact to be measured" instead of leaving blank.
 
 ## Step 4: Generate HTML
 
@@ -137,7 +133,6 @@ Core styles:
 - Padding: 24px
 - Margin: 32px 0
 - Text: 15px line-height 1.6
-- The total revenue opportunity sits at the bottom of this card: font-size 20px, font-weight 700, color var(--brand)
 
 **Slot Cards Grid:**
 - CSS Grid: `grid-template-columns: repeat(2, 1fr)` with 20px gap
@@ -151,7 +146,6 @@ Core styles:
   - **Top row:** Slot label (small, muted, uppercase, 11px tracking) and type badge (small rounded pill, 11px, uppercase, brand color background with white text for A/B tests, outlined for dev projects)
   - **Test name:** H3, font-size 18px, font-weight 600, margin-top 12px
   - **Page:** Below the name, muted text, 13px
-  - **Revenue number:** Font-size 28px, font-weight 700, color var(--brand), margin 16px 0
   - **Description:** 14px, line-height 1.5, color var(--text)
   - **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted greys (#999, #bbb, #ddd), and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test, a PDP layout for a product page test). Keep the style loose and hand-drawn: dashed borders, no fills or light bone fills, rounded rects. Max-width 420px, viewBox sized to content. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." (11px, muted color). This prevents brand owners from confusing the sketch with an actual wireframe or deliverable.
   - **Estimated launch date** (if provided): A small inline-block box below the description. Background: var(--bg), border-radius 4px, padding 12px 16px. Label "ESTIMATED LAUNCH" in 11px uppercase muted text, value below in 14px semibold.
@@ -167,7 +161,6 @@ Core styles:
 @media (max-width: 640px) {
   .slots-grid { grid-template-columns: 1fr; }
   h1 { font-size: 24px; }
-  .revenue { font-size: 24px; }
 }
 ```
 
@@ -192,8 +185,7 @@ After saving, tell the user the file path so they can open it in a browser or sa
 Before saving, verify silently:
 - [ ] No em dashes anywhere in the output
 - [ ] No variation descriptions, briefs, or source citations leaked through
-- [ ] Every slot card has a revenue figure (or "Impact to be measured")
-- [ ] Total revenue opportunity matches the sum of individual slots
+- [ ] No revenue figures anywhere in the output
 - [ ] Brand color from the screenshot is applied consistently
 - [ ] HTML is valid and self-contained (no external dependencies, no JavaScript)
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
