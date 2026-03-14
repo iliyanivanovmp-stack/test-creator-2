@@ -2,9 +2,9 @@
 description: Convert a CRO roadmap markdown file into a branded HTML one-pager for clients
 ---
 
-You are converting a CRO testing roadmap from a detailed internal execution format into a branded, client-facing HTML one-pager. The HTML version is what the client sees. The markdown stays internal.
+You are converting a CRO testing roadmap from a detailed internal execution format into a branded, client-facing HTML concept pitch. The HTML version is what the client sees. The markdown stays internal.
 
-The goal: an executive can scan the HTML in 60 seconds, understand what we're testing and why.
+The goal: the client scans the HTML in 60 seconds, understands which pages/components we want to test and what data backs each decision. This is a concept-level overview, not a test spec. We show the "what" and "why," not the "how." The client can then approve, reject, or swap concepts before we invest effort building the actual tests.
 
 ## Step 1: Collect Inputs
 
@@ -30,13 +30,13 @@ Ask the user for:
 From the roadmap, extract:
 
 - **Title:** The month and year from the H1.
-- **Insights summary:** If an Insights or "What We Found" section exists, condense it to 2-3 sentences max. Lead with the single biggest finding. If no Insights section exists, synthesize a 1-2 sentence summary from the test hypotheses.
+- **Executive summary:** If an Insights or "What We Found" section exists, condense it to 2-3 sentences max. Paint the general picture of the data: overall performance, the core problem, and the opportunity. No specific metrics or percentages. Lead with the situation, not the numbers. If no Insights section exists, synthesize a 1-2 sentence summary from the test hypotheses.
 - **Per-slot cards:** For each slot, extract:
   - Slot number(s) (e.g., "Slot 1" or "Slots 1 & 2")
-  - Test or project name
+  - Test or project name (keep it to the component/page being tested, e.g., "Homepage Top 2 Folds" not "Homepage Hero + Fold 2 Restructure")
   - Type: "A/B Test" or the dev project type (e.g., "Custom Shopify App")
   - Page being tested
-  - A 1-2 sentence plain-language description of what we're testing/building and why. Rewrite the hypothesis into direct language. No source citations.
+  - A 2-3 sentence description focused on the data and why this component matters. What does the data show about how users interact with this component? Why is it worth testing? Do NOT describe the test variation or what we plan to change. Sell the concept and the opportunity, not the solution. No source citations.
   - Estimated launch date: ask the user for each slot's estimated timeline (e.g., "2 weeks after confirmation", "3rd week after confirmation"). If not provided, omit.
 **Drop entirely:**
 - Variation descriptions (V1, V2, etc.)

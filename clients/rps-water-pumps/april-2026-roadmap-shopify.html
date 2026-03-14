@@ -1,0 +1,853 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── THEME RESET ── */
+    #cvrt-roadmap,
+    #cvrt-roadmap *,
+    #cvrt-roadmap *::before,
+    #cvrt-roadmap *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: inherit; line-height: inherit;
+      letter-spacing: normal; text-transform: none;
+    }
+    #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+    #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div,
+    #cvrt-roadmap label {
+      font-family: inherit; font-size: inherit;
+      font-weight: inherit; color: inherit;
+      margin: 0; padding: 0;
+    }
+
+    /* ── FULL BLEED BREAKOUT ── */
+    #cvrt-roadmap {
+      --brand: #E8501C;
+      --brand-light: rgba(232, 80, 28, 0.08);
+      --brand-glow: rgba(232, 80, 28, 0.15);
+      --teal: #1A6B7D;
+      --teal-light: rgba(26, 107, 125, 0.08);
+      --dark: #111820;
+      --dark-mid: #1a2330;
+      --text: #1a1a1a;
+      --muted: #777;
+      --light-muted: #999;
+      --bg: #f5f5f3;
+      --card-bg: #ffffff;
+      --bone: #faf9f7;
+
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bone);
+      -webkit-font-smoothing: antialiased;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    /* ── HERO ── */
+    #cvrt-roadmap .cvrt-hero {
+      background: var(--dark);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cvrt-roadmap .cvrt-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 59px,
+          rgba(255,255,255,0.025) 59px,
+          rgba(255,255,255,0.025) 60px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 59px,
+          rgba(255,255,255,0.025) 59px,
+          rgba(255,255,255,0.025) 60px
+        );
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .cvrt-hero::after {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(232, 80, 28, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .cvrt-hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    #cvrt-roadmap .cvrt-hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px 0;
+    }
+
+    #cvrt-roadmap .cvrt-hero-logo-wrap {
+      background: #fff;
+      border-radius: 6px;
+      padding: 8px 14px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    #cvrt-roadmap .cvrt-hero-logo-wrap img {
+      height: 32px;
+      display: block;
+    }
+
+    #cvrt-roadmap .cvrt-hero-prepared {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    #cvrt-roadmap .cvrt-hero-body {
+      padding: 52px 48px 0;
+    }
+
+    #cvrt-roadmap .cvrt-hero-month {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    #cvrt-roadmap .cvrt-hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 0.95;
+      margin-top: 8px;
+    }
+
+    #cvrt-roadmap .cvrt-hero-title span {
+      color: var(--brand);
+      font-size: 64px;
+      font-weight: 900;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 0.95;
+    }
+
+    #cvrt-roadmap .cvrt-hero-stripe {
+      width: 80px;
+      height: 5px;
+      background: var(--brand);
+      margin-top: 24px;
+      border-radius: 3px;
+    }
+
+    /* Hero stats bar */
+    #cvrt-roadmap .cvrt-hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #cvrt-roadmap .cvrt-hero-stat {
+      flex: 1;
+      padding: 20px 48px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    #cvrt-roadmap .cvrt-hero-stat:last-child {
+      border-right: none;
+    }
+
+    #cvrt-roadmap .cvrt-hero-stat-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    #cvrt-roadmap .cvrt-hero-stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+
+    /* ── CONTENT ── */
+    #cvrt-roadmap .cvrt-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 48px 56px;
+    }
+
+    /* ── SUMMARY ── */
+    #cvrt-roadmap .cvrt-summary {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0;
+      margin: 36px 0 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+
+    #cvrt-roadmap .cvrt-summary-header {
+      background: var(--dark);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #cvrt-roadmap .cvrt-summary-icon {
+      width: 18px; height: 18px;
+      border: 2px solid var(--brand);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    #cvrt-roadmap .cvrt-summary-icon::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px; height: 6px;
+      background: var(--brand);
+      border-radius: 50%;
+    }
+
+    #cvrt-roadmap .cvrt-summary-header-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+    }
+
+    #cvrt-roadmap .cvrt-summary-body {
+      padding: 28px;
+    }
+
+    #cvrt-roadmap .cvrt-summary-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+      font-weight: 400;
+    }
+
+    /* ── TABS ── */
+    #cvrt-roadmap .cvrt-tab-radio {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .cvrt-tab-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      background: #eae9e7;
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    #cvrt-roadmap .cvrt-tab-btn {
+      flex: 1;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      display: block;
+    }
+
+    #cvrt-roadmap .cvrt-tab-btn:hover {
+      color: var(--text);
+    }
+
+    /* Active tab styles via sibling selectors */
+    #cvrt-roadmap #tab-month1:checked ~ .cvrt-tab-bar label[for="tab-month1"],
+    #cvrt-roadmap #tab-month2:checked ~ .cvrt-tab-bar label[for="tab-month2"] {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    /* Tab panels: hidden by default */
+    #cvrt-roadmap .cvrt-tab-panel {
+      display: none;
+    }
+
+    #cvrt-roadmap #tab-month1:checked ~ .cvrt-tab-panel-1,
+    #cvrt-roadmap #tab-month2:checked ~ .cvrt-tab-panel-2 {
+      display: block;
+    }
+
+    /* ── SECTION LABEL ── */
+    #cvrt-roadmap .cvrt-section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--light-muted);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #cvrt-roadmap .cvrt-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    /* ── SLOTS ── */
+    #cvrt-roadmap .cvrt-slots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    #cvrt-roadmap .cvrt-slot {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0;
+      padding: 40px 0;
+      border-top: 1px solid #e0deda;
+    }
+
+    #cvrt-roadmap .cvrt-slot:last-child {
+      border-bottom: 1px solid #e0deda;
+    }
+
+    #cvrt-roadmap .cvrt-slot-number-col {
+      padding-top: 4px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-number {
+      width: 54px;
+      height: 54px;
+      border: 2.5px solid var(--brand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    #cvrt-roadmap .cvrt-slot-body {
+      min-width: 0;
+    }
+
+    #cvrt-roadmap .cvrt-slot-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-type {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 3px;
+      background: var(--brand);
+      color: #ffffff;
+    }
+
+    #cvrt-roadmap .cvrt-slot-page {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      color: var(--light-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    #cvrt-roadmap .cvrt-slot h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      font-weight: 400;
+      max-width: 600px;
+    }
+
+    /* ── SVG SKETCHES ── */
+    #cvrt-roadmap .cvrt-slot-sketch {
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-sketch svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-sketch-note {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--light-muted);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── LAUNCH BOX ── */
+    #cvrt-roadmap .cvrt-slot-launch {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--bg);
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    #cvrt-roadmap .cvrt-slot-launch-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+    }
+
+    #cvrt-roadmap .cvrt-slot-launch-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    #cvrt-roadmap .cvrt-footer {
+      margin-top: 48px;
+      padding: 24px 48px;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #cvrt-roadmap .cvrt-footer-left {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #cvrt-roadmap .cvrt-footer-right {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      #cvrt-roadmap .cvrt-hero-title { font-size: 44px; }
+      #cvrt-roadmap .cvrt-hero-title span { font-size: 44px; }
+      #cvrt-roadmap .cvrt-hero-body { padding: 36px 24px 0; }
+      #cvrt-roadmap .cvrt-hero-top { padding: 20px 24px 0; }
+      #cvrt-roadmap .cvrt-hero-stats { flex-direction: column; }
+      #cvrt-roadmap .cvrt-hero-stat { padding: 14px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      #cvrt-roadmap .cvrt-hero-stat:last-child { border-bottom: none; }
+      #cvrt-roadmap .cvrt-content { padding: 0 20px 40px; }
+      #cvrt-roadmap .cvrt-slot { grid-template-columns: 1fr; gap: 16px; }
+      #cvrt-roadmap .cvrt-slot-number-col { padding-top: 0; }
+      #cvrt-roadmap .cvrt-slot h3 { font-size: 22px; }
+      #cvrt-roadmap .cvrt-footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      #cvrt-roadmap { padding: 0; width: auto; left: auto; right: auto; margin-left: 0; margin-right: 0; }
+      #cvrt-roadmap .cvrt-slot { break-inside: avoid; }
+      #cvrt-roadmap .cvrt-tab-panel { display: block; }
+      #cvrt-roadmap .cvrt-tab-bar { display: none; }
+      #cvrt-roadmap .cvrt-tab-radio { display: none; }
+      #cvrt-roadmap .cvrt-hero, #cvrt-roadmap .cvrt-summary-header, #cvrt-roadmap .cvrt-footer {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+    }
+  </style>
+
+<div id="cvrt-roadmap">
+
+  <!-- ── HERO ── -->
+  <div class="cvrt-hero">
+    <div class="cvrt-hero-inner">
+      <div class="cvrt-hero-top">
+        <div class="cvrt-hero-logo-wrap">
+          <img src="https://www.rpswaterpumps.com/cdn/shop/files/RWP_Logo_3_501x300.png?v=1690918264" alt="RPS Water Pumps">
+        </div>
+        <div class="cvrt-hero-prepared">Prepared by Convertibles</div>
+      </div>
+      <div class="cvrt-hero-body">
+        <div class="cvrt-hero-month">April - May 2026</div>
+        <h1 class="cvrt-hero-title">Testing<br><span>Roadmap</span></h1>
+        <div class="cvrt-hero-stripe"></div>
+      </div>
+    </div>
+    <div class="cvrt-hero-stats">
+      <div class="cvrt-hero-stat">
+        <div class="cvrt-hero-stat-value">4 Tests</div>
+        <div class="cvrt-hero-stat-label">Over 2 Months</div>
+      </div>
+      <div class="cvrt-hero-stat">
+        <div class="cvrt-hero-stat-value">Homepage + PDP + Cart + Nav</div>
+        <div class="cvrt-hero-stat-label">Pages Targeted</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cvrt-content">
+
+    <!-- ── EXECUTIVE SUMMARY ── -->
+    <div class="cvrt-summary">
+      <div class="cvrt-summary-header">
+        <div class="cvrt-summary-icon"></div>
+        <div class="cvrt-summary-header-text">Executive Summary</div>
+      </div>
+      <div class="cvrt-summary-body">
+        <p class="cvrt-summary-text">RPS is growing: sales and AOV are both up month over month. The traffic is there, the product quality is there, the reviews are strong. But heatmaps, search data, and behavioral analytics show clear friction points in how visitors browse products, navigate the site, and move through the purchase flow. These four tests target the highest-impact components across the funnel based on where the data shows the biggest gaps between visitor intent and site experience.</p>
+      </div>
+    </div>
+
+    <!-- ── TABBED SLOTS ── -->
+    <input type="radio" name="month-tab" id="tab-month1" checked class="cvrt-tab-radio">
+    <input type="radio" name="month-tab" id="tab-month2" class="cvrt-tab-radio">
+
+    <div class="cvrt-tab-bar">
+      <label for="tab-month1" class="cvrt-tab-btn">Month 1: April</label>
+      <label for="tab-month2" class="cvrt-tab-btn">Month 2: May</label>
+    </div>
+
+    <!-- ── MONTH 1: APRIL ── -->
+    <div class="cvrt-tab-panel cvrt-tab-panel-1">
+      <div class="cvrt-section-label">April Testing Slots</div>
+      <div class="cvrt-slots">
+
+        <!-- SLOT 1 -->
+        <div class="cvrt-slot">
+          <div class="cvrt-slot-number-col">
+            <div class="cvrt-slot-number">01</div>
+          </div>
+          <div class="cvrt-slot-body">
+            <div class="cvrt-slot-meta">
+              <span class="cvrt-slot-type">A/B Test</span>
+              <span class="cvrt-slot-page">Homepage</span>
+            </div>
+            <h3>Homepage Top 2 Folds</h3>
+            <div class="cvrt-slot-desc">The homepage is the #1 revenue page, but heatmaps show 40% of mobile visitors leave before scrolling past the hero, and 50% are gone by fold 2. Every element above the fold leads with discounts, despite survey data showing service is the #1 purchase driver above price. The strongest trust assets (reviews, BBB rating, expert support) are invisible on the page where most visitors land.</div>
+            <div class="cvrt-slot-sketch">
+              <svg viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="416" height="276" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+                <rect x="16" y="16" width="388" height="108" rx="4" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <line x1="28" y1="34" x2="180" y2="34" stroke="#1A6B7D" stroke-width="2.5"/>
+                <line x1="28" y1="46" x2="158" y2="46" stroke="#1A6B7D" stroke-width="1.5" opacity="0.5"/>
+                <line x1="28" y1="62" x2="140" y2="62" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <circle cx="34" cy="82" r="3" fill="#E8501C" opacity="0.4"/>
+                <circle cx="44" cy="82" r="3" fill="#E8501C" opacity="0.4"/>
+                <circle cx="54" cy="82" r="3" fill="#E8501C" opacity="0.4"/>
+                <circle cx="64" cy="82" r="3" fill="#E8501C" opacity="0.4"/>
+                <circle cx="74" cy="82" r="3" fill="#E8501C" opacity="0.4"/>
+                <rect x="28" y="96" width="60" height="16" rx="3" fill="rgba(232,80,28,0.15)" stroke="#E8501C" stroke-width="1.2"/>
+                <rect x="94" y="96" width="60" height="16" rx="3" stroke="#E8501C" stroke-width="1.2" fill="none" stroke-dasharray="3 2"/>
+                <rect x="240" y="24" width="156" height="92" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3" fill="#eee"/>
+                <rect x="16" y="132" width="388" height="30" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f0efed"/>
+                <circle cx="80" cy="147" r="6" stroke="#1A6B7D" stroke-width="1.2" fill="none"/>
+                <line x1="92" y1="147" x2="140" y2="147" stroke="#ddd" stroke-width="1.2" stroke-dasharray="3 2"/>
+                <circle cx="210" cy="147" r="6" stroke="#1A6B7D" stroke-width="1.2" fill="none"/>
+                <line x1="222" y1="147" x2="270" y2="147" stroke="#ddd" stroke-width="1.2" stroke-dasharray="3 2"/>
+                <circle cx="340" cy="147" r="6" stroke="#1A6B7D" stroke-width="1.2" fill="none"/>
+                <line x1="352" y1="147" x2="396" y2="147" stroke="#ddd" stroke-width="1.2" stroke-dasharray="3 2"/>
+                <line x1="140" y1="182" x2="280" y2="182" stroke="#aaa" stroke-width="1.5"/>
+                <rect x="16" y="196" width="92" height="72" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="24" y="204" width="38" height="24" rx="2" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2" fill="#eee"/>
+                <line x1="24" y1="238" x2="80" y2="238" stroke="#bbb" stroke-width="1.2"/>
+                <line x1="24" y1="250" x2="52" y2="250" stroke="#E8501C" stroke-width="1.2"/>
+                <rect x="114" y="196" width="92" height="72" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="122" y="204" width="38" height="24" rx="2" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2" fill="#eee"/>
+                <line x1="122" y1="238" x2="178" y2="238" stroke="#bbb" stroke-width="1.2"/>
+                <line x1="122" y1="250" x2="150" y2="250" stroke="#E8501C" stroke-width="1.2"/>
+                <rect x="212" y="196" width="92" height="72" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="220" y="204" width="38" height="24" rx="2" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2" fill="#eee"/>
+                <line x1="220" y1="238" x2="276" y2="238" stroke="#bbb" stroke-width="1.2"/>
+                <line x1="220" y1="250" x2="248" y2="250" stroke="#E8501C" stroke-width="1.2"/>
+                <rect x="310" y="196" width="94" height="72" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="318" y="204" width="38" height="24" rx="2" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2" fill="#eee"/>
+                <line x1="318" y1="238" x2="376" y2="238" stroke="#bbb" stroke-width="1.2"/>
+                <line x1="318" y1="250" x2="346" y2="250" stroke="#E8501C" stroke-width="1.2"/>
+              </svg>
+              <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+            </div>
+            <div class="cvrt-slot-launch">
+              <div class="cvrt-slot-launch-label">Estimated Launch</div>
+              <div class="cvrt-slot-launch-value">1st week of April</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLOT 2 -->
+        <div class="cvrt-slot">
+          <div class="cvrt-slot-number-col">
+            <div class="cvrt-slot-number">02</div>
+          </div>
+          <div class="cvrt-slot-body">
+            <div class="cvrt-slot-meta">
+              <span class="cvrt-slot-type">A/B Test</span>
+              <span class="cvrt-slot-page">All product detail pages</span>
+            </div>
+            <h3>PDP Product Gallery</h3>
+            <div class="cvrt-slot-desc">The gallery is the most interacted-with component on every PDP. Heatmaps show the top 3 tapped/clicked elements on both mobile and desktop are all gallery thumbnails. But the current layout scales poorly: products with 20-30+ images create a wall of tiny thumbnails with no sequential browsing on desktop and no image counter on mobile. Visitors are actively engaging with the gallery, but the format is working against them.</div>
+            <div class="cvrt-slot-sketch">
+              <svg viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="416" height="226" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+                <rect x="16" y="16" width="56" height="200" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="22" y="24" width="44" height="32" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <rect x="22" y="62" width="44" height="32" rx="2" stroke="#E8501C" stroke-width="1.5" fill="rgba(232,80,28,0.06)"/>
+                <rect x="22" y="100" width="44" height="32" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <rect x="22" y="138" width="44" height="32" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <rect x="22" y="176" width="44" height="32" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <path d="M44 19 L40 24 L48 24 Z" fill="#bbb"/>
+                <path d="M44 213 L40 208 L48 208 Z" fill="#bbb"/>
+                <rect x="80" y="16" width="200" height="200" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <circle cx="96" cy="116" r="13" fill="#fff" stroke="#ddd" stroke-width="1"/>
+                <path d="M100 111 L94 116 L100 121" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="264" cy="116" r="13" fill="#fff" stroke="#ddd" stroke-width="1"/>
+                <path d="M260 111 L266 116 L260 121" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="130" y="60" width="100" height="72" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3" fill="#f0efed"/>
+                <rect x="230" y="188" width="38" height="18" rx="9" fill="rgba(0,0,0,0.5)"/>
+                <line x1="238" y1="197" x2="260" y2="197" stroke="#fff" stroke-width="1"/>
+                <rect x="290" y="16" width="126" height="200" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <line x1="302" y1="36" x2="400" y2="36" stroke="#ccc" stroke-width="2"/>
+                <line x1="302" y1="50" x2="380" y2="50" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <circle cx="308" cy="68" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="318" cy="68" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="328" cy="68" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="338" cy="68" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="348" cy="68" r="3" fill="#E8501C" opacity="0.3"/>
+                <rect x="302" y="84" width="60" height="14" rx="2" fill="rgba(232,80,28,0.1)"/>
+                <line x1="306" y1="91" x2="356" y2="91" stroke="#E8501C" stroke-width="1.5"/>
+                <rect x="302" y="140" width="100" height="28" rx="4" fill="rgba(232,80,28,0.12)" stroke="#E8501C" stroke-width="1.5"/>
+                <line x1="326" y1="154" x2="378" y2="154" stroke="#E8501C" stroke-width="1.5"/>
+              </svg>
+              <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+            </div>
+            <div class="cvrt-slot-launch">
+              <div class="cvrt-slot-launch-label">Estimated Launch</div>
+              <div class="cvrt-slot-launch-value">3rd week of April</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── MONTH 2: MAY ── -->
+    <div class="cvrt-tab-panel cvrt-tab-panel-2">
+      <div class="cvrt-section-label">May Testing Slots</div>
+      <div class="cvrt-slots">
+
+        <!-- SLOT 3 -->
+        <div class="cvrt-slot">
+          <div class="cvrt-slot-number-col">
+            <div class="cvrt-slot-number">03</div>
+          </div>
+          <div class="cvrt-slot-body">
+            <div class="cvrt-slot-meta">
+              <span class="cvrt-slot-type">A/B Test</span>
+              <span class="cvrt-slot-page">Sitewide (header navigation)</span>
+            </div>
+            <h3>Sitewide Navigation</h3>
+            <div class="cvrt-slot-desc">The hamburger menu is the #2 most-tapped element on mobile, and search is the #1 clicked element on desktop. Visitors are actively trying to find products, but the current menu is text-only with no images or guided entry points. Site search data shows visitors searching for products that exist in the navigation but can't be found through browsing alone. Understanding how users best discover products is key to improving the path to purchase.</div>
+            <div class="cvrt-slot-sketch">
+              <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+                <!-- Mobile menu panel -->
+                <rect x="16" y="16" width="180" height="210" rx="3" stroke="#ccc" stroke-width="1.5" fill="#fff"/>
+                <!-- Quiz CTA card -->
+                <rect x="24" y="24" width="164" height="44" rx="4" fill="#f8f7f5" stroke="#E8501C" stroke-width="1.2"/>
+                <line x1="32" y1="38" x2="120" y2="38" stroke="#1a1a1a" stroke-width="1.5"/>
+                <line x1="32" y1="48" x2="100" y2="48" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <rect x="130" y="36" width="50" height="14" rx="3" fill="rgba(232,80,28,0.15)" stroke="#E8501C" stroke-width="1"/>
+                <!-- Category items with thumbnails -->
+                <rect x="24" y="78" width="28" height="28" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="58" y1="92" x2="140" y2="92" stroke="#ccc" stroke-width="1.5"/>
+                <rect x="24" y="112" width="28" height="28" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="58" y1="126" x2="130" y2="126" stroke="#ccc" stroke-width="1.5"/>
+                <rect x="24" y="146" width="28" height="28" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="58" y1="160" x2="135" y2="160" stroke="#ccc" stroke-width="1.5"/>
+                <rect x="24" y="180" width="28" height="28" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="58" y1="194" x2="125" y2="194" stroke="#ccc" stroke-width="1.5"/>
+                <!-- Desktop mega menu -->
+                <rect x="210" y="16" width="200" height="210" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="210" y="16" width="200" height="22" rx="3" fill="#f0efed" stroke="#ccc" stroke-width="1"/>
+                <line x1="222" y1="27" x2="270" y2="27" stroke="#bbb" stroke-width="1"/>
+                <line x1="280" y1="27" x2="320" y2="27" stroke="#bbb" stroke-width="1"/>
+                <line x1="330" y1="27" x2="398" y2="27" stroke="#bbb" stroke-width="1"/>
+                <!-- Text columns -->
+                <line x1="222" y1="52" x2="256" y2="52" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="222" y1="62" x2="252" y2="62" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="222" y1="72" x2="248" y2="72" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="270" y1="52" x2="304" y2="52" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="270" y1="62" x2="300" y2="62" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="270" y1="72" x2="296" y2="72" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="318" y1="52" x2="352" y2="52" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="318" y1="62" x2="348" y2="62" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="318" y1="72" x2="344" y2="72" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <!-- Featured product column -->
+                <rect x="366" y="44" width="38" height="90" rx="3" stroke="#E8501C" stroke-width="1.2" fill="rgba(232,80,28,0.04)"/>
+                <rect x="370" y="50" width="30" height="22" rx="2" stroke="#ddd" stroke-width="0.8" fill="#eee"/>
+                <line x1="370" y1="78" x2="396" y2="78" stroke="#ccc" stroke-width="1"/>
+                <circle cx="374" cy="88" r="2" fill="#E8501C" opacity="0.4"/>
+                <circle cx="381" cy="88" r="2" fill="#E8501C" opacity="0.4"/>
+                <circle cx="388" cy="88" r="2" fill="#E8501C" opacity="0.4"/>
+                <rect x="370" y="96" width="30" height="22" rx="2" stroke="#ddd" stroke-width="0.8" fill="#eee"/>
+                <line x1="370" y1="124" x2="396" y2="124" stroke="#ccc" stroke-width="1"/>
+              </svg>
+              <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+            </div>
+            <div class="cvrt-slot-launch">
+              <div class="cvrt-slot-launch-label">Estimated Launch</div>
+              <div class="cvrt-slot-launch-value">1st week of May</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLOT 4 -->
+        <div class="cvrt-slot">
+          <div class="cvrt-slot-number-col">
+            <div class="cvrt-slot-number">04</div>
+          </div>
+          <div class="cvrt-slot-body">
+            <div class="cvrt-slot-meta">
+              <span class="cvrt-slot-type">A/B Test</span>
+              <span class="cvrt-slot-page">Sitewide (post add-to-cart)</span>
+            </div>
+            <h3>Cart Interaction</h3>
+            <div class="cvrt-slot-desc">Nearly half of visitors who add to cart never reach checkout. The current cart interaction uses an unconventional top-down dropdown format that takes up half the screen. At an AOV above $700, the moment after someone adds to cart is the highest-intent point in the funnel, and the current format may be creating unnecessary friction right when it matters most.</div>
+            <div class="cvrt-slot-sketch">
+              <svg viewBox="0 0 420 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="416" height="246" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf9"/>
+                <!-- Page background (dimmed) -->
+                <rect x="16" y="16" width="240" height="222" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="5 3" fill="#f0efed"/>
+                <line x1="28" y1="34" x2="160" y2="34" stroke="#ddd" stroke-width="2" opacity="0.5"/>
+                <line x1="28" y1="48" x2="140" y2="48" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+                <rect x="28" y="66" width="100" height="70" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3" fill="#e8e7e5" opacity="0.5"/>
+                <rect x="136" y="66" width="100" height="70" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3" fill="#e8e7e5" opacity="0.5"/>
+                <rect x="16" y="16" width="240" height="222" rx="3" fill="rgba(0,0,0,0.04)"/>
+                <!-- Cart drawer -->
+                <rect x="264" y="16" width="148" height="222" rx="3" stroke="#ccc" stroke-width="1.5" fill="#fff"/>
+                <line x1="264" y1="16" x2="264" y2="238" stroke="rgba(0,0,0,0.08)" stroke-width="3"/>
+                <!-- Drawer header -->
+                <line x1="280" y1="34" x2="340" y2="34" stroke="#1a1a1a" stroke-width="2"/>
+                <line x1="390" y1="28" x2="398" y2="36" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="398" y1="28" x2="390" y2="36" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="272" y1="48" x2="404" y2="48" stroke="#eee" stroke-width="1"/>
+                <!-- Cart item 1 -->
+                <rect x="280" y="58" width="40" height="40" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f5f5f3"/>
+                <line x1="328" y1="66" x2="392" y2="66" stroke="#ccc" stroke-width="1.5"/>
+                <line x1="328" y1="78" x2="370" y2="78" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="328" y1="90" x2="356" y2="90" stroke="#E8501C" stroke-width="1.2"/>
+                <!-- Cart item 2 -->
+                <rect x="280" y="108" width="40" height="40" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f5f5f3"/>
+                <line x1="328" y1="116" x2="396" y2="116" stroke="#ccc" stroke-width="1.5"/>
+                <line x1="328" y1="128" x2="366" y2="128" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="328" y1="140" x2="350" y2="140" stroke="#E8501C" stroke-width="1.2"/>
+                <!-- Divider -->
+                <line x1="272" y1="164" x2="404" y2="164" stroke="#eee" stroke-width="1"/>
+                <!-- Subtotal -->
+                <line x1="280" y1="182" x2="320" y2="182" stroke="#bbb" stroke-width="1"/>
+                <line x1="372" y1="182" x2="404" y2="182" stroke="#1a1a1a" stroke-width="1.5"/>
+                <!-- Checkout button -->
+                <rect x="280" y="198" width="124" height="26" rx="4" fill="rgba(232,80,28,0.15)" stroke="#E8501C" stroke-width="1.5"/>
+                <line x1="310" y1="211" x2="374" y2="211" stroke="#E8501C" stroke-width="1.5"/>
+              </svg>
+              <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+            </div>
+            <div class="cvrt-slot-launch">
+              <div class="cvrt-slot-launch-label">Estimated Launch</div>
+              <div class="cvrt-slot-launch-value">3rd week of May</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="cvrt-footer">
+    <div class="cvrt-footer-left">April - May 2026</div>
+    <div class="cvrt-footer-right">RPS Water Pumps</div>
+  </div>
+
+</div>

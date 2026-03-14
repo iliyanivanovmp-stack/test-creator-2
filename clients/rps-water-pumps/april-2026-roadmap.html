@@ -588,11 +588,11 @@
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-value">3 Tests</div>
+        <div class="hero-stat-value">4 Tests</div>
         <div class="hero-stat-label">Over 2 Months</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-value">PDP + Homepage + Cart</div>
+        <div class="hero-stat-value">Homepage + PDP + Cart + Nav</div>
         <div class="hero-stat-label">Pages Targeted</div>
       </div>
     </div>
@@ -607,7 +607,7 @@
         <div class="summary-header-text">Executive Summary</div>
       </div>
       <div class="summary-body">
-        <p class="summary-text">98.34% of sessions end without an add-to-cart: the biggest leak in the funnel. Product galleries with 20-30+ images create an unusable thumbnail wall with no sequential browsing, and the homepage leads with discounts despite service being the #1 purchase driver (4.3/5 vs. price at 4.0/5). Month 1 targets both pages with layout and messaging restructures. Month 2 replaces the notification-based add-to-cart flow with a cart drawer to reduce friction between browsing and checkout.</p>
+        <p class="summary-text">RPS is growing: sales and AOV are both up month over month. The traffic is there, the product quality is there, the reviews are strong. But heatmaps, search data, and behavioral analytics show clear friction points in how visitors browse products, navigate the site, and move through the purchase flow. These four tests target the highest-impact components across the funnel based on where the data shows the biggest gaps between visitor intent and site experience.</p>
       </div>
     </div>
 
@@ -634,82 +634,10 @@
               <span class="slot-label">Slot 1</span>
               <span class="type-badge">A/B Test</span>
             </div>
-            <h3>PDP Gallery Layout Overhaul</h3>
-            <p class="card-page">All product detail pages</p>
-
-            <p class="card-desc">Replace the multi-row thumbnail grid with a vertical thumbnail strip and main-image navigation arrows. The current layout creates an unusable wall of tiny thumbnails on complex products (20-30+ images) with no sequential browsing on desktop.</p>
-
-            <div class="sketch-container">
-              <svg viewBox="0 0 360 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
-                <!-- Vertical thumbnail strip -->
-                <rect x="6" y="6" width="48" height="188" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
-                <rect x="12" y="14" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
-                <rect x="12" y="48" width="36" height="28" rx="2" stroke="#E8501C" stroke-width="1.5" fill="rgba(232,80,28,0.06)"/>
-                <rect x="12" y="82" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
-                <rect x="12" y="116" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
-                <rect x="12" y="150" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
-                <path d="M30 9 L26 14 L34 14 Z" fill="#bbb"/>
-                <path d="M30 191 L26 186 L34 186 Z" fill="#bbb"/>
-                <!-- Main image -->
-                <rect x="62" y="6" width="172" height="188" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
-                <circle cx="76" cy="100" r="11" fill="#fff" stroke="#ddd" stroke-width="1"/>
-                <path d="M80 95 L74 100 L80 105" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="220" cy="100" r="11" fill="#fff" stroke="#ddd" stroke-width="1"/>
-                <path d="M216 95 L222 100 L216 105" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="112" y="40" width="72" height="56" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3" fill="#f0efed"/>
-                <line x1="125" y1="115" x2="170" y2="115" stroke="#ddd" stroke-width="1.5" stroke-dasharray="3 2"/>
-                <line x1="133" y1="128" x2="162" y2="128" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
-                <rect x="196" y="168" width="30" height="16" rx="8" fill="rgba(0,0,0,0.5)"/>
-                <line x1="202" y1="176" x2="220" y2="176" stroke="#fff" stroke-width="1"/>
-                <!-- Buy box -->
-                <rect x="242" y="6" width="112" height="188" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
-                <line x1="254" y1="24" x2="340" y2="24" stroke="#ccc" stroke-width="2"/>
-                <line x1="254" y1="36" x2="320" y2="36" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
-                <circle cx="260" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
-                <circle cx="269" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
-                <circle cx="278" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
-                <circle cx="287" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
-                <circle cx="296" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
-                <rect x="254" y="66" width="55" height="12" rx="2" fill="rgba(232,80,28,0.1)"/>
-                <line x1="258" y1="72" x2="304" y2="72" stroke="#E8501C" stroke-width="1.5"/>
-                <rect x="254" y="90" width="36" height="16" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2" fill="none"/>
-                <rect x="296" y="90" width="36" height="16" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2" fill="none"/>
-                <rect x="254" y="120" width="88" height="24" rx="4" fill="rgba(232,80,28,0.12)" stroke="#E8501C" stroke-width="1.5"/>
-                <line x1="276" y1="132" x2="322" y2="132" stroke="#E8501C" stroke-width="1.5"/>
-              </svg>
-              <p class="sketch-caption">* Concept illustration only. Final design will differ.</p>
-            </div>
-
-            <div class="launch-box">
-              <div class="launch-icon">
-                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="#fff" stroke-width="1.2"/>
-                  <line x1="2" y1="6.5" x2="14" y2="6.5" stroke="#fff" stroke-width="1.2"/>
-                  <line x1="5.5" y1="1.5" x2="5.5" y2="4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
-                  <line x1="10.5" y1="1.5" x2="10.5" y2="4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="launch-text">
-                <div class="launch-label">Estimated Launch</div>
-                <div class="launch-value">1st week of April</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLOT 2 -->
-        <div class="card">
-          <div class="card-accent"></div>
-          <div class="card-inner">
-            <div class="card-watermark">02</div>
-            <div class="card-top">
-              <span class="slot-label">Slot 2</span>
-              <span class="type-badge">A/B Test</span>
-            </div>
-            <h3>Homepage Hero + Fold 2 Restructure</h3>
+            <h3>Homepage Top 2 Folds</h3>
             <p class="card-page">Homepage</p>
 
-            <p class="card-desc">Replace the promotion-first hero with a value-proposition layout leading with DIY savings, social proof (4.86 stars from 531 reviews), and expert support. Swap discount-stacking category tiles for a need-based selector that guides visitors by problem, not product.</p>
+            <p class="card-desc">The homepage is the #1 revenue page, but heatmaps show 40% of mobile visitors leave before scrolling past the hero, and 50% are gone by fold 2. Every element above the fold leads with discounts, despite survey data showing service is the #1 purchase driver above price. The strongest trust assets (reviews, BBB rating, expert support) are invisible on the page where most visitors land.</p>
 
             <div class="sketch-container">
               <svg viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
@@ -776,18 +704,91 @@
               </div>
               <div class="launch-text">
                 <div class="launch-label">Estimated Launch</div>
+                <div class="launch-value">1st week of April</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLOT 2 -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-inner">
+            <div class="card-watermark">02</div>
+            <div class="card-top">
+              <span class="slot-label">Slot 2</span>
+              <span class="type-badge">A/B Test</span>
+            </div>
+            <h3>PDP Product Gallery</h3>
+            <p class="card-page">All product detail pages</p>
+
+            <p class="card-desc">The gallery is the most interacted-with component on every PDP. Heatmaps show the top 3 tapped/clicked elements on both mobile and desktop are all gallery thumbnails. But the current layout scales poorly: products with 20-30+ images create a wall of tiny thumbnails with no sequential browsing on desktop and no image counter on mobile. Visitors are actively engaging with the gallery, but the format is working against them.</p>
+
+            <div class="sketch-container">
+              <svg viewBox="0 0 360 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+                <!-- Vertical thumbnail strip -->
+                <rect x="6" y="6" width="48" height="188" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <rect x="12" y="14" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <rect x="12" y="48" width="36" height="28" rx="2" stroke="#E8501C" stroke-width="1.5" fill="rgba(232,80,28,0.06)"/>
+                <rect x="12" y="82" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <rect x="12" y="116" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <rect x="12" y="150" width="36" height="28" rx="2" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2" fill="#eee"/>
+                <path d="M30 9 L26 14 L34 14 Z" fill="#bbb"/>
+                <path d="M30 191 L26 186 L34 186 Z" fill="#bbb"/>
+                <!-- Main image -->
+                <rect x="62" y="6" width="172" height="188" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <circle cx="76" cy="100" r="11" fill="#fff" stroke="#ddd" stroke-width="1"/>
+                <path d="M80 95 L74 100 L80 105" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="220" cy="100" r="11" fill="#fff" stroke="#ddd" stroke-width="1"/>
+                <path d="M216 95 L222 100 L216 105" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="112" y="40" width="72" height="56" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3" fill="#f0efed"/>
+                <line x1="125" y1="115" x2="170" y2="115" stroke="#ddd" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <line x1="133" y1="128" x2="162" y2="128" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <rect x="196" y="168" width="30" height="16" rx="8" fill="rgba(0,0,0,0.5)"/>
+                <line x1="202" y1="176" x2="220" y2="176" stroke="#fff" stroke-width="1"/>
+                <!-- Buy box -->
+                <rect x="242" y="6" width="112" height="188" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <line x1="254" y1="24" x2="340" y2="24" stroke="#ccc" stroke-width="2"/>
+                <line x1="254" y1="36" x2="320" y2="36" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <circle cx="260" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="269" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="278" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="287" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
+                <circle cx="296" cy="52" r="3" fill="#E8501C" opacity="0.3"/>
+                <rect x="254" y="66" width="55" height="12" rx="2" fill="rgba(232,80,28,0.1)"/>
+                <line x1="258" y1="72" x2="304" y2="72" stroke="#E8501C" stroke-width="1.5"/>
+                <rect x="254" y="90" width="36" height="16" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2" fill="none"/>
+                <rect x="296" y="90" width="36" height="16" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2" fill="none"/>
+                <rect x="254" y="120" width="88" height="24" rx="4" fill="rgba(232,80,28,0.12)" stroke="#E8501C" stroke-width="1.5"/>
+                <line x1="276" y1="132" x2="322" y2="132" stroke="#E8501C" stroke-width="1.5"/>
+              </svg>
+              <p class="sketch-caption">* Concept illustration only. Final design will differ.</p>
+            </div>
+
+            <div class="launch-box">
+              <div class="launch-icon">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="#fff" stroke-width="1.2"/>
+                  <line x1="2" y1="6.5" x2="14" y2="6.5" stroke="#fff" stroke-width="1.2"/>
+                  <line x1="5.5" y1="1.5" x2="5.5" y2="4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+                  <line x1="10.5" y1="1.5" x2="10.5" y2="4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="launch-text">
+                <div class="launch-label">Estimated Launch</div>
                 <div class="launch-value">3rd week of April</div>
               </div>
             </div>
           </div>
         </div>
 
+
       </div>
     </div>
 
     <!-- ── MONTH 2: MAY ── -->
     <div class="tab-panel tab-panel-2">
-      <div class="section-label">May Testing Slot</div>
+      <div class="section-label">May Testing Slots</div>
       <div class="slots-grid">
 
         <!-- SLOT 3 -->
@@ -799,10 +800,99 @@
               <span class="slot-label">Slot 3</span>
               <span class="type-badge">A/B Test</span>
             </div>
-            <h3>Cart Drawer Test</h3>
-            <p class="card-page">Sitewide (cart interaction)</p>
+            <h3>Sitewide Navigation</h3>
+            <p class="card-page">Sitewide (header navigation)</p>
 
-            <p class="card-desc">Replace the current add-to-cart notification and separate cart page with a slide-out cart drawer. Shoppers can review, edit quantity, and proceed to checkout without leaving the page they're browsing.</p>
+            <p class="card-desc">The hamburger menu is the #2 most-tapped element on mobile, and search is the #1 clicked element on desktop. Visitors are actively trying to find products, but the current menu is text-only with no images or guided entry points. Site search data shows visitors searching for products that exist in the navigation but can't be found through browsing alone. Understanding how users best discover products is key to improving the path to purchase.</p>
+
+            <div class="sketch-container">
+              <svg viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+                <!-- Mobile menu panel -->
+                <rect x="6" y="6" width="160" height="208" rx="3" stroke="#ccc" stroke-width="1.5" fill="#fff"/>
+                <!-- Quiz CTA card -->
+                <rect x="14" y="14" width="144" height="44" rx="4" fill="#f8f7f5" stroke="#E8501C" stroke-width="1.2"/>
+                <line x1="22" y1="28" x2="100" y2="28" stroke="#1a1a1a" stroke-width="1.5"/>
+                <line x1="22" y1="38" x2="80" y2="38" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                <rect x="108" y="26" width="42" height="14" rx="3" fill="rgba(232,80,28,0.15)" stroke="#E8501C" stroke-width="1"/>
+                <line x1="114" y1="33" x2="144" y2="33" stroke="#E8501C" stroke-width="1"/>
+                <!-- Category items with thumbnails -->
+                <rect x="14" y="68" width="24" height="24" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="44" y1="80" x2="120" y2="80" stroke="#ccc" stroke-width="1.5"/>
+                <rect x="14" y="98" width="24" height="24" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="44" y1="110" x2="110" y2="110" stroke="#ccc" stroke-width="1.5"/>
+                <rect x="14" y="128" width="24" height="24" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="44" y1="140" x2="115" y2="140" stroke="#ccc" stroke-width="1.5"/>
+                <rect x="14" y="158" width="24" height="24" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f0efed"/>
+                <line x1="44" y1="170" x2="105" y2="170" stroke="#ccc" stroke-width="1.5"/>
+                <!-- Bestsellers section -->
+                <line x1="14" y1="192" x2="50" y2="192" stroke="#bbb" stroke-width="1.2"/>
+                <rect x="14" y="198" width="40" height="10" rx="2" stroke="#ddd" stroke-width="0.8" fill="#f0efed"/>
+                <rect x="58" y="198" width="40" height="10" rx="2" stroke="#ddd" stroke-width="0.8" fill="#f0efed"/>
+                <rect x="102" y="198" width="40" height="10" rx="2" stroke="#ddd" stroke-width="0.8" fill="#f0efed"/>
+
+                <!-- Desktop mega menu -->
+                <rect x="182" y="6" width="172" height="208" rx="3" stroke="#ccc" stroke-width="1" stroke-dasharray="5 3" fill="#f8f7f5"/>
+                <!-- Nav bar -->
+                <rect x="182" y="6" width="172" height="20" rx="3" fill="#f0efed" stroke="#ccc" stroke-width="1"/>
+                <line x1="194" y1="16" x2="240" y2="16" stroke="#bbb" stroke-width="1"/>
+                <line x1="248" y1="16" x2="284" y2="16" stroke="#bbb" stroke-width="1"/>
+                <line x1="292" y1="16" x2="340" y2="16" stroke="#bbb" stroke-width="1"/>
+                <!-- Text columns -->
+                <line x1="194" y1="40" x2="224" y2="40" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="194" y1="50" x2="220" y2="50" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="194" y1="58" x2="218" y2="58" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="194" y1="66" x2="222" y2="66" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="234" y1="40" x2="264" y2="40" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="234" y1="50" x2="260" y2="50" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="234" y1="58" x2="258" y2="58" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="234" y1="66" x2="262" y2="66" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="274" y1="40" x2="304" y2="40" stroke="#ccc" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="274" y1="50" x2="300" y2="50" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="274" y1="58" x2="298" y2="58" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <line x1="274" y1="66" x2="302" y2="66" stroke="#ddd" stroke-width="0.8" stroke-dasharray="3 2"/>
+                <!-- Featured product column -->
+                <rect x="314" y="32" width="34" height="80" rx="3" stroke="#E8501C" stroke-width="1.2" fill="rgba(232,80,28,0.04)"/>
+                <rect x="318" y="38" width="26" height="20" rx="2" stroke="#ddd" stroke-width="0.8" fill="#eee"/>
+                <line x1="318" y1="64" x2="340" y2="64" stroke="#ccc" stroke-width="1"/>
+                <circle cx="322" cy="72" r="2" fill="#E8501C" opacity="0.4"/>
+                <circle cx="328" cy="72" r="2" fill="#E8501C" opacity="0.4"/>
+                <circle cx="334" cy="72" r="2" fill="#E8501C" opacity="0.4"/>
+                <rect x="318" y="80" width="26" height="20" rx="2" stroke="#ddd" stroke-width="0.8" fill="#eee"/>
+                <line x1="318" y1="106" x2="340" y2="106" stroke="#ccc" stroke-width="1"/>
+              </svg>
+              <p class="sketch-caption">* Concept illustration only. Final design will differ.</p>
+            </div>
+
+            <div class="launch-box">
+              <div class="launch-icon">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="#fff" stroke-width="1.2"/>
+                  <line x1="2" y1="6.5" x2="14" y2="6.5" stroke="#fff" stroke-width="1.2"/>
+                  <line x1="5.5" y1="1.5" x2="5.5" y2="4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+                  <line x1="10.5" y1="1.5" x2="10.5" y2="4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="launch-text">
+                <div class="launch-label">Estimated Launch</div>
+                <div class="launch-value">1st week of May</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLOT 4 -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-inner">
+            <div class="card-watermark">04</div>
+            <div class="card-top">
+              <span class="slot-label">Slot 4</span>
+              <span class="type-badge">A/B Test</span>
+            </div>
+            <h3>Cart Interaction</h3>
+            <p class="card-page">Sitewide (post add-to-cart)</p>
+
+            <p class="card-desc">Nearly half of visitors who add to cart never reach checkout. The current cart interaction uses an unconventional top-down dropdown format that takes up half the screen. At an AOV above $700, the moment after someone adds to cart is the highest-intent point in the funnel, and the current format may be creating unnecessary friction right when it matters most.</p>
 
             <div class="sketch-container">
               <svg viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
@@ -843,21 +933,17 @@
                 <line x1="284" y1="102" x2="314" y2="102" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
                 <line x1="284" y1="112" x2="302" y2="112" stroke="#E8501C" stroke-width="1.2"/>
 
-                <!-- Cart item 3 -->
-                <rect x="244" y="128" width="32" height="32" rx="3" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2" fill="#f5f5f3"/>
-                <line x1="284" y1="134" x2="330" y2="134" stroke="#ccc" stroke-width="1.5"/>
-                <line x1="284" y1="144" x2="322" y2="144" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
-                <line x1="284" y1="154" x2="310" y2="154" stroke="#E8501C" stroke-width="1.2"/>
-
-                <!-- Divider above total -->
-                <line x1="240" y1="172" x2="346" y2="172" stroke="#eee" stroke-width="1"/>
+                <!-- Divider above checkout -->
+                <line x1="240" y1="140" x2="346" y2="140" stroke="#eee" stroke-width="1"/>
                 <!-- Subtotal -->
-                <line x1="244" y1="184" x2="280" y2="184" stroke="#bbb" stroke-width="1"/>
-                <line x1="316" y1="184" x2="346" y2="184" stroke="#1a1a1a" stroke-width="1.5"/>
+                <line x1="244" y1="156" x2="280" y2="156" stroke="#bbb" stroke-width="1"/>
+                <line x1="316" y1="156" x2="346" y2="156" stroke="#1a1a1a" stroke-width="1.5"/>
 
                 <!-- Checkout button -->
-                <rect x="244" y="196" width="100" height="22" rx="4" fill="rgba(232,80,28,0.15)" stroke="#E8501C" stroke-width="1.5"/>
-                <line x1="270" y1="207" x2="318" y2="207" stroke="#E8501C" stroke-width="1.5"/>
+                <rect x="244" y="172" width="100" height="22" rx="4" fill="rgba(232,80,28,0.15)" stroke="#E8501C" stroke-width="1.5"/>
+                <line x1="270" y1="183" x2="318" y2="183" stroke="#E8501C" stroke-width="1.5"/>
+                <!-- View Cart link -->
+                <line x1="274" y1="202" x2="314" y2="202" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
               </svg>
               <p class="sketch-caption">* Concept illustration only. Final design will differ.</p>
             </div>
@@ -873,7 +959,7 @@
               </div>
               <div class="launch-text">
                 <div class="launch-label">Estimated Launch</div>
-                <div class="launch-value">1st week of May</div>
+                <div class="launch-value">3rd week of May</div>
               </div>
             </div>
           </div>
@@ -881,6 +967,7 @@
 
       </div>
     </div>
+
 
   </div>
 
