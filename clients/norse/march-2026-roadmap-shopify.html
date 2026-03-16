@@ -1,0 +1,1249 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+    :root {
+      --brand: #E8692D;
+      --brand-glow: rgba(232,105,45,0.1);
+      --dark: #1a1a1a;
+      --charcoal: #2D2520;
+      --warm: #5A4E46;
+      --ash: #9A8E85;
+      --rule: #d8cfc6;
+      --cream: #FAF7F2;
+      --bone: #FDFCFA;
+      --white: #ffffff;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes revealLine {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Theme Reset */
+    #cvrt-roadmap,
+    #cvrt-roadmap *,
+    #cvrt-roadmap *::before,
+    #cvrt-roadmap *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    #cvrt-roadmap h1,
+    #cvrt-roadmap h2,
+    #cvrt-roadmap h3,
+    #cvrt-roadmap p,
+    #cvrt-roadmap span,
+    #cvrt-roadmap div {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      margin: 0;
+      padding: 0;
+    }
+
+    #cvrt-roadmap {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--charcoal);
+      background: var(--bone);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    /* -- TOPBAR -- */
+    #cvrt-roadmap .topbar {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--dark);
+      background: var(--white);
+      animation: fadeIn 0.5s ease-out both;
+    }
+
+    #cvrt-roadmap .topbar-brand {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    #cvrt-roadmap .topbar-right {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    #cvrt-roadmap .topbar-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ash);
+    }
+
+    #cvrt-roadmap .topbar-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ash);
+    }
+
+    /* -- HERO -- */
+    #cvrt-roadmap .hero {
+      background: var(--dark);
+      padding: 64px 48px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cvrt-roadmap .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(232,105,45,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand);
+    }
+
+    #cvrt-roadmap .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    #cvrt-roadmap .hero-eyebrow {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    }
+
+    #cvrt-roadmap .hero-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    #cvrt-roadmap .hero-title .brand {
+      color: var(--brand);
+      display: block;
+    }
+
+    #cvrt-roadmap .hero-meta {
+      display: flex;
+      gap: 20px;
+      padding-top: 32px;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    }
+
+    #cvrt-roadmap .hero-meta-item {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ash);
+    }
+
+    #cvrt-roadmap .hero-meta-item::before {
+      content: '[ ';
+      color: rgba(255,255,255,0.2);
+    }
+
+    #cvrt-roadmap .hero-meta-item::after {
+      content: ' ]';
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* -- TABS -- */
+    #cvrt-roadmap .tabs {
+      position: relative;
+    }
+
+    #cvrt-roadmap .tabs input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .tab-nav {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      padding: 0 48px;
+    }
+
+    #cvrt-roadmap .tab-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      width: 100%;
+    }
+
+    #cvrt-roadmap .tab-nav label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ash);
+      padding: 18px 28px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #cvrt-roadmap .tab-nav label:hover {
+      color: rgba(255,255,255,0.6);
+    }
+
+    #cvrt-roadmap .tab-nav label::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 0.25s ease;
+    }
+
+    #cvrt-roadmap .tab-nav label .tab-count {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.06);
+      color: var(--ash);
+      padding: 2px 8px;
+      transition: all 0.25s ease;
+    }
+
+    /* Active tab states */
+    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-nav label[for="tab-month1"],
+    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-nav label[for="tab-month2"],
+    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-nav label[for="tab-month3"] {
+      color: var(--white);
+    }
+
+    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-nav label[for="tab-month1"]::after,
+    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-nav label[for="tab-month2"]::after,
+    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-nav label[for="tab-month3"]::after {
+      background: var(--brand);
+    }
+
+    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-nav label[for="tab-month1"] .tab-count,
+    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-nav label[for="tab-month2"] .tab-count,
+    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-nav label[for="tab-month3"] .tab-count {
+      background: var(--brand);
+      color: var(--white);
+    }
+
+    /* Tab panels */
+    #cvrt-roadmap .tab-panel {
+      display: none;
+    }
+
+    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-panels .tab-panel-1 {
+      display: block;
+    }
+
+    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-panels .tab-panel-2 {
+      display: block;
+    }
+
+    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-panels .tab-panel-3 {
+      display: block;
+    }
+
+    /* -- CONTENT -- */
+    #cvrt-roadmap .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* -- MONTH THEME -- */
+    #cvrt-roadmap .month-theme {
+      margin-bottom: 8px;
+      padding: 28px 32px;
+      background: var(--dark);
+      border-left: 3px solid var(--brand);
+    }
+
+    #cvrt-roadmap .month-theme-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 6px;
+    }
+
+    #cvrt-roadmap .month-theme-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    #cvrt-roadmap .month-theme-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+      margin-top: 8px;
+      max-width: 600px;
+    }
+
+    #cvrt-roadmap .month-theme-desc a {
+      color: var(--brand);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 105, 45, 0.3);
+      transition: border-color 0.2s ease;
+    }
+
+    #cvrt-roadmap .month-theme-desc a:hover {
+      border-bottom-color: var(--brand);
+    }
+
+    /* -- SECTION -- */
+    #cvrt-roadmap .section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    #cvrt-roadmap .section:last-child {
+      border-bottom: none;
+    }
+
+    #cvrt-roadmap .section-header {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    #cvrt-roadmap .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--charcoal);
+      padding-top: 10px;
+      position: relative;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+
+    #cvrt-roadmap .section-label::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--brand);
+      animation: revealLine 0.4s ease-out 0.6s both;
+      transform-origin: left;
+    }
+
+    #cvrt-roadmap .section-body {
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    /* -- INSIGHTS -- */
+    #cvrt-roadmap .insights p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--warm);
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+
+    #cvrt-roadmap .insights p:last-child {
+      margin-bottom: 0;
+    }
+
+    #cvrt-roadmap .insights strong {
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    /* -- SLOTS -- */
+    #cvrt-roadmap .slots {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #cvrt-roadmap .slot {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 48px 0;
+      border-top: 1px solid var(--rule);
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    #cvrt-roadmap .slot:first-child {
+      border-top: none;
+    }
+
+    #cvrt-roadmap .slot:nth-child(1) { animation-delay: 0.6s; }
+    #cvrt-roadmap .slot:nth-child(2) { animation-delay: 0.7s; }
+    #cvrt-roadmap .slot:nth-child(3) { animation-delay: 0.8s; }
+
+    #cvrt-roadmap .slot-index {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+
+    #cvrt-roadmap .slot-index::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--brand);
+    }
+
+    #cvrt-roadmap .slot-body {
+      min-width: 0;
+    }
+
+    #cvrt-roadmap .slot-tags {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    #cvrt-roadmap .slot-type {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      background: var(--brand);
+      color: var(--white);
+    }
+
+    #cvrt-roadmap .slot-type-dev {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    #cvrt-roadmap .slot-page-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      letter-spacing: 0.04em;
+    }
+
+    #cvrt-roadmap .slot h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    #cvrt-roadmap .slot-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--warm);
+      max-width: 580px;
+    }
+
+    #cvrt-roadmap .slot-sketch {
+      margin-top: 24px;
+    }
+
+    #cvrt-roadmap .slot-sketch svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+    }
+
+    #cvrt-roadmap .slot-sketch-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--ash);
+      margin-top: 8px;
+    }
+
+    /* -- FOOTER -- */
+    #cvrt-roadmap .footer {
+      border-top: 2px solid var(--dark);
+      padding: 24px 48px;
+      text-align: center;
+      background: var(--white);
+      animation: fadeIn 0.5s ease-out 1s both;
+    }
+
+    #cvrt-roadmap .footer-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    /* -- RESPONSIVE -- */
+    @media (max-width: 768px) {
+      #cvrt-roadmap .topbar { padding: 20px 24px; }
+      #cvrt-roadmap .topbar-right { gap: 10px; }
+      #cvrt-roadmap .hero { padding: 40px 24px 48px; }
+      #cvrt-roadmap .hero-title { font-size: 56px; }
+      #cvrt-roadmap .hero-meta { flex-wrap: wrap; gap: 12px; }
+      #cvrt-roadmap .tab-nav {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 24px;
+      }
+      #cvrt-roadmap .tab-nav label {
+        padding: 16px 20px;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      #cvrt-roadmap .content { padding: 0 24px; }
+      #cvrt-roadmap .section { padding: 40px 0; }
+      #cvrt-roadmap .section-header { grid-template-columns: 1fr; gap: 20px; }
+      #cvrt-roadmap .slot { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+      #cvrt-roadmap .slot-index { font-size: 40px; }
+      #cvrt-roadmap .slot h3 { font-size: 26px; }
+      #cvrt-roadmap .footer { padding: 20px 24px; }
+    }
+
+    /* -- PRINT -- */
+    @media print {
+      #cvrt-roadmap * { animation: none !important; }
+      #cvrt-roadmap .topbar { padding: 16px 32px; }
+      #cvrt-roadmap .hero { padding: 32px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      #cvrt-roadmap .tab-nav { display: none; }
+      #cvrt-roadmap .tab-panel { display: block !important; }
+      #cvrt-roadmap .content { padding: 0 32px; }
+      #cvrt-roadmap .slot { break-inside: avoid; }
+      #cvrt-roadmap .footer { padding: 16px 32px; }
+    }
+  
+</style>
+
+<div id="cvrt-roadmap">
+<!-- -- TOPBAR -- -->
+  <nav class="topbar">
+    <div class="topbar-brand">Norse Organics</div>
+    <div class="topbar-right">
+      <div class="topbar-tag">CRO Testing Roadmap</div>
+      <div class="topbar-date">Spring 2026</div>
+    </div>
+  </nav>
+
+  <!-- -- HERO -- -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Spring 2026</span>
+      <div class="hero-title">
+        Testing<br><span class="brand">Roadmap</span>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item">9 Tests</span>
+        <span class="hero-meta-item">3 Months</span>
+        <span class="hero-meta-item">Trust, Value, Agentic Commerce</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- -- TABS -- -->
+  <div class="tabs">
+    <input type="radio" name="month" id="tab-month1" checked>
+    <input type="radio" name="month" id="tab-month2">
+    <input type="radio" name="month" id="tab-month3">
+
+    <nav class="tab-nav">
+      <div class="tab-nav-inner">
+        <label for="tab-month1">Month 1 <span class="tab-count">3 slots</span></label>
+        <label for="tab-month2">Month 2 <span class="tab-count">3 slots</span></label>
+        <label for="tab-month3">Month 3 <span class="tab-count">3 slots</span></label>
+      </div>
+    </nav>
+
+    <div class="tab-panels">
+
+      <!-- ====================================== -->
+      <!-- MONTH 1: TRUST & MESSAGE MATCH          -->
+      <!-- ====================================== -->
+      <div class="tab-panel tab-panel-1">
+        <main class="content">
+
+          <!-- Insights -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Insights</div>
+              <div class="section-body insights">
+                <p>The site's strongest assets (409 clinicians on FrontrowMD, 6,328+ reviews, 60-day guarantee, a unique Arctic botanical story) are buried under countdown timers, conflicting discounts, and urgency tactics that customers call "scammy." <strong>The ads bring them in. The pages push them away.</strong></p>
+                <p>Your top 3 Meta ads have run 5+ months. They convert. But the landing pages don't continue their story. Ad #1 targets parents of teens with 25% off, landing page shows 45% off. Ad #3 tells an ingredient education story, landing page replaces it with a discount headline. <strong>The ads do their job. The pages aren't finishing it.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slots -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">This Month</div>
+              <div class="section-body">
+                <div class="slots">
+
+                  <!-- Slot 1 -->
+                  <div class="slot">
+                    <div class="slot-index">01</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">/pages/stop-acne, 258,929 sessions/mo</span>
+                      </div>
+                      <h3>Landing Page Trust &amp; Message Match</h3>
+                      <div class="slot-desc">Replace the discount-first hero on your highest-traffic landing page with trust-led messaging that matches what your ads promise. We'll test whether leading with credibility (clinician endorsement, reviews, guarantee) or ingredient education (Arctic botanicals story) converts better than urgency tactics.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <!-- Browser chrome -->
+                          <rect x="2" y="2" width="416" height="276" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <rect x="2" y="2" width="416" height="28" rx="6" fill="#F5F3F0" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3"/>
+                          <circle cx="18" cy="16" r="4" fill="#ddd"/>
+                          <circle cx="32" cy="16" r="4" fill="#ddd"/>
+                          <circle cx="46" cy="16" r="4" fill="#ddd"/>
+                          <rect x="120" y="9" width="160" height="12" rx="4" fill="#EDEAE6"/>
+                          <text x="140" y="18" font-family="DM Sans, sans-serif" font-size="7" fill="#bbb">/pages/stop-acne</text>
+
+                          <!-- OLD hero crossed out -->
+                          <rect x="16" y="42" width="170" height="20" rx="3" fill="#F8F8F8" stroke="#ddd" stroke-width="0.75" stroke-dasharray="4 3"/>
+                          <text x="26" y="56" font-family="DM Sans, sans-serif" font-size="9" fill="#ccc">TODAY ONLY: SALE 45% OFF</text>
+                          <line x1="22" y1="48" x2="178" y2="56" stroke="#E8692D" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+                          <line x1="22" y1="56" x2="178" y2="48" stroke="#E8692D" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+
+                          <!-- Arrow -->
+                          <line x1="100" y1="70" x2="100" y2="86" stroke="#E8692D" stroke-width="1.5" stroke-dasharray="3 2" stroke-linecap="round"/>
+                          <path d="M94 82 L100 90 L106 82" stroke="#E8692D" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                          <!-- NEW trust hero -->
+                          <rect x="16" y="96" width="388" height="120" rx="8" fill="#fff" stroke="#E8692D" stroke-width="1.5" stroke-dasharray="8 4"/>
+
+                          <!-- Trust badge -->
+                          <circle cx="52" cy="126" r="16" fill="none" stroke="#E8692D" stroke-width="1.5" stroke-dasharray="4 2"/>
+                          <text x="41" y="130" font-family="Playfair Display, serif" font-size="12" fill="#E8692D" font-weight="700">409</text>
+                          <text x="76" y="122" font-family="DM Sans, sans-serif" font-size="10" fill="#888" font-weight="500">Clinicians' Choice</text>
+                          <text x="76" y="136" font-family="DM Sans, sans-serif" font-size="9" fill="#bbb">6,328 reviews</text>
+
+                          <!-- Headline lines -->
+                          <rect x="36" y="154" width="220" height="10" rx="3" fill="#1a1a1a" opacity="0.1"/>
+                          <rect x="36" y="170" width="160" height="10" rx="3" fill="#1a1a1a" opacity="0.06"/>
+
+                          <!-- CTA -->
+                          <rect x="36" y="188" width="110" height="24" rx="5" fill="#E8692D" opacity="0.15"/>
+                          <text x="60" y="204" font-family="DM Sans, sans-serif" font-size="9" fill="#E8692D" font-weight="600">SHOP NOW</text>
+
+                          <!-- Product circle -->
+                          <ellipse cx="340" cy="156" rx="44" ry="44" fill="#F5F3F0" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
+                          <text x="322" y="160" font-family="DM Sans, sans-serif" font-size="8" fill="#ccc">product</text>
+
+                          <!-- Guarantee bar -->
+                          <rect x="16" y="228" width="388" height="24" rx="5" fill="#FAF7F2"/>
+                          <text x="110" y="244" font-family="DM Sans, sans-serif" font-size="9" fill="#aaa">60-Day Guarantee . Free Shipping</text>
+
+                          <!-- Below fold -->
+                          <line x1="16" y1="262" x2="404" y2="262" stroke="#eee" stroke-width="0.75" stroke-dasharray="6 3"/>
+                          <text x="160" y="274" font-family="DM Sans, sans-serif" font-size="8" fill="#ddd">discount below the fold</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slot 2 -->
+                  <div class="slot">
+                    <div class="slot-index">02</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">/products/kill-acne-redness-ritual, 83,769 sessions/mo</span>
+                      </div>
+                      <h3>PDP Value Reframe</h3>
+                      <div class="slot-desc">Your best-selling product is actually 3 items in one ritual, but the page presents it as a single product at a single price. We'll test whether breaking down the bundle value or elevating trust signals above the price does more to overcome the price objection.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <!-- Buy box frame -->
+                          <rect x="2" y="2" width="416" height="316" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+
+                          <!-- Title area -->
+                          <rect x="24" y="18" width="240" height="12" rx="3" fill="#1a1a1a" opacity="0.12"/>
+                          <rect x="24" y="36" width="160" height="8" rx="2" fill="#1a1a1a" opacity="0.06"/>
+
+                          <!-- What's Inside box -->
+                          <rect x="24" y="60" width="372" height="148" rx="8" fill="#fff" stroke="#E8692D" stroke-width="1.5" stroke-dasharray="8 4"/>
+                          <text x="40" y="82" font-family="DM Sans, sans-serif" font-size="10" fill="#E8692D" font-weight="700" letter-spacing="1">WHAT'S INSIDE</text>
+
+                          <!-- Product row 1 -->
+                          <circle cx="52" cy="106" r="12" fill="#F5F3F0" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                          <text x="72" y="110" font-family="DM Sans, sans-serif" font-size="9" fill="#999">Acne Killer Night Balm</text>
+                          <text x="320" y="110" font-family="DM Sans, sans-serif" font-size="9" fill="#aaa" text-anchor="end">$38</text>
+
+                          <!-- Product row 2 -->
+                          <circle cx="52" cy="138" r="12" fill="#F5F3F0" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                          <text x="72" y="142" font-family="DM Sans, sans-serif" font-size="9" fill="#999">6-in-1 Day Balm</text>
+                          <text x="320" y="142" font-family="DM Sans, sans-serif" font-size="9" fill="#aaa" text-anchor="end">$35</text>
+
+                          <!-- Product row 3 -->
+                          <circle cx="52" cy="170" r="12" fill="#F5F3F0" stroke="#ddd" stroke-width="1" stroke-dasharray="3 2"/>
+                          <text x="72" y="174" font-family="DM Sans, sans-serif" font-size="9" fill="#999">Premium Face Scrub</text>
+                          <text x="320" y="174" font-family="DM Sans, sans-serif" font-size="9" fill="#aaa" text-anchor="end">$25</text>
+
+                          <!-- Divider and total -->
+                          <line x1="40" y1="192" x2="360" y2="192" stroke="#F0EEEB" stroke-width="1"/>
+                          <text x="40" y="210" font-family="DM Sans, sans-serif" font-size="11" fill="#1a1a1a" font-weight="600">Ritual Price: $88</text>
+
+                          <!-- Daily cost callout -->
+                          <rect x="24" y="224" width="200" height="28" rx="6" fill="#FFF5F0"/>
+                          <text x="40" y="242" font-family="DM Sans, sans-serif" font-size="11" fill="#E8692D" font-weight="600">$1.47/day for clear skin</text>
+
+                          <!-- Pricing toggle -->
+                          <rect x="24" y="266" width="160" height="30" rx="6" fill="#F8F8F8" stroke="#ddd" stroke-width="0.75" stroke-dasharray="4 3"/>
+                          <text x="40" y="285" font-family="DM Sans, sans-serif" font-size="9" fill="#bbb">One-time  |  Subscribe</text>
+
+                          <!-- ATC button -->
+                          <rect x="200" y="266" width="196" height="30" rx="6" fill="#E8692D" opacity="0.15"/>
+                          <text x="254" y="285" font-family="DM Sans, sans-serif" font-size="10" fill="#E8692D" font-weight="600">ADD TO CART</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slot 3 -->
+                  <div class="slot">
+                    <div class="slot-index">03</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">/pages/stop-acne-teens, 87,446 sessions/mo</span>
+                      </div>
+                      <h3>Teen Landing Page Message Match</h3>
+                      <div class="slot-desc">Your teen-targeted ads tell a parent's story about discovering Norse after years of failed treatments. The landing page replaces that story with a generic discount. We'll build a parent-focused page that continues the ad's narrative with ingredient education and parent-specific social proof.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <!-- Browser chrome -->
+                          <rect x="2" y="2" width="416" height="316" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <rect x="2" y="2" width="416" height="28" rx="6" fill="#F5F3F0" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3"/>
+                          <circle cx="18" cy="16" r="4" fill="#ddd"/>
+                          <circle cx="32" cy="16" r="4" fill="#ddd"/>
+                          <circle cx="46" cy="16" r="4" fill="#ddd"/>
+                          <rect x="120" y="9" width="160" height="12" rx="4" fill="#EDEAE6"/>
+                          <text x="130" y="18" font-family="DM Sans, sans-serif" font-size="7" fill="#bbb">/pages/stop-acne-teens</text>
+
+                          <!-- Parent-focused hero -->
+                          <rect x="16" y="42" width="388" height="80" rx="8" fill="#fff" stroke="#E8692D" stroke-width="1.5" stroke-dasharray="8 4"/>
+                          <rect x="32" y="56" width="200" height="10" rx="3" fill="#1a1a1a" opacity="0.12"/>
+                          <rect x="32" y="72" width="180" height="7" rx="2" fill="#1a1a1a" opacity="0.06"/>
+                          <rect x="32" y="84" width="200" height="7" rx="2" fill="#1a1a1a" opacity="0.06"/>
+                          <rect x="32" y="100" width="80" height="18" rx="4" fill="#E8692D" opacity="0.15"/>
+                          <text x="46" y="113" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D" font-weight="600">SHOP NOW</text>
+                          <ellipse cx="350" cy="82" rx="32" ry="32" fill="#F5F3F0" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
+                          <text x="336" y="86" font-family="DM Sans, sans-serif" font-size="7" fill="#ccc">product</text>
+
+                          <!-- Key Ingredients -->
+                          <text x="16" y="148" font-family="DM Sans, sans-serif" font-size="10" fill="#E8692D" font-weight="700" letter-spacing="1">KEY INGREDIENTS</text>
+
+                          <!-- Ingredient cards -->
+                          <rect x="16" y="158" width="92" height="68" rx="6" fill="#fff" stroke="#ddd" stroke-width="0.75" stroke-dasharray="4 3"/>
+                          <circle cx="62" cy="178" r="10" fill="#FFF5F0" stroke="#E8692D" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
+                          <text x="34" y="204" font-family="DM Sans, sans-serif" font-size="8" fill="#aaa">Tamanu Oil</text>
+
+                          <rect x="116" y="158" width="92" height="68" rx="6" fill="#fff" stroke="#ddd" stroke-width="0.75" stroke-dasharray="4 3"/>
+                          <circle cx="162" cy="178" r="10" fill="#FFF5F0" stroke="#E8692D" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
+                          <text x="134" y="204" font-family="DM Sans, sans-serif" font-size="8" fill="#aaa">Calendula</text>
+
+                          <rect x="216" y="158" width="92" height="68" rx="6" fill="#fff" stroke="#ddd" stroke-width="0.75" stroke-dasharray="4 3"/>
+                          <circle cx="262" cy="178" r="10" fill="#FFF5F0" stroke="#E8692D" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
+                          <text x="224" y="204" font-family="DM Sans, sans-serif" font-size="8" fill="#aaa">Sea Buckthorn</text>
+
+                          <rect x="316" y="158" width="88" height="68" rx="6" fill="#fff" stroke="#ddd" stroke-width="0.75" stroke-dasharray="4 3"/>
+                          <circle cx="360" cy="178" r="10" fill="#FFF5F0" stroke="#E8692D" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
+                          <text x="336" y="204" font-family="DM Sans, sans-serif" font-size="8" fill="#aaa">Beeswax</text>
+
+                          <!-- Parents Love It -->
+                          <text x="16" y="250" font-family="DM Sans, sans-serif" font-size="10" fill="#888" font-weight="600" letter-spacing="0.5">PARENTS LOVE IT</text>
+
+                          <rect x="16" y="260" width="192" height="44" rx="6" fill="#fff" stroke="#F0EEEB" stroke-width="1"/>
+                          <text x="28" y="276" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+                          <text x="28" y="290" font-family="DM Sans, sans-serif" font-size="8" fill="#999">"Works wonders with my three teenagers"</text>
+
+                          <rect x="216" y="260" width="192" height="44" rx="6" fill="#fff" stroke="#F0EEEB" stroke-width="1"/>
+                          <text x="228" y="276" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+                          <text x="228" y="290" font-family="DM Sans, sans-serif" font-size="8" fill="#999">"My 15yr old son and I both use this!"</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- MONTH 2: AGENTIC COMMERCE               -->
+      <!-- ====================================== -->
+      <div class="tab-panel tab-panel-2">
+        <main class="content">
+
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">&nbsp;</div>
+              <div class="section-body">
+                <div class="month-theme">
+                  <div class="month-theme-label">Month 2 Focus</div>
+                  <div class="month-theme-title">PDP Optimization + Agentic Commerce</div>
+                  <div class="month-theme-desc">Shopify is <a href="https://www.reddit.com/r/shopify/comments/1rrlyne/coming_later_in_march_chatgpt_in_agentic/" target="_blank">launching ChatGPT as an agentic storefront channel</a>. Buyers will discover and purchase products directly inside ChatGPT. What the AI surfaces depends on product content: gallery images, descriptions, and pricing structure. Three PDP tests to make sure Norse shows up right.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">This Month</div>
+              <div class="section-body">
+                <div class="slots">
+
+                  <!-- Slot 1: Product Gallery Optimization -->
+                  <div class="slot">
+                    <div class="slot-index">01</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">Best-seller PDPs</span>
+                      </div>
+                      <h3>Product Gallery Optimization</h3>
+                      <div class="slot-desc">Test an optimized gallery sequence that leads with texture close-ups of the balm and beeswax products, application shots, and before/after results instead of the current tin-on-white photography. AI shopping agents pull gallery images as primary product signals.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PRODUCT PAGE</text>
+
+                          <!-- Gallery area left -->
+                          <rect x="16" y="34" width="200" height="150" rx="4" stroke="#E8692D" stroke-width="1" stroke-dasharray="4 2" fill="rgba(232,105,45,0.04)"/>
+                          <text x="56" y="52" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#2D2520">OPTIMIZED SEQUENCE</text>
+
+                          <!-- Numbered image slots -->
+                          <rect x="28" y="60" width="80" height="52" rx="3" fill="#F0EDE8" stroke="#ddd" stroke-width="0.6"/>
+                          <text x="58" y="82" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">1: TEXTURE</text>
+                          <text x="58" y="92" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">CLOSE-UP</text>
+
+                          <rect x="118" y="60" width="80" height="52" rx="3" fill="#F0EDE8" stroke="#ddd" stroke-width="0.6"/>
+                          <text x="158" y="82" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">2: APPLICATION</text>
+                          <text x="158" y="92" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">SHOT</text>
+
+                          <rect x="28" y="120" width="80" height="52" rx="3" fill="#F0EDE8" stroke="#ddd" stroke-width="0.6"/>
+                          <text x="68" y="142" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">3: BEFORE/</text>
+                          <text x="68" y="152" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">AFTER</text>
+
+                          <rect x="118" y="120" width="80" height="52" rx="3" fill="#F0EDE8" stroke="#ddd" stroke-width="0.6"/>
+                          <text x="158" y="142" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" text-anchor="middle">4: INGREDIENTS</text>
+
+                          <!-- Buy box right -->
+                          <rect x="232" y="34" width="176" height="12" rx="2" fill="#2D2520" opacity="0.25"/>
+                          <rect x="232" y="52" width="120" height="8" rx="2" fill="#2D2520" opacity="0.12"/>
+                          <text x="232" y="82" font-family="Playfair Display, serif" font-size="16" font-weight="700" fill="#2D2520" opacity="0.4">$88.00</text>
+                          <rect x="232" y="98" width="176" height="30" rx="4" fill="#2D2520" opacity="0.8"/>
+                          <text x="284" y="117" font-family="DM Sans, sans-serif" font-size="9" fill="#fff" font-weight="600">ADD TO CART</text>
+
+                          <!-- Label -->
+                          <text x="260" y="156" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">NEW GALLERY SEQUENCE</text>
+
+                          <!-- Existing product info lines -->
+                          <rect x="232" y="168" width="176" height="6" rx="1" fill="#e5e0da"/>
+                          <rect x="232" y="180" width="140" height="6" rx="1" fill="#F0EDE8"/>
+                          <rect x="232" y="192" width="160" height="6" rx="1" fill="#F0EDE8"/>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slot 2: Product Description Restructure -->
+                  <div class="slot">
+                    <div class="slot-index">02</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">Kill Acne &amp; Redness Ritual PDP</span>
+                      </div>
+                      <h3>Product Description Restructure</h3>
+                      <div class="slot-desc">Rewrite the product description to lead with ingredients and the Arctic botanical story instead of discount claims. AI agents parse descriptions to match buyer intent. A description that says "tamanu oil for bacterial acne" will surface for "natural acne treatment" queries. One that says "SAVE 45%" won't.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PRODUCT DESCRIPTION</text>
+
+                          <!-- Current side -->
+                          <rect x="16" y="36" width="188" height="190" rx="4" stroke="#bbb" stroke-width="0.8" fill="#F8F8F8"/>
+                          <text x="72" y="54" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#bbb">CURRENT</text>
+                          <rect x="28" y="66" width="164" height="8" rx="2" fill="#ddd"/>
+                          <text x="28" y="90" font-family="DM Sans, sans-serif" font-size="8" fill="#ccc">SAVE 45% TODAY ONLY!</text>
+                          <rect x="28" y="100" width="140" height="6" rx="1" fill="#e5e0da"/>
+                          <rect x="28" y="112" width="150" height="6" rx="1" fill="#e5e0da"/>
+                          <rect x="28" y="124" width="120" height="6" rx="1" fill="#e5e0da"/>
+                          <text x="28" y="150" font-family="DM Sans, sans-serif" font-size="8" fill="#ccc">LIMITED TIME OFFER</text>
+                          <rect x="28" y="160" width="130" height="6" rx="1" fill="#e5e0da"/>
+                          <rect x="28" y="172" width="145" height="6" rx="1" fill="#e5e0da"/>
+
+                          <!-- Arrow -->
+                          <line x1="210" y1="130" x2="224" y2="130" stroke="#E8692D" stroke-width="1.5"/>
+                          <polygon points="224,126 232,130 224,134" fill="#E8692D"/>
+
+                          <!-- New side -->
+                          <rect x="240" y="36" width="168" height="190" rx="4" stroke="#E8692D" stroke-width="1" stroke-dasharray="4 2" fill="rgba(232,105,45,0.04)"/>
+                          <text x="290" y="54" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#E8692D">NEW</text>
+
+                          <text x="252" y="72" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D" font-weight="600" letter-spacing="0.08em">INGREDIENT-LED</text>
+
+                          <text x="252" y="92" font-family="Playfair Display, serif" font-size="9" font-weight="700" font-style="italic" fill="#2D2520">Arctic Botanicals</text>
+                          <rect x="252" y="98" width="144" height="4" rx="1" fill="#e5e0da"/>
+                          <rect x="252" y="106" width="120" height="4" rx="1" fill="#F0EDE8"/>
+
+                          <text x="252" y="128" font-family="DM Sans, sans-serif" font-size="8" fill="#2D2520" font-weight="500">Tamanu Oil</text>
+                          <rect x="252" y="133" width="130" height="3" rx="1" fill="#e5e0da"/>
+
+                          <text x="252" y="150" font-family="DM Sans, sans-serif" font-size="8" fill="#2D2520" font-weight="500">Sea Buckthorn</text>
+                          <rect x="252" y="155" width="120" height="3" rx="1" fill="#e5e0da"/>
+
+                          <text x="252" y="172" font-family="DM Sans, sans-serif" font-size="8" fill="#2D2520" font-weight="500">Beeswax Base</text>
+                          <rect x="252" y="177" width="110" height="3" rx="1" fill="#e5e0da"/>
+
+                          <text x="252" y="200" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">STRUCTURED CONTENT</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slot 3: Subscription Presentation -->
+                  <div class="slot">
+                    <div class="slot-index">03</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">Kill Acne &amp; Redness Ritual PDP</span>
+                      </div>
+                      <h3>Subscription Presentation</h3>
+                      <div class="slot-desc">Make subscription the default selection with clear savings math instead of hiding the value behind the VIKING10 coupon code. AI agents favor products with transparent, structured subscription pricing over coupon-gated discounts.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="416" height="216" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PDP BUY BOX</text>
+
+                          <!-- Product title -->
+                          <rect x="16" y="36" width="260" height="12" rx="3" fill="#2D2520" opacity="0.2"/>
+                          <text x="16" y="66" font-family="Playfair Display, serif" font-size="16" font-weight="700" fill="#2D2520" opacity="0.4">$88.00</text>
+
+                          <!-- Subscription toggle -->
+                          <rect x="16" y="84" width="388" height="70" rx="6" stroke="#E8692D" stroke-width="1.5" stroke-dasharray="8 4" fill="rgba(232,105,45,0.04)"/>
+
+                          <!-- One-time option (dimmed) -->
+                          <rect x="28" y="96" width="172" height="44" rx="4" fill="#F8F8F8" stroke="#ddd" stroke-width="0.75"/>
+                          <circle cx="44" cy="118" r="6" fill="none" stroke="#ddd" stroke-width="1.2"/>
+                          <text x="56" y="114" font-family="DM Sans, sans-serif" font-size="10" fill="#bbb" font-weight="500">One-time purchase</text>
+                          <text x="56" y="128" font-family="DM Sans, sans-serif" font-size="9" fill="#ccc">$88.00</text>
+
+                          <!-- Subscribe option (highlighted) -->
+                          <rect x="212" y="96" width="180" height="44" rx="4" fill="#FFF5F0" stroke="#E8692D" stroke-width="1.2"/>
+                          <circle cx="228" cy="118" r="6" fill="#E8692D" stroke="#E8692D" stroke-width="1.2"/>
+                          <circle cx="228" cy="118" r="2.5" fill="#fff"/>
+                          <text x="240" y="114" font-family="DM Sans, sans-serif" font-size="10" fill="#1a1a1a" font-weight="600">Subscribe &amp; save</text>
+                          <text x="240" y="128" font-family="DM Sans, sans-serif" font-size="9" fill="#E8692D" font-weight="600">$74.80/mo (15% off)</text>
+
+                          <!-- Savings callout -->
+                          <rect x="16" y="166" width="250" height="24" rx="4" fill="#FFF5F0"/>
+                          <text x="28" y="182" font-family="DM Sans, sans-serif" font-size="10" fill="#E8692D" font-weight="600">Save $158.40/year with subscription</text>
+
+                          <!-- ATC -->
+                          <rect x="280" y="166" width="124" height="24" rx="4" fill="#E8692D" opacity="0.15"/>
+                          <text x="304" y="182" font-family="DM Sans, sans-serif" font-size="9" fill="#E8692D" font-weight="600">ADD TO CART</text>
+
+                          <text x="140" y="208" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">SUBSCRIBE DEFAULT + CLEAR SAVINGS</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- MONTH 3: QUIZ & SCHEMA                  -->
+      <!-- ====================================== -->
+      <div class="tab-panel tab-panel-3">
+        <main class="content">
+
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">&nbsp;</div>
+              <div class="section-body">
+                <div class="month-theme">
+                  <div class="month-theme-label">Month 3 Focus</div>
+                  <div class="month-theme-title">Quiz Funnel + Structured Data</div>
+                  <div class="month-theme-desc">Two infrastructure plays. Rebuild the quiz for better personalization and conversion. Add structured data so search engines and AI agents can parse Norse's product catalog, reviews, and ingredients correctly. Both compound over time.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">This Month</div>
+              <div class="section-body">
+                <div class="slots">
+
+                  <!-- Slot 1: Quiz Funnel Rebuild -->
+                  <div class="slot">
+                    <div class="slot-index">01</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">/pages/quiz-v1, 16,933 sessions/mo</span>
+                      </div>
+                      <h3>Quiz Funnel Rebuild</h3>
+                      <div class="slot-desc">The current quiz gets 17K sessions/mo but the conversion path is unclear. Rebuild with concern-based questions (acne type, severity, skin sensitivity) that lead to personalized product recommendations with ingredient reasoning.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="416" height="196" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">QUIZ FLOW</text>
+
+                          <!-- Step 1 -->
+                          <rect x="16" y="40" width="100" height="110" rx="6" stroke="#ddd" stroke-width="1" stroke-dasharray="4 2" fill="#fff"/>
+                          <text x="42" y="58" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D" font-weight="600">STEP 1</text>
+                          <rect x="28" y="68" width="76" height="6" rx="2" fill="#e5e0da"/>
+                          <text x="32" y="88" font-family="DM Sans, sans-serif" font-size="7" fill="#aaa">Acne type?</text>
+                          <rect x="28" y="96" width="76" height="14" rx="3" fill="#F5F3F0" stroke="#ddd" stroke-width="0.5"/>
+                          <rect x="28" y="114" width="76" height="14" rx="3" fill="#F5F3F0" stroke="#ddd" stroke-width="0.5"/>
+                          <rect x="28" y="132" width="76" height="14" rx="3" fill="#F5F3F0" stroke="#ddd" stroke-width="0.5"/>
+
+                          <!-- Arrow 1 -->
+                          <line x1="122" y1="95" x2="142" y2="95" stroke="#E8692D" stroke-width="1.2"/>
+                          <polygon points="142,91 150,95 142,99" fill="#E8692D"/>
+
+                          <!-- Step 2 -->
+                          <rect x="156" y="40" width="100" height="110" rx="6" stroke="#ddd" stroke-width="1" stroke-dasharray="4 2" fill="#fff"/>
+                          <text x="182" y="58" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D" font-weight="600">STEP 2</text>
+                          <rect x="168" y="68" width="76" height="6" rx="2" fill="#e5e0da"/>
+                          <text x="172" y="88" font-family="DM Sans, sans-serif" font-size="7" fill="#aaa">Severity?</text>
+                          <rect x="168" y="96" width="76" height="14" rx="3" fill="#F5F3F0" stroke="#ddd" stroke-width="0.5"/>
+                          <rect x="168" y="114" width="76" height="14" rx="3" fill="#F5F3F0" stroke="#ddd" stroke-width="0.5"/>
+                          <rect x="168" y="132" width="76" height="14" rx="3" fill="#F5F3F0" stroke="#ddd" stroke-width="0.5"/>
+
+                          <!-- Arrow 2 -->
+                          <line x1="262" y1="95" x2="282" y2="95" stroke="#E8692D" stroke-width="1.2"/>
+                          <polygon points="282,91 290,95 282,99" fill="#E8692D"/>
+
+                          <!-- Step 3 -->
+                          <rect x="296" y="40" width="112" height="110" rx="6" stroke="#E8692D" stroke-width="1.2" stroke-dasharray="4 2" fill="rgba(232,105,45,0.04)"/>
+                          <text x="316" y="58" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D" font-weight="600">RESULT</text>
+                          <rect x="308" y="68" width="88" height="6" rx="2" fill="#E8692D" opacity="0.2"/>
+                          <ellipse cx="352" cy="96" rx="20" ry="20" fill="#F5F3F0" stroke="#E8692D" stroke-width="0.8" stroke-dasharray="3 2"/>
+                          <text x="340" y="100" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D">product</text>
+                          <rect x="308" y="124" width="88" height="5" rx="1" fill="#e5e0da"/>
+                          <rect x="308" y="133" width="72" height="5" rx="1" fill="#F0EDE8"/>
+
+                          <!-- Label -->
+                          <text x="130" y="176" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">CONCERN-BASED QUESTIONS TO PERSONALIZED RECOMMENDATION</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slot 2: Product Schema Enhancement -->
+                  <div class="slot">
+                    <div class="slot-index">02</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type slot-type-dev">Dev Project</span>
+                        <span class="slot-page-name">Site-wide</span>
+                      </div>
+                      <h3>Product Schema Enhancement</h3>
+                      <div class="slot-desc">Add structured data markup for products (review aggregates, ingredient lists, bundle contents, FAQ schema). This feeds both Google rich results and AI agent product parsing. Norse's 6,328 reviews and 409 clinician endorsements should be machine-readable, not just visible on-page.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">JSON-LD SCHEMA</text>
+
+                          <!-- Code block -->
+                          <rect x="16" y="34" width="388" height="190" rx="6" fill="#1a1a1a"/>
+
+                          <text x="28" y="54" font-family="monospace" font-size="9" fill="#888">&lt;script type="application/ld+json"&gt;</text>
+                          <text x="28" y="68" font-family="monospace" font-size="9" fill="#ddd">{</text>
+                          <text x="40" y="82" font-family="monospace" font-size="9" fill="#E8692D">"@type"</text>
+                          <text x="90" y="82" font-family="monospace" font-size="9" fill="#ddd">: "Product",</text>
+                          <text x="40" y="96" font-family="monospace" font-size="9" fill="#E8692D">"name"</text>
+                          <text x="84" y="96" font-family="monospace" font-size="9" fill="#ddd">: "Kill Acne Ritual",</text>
+                          <text x="40" y="110" font-family="monospace" font-size="9" fill="#E8692D">"aggregateRating"</text>
+                          <text x="166" y="110" font-family="monospace" font-size="9" fill="#ddd">: {</text>
+                          <text x="52" y="124" font-family="monospace" font-size="9" fill="#E8692D">"reviewCount"</text>
+                          <text x="148" y="124" font-family="monospace" font-size="9" fill="#ddd">: 6328</text>
+                          <text x="40" y="138" font-family="monospace" font-size="9" fill="#ddd">},</text>
+                          <text x="40" y="152" font-family="monospace" font-size="9" fill="#E8692D">"ingredients"</text>
+                          <text x="134" y="152" font-family="monospace" font-size="9" fill="#ddd">: [</text>
+                          <text x="52" y="166" font-family="monospace" font-size="9" fill="#ddd">"Tamanu Oil",</text>
+                          <text x="52" y="180" font-family="monospace" font-size="9" fill="#ddd">"Sea Buckthorn",</text>
+                          <text x="52" y="194" font-family="monospace" font-size="9" fill="#ddd">"Beeswax"</text>
+                          <text x="40" y="208" font-family="monospace" font-size="9" fill="#ddd">]</text>
+                          <text x="28" y="222" font-family="monospace" font-size="9" fill="#ddd">}</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slot 3: Homepage Hero Test -->
+                  <div class="slot">
+                    <div class="slot-index">03</div>
+                    <div class="slot-body">
+                      <div class="slot-tags">
+                        <span class="slot-type">A/B Test</span>
+                        <span class="slot-page-name">Homepage, 99,048 sessions/mo</span>
+                      </div>
+                      <h3>Homepage Hero Test</h3>
+                      <div class="slot-desc">The current hero leads with a single customer review (Linda). Test whether leading with the "500,000 Acne Sufferers Cured" claim or the Clinicians' Choice badge converts better for non-ad traffic entering through the homepage.</div>
+                      <div class="slot-sketch">
+                        <svg viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="416" height="216" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                          <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">HOMEPAGE HERO</text>
+
+                          <!-- Current (dimmed) -->
+                          <rect x="16" y="36" width="188" height="130" rx="4" stroke="#bbb" stroke-width="0.8" fill="#F8F8F8"/>
+                          <text x="74" y="54" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#bbb">CURRENT</text>
+                          <rect x="28" y="64" width="164" height="8" rx="2" fill="#e5e0da"/>
+                          <text x="60" y="90" font-family="DM Sans, sans-serif" font-size="8" fill="#ccc">"Linda's Review..."</text>
+                          <rect x="28" y="100" width="164" height="6" rx="1" fill="#e5e0da"/>
+                          <rect x="28" y="112" width="140" height="6" rx="1" fill="#e5e0da"/>
+                          <text x="48" y="152" font-family="DM Sans, sans-serif" font-size="7" fill="#bbb">SINGLE REVIEW HERO</text>
+
+                          <!-- VS -->
+                          <text x="210" y="106" font-family="Playfair Display, serif" font-size="14" font-style="italic" fill="#E8692D">vs.</text>
+
+                          <!-- Option A: Badge/Stat -->
+                          <rect x="232" y="36" width="176" height="130" rx="4" stroke="#E8692D" stroke-width="1" stroke-dasharray="4 2" fill="rgba(232,105,45,0.04)"/>
+                          <text x="282" y="54" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#E8692D">TEST</text>
+
+                          <!-- Badge circle -->
+                          <circle cx="320" cy="82" r="18" fill="none" stroke="#E8692D" stroke-width="1.2" stroke-dasharray="4 2"/>
+                          <text x="306" y="86" font-family="Playfair Display, serif" font-size="11" fill="#E8692D" font-weight="700">500K</text>
+
+                          <text x="266" y="114" font-family="DM Sans, sans-serif" font-size="8" fill="#2D2520" font-weight="500">Acne Sufferers Cured</text>
+                          <text x="278" y="128" font-family="DM Sans, sans-serif" font-size="8" fill="#aaa">or Clinicians' Choice</text>
+
+                          <text x="268" y="152" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">STAT/BADGE HERO</text>
+
+                          <!-- Label -->
+                          <text x="130" y="194" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" letter-spacing="0.06em" font-weight="500">TEST SOCIAL PROOF HIERARCHY FOR NON-AD TRAFFIC</text>
+                        </svg>
+                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- -- FOOTER -- -->
+  <footer class="footer">
+    <div class="footer-text">Spring 2026</div>
+  </footer>
+</div>
