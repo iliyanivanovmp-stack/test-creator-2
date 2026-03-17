@@ -36,7 +36,15 @@ From the roadmap, extract:
   - Test or project name (keep it to the component/page being tested, e.g., "Homepage Top 2 Folds" not "Homepage Hero + Fold 2 Restructure")
   - Type: "A/B Test" or the dev project type (e.g., "Custom Shopify App")
   - Page being tested
-  - A 2-3 sentence description focused on the data and why this component matters. What does the data show about how users interact with this component? Why is it worth testing? Do NOT describe the test variation or what we plan to change. Sell the concept and the opportunity, not the solution. No source citations.
+  - A 2-3 sentence description focused on the data and why this component matters. Rules:
+    1. Every factual claim must trace back to a specific data point in the data audit or internal roadmap. If you cannot point to the exact line in the source file, do not include the claim.
+    2. Do NOT describe what we plan to change or how the test will work. Sell the problem and the opportunity, not the solution.
+    3. Do NOT make claims about the current state of a page (e.g., "the gallery leads with X", "the description leads with Y") unless a screenshot or data audit explicitly documents it. If the state is unknown, say "this needs to be audited."
+    4. Do NOT present general industry assertions as if they are client-specific data (e.g., "AI agents pull gallery images as primary product signals"). If you include an industry-level claim, frame it as such.
+    5. Do NOT map data to categories the source doesn't support (e.g., clinical results to specific skin types when the study doesn't segment by skin type).
+    6. Do NOT attribute intent or causation without evidence (e.g., "visitors are actively hunting for proof" when a traffic spike could have multiple causes).
+    7. If a slot requires more data before scoping, say so explicitly. It is better to flag a gap than to fill it with assumptions.
+    8. No source citations in the output, but every claim must be verifiable against the source files.
   - Estimated launch date: ask the user for each slot's estimated timeline (e.g., "2 weeks after confirmation", "3rd week after confirmation"). If not provided, omit.
 **Drop entirely:**
 - Variation descriptions (V1, V2, etc.)
@@ -87,7 +95,7 @@ Build a self-contained HTML file. All CSS in a `<style>` tag in the `<head>`. No
 
 All body content must be wrapped in `<div id="cvrt-roadmap">`. This allows the HTML to be pasted into a Shopify page without theme styles overriding the design.
 
-**All CSS selectors must be prefixed with `#cvrt-roadmap`** (e.g., `#cvrt-roadmap .hero`, `#cvrt-roadmap .slot h3`). ID specificity beats theme class selectors without needing `!important`.
+**All CSS selectors must be prefixed with `#cvrt-roadmap`** and **all class names must be prefixed with `cvrt-`** to avoid collisions with Shopify theme classes (e.g., `#cvrt-roadmap .cvrt-hero`, `#cvrt-roadmap .cvrt-slot h3`). Common class names like `.hero`, `.footer`, `.content`, `.section`, `.slot` WILL collide with theme styles. The `cvrt-` prefix eliminates this entirely.
 
 Add a reset block at the top of the `<style>` to strip inherited theme styles:
 ```css
@@ -194,3 +202,4 @@ Before saving, verify silently:
 - [ ] SVG sketches use dashed strokes, muted colors, and the brand accent color consistently
 - [ ] If logo URL was provided, it renders visibly against the header background
 - [ ] If estimated launch dates were provided, each slot displays them
+- [ ] Every factual claim in slot descriptions traces to a specific data point in the data audit or internal roadmap. No fabricated data, no misattributed quotes, no unsupported claims about current page state. NEVER hallucinate.

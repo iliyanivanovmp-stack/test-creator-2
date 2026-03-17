@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>April 2026 Testing Roadmap - Weston Store</title>
+  <link rel="icon" href="https://www.westonstore.com/cdn/shop/files/Union.svg?v=1690192346&width=180">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    #cvrt-roadmap,
+    #cvrt-roadmap *,
+    #cvrt-roadmap *::before,
+    #cvrt-roadmap *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: inherit; line-height: inherit;
+      letter-spacing: normal; text-transform: none;
+    }
+    #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+    #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+      font-family: inherit; font-size: inherit;
+      font-weight: inherit; color: inherit;
+      margin: 0; padding: 0;
+    }
+
+    :root {
+      --coral: #e86853;
+      --coral-glow: rgba(232, 104, 83, 0.08);
+      --black: #111111;
+      --charcoal: #1a1a1a;
+      --dark: #222222;
+      --warm: #555;
+      --ash: #888;
+      --rule: #2a2a2a;
+      --bone: #f2f0ed;
+      --white: #ffffff;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideRight {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #cvrt-roadmap {
+      font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOPBAR ── */
+    #cvrt-roadmap .cvrt-topbar {
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--black);
+      background: var(--white);
+      animation: fadeIn 0.4s ease-out both;
+    }
+
+    #cvrt-roadmap .cvrt-topbar-logo {
+      height: 28px;
+      width: auto;
+    }
+
+    #cvrt-roadmap .cvrt-topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #cvrt-roadmap .cvrt-topbar-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ash);
+      letter-spacing: 0.04em;
+    }
+
+    #cvrt-roadmap .cvrt-topbar-date {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    /* ── HERO ── */
+    #cvrt-roadmap .cvrt-hero {
+      background: var(--black);
+      padding: 56px 48px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cvrt-roadmap .cvrt-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--coral);
+    }
+
+    #cvrt-roadmap .cvrt-hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 60%;
+      height: 180%;
+      background: radial-gradient(ellipse at center, rgba(232,104,83,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    #cvrt-roadmap .cvrt-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    #cvrt-roadmap .cvrt-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 12vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    #cvrt-roadmap .cvrt-hero-title .cvrt-coral {
+      color: var(--coral);
+      display: block;
+    }
+
+    #cvrt-roadmap .cvrt-hero-meta {
+      display: flex;
+      gap: 20px;
+      padding-top: 28px;
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    }
+
+    #cvrt-roadmap .cvrt-hero-meta-item {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ash);
+    }
+
+    #cvrt-roadmap .cvrt-hero-meta-item::before {
+      content: '[ ';
+      color: rgba(255,255,255,0.15);
+    }
+
+    #cvrt-roadmap .cvrt-hero-meta-item::after {
+      content: ' ]';
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* ── CONTENT WRAPPER ── */
+    #cvrt-roadmap .cvrt-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── SECTION ── */
+    #cvrt-roadmap .cvrt-section {
+      padding: 52px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    #cvrt-roadmap .cvrt-section:last-child {
+      border-bottom: none;
+    }
+
+    #cvrt-roadmap .cvrt-section-header {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    #cvrt-roadmap .cvrt-section-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--charcoal);
+      padding-top: 8px;
+      position: relative;
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+
+    #cvrt-roadmap .cvrt-section-label::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 28px;
+      height: 3px;
+      background: var(--coral);
+      animation: slideRight 0.4s ease-out 0.5s both;
+      transform-origin: left;
+    }
+
+    /* ── INSIGHTS ── */
+    #cvrt-roadmap .cvrt-insights p {
+      font-size: 20px;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      max-width: 620px;
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    #cvrt-roadmap .cvrt-insights p:last-child {
+      margin-bottom: 0;
+    }
+
+    #cvrt-roadmap .cvrt-insights strong {
+      font-weight: 600;
+      color: var(--coral);
+    }
+
+    /* ── SLOTS ── */
+    #cvrt-roadmap .cvrt-slots {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #cvrt-roadmap .cvrt-slot {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 48px 0;
+      border-top: 1px solid #e0e0e0;
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    #cvrt-roadmap .cvrt-slot:first-child {
+      border-top: none;
+    }
+
+    #cvrt-roadmap .cvrt-slot:nth-child(1) { animation-delay: 0.5s; }
+    #cvrt-roadmap .cvrt-slot:nth-child(2) { animation-delay: 0.6s; }
+    #cvrt-roadmap .cvrt-slot:nth-child(3) { animation-delay: 0.7s; }
+
+    #cvrt-roadmap .cvrt-slot-index {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    #cvrt-roadmap .cvrt-slot-index::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 28px;
+      height: 3px;
+      background: var(--coral);
+    }
+
+    #cvrt-roadmap .cvrt-slot-body {
+      min-width: 0;
+    }
+
+    #cvrt-roadmap .cvrt-slot-tags {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-type {
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      background: var(--coral);
+      color: var(--white);
+    }
+
+    #cvrt-roadmap .cvrt-slot-page {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      color: var(--ash);
+      letter-spacing: 0.04em;
+    }
+
+    #cvrt-roadmap .cvrt-slot h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      line-height: 1.1;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-desc {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--warm);
+      max-width: 580px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-sketch {
+      margin-top: 24px;
+    }
+
+    #cvrt-roadmap .cvrt-slot-sketch svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+    }
+
+    #cvrt-roadmap .cvrt-slot-sketch-note {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--ash);
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    #cvrt-roadmap .cvrt-footer {
+      border-top: 2px solid var(--black);
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      animation: fadeIn 0.4s ease-out 1s both;
+    }
+
+    #cvrt-roadmap .cvrt-footer-left {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    #cvrt-roadmap .cvrt-footer-mark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: var(--charcoal);
+      letter-spacing: 0.04em;
+    }
+
+    #cvrt-roadmap .cvrt-footer-mark span {
+      color: var(--coral);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #cvrt-roadmap .cvrt-topbar { padding: 16px 24px; }
+      #cvrt-roadmap .cvrt-hero { padding: 40px 24px 48px; }
+      #cvrt-roadmap .cvrt-hero-title { font-size: 56px; }
+      #cvrt-roadmap .cvrt-hero-meta { flex-wrap: wrap; gap: 10px; }
+      #cvrt-roadmap .cvrt-content { padding: 0 24px; }
+      #cvrt-roadmap .cvrt-section { padding: 36px 0; }
+      #cvrt-roadmap .cvrt-section-header { grid-template-columns: 1fr; gap: 16px; }
+      #cvrt-roadmap .cvrt-slot { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+      #cvrt-roadmap .cvrt-slot-index { font-size: 44px; }
+      #cvrt-roadmap .cvrt-slot h3 { font-size: 28px; }
+      #cvrt-roadmap .cvrt-footer { padding: 16px 24px; flex-direction: column; gap: 8px; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      #cvrt-roadmap * { animation: none !important; }
+      #cvrt-roadmap .cvrt-topbar { padding: 16px 32px; }
+      #cvrt-roadmap .cvrt-hero { padding: 32px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      #cvrt-roadmap .cvrt-content { padding: 0 32px; }
+      #cvrt-roadmap .cvrt-slot { break-inside: avoid; }
+      #cvrt-roadmap .cvrt-footer { padding: 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+<div id="cvrt-roadmap">
+
+  <!-- ── TOPBAR ── -->
+  <nav class="cvrt-topbar">
+    <img src="https://www.westonstore.com/cdn/shop/files/Union.svg?v=1690192346&width=180" alt="Weston Store" class="cvrt-topbar-logo">
+    <div class="cvrt-topbar-right">
+      <span class="cvrt-topbar-tag">CRO Testing Roadmap</span>
+      <span class="cvrt-topbar-date">April 2026</span>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="cvrt-hero">
+    <div class="cvrt-hero-inner">
+      <div class="cvrt-hero-title">
+        Testing<br><span class="cvrt-coral">Roadmap</span>
+      </div>
+      <div class="cvrt-hero-meta">
+        <span class="cvrt-hero-meta-item">3 Tests</span>
+        <span class="cvrt-hero-meta-item">Homepage, PDP, Cart</span>
+        <span class="cvrt-hero-meta-item">Trust + Storytelling</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="cvrt-content">
+
+    <!-- Insights -->
+    <div class="cvrt-section">
+      <div class="cvrt-section-header">
+        <div class="cvrt-section-label">What We Found</div>
+        <div class="cvrt-section-body cvrt-insights">
+          <p>Weston's products earn exceptional reviews, but the site undermines that trust with inconsistent messaging and discount-only storytelling. The warranty claim changes on every page. <strong>"Free shipping" appears in trust bars, but the cart reveals a ~$200 threshold.</strong></p>
+          <p>Meanwhile, reviews surface a powerful purchase trigger the site ignores entirely: at least six glove liner buyers name Raynaud's disease as their reason for purchasing, and none of that language appears on the homepage or PDP. <strong>The opportunity is to let the product and its customers do the selling.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slots -->
+    <div class="cvrt-section">
+      <div class="cvrt-section-header">
+        <div class="cvrt-section-label">This Month</div>
+        <div class="cvrt-section-body">
+          <div class="cvrt-slots">
+
+            <!-- Slot 1 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-index">01</div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-tags">
+                  <span class="cvrt-slot-type">A/B Test</span>
+                  <span class="cvrt-slot-page">Homepage</span>
+                </div>
+                <h3>Homepage Hero</h3>
+                <div class="cvrt-slot-desc">Two of three top-performing Meta ads land on the homepage, where the hero is pure discount messaging with no product story or customer proof above the fold. Reviews surface powerful purchase triggers like Raynaud's relief and extreme-weather use cases, while press coverage from Good Housekeeping, People, and Men's Health sits buried below the fold.</div>
+                <div class="cvrt-slot-sketch">
+                  <svg viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Frame -->
+                    <rect x="2" y="2" width="416" height="216" rx="4" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <text x="16" y="18" font-family="Barlow, sans-serif" font-size="8" fill="#888" letter-spacing="0.08em" font-weight="600">HOMEPAGE</text>
+                    <!-- Nav -->
+                    <rect x="16" y="28" width="388" height="18" rx="2" stroke="#ddd" stroke-width="0.8" fill="none"/>
+                    <rect x="22" y="34" width="44" height="7" rx="1" fill="#ddd"/>
+                    <rect x="78" y="35" width="28" height="5" rx="1" fill="#e5e5e5"/>
+                    <rect x="112" y="35" width="28" height="5" rx="1" fill="#e5e5e5"/>
+                    <rect x="146" y="35" width="28" height="5" rx="1" fill="#e5e5e5"/>
+                    <!-- Hero split -->
+                    <rect x="16" y="54" width="388" height="116" rx="3" stroke="#bbb" stroke-dasharray="5 3" fill="#f2f0ed"/>
+                    <!-- Left: story content -->
+                    <rect x="30" y="70" width="160" height="14" rx="2" fill="var(--coral)" opacity="0.65"/>
+                    <rect x="30" y="88" width="130" height="14" rx="2" fill="var(--coral)" opacity="0.45"/>
+                    <rect x="30" y="112" width="160" height="6" rx="1" fill="#ccc"/>
+                    <rect x="30" y="122" width="120" height="6" rx="1" fill="#ccc"/>
+                    <rect x="30" y="138" width="80" height="22" rx="3" fill="var(--coral)" opacity="0.85"/>
+                    <rect x="44" y="146" width="52" height="6" rx="1" fill="white" opacity="0.9"/>
+                    <!-- Right: product image -->
+                    <rect x="220" y="60" width="172" height="104" rx="3" stroke="#bbb" stroke-dasharray="4 2" fill="#eee"/>
+                    <line x1="220" y1="60" x2="392" y2="164" stroke="#ccc" stroke-dasharray="3 3"/>
+                    <line x1="392" y1="60" x2="220" y2="164" stroke="#ccc" stroke-dasharray="3 3"/>
+                    <!-- Press bar -->
+                    <rect x="16" y="178" width="388" height="22" rx="2" fill="none" stroke="#ddd" stroke-dasharray="4 2"/>
+                    <text x="28" y="192" font-family="Barlow, sans-serif" font-size="6" fill="var(--coral)" letter-spacing="0.08em" font-weight="600">AS SEEN IN</text>
+                    <rect x="80" y="186" width="48" height="7" rx="1" fill="#ddd"/>
+                    <rect x="140" y="186" width="48" height="7" rx="1" fill="#ddd"/>
+                    <rect x="200" y="186" width="48" height="7" rx="1" fill="#ddd"/>
+                    <rect x="260" y="186" width="48" height="7" rx="1" fill="#ddd"/>
+                    <!-- Annotation -->
+                    <text x="260" y="210" font-family="Barlow, sans-serif" font-size="7" fill="var(--coral)" letter-spacing="0.06em" font-weight="600">STORY-LED HERO</text>
+                  </svg>
+                  <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 2 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-index">02</div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-tags">
+                  <span class="cvrt-slot-type">A/B Test</span>
+                  <span class="cvrt-slot-page">Product page</span>
+                </div>
+                <h3>Glove Liners PDP</h3>
+                <div class="cvrt-slot-desc">Six reviewers explicitly name Raynaud's disease as their purchase trigger, and multiple others highlight touch screen compatibility as the key differentiator over competitors. The current PDP bullets are feature-led and generic, missing the specific language that drives purchases.</div>
+                <div class="cvrt-slot-sketch">
+                  <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Frame -->
+                    <rect x="2" y="2" width="416" height="256" rx="4" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <text x="16" y="18" font-family="Barlow, sans-serif" font-size="8" fill="#888" letter-spacing="0.08em" font-weight="600">PRODUCT PAGE</text>
+                    <!-- Product image -->
+                    <rect x="16" y="30" width="180" height="180" rx="3" stroke="#bbb" stroke-dasharray="5 3" fill="#f2f0ed"/>
+                    <line x1="16" y1="30" x2="196" y2="210" stroke="#ccc" stroke-dasharray="3 3"/>
+                    <line x1="196" y1="30" x2="16" y2="210" stroke="#ccc" stroke-dasharray="3 3"/>
+                    <!-- Right column -->
+                    <rect x="212" y="30" width="100" height="8" rx="1" fill="#ddd"/>
+                    <rect x="212" y="44" width="160" height="14" rx="2" fill="#ccc"/>
+                    <rect x="212" y="64" width="60" height="12" rx="2" fill="#ddd"/>
+                    <!-- Bullet points -->
+                    <rect x="212" y="90" width="6" height="6" rx="1" fill="var(--coral)" opacity="0.7"/>
+                    <rect x="224" y="90" width="150" height="6" rx="1" fill="#ddd"/>
+                    <rect x="212" y="106" width="6" height="6" rx="1" fill="var(--coral)" opacity="0.7"/>
+                    <rect x="224" y="106" width="130" height="6" rx="1" fill="#ddd"/>
+                    <rect x="212" y="122" width="6" height="6" rx="1" fill="var(--coral)" opacity="0.7"/>
+                    <rect x="224" y="122" width="160" height="6" rx="1" fill="#ddd"/>
+                    <rect x="212" y="138" width="6" height="6" rx="1" fill="var(--coral)" opacity="0.7"/>
+                    <rect x="224" y="138" width="120" height="6" rx="1" fill="#ddd"/>
+                    <!-- ATC button -->
+                    <rect x="212" y="158" width="180" height="26" rx="3" fill="var(--coral)" opacity="0.85"/>
+                    <rect x="260" y="168" width="84" height="7" rx="1" fill="white" opacity="0.9"/>
+                    <!-- Review callout card -->
+                    <rect x="16" y="222" width="388" height="28" rx="3" stroke="var(--coral)" stroke-width="1.2" stroke-dasharray="5 3" fill="var(--coral)" fill-opacity="0.04"/>
+                    <rect x="28" y="232" width="8" height="8" rx="1" fill="var(--coral)" opacity="0.45"/>
+                    <rect x="38" y="232" width="8" height="8" rx="1" fill="var(--coral)" opacity="0.45"/>
+                    <rect x="48" y="232" width="8" height="8" rx="1" fill="var(--coral)" opacity="0.45"/>
+                    <rect x="58" y="232" width="8" height="8" rx="1" fill="var(--coral)" opacity="0.45"/>
+                    <rect x="68" y="232" width="8" height="8" rx="1" fill="var(--coral)" opacity="0.45"/>
+                    <rect x="84" y="232" width="220" height="6" rx="1" fill="#ccc"/>
+                    <text x="252" y="210" font-family="Barlow, sans-serif" font-size="7" fill="var(--coral)" letter-spacing="0.06em" font-weight="600">RAYNAUD'S SOCIAL PROOF</text>
+                  </svg>
+                  <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 3 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-index">03</div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-tags">
+                  <span class="cvrt-slot-type">A/B Test</span>
+                  <span class="cvrt-slot-page">Cart drawer (site-wide)</span>
+                </div>
+                <h3>Cart Drawer</h3>
+                <div class="cvrt-slot-desc">The cart drawer shows no savings summary despite products being 25-53% off. "Free shipping" appears in trust bars across the site, but the cart reveals a ~$200 threshold. Below the checkout button, "Discounts, Taxes are calculated at checkout" creates price uncertainty at the final step.</div>
+                <div class="cvrt-slot-sketch">
+                  <svg viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Frame -->
+                    <rect x="2" y="2" width="416" height="276" rx="4" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
+                    <!-- Overlay / page behind -->
+                    <rect x="12" y="12" width="156" height="256" fill="#e8e8e8" opacity="0.4"/>
+                    <text x="60" y="140" font-family="Barlow, sans-serif" font-size="8" fill="#bbb" transform="rotate(-90 60 140)">PAGE CONTENT</text>
+                    <!-- Cart drawer panel -->
+                    <rect x="176" y="12" width="232" height="256" rx="3" stroke="#aaa" stroke-width="1" fill="#fff"/>
+                    <!-- Header -->
+                    <text x="192" y="34" font-family="Bebas Neue, sans-serif" font-size="14" fill="#1a1a1a" letter-spacing="0.04em">CART</text>
+                    <line x1="390" y1="26" x2="398" y2="34" stroke="#aaa" stroke-width="1.2"/>
+                    <line x1="398" y1="26" x2="390" y2="34" stroke="#aaa" stroke-width="1.2"/>
+                    <!-- Shipping bar -->
+                    <rect x="192" y="44" width="208" height="6" rx="3" fill="#eee"/>
+                    <rect x="192" y="44" width="80" height="6" rx="3" fill="var(--coral)" opacity="0.6"/>
+                    <rect x="192" y="56" width="180" height="5" rx="1" fill="#ddd"/>
+                    <text x="192" y="56" font-family="Barlow, sans-serif" font-size="6" fill="var(--coral)" letter-spacing="0.04em" font-weight="600" opacity="0">THRESHOLD</text>
+                    <!-- Line item -->
+                    <line x1="192" y1="68" x2="400" y2="68" stroke="#eee" stroke-width="0.6"/>
+                    <rect x="192" y="76" width="44" height="44" rx="2" stroke="#ccc" stroke-dasharray="3 2" fill="#f2f0ed"/>
+                    <rect x="244" y="78" width="90" height="6" rx="1" fill="#ccc"/>
+                    <rect x="244" y="88" width="54" height="6" rx="1" fill="#ddd"/>
+                    <rect x="244" y="102" width="44" height="6" rx="1" fill="#bbb"/>
+                    <!-- Savings line -->
+                    <rect x="244" y="114" width="80" height="6" rx="1" fill="var(--coral)" opacity="0.3"/>
+                    <text x="244" y="112" font-family="Barlow, sans-serif" font-size="6" fill="var(--coral)" letter-spacing="0.04em" font-weight="600" opacity="0">SAVINGS</text>
+                    <!-- Upsell -->
+                    <line x1="192" y1="132" x2="400" y2="132" stroke="#eee" stroke-width="0.6"/>
+                    <rect x="192" y="140" width="208" height="26" rx="2" stroke="#ddd" stroke-dasharray="4 2" fill="none"/>
+                    <rect x="200" y="148" width="24" height="12" rx="2" fill="#eee"/>
+                    <rect x="232" y="150" width="80" height="6" rx="1" fill="#ddd"/>
+                    <rect x="344" y="146" width="48" height="14" rx="2" stroke="#bbb" fill="none"/>
+                    <!-- Total savings highlight -->
+                    <line x1="192" y1="178" x2="400" y2="178" stroke="#eee" stroke-width="0.6"/>
+                    <rect x="192" y="186" width="120" height="7" rx="1" fill="var(--coral)" opacity="0.3"/>
+                    <text x="286" y="200" font-family="Barlow, sans-serif" font-size="7" fill="var(--coral)" letter-spacing="0.06em" font-weight="600">SAVINGS VISIBILITY</text>
+                    <!-- Subtotal -->
+                    <rect x="192" y="212" width="60" height="7" rx="1" fill="#bbb"/>
+                    <rect x="364" y="212" width="36" height="7" rx="1" fill="#1a1a1a" opacity="0.6"/>
+                    <!-- Checkout -->
+                    <rect x="192" y="230" width="208" height="26" rx="3" fill="var(--coral)" opacity="0.85"/>
+                    <rect x="260" y="239" width="72" height="8" rx="1" fill="white" opacity="0.9"/>
+                  </svg>
+                  <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="cvrt-footer">
+    <span class="cvrt-footer-left">April 2026</span>
+    <span class="cvrt-footer-mark"><span>Convertibles</span> CRO</span>
+  </footer>
+
+</div>
+</body>
+</html>

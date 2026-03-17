@@ -79,7 +79,7 @@
     }
 
     /* -- TOPBAR -- */
-    #cvrt-roadmap .topbar {
+    #cvrt-roadmap .cvrt-topbar {
       padding: 24px 48px;
       display: flex;
       justify-content: space-between;
@@ -89,7 +89,7 @@
       animation: fadeIn 0.5s ease-out both;
     }
 
-    #cvrt-roadmap .topbar-brand {
+    #cvrt-roadmap .cvrt-topbar-brand {
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       font-weight: 700;
@@ -98,20 +98,20 @@
       color: var(--charcoal);
     }
 
-    #cvrt-roadmap .topbar-right {
+    #cvrt-roadmap .cvrt-topbar-right {
       display: flex;
       align-items: baseline;
       gap: 16px;
     }
 
-    #cvrt-roadmap .topbar-tag {
+    #cvrt-roadmap .cvrt-topbar-tag {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       font-style: italic;
       color: var(--ash);
     }
 
-    #cvrt-roadmap .topbar-date {
+    #cvrt-roadmap .cvrt-topbar-date {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 500;
@@ -121,14 +121,14 @@
     }
 
     /* -- HERO -- */
-    #cvrt-roadmap .hero {
+    #cvrt-roadmap .cvrt-hero {
       background: var(--dark);
       padding: 64px 48px 72px;
       position: relative;
       overflow: hidden;
     }
 
-    #cvrt-roadmap .hero::before {
+    #cvrt-roadmap .cvrt-hero::before {
       content: '';
       position: absolute;
       top: -40%;
@@ -139,7 +139,7 @@
       pointer-events: none;
     }
 
-    #cvrt-roadmap .hero::after {
+    #cvrt-roadmap .cvrt-hero::after {
       content: '';
       position: absolute;
       top: 0;
@@ -149,14 +149,14 @@
       background: var(--brand);
     }
 
-    #cvrt-roadmap .hero-inner {
+    #cvrt-roadmap .cvrt-hero-inner {
       max-width: 1100px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
-    #cvrt-roadmap .hero-eyebrow {
+    #cvrt-roadmap .cvrt-hero-eyebrow {
       display: block;
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
@@ -168,7 +168,7 @@
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
     }
 
-    #cvrt-roadmap .hero-title {
+    #cvrt-roadmap .cvrt-hero-title {
       font-family: 'DM Sans', sans-serif;
       font-size: clamp(56px, 8vw, 96px);
       font-weight: 700;
@@ -178,19 +178,19 @@
       animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
     }
 
-    #cvrt-roadmap .hero-title .brand {
+    #cvrt-roadmap .cvrt-hero-title .cvrt-brand {
       color: var(--brand);
       display: block;
     }
 
-    #cvrt-roadmap .hero-meta {
+    #cvrt-roadmap .cvrt-hero-meta {
       display: flex;
       gap: 20px;
       padding-top: 32px;
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
     }
 
-    #cvrt-roadmap .hero-meta-item {
+    #cvrt-roadmap .cvrt-hero-meta-item {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 500;
@@ -199,42 +199,42 @@
       color: var(--ash);
     }
 
-    #cvrt-roadmap .hero-meta-item::before {
+    #cvrt-roadmap .cvrt-hero-meta-item::before {
       content: '[ ';
       color: rgba(255,255,255,0.2);
     }
 
-    #cvrt-roadmap .hero-meta-item::after {
+    #cvrt-roadmap .cvrt-hero-meta-item::after {
       content: ' ]';
       color: rgba(255,255,255,0.2);
     }
 
     /* -- TABS -- */
-    #cvrt-roadmap .tabs {
+    #cvrt-roadmap .cvrt-tabs {
       position: relative;
     }
 
-    #cvrt-roadmap .tabs input[type="radio"] {
+    #cvrt-roadmap .cvrt-tabs input[type="radio"] {
       position: absolute;
       opacity: 0;
       pointer-events: none;
     }
 
-    #cvrt-roadmap .tab-nav {
+    #cvrt-roadmap .cvrt-tab-nav {
       background: var(--dark);
       border-top: 1px solid rgba(255,255,255,0.06);
       display: flex;
       padding: 0 48px;
     }
 
-    #cvrt-roadmap .tab-nav-inner {
+    #cvrt-roadmap .cvrt-tab-nav-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
       width: 100%;
     }
 
-    #cvrt-roadmap .tab-nav label {
+    #cvrt-roadmap .cvrt-tab-nav label {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 500;
@@ -250,11 +250,11 @@
       gap: 10px;
     }
 
-    #cvrt-roadmap .tab-nav label:hover {
+    #cvrt-roadmap .cvrt-tab-nav label:hover {
       color: rgba(255,255,255,0.6);
     }
 
-    #cvrt-roadmap .tab-nav label::after {
+    #cvrt-roadmap .cvrt-tab-nav label::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -265,7 +265,7 @@
       transition: background 0.25s ease;
     }
 
-    #cvrt-roadmap .tab-nav label .tab-count {
+    #cvrt-roadmap .cvrt-tab-nav label .cvrt-tab-count {
       font-family: 'DM Sans', sans-serif;
       font-size: 10px;
       font-weight: 600;
@@ -276,58 +276,58 @@
     }
 
     /* Active tab states */
-    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-nav label[for="tab-month1"],
-    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-nav label[for="tab-month2"],
-    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-nav label[for="tab-month3"] {
+    #cvrt-roadmap .cvrt-tabs #tab-month1:checked ~ .cvrt-tab-nav label[for="tab-month1"],
+    #cvrt-roadmap .cvrt-tabs #tab-month2:checked ~ .cvrt-tab-nav label[for="tab-month2"],
+    #cvrt-roadmap .cvrt-tabs #tab-month3:checked ~ .cvrt-tab-nav label[for="tab-month3"] {
       color: var(--white);
     }
 
-    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-nav label[for="tab-month1"]::after,
-    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-nav label[for="tab-month2"]::after,
-    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-nav label[for="tab-month3"]::after {
+    #cvrt-roadmap .cvrt-tabs #tab-month1:checked ~ .cvrt-tab-nav label[for="tab-month1"]::after,
+    #cvrt-roadmap .cvrt-tabs #tab-month2:checked ~ .cvrt-tab-nav label[for="tab-month2"]::after,
+    #cvrt-roadmap .cvrt-tabs #tab-month3:checked ~ .cvrt-tab-nav label[for="tab-month3"]::after {
       background: var(--brand);
     }
 
-    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-nav label[for="tab-month1"] .tab-count,
-    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-nav label[for="tab-month2"] .tab-count,
-    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-nav label[for="tab-month3"] .tab-count {
+    #cvrt-roadmap .cvrt-tabs #tab-month1:checked ~ .cvrt-tab-nav label[for="tab-month1"] .cvrt-tab-count,
+    #cvrt-roadmap .cvrt-tabs #tab-month2:checked ~ .cvrt-tab-nav label[for="tab-month2"] .cvrt-tab-count,
+    #cvrt-roadmap .cvrt-tabs #tab-month3:checked ~ .cvrt-tab-nav label[for="tab-month3"] .cvrt-tab-count {
       background: var(--brand);
       color: var(--white);
     }
 
     /* Tab panels */
-    #cvrt-roadmap .tab-panel {
+    #cvrt-roadmap .cvrt-tab-panel {
       display: none;
     }
 
-    #cvrt-roadmap .tabs #tab-month1:checked ~ .tab-panels .tab-panel-1 {
+    #cvrt-roadmap .cvrt-tabs #tab-month1:checked ~ .cvrt-tab-panels .cvrt-tab-panel-1 {
       display: block;
     }
 
-    #cvrt-roadmap .tabs #tab-month2:checked ~ .tab-panels .tab-panel-2 {
+    #cvrt-roadmap .cvrt-tabs #tab-month2:checked ~ .cvrt-tab-panels .cvrt-tab-panel-2 {
       display: block;
     }
 
-    #cvrt-roadmap .tabs #tab-month3:checked ~ .tab-panels .tab-panel-3 {
+    #cvrt-roadmap .cvrt-tabs #tab-month3:checked ~ .cvrt-tab-panels .cvrt-tab-panel-3 {
       display: block;
     }
 
     /* -- CONTENT -- */
-    #cvrt-roadmap .content {
+    #cvrt-roadmap .cvrt-content {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 48px;
     }
 
     /* -- MONTH THEME -- */
-    #cvrt-roadmap .month-theme {
+    #cvrt-roadmap .cvrt-month-theme {
       margin-bottom: 8px;
       padding: 28px 32px;
       background: var(--dark);
       border-left: 3px solid var(--brand);
     }
 
-    #cvrt-roadmap .month-theme-label {
+    #cvrt-roadmap .cvrt-month-theme-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       font-weight: 600;
@@ -337,7 +337,7 @@
       margin-bottom: 6px;
     }
 
-    #cvrt-roadmap .month-theme-title {
+    #cvrt-roadmap .cvrt-month-theme-title {
       font-family: 'DM Sans', sans-serif;
       font-size: 24px;
       font-weight: 700;
@@ -345,7 +345,7 @@
       line-height: 1.2;
     }
 
-    #cvrt-roadmap .month-theme-desc {
+    #cvrt-roadmap .cvrt-month-theme-desc {
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       line-height: 1.65;
@@ -354,35 +354,35 @@
       max-width: 600px;
     }
 
-    #cvrt-roadmap .month-theme-desc a {
+    #cvrt-roadmap .cvrt-month-theme-desc a {
       color: var(--brand);
       text-decoration: none;
       border-bottom: 1px solid rgba(232, 105, 45, 0.3);
       transition: border-color 0.2s ease;
     }
 
-    #cvrt-roadmap .month-theme-desc a:hover {
+    #cvrt-roadmap .cvrt-month-theme-desc a:hover {
       border-bottom-color: var(--brand);
     }
 
     /* -- SECTION -- */
-    #cvrt-roadmap .section {
+    #cvrt-roadmap .cvrt-section {
       padding: 56px 0;
       border-bottom: 1px solid var(--rule);
     }
 
-    #cvrt-roadmap .section:last-child {
+    #cvrt-roadmap .cvrt-section:last-child {
       border-bottom: none;
     }
 
-    #cvrt-roadmap .section-header {
+    #cvrt-roadmap .cvrt-section-header {
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: 48px;
       align-items: start;
     }
 
-    #cvrt-roadmap .section-label {
+    #cvrt-roadmap .cvrt-section-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 600;
@@ -394,7 +394,7 @@
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
     }
 
-    #cvrt-roadmap .section-label::before {
+    #cvrt-roadmap .cvrt-section-label::before {
       content: '';
       position: absolute;
       top: 0;
@@ -406,12 +406,12 @@
       transform-origin: left;
     }
 
-    #cvrt-roadmap .section-body {
+    #cvrt-roadmap .cvrt-section-body {
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
     }
 
     /* -- INSIGHTS -- */
-    #cvrt-roadmap .insights p {
+    #cvrt-roadmap .cvrt-insights p {
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       line-height: 1.7;
@@ -420,22 +420,22 @@
       max-width: 640px;
     }
 
-    #cvrt-roadmap .insights p:last-child {
+    #cvrt-roadmap .cvrt-insights p:last-child {
       margin-bottom: 0;
     }
 
-    #cvrt-roadmap .insights strong {
+    #cvrt-roadmap .cvrt-insights strong {
       font-weight: 700;
       color: var(--brand);
     }
 
     /* -- SLOTS -- */
-    #cvrt-roadmap .slots {
+    #cvrt-roadmap .cvrt-slots {
       display: flex;
       flex-direction: column;
     }
 
-    #cvrt-roadmap .slot {
+    #cvrt-roadmap .cvrt-slot {
       display: grid;
       grid-template-columns: 80px 1fr;
       gap: 32px;
@@ -444,15 +444,15 @@
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    #cvrt-roadmap .slot:first-child {
+    #cvrt-roadmap .cvrt-slot:first-child {
       border-top: none;
     }
 
-    #cvrt-roadmap .slot:nth-child(1) { animation-delay: 0.6s; }
-    #cvrt-roadmap .slot:nth-child(2) { animation-delay: 0.7s; }
-    #cvrt-roadmap .slot:nth-child(3) { animation-delay: 0.8s; }
+    #cvrt-roadmap .cvrt-slot:nth-child(1) { animation-delay: 0.6s; }
+    #cvrt-roadmap .cvrt-slot:nth-child(2) { animation-delay: 0.7s; }
+    #cvrt-roadmap .cvrt-slot:nth-child(3) { animation-delay: 0.8s; }
 
-    #cvrt-roadmap .slot-index {
+    #cvrt-roadmap .cvrt-slot-index {
       font-family: 'DM Sans', sans-serif;
       font-size: 48px;
       font-weight: 700;
@@ -462,7 +462,7 @@
       position: relative;
     }
 
-    #cvrt-roadmap .slot-index::after {
+    #cvrt-roadmap .cvrt-slot-index::after {
       content: '';
       position: absolute;
       bottom: -8px;
@@ -472,18 +472,18 @@
       background: var(--brand);
     }
 
-    #cvrt-roadmap .slot-body {
+    #cvrt-roadmap .cvrt-slot-body {
       min-width: 0;
     }
 
-    #cvrt-roadmap .slot-tags {
+    #cvrt-roadmap .cvrt-slot-tags {
       display: flex;
       gap: 12px;
       align-items: center;
       margin-bottom: 10px;
     }
 
-    #cvrt-roadmap .slot-type {
+    #cvrt-roadmap .cvrt-slot-type {
       font-family: 'DM Sans', sans-serif;
       font-size: 10px;
       font-weight: 600;
@@ -494,19 +494,19 @@
       color: var(--white);
     }
 
-    #cvrt-roadmap .slot-type-dev {
+    #cvrt-roadmap .cvrt-slot-type-dev {
       background: var(--dark);
       color: var(--white);
     }
 
-    #cvrt-roadmap .slot-page-name {
+    #cvrt-roadmap .cvrt-slot-page-name {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       color: var(--ash);
       letter-spacing: 0.04em;
     }
 
-    #cvrt-roadmap .slot h3 {
+    #cvrt-roadmap .cvrt-slot h3 {
       font-family: 'DM Sans', sans-serif;
       font-size: 28px;
       font-weight: 700;
@@ -515,7 +515,7 @@
       margin-bottom: 6px;
     }
 
-    #cvrt-roadmap .slot-desc {
+    #cvrt-roadmap .cvrt-slot-desc {
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
       line-height: 1.7;
@@ -523,17 +523,17 @@
       max-width: 580px;
     }
 
-    #cvrt-roadmap .slot-sketch {
+    #cvrt-roadmap .cvrt-slot-sketch {
       margin-top: 24px;
     }
 
-    #cvrt-roadmap .slot-sketch svg {
+    #cvrt-roadmap .cvrt-slot-sketch svg {
       width: 100%;
       max-width: 420px;
       height: auto;
     }
 
-    #cvrt-roadmap .slot-sketch-note {
+    #cvrt-roadmap .cvrt-slot-sketch-note {
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       font-style: italic;
@@ -542,7 +542,7 @@
     }
 
     /* -- FOOTER -- */
-    #cvrt-roadmap .footer {
+    #cvrt-roadmap .cvrt-footer {
       border-top: 2px solid var(--dark);
       padding: 24px 48px;
       text-align: center;
@@ -550,7 +550,7 @@
       animation: fadeIn 0.5s ease-out 1s both;
     }
 
-    #cvrt-roadmap .footer-text {
+    #cvrt-roadmap .cvrt-footer-text {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
       font-weight: 500;
@@ -561,96 +561,96 @@
 
     /* -- RESPONSIVE -- */
     @media (max-width: 768px) {
-      #cvrt-roadmap .topbar { padding: 20px 24px; }
-      #cvrt-roadmap .topbar-right { gap: 10px; }
-      #cvrt-roadmap .hero { padding: 40px 24px 48px; }
-      #cvrt-roadmap .hero-title { font-size: 56px; }
-      #cvrt-roadmap .hero-meta { flex-wrap: wrap; gap: 12px; }
-      #cvrt-roadmap .tab-nav {
+      #cvrt-roadmap .cvrt-topbar { padding: 20px 24px; }
+      #cvrt-roadmap .cvrt-topbar-right { gap: 10px; }
+      #cvrt-roadmap .cvrt-hero { padding: 40px 24px 48px; }
+      #cvrt-roadmap .cvrt-hero-title { font-size: 56px; }
+      #cvrt-roadmap .cvrt-hero-meta { flex-wrap: wrap; gap: 12px; }
+      #cvrt-roadmap .cvrt-tab-nav {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         padding: 0 24px;
       }
-      #cvrt-roadmap .tab-nav label {
+      #cvrt-roadmap .cvrt-tab-nav label {
         padding: 16px 20px;
         font-size: 11px;
         white-space: nowrap;
       }
-      #cvrt-roadmap .content { padding: 0 24px; }
-      #cvrt-roadmap .section { padding: 40px 0; }
-      #cvrt-roadmap .section-header { grid-template-columns: 1fr; gap: 20px; }
-      #cvrt-roadmap .slot { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
-      #cvrt-roadmap .slot-index { font-size: 40px; }
-      #cvrt-roadmap .slot h3 { font-size: 26px; }
-      #cvrt-roadmap .footer { padding: 20px 24px; }
+      #cvrt-roadmap .cvrt-content { padding: 0 24px; }
+      #cvrt-roadmap .cvrt-section { padding: 40px 0; }
+      #cvrt-roadmap .cvrt-section-header { grid-template-columns: 1fr; gap: 20px; }
+      #cvrt-roadmap .cvrt-slot { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+      #cvrt-roadmap .cvrt-slot-index { font-size: 40px; }
+      #cvrt-roadmap .cvrt-slot h3 { font-size: 26px; }
+      #cvrt-roadmap .cvrt-footer { padding: 20px 24px; }
     }
 
     /* -- PRINT -- */
     @media print {
       #cvrt-roadmap * { animation: none !important; }
-      #cvrt-roadmap .topbar { padding: 16px 32px; }
-      #cvrt-roadmap .hero { padding: 32px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      #cvrt-roadmap .tab-nav { display: none; }
-      #cvrt-roadmap .tab-panel { display: block !important; }
-      #cvrt-roadmap .content { padding: 0 32px; }
-      #cvrt-roadmap .slot { break-inside: avoid; }
-      #cvrt-roadmap .footer { padding: 16px 32px; }
+      #cvrt-roadmap .cvrt-topbar { padding: 16px 32px; }
+      #cvrt-roadmap .cvrt-hero { padding: 32px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      #cvrt-roadmap .cvrt-tab-nav { display: none; }
+      #cvrt-roadmap .cvrt-tab-panel { display: block !important; }
+      #cvrt-roadmap .cvrt-content { padding: 0 32px; }
+      #cvrt-roadmap .cvrt-slot { break-inside: avoid; }
+      #cvrt-roadmap .cvrt-footer { padding: 16px 32px; }
     }
   
 </style>
 
 <div id="cvrt-roadmap">
 <!-- -- TOPBAR -- -->
-  <nav class="topbar">
-    <div class="topbar-brand">Norse Organics</div>
-    <div class="topbar-right">
-      <div class="topbar-tag">CRO Testing Roadmap</div>
-      <div class="topbar-date">Spring 2026</div>
+  <nav class="cvrt-topbar">
+    <div class="cvrt-topbar-brand">Norse Organics</div>
+    <div class="cvrt-topbar-right">
+      <div class="cvrt-topbar-tag">CRO Testing Roadmap</div>
+      <div class="cvrt-topbar-date">Spring 2026</div>
     </div>
   </nav>
 
   <!-- -- HERO -- -->
-  <header class="hero">
-    <div class="hero-inner">
-      <span class="hero-eyebrow">Spring 2026</span>
-      <div class="hero-title">
-        Testing<br><span class="brand">Roadmap</span>
+  <header class="cvrt-hero">
+    <div class="cvrt-hero-inner">
+      <span class="cvrt-hero-eyebrow">Spring 2026</span>
+      <div class="cvrt-hero-title">
+        Testing<br><span class="cvrt-brand">Roadmap</span>
       </div>
-      <div class="hero-meta">
-        <span class="hero-meta-item">9 Tests</span>
-        <span class="hero-meta-item">3 Months</span>
-        <span class="hero-meta-item">Trust, Value, Agentic Commerce</span>
+      <div class="cvrt-hero-meta">
+        <span class="cvrt-hero-meta-item">9 Tests</span>
+        <span class="cvrt-hero-meta-item">3 Months</span>
+        <span class="cvrt-hero-meta-item">Trust, Value, Agentic Commerce</span>
       </div>
     </div>
   </header>
 
   <!-- -- TABS -- -->
-  <div class="tabs">
+  <div class="cvrt-tabs">
     <input type="radio" name="month" id="tab-month1" checked>
     <input type="radio" name="month" id="tab-month2">
     <input type="radio" name="month" id="tab-month3">
 
-    <nav class="tab-nav">
-      <div class="tab-nav-inner">
-        <label for="tab-month1">Month 1 <span class="tab-count">3 slots</span></label>
-        <label for="tab-month2">Month 2 <span class="tab-count">3 slots</span></label>
-        <label for="tab-month3">Month 3 <span class="tab-count">3 slots</span></label>
+    <nav class="cvrt-tab-nav">
+      <div class="cvrt-tab-nav-inner">
+        <label for="tab-month1">Month 1 <span class="cvrt-tab-count">3 slots</span></label>
+        <label for="tab-month2">Month 2 <span class="cvrt-tab-count">3 slots</span></label>
+        <label for="tab-month3">Month 3 <span class="cvrt-tab-count">3 slots</span></label>
       </div>
     </nav>
 
-    <div class="tab-panels">
+    <div class="cvrt-tab-panels">
 
       <!-- ====================================== -->
       <!-- MONTH 1: TRUST & MESSAGE MATCH          -->
       <!-- ====================================== -->
-      <div class="tab-panel tab-panel-1">
-        <main class="content">
+      <div class="cvrt-tab-panel cvrt-tab-panel-1">
+        <main class="cvrt-content">
 
           <!-- Insights -->
-          <div class="section">
-            <div class="section-header">
-              <div class="section-label">Insights</div>
-              <div class="section-body insights">
+          <div class="cvrt-section">
+            <div class="cvrt-section-header">
+              <div class="cvrt-section-label">Insights</div>
+              <div class="cvrt-section-body cvrt-insights">
                 <p>The site's strongest assets (409 clinicians on FrontrowMD, 6,328+ reviews, 60-day guarantee, a unique Arctic botanical story) are buried under countdown timers, conflicting discounts, and urgency tactics that customers call "scammy." <strong>The ads bring them in. The pages push them away.</strong></p>
                 <p>Your top 3 Meta ads have run 5+ months. They convert. But the landing pages don't continue their story. Ad #1 targets parents of teens with 25% off, landing page shows 45% off. Ad #3 tells an ingredient education story, landing page replaces it with a discount headline. <strong>The ads do their job. The pages aren't finishing it.</strong></p>
               </div>
@@ -658,23 +658,23 @@
           </div>
 
           <!-- Slots -->
-          <div class="section">
-            <div class="section-header">
-              <div class="section-label">This Month</div>
-              <div class="section-body">
-                <div class="slots">
+          <div class="cvrt-section">
+            <div class="cvrt-section-header">
+              <div class="cvrt-section-label">This Month</div>
+              <div class="cvrt-section-body">
+                <div class="cvrt-slots">
 
                   <!-- Slot 1 -->
-                  <div class="slot">
-                    <div class="slot-index">01</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">/pages/stop-acne, 258,929 sessions/mo</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">01</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">/pages/stop-acne, 258,929 sessions/mo</span>
                       </div>
                       <h3>Landing Page Trust &amp; Message Match</h3>
-                      <div class="slot-desc">Replace the discount-first hero on your highest-traffic landing page with trust-led messaging that matches what your ads promise. We'll test whether leading with credibility (clinician endorsement, reviews, guarantee) or ingredient education (Arctic botanicals story) converts better than urgency tactics.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">This page gets 259K sessions/mo, but the hero leads with "ACNE DAY SALE 45%" and stacks urgency tactics. Ad #1 drives traffic here with a 25% off promise, but visitors land on a page showing 45% off with a different framing. One customer wrote: "I thought I had probably fallen for a scam." Norse's strongest trust assets (409 clinicians, 6,328 reviews, 60-day guarantee) are documented on the PDP but underused on landing pages.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <!-- Browser chrome -->
                           <rect x="2" y="2" width="416" height="276" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
@@ -724,22 +724,22 @@
                           <line x1="16" y1="262" x2="404" y2="262" stroke="#eee" stroke-width="0.75" stroke-dasharray="6 3"/>
                           <text x="160" y="274" font-family="DM Sans, sans-serif" font-size="8" fill="#ddd">discount below the fold</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slot 2 -->
-                  <div class="slot">
-                    <div class="slot-index">02</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">/products/kill-acne-redness-ritual, 83,769 sessions/mo</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">02</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">/products/kill-acne-redness-ritual, 83,769 sessions/mo</span>
                       </div>
                       <h3>PDP Value Reframe</h3>
-                      <div class="slot-desc">Your best-selling product is actually 3 items in one ritual, but the page presents it as a single product at a single price. We'll test whether breaking down the bundle value or elevating trust signals above the price does more to overcome the price objection.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">The Kill Acne Ritual drives 48% of gross revenue. The PDP shows a countdown timer ("PRICE INCREASE IN: 00:09:55"), conflicting discounts (22% one-time vs 45% subscribe vs 40% in header), and "LOWEST PRICE ever" claims. Reviews across Norse products cite price concerns. The ritual is actually 3 products (Night Balm, Day Balm, Face Scrub), but the PDP presents it as a single item. Competitors price acne systems at $34-75.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <!-- Buy box frame -->
                           <rect x="2" y="2" width="416" height="316" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
@@ -783,22 +783,22 @@
                           <rect x="200" y="266" width="196" height="30" rx="6" fill="#E8692D" opacity="0.15"/>
                           <text x="254" y="285" font-family="DM Sans, sans-serif" font-size="10" fill="#E8692D" font-weight="600">ADD TO CART</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slot 3 -->
-                  <div class="slot">
-                    <div class="slot-index">03</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">/pages/stop-acne-teens, 87,446 sessions/mo</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">03</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">/pages/stop-acne-teens, 87,446 sessions/mo</span>
                       </div>
                       <h3>Teen Landing Page Message Match</h3>
-                      <div class="slot-desc">Your teen-targeted ads tell a parent's story about discovering Norse after years of failed treatments. The landing page replaces that story with a generic discount. We'll build a parent-focused page that continues the ad's narrative with ingredient education and parent-specific social proof.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">Ad #3 is a long-form native ad from a mom's perspective about discovering Norse after years of failed teen treatments. It names specific ingredients and critiques "Big Skincare." But the landing page leads with "ACNE DAY SALE 45%," identical to the general acne page. Reviews confirm parent buyers: "Works wonders with my three teenagers," "My 15yr old son and I both use this." Every competitor (Blume, Evereden, Bubble) has dedicated teen branding. Norse doesn't.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <!-- Browser chrome -->
                           <rect x="2" y="2" width="416" height="316" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
@@ -850,7 +850,7 @@
                           <text x="228" y="276" font-family="DM Sans, sans-serif" font-size="8" fill="#E8692D">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
                           <text x="228" y="290" font-family="DM Sans, sans-serif" font-size="8" fill="#999">"My 15yr old son and I both use this!"</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
@@ -866,39 +866,39 @@
       <!-- ====================================== -->
       <!-- MONTH 2: AGENTIC COMMERCE               -->
       <!-- ====================================== -->
-      <div class="tab-panel tab-panel-2">
-        <main class="content">
+      <div class="cvrt-tab-panel cvrt-tab-panel-2">
+        <main class="cvrt-content">
 
-          <div class="section">
-            <div class="section-header">
-              <div class="section-label">&nbsp;</div>
-              <div class="section-body">
-                <div class="month-theme">
-                  <div class="month-theme-label">Month 2 Focus</div>
-                  <div class="month-theme-title">PDP Optimization + Agentic Commerce</div>
-                  <div class="month-theme-desc">Shopify is <a href="https://www.reddit.com/r/shopify/comments/1rrlyne/coming_later_in_march_chatgpt_in_agentic/" target="_blank">launching ChatGPT as an agentic storefront channel</a>. Buyers will discover and purchase products directly inside ChatGPT. What the AI surfaces depends on product content: gallery images, descriptions, and pricing structure. Three PDP tests to make sure Norse shows up right.</div>
+          <div class="cvrt-section">
+            <div class="cvrt-section-header">
+              <div class="cvrt-section-label">&nbsp;</div>
+              <div class="cvrt-section-body">
+                <div class="cvrt-month-theme">
+                  <div class="cvrt-month-theme-label">Month 2 Focus</div>
+                  <div class="cvrt-month-theme-title">PDP Optimization + Agentic Commerce</div>
+                  <div class="cvrt-month-theme-desc">Shopify is <a href="https://www.reddit.com/r/shopify/comments/1rrlyne/coming_later_in_march_chatgpt_in_agentic/" target="_blank">launching ChatGPT as an agentic storefront channel</a>. Buyers will discover and purchase products directly inside ChatGPT. What the AI surfaces depends on product content: gallery images, descriptions, and pricing structure. Three PDP tests to make sure Norse shows up right.</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="section">
-            <div class="section-header">
-              <div class="section-label">This Month</div>
-              <div class="section-body">
-                <div class="slots">
+          <div class="cvrt-section">
+            <div class="cvrt-section-header">
+              <div class="cvrt-section-label">This Month</div>
+              <div class="cvrt-section-body">
+                <div class="cvrt-slots">
 
                   <!-- Slot 1: Product Gallery Optimization -->
-                  <div class="slot">
-                    <div class="slot-index">01</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">Best-seller PDPs</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">01</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">Best-seller PDPs</span>
                       </div>
                       <h3>Product Gallery Optimization</h3>
-                      <div class="slot-desc">Test an optimized gallery sequence that leads with texture close-ups of the balm and beeswax products, application shots, and before/after results instead of the current tin-on-white photography. AI shopping agents pull gallery images as primary product signals.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">Norse's balm/beeswax format is the key differentiator in a market of gels and creams, but we need to audit whether the current PDP gallery communicates this effectively. At $88, the gap between packaging shots and the product experience (texture, application, results) could be a missed opportunity. This slot requires a gallery audit before scoping the test.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
                           <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PRODUCT PAGE</text>
@@ -938,22 +938,22 @@
                           <rect x="232" y="180" width="140" height="6" rx="1" fill="#F0EDE8"/>
                           <rect x="232" y="192" width="160" height="6" rx="1" fill="#F0EDE8"/>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slot 2: Product Description Restructure -->
-                  <div class="slot">
-                    <div class="slot-index">02</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">Kill Acne &amp; Redness Ritual PDP</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">02</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">Kill Acne &amp; Redness Ritual PDP</span>
                       </div>
                       <h3>Product Description Restructure</h3>
-                      <div class="slot-desc">Rewrite the product description to lead with ingredients and the Arctic botanical story instead of discount claims. AI agents parse descriptions to match buyer intent. A description that says "tamanu oil for bacterial acne" will surface for "natural acne treatment" queries. One that says "SAVE 45%" won't.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">The PDP prominently features "SAVE 45% ON YOUR 1ST PURCHASE" and discount mechanics. Norse's differentiators (Arctic botanicals, tamanu oil, beeswax base, 409 clinicians on FrontrowMD) are strong but play second fiddle to urgency tactics on the page. As AI agents begin parsing product content to match buyer queries, description structure will matter more.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
                           <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PRODUCT DESCRIPTION</text>
@@ -995,22 +995,22 @@
 
                           <text x="252" y="200" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">STRUCTURED CONTENT</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slot 3: Subscription Presentation -->
-                  <div class="slot">
-                    <div class="slot-index">03</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">Kill Acne &amp; Redness Ritual PDP</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">03</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">Kill Acne &amp; Redness Ritual PDP</span>
                       </div>
                       <h3>Subscription Presentation</h3>
-                      <div class="slot-desc">Make subscription the default selection with clear savings math instead of hiding the value behind the VIKING10 coupon code. AI agents favor products with transparent, structured subscription pricing over coupon-gated discounts.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">Loop Subscriptions drives 25% of total revenue. The subscribe option on the PDP requires a coupon code (VIKING10) to unlock the 45% discount, adding friction at the point of decision. As AI agents begin surfacing purchase options, transparent subscription pricing will matter more than coupon-gated discounts.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2" y="2" width="416" height="216" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
                           <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">PDP BUY BOX</text>
@@ -1045,7 +1045,7 @@
 
                           <text x="140" y="208" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">SUBSCRIBE DEFAULT + CLEAR SAVINGS</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
@@ -1061,39 +1061,39 @@
       <!-- ====================================== -->
       <!-- MONTH 3: QUIZ & SCHEMA                  -->
       <!-- ====================================== -->
-      <div class="tab-panel tab-panel-3">
-        <main class="content">
+      <div class="cvrt-tab-panel cvrt-tab-panel-3">
+        <main class="cvrt-content">
 
-          <div class="section">
-            <div class="section-header">
-              <div class="section-label">&nbsp;</div>
-              <div class="section-body">
-                <div class="month-theme">
-                  <div class="month-theme-label">Month 3 Focus</div>
-                  <div class="month-theme-title">Quiz Funnel + Structured Data</div>
-                  <div class="month-theme-desc">Two infrastructure plays. Rebuild the quiz for better personalization and conversion. Add structured data so search engines and AI agents can parse Norse's product catalog, reviews, and ingredients correctly. Both compound over time.</div>
+          <div class="cvrt-section">
+            <div class="cvrt-section-header">
+              <div class="cvrt-section-label">&nbsp;</div>
+              <div class="cvrt-section-body">
+                <div class="cvrt-month-theme">
+                  <div class="cvrt-month-theme-label">Month 3 Focus</div>
+                  <div class="cvrt-month-theme-title">Quiz Funnel + Structured Data</div>
+                  <div class="cvrt-month-theme-desc">Two infrastructure plays. Rebuild the quiz for better personalization and conversion. Add structured data so search engines and AI agents can parse Norse's product catalog, reviews, and ingredients correctly. Both compound over time.</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="section">
-            <div class="section-header">
-              <div class="section-label">This Month</div>
-              <div class="section-body">
-                <div class="slots">
+          <div class="cvrt-section">
+            <div class="cvrt-section-header">
+              <div class="cvrt-section-label">This Month</div>
+              <div class="cvrt-section-body">
+                <div class="cvrt-slots">
 
                   <!-- Slot 1: Quiz Funnel Rebuild -->
-                  <div class="slot">
-                    <div class="slot-index">01</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">/pages/quiz-v1, 16,933 sessions/mo</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">01</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">/pages/quiz-v1, 16,933 sessions/mo</span>
                       </div>
                       <h3>Quiz Funnel Rebuild</h3>
-                      <div class="slot-desc">The current quiz gets 17K sessions/mo but the conversion path is unclear. Rebuild with concern-based questions (acne type, severity, skin sensitivity) that lead to personalized product recommendations with ingredient reasoning.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">The quiz page gets 16,933 sessions/mo but we don't yet have data on its conversion rate or completion rate. Quizzes typically convert higher than standard landing pages because they create commitment through interaction. This slot requires a quiz audit before scoping: what does the current flow ask, where do visitors drop off, and how does it route to product recommendations?</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2" y="2" width="416" height="196" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
                           <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">QUIZ FLOW</text>
@@ -1136,22 +1136,22 @@
                           <!-- Label -->
                           <text x="130" y="176" font-family="DM Sans, sans-serif" font-size="7" fill="#E8692D" letter-spacing="0.06em" font-weight="500">CONCERN-BASED QUESTIONS TO PERSONALIZED RECOMMENDATION</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slot 2: Product Schema Enhancement -->
-                  <div class="slot">
-                    <div class="slot-index">02</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type slot-type-dev">Dev Project</span>
-                        <span class="slot-page-name">Site-wide</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">02</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type cvrt-slot-type-dev">Dev Project</span>
+                        <span class="cvrt-slot-page-name">Site-wide</span>
                       </div>
                       <h3>Product Schema Enhancement</h3>
-                      <div class="slot-desc">Add structured data markup for products (review aggregates, ingredient lists, bundle contents, FAQ schema). This feeds both Google rich results and AI agent product parsing. Norse's 6,328 reviews and 409 clinician endorsements should be machine-readable, not just visible on-page.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">Norse has 6,328 reviews, 409 clinician endorsements, and a multi-product bundle structure. Whether this data is currently marked up as structured data (JSON-LD) needs to be audited. Google rich results and AI agents rely on structured data to surface products. If it's missing, Norse is leaving discoverability on the table.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2" y="2" width="416" height="236" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
                           <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">JSON-LD SCHEMA</text>
@@ -1178,22 +1178,22 @@
                           <text x="40" y="208" font-family="monospace" font-size="9" fill="#ddd">]</text>
                           <text x="28" y="222" font-family="monospace" font-size="9" fill="#ddd">}</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slot 3: Homepage Hero Test -->
-                  <div class="slot">
-                    <div class="slot-index">03</div>
-                    <div class="slot-body">
-                      <div class="slot-tags">
-                        <span class="slot-type">A/B Test</span>
-                        <span class="slot-page-name">Homepage, 99,048 sessions/mo</span>
+                  <div class="cvrt-slot">
+                    <div class="cvrt-slot-index">03</div>
+                    <div class="cvrt-slot-body">
+                      <div class="cvrt-slot-tags">
+                        <span class="cvrt-slot-type">A/B Test</span>
+                        <span class="cvrt-slot-page-name">Homepage, 99,048 sessions/mo</span>
                       </div>
                       <h3>Homepage Hero Test</h3>
-                      <div class="slot-desc">The current hero leads with a single customer review (Linda). Test whether leading with the "500,000 Acne Sufferers Cured" claim or the Clinicians' Choice badge converts better for non-ad traffic entering through the homepage.</div>
-                      <div class="slot-sketch">
+                      <div class="cvrt-slot-desc">The homepage gets 99K sessions/mo. The hero leads with a single customer review (Linda) alongside the "500,000 Acne Sufferers Cured" stat and a "BUY NOW - SAVE 40%" CTA. The Clinicians' Choice badge (409 clinicians on FrontrowMD) is a strong differentiator documented on the PDP but not confirmed on the homepage. Testing which trust signal leads could improve conversion for non-ad traffic.</div>
+                      <div class="cvrt-slot-sketch">
                         <svg viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2" y="2" width="416" height="216" rx="6" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 3" fill="#fafaf8"/>
                           <text x="16" y="22" font-family="DM Sans, sans-serif" font-size="8" fill="#9A8E85" letter-spacing="0.08em" font-weight="500">HOMEPAGE HERO</text>
@@ -1226,7 +1226,7 @@
                           <!-- Label -->
                           <text x="130" y="194" font-family="DM Sans, sans-serif" font-size="7" fill="#9A8E85" letter-spacing="0.06em" font-weight="500">TEST SOCIAL PROOF HIERARCHY FOR NON-AD TRAFFIC</text>
                         </svg>
-                        <div class="slot-sketch-note">* Concept illustration only. Final design will differ.</div>
+                        <div class="cvrt-slot-sketch-note">* Concept illustration only. Final design will differ.</div>
                       </div>
                     </div>
                   </div>
@@ -1243,7 +1243,7 @@
   </div>
 
   <!-- -- FOOTER -- -->
-  <footer class="footer">
-    <div class="footer-text">Spring 2026</div>
+  <footer class="cvrt-footer">
+    <div class="cvrt-footer-text">Spring 2026</div>
   </footer>
 </div>
