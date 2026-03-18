@@ -158,9 +158,33 @@ Continue the product description copy test currently running on Bagheera product
 
 Can be tested as part of Slot 2 V3, or independently if the Mother's Day slot goes in a different direction. Redesign the PDP gift wrapping experience: replace the checkbox + "Send a Hint" with a visual gift wrapping module (preview image, personalized message, pricing). Could pair with a Mother's Day shipping cutoff countdown on the PDP itself.
 
-### 8. Homepage Second Fold: Press Bar + Featured Collection
+### 8. Homepage Credibility Bar Test
 
-Redesign the section below the hero. Add a press/social proof bar (Vogue, Oprah, TODAY, etc. if applicable) and test the featured products/collection layout. Heatmap data shows strong engagement through the hero and category tiles, with drop-off at the testimonial section (Source: Heatmaps). PF04 "What to Expect" module won +3.47% RPV on homepage (Source: Previous Tests). Homepage storytelling module case study: +$130,251/mo (Source: Winning Tests Library). 87,697 sessions/mo (Source: Shopify Analytics).
+**Type:** A/B test (4 variations vs. control)
+**Page:** Homepage. 87,697 sessions/mo.
+**Revenue potential:** 87,697 sessions/mo x 0.15% RPV lift (conservative, based on PF04's +3.47% RPV win on homepage) x $193 AOV = ~$25,388/mo
+
+**Hypothesis:** Printfresh has strong credibility assets, but the current bar presents them as flat, equal-weight blocks that dilute each other. If we sharpen the trust bar into a more focused, higher-impact module and test its optimal placement, RPV will increase because half of the traffic is new visitors who lack the brand familiarity needed to justify a $100+ pajama purchase. Price is the #1 purchase objection and trust signals are what bridge the gap between "these are cute" and "these are worth it."
+
+**Data:** Homepage receives 87,697 sessions/mo (Source: Shopify Analytics). Heatmap data shows strong engagement through the hero and category tiles, with drop-off at the testimonial section (Source: Heatmaps). The current USP bar contains four elements: size inclusivity (XS-6X), sustainability (organic cotton, ethically created), review aggregate (4.73 stars, 27,000+ reviews), and press logos (Vogue, People) with a "See All Press" link (Source: Site Screenshots). PF04 "What to Expect" module won +3.47% RPV on the homepage (Source: Previous Tests). Homepage storytelling module case study generated +$130,251/mo (Source: Winning Tests Library). New visitors make up 52.75% of traffic and express low brand trust: "uncertainty about the company... dipping my toes in the water" (Source: Surveys, Shopify Analytics). Price is the #1 purchase objection at 55% of respondents (Source: Surveys).
+
+**V1: Redesigned USP Bar - Original Placement**
+Redesign the existing USP bar in its current position (below the category tiles). The current bar mixes USPs and press into four equal-weight blocks that compete for attention. V1 focuses purely on brand USPs: size inclusivity (XS-6X), sustainability/ethical production, review score (4.73, 27,000+ reviews), and a fourth USP such as free shipping threshold or satisfaction guarantee. Improvements over current: tighter layout, stronger visual hierarchy, icons that read at a glance on mobile, and copy that leads with the benefit rather than the label. Remove the press logos from this bar (they get their own test in V3/V4).
+**Brief:** Design: single-row bar, 4 USP blocks with refined icons and benefit-first copy. Mobile: 2x2 grid or horizontal scroll. Reference current bar for what to improve. Dev: static section, CMS-editable copy and icons. Measure: scroll depth, homepage exit rate, RPV, click-through on "Read About Us" / "Read Sustainability" CTAs.
+
+**V2: Redesigned USP Bar - Under the Hero**
+Same redesigned USP bar as V1, but moved from its current position to directly under the hero, above the category tiles. This places the trust signals at the first moment of pause after the hero image, before the visitor decides where to navigate. The category tiles shift down to accommodate.
+**Brief:** Design: same component as V1, new placement. Verify it does not feel redundant next to the hero CTA or crowd the hero-to-tiles transition. Dev: move section in the homepage template. Track same metrics as V1, plus category tile click-through rate (to measure whether the inserted bar disrupts navigation flow).
+
+**V3: Press Logo Bar - Original Placement**
+Replace the current bar with a dedicated press credibility bar in the same position. Feature only recognizable publication logos (Vogue, People, and any others the client can confirm) with a short quote or mention from each. Format: logo + one-line quote (e.g., Vogue: "The pajamas everyone is obsessed with"). No USP messaging, no review stats. This tests whether third-party credibility alone outperforms the mixed USP approach.
+**Brief:** Design: horizontal bar with publication logos and pull quotes. Clean, editorial feel. Mobile: horizontal scroll or stacked logo-quote pairs. Dev: static section, CMS-editable. Confirm with client which publications have featured Printfresh and get approved quotes. Track same metrics as V1.
+
+**V4: Press Logo Bar - Under the Hero**
+Same press logo bar as V3, but moved to directly under the hero, above the category tiles. This tests the most aggressive credibility play: the first thing a visitor sees after the hero is third-party validation from recognizable publications.
+**Brief:** Design: same component as V3, new placement. Dev: same implementation as V2's repositioning. Track same metrics as V1/V2, including category tile click-through to measure navigation disruption.
+
+**Sequencing note:** This test runs independently of PDP and collection page tests (Slots 1-4). The 2x2 design (content x placement) will reveal whether the bar's content or its position matters more. If the "under the hero" placement wins, it has implications for all homepage tests going forward. Confirm press quotes and publication approvals with the client before design begins.
 
 ### 9. Cart Drawer Value Reinforcement
 
