@@ -169,16 +169,37 @@ Can be tested as part of Slot 2 V3, or independently if the Mother's Day slot go
 **Data:** Homepage receives 87,697 sessions/mo (Source: Shopify Analytics). Heatmap data shows strong engagement through the hero and category tiles, with drop-off at the testimonial section (Source: Heatmaps). The current USP bar contains four elements: size inclusivity (XS-6X), sustainability (organic cotton, ethically created), review aggregate (4.73 stars, 27,000+ reviews), and press logos (Vogue, People) with a "See All Press" link (Source: Site Screenshots). PF04 "What to Expect" module won +3.47% RPV on the homepage (Source: Previous Tests). Homepage storytelling module case study generated +$130,251/mo (Source: Winning Tests Library). New visitors make up 52.75% of traffic and express low brand trust: "uncertainty about the company... dipping my toes in the water" (Source: Surveys, Shopify Analytics). Price is the #1 purchase objection at 55% of respondents (Source: Surveys).
 
 **V1: Redesigned USP Bar - Original Placement**
-Redesign the existing USP bar in its current position (below the category tiles). The current bar mixes USPs and press into four equal-weight blocks that compete for attention. V1 focuses purely on brand USPs: size inclusivity (XS-6X), sustainability/ethical production, review score (4.73, 27,000+ reviews), and a fourth USP such as free shipping threshold or satisfaction guarantee. Improvements over current: tighter layout, stronger visual hierarchy, icons that read at a glance on mobile, and copy that leads with the benefit rather than the label. Remove the press logos from this bar (they get their own test in V3/V4).
-**Brief:** Design: single-row bar, 4 USP blocks with refined icons and benefit-first copy. Mobile: 2x2 grid or horizontal scroll. Reference current bar for what to improve. Dev: static section, CMS-editable copy and icons. Measure: scroll depth, homepage exit rate, RPV, click-through on "Read About Us" / "Read Sustainability" CTAs.
+Redesign the existing USP bar in its current position (below the category tiles). Keep the same four content blocks. Rewrite the copy to lead with benefits rather than labels, and strip unnecessary links. On mobile, the bar must fit in a single horizontal line. If all four USPs cannot fit legibly in one line on mobile, drop the press USP and keep three.
+
+**What's changing:**
+
+*Copy:*
+
+| Column | Control (Current) | Variant |
+|---|---|---|
+| Size | Inclusive sizes from XS to 6X | Designed for every body. XS through 6X. |
+| Sustainability | Organic cotton, ethically created | Fabrics you can feel good about wearing. |
+| Reviews | (4.73) 27,000+ REVIEWS | Loved by 27,000+ - rated 4.73★ |
+| Press | (No label above logos) | As seen in (above Vogue + People logos) |
+
+*Links:*
+
+| Column | Change |
+|---|---|
+| Size | Remove "READ ABOUT US" link entirely |
+| Sustainability | Remove "READ SUSTAINABILITY" link entirely |
+| Reviews | Keep link to /pages/reviews - this is the only exit with a conversion argument (on-the-fence shoppers reading real reviews) |
+| Press | No CTA - logos are self-explanatory |
+
+**Brief:** Design: single-row bar, 4 USP blocks with refined icons and benefit-first copy as specified above. Only the Reviews column links out (to /pages/reviews). Mobile: all 4 in one line (compact format) or 3 if press does not fit. Reference current bar for specific spacing and readability issues. Dev: static section, CMS-editable copy and icons. Measure: scroll depth, homepage exit rate, RPV, reviews page click-through rate.
 
 **V2: Redesigned USP Bar - Under the Hero**
-Same redesigned USP bar as V1, but moved from its current position to directly under the hero, above the category tiles. This places the trust signals at the first moment of pause after the hero image, before the visitor decides where to navigate. The category tiles shift down to accommodate.
-**Brief:** Design: same component as V1, new placement. Verify it does not feel redundant next to the hero CTA or crowd the hero-to-tiles transition. Dev: move section in the homepage template. Track same metrics as V1, plus category tile click-through rate (to measure whether the inserted bar disrupts navigation flow).
+Same redesigned USP bar as V1 (same copy, same link changes), but moved from its current position to directly under the hero, above the category tiles. This places the trust signals at the first moment of pause after the hero image, before the visitor decides where to navigate. The category tiles shift down to accommodate.
+**Brief:** Design: same component as V1 (including updated copy and link removals), new placement. Verify it does not feel redundant next to the hero CTA or crowd the hero-to-tiles transition. Dev: move section in the homepage template. Track same metrics as V1, plus category tile click-through rate (to measure whether the inserted bar disrupts navigation flow).
 
 **V3: Press Logo Bar - Original Placement**
-Replace the current bar with a dedicated press credibility bar in the same position. Feature only recognizable publication logos (Vogue, People, and any others the client can confirm) with a short quote or mention from each. Format: logo + one-line quote (e.g., Vogue: "The pajamas everyone is obsessed with"). No USP messaging, no review stats. This tests whether third-party credibility alone outperforms the mixed USP approach.
-**Brief:** Design: horizontal bar with publication logos and pull quotes. Clean, editorial feel. Mobile: horizontal scroll or stacked logo-quote pairs. Dev: static section, CMS-editable. Confirm with client which publications have featured Printfresh and get approved quotes. Track same metrics as V1.
+Replace the current bar with a dedicated press credibility bar in the same position. Feature only recognizable publication logos (Vogue, People, and any others the client can confirm) with a short quote or mention from each. No USP messaging, no review stats. This tests whether third-party credibility alone outperforms the mixed USP approach. On desktop, the bar uses a rotating carousel format: a dark background section with one featured quote displayed at a time, publication logos scrolling beneath it (reference Jones Road's homepage press bar for the layout pattern). On mobile: horizontal scroll or stacked logo-quote pairs.
+**Brief:** Design: dark-background press bar with rotating quotes and logo carousel on desktop. Each rotation shows one publication quote with logos scrolling below. Clean, editorial feel. Mobile: horizontal scroll or stacked logo-quote pairs. Dev: carousel with auto-rotation and manual navigation, CMS-editable quotes and logos. Confirm with client which publications have featured Printfresh and get approved quotes. Track same metrics as V1.
 
 **V4: Press Logo Bar - Under the Hero**
 Same press logo bar as V3, but moved to directly under the hero, above the category tiles. This tests the most aggressive credibility play: the first thing a visitor sees after the hero is third-party validation from recognizable publications.
