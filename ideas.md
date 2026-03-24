@@ -1,6 +1,5 @@
-Add to command?
+prompt to make sure all fields are editable (build-test)
 
-- Browse web/reddit/x for CRO ideas?
-- Feed BDW Dylan book
-- ad comments for data sources in test-creator (also idea vault!)
-- skims, komando -> print/fabric based info
+top seller
+
+hide the header for these pages

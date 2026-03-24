@@ -10,7 +10,7 @@ The goal: the client scans the HTML in 60 seconds, understands which pages/compo
 
 Ask the user for:
 
-1. **Client name and roadmap file.** List the markdown roadmap files in the client's folder under `clients/[client-name]/` and let them pick. If only one roadmap exists, confirm it.
+1. **Client name, roadmap file, and data audit.** List the markdown files in the client's folder under `clients/[client-name]/` and let them pick the roadmap and data audit. The data audit is required for the Data Insights tab. If only one of each exists, confirm them.
 2. **Homepage screenshot.** Ask the user to paste or provide a screenshot of the client's homepage. Use this to extract:
    - Primary brand color (hex)
    - Secondary/accent color if present
@@ -21,9 +21,10 @@ Ask the user for:
 
 ## Step 2: Read and Analyze
 
-- Read the selected roadmap markdown file.
+- Read the selected roadmap markdown file and the data audit file.
 - Analyze the homepage screenshot to determine brand colors, visual tone, and typography. Pay close attention to whether the brand uses serif or sans-serif fonts, condensed or regular weights, uppercase or mixed case. The roadmap's font choices must follow the brand's typographic structure, not default to a generic pairing.
 - Identify the roadmap structure: does it have an Insights/What We Found section? How many slots? A/B tests vs dev projects?
+- Identify the data audit structure: which data sources were collected, what are the key findings per source, and what are the cross-source themes?
 
 ## Step 3: Extract and Condense Content
 
@@ -46,7 +47,17 @@ From the roadmap, extract:
     7. If a slot requires more data before scoping, say so explicitly. It is better to flag a gap than to fill it with assumptions.
     8. No source citations in the output, but every claim must be verifiable against the source files.
   - Estimated launch date: ask the user for each slot's estimated timeline (e.g., "2 weeks after confirmation", "3rd week after confirmation"). If not provided, omit.
-**Drop entirely:**
+**For the Data Insights tab, extract from the data audit:**
+
+- **Data sources used:** A list of every data source that was collected (e.g., Shopify Analytics, Customer Surveys, Heatmaps, Reviews & UGC). These will be displayed as a visual grid before the insights.
+- **Per-source summaries:** For each data source, condense the findings into 2-4 bullet points. Keep only the most actionable and interesting insights. Drop routine metrics that don't tell a story. Lead with the finding, not the source name.
+- **Cross-source themes:** If the data audit has a cross-source analysis section, condense the converging themes into a short narrative. These are the patterns that appear across multiple sources and carry the highest confidence.
+
+The Data Insights tab should be insightful but scannable. A client should be able to read it in 2-3 minutes and understand the full data picture. No filler. Every bullet point should make them think "I didn't know that" or "that confirms what I suspected."
+
+**Critical: Zero hallucination on the Data Insights tab.** Every metric, percentage, quote, and finding must come directly from the data audit file. Do not round, reframe, or embellish numbers. Do not infer trends the data doesn't explicitly show. Do not add context or claims that aren't in the audit. If a data source section in the audit is thin, the summary should be thin too. Before outputting, verify each bullet point against the exact text in the data audit. If you cannot find the source line, delete the bullet.
+
+**Drop entirely from the Tests tab:**
 - Variation descriptions (V1, V2, etc.)
 - Briefs (design and dev specs)
 - Data sections with source citations
@@ -63,7 +74,15 @@ From the roadmap, extract:
 
 ## Step 4: Generate HTML
 
-**IMPORTANT:** Always invoke the `frontend-design` skill before generating the HTML. The roadmap must be a distinctive, branded design, not a generic template. Use the homepage screenshot, brand colors, and visual tone to drive bold typographic and layout choices. Google Fonts are allowed for distinctive typography.
+The roadmap must be a distinctive, branded design, not a generic template. Use the homepage screenshot, brand colors, and visual tone to drive the design. Google Fonts are allowed for distinctive typography.
+
+### Design Rules (apply on first generation, not as a second pass)
+
+- **Typography:** Choose fonts that match the brand's typographic DNA from the homepage screenshot. Use Google Fonts for distinctive choices. Avoid generic defaults (Inter, Roboto, Arial, system fonts). Pair a display font for headings with a refined body font.
+- **Color:** Use the brand's primary color as an accent (borders, badges, headings). Light page background always. Commit to a cohesive palette using CSS variables.
+- **Layout:** Clean, editorial feel. Generous whitespace. Single-column slot cards. No cluttered or dense layouts.
+- **Details:** Subtle touches that elevate: refined spacing, considered type hierarchy, tasteful use of the brand color. No gratuitous effects or animations. The design should feel intentional and polished, not decorated.
+- **No generic AI aesthetics:** No purple gradients on white, no cookie-cutter card layouts, no default Bootstrap/Tailwind look. Every roadmap should feel like it was designed for that specific brand.
 
 Build a self-contained HTML file. All CSS in a `<style>` tag in the `<head>`. No JavaScript. Google Fonts links are the only allowed external dependency.
 
@@ -125,6 +144,15 @@ Set CSS custom properties from the brand colors extracted from the homepage scre
 - `--bg`: #f8f8f8
 - `--card-bg`: #ffffff
 
+**Always use a light background.** The page background must be light (#f8f8f8 or similar). Never use dark backgrounds, dark hero sections, or dark cards. SVG sketches and text readability depend on light backgrounds. The brand color should be used as an accent (borders, badges, headings), not as a background fill.
+
+**Minimal typography.** Keep the number of distinct text styles low for readability. Both the Tests tab and Data Insights tab must use the same typographic system:
+- One heading style (H3 for slot names / section names)
+- One body style (14-15px for descriptions and bullet points)
+- One muted style (11-13px for labels, captions, metadata)
+- Bold for emphasis only when a specific word or phrase needs to stand out. No italic except for the SVG caption disclaimer.
+- No mixing of font sizes, weights, or styles beyond these three tiers. Both tabs should feel like the same document.
+
 Core styles:
 - Font: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
 - Max width: 900px, centered with auto margins
@@ -143,7 +171,7 @@ Core styles:
 - Text: 15px line-height 1.6
 
 **Slot Cards Grid:**
-- CSS Grid: `grid-template-columns: repeat(2, 1fr)` with 20px gap
+- Single column layout: `grid-template-columns: 1fr` with 20px gap. Always one slot per row, including desktop. Never use a 2-column grid for slot cards.
 - Each card:
   - Background: var(--card-bg)
   - Border-radius: 8px
