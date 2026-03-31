@@ -6,7 +6,7 @@ You are converting a roadmap HTML file (the standalone version) into a Shopify-p
 
 ## Step 1: Identify the source file
 
-Ask the user which HTML roadmap file to convert. List available `.html` files under `clients/` and let them pick. If one was just generated or is obvious from context, confirm it.
+Ask the user which HTML roadmap file to convert. List available `.html` files under `brands/` and let them pick. If one was just generated or is obvious from context, confirm it.
 
 ## Step 2: Read and convert
 
@@ -47,7 +47,7 @@ Read the source HTML file, then produce the Shopify version with these changes:
 
 ### Reference implementation
 
-Use `clients/vyper/march-2026-roadmap-shopify.html` as the reference for correct Shopify structure. Key patterns to match:
+Use `brands/vyper/march-2026-roadmap-shopify.html` as the reference for correct Shopify structure. Key patterns to match:
 - Font links at the top (no other head elements)
 - `<style>` block with theme reset, full-bleed breakout, all `cvrt-` prefixed selectors
 - `<div id="cvrt-roadmap">` as the root
@@ -55,9 +55,10 @@ Use `clients/vyper/march-2026-roadmap-shopify.html` as the reference for correct
 
 ## Step 3: Save
 
-Save the Shopify version alongside the source file with `-shopify` suffix:
-- Source: `clients/rps-water-pumps/april-2026-roadmap.html`
-- Output: `clients/rps-water-pumps/april-2026-roadmap-shopify.html`
+Save the Shopify version alongside the source file with `-shopify` suffix. **Prefix the filename with the client name** so files are identifiable when downloaded:
+- Source: `brands/rps-water-pumps/rps-water-pumps-april-2026-roadmap.html`
+- Output: `brands/rps-water-pumps/rps-water-pumps-april-2026-roadmap-shopify.html`
+- If the source file already has the client prefix, keep it. If not, add it.
 
 ## Pre-publish checklist
 

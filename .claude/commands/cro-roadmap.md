@@ -185,7 +185,7 @@ Write one Variation block per variation. No separate brief section. The variatio
 
 ## Step 6: Data Audit File
 
-Before writing the roadmap, save a `[month]-[year]-data-audit.md` file in the client's directory. This file documents all findings from the data collection, organized by source. It serves as a reference for future test ideation and client presentations.
+Before writing the roadmap, save a `[client-name]-[month]-[year]-data-audit.md` file in the client's directory (e.g., `froya-march-2026-data-audit.md`). The client name prefix comes from the folder name so files are identifiable when downloaded. This file documents all findings from the data collection, organized by source. It serves as a reference for future test ideation and client presentations.
 
 Format:
 - One section per data source (only sources that were collected)

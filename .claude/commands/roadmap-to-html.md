@@ -10,7 +10,7 @@ The goal: the client scans the HTML in 60 seconds, understands which pages/compo
 
 Ask the user for:
 
-1. **Client name, roadmap file, and data audit.** List the markdown files in the client's folder under `clients/[client-name]/` and let them pick the roadmap and data audit. The data audit is required for the Data Insights tab. If only one of each exists, confirm them.
+1. **Client name, roadmap file, and data audit.** List the markdown files in the brand's folder under `brands/[brand-name]/` and let them pick the roadmap and data audit. The data audit is required for the Data Insights tab. If only one of each exists, confirm them.
 2. **Homepage screenshot.** Ask the user to paste or provide a screenshot of the client's homepage. Use this to extract:
    - Primary brand color (hex)
    - Secondary/accent color if present
@@ -210,9 +210,10 @@ Core styles:
 
 ## Step 5: Save
 
-Write the HTML file in the same client folder as the source roadmap:
-- If source is `clients/froya/march-2026-roadmap.md`, save as `clients/froya/march-2026-roadmap.html`
-- If source is a versioned file like `march-2026-roadmap-v2.md`, save as `march-2026-roadmap-v2.html`
+Write the HTML file in the same client folder as the source roadmap. **Prefix the filename with the client name** so files are identifiable when downloaded:
+- If source is `brands/froya/march-2026-roadmap.md`, save as `brands/froya/froya-march-2026-roadmap.html`
+- If source is a versioned file like `march-2026-roadmap-v2.md`, save as `froya-march-2026-roadmap-v2.html`
+- The brand name prefix comes from the folder name (e.g., `brands/rps-water-pumps/` → `rps-water-pumps-april-2026-roadmap.html`)
 
 After saving, tell the user the file path so they can open it in a browser or save as PDF.
 

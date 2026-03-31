@@ -66,7 +66,7 @@ Collect data sources one at a time. For each source, ask the user to paste their
 
 Collect in this order:
 
-1. **Ads & Landing Pages (Meta)** - Screenshots of the brand's top-performing Meta ads. For each ad, collect one at a time: (1) screenshot of the ad creative, (2) landing page screenshot (full page for short pages, top 3 folds for long pages since most visitors only scroll that far), (3) the landing page URL. This format allows proper message match analysis between ad promise and landing page delivery.
+1. **Ads & Landing Pages (Meta)** - The 3 most recent Meta ads from the brand. Ask the user: "Send me your 3 most recent Meta ads." For each ad, collect one at a time: (1) screenshot of the ad creative, (2) landing page screenshot (full page for short pages, top 3 folds for long pages since most visitors only scroll that far), (3) the landing page URL. This format allows proper message match analysis between ad promise and landing page delivery. Brands typically have many active ads, so these 3 are a sample, not the full picture. When referencing ads in the data audit and brief, always clarify that you analyzed 3 recent ads out of many active campaigns, not the full ad account.
 2. **Google Ads Transparency** - Screenshots from the Google Ads Transparency Center (adstransparency.google.com) showing the brand's active Google ads. Ask the user to search for the brand name on the site and share screenshots of the ads displayed. This reveals Google Search, Display, and YouTube ad creatives the brand is running. Analyze for message match with landing pages, consistency with Meta ads messaging, and any gaps between ad promises and on-site delivery.
 3. **Reviews & UGC** - Product review themes, common complaints, what customers love. **This is one of the most important data sources. Go deep.** Reviews are written by real buyers post-purchase, making them the highest-signal qualitative data. Provide a thorough breakdown of both what customers love AND specific friction points. For friction, go beyond high-level themes. Surface specific product-level issues (e.g., "runs 1-2 sizes big," "bottoms fit differently than the top in the same set"), sizing inconsistencies, quality complaints at specific price points, and any other actionable details. Flag client-actionable insights separately from test ideas.
 4. **Page Speed / Core Web Vitals** - LCP, CLS, FID scores, slow pages
@@ -170,16 +170,15 @@ Write one Variation block per variation. No separate brief section. The variatio
 
 ---
 
-## Step 6: Data Audit File
+## Step 6: Data Audit File and Brief File
 
-Before writing the brief, save a `[store-name]-research-audit.md` file in the client's directory. This file documents all findings from the data collection, organized by source. It serves as a reference for the brief and future conversations with the prospect.
+Before writing the brief, save two files in the brand's directory:
 
-Format:
-- One section per data source (only sources that were collected)
-- Key metrics, quotes, and findings extracted from each source
-- A cross-source analysis section at the end highlighting converging themes
+**`[brand-name]-[store-name]-research-audit.md`** - All findings from the data collection, organized by source. Serves as a reference for the brief and future conversations with the prospect. Format: one section per data source (only sources collected), key metrics, quotes, and findings, plus a cross-source analysis section at the end highlighting converging themes.
 
-This file is separate from the brief. The brief is the pitch. The audit is the evidence library.
+**`[brand-name]-[month]-[year]-roadmap.md`** - The brief itself (the full output from Step 5). Use the current month and year to determine the filename (e.g., `coldlife-april-2026-roadmap.md`). This naming ensures `/roadmap-to-html` can pick it up automatically.
+
+The audit is the evidence library. The brief is the pitch.
 
 ## Step 7: Pre-Publish Checklist
 
