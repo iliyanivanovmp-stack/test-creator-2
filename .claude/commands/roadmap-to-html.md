@@ -1,8 +1,8 @@
 ---
-description: Convert a CRO roadmap markdown file into a branded HTML one-pager for clients
+description: Convert a CRO roadmap markdown file into a branded, Shopify-ready HTML one-pager for clients
 ---
 
-You are converting a CRO testing roadmap from a detailed internal execution format into a branded, client-facing HTML concept pitch. The HTML version is what the client sees. The markdown stays internal.
+You are converting a CRO testing roadmap from a detailed internal execution format into a branded, client-facing HTML concept pitch that can be pasted directly into a Shopify page. The HTML version is what the client sees. The markdown stays internal.
 
 The goal: the client scans the HTML in 60 seconds, understands which pages/components we want to test and what data backs each decision. This is a concept-level overview, not a test spec. We show the "what" and "why," not the "how." The client can then approve, reject, or swap concepts before we invest effort building the actual tests.
 
@@ -16,7 +16,7 @@ Ask the user for:
    - Secondary/accent color if present
    - Overall visual style (light/dark, minimal/bold)
    - **Typography style**: serif vs. sans-serif, condensed vs. regular weight, uppercase vs. mixed case. The roadmap must match the brand's typographic DNA. For example, an industrial brand using bold condensed sans-serif should never get a serif-heavy roadmap.
-3. **Logo URL** (optional). A URL to the client's logo image. If not provided, skip the logo in the header. If provided, invert the logo for visibility on dark hero backgrounds using `filter: brightness(0) invert(1)`. Also use the logo URL as the favicon via `<link rel="icon" href="...">` in the `<head>`.
+3. **Logo URL** (optional). A URL to the client's logo image. If not provided, skip the logo in the header. If provided, invert the logo for visibility on dark hero backgrounds using `filter: brightness(0) invert(1)`.
 4. **Estimated launch dates** (optional). Per-slot timelines, e.g., "2 weeks after confirmation". If not provided, omit the launch date UI.
 
 ## Step 2: Read and Analyze
@@ -74,45 +74,31 @@ The Data Insights tab should be insightful but scannable. A client should be abl
 
 ## Step 4: Generate HTML
 
-The roadmap must be a distinctive, branded design, not a generic template. Use the homepage screenshot, brand colors, and visual tone to drive the design. Google Fonts are allowed for distinctive typography.
+**IMPORTANT: Use the `/frontend-design` skill for all visual design decisions.** Do not fall back on generic templates, system fonts, or safe defaults. The frontend-design skill defines the design quality bar. Read and follow `.claude/commands/frontend-design.md` before writing any CSS. Every roadmap must look like it was designed by a human for that specific brand, not generated from a template.
 
-### Design Rules (apply on first generation, not as a second pass)
+The homepage screenshot, brand colors, and visual tone are the design inputs. The frontend-design skill provides the design approach.
 
-- **Typography:** Choose fonts that match the brand's typographic DNA from the homepage screenshot. Use Google Fonts for distinctive choices. Avoid generic defaults (Inter, Roboto, Arial, system fonts). Pair a display font for headings with a refined body font.
-- **Color:** Use the brand's primary color as an accent (borders, badges, headings). Light page background always. Commit to a cohesive palette using CSS variables.
-- **Layout:** Clean, editorial feel. Generous whitespace. Single-column slot cards. No cluttered or dense layouts.
-- **Details:** Subtle touches that elevate: refined spacing, considered type hierarchy, tasteful use of the brand color. No gratuitous effects or animations. The design should feel intentional and polished, not decorated.
-- **No generic AI aesthetics:** No purple gradients on white, no cookie-cutter card layouts, no default Bootstrap/Tailwind look. Every roadmap should feel like it was designed for that specific brand.
+The output is Shopify-ready HTML that can be pasted directly into a Shopify page's custom HTML content area. No document wrappers (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`). The output starts with Google Fonts `<link>` tags, then `<style>`, then `<div id="cvrt-roadmap">`. No JavaScript. No `<meta>`, `<title>`, or `<link rel="icon">` tags.
 
-Build a self-contained HTML file. All CSS in a `<style>` tag in the `<head>`. No JavaScript. Google Fonts links are the only allowed external dependency.
-
-### HTML Template Structure
-
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Month Year] Testing Roadmap - [Client Name]</title>
-  <style>
-    /* All CSS here */
-  </style>
-</head>
-<body>
-<div id="cvrt-roadmap">
-  <!-- Header: logo (if provided) + title -->
-  <!-- Executive Summary card -->
-  <!-- Slot cards grid -->
-  <!-- Footer -->
-</div>
-</body>
-</html>
-```
+Use `brands/vyper/march-2026-roadmap-shopify.html` as a reference for the correct Shopify structure.
 
 ### Shopify-Safe CSS Scoping
 
 All body content must be wrapped in `<div id="cvrt-roadmap">`. This allows the HTML to be pasted into a Shopify page without theme styles overriding the design.
+
+**Full-bleed breakout.** The `#cvrt-roadmap` root must break out of Shopify's content container:
+```css
+#cvrt-roadmap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+```
+
+**No max-width containers.** Do not use `max-width` or `margin: 0 auto` on content wrappers. The Shopify page's own container handles the outer width.
 
 **All CSS selectors must be prefixed with `#cvrt-roadmap`** and **all class names must be prefixed with `cvrt-`** to avoid collisions with Shopify theme classes (e.g., `#cvrt-roadmap .cvrt-hero`, `#cvrt-roadmap .cvrt-slot h3`). Common class names like `.hero`, `.footer`, `.content`, `.section`, `.slot` WILL collide with theme styles. The `cvrt-` prefix eliminates this entirely.
 
@@ -134,79 +120,23 @@ Add a reset block at the top of the `<style>` to strip inherited theme styles:
 }
 ```
 
-### CSS Specifications
+### Structural Requirements
 
-Set CSS custom properties from the brand colors extracted from the homepage screenshot:
-- `--brand`: primary brand color (hex from screenshot analysis)
-- `--brand-light`: a 10% opacity version of the brand color for card backgrounds
-- `--text`: #1a1a1a
-- `--muted`: #666
-- `--bg`: #f8f8f8
-- `--card-bg`: #ffffff
+These are the content and layout requirements. The visual styling (fonts, colors, spacing, shadows, decorative elements) comes from the frontend-design skill and the brand's visual identity.
 
-**Always use a light background.** The page background must be light (#f8f8f8 or similar). Never use dark backgrounds, dark hero sections, or dark cards. SVG sketches and text readability depend on light backgrounds. The brand color should be used as an accent (borders, badges, headings), not as a background fill.
+**Content structure for each slot card:**
+- Slot label and type badge (A/B test vs. dev project)
+- Test name as a heading
+- Page being tested
+- Description (1-2 sentences)
+- **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted tones, and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test). Keep the style loose and hand-drawn: dashed borders, light or no fills, rounded rects. Max-width 420px, viewBox sized to content. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
+- Estimated launch date (if provided)
 
-**Minimal typography.** Keep the number of distinct text styles low for readability. Both the Tests tab and Data Insights tab must use the same typographic system:
-- One heading style (H3 for slot names / section names)
-- One body style (14-15px for descriptions and bullet points)
-- One muted style (11-13px for labels, captions, metadata)
-- Bold for emphasis only when a specific word or phrase needs to stand out. No italic except for the SVG caption disclaimer.
-- No mixing of font sizes, weights, or styles beyond these three tiers. Both tabs should feel like the same document.
+**Page sections:** Header (with logo if provided), Executive Summary, Slot Cards (single column, one per row), Footer (month and year only).
 
-Core styles:
-- Font: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
-- Max width: 900px, centered with auto margins
-- Padding: 48px 24px
+**Light backgrounds only.** SVG sketches and text readability depend on light backgrounds. The brand color should be used as an accent, not as a background fill.
 
-**Header:**
-- If logo provided: logo image left-aligned, max-height 40px, margin-bottom 16px
-- Title: H1, font-size 28px, color var(--brand), font-weight 700
-- Subtle 2px horizontal rule in the brand color below the title
-
-**Executive Summary Card:**
-- Background: var(--bg)
-- Border-radius: 8px
-- Padding: 24px
-- Margin: 32px 0
-- Text: 15px line-height 1.6
-
-**Slot Cards Grid:**
-- Single column layout: `grid-template-columns: 1fr` with 20px gap. Always one slot per row, including desktop. Never use a 2-column grid for slot cards.
-- Each card:
-  - Background: var(--card-bg)
-  - Border-radius: 8px
-  - Box-shadow: 0 1px 3px rgba(0,0,0,0.08)
-  - Border-left: 4px solid var(--brand)
-  - Padding: 24px
-- Inside each card:
-  - **Top row:** Slot label (small, muted, uppercase, 11px tracking) and type badge (small rounded pill, 11px, uppercase, brand color background with white text for A/B tests, outlined for dev projects)
-  - **Test name:** H3, font-size 18px, font-weight 600, margin-top 12px
-  - **Page:** Below the name, muted text, 13px
-  - **Description:** 14px, line-height 1.5, color var(--text)
-  - **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted greys (#999, #bbb, #ddd), and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test, a PDP layout for a product page test). Keep the style loose and hand-drawn: dashed borders, no fills or light bone fills, rounded rects. Max-width 420px, viewBox sized to content. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." (11px, muted color). This prevents brand owners from confusing the sketch with an actual wireframe or deliverable.
-  - **Estimated launch date** (if provided): A small inline-block box below the description. Background: var(--bg), border-radius 4px, padding 12px 16px. Label "ESTIMATED LAUNCH" in 11px uppercase muted text, value below in 14px semibold.
-
-**Footer:**
-- Margin-top: 48px, padding-top: 24px
-- Border-top: 1px solid #e0e0e0
-- Text: 13px, color var(--muted), center-aligned
-- Content: just the month and year
-
-**Responsive:**
-```css
-@media (max-width: 640px) {
-  .slots-grid { grid-template-columns: 1fr; }
-  h1 { font-size: 24px; }
-}
-```
-
-**Print:**
-```css
-@media print {
-  body { padding: 24px; }
-  .card { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; }
-}
-```
+**Responsive and print styles:** Include mobile breakpoints and print-friendly styles (no shadows, avoid page breaks inside cards).
 
 ## Step 5: Save
 
@@ -220,11 +150,17 @@ After saving, tell the user the file path so they can open it in a browser or sa
 ## Pre-Publish Checklist
 
 Before saving, verify silently:
+- [ ] No `<!DOCTYPE>`, `<html>`, `<head>`, `<body>` tags. Output starts with Google Fonts `<link>` tags
+- [ ] `#cvrt-roadmap` has full-bleed breakout CSS
+- [ ] No `max-width` or `margin: 0 auto` on content containers
+- [ ] ALL class names are prefixed with `cvrt-` in both CSS and HTML
+- [ ] All CSS selectors use `#cvrt-roadmap .cvrt-*` pattern
+- [ ] No `<meta>`, `<title>`, or favicon tags
 - [ ] No em dashes anywhere in the output
 - [ ] No variation descriptions, briefs, or source citations leaked through
 - [ ] No revenue figures anywhere in the output
 - [ ] Brand color from the screenshot is applied consistently
-- [ ] HTML is valid and self-contained (no external dependencies, no JavaScript)
+- [ ] No JavaScript
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
 - [ ] Each slot has an inline SVG sketch illustration that visually represents the concept
