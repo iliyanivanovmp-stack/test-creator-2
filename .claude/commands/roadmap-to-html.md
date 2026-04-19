@@ -15,7 +15,7 @@ Ask the user for:
    - Primary brand color (hex)
    - Secondary/accent color if present
    - Overall visual style (light/dark, minimal/bold)
-   - **Typography style**: serif vs. sans-serif, condensed vs. regular weight, uppercase vs. mixed case. The roadmap must match the brand's typographic DNA. For example, an industrial brand using bold condensed sans-serif should never get a serif-heavy roadmap.
+   - **Typography style**: condensed vs. regular weight, uppercase vs. mixed case, geometric vs. humanist. **Always use sans-serif fonts for web readability**, regardless of whether the brand's own site uses serifs. Match the brand's weight, proportions, and overall character (e.g., industrial brands get bold condensed sans-serif, minimalist brands get clean geometric sans-serif), but never ship a serif-based body or heading font in the roadmap.
 3. **Logo URL** (optional). A URL to the client's logo image. If not provided, skip the logo in the header. If provided, invert the logo for visibility on dark hero backgrounds using `filter: brightness(0) invert(1)`.
 4. **Estimated launch dates** (optional). Per-slot timelines, e.g., "2 weeks after confirmation". If not provided, omit the launch date UI.
 
