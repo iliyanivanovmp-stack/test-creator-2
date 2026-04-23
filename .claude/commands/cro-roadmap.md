@@ -101,6 +101,17 @@ After collecting all available data, perform a cross-source analysis to identify
 - Customer pain points from qualitative data
 - Quick wins vs larger strategic opportunities
 
+**Proactively identify AOV opportunities.** No customer data or feedback will tell you AOV is a problem. Customers don't complain about not spending more. You must look for these opportunities yourself. For every client, ask: Where can we increase basket size? Look for:
+- Products that are frequently bought alone but logically pair with others (bundle candidates)
+- Cart or checkout pages with no upsell or cross-sell mechanism
+- Free shipping thresholds that are not prominently surfaced or close to the average order
+- Gift-with-purchase or tiered offer opportunities (e.g., "spend $X, get Y")
+- Product recommendation gaps on PDP or cart
+- Volume or multi-pack options that don't exist but could
+- Price anchoring opportunities (no higher-priced variant or bundle to anchor against)
+
+These AOV opportunities rarely surface in heatmaps, surveys, or analytics because customers don't express a desire to spend more. You have to find the gap yourself and make the case for it.
+
 ## Step 4: Fill the Month's Slots
 
 Based on your analysis, fill the available slots. If some slots are pre-committed to dev work or other projects, write those up first, then fill remaining slots with the highest-impact test ideas.
@@ -113,6 +124,8 @@ For **A/B test slots**, identify ideas with the strongest combination of:
 For **dev/project slots**, write a high-level concept: what we're building, why it's the priority, key requirements, and success metrics. These don't need variation briefs.
 
 **Go where the money is.** A 1% lift on 500K sessions beats a 5% lift on 10K sessions. Prioritize high-traffic problem areas first.
+
+**Weight AOV.** At least one slot per month should target AOV. This is not optional. Generic CRO tests (social proof, urgency banners, USP bars) are low-ceiling and oversaturated. AOV tests have asymmetric upside: a bundle or threshold experiment that wins doesn't just lift one metric, it compounds with conversion rate. If the data doesn't point to an obvious AOV angle, use the opportunities identified in Step 3. Make the case from first principles, not from what the data complained about.
 
 **Critical: Each slot must be distinct.** Different page, different element, or different user segment. If two slots solve the same problem, position them as a split test with different approaches (e.g., landing page vs homepage modification). Make the comparison explicit. Multi-slot projects (e.g., a custom app taking 2 slots) are presented as one combined section.
 
