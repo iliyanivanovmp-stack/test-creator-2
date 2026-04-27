@@ -197,16 +197,15 @@ Write one Variation block per variation. No separate brief section. The variatio
 
 ---
 
-## Step 6: Data Audit File
+## Step 6: Data Audit File and Roadmap File
 
-Before writing the roadmap, save a `[client-name]-[month]-[year]-data-audit.md` file in the client's directory (e.g., `froya-march-2026-data-audit.md`). The client name prefix comes from the folder name so files are identifiable when downloaded. This file documents all findings from the data collection, organized by source. It serves as a reference for future test ideation and client presentations.
+Both files are saved under `brands/[brand-name]/` (e.g., `brands/froya/`). The brand name prefix comes from the folder name so files are identifiable when downloaded. **Never create a `clients/` folder.** The convention is `brands/` for both retained clients and leads.
 
-Format:
-- One section per data source (only sources that were collected)
-- Key metrics, quotes, and findings extracted from each source
-- A cross-source analysis section at the end highlighting converging themes
+**`[brand-name]-[month]-[year]-data-audit.md`** - Save before writing the roadmap. Documents all findings from the data collection, organized by source. Format: one section per data source (only sources that were collected), key metrics, quotes, and findings extracted from each source, plus a cross-source analysis section at the end highlighting converging themes. Example: `brands/froya/froya-march-2026-data-audit.md`.
 
-This file is separate from the roadmap. The roadmap is the brief. The audit is the evidence library.
+**`[brand-name]-[month]-[year]-roadmap.md`** - Save the full roadmap output from Step 5. Example: `brands/froya/froya-march-2026-roadmap.md`. This naming ensures `/roadmap-to-html` can pick it up automatically.
+
+The audit is the evidence library. The roadmap is the brief.
 
 ## Step 7: Pre-Publish Checklist
 

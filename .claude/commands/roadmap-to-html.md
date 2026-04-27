@@ -142,10 +142,10 @@ These are the content and layout requirements. The visual styling (fonts, colors
 
 ## Step 5: Save
 
-Write the HTML file in the same client folder as the source roadmap. **Prefix the filename with the client name** so files are identifiable when downloaded:
-- If source is `brands/froya/march-2026-roadmap.md`, save as `brands/froya/froya-march-2026-roadmap.html`
-- If source is a versioned file like `march-2026-roadmap-v2.md`, save as `froya-march-2026-roadmap-v2.html`
-- The brand name prefix comes from the folder name (e.g., `brands/rps-water-pumps/` → `rps-water-pumps-april-2026-roadmap.html`)
+Write the HTML file in the same brand folder as the source roadmap. The source roadmap filename should already include the brand-name prefix (e.g., `brands/froya/froya-march-2026-roadmap.md`), so the HTML output keeps the same name with a `.html` extension:
+- If source is `brands/froya/froya-march-2026-roadmap.md`, save as `brands/froya/froya-march-2026-roadmap.html`
+- If source is a versioned file like `froya-march-2026-roadmap-v2.md`, save as `froya-march-2026-roadmap-v2.html`
+- If you encounter a legacy unprefixed source file (e.g., `brands/froya/march-2026-roadmap.md`), still prefix the HTML output (`brands/froya/froya-march-2026-roadmap.html`). The brand name comes from the folder name.
 
 After saving, tell the user the file path so they can open it in a browser or save as PDF.
 
