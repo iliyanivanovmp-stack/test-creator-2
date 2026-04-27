@@ -136,6 +136,8 @@ These are the content and layout requirements. The visual styling (fonts, colors
 
 **Light backgrounds only.** SVG sketches and text readability depend on light backgrounds. The brand color should be used as an accent, not as a background fill.
 
+**No one-sided accent borders.** Do not apply a colored border, stripe, or rule to a single edge of a card or container (e.g., a colored left stripe on a slot card, a single-side accent on the executive summary box). This is a generic AI design tic and reads as cheap. Use one of: (a) a consistent thin border on all four sides (1px, neutral grey or low-opacity brand tone), (b) a soft full-perimeter shadow with no border, or (c) no border at all, relying on whitespace and background contrast to separate sections. Pick one approach and apply it consistently across every card on the page.
+
 **Responsive and print styles:** Include mobile breakpoints and print-friendly styles (no shadows, avoid page breaks inside cards).
 
 ## Step 5: Save
@@ -160,6 +162,7 @@ Before saving, verify silently:
 - [ ] No variation descriptions, briefs, or source citations leaked through
 - [ ] No revenue figures anywhere in the output
 - [ ] Brand color from the screenshot is applied consistently
+- [ ] No one-sided accent borders on cards or containers (no left stripe, no single-edge rule). Borders are either full-perimeter or absent
 - [ ] No JavaScript
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
