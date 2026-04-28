@@ -177,6 +177,8 @@ Then present each slot. Be concise. Multi-slot projects (e.g., a custom app taki
 
 **Data:** [Evidence inline, citing sources in parentheses with the "Source:" prefix (e.g., "(Source: Shopify Analytics)" or "(Source: Surveys, Reviews)"). Combine multiple data points into one flowing sentence or two. No bullet points. Every data point must be directly relevant to this specific test. Do not include data about other pages, ads, or products that could be a separate test.]
 
+**Custom events (Intelligems):** [Always specify at least one custom event to track in Intelligems when the test exposes a measurable interaction beyond purchase (clicks on new modules, opens, scroll into view, swatch/tile selection, post-purchase upsell accept/decline, etc.). Name each event, describe the trigger, and note which variation(s) it applies to. If the test genuinely has no incremental interaction to track beyond standard conversion, write "None applicable" with one sentence on why. Default is to add events. The standard purchase conversion is tracked automatically and does not need to be listed here.]
+
 **V[N]:** [One clear, complete description in prose. What changes, what stays the same, and how it works on both mobile and desktop. Specific enough that a designer can mock it up and a developer can implement it directly without further clarification. Include any device-specific behavior (e.g., sticky elements, stacking, collapsing). Before writing variations, ask the user for a screenshot of the current page so you have up-to-date context of what exists today.]
 
 Write one Variation block per variation. No separate brief section. The variation description itself must be the complete spec.
@@ -222,6 +224,7 @@ Before sharing the roadmap with the user, run through this checklist silently. F
 - [ ] **Each slot is distinct.** Different page, different element, or different user segment.
 - [ ] **Variation count** matches what the user specified in Step 1.
 - [ ] **All slots accounted for.** The total slots used matches what was agreed in Step 1.
+- [ ] **Intelligems custom events specified** on every A/B test slot. Default is to add at least one custom event tracking a measurable interaction the test introduces or affects (clicks, opens, swatch/tile selection, upsell accept/decline, etc.). Only "None applicable" with a written reason is acceptable as an exception.
 
 ## Step 8: Monthly Roadmap Summary
 
