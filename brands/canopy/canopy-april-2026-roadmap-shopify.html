@@ -1,0 +1,684 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+  /* ========== RESET ========== */
+  #cvrt-roadmap,
+  #cvrt-roadmap *,
+  #cvrt-roadmap *::before,
+  #cvrt-roadmap *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: inherit; line-height: inherit;
+    letter-spacing: normal; text-transform: none;
+  }
+  #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+  #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+    font-family: inherit; font-size: inherit;
+    font-weight: inherit; color: inherit;
+    margin: 0; padding: 0;
+  }
+
+  /* ========== FULL-BLEED BREAKOUT ========== */
+  #cvrt-roadmap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* ========== VARIABLES ========== */
+  #cvrt-roadmap {
+    --brand:       #6DBBA3;
+    --brand-dark:  #4a9d87;
+    --brand-light: rgba(109, 187, 163, 0.09);
+    --text:        #1a1a1a;
+    --muted:       #6e6e6b;
+    --border:      #e6e6e2;
+    --bg:          #f7f7f5;
+    --card-bg:     #ffffff;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+    padding: 52px 24px 72px;
+  }
+
+  /* ========== LAYOUT ========== */
+  #cvrt-roadmap .cvrt-inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ========== HEADER ========== */
+  #cvrt-roadmap .cvrt-logo {
+    display: block;
+    height: 28px;
+    width: auto;
+    margin-bottom: 28px;
+  }
+
+  #cvrt-roadmap .cvrt-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+
+  #cvrt-roadmap h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  #cvrt-roadmap .cvrt-header-rule {
+    height: 2px;
+    width: 40px;
+    background: var(--brand);
+    margin: 18px 0 40px;
+  }
+
+  /* ========== EXECUTIVE SUMMARY ========== */
+  #cvrt-roadmap .cvrt-summary {
+    background: var(--card-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--brand);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  #cvrt-roadmap .cvrt-summary-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
+  }
+
+  #cvrt-roadmap .cvrt-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* ========== TABS (CSS-only) ========== */
+  #cvrt-roadmap input[type="radio"][name="cvrt-tab"] {
+    display: none;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav {
+    display: flex;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 10px 22px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    user-select: none;
+    transition: color 0.15s;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label:hover {
+    color: var(--text);
+  }
+
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tab-nav label[for="cvrt-tab-tests"],
+  #cvrt-roadmap #cvrt-tab-data:checked  ~ .cvrt-tab-nav label[for="cvrt-tab-data"] {
+    color: var(--brand-dark);
+    font-weight: 600;
+    border-bottom-color: var(--brand);
+  }
+
+  #cvrt-roadmap .cvrt-tests-panel,
+  #cvrt-roadmap .cvrt-data-panel {
+    display: none;
+  }
+
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests-panel {
+    display: block;
+  }
+
+  #cvrt-roadmap #cvrt-tab-data:checked ~ .cvrt-data-panel {
+    display: block;
+  }
+
+  /* ========== SLOT CARDS ========== */
+  #cvrt-roadmap .cvrt-slots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #cvrt-roadmap .cvrt-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    border-left: 4px solid var(--brand);
+    padding: 26px 28px;
+  }
+
+  #cvrt-roadmap .cvrt-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #cvrt-roadmap .cvrt-slot-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  #cvrt-roadmap .cvrt-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--brand);
+    color: #fff;
+  }
+
+  #cvrt-roadmap h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 12px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  #cvrt-roadmap .cvrt-card-page {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 5px;
+    letter-spacing: 0.01em;
+  }
+
+  #cvrt-roadmap .cvrt-card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-top: 16px;
+  }
+
+  #cvrt-roadmap .cvrt-sketch-wrap {
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+  }
+
+  #cvrt-roadmap .cvrt-sketch-caption {
+    font-size: 11px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* ========== DATA INSIGHTS ========== */
+  #cvrt-roadmap .cvrt-sources-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  #cvrt-roadmap .cvrt-sources-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  #cvrt-roadmap .cvrt-source-chip {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 12px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--brand);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid #f0f0ee;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li:first-child {
+    padding-top: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brand);
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li:first-child::before {
+    top: 8px;
+  }
+
+  #cvrt-roadmap .cvrt-themes-card {
+    background: var(--brand-light);
+    border-radius: 8px;
+    border: 1px solid rgba(109, 187, 163, 0.22);
+    padding: 24px 28px;
+    margin-top: 8px;
+  }
+
+  #cvrt-roadmap .cvrt-themes-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
+
+  #cvrt-roadmap .cvrt-theme {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(109, 187, 163, 0.2);
+  }
+
+  #cvrt-roadmap .cvrt-theme:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  #cvrt-roadmap .cvrt-theme-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  #cvrt-roadmap .cvrt-theme-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* ========== FOOTER ========== */
+  #cvrt-roadmap .cvrt-footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 640px) {
+    #cvrt-roadmap {
+      padding: 32px 16px 52px;
+    }
+    #cvrt-roadmap h1 {
+      font-size: 28px;
+    }
+    #cvrt-roadmap .cvrt-tab-nav label {
+      padding: 9px 14px;
+      font-size: 12px;
+    }
+  }
+
+  /* ========== PRINT ========== */
+  @media print {
+    #cvrt-roadmap .cvrt-card,
+    #cvrt-roadmap .cvrt-insight-card {
+      box-shadow: none;
+      border: 1px solid var(--border);
+      break-inside: avoid;
+    }
+    #cvrt-roadmap .cvrt-data-panel {
+      display: block !important;
+    }
+  }
+
+</style>
+
+<div id="cvrt-roadmap">
+  <div class="cvrt-inner">
+
+    <!-- ===== HEADER ===== -->
+    <img
+      class="cvrt-logo"
+      src="https://getcanopy.co/cdn/shop/files/Logo-straight_1_200x@2x.png?v=1705512832"
+      alt="Canopy"
+    >
+    <div class="cvrt-eyebrow">CRO Testing Roadmap</div>
+    <h1>April 2026</h1>
+    <div class="cvrt-header-rule"></div>
+
+    <!-- ===== EXECUTIVE SUMMARY ===== -->
+    <div class="cvrt-summary">
+      <div class="cvrt-summary-label">Overview</div>
+      <p>Canopy's paid traffic lands entirely on mobile product pages that score 11/100 on performance, with a 15.6-second load time against a 2.5-second target. The showerhead PDP layers three overlapping purchase options and a buy box that shifts during page load, compounding drop-off at the exact moment of purchase decision. Hard water relief and results after the first use are the top stated purchase drivers from customer reviews, but neither appears above the fold on the PDP or the homepage.</p>
+    </div>
+
+    <!-- ===== TAB CONTROLS ===== -->
+    <input type="radio" name="cvrt-tab" id="cvrt-tab-tests" checked>
+    <input type="radio" name="cvrt-tab" id="cvrt-tab-data">
+
+    <div class="cvrt-tab-nav">
+      <label for="cvrt-tab-tests">Tests</label>
+      <label for="cvrt-tab-data">Data Insights</label>
+    </div>
+
+    <!-- ===== TESTS PANEL ===== -->
+    <div class="cvrt-tests-panel">
+      <div class="cvrt-slots">
+
+        <!-- SLOT 1 -->
+        <div class="cvrt-card">
+          <div class="cvrt-card-meta">
+            <span class="cvrt-slot-label">Slot 1</span>
+            <span class="cvrt-badge">A/B Test</span>
+          </div>
+          <h3>Showerhead PDP Buy Box</h3>
+          <div class="cvrt-card-page">Page: Handheld Filtered Showerhead PDP</div>
+          <p class="cvrt-card-desc">The buy box presents three stacked purchase options, including a nested comparison table inside the pre-selected subscription widget, requiring customers to parse multiple pricing tiers before they can add to cart. A CLS score of 0.285 causes the buy box to physically shift during page load on mobile, disrupting interaction at the decision point. The longest-running Meta ad uses "Try Canopy Risk-Free" as its CTA, but the 60-day return policy is in small grey text below the button on the landing page.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;display:block;">
+              <rect x="12" y="12" width="396" height="226" rx="7" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6,3" fill="none"/>
+              <rect x="28" y="28" width="180" height="10" rx="2" fill="#e0e0dc"/>
+              <rect x="28" y="45" width="90" height="7" rx="2" fill="#ddd"/>
+              <rect x="126" y="45" width="40" height="7" rx="2" fill="#eee"/>
+              <line x1="28" y1="62" x2="392" y2="62" stroke="#e8e8e4" stroke-width="1"/>
+              <rect x="28" y="72" width="362" height="42" rx="5" stroke="#6DBBA3" stroke-width="1.5" stroke-dasharray="5,2.5" fill="rgba(109,187,163,0.06)"/>
+              <rect x="34" y="78" width="174" height="30" rx="4" fill="#6DBBA3" opacity="0.85"/>
+              <rect x="50" y="87" width="100" height="7" rx="2" fill="#fff" opacity="0.9"/>
+              <rect x="214" y="78" width="170" height="30" rx="4" fill="#f2f2f0"/>
+              <rect x="230" y="87" width="80" height="7" rx="2" fill="#ccc"/>
+              <rect x="28" y="124" width="80" height="13" rx="2" fill="#1a1a1a" opacity="0.7"/>
+              <rect x="116" y="127" width="52" height="8" rx="2" fill="#ddd"/>
+              <rect x="28" y="145" width="260" height="7" rx="2" fill="#e8e8e4"/>
+              <rect x="28" y="162" width="362" height="32" rx="5" fill="#1a1a1a" opacity="0.85"/>
+              <rect x="140" y="172" width="140" height="9" rx="2" fill="#fff" opacity="0.7"/>
+              <rect x="28" y="204" width="100" height="6" rx="2" fill="#c8e2da"/>
+              <rect x="150" y="204" width="80" height="6" rx="2" fill="#c8e2da"/>
+              <rect x="252" y="204" width="100" height="6" rx="2" fill="#c8e2da"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+        <!-- SLOT 2 -->
+        <div class="cvrt-card">
+          <div class="cvrt-card-meta">
+            <span class="cvrt-slot-label">Slot 2</span>
+            <span class="cvrt-badge">A/B Test</span>
+          </div>
+          <h3>Homepage Hero</h3>
+          <div class="cvrt-card-page">Page: Homepage</div>
+          <p class="cvrt-card-desc">The homepage hero leads with a promotional mechanic over a dark image where no individual product is clearly visible. Four competing CTAs appear above the fold: hero button, announcement bar, sticky bottom bar, and popup. Hard water relief is the most common purchase driver stated in customer reviews, but "hard water" does not appear anywhere in the above-fold homepage copy. Google Search ads claim over 7,000 five-star reviews, but that figure is not visible on the homepage above the fold.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;display:block;">
+              <rect x="12" y="12" width="396" height="206" rx="7" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6,3" fill="none"/>
+              <rect x="12" y="12" width="396" height="16" rx="3" fill="rgba(109,187,163,0.2)"/>
+              <rect x="120" y="16" width="156" height="6" rx="2" fill="rgba(109,187,163,0.55)"/>
+              <rect x="12" y="28" width="396" height="18" rx="0" fill="#f5f5f3"/>
+              <rect x="26" y="33" width="50" height="7" rx="2" fill="#bbb"/>
+              <rect x="160" y="33" width="40" height="7" rx="2" fill="#ccc"/>
+              <rect x="210" y="33" width="40" height="7" rx="2" fill="#ccc"/>
+              <rect x="260" y="33" width="40" height="7" rx="2" fill="#ccc"/>
+              <rect x="20" y="54" width="190" height="150" rx="5" stroke="#ccc" stroke-width="1" stroke-dasharray="4,2.5" fill="#f2f2ef"/>
+              <ellipse cx="115" cy="100" rx="32" ry="38" stroke="#bbb" stroke-width="1.2" stroke-dasharray="4,2" fill="#eaeae7"/>
+              <rect x="108" y="135" width="14" height="50" rx="4" stroke="#bbb" stroke-width="1" stroke-dasharray="3,2" fill="#e4e4e1"/>
+              <circle cx="42" cy="188" r="12" stroke="#6DBBA3" stroke-width="1" stroke-dasharray="3,2" fill="rgba(109,187,163,0.12)"/>
+              <rect x="33" y="184" width="18" height="5" rx="1" fill="#6DBBA3" opacity="0.4"/>
+              <rect x="33" y="192" width="18" height="3" rx="1" fill="#6DBBA3" opacity="0.3"/>
+              <rect x="224" y="62" width="130" height="6" rx="2" fill="#c8e2da"/>
+              <rect x="224" y="76" width="172" height="12" rx="2" stroke="#6DBBA3" stroke-width="1" stroke-dasharray="4,2.5" fill="rgba(109,187,163,0.06)"/>
+              <rect x="224" y="94" width="155" height="12" rx="2" stroke="#6DBBA3" stroke-width="1" stroke-dasharray="4,2.5" fill="rgba(109,187,163,0.05)"/>
+              <rect x="224" y="112" width="140" height="12" rx="2" stroke="#6DBBA3" stroke-width="1" stroke-dasharray="4,2.5" fill="rgba(109,187,163,0.04)"/>
+              <rect x="224" y="132" width="168" height="6" rx="2" fill="#ddd"/>
+              <rect x="224" y="142" width="148" height="6" rx="2" fill="#e4e4e1"/>
+              <rect x="224" y="158" width="172" height="28" rx="5" fill="#1a1a1a" opacity="0.82"/>
+              <rect x="258" y="167" width="104" height="8" rx="2" fill="#fff" opacity="0.7"/>
+              <rect x="224" y="194" width="140" height="5" rx="2" fill="#ddd"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+        <!-- SLOT 3 -->
+        <div class="cvrt-card">
+          <div class="cvrt-card-meta">
+            <span class="cvrt-slot-label">Slot 3</span>
+            <span class="cvrt-badge">A/B Test</span>
+          </div>
+          <h3>Cart Subscription Upsell</h3>
+          <div class="cvrt-card-page">Page: Cart Drawer</div>
+          <p class="cvrt-card-desc">Once a customer adds the showerhead at the one-time price, there is no prompt anywhere in the cart to switch to a subscription, which would save them $25 immediately. The cross-sell section currently recommends the same product already in the cart. There is no recovery path for one-time buyers after they bypass the subscription option at the PDP.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 300 290" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;display:block;">
+              <rect x="10" y="10" width="280" height="268" rx="7" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6,3" fill="none"/>
+              <rect x="10" y="10" width="280" height="26" rx="4" fill="#f2f2ef"/>
+              <rect x="24" y="19" width="40" height="7" rx="2" fill="#bbb"/>
+              <rect x="254" y="19" width="18" height="7" rx="2" fill="#ccc"/>
+              <rect x="20" y="46" width="260" height="52" rx="4" stroke="#e6e6e2" stroke-width="1" fill="#fafaf8"/>
+              <rect x="28" y="56" width="32" height="32" rx="3" fill="#e8e8e4"/>
+              <rect x="68" y="58" width="120" height="8" rx="2" fill="#ddd"/>
+              <rect x="68" y="72" width="70" height="7" rx="2" fill="#eee"/>
+              <rect x="68" y="83" width="50" height="6" rx="2" fill="#eee"/>
+              <rect x="232" y="62" width="38" height="8" rx="2" fill="#ccc"/>
+              <rect x="20" y="108" width="260" height="66" rx="5" stroke="#6DBBA3" stroke-width="1.5" stroke-dasharray="5,2.5" fill="rgba(109,187,163,0.07)"/>
+              <rect x="20" y="108" width="4" height="66" rx="2" fill="#6DBBA3" opacity="0.7"/>
+              <circle cx="38" cy="141" r="8" stroke="#6DBBA3" stroke-width="1" stroke-dasharray="3,2" fill="rgba(109,187,163,0.15)"/>
+              <rect x="52" y="118" width="200" height="7" rx="2" fill="#c8e2da"/>
+              <rect x="52" y="130" width="175" height="7" rx="2" fill="#ddd"/>
+              <rect x="52" y="146" width="210" height="20" rx="4" fill="#6DBBA3" opacity="0.82"/>
+              <rect x="88" y="151" width="138" height="7" rx="2" fill="#fff" opacity="0.9"/>
+              <rect x="52" y="170" width="100" height="5" rx="2" fill="#bbb"/>
+              <rect x="20" y="184" width="260" height="10" rx="3" fill="#f0f0ee"/>
+              <rect x="20" y="184" width="130" height="10" rx="3" fill="rgba(109,187,163,0.35)"/>
+              <line x1="20" y1="204" x2="280" y2="204" stroke="#e6e6e2" stroke-width="1"/>
+              <rect x="20" y="212" width="64" height="6" rx="2" fill="#eee"/>
+              <rect x="214" y="212" width="58" height="6" rx="2" fill="#eee"/>
+              <rect x="20" y="230" width="260" height="32" rx="5" fill="#1a1a1a" opacity="0.82"/>
+              <rect x="90" y="240" width="120" height="9" rx="2" fill="#fff" opacity="0.7"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /cvrt-tests-panel -->
+
+    <!-- ===== DATA INSIGHTS PANEL ===== -->
+    <div class="cvrt-data-panel">
+
+      <div class="cvrt-sources-eyebrow">Data Sources</div>
+      <div class="cvrt-sources-grid">
+        <span class="cvrt-source-chip">Meta Ads (3 campaigns)</span>
+        <span class="cvrt-source-chip">Google Ads Transparency</span>
+        <span class="cvrt-source-chip">Reviews &amp; UGC (Amazon)</span>
+        <span class="cvrt-source-chip">Page Speed / Core Web Vitals</span>
+        <span class="cvrt-source-chip">Site Screenshots</span>
+        <span class="cvrt-source-chip">CRO Best Practices</span>
+        <span class="cvrt-source-chip">CRO Community Research</span>
+      </div>
+
+      <!-- Meta Ads -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Meta Ads</div>
+        <ul class="cvrt-insight-list">
+          <li>The longest-running ad (active since March 2025) uses "Try Canopy Risk-Free" as its CTA, but the 60-day return policy is in small grey text below the ATC button on the landing page. The ad's promise is not reflected at the conversion point.</li>
+          <li>One paid campaign (active since February 2026) drives traffic to a Babylist third-party product page for the Baby Bath Tub Filter. That page has no subscription option and no first-party data capture.</li>
+          <li>All three analyzed campaigns land on PDPs. The showerhead PDP scores 11/100 on mobile performance. Every dollar spent routes to a page most mobile users abandon before it fully loads.</li>
+        </ul>
+      </div>
+
+      <!-- Google Ads -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Google Ads Transparency</div>
+        <ul class="cvrt-insight-list">
+          <li>The showerhead is the primary product across all Google ad formats: Search, Display, Shopping, and Video. The Baby Bath Tub Filter does not appear in any Google ads in the data collected.</li>
+          <li>"Over 7,000 5-Star Reviews" is the lead claim in Google Search ads but does not appear on the homepage or PDP above the fold.</li>
+          <li>A humidifier Search ad appears to still be running with an expired holiday offer ("Ends Oct 26"). As of April 2026, that deadline has passed.</li>
+          <li>A dedicated landing page referenced in Search ad URL paths returned a 404 when accessed directly.</li>
+        </ul>
+      </div>
+
+      <!-- Reviews & UGC -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Reviews &amp; UGC (Amazon, Handheld Filtered Showerhead)</div>
+        <ul class="cvrt-insight-list">
+          <li>Hard water relief is the most common stated reason for purchase. Buyers from Texas, Florida, Arizona, and New York City explicitly cite hard water as the trigger for buying.</li>
+          <li>"Noticed after first use" or "noticed after first wash" appears across dozens of reviews. Fast results are the key factor that overcomes the $150 price objection, confirmed by reviewers who describe initial hesitation followed by satisfaction.</li>
+          <li>Multiple hairstylists and a licensed esthetician appear in reviews as organic, unprompted endorsements, recommending the product to clients without any brand-initiated prompting.</li>
+          <li>Multi-unit intent is strong. Multiple reviewers mention buying one for every shower in their home or planning two additional purchases.</li>
+        </ul>
+      </div>
+
+      <!-- Page Speed -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Page Speed / Core Web Vitals (April 6, 2026, Mobile Lab)</div>
+        <ul class="cvrt-insight-list">
+          <li>Showerhead PDP: 11/100 mobile performance. LCP 15.6s against a 2.5s target. TBT 3,840ms against a 200ms threshold. CLS 0.285, in the "Poor" range above the 0.25 threshold. Total payload: 9.7MB.</li>
+          <li>Homepage: 29/100 mobile performance. LCP 18.4s. TBT 2,490ms. Total payload: 10.3MB.</li>
+          <li>Research shows every 1-second delay in mobile load time reduces conversions by approximately 7%. Stores with "Good" Core Web Vitals scores see 24% higher mobile conversion rates than those with "Poor" scores.</li>
+          <li>The PDP scores worse than the homepage. All Meta and Google paid traffic lands on the PDP.</li>
+        </ul>
+      </div>
+
+      <!-- Site Screenshots -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Site Screenshots</div>
+        <ul class="cvrt-insight-list">
+          <li>The homepage has four competing CTAs above the fold: hero button ("Shop Sale"), announcement bar ("Shop Now"), sticky bottom bar ("Shop Now"), and popup ("Up to $25 Off").</li>
+          <li>The cart cross-sell section ("Complete your home") recommends the Handheld Filtered Showerhead at $150, which is the same product already in the cart.</li>
+          <li>"Continue without free returns" in the cart implies standard free returns are contingent on the $5.19 package protection add-on. The stated 60-day return policy appears directly below that link, creating a direct contradiction.</li>
+          <li>No subscription upsell prompt appears anywhere in the cart. Once a customer adds the showerhead at the one-time price, there is no recovery path before checkout.</li>
+        </ul>
+      </div>
+
+      <!-- CRO Best Practices -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">CRO Best Practices (Billion Dollar Websites)</div>
+        <ul class="cvrt-insight-list">
+          <li>"Make the product the Hero of the Hero Image. 100% of users will see your Hero Image and header." The current homepage hero uses a dark overlay where no single product is clearly featured.</li>
+          <li>Dream outcome headlines communicate what customers want. "Buy one water filter, get one $25 off" is a promotional mechanic, not a benefit.</li>
+          <li>"Having many customers gives you instant credibility." Google Search ads claim over 7,000 five-star reviews, but this number is not visible on the homepage or PDP above the fold.</li>
+          <li>"Make the price obvious. Do not bury your price." The current buy box has a nested comparison table inside the pre-selected widget plus two additional radio options, requiring active parsing to understand the pricing.</li>
+        </ul>
+      </div>
+
+      <!-- CRO Community Research -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">CRO Community Research</div>
+        <ul class="cvrt-insight-list">
+          <li>Every 1-second delay in mobile load time reduces conversions by approximately 7%. A site loading in 1 second converts 2.5x more visitors than one loading in 5 seconds.</li>
+          <li>Changing the default purchase option from one-time to subscribe lifted reorders by 19% in practitioner data.</li>
+          <li>Customers are wary of subscriptions when terms are not transparent. Clarity around cancellation and delivery cadence is important for subscription conversion.</li>
+        </ul>
+      </div>
+
+      <!-- Cross-source themes -->
+      <div class="cvrt-themes-card">
+        <div class="cvrt-themes-title">Where the Data Converges</div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">Every paid click lands on a near-unusable mobile page</div>
+          <p class="cvrt-theme-body">All three Meta campaigns and all Google Search traffic route to PDPs. The showerhead PDP scores 11/100 on mobile, operating 13 seconds above the LCP target. Page speed data, Meta ad landing page analysis, and CRO community research all converge on this as the single highest-leverage issue on the site.</p>
+        </div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">Top purchase drivers are absent above the fold</div>
+          <p class="cvrt-theme-body">Amazon reviews, Google ad copy, and site screenshots all show the same gap: hard water relief and "results after first use" are what customers cite as their reason to buy, but neither appears in any above-fold copy on the PDP or homepage. The strongest conversion arguments exist in ad copy and customer language, not on the pages where people decide to buy.</p>
+        </div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">The cart has no subscription recovery path</div>
+          <p class="cvrt-theme-body">Site screenshots confirm there is no subscription prompt anywhere in the cart. Switching from one-time to subscribe saves the customer $25 immediately, but that saving is never surfaced. CRO community research shows subscription default changes produce measurable reorder lifts. The broken cross-sell logic is an additional friction layer at the same moment.</p>
+        </div>
+
+      </div>
+
+    </div><!-- /cvrt-data-panel -->
+
+    <!-- ===== FOOTER ===== -->
+    <div class="cvrt-footer">
+      <p>April 2026</p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,680 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+  /* ========== RESET ========== */
+  #cvrt-roadmap,
+  #cvrt-roadmap *,
+  #cvrt-roadmap *::before,
+  #cvrt-roadmap *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: inherit; line-height: inherit;
+    letter-spacing: normal; text-transform: none;
+  }
+  #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+  #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+    font-family: inherit; font-size: inherit;
+    font-weight: inherit; color: inherit;
+    margin: 0; padding: 0;
+  }
+
+  /* ========== VARIABLES ========== */
+  #cvrt-roadmap {
+    --brand:       #E86020;
+    --brand-light: rgba(232, 96, 32, 0.08);
+    --accent:      #C8D835;
+    --text:        #1a1a1a;
+    --muted:       #6b6b6b;
+    --border:      #e4dfd9;
+    --bg:          #f7f5f2;
+    --card-bg:     #ffffff;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+    padding: 48px 24px 64px;
+
+    /* ── FULL-BLEED BREAKOUT ── */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* ========== LAYOUT ========== */
+  #cvrt-roadmap .cvrt-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ========== HEADER ========== */
+  #cvrt-roadmap .cvrt-logo {
+    display: block;
+    height: 28px;
+    width: auto;
+    margin-bottom: 24px;
+  }
+
+  #cvrt-roadmap .cvrt-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+
+  #cvrt-roadmap h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+  }
+
+  #cvrt-roadmap .cvrt-header-rule {
+    height: 2px;
+    width: 44px;
+    background: var(--brand);
+    margin: 16px 0 36px;
+  }
+
+  /* ========== EXECUTIVE SUMMARY ========== */
+  #cvrt-roadmap .cvrt-summary {
+    background: var(--card-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--brand);
+    padding: 22px 26px;
+    margin-bottom: 36px;
+  }
+
+  #cvrt-roadmap .cvrt-summary-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  #cvrt-roadmap .cvrt-summary p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  /* ========== TABS (CSS-only) ========== */
+  #cvrt-roadmap input[type="radio"][name="cvrt-tab"] {
+    display: none;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav {
+    display: flex;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 9px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    user-select: none;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label:hover {
+    color: var(--text);
+  }
+
+  /* Active tab label */
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tab-nav label[for="cvrt-tab-tests"],
+  #cvrt-roadmap #cvrt-tab-data:checked  ~ .cvrt-tab-nav label[for="cvrt-tab-data"] {
+    color: var(--brand);
+    font-weight: 700;
+    border-bottom-color: var(--brand);
+  }
+
+  /* Tab panels */
+  #cvrt-roadmap .cvrt-tests-panel,
+  #cvrt-roadmap .cvrt-data-panel {
+    display: none;
+  }
+
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests-panel {
+    display: block;
+  }
+
+  #cvrt-roadmap #cvrt-tab-data:checked ~ .cvrt-data-panel {
+    display: block;
+  }
+
+  /* ========== SLOT CARDS ========== */
+  #cvrt-roadmap .cvrt-slots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #cvrt-roadmap .cvrt-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    border-left: 4px solid var(--brand);
+    padding: 24px;
+  }
+
+  #cvrt-roadmap .cvrt-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #cvrt-roadmap .cvrt-slot-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  #cvrt-roadmap .cvrt-badge {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: var(--brand);
+    color: #fff;
+  }
+
+  #cvrt-roadmap h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 12px;
+    line-height: 1.3;
+  }
+
+  #cvrt-roadmap .cvrt-card-page {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  #cvrt-roadmap .cvrt-card-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-top: 14px;
+  }
+
+  #cvrt-roadmap .cvrt-sketch-wrap {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  #cvrt-roadmap .cvrt-sketch-caption {
+    font-size: 11px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ========== DATA INSIGHTS ========== */
+  #cvrt-roadmap .cvrt-sources-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+
+  #cvrt-roadmap .cvrt-sources-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  #cvrt-roadmap .cvrt-source-chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 12px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--brand);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    padding: 7px 0 7px 18px;
+    position: relative;
+    border-bottom: 1px solid #f0ece8;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li:first-child {
+    padding-top: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brand);
+  }
+
+  #cvrt-roadmap .cvrt-insight-list li:first-child::before {
+    top: 7px;
+  }
+
+  #cvrt-roadmap .cvrt-themes-card {
+    background: var(--brand-light);
+    border-radius: 8px;
+    border: 1px solid rgba(232, 96, 32, 0.18);
+    padding: 22px 26px;
+    margin-top: 8px;
+  }
+
+  #cvrt-roadmap .cvrt-themes-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+
+  #cvrt-roadmap .cvrt-theme {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(232, 96, 32, 0.14);
+  }
+
+  #cvrt-roadmap .cvrt-theme:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  #cvrt-roadmap .cvrt-theme-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+
+  #cvrt-roadmap .cvrt-theme-body {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ========== FOOTER ========== */
+  #cvrt-roadmap .cvrt-footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 640px) {
+    #cvrt-roadmap {
+      padding: 32px 16px 48px;
+    }
+    #cvrt-roadmap h1 {
+      font-size: 24px;
+    }
+    #cvrt-roadmap .cvrt-tab-nav label {
+      padding: 9px 14px;
+      font-size: 12px;
+    }
+  }
+
+  /* ========== PRINT ========== */
+  @media print {
+    #cvrt-roadmap .cvrt-card,
+    #cvrt-roadmap .cvrt-insight-card {
+      box-shadow: none;
+      border: 1px solid var(--border);
+      break-inside: avoid;
+    }
+    #cvrt-roadmap .cvrt-data-panel {
+      display: block !important;
+    }
+  }
+
+</style>
+
+<div id="cvrt-roadmap">
+  <div class="cvrt-inner">
+
+    <!-- ===== HEADER ===== -->
+    <img
+      class="cvrt-logo"
+      src="https://veracityhealth.co/cdn/shop/files/reskin-logo-black.svg?v=1765270880&width=800"
+      alt="Veracity Health"
+    >
+    <div class="cvrt-eyebrow">CRO Testing Roadmap</div>
+    <h1>April 2026</h1>
+    <div class="cvrt-header-rule"></div>
+
+    <!-- ===== EXECUTIVE SUMMARY ===== -->
+    <div class="cvrt-summary">
+      <div class="cvrt-summary-label">Overview</div>
+      <p>Veracity has strong product conviction: verified reviews by the thousands, clinical backing, and a GLP-1 alternative angle that both Meta and Google are actively spending against. The gap is between what buyers say about the product and what the site shows them at the decision moments that matter. These three tests close that gap at the homepage hero, the PDP buy zone, and the cart.</p>
+    </div>
+
+    <!-- ===== TAB CONTROLS ===== -->
+    <input type="radio" name="cvrt-tab" id="cvrt-tab-tests" checked>
+    <input type="radio" name="cvrt-tab" id="cvrt-tab-data">
+
+    <div class="cvrt-tab-nav">
+      <label for="cvrt-tab-tests">Tests</label>
+      <label for="cvrt-tab-data">Data Insights</label>
+    </div>
+
+    <!-- ===== TESTS PANEL ===== -->
+    <div class="cvrt-tests-panel">
+      <div class="cvrt-slots">
+
+        <!-- SLOT 1 -->
+        <div class="cvrt-card">
+          <div class="cvrt-card-meta">
+            <span class="cvrt-slot-label">Slot 1</span>
+            <span class="cvrt-badge">A/B Test</span>
+          </div>
+          <h3>Metabolism Ignite PDP</h3>
+          <div class="cvrt-card-page">Page: Metabolism Ignite PDP</div>
+          <p class="cvrt-card-desc">Reviews consistently identify three outcomes buyers care about: silencing food noise, clean energy without jitters, and an easy transition away from GLP-1 injections. The buy box copy above the tier selector uses functional descriptions that don't reflect this language. The opportunity is at the highest-stakes decision moment on the page.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;display:block;">
+              <!-- Buy box outer frame -->
+              <rect x="20" y="12" width="360" height="218" rx="6" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,3" fill="none"/>
+              <!-- Product name bar -->
+              <rect x="36" y="28" width="190" height="11" rx="2" fill="#ddd"/>
+              <!-- Subheadline lines -->
+              <rect x="36" y="46" width="250" height="7" rx="2" fill="#eee"/>
+              <rect x="36" y="58" width="210" height="7" rx="2" fill="#eee"/>
+              <!-- Checkmarks row -->
+              <rect x="36" y="75" width="72" height="7" rx="2" fill="#e0dbd5"/>
+              <rect x="118" y="75" width="72" height="7" rx="2" fill="#e0dbd5"/>
+              <rect x="200" y="75" width="72" height="7" rx="2" fill="#e0dbd5"/>
+              <!-- Quote block (highlighted) -->
+              <rect x="36" y="92" width="308" height="46" rx="5" stroke="#E86020" stroke-width="1.5" stroke-dasharray="5,3" fill="rgba(232,96,32,0.06)"/>
+              <text x="42" y="115" font-size="26" fill="#E86020" font-family="Georgia,serif" opacity="0.45">"</text>
+              <rect x="65" y="100" width="240" height="7" rx="2" fill="#ccc"/>
+              <rect x="65" y="114" width="190" height="7" rx="2" fill="#ccc"/>
+              <rect x="65" y="127" width="110" height="5" rx="2" fill="#ddd"/>
+              <!-- Tier selector label -->
+              <rect x="36" y="150" width="108" height="7" rx="2" fill="#ddd"/>
+              <!-- Tier row 1 (default, inactive) -->
+              <rect x="36" y="163" width="308" height="22" rx="4" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3" fill="#f5f5f2"/>
+              <rect x="46" y="169" width="85" height="7" rx="2" fill="#ddd"/>
+              <rect x="284" y="169" width="52" height="7" rx="2" fill="#ddd"/>
+              <!-- Tier row 2 (highlighted active) -->
+              <rect x="36" y="191" width="308" height="22" rx="4" stroke="#E86020" stroke-width="1.5" fill="rgba(232,96,32,0.07)"/>
+              <rect x="46" y="197" width="110" height="7" rx="2" fill="#E86020" opacity="0.35"/>
+              <rect x="284" y="197" width="52" height="7" rx="2" fill="#E86020" opacity="0.3"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+        <!-- SLOT 2 -->
+        <div class="cvrt-card">
+          <div class="cvrt-card-meta">
+            <span class="cvrt-slot-label">Slot 2</span>
+            <span class="cvrt-badge">A/B Test</span>
+          </div>
+          <h3>Homepage Hero</h3>
+          <div class="cvrt-card-page">Page: Homepage</div>
+          <p class="cvrt-card-desc">The homepage hero leads with social proof and a review count that is lower than what the PDP displays. Google paid search is running outcome-based headlines to audiences landing on this page, but the homepage doesn't reflect that language. The disconnect is at the brand's highest-traffic entry point.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;display:block;">
+              <!-- Hero background -->
+              <rect x="10" y="10" width="380" height="190" rx="6" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,3" fill="rgba(232,96,32,0.05)"/>
+              <!-- Announcement bar -->
+              <rect x="10" y="10" width="380" height="16" rx="3" fill="rgba(232,96,32,0.14)"/>
+              <rect x="110" y="14" width="160" height="6" rx="2" fill="rgba(232,96,32,0.5)"/>
+              <!-- Nav -->
+              <rect x="10" y="26" width="380" height="18" rx="0" fill="#f0ece7"/>
+              <rect x="24" y="31" width="46" height="7" rx="2" fill="#bbb"/>
+              <rect x="104" y="31" width="36" height="7" rx="2" fill="#ccc"/>
+              <rect x="150" y="31" width="36" height="7" rx="2" fill="#ccc"/>
+              <rect x="196" y="31" width="60" height="7" rx="2" fill="#ccc"/>
+              <!-- Stars -->
+              <text x="26" y="72" font-size="14" fill="#E86020" font-family="Arial" opacity="0.75">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+              <!-- Outcome headline block (new, highlighted) -->
+              <rect x="26" y="78" width="210" height="18" rx="3" stroke="#E86020" stroke-width="1.2" stroke-dasharray="4,2.5" fill="rgba(232,96,32,0.07)"/>
+              <rect x="34" y="84" width="180" height="7" rx="2" fill="#E86020" opacity="0.3"/>
+              <rect x="26" y="102" width="180" height="16" rx="3" stroke="#E86020" stroke-width="1.2" stroke-dasharray="4,2.5" fill="rgba(232,96,32,0.06)"/>
+              <rect x="34" y="107" width="155" height="7" rx="2" fill="#E86020" opacity="0.25"/>
+              <!-- Updated review count -->
+              <rect x="26" y="126" width="140" height="8" rx="2" fill="#ddd"/>
+              <!-- CTA button -->
+              <rect x="26" y="143" width="140" height="26" rx="13" fill="rgba(200,216,53,0.55)"/>
+              <rect x="26" y="143" width="140" height="26" rx="13" stroke="#C8D835" stroke-width="1.5" fill="none"/>
+              <rect x="54" y="151" width="84" height="8" rx="2" fill="#7a8500" opacity="0.5"/>
+              <!-- Product image (right side) -->
+              <rect x="270" y="50" width="106" height="140" rx="5" stroke="#bbb" stroke-width="1" stroke-dasharray="4,2.5" fill="#f5f5f2"/>
+              <!-- Lime badge -->
+              <circle cx="290" cy="92" r="28" stroke="#C8D835" stroke-width="1.5" stroke-dasharray="4,2" fill="rgba(200,216,53,0.15)"/>
+              <rect x="272" y="88" width="36" height="5" rx="2" fill="#C8D835" opacity="0.5"/>
+              <rect x="272" y="97" width="30" height="5" rx="2" fill="#C8D835" opacity="0.4"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+        <!-- SLOT 3 -->
+        <div class="cvrt-card">
+          <div class="cvrt-card-meta">
+            <span class="cvrt-slot-label">Slot 3</span>
+            <span class="cvrt-badge">A/B Test</span>
+          </div>
+          <h3>Cart Drawer</h3>
+          <div class="cvrt-card-page">Page: Cart Drawer (site-wide)</div>
+          <p class="cvrt-card-desc">The cart's primary action is a subscription offer positioned above the checkout button, asking one-time buyers to evaluate a commitment before completing their purchase. An upsell banner at the top of the cart promotes a product bundle to shoppers who already have both products in their cart. Both patterns create friction at the highest-intent moment in the funnel.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 300 270" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;display:block;">
+              <!-- Cart panel frame -->
+              <rect x="10" y="10" width="280" height="250" rx="6" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,3" fill="none"/>
+              <!-- Header bar -->
+              <rect x="10" y="10" width="280" height="26" rx="3" fill="#f0ece7"/>
+              <rect x="24" y="19" width="38" height="7" rx="2" fill="#bbb"/>
+              <rect x="254" y="19" width="18" height="7" rx="2" fill="#ccc"/>
+              <!-- Cart item -->
+              <rect x="22" y="46" width="256" height="52" rx="4" stroke="#e4dfd9" stroke-width="1" fill="#fafaf8"/>
+              <rect x="34" y="56" width="130" height="8" rx="2" fill="#ddd"/>
+              <rect x="34" y="70" width="80" height="7" rx="2" fill="#eee"/>
+              <rect x="34" y="82" width="50" height="7" rx="2" fill="#eee"/>
+              <!-- Review snippet (occupying previously empty space) -->
+              <rect x="22" y="108" width="256" height="30" rx="4" stroke="#e4dfd9" stroke-width="1" stroke-dasharray="3,2" fill="#fafaf8"/>
+              <rect x="32" y="116" width="210" height="6" rx="2" fill="#ddd"/>
+              <rect x="32" y="127" width="130" height="5" rx="2" fill="#eee"/>
+              <!-- Subscribe secondary card -->
+              <rect x="22" y="148" width="256" height="38" rx="4" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3" fill="#f5f4f2"/>
+              <rect x="32" y="158" width="165" height="7" rx="2" fill="#ccc"/>
+              <rect x="32" y="170" width="90" height="6" rx="2" fill="#ddd"/>
+              <!-- Divider + subtotal -->
+              <line x1="22" y1="197" x2="278" y2="197" stroke="#e4dfd9" stroke-width="1"/>
+              <rect x="22" y="204" width="68" height="6" rx="2" fill="#eee"/>
+              <rect x="210" y="204" width="62" height="6" rx="2" fill="#eee"/>
+              <!-- PRIMARY CHECKOUT button (orange, prominent) -->
+              <rect x="22" y="222" width="256" height="28" rx="5" fill="#E86020" opacity="0.18"/>
+              <rect x="22" y="222" width="256" height="28" rx="5" stroke="#E86020" stroke-width="1.5" fill="none"/>
+              <rect x="94" y="231" width="112" height="9" rx="2" fill="#E86020" opacity="0.55"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /cvrt-tests-panel -->
+
+    <!-- ===== DATA INSIGHTS PANEL ===== -->
+    <div class="cvrt-data-panel">
+
+      <div class="cvrt-sources-eyebrow">Data Sources</div>
+      <div class="cvrt-sources-grid">
+        <span class="cvrt-source-chip">Meta Ads (3 ads)</span>
+        <span class="cvrt-source-chip">Google Ads Transparency</span>
+        <span class="cvrt-source-chip">Reviews &amp; UGC (60+ Amazon reviews)</span>
+        <span class="cvrt-source-chip">Page Speed / Core Web Vitals</span>
+        <span class="cvrt-source-chip">Site Screenshots</span>
+        <span class="cvrt-source-chip">CRO Best Practices</span>
+      </div>
+
+      <!-- Meta Ads -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Meta Ads</div>
+        <ul class="cvrt-insight-list">
+          <li>All 3 ads sampled use the GLP-1 alternative angle as the primary hook, across both influencer and brand-owned creative formats.</li>
+          <li>2 of 3 ads have a discount % mismatch with their landing pages. Ad 1 promises 35% off; no such tier exists on the PDP. Ad 2 promises 20% off; the LP actually offers 30 to 40%.</li>
+          <li>The nursing and postpartum segment is explicitly targeted in Ad 3 creative ("breastfeeding safe nature's Zempic?"), confirming it as a deliberate acquisition target, not just a creative test.</li>
+          <li>The Jurni LP used by Ad 3 is the strongest performer for message match: 50% off in the ad matches 50% off on the LP, and the LP shows 3-month and 6-month tiers above the fold instead of defaulting to the 1-month.</li>
+        </ul>
+      </div>
+
+      <!-- Google Ads -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Google Ads</div>
+        <ul class="cvrt-insight-list">
+          <li>Google Search is running outcome-based headlines ("Feel Full Longer Naturally," "New Mom Safe Natural GLP-1") while the homepage hero leads with a social proof count. Paid and organic messages are not aligned.</li>
+          <li>The nursing and postpartum segment is a confirmed paid segment across both Google and Meta, appearing as a dedicated Search headline: "Weight Loss While Nursing."</li>
+          <li>Google Shopping shows 4.1 stars from 775 ratings, which differs from the 2,000+ reviews shown on-site. Shoppers comparing both may encounter an inconsistency before they arrive.</li>
+        </ul>
+      </div>
+
+      <!-- Reviews & UGC -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Reviews &amp; UGC (60+ Amazon Reviews, Jul 2024 to Mar 2026)</div>
+        <ul class="cvrt-insight-list">
+          <li>Appetite suppression and food noise reduction is the dominant purchase driver. Reviewers describe quieted cravings, eating less without effort, and no more late-night snacking.</li>
+          <li>Three buyer segments emerge clearly from the review set: GLP-1 transitioners coming off Ozempic or Wegovy, postpartum and nursing moms, and perimenopausal women dealing with hormonal weight gain.</li>
+          <li>The most helpful review (82 helpful votes, July 2025) uses language not present in the PDP buy box: "No jitters, decreased appetite for junk. Meals keep me fuller for longer. 10/10."</li>
+          <li>Price sensitivity is a recurring friction signal. Multiple 4-star reviews cite cost explicitly, with reviewers describing the 30-day supply as pricey and hard to justify at full price.</li>
+          <li>Several reviewers note that results take 2 to 3 months to fully appear, raising a consistency risk for buyers who stop before the product has time to work.</li>
+        </ul>
+      </div>
+
+      <!-- Page Speed -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Page Speed / Core Web Vitals</div>
+        <ul class="cvrt-insight-list">
+          <li>The Metabolism Ignite PDP scores 27/100 on mobile lab simulation, with an LCP of 16.9 seconds and a 10MB network payload. A visitor on a slower mobile device waits up to 17 seconds for the main content to load.</li>
+          <li>JavaScript execution time on the PDP is 8.6 seconds, with 20 long tasks and 1,296 KiB of unused JavaScript. These are the primary technical contributors to the slow load.</li>
+          <li>The homepage passes real-world Core Web Vitals (LCP 1.6s field data), but lab simulation shows 33/100 with a 6.2s LCP under throttled conditions.</li>
+          <li>Since most paid social traffic lands on the PDP on mobile, the 27/100 lab score is a direct conversion risk for the brand's highest-spend acquisition channel.</li>
+        </ul>
+      </div>
+
+      <!-- Site Screenshots -->
+      <div class="cvrt-insight-card">
+        <div class="cvrt-insight-title">Site Screenshots</div>
+        <ul class="cvrt-insight-list">
+          <li>The homepage hero displays "1,200+ 5-STAR REVIEWS" while the PDP shows 2,000+ verified reviews and the Jurni LP shows 2,006. The hero understates social proof at the brand's highest-traffic entry point.</li>
+          <li>The PDP pre-selects the 1-month subscription at $63.75/mo (15% off) by default. The 6-month tier at $37.50/mo (50% off) is labeled "Doctor Recommended" but requires active selection to access.</li>
+          <li>The cart's primary CTA is "SUBSCRIBE &amp; SAVE 30% ($117 OFF OVER 3 MONTHS)" in a large orange button, positioned above the Checkout button. One-time buyers must navigate past this offer before they can complete their purchase.</li>
+          <li>An upsell banner in the cart promotes the "Metabolic Power Stack" to a shopper who already has the Metabolism + Power Protein Set (which contains both products) in their cart. The offer is irrelevant to this buyer.</li>
+          <li>There is a large empty space between the cart item and the subtotal with no review snippet, urgency element, or relevant cross-sell.</li>
+        </ul>
+      </div>
+
+      <!-- Cross-source themes -->
+      <div class="cvrt-themes-card">
+        <div class="cvrt-themes-title">Where the Data Converges</div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">Buyer language vs. on-site copy</div>
+          <p class="cvrt-theme-body">Reviews, Meta ad creative, and Google Search headlines all show buyers respond to outcome language: silencing food noise, getting off injections, clean energy. The homepage hero and PDP buy box use functional descriptions that don't reflect this. The gap appears at the two highest-traffic conversion points on the site.</p>
+        </div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">PDP defaults to the weakest offer</div>
+          <p class="cvrt-theme-body">The PDP pre-selects the 1-month option, the most expensive per-bottle choice, while the brand's own Jurni LP for paid traffic leads with 3-month and 6-month tiers. Multiple reviews flag price as a concern. The best-value offer requires active selection by the buyer.</p>
+        </div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">Cart blocks the checkout path</div>
+          <p class="cvrt-theme-body">The subscription offer is the primary CTA above the checkout button. CRO best practices and community research both flag this as a friction pattern for one-time buyers. The irrelevant upsell banner adds a second layer of noise at the highest-intent moment in the funnel.</p>
+        </div>
+
+        <div class="cvrt-theme">
+          <div class="cvrt-theme-name">Paid channel message mismatch</div>
+          <p class="cvrt-theme-body">2 of 3 Meta ads have discount % mismatches with their landing pages. Google Search runs outcome headlines that the homepage doesn't reflect. Trust gaps at first touch compound the conversion challenges already present on-site.</p>
+        </div>
+
+      </div>
+
+    </div><!-- /cvrt-data-panel -->
+
+    <!-- ===== FOOTER ===== -->
+    <div class="cvrt-footer">
+      <p>April 2026</p>
+    </div>
+
+  </div>
+</div>

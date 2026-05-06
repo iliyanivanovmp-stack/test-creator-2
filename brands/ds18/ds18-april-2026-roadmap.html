@@ -1,0 +1,1107 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ds-red: #E31A18;
+    --ds-red-dim: rgba(227,26,24,0.12);
+    --ds-black: #0A0A0A;
+    --ds-charcoal: #141414;
+    --ds-dark: #1C1C1C;
+    --ds-mid: #2A2A2A;
+    --ds-ash: #666666;
+    --ds-silver: #999999;
+    --ds-bone: #F2F2F2;
+    --ds-white: #FFFFFF;
+  }
+
+  /* RESET */
+  #cvrt-roadmap,
+  #cvrt-roadmap *,
+  #cvrt-roadmap *::before,
+  #cvrt-roadmap *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: inherit; line-height: inherit;
+    letter-spacing: normal; text-transform: none;
+  }
+  #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+  #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+    font-family: inherit; font-size: inherit;
+    font-weight: inherit; color: inherit;
+    margin: 0; padding: 0;
+  }
+
+  /* FULL BLEED BREAKOUT */
+  #cvrt-roadmap {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--ds-charcoal);
+    background: var(--ds-bone);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* HERO */
+  #cvrt-roadmap .cvrt-hero {
+    background: var(--ds-black);
+    position: relative;
+    overflow: hidden;
+    padding: 56px 48px 52px;
+  }
+
+  #cvrt-roadmap .cvrt-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--ds-red);
+  }
+
+  #cvrt-roadmap .cvrt-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      -52deg,
+      transparent,
+      transparent 18px,
+      rgba(255,255,255,0.018) 18px,
+      rgba(255,255,255,0.018) 19px
+    );
+    pointer-events: none;
+  }
+
+  #cvrt-roadmap .cvrt-hero-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  #cvrt-roadmap .cvrt-hero-logo {
+    height: 34px;
+    width: auto;
+    margin-bottom: 40px;
+    filter: brightness(0) invert(1);
+    display: block;
+    opacity: 0.9;
+  }
+
+  #cvrt-roadmap .cvrt-hero-eyebrow {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ds-red);
+    margin-bottom: 10px;
+  }
+
+  #cvrt-roadmap .cvrt-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 76px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--ds-white);
+    line-height: 0.9;
+    letter-spacing: 0.025em;
+    margin-bottom: 22px;
+  }
+
+  #cvrt-roadmap .cvrt-hero-rule {
+    width: 40px;
+    height: 3px;
+    background: var(--ds-red);
+    margin-bottom: 20px;
+  }
+
+  #cvrt-roadmap .cvrt-hero-summary {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.58);
+    max-width: 600px;
+  }
+
+  /* TABS */
+  #cvrt-roadmap .cvrt-tabs {
+    position: relative;
+  }
+
+  #cvrt-roadmap .cvrt-tabs input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav {
+    background: var(--ds-charcoal);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 0 48px;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ds-ash);
+    padding: 18px 0;
+    margin-right: 36px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label:hover {
+    color: var(--ds-silver);
+  }
+
+  #cvrt-roadmap .cvrt-tab-nav label::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+
+  #cvrt-roadmap .cvrt-tab-count {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.06);
+    color: var(--ds-ash);
+    padding: 2px 7px;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-tests:checked ~ .cvrt-tab-nav label[for="cvrt-tab-tests"],
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-data:checked ~ .cvrt-tab-nav label[for="cvrt-tab-data"] {
+    color: var(--ds-white);
+  }
+
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-tests:checked ~ .cvrt-tab-nav label[for="cvrt-tab-tests"]::after,
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-data:checked ~ .cvrt-tab-nav label[for="cvrt-tab-data"]::after {
+    background: var(--ds-red);
+  }
+
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-tests:checked ~ .cvrt-tab-nav label[for="cvrt-tab-tests"] .cvrt-tab-count,
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-data:checked ~ .cvrt-tab-nav label[for="cvrt-tab-data"] .cvrt-tab-count {
+    background: var(--ds-red);
+    color: var(--ds-white);
+  }
+
+  #cvrt-roadmap .cvrt-tab-panel {
+    display: none;
+  }
+
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-tests:checked ~ .cvrt-tab-panels .cvrt-panel-tests,
+  #cvrt-roadmap .cvrt-tabs #cvrt-tab-data:checked ~ .cvrt-tab-panels .cvrt-panel-data {
+    display: block;
+  }
+
+  /* CONTENT */
+  #cvrt-roadmap .cvrt-content {
+    padding: 52px 48px 72px;
+  }
+
+  #cvrt-roadmap .cvrt-content-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* SLOT CARDS */
+  #cvrt-roadmap .cvrt-slot {
+    background: var(--ds-white);
+    margin-bottom: 20px;
+    border-top: 4px solid var(--ds-red);
+  }
+
+  #cvrt-roadmap .cvrt-slot-header {
+    padding: 28px 32px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  #cvrt-roadmap .cvrt-slot-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--ds-red);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
+    width: 52px;
+    opacity: 0.9;
+  }
+
+  #cvrt-roadmap .cvrt-slot-meta {
+    padding-top: 4px;
+  }
+
+  #cvrt-roadmap .cvrt-slot-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 9px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  #cvrt-roadmap .cvrt-badge {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    line-height: 1.4;
+  }
+
+  #cvrt-roadmap .cvrt-badge-ab {
+    background: var(--ds-red);
+    color: var(--ds-white);
+  }
+
+  #cvrt-roadmap .cvrt-badge-initiative {
+    background: var(--ds-mid);
+    color: rgba(255,255,255,0.85);
+  }
+
+  #cvrt-roadmap .cvrt-badge-page {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.13);
+    color: var(--ds-silver);
+  }
+
+  #cvrt-roadmap .cvrt-slot h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ds-black);
+    line-height: 1;
+  }
+
+  #cvrt-roadmap .cvrt-slot-body {
+    padding: 20px 32px 32px 32px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 36px;
+    align-items: start;
+  }
+
+  #cvrt-roadmap .cvrt-slot-desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #3C3C3C;
+  }
+
+  #cvrt-roadmap .cvrt-sketch-wrap {
+    /* SVG sketch container */
+  }
+
+  #cvrt-roadmap .cvrt-sketch-caption {
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 500;
+    color: #3C3C3C;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  /* DATA INSIGHTS */
+  #cvrt-roadmap .cvrt-sources-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ds-silver);
+    margin-bottom: 14px;
+  }
+
+  #cvrt-roadmap .cvrt-sources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+
+  #cvrt-roadmap .cvrt-source-chip {
+    background: var(--ds-white);
+    border-top: 3px solid var(--ds-red);
+    padding: 14px 16px;
+  }
+
+  #cvrt-roadmap .cvrt-source-chip-type {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ds-silver);
+    margin-bottom: 3px;
+  }
+
+  #cvrt-roadmap .cvrt-source-chip-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ds-black);
+    line-height: 1.3;
+  }
+
+  #cvrt-roadmap .cvrt-insights-section-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ds-silver);
+    margin-bottom: 14px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-block {
+    background: var(--ds-white);
+    margin-bottom: 12px;
+    padding: 22px 26px;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+
+  #cvrt-roadmap .cvrt-insight-src {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ds-red);
+    margin-bottom: 12px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-block ul li {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #3C3C3C;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  #cvrt-roadmap .cvrt-insight-block ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  #cvrt-roadmap .cvrt-insight-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 2px;
+    background: var(--ds-red);
+  }
+
+  #cvrt-roadmap .cvrt-themes-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ds-black);
+    margin: 44px 0 16px;
+  }
+
+  #cvrt-roadmap .cvrt-themes-heading:first-child {
+    margin-top: 0;
+  }
+
+  #cvrt-roadmap .cvrt-theme-row {
+    background: var(--ds-charcoal);
+    padding: 18px 22px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  #cvrt-roadmap .cvrt-theme-n {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--ds-red);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 22px;
+    opacity: 0.9;
+  }
+
+  #cvrt-roadmap .cvrt-theme-copy {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.68);
+  }
+
+  /* FOOTER */
+  #cvrt-roadmap .cvrt-footer {
+    background: var(--ds-black);
+    padding: 26px 48px;
+  }
+
+  #cvrt-roadmap .cvrt-footer-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #cvrt-roadmap .cvrt-footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.22);
+    text-transform: uppercase;
+  }
+
+  #cvrt-roadmap .cvrt-footer-date {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    #cvrt-roadmap .cvrt-hero { padding: 40px 24px 44px; }
+    #cvrt-roadmap .cvrt-hero h1 { font-size: 52px; }
+    #cvrt-roadmap .cvrt-tab-nav { padding: 0 24px; }
+    #cvrt-roadmap .cvrt-content { padding: 40px 24px 60px; }
+    #cvrt-roadmap .cvrt-slot-header { padding: 22px 22px 0; }
+    #cvrt-roadmap .cvrt-slot-body { grid-template-columns: 1fr; padding: 18px 22px 28px; gap: 24px; }
+    #cvrt-roadmap .cvrt-sources-grid { grid-template-columns: 1fr 1fr; }
+    #cvrt-roadmap .cvrt-footer { padding: 22px 24px; }
+    #cvrt-roadmap .cvrt-insight-block { padding: 18px 20px; }
+  }
+
+  @media (max-width: 480px) {
+    #cvrt-roadmap .cvrt-hero h1 { font-size: 40px; }
+    #cvrt-roadmap .cvrt-sources-grid { grid-template-columns: 1fr 1fr; }
+    #cvrt-roadmap .cvrt-slot-num { font-size: 48px; }
+    #cvrt-roadmap .cvrt-slot h3 { font-size: 26px; }
+  }
+
+  @media print {
+    #cvrt-roadmap .cvrt-slot,
+    #cvrt-roadmap .cvrt-insight-block,
+    #cvrt-roadmap .cvrt-theme-row { box-shadow: none !important; break-inside: avoid; }
+    #cvrt-roadmap .cvrt-tab-panel { display: block !important; }
+    #cvrt-roadmap .cvrt-tab-nav { display: none; }
+  }
+</style>
+
+<div id="cvrt-roadmap">
+
+  <!-- HERO -->
+  <div class="cvrt-hero">
+    <div class="cvrt-hero-inner">
+      <img src="https://ds18.com/cdn/shop/files/LOGO-DS18-GREY-WEB_290x.png?v=1675447931" alt="DS18" class="cvrt-hero-logo">
+      <div class="cvrt-hero-eyebrow">CRO Testing Roadmap</div>
+      <h1>May<br>2026</h1>
+      <div class="cvrt-hero-rule"></div>
+      <p class="cvrt-hero-summary">DS18's Meta campaigns promise competition, SPL dominance, and extreme loudness. The pages they land on tell a different story, and mobile visitors are abandoning before they see either. The product earns strong reviews. The conversion problem is a chain of mismatches between what ads promise and what the site delivers at every step.</p>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="cvrt-tabs">
+    <input type="radio" name="cvrt-tabs" id="cvrt-tab-tests" checked>
+    <input type="radio" name="cvrt-tabs" id="cvrt-tab-data">
+
+    <div class="cvrt-tab-nav">
+      <div class="cvrt-tab-nav-inner">
+        <label for="cvrt-tab-tests">Tests <span class="cvrt-tab-count">8</span></label>
+        <label for="cvrt-tab-data">Data Insights <span class="cvrt-tab-count">6</span></label>
+      </div>
+    </div>
+
+    <div class="cvrt-tab-panels">
+
+      <!-- TESTS PANEL -->
+      <div class="cvrt-tab-panel cvrt-panel-tests">
+        <div class="cvrt-content">
+          <div class="cvrt-content-inner">
+
+            <!-- SLOT 1 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">1</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Homepage</span>
+                  </div>
+                  <h3>Homepage Hero</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">The homepage hero is a near-invisible dark fullscreen section. No product is visible, there is no price anchor, and no social proof appears above the fold. DS18's "Over 2 Million Customers" claim surfaces for the first time in the cart, after the buying decision has already been made or lost.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="210" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <rect x="0" y="0" width="380" height="160" rx="4" fill="#161616"/>
+                    <rect x="14" y="14" width="165" height="132" rx="3" fill="none" stroke="#3A3A3A" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <circle cx="96" cy="80" r="46" fill="none" stroke="#4A4A4A" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <circle cx="96" cy="80" r="27" fill="none" stroke="#E31A18" stroke-width="2" stroke-dasharray="4,3"/>
+                    <circle cx="96" cy="80" r="9" fill="#E31A18" opacity="0.35"/>
+                    <text x="96" y="142" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">PRODUCT</text>
+                    <text x="194" y="36" font-family="sans-serif" font-size="11" fill="#E31A18" font-weight="700" letter-spacing="2">WE LIKE IT LOUD</text>
+                    <rect x="194" y="44" width="164" height="22" rx="2" fill="#333333"/>
+                    <text x="276" y="60" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">HEADLINE</text>
+                    <rect x="194" y="72" width="140" height="10" rx="1" fill="#2C2C2C"/>
+                    <rect x="194" y="86" width="120" height="10" rx="1" fill="#2C2C2C"/>
+                    <rect x="194" y="100" width="36" height="28" rx="2" fill="none" stroke="#666666" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <rect x="235" y="100" width="36" height="28" rx="2" fill="none" stroke="#666666" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <rect x="276" y="100" width="36" height="28" rx="2" fill="none" stroke="#666666" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <rect x="317" y="100" width="36" height="28" rx="2" fill="none" stroke="#666666" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="212" y="118" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">2M+</text>
+                    <text x="253" y="118" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">Ship</text>
+                    <text x="294" y="118" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">Warranty</text>
+                    <text x="335" y="118" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">Chat</text>
+                    <rect x="194" y="136" width="155" height="28" rx="3" fill="#E31A18"/>
+                    <text x="272" y="155" font-family="sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.5">SHOP BEST SELLERS</text>
+                    <text x="190" y="192" font-family="sans-serif" font-size="12" font-weight="700" fill="#3C3C3C" text-anchor="middle" letter-spacing="1">FEATURED PRODUCTS</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 2 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">2</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">PROJECT360 Collection Page</span>
+                  </div>
+                  <h3>PROJECT360 Collection: Ad Message Match</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">All three active Meta ads (launched April 21, 2026) sell competition, SPL dominance, and extreme loudness. Every one of them lands on a collection page that opens with the patent-pending Rotating Recone repairability story. A buyer who clicks through expecting to dominate a competition immediately reads about replacing a damaged voice coil.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="210" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <rect x="0" y="0" width="380" height="155" rx="4" fill="#161616"/>
+                    <rect x="14" y="14" width="162" height="127" rx="3" fill="none" stroke="#3A3A3A" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <circle cx="95" cy="77" r="42" fill="none" stroke="#4A4A4A" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <circle cx="95" cy="77" r="14" fill="none" stroke="#4A4A4A" stroke-width="1" stroke-dasharray="3,2"/>
+                    <text x="95" y="135" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">PRODUCT</text>
+                    <text x="192" y="34" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" letter-spacing="2">PROJECT360</text>
+                    <rect x="190" y="42" width="172" height="30" rx="3" fill="rgba(227,26,24,0.12)" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="276" y="53" font-family="sans-serif" font-size="13" fill="#E31A18" text-anchor="middle" font-weight="900" letter-spacing="1">BUILT TO</text>
+                    <text x="276" y="68" font-family="sans-serif" font-size="13" fill="#E31A18" text-anchor="middle" font-weight="900" letter-spacing="1">DOMINATE</text>
+                    <rect x="190" y="80" width="155" height="9" rx="1" fill="#2E2E2E"/>
+                    <rect x="190" y="94" width="138" height="9" rx="1" fill="#2E2E2E"/>
+                    <rect x="190" y="112" width="172" height="18" rx="2" fill="none" stroke="#555555" stroke-width="1" stroke-dasharray="3,2"/>
+                    <text x="276" y="125" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">Rotating Recone Design</text>
+                    <text x="190" y="190" font-family="sans-serif" font-size="12" font-weight="700" fill="#3C3C3C" text-anchor="middle" letter-spacing="1">PRODUCT GRID</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 3 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">3</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Sitewide</span>
+                  </div>
+                  <h3>Sitewide Trust Announcement Bar</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">Trustpilot and Amazon reviews from 2020 through April 2026 share a pattern: buyers who hit a product issue describe an unreachable returns team, customer-paid shipping both ways, and warranty waits near two months. DS18's warranty page is password-protected before purchase, and "Over 2 Million Customers" only appears for the first time inside the cart. The entire sitewide announcement bar is currently used on free shipping alone.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="230" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <rect x="0" y="0" width="380" height="30" rx="4" fill="#1A1A1A" stroke="#E31A18" stroke-width="2" stroke-dasharray="6,3"/>
+                    <text x="18" y="21" font-family="sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">&lt;</text>
+                    <text x="354" y="21" font-family="sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">&gt;</text>
+                    <text x="190" y="21" font-family="sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.5">2-Year Warranty on Every Product</text>
+                    <circle cx="172" cy="38" r="4" fill="#E31A18"/>
+                    <circle cx="185" cy="38" r="3" fill="#444444"/>
+                    <circle cx="196" cy="38" r="3" fill="#444444"/>
+                    <circle cx="207" cy="38" r="3" fill="#444444"/>
+                    <rect x="0" y="46" width="380" height="24" fill="#111111"/>
+                    <rect x="14" y="53" width="32" height="10" rx="1" fill="#2A2A2A"/>
+                    <rect x="148" y="55" width="20" height="7" rx="1" fill="#2A2A2A"/>
+                    <rect x="174" y="55" width="20" height="7" rx="1" fill="#2A2A2A"/>
+                    <rect x="200" y="55" width="20" height="7" rx="1" fill="#2A2A2A"/>
+                    <rect x="226" y="55" width="20" height="7" rx="1" fill="#2A2A2A"/>
+                    <rect x="0" y="70" width="380" height="70" fill="#161616"/>
+                    <rect x="20" y="84" width="140" height="14" rx="1" fill="#282828"/>
+                    <rect x="20" y="104" width="100" height="10" rx="1" fill="#222222"/>
+                    <text x="190" y="165" font-family="sans-serif" font-size="12" font-weight="700" fill="#3C3C3C" text-anchor="middle" letter-spacing="1.5">4 ROTATING MESSAGES</text>
+                    <rect x="10" y="173" width="80" height="34" rx="3" fill="none" stroke="#AAAAAA" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="50" y="187" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle">Free</text>
+                    <text x="50" y="201" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle">Shipping</text>
+                    <rect x="100" y="173" width="80" height="34" rx="3" fill="rgba(227,26,24,0.08)" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="140" y="187" font-family="sans-serif" font-size="11" font-weight="700" fill="#E31A18" text-anchor="middle">2-Year</text>
+                    <text x="140" y="201" font-family="sans-serif" font-size="11" font-weight="700" fill="#E31A18" text-anchor="middle">Warranty</text>
+                    <rect x="190" y="173" width="80" height="34" rx="3" fill="none" stroke="#AAAAAA" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="230" y="187" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle">30-Day</text>
+                    <text x="230" y="201" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle">Returns</text>
+                    <rect x="280" y="173" width="90" height="34" rx="3" fill="none" stroke="#AAAAAA" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="325" y="187" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle">2M+</text>
+                    <text x="325" y="201" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle">Customers</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 4 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">4</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Product Page</span>
+                  </div>
+                  <h3>PDP Trust Buy Box</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">The PDP trust badges (Free Shipping, 30-Day Returns, 2-Year Warranty) sit below the spec list and video in fold 3. The primary decision point (price plus Add to Cart) carries no purchase assurance. Reviews document warranty anxiety as the dominant pre-purchase concern. The reassurance buyers need most arrives only after they scroll past the entire buying section.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="230" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <!-- Left: product image -->
+                    <rect x="10" y="10" width="160" height="160" rx="3" fill="none" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <circle cx="90" cy="90" r="52" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <circle cx="90" cy="90" r="22" fill="none" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <circle cx="90" cy="90" r="7" fill="#E31A18" opacity="0.3"/>
+                    <text x="90" y="156" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888" text-anchor="middle">IMAGE</text>
+                    <!-- Right: buy box -->
+                    <text x="182" y="26" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888" letter-spacing="1">PRO-X 6.5"</text>
+                    <text x="182" y="46" font-family="sans-serif" font-size="20" font-weight="700" fill="#0A0A0A" letter-spacing="0.5">$52.95</text>
+                    <text x="248" y="46" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888">/EACH</text>
+                    <!-- Stars row -->
+                    <text x="182" y="64" font-family="sans-serif" font-size="12" font-weight="700" fill="#E31A18">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+                    <text x="242" y="64" font-family="sans-serif" font-size="11" fill="#666666">157 reviews</text>
+                    <!-- ATC button -->
+                    <rect x="182" y="72" width="182" height="32" rx="3" fill="#E31A18"/>
+                    <text x="273" y="93" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">ADD TO CART</text>
+                    <!-- Trust badges: moved above fold -->
+                    <text x="182" y="120" font-family="sans-serif" font-size="10" font-weight="700" fill="#E31A18" letter-spacing="1">TRUST BADGES: MOVED HERE</text>
+                    <rect x="182" y="124" width="182" height="42" rx="3" fill="rgba(227,26,24,0.06)" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="195" y="140" font-family="sans-serif" font-size="10" font-weight="700" fill="#3C3C3C">Free Shipping</text>
+                    <text x="195" y="157" font-family="sans-serif" font-size="10" font-weight="700" fill="#3C3C3C">30-Day Returns</text>
+                    <text x="300" y="140" font-family="sans-serif" font-size="10" font-weight="700" fill="#3C3C3C">2-Yr Warranty</text>
+                    <!-- Spec section below (dimmed) -->
+                    <rect x="182" y="180" width="182" height="9" rx="1" fill="#DDDDDD"/>
+                    <rect x="182" y="194" width="150" height="9" rx="1" fill="#DDDDDD"/>
+                    <text x="182" y="222" font-family="sans-serif" font-size="10" font-weight="700" fill="#AAAAAA" letter-spacing="1">SPECS + VIDEO BELOW</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 5 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">5</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Cart</span>
+                  </div>
+                  <h3>Cart: Affirm BNPL Callout</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">Affirm financing appears near the price on the PDP (4 payments of $14 for the PRO-X) but is absent from the cart drawer. A buyer who factored in the installment option while on the product page arrives at checkout with no reminder of it, facing the full cart total without the monthly framing that may have made the purchase feel affordable.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="250" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <!-- Cart drawer header -->
+                    <rect x="0" y="0" width="380" height="36" rx="4" fill="#0A0A0A"/>
+                    <text x="20" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="1">YOUR CART</text>
+                    <text x="354" y="24" font-family="sans-serif" font-size="16" font-weight="700" fill="#888888" text-anchor="middle">X</text>
+                    <!-- Cart item row -->
+                    <rect x="14" y="46" width="50" height="50" rx="2" fill="none" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <circle cx="39" cy="71" r="16" fill="none" stroke="#AAAAAA" stroke-width="1" stroke-dasharray="3,2"/>
+                    <text x="74" y="64" font-family="sans-serif" font-size="12" font-weight="700" fill="#1A1A1A">PRO-X 6.5" Speaker</text>
+                    <text x="74" y="80" font-family="sans-serif" font-size="12" fill="#666666">Qty: 1</text>
+                    <text x="348" y="64" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A" text-anchor="end">$99.95</text>
+                    <!-- Separator -->
+                    <line x1="14" y1="106" x2="366" y2="106" stroke="#E0E0E0" stroke-width="1"/>
+                    <!-- Subtotal -->
+                    <text x="14" y="126" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A">Subtotal</text>
+                    <text x="366" y="126" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A" text-anchor="end">$99.95</text>
+                    <!-- Affirm callout - highlighted -->
+                    <rect x="14" y="138" width="352" height="36" rx="3" fill="rgba(227,26,24,0.06)" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="190" y="152" font-family="sans-serif" font-size="11" font-weight="700" fill="#E31A18" text-anchor="middle" letter-spacing="0.5">Pay 4 x $24.99 with Affirm</text>
+                    <text x="190" y="167" font-family="sans-serif" font-size="10" fill="#666666" text-anchor="middle">0% APR for qualified buyers. No hidden fees.</text>
+                    <!-- Checkout button -->
+                    <rect x="14" y="184" width="352" height="36" rx="3" fill="#E31A18"/>
+                    <text x="190" y="207" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">CHECKOUT</text>
+                    <!-- Shop Pay -->
+                    <rect x="14" y="228" width="352" height="16" rx="3" fill="#5A31F4" opacity="0.15"/>
+                    <text x="190" y="240" font-family="sans-serif" font-size="10" font-weight="700" fill="#5A31F4" text-anchor="middle" letter-spacing="0.5">Shop Pay</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 6 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">6</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Cart</span>
+                  </div>
+                  <h3>Cart Urgency Copy</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">The cart drawer shows "Your items aren't reserved, checkout quickly to make sure you don't miss out." Scarcity framing creates pressure. For a buyer who has already read DS18's negative service reviews before arriving, a trust-forward message at the same location may convert better than urgency that lands hollow given the brand's documented reputation.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="240" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <!-- Cart header -->
+                    <rect x="0" y="0" width="380" height="34" rx="4" fill="#0A0A0A"/>
+                    <text x="20" y="23" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="1">YOUR CART</text>
+                    <!-- Item row -->
+                    <rect x="14" y="44" width="48" height="48" rx="2" fill="none" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <circle cx="38" cy="68" r="14" fill="none" stroke="#AAAAAA" stroke-width="1" stroke-dasharray="3,2"/>
+                    <text x="72" y="62" font-family="sans-serif" font-size="12" font-weight="700" fill="#1A1A1A">PRO-X 6.5" Speaker</text>
+                    <text x="72" y="78" font-family="sans-serif" font-size="11" fill="#666666">Qty: 1</text>
+                    <text x="358" y="62" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A" text-anchor="end">$99.95</text>
+                    <!-- Separator -->
+                    <line x1="14" y1="102" x2="366" y2="102" stroke="#E0E0E0" stroke-width="1"/>
+                    <!-- Control urgency copy (dimmed) -->
+                    <rect x="14" y="110" width="352" height="28" rx="2" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1"/>
+                    <text x="50" y="121" font-family="sans-serif" font-size="9" font-weight="700" fill="#BBBBBB" letter-spacing="0.5">CONTROL</text>
+                    <text x="190" y="132" font-family="sans-serif" font-size="10" fill="#BBBBBB" text-anchor="middle">Your items aren't reserved, checkout quickly...</text>
+                    <!-- Variation trust copy (highlighted) -->
+                    <rect x="14" y="146" width="352" height="28" rx="2" fill="rgba(227,26,24,0.06)" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="50" y="157" font-family="sans-serif" font-size="9" font-weight="700" fill="#E31A18" letter-spacing="0.5">VARIATION</text>
+                    <text x="190" y="168" font-family="sans-serif" font-size="10" font-weight="700" fill="#3C3C3C" text-anchor="middle">Free shipping included. 2-Year Warranty on every order.</text>
+                    <!-- Subtotal -->
+                    <line x1="14" y1="184" x2="366" y2="184" stroke="#E0E0E0" stroke-width="1"/>
+                    <text x="14" y="200" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A">Subtotal</text>
+                    <text x="366" y="200" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A" text-anchor="end">$99.95</text>
+                    <!-- Checkout button -->
+                    <rect x="14" y="208" width="352" height="28" rx="3" fill="#E31A18"/>
+                    <text x="190" y="227" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">CHECKOUT</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 7 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">7</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Homepage</span>
+                  </div>
+                  <h3>Homepage Navigation: Vehicle-First</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">DS18's strongest buyer communities are motorcycle (Harley) and Jeep owners, documented in reviews from 2018 through 2025. The main navigation leads with "Car Audio" as a generic category. DS18's own homepage fold 3 already uses vehicle-first category tiles (Jeep Audio, Motorcycle Audio, Marine Audio). Rockford Fosgate's navigation is structured identically around vehicle type. The nav and the homepage category section are telling two different stories about how to browse the catalog.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="200" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <!-- Nav bar - current -->
+                    <rect x="0" y="0" width="380" height="34" rx="4" fill="#0A0A0A"/>
+                    <text x="14" y="13" font-family="sans-serif" font-size="9" font-weight="700" fill="#888888" letter-spacing="1">CURRENT NAV</text>
+                    <rect x="14" y="18" width="62" height="12" rx="1" fill="#3A3A3A"/>
+                    <text x="45" y="28" font-family="sans-serif" font-size="9" font-weight="700" fill="#888888" text-anchor="middle">CAR AUDIO</text>
+                    <rect x="82" y="18" width="55" height="12" rx="1" fill="#222222"/>
+                    <text x="110" y="28" font-family="sans-serif" font-size="9" fill="#666666" text-anchor="middle">JEEP AUDIO</text>
+                    <rect x="143" y="18" width="70" height="12" rx="1" fill="#222222"/>
+                    <text x="178" y="28" font-family="sans-serif" font-size="9" fill="#666666" text-anchor="middle">MOTORCYCLE</text>
+                    <rect x="219" y="18" width="65" height="12" rx="1" fill="#222222"/>
+                    <text x="252" y="28" font-family="sans-serif" font-size="9" fill="#666666" text-anchor="middle">MARINE AUDIO</text>
+                    <!-- Nav bar - variation -->
+                    <rect x="0" y="44" width="380" height="34" rx="0" fill="#141414"/>
+                    <text x="14" y="57" font-family="sans-serif" font-size="9" font-weight="700" fill="#E31A18" letter-spacing="1">VARIATION NAV</text>
+                    <rect x="14" y="62" width="55" height="12" rx="1" fill="rgba(227,26,24,0.15)" stroke="#E31A18" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="41" y="72" font-family="sans-serif" font-size="9" font-weight="700" fill="#E31A18" text-anchor="middle">JEEP AUDIO</text>
+                    <rect x="75" y="62" width="72" height="12" rx="1" fill="rgba(227,26,24,0.15)" stroke="#E31A18" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="111" y="72" font-family="sans-serif" font-size="9" font-weight="700" fill="#E31A18" text-anchor="middle">MOTORCYCLE</text>
+                    <rect x="153" y="62" width="68" height="12" rx="1" fill="#222222"/>
+                    <text x="187" y="72" font-family="sans-serif" font-size="9" fill="#666666" text-anchor="middle">MARINE AUDIO</text>
+                    <rect x="227" y="62" width="65" height="12" rx="1" fill="#222222"/>
+                    <text x="260" y="72" font-family="sans-serif" font-size="9" fill="#666666" text-anchor="middle">CAR AUDIO</text>
+                    <!-- Vehicle tiles below -->
+                    <text x="190" y="108" font-family="sans-serif" font-size="11" font-weight="700" fill="#3C3C3C" text-anchor="middle" letter-spacing="1">SHOP BY VEHICLE</text>
+                    <rect x="14" y="116" width="82" height="68" rx="3" fill="none" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="55" y="155" font-family="sans-serif" font-size="11" font-weight="700" fill="#E31A18" text-anchor="middle">JEEP</text>
+                    <rect x="104" y="116" width="82" height="68" rx="3" fill="none" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="145" y="155" font-family="sans-serif" font-size="11" font-weight="700" fill="#E31A18" text-anchor="middle">MOTORCYCLE</text>
+                    <rect x="194" y="116" width="82" height="68" rx="3" fill="none" stroke="#AAAAAA" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="235" y="155" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888" text-anchor="middle">MARINE</text>
+                    <rect x="284" y="116" width="82" height="68" rx="3" fill="none" stroke="#AAAAAA" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <text x="325" y="155" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888" text-anchor="middle">CAR AUDIO</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLOT 8 -->
+            <div class="cvrt-slot">
+              <div class="cvrt-slot-header">
+                <div class="cvrt-slot-num">8</div>
+                <div class="cvrt-slot-meta">
+                  <div class="cvrt-slot-badges">
+                    <span class="cvrt-badge cvrt-badge-ab">A/B Test</span>
+                    <span class="cvrt-badge cvrt-badge-page">Product Page</span>
+                  </div>
+                  <h3>PDP Expectation Clarity</h3>
+                </div>
+              </div>
+              <div class="cvrt-slot-body">
+                <div class="cvrt-slot-left">
+                  <p class="cvrt-slot-desc">Multiple Amazon reviews from 2019 through 2025 document two post-purchase surprises: speakers are sold individually, and an external amplifier is required for full performance. The PDP labels the price as "/EACH" but does not surface the amp requirement near the add-to-cart decision. These mismatches generate returns and negative reviews, adding load to DS18's already documented customer service bottleneck.</p>
+                </div>
+                <div class="cvrt-sketch-wrap">
+                  <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;">
+                    <rect x="0" y="0" width="380" height="220" rx="4" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <!-- Left: product image placeholder -->
+                    <rect x="10" y="10" width="150" height="150" rx="3" fill="none" stroke="#CCCCCC" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <circle cx="85" cy="85" r="48" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <circle cx="85" cy="85" r="20" fill="none" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <circle cx="85" cy="85" r="6" fill="#E31A18" opacity="0.3"/>
+                    <text x="85" y="148" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888" text-anchor="middle">IMAGE</text>
+                    <!-- Right: buy box with clarity badges -->
+                    <text x="174" y="26" font-family="sans-serif" font-size="12" font-weight="700" fill="#888888" letter-spacing="0.5">PRO-X 6.5" Mid-Range</text>
+                    <text x="174" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#0A0A0A">$52.95</text>
+                    <text x="238" y="46" font-family="sans-serif" font-size="11" font-weight="700" fill="#888888">/EACH</text>
+                    <!-- Clarity badges row - highlighted -->
+                    <text x="174" y="64" font-family="sans-serif" font-size="10" font-weight="700" fill="#E31A18" letter-spacing="1">ADDED CLARITY</text>
+                    <rect x="174" y="68" width="190" height="40" rx="3" fill="rgba(227,26,24,0.06)" stroke="#E31A18" stroke-width="1.5" stroke-dasharray="5,3"/>
+                    <rect x="180" y="74" width="82" height="26" rx="2" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1"/>
+                    <text x="221" y="85" font-family="sans-serif" font-size="9" font-weight="700" fill="#1A1A1A" text-anchor="middle">SOLD AS</text>
+                    <text x="221" y="95" font-family="sans-serif" font-size="9" font-weight="700" fill="#1A1A1A" text-anchor="middle">1 UNIT</text>
+                    <rect x="270" y="74" width="88" height="26" rx="2" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1"/>
+                    <text x="314" y="85" font-family="sans-serif" font-size="9" font-weight="700" fill="#1A1A1A" text-anchor="middle">AMP</text>
+                    <text x="314" y="95" font-family="sans-serif" font-size="9" font-weight="700" fill="#1A1A1A" text-anchor="middle">REQUIRED</text>
+                    <!-- Quantity + ATC -->
+                    <rect x="174" y="118" width="40" height="30" rx="2" fill="none" stroke="#CCCCCC" stroke-width="1.5"/>
+                    <text x="194" y="138" font-family="sans-serif" font-size="13" font-weight="700" fill="#1A1A1A" text-anchor="middle">1</text>
+                    <rect x="220" y="118" width="144" height="30" rx="3" fill="#E31A18"/>
+                    <text x="292" y="138" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">ADD TO CART</text>
+                    <!-- Affirm -->
+                    <text x="174" y="164" font-family="sans-serif" font-size="11" fill="#666666">4 payments of $14 with Affirm</text>
+                    <!-- Complete your system nudge -->
+                    <rect x="174" y="172" width="190" height="38" rx="2" fill="none" stroke="#DDDDDD" stroke-width="1"/>
+                    <text x="185" y="186" font-family="sans-serif" font-size="10" font-weight="700" fill="#888888">COMPLETE YOUR SYSTEM</text>
+                    <text x="185" y="200" font-family="sans-serif" font-size="10" fill="#666666">Need an amp? See bundles.</text>
+                  </svg>
+                  <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- DATA INSIGHTS PANEL -->
+      <div class="cvrt-tab-panel cvrt-panel-data">
+        <div class="cvrt-content">
+          <div class="cvrt-content-inner">
+
+            <div class="cvrt-themes-heading" style="margin-top:0;">Biggest Issues Impacting Conversion Rate</div>
+
+            <div class="cvrt-theme-row">
+              <div class="cvrt-theme-n">1</div>
+              <div class="cvrt-theme-copy">Message match gap. All Meta ads sell competition and performance. The collection page they all link to leads with repairability. Every paid click lands in a narrative the ad did not set up.</div>
+            </div>
+            <div class="cvrt-theme-row">
+              <div class="cvrt-theme-n">2</div>
+              <div class="cvrt-theme-copy">Homepage makes zero first impression. The hero is nearly invisible above the fold and DS18's strongest credibility signal (2M+ customers) only appears in the cart.</div>
+            </div>
+            <div class="cvrt-theme-row">
+              <div class="cvrt-theme-n">3</div>
+              <div class="cvrt-theme-copy">Trust deficit runs across the entire funnel. The warranty page is password-protected. Reviews document systemic customer service failure. Trust signals appear too late in the buying journey to do their work.</div>
+            </div>
+            <div class="cvrt-theme-row">
+              <div class="cvrt-theme-n">4</div>
+              <div class="cvrt-theme-copy">Site speed is destroying paid campaign ROAS. Both key pages score 25/100 on mobile. The ads landing page has a 10-second LCP. The majority of mobile ad clicks are bouncing before the page loads.</div>
+            </div>
+            <div class="cvrt-theme-row">
+              <div class="cvrt-theme-n">5</div>
+              <div class="cvrt-theme-copy">Expectation mismatch on product details. Multiple buyers report post-purchase surprise that speakers are sold individually and that an external amp is required. This generates returns and compounds the customer service load.</div>
+            </div>
+
+            <div class="cvrt-sources-label" style="margin-top:40px;">Data Sources Collected</div>
+            <div class="cvrt-sources-grid">
+              <div class="cvrt-source-chip">
+                <div class="cvrt-source-chip-type">Paid Media</div>
+                <div class="cvrt-source-chip-name">Meta Ads</div>
+              </div>
+              <div class="cvrt-source-chip">
+                <div class="cvrt-source-chip-type">Paid Media</div>
+                <div class="cvrt-source-chip-name">Google Ads</div>
+              </div>
+              <div class="cvrt-source-chip">
+                <div class="cvrt-source-chip-type">Voice of Customer</div>
+                <div class="cvrt-source-chip-name">Reviews and UGC</div>
+              </div>
+              <div class="cvrt-source-chip">
+                <div class="cvrt-source-chip-type">Technical</div>
+                <div class="cvrt-source-chip-name">Page Speed / Core Web Vitals</div>
+              </div>
+              <div class="cvrt-source-chip">
+                <div class="cvrt-source-chip-type">Market</div>
+                <div class="cvrt-source-chip-name">Competitor Research</div>
+              </div>
+              <div class="cvrt-source-chip">
+                <div class="cvrt-source-chip-type">UX</div>
+                <div class="cvrt-source-chip-name">Site Screenshots</div>
+              </div>
+            </div>
+
+            <div class="cvrt-insights-section-label">Findings by Source</div>
+
+            <div class="cvrt-insight-block">
+              <div class="cvrt-insight-src">Meta Ads</div>
+              <ul>
+                <li>3 active ads, all launched April 21, 2026. All use the same emotional angle: competition, SPL dominance, extreme loudness. All three carry the headline "DS18 PROJECT360: Competition Ready."</li>
+                <li>All 3 ads land on the same collection page. The page opens with the patent-pending Rotating Recone repairability story, not the performance narrative the ads sell.</li>
+                <li>One ad thumbnail shows "RECONE YOUR SPEAKER IN SECONDS" text, creating a direct conflict: the ad's own thumbnail signals repairability, while the ad copy promises competition domination.</li>
+              </ul>
+            </div>
+
+            <div class="cvrt-insight-block">
+              <div class="cvrt-insight-src">Google Ads</div>
+              <ul>
+                <li>4 active campaigns found, managed by Creart Media Group. Messaging is rational (USA engineering, quality audio) vs. Meta's emotional approach.</li>
+                <li>Zero Google Search ads for PROJECT360 despite 3 active Meta campaigns. Anyone who discovers PROJECT360 via Meta and searches for it on Google finds no paid result to capture that intent.</li>
+                <li>Google star rating across ads: 4.2/5 from 372 reviews. Below what product-level ratings would suggest, indicating customer service complaints are pulling the sitewide average down.</li>
+              </ul>
+            </div>
+
+            <div class="cvrt-insight-block">
+              <div class="cvrt-insight-src">Reviews and UGC (Trustpilot and Amazon)</div>
+              <ul>
+                <li>Product quality is consistently praised. "Sounds better than what Harley Davidson or Hog Tunes are selling." "Loud with proper amp, very clear sound." Strong community loyalty from Harley and Jeep buyers specifically.</li>
+                <li>Customer service is the dominant complaint pattern across Trustpilot and Amazon from 2020 through April 2026: returns department that doesn't answer the phone, unanswered emails, and a CS agent who confirmed "returns doesn't answer the phone" to a customer on the line.</li>
+                <li>Warranty friction is documented in reviews: customer-paid shipping both ways, wait times reported near two months for resolution, no RMA provided upfront in some cases.</li>
+                <li>Shipping damage is a recurring pattern from 2020 to April 2026: multiple Amazon reviews describe speakers arriving bent or dented. DS18 auto-adds Package Protection to the cart, indicating internal awareness of the issue.</li>
+                <li>Expectation mismatch on purchase details: multiple buyers surprised that speakers are sold individually, not as pairs. Multiple buyers report needing an external amplifier that was not communicated clearly before purchase.</li>
+              </ul>
+            </div>
+
+            <div class="cvrt-insight-block">
+              <div class="cvrt-insight-src">Page Speed / Core Web Vitals (Mobile, Tested April 22 2026)</div>
+              <ul>
+                <li>Homepage: 25/100 Performance, 12.6s LCP, 17.3s Speed Index. Core Web Vitals: FAILED.</li>
+                <li>PROJECT360 Collection (paid ads landing page): 25/100 Performance, 10.0s LCP, 3,200ms TBT. Core Web Vitals: FAILED.</li>
+                <li>Google's 2024 benchmark: stores with Good Core Web Vitals see 24% higher mobile conversion rates vs. stores with Poor scores. 53% of mobile visitors abandon if a page takes more than 3 seconds to load.</li>
+              </ul>
+            </div>
+
+            <div class="cvrt-insight-block">
+              <div class="cvrt-insight-src">Competitor Research</div>
+              <ul>
+                <li>Rockford Fosgate holds OEM partnerships with Harley-Davidson and Polaris, giving institutional validation DS18 does not have. A 1-800 phone number is displayed prominently (vs. DS18's documented phone issues). Navigation is vehicle-first: Mobile, Marine, Motorsports, Motorcycle.</li>
+                <li>Skar Audio (same price tier as DS18) explicitly brands their warranty as "Hassle Free" in marketing copy and covers return shipping after claim processing. DS18 requires customer-paid shipping both ways. DS18's warranty page is password-protected from customers.</li>
+              </ul>
+            </div>
+
+            <div class="cvrt-insight-block">
+              <div class="cvrt-insight-src">Site Screenshots</div>
+              <ul>
+                <li>Homepage fold 1: near-invisible dark fullscreen section, text at the bottom reads "PROJECT360 / Recone Your Speaker in Seconds! / SHOP NOW." No product visible, no price, no social proof, no trust signal.</li>
+                <li>Featured Products section (fold 2): SKU numbers displayed prominently above product names, which reads as trade-facing presentation to a retail buyer.</li>
+                <li>PDP trust badges (Free Shipping, 30-Day Returns, 2-Year Warranty): only visible in fold 3, below the spec list and video. Not visible at the primary decision point next to the Add to Cart button.</li>
+                <li>Cart drawer: "Over 2 Million Customers" social proof appears here for the first time for most visitors. Affirm financing shown on the PDP is absent from the cart. Urgency copy ("items aren't reserved") may backfire with buyers who have read negative service reviews.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cvrt-footer">
+    <div class="cvrt-footer-inner">
+      <div class="cvrt-footer-brand">DS18</div>
+      <div class="cvrt-footer-date">May 2026</div>
+    </div>
+  </div>
+
+</div>

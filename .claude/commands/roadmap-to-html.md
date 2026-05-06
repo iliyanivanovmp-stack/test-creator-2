@@ -30,7 +30,7 @@ Ask the user for:
 
 From the roadmap, extract:
 
-- **Title:** The month and year from the H1.
+- **Title:** The month and year from the H1. If today's date is the 23rd or later and no source markdown title is available, default to next month's name (e.g., if today is April 25, title as May).
 - **Executive summary:** If an Insights or "What We Found" section exists, condense it to 2-3 sentences max. Paint the general picture of the data: overall performance, the core problem, and the opportunity. No specific metrics or percentages. Lead with the situation, not the numbers. If no Insights section exists, synthesize a 1-2 sentence summary from the test hypotheses.
 - **Per-slot cards:** For each slot, extract:
   - Slot number(s) (e.g., "Slot 1" or "Slots 1 & 2")
@@ -51,7 +51,7 @@ From the roadmap, extract:
 
 - **Data sources used:** A list of every data source that was collected (e.g., Shopify Analytics, Customer Surveys, Heatmaps, Reviews & UGC). These will be displayed as a visual grid before the insights.
 - **Per-source summaries:** For each data source, condense the findings into 2-4 bullet points. Keep only the most actionable and interesting insights. Drop routine metrics that don't tell a story. Lead with the finding, not the source name.
-- **Cross-source themes:** If the data audit has a cross-source analysis section, condense the converging themes into a short narrative. These are the patterns that appear across multiple sources and carry the highest confidence.
+- **Biggest Killers of Conversion Rate:** If the data audit has a cross-source analysis section, condense the converging themes into a short list of 3-5 items. These are the highest-confidence patterns that appear across multiple sources. This section renders at the TOP of the Data Insights tab, before the data sources grid and per-source summaries.
 
 The Data Insights tab should be insightful but scannable. A client should be able to read it in 2-3 minutes and understand the full data picture. No filler. Every bullet point should make them think "I didn't know that" or "that confirms what I suspected."
 
@@ -98,7 +98,7 @@ All body content must be wrapped in `<div id="cvrt-roadmap">`. This allows the H
 }
 ```
 
-**No max-width containers.** Do not use `max-width` or `margin: 0 auto` on content wrappers. The Shopify page's own container handles the outer width.
+**No max-width containers on page wrappers.** Do not use `max-width` or `margin: 0 auto` on the overall content wrapper or tab content sections. The Shopify page's own container handles the outer width. Exception: individual slot cards should be constrained and centered — see slot card layout rules below.
 
 **All CSS selectors must be prefixed with `#cvrt-roadmap`** and **all class names must be prefixed with `cvrt-`** to avoid collisions with Shopify theme classes (e.g., `#cvrt-roadmap .cvrt-hero`, `#cvrt-roadmap .cvrt-slot h3`). Common class names like `.hero`, `.footer`, `.content`, `.section`, `.slot` WILL collide with theme styles. The `cvrt-` prefix eliminates this entirely.
 
@@ -132,7 +132,29 @@ These are the content and layout requirements. The visual styling (fonts, colors
 - **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted tones, and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test). Keep the style loose and hand-drawn: dashed borders, light or no fills, rounded rects. Max-width 420px, viewBox sized to content. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
 - Estimated launch date (if provided)
 
+**SVG text readability.** The frontend-design skill owns visual style, but SVG text has specific rendering constraints that must be respected regardless of aesthetic direction:
+- **Err on the side of bigger.** SVG text that looks fine at full zoom becomes unreadable during screen sharing. Prefer larger font sizes and a more spacious viewBox over cramming many elements into a tight space.
+- Never apply opacity to text elements. Apply opacity to fills and shapes only — text always renders at full opacity.
+- Ensure text has enough contrast against its background. Contrast is not optional.
+- Text must not overlap strokes, decorative shapes, or other text.
+- Prefer heavier font weights for SVG text. Thin weights at small sizes become unreadable.
+- After composing each SVG, mentally check: would every label be readable on a laptop screen during a presentation? If not, increase font sizes and expand the viewBox before outputting.
+
+**SVG caption.** The caption below each SVG ("* Concept illustration only. Final design will differ.") must always use black or near-black text. It is a disclaimer that needs to be readable, not decorative.
+
 **Page sections:** Header (with logo if provided), Executive Summary, Slot Cards (single column, one per row), Footer (month and year only).
+
+**Data Insights tab section order:** "Biggest Killers of Conversion Rate" first, then the data sources grid, then per-source summaries. Do not place the killers section at the bottom.
+
+**Layout direction: desktop-first, presentation-ready.** This roadmap is built for desktop — screen sharing, client meetings, PDF handoffs. The `/frontend-design` skill makes all visual decisions, but it should be directed toward:
+- Slot card body: text content on the left, SVG wireframe on the right. Two-column layout. The SVG column should be fixed-width (around 300px) to anchor the illustration; the text column takes remaining space but is capped so lines wrap naturally.
+- **Slot cards must be constrained and centered.** Use `max-width: 760px; margin-left: auto; margin-right: auto;` on each slot card. This prevents the text column from stretching across the full viewport, which collapses descriptions into 1-2 long lines. The goal is 4+ lines of wrapped text so the card feels dense and readable, not spread thin.
+- Condensed, information-dense layout. Avoid large blank gaps between sections. Every spacing decision should feel intentional, not padded out.
+- Wide text columns that force long lines make cards harder to scan during a presentation. The 760px card max-width enforces this constraint automatically.
+- No empty spacer elements. Whitespace comes from `padding` and `margin` on real elements, not from blank `div`s with fixed heights.
+- The card should feel like a well-designed slide: easy to read at a glance, not spread thin across the viewport.
+
+Mobile styles can collapse to single-column, but do not let mobile layout constraints drive the desktop design.
 
 **Light backgrounds only.** SVG sketches and text readability depend on light backgrounds. The brand color should be used as an accent, not as a background fill.
 
@@ -154,7 +176,9 @@ After saving, tell the user the file path so they can open it in a browser or sa
 Before saving, verify silently:
 - [ ] No `<!DOCTYPE>`, `<html>`, `<head>`, `<body>` tags. Output starts with Google Fonts `<link>` tags
 - [ ] `#cvrt-roadmap` has full-bleed breakout CSS
-- [ ] No `max-width` or `margin: 0 auto` on content containers
+- [ ] No `max-width` or `margin: 0 auto` on page-level content wrappers or tab sections
+- [ ] Slot cards are constrained to max-width 760px and centered (`margin-left: auto; margin-right: auto`)
+- [ ] Slot card text column wraps into 4+ lines (not 1-2 long lines spanning the full viewport)
 - [ ] ALL class names are prefixed with `cvrt-` in both CSS and HTML
 - [ ] All CSS selectors use `#cvrt-roadmap .cvrt-*` pattern
 - [ ] No `<meta>`, `<title>`, or favicon tags
@@ -167,7 +191,14 @@ Before saving, verify silently:
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
 - [ ] Each slot has an inline SVG sketch illustration that visually represents the concept
-- [ ] SVG sketches use dashed strokes, muted colors, and the brand accent color consistently
+- [ ] SVG sketches use dashed strokes and the brand accent color consistently
+- [ ] SVG text: high contrast, full opacity, no overlapping elements, heavy enough weight to read at screen resolution
+- [ ] SVG text is readable without zooming during a screen share — if any label looks small, increase font-size and expand the viewBox
+- [ ] SVG caption ("* Concept illustration only. Final design will differ.") is black or near-black, not gray or muted
+- [ ] Data Insights tab: "Biggest Killers of Conversion Rate" section appears at the top, before data sources and per-source findings
+- [ ] Slot cards: text left, SVG right (two-column layout, SVG column fixed-width)
+- [ ] No empty spacer divs; whitespace comes from element padding/margin only
+- [ ] Layout is tight and scannable on a standard laptop screen at 100% zoom
 - [ ] If logo URL was provided, it renders visibly against the header background
 - [ ] If estimated launch dates were provided, each slot displays them
 - [ ] Every factual claim in slot descriptions traces to a specific data point in the data audit or internal roadmap. No fabricated data, no misattributed quotes, no unsupported claims about current page state. NEVER hallucinate.

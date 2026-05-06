@@ -1,0 +1,671 @@
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Shopify-safe reset */
+  #cvrt-roadmap,
+  #cvrt-roadmap *,
+  #cvrt-roadmap *::before,
+  #cvrt-roadmap *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: inherit; line-height: inherit;
+    letter-spacing: normal; text-transform: none;
+  }
+  #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+  #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+    font-family: inherit; font-size: inherit;
+    font-weight: inherit; color: inherit;
+    margin: 0; padding: 0;
+  }
+
+  #cvrt-roadmap {
+    --brand: #F07352;
+    --brand-light: rgba(240, 115, 82, 0.08);
+    --brand-mid: rgba(240, 115, 82, 0.16);
+    --text: #1a1a1a;
+    --muted: #666666;
+    --muted-light: #999999;
+    --bg: #f6f3f0;
+    --card-bg: #ffffff;
+    --border: #e6e1dc;
+
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+    padding: 48px 24px;
+
+    /* Full-bleed Shopify breakout */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  #cvrt-roadmap .cvrt-inner {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Tab radios hidden */
+  #cvrt-roadmap input[name="cvrt-tab"] { display: none; }
+
+  /* ===== HEADER ===== */
+  #cvrt-roadmap .cvrt-header { margin-bottom: 32px; }
+  #cvrt-roadmap .cvrt-logo {
+    display: block;
+    max-height: 30px;
+    width: auto;
+    margin-bottom: 22px;
+    filter: brightness(0);
+  }
+  #cvrt-roadmap .cvrt-eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brand);
+    margin-bottom: 8px;
+  }
+  #cvrt-roadmap .cvrt-page-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  #cvrt-roadmap .cvrt-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--brand);
+    border-radius: 2px;
+    margin-top: 14px;
+  }
+
+  /* ===== SUMMARY CARD ===== */
+  #cvrt-roadmap .cvrt-summary-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--brand);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  #cvrt-roadmap .cvrt-summary-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brand);
+    margin-bottom: 10px;
+  }
+  #cvrt-roadmap .cvrt-summary-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* ===== TAB NAV ===== */
+  #cvrt-roadmap .cvrt-tab-nav {
+    display: flex;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 28px;
+  }
+  #cvrt-roadmap .cvrt-tab-nav label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 10px 22px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    letter-spacing: 0.2px;
+  }
+  #cvrt-roadmap .cvrt-tab-nav label:hover { color: var(--text); }
+
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tab-nav label[for="cvrt-tab-tests"] {
+    color: var(--brand);
+    border-bottom-color: var(--brand);
+  }
+  #cvrt-roadmap #cvrt-tab-data:checked ~ .cvrt-tab-nav label[for="cvrt-tab-data"] {
+    color: var(--brand);
+    border-bottom-color: var(--brand);
+  }
+
+  /* ===== PANELS ===== */
+  #cvrt-roadmap .cvrt-panel { display: none; }
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ #cvrt-panel-tests { display: block; }
+  #cvrt-roadmap #cvrt-tab-data:checked ~ #cvrt-panel-data { display: block; }
+
+  /* ===== SLOT CARDS ===== */
+  #cvrt-roadmap .cvrt-slots-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  #cvrt-roadmap .cvrt-slot-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    border-left: 4px solid var(--brand);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    padding: 26px 28px;
+  }
+  #cvrt-roadmap .cvrt-slot-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  #cvrt-roadmap .cvrt-slot-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted-light);
+  }
+  #cvrt-roadmap .cvrt-badge-ab {
+    display: inline-block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: var(--brand);
+    color: #fff;
+  }
+  #cvrt-roadmap .cvrt-slot-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 5px;
+  }
+  #cvrt-roadmap .cvrt-slot-page {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  #cvrt-roadmap .cvrt-slot-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  #cvrt-roadmap .cvrt-sketch-wrap {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+  #cvrt-roadmap .cvrt-sketch-wrap svg {
+    max-width: 440px;
+    width: 100%;
+    display: block;
+  }
+  #cvrt-roadmap .cvrt-sketch-caption {
+    font-size: 11px;
+    color: var(--muted-light);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  /* ===== DATA INSIGHTS ===== */
+  #cvrt-roadmap .cvrt-sources-header {
+    font-family: 'Manrope', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  #cvrt-roadmap .cvrt-sources-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+  #cvrt-roadmap .cvrt-chip {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  #cvrt-roadmap .cvrt-insight-block { margin-bottom: 16px; }
+  #cvrt-roadmap .cvrt-insight-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 18px 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  #cvrt-roadmap .cvrt-insight-source {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--brand);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--brand-light);
+  }
+  #cvrt-roadmap .cvrt-insight-list {
+    list-style: none;
+    padding: 0;
+  }
+  #cvrt-roadmap .cvrt-insight-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    padding: 7px 0 7px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--bg);
+  }
+  #cvrt-roadmap .cvrt-insight-list li:last-child { border-bottom: none; }
+  #cvrt-roadmap .cvrt-insight-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand);
+    opacity: 0.55;
+  }
+
+  /* Cross-source themes */
+  #cvrt-roadmap .cvrt-themes-section {
+    background: var(--brand-light);
+    border-radius: 10px;
+    padding: 24px 28px;
+    border-left: 4px solid var(--brand);
+    margin-top: 32px;
+  }
+  #cvrt-roadmap .cvrt-themes-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brand);
+    margin-bottom: 18px;
+  }
+  #cvrt-roadmap .cvrt-theme-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--brand-mid);
+  }
+  #cvrt-roadmap .cvrt-theme-row:last-child { border-bottom: none; padding-bottom: 0; }
+  #cvrt-roadmap .cvrt-theme-row:first-of-type { padding-top: 0; }
+  #cvrt-roadmap .cvrt-theme-copy { flex: 1; }
+  #cvrt-roadmap .cvrt-theme-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  #cvrt-roadmap .cvrt-theme-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  #cvrt-roadmap .cvrt-conf {
+    font-family: 'Manrope', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  #cvrt-roadmap .cvrt-conf-high { background: rgba(16, 185, 129, 0.12); color: #059669; }
+  #cvrt-roadmap .cvrt-conf-med  { background: rgba(245, 158, 11, 0.12);  color: #d97706; }
+
+  /* ===== FOOTER ===== */
+  #cvrt-roadmap .cvrt-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    #cvrt-roadmap { padding: 28px 16px; }
+    #cvrt-roadmap .cvrt-page-title { font-size: 22px; }
+    #cvrt-roadmap .cvrt-slot-card { padding: 18px 20px; }
+    #cvrt-roadmap .cvrt-theme-row { flex-direction: column; gap: 6px; }
+    #cvrt-roadmap .cvrt-summary-card { padding: 18px 20px; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    #cvrt-roadmap .cvrt-slot-card {
+      box-shadow: none;
+      border: 1px solid #e0e0e0;
+      break-inside: avoid;
+    }
+  }
+</style>
+
+<div id="cvrt-roadmap">
+  <div class="cvrt-inner">
+
+    <!-- Radio inputs for tab switching -->
+    <input type="radio" name="cvrt-tab" id="cvrt-tab-tests" checked>
+    <input type="radio" name="cvrt-tab" id="cvrt-tab-data">
+
+    <!-- HEADER -->
+    <div class="cvrt-header">
+      <img src="https://sheko.com/cdn/shop/files/5131_SHEKO-Logo_2.png?v=1664015520&width=250" alt="SHEKO" class="cvrt-logo">
+      <div class="cvrt-eyebrow">CRO Testing Roadmap</div>
+      <h1 class="cvrt-page-title">April 2026</h1>
+      <div class="cvrt-divider"></div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="cvrt-summary-card">
+      <div class="cvrt-summary-label">Overview</div>
+      <p class="cvrt-summary-text">SHEKO's ads convert on specificity: exact numbers, exact timelines, no hedging. The product page and cart don't carry that certainty forward. The primary CTA requires three flavor selections before it activates, the PDP shows a fraction of the actual review count, and the cart leaves a natural, high-relevance cross-sell invisible at the moment of purchase. Three tests target these friction points directly.</p>
+    </div>
+
+    <!-- TAB NAV -->
+    <div class="cvrt-tab-nav">
+      <label for="cvrt-tab-tests">Tests</label>
+      <label for="cvrt-tab-data">Data Insights</label>
+    </div>
+
+    <!-- ==================== PANEL: TESTS ==================== -->
+    <div id="cvrt-panel-tests" class="cvrt-panel">
+      <div class="cvrt-slots-grid">
+
+        <!-- SLOT 1 -->
+        <div class="cvrt-slot-card">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-label">Slot 1</span>
+            <span class="cvrt-badge-ab">A/B Test</span>
+          </div>
+          <h3 class="cvrt-slot-name">PDP: CTA Activation and Review Count</h3>
+          <div class="cvrt-slot-page">4 Wochen Starter-Set PDP</div>
+          <p class="cvrt-slot-desc">The primary add-to-cart button appears inactive until all three flavor dropdowns are completed, blocking purchase at the highest-intent point in the funnel. The buy box shows 282 reviews while the homepage product card for the same product shows 24,643. Every visitor arriving from a paid ad lands on the weaker number.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 420 270" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="12" y="12" width="396" height="246" rx="8" fill="none" stroke="#ddd" stroke-width="1.5" stroke-dasharray="6,3"/>
+              <text x="26" y="42" font-size="13" fill="#F07352" font-family="sans-serif">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+              <rect x="102" y="27" width="118" height="19" rx="9" fill="rgba(240,115,82,0.12)"/>
+              <text x="108" y="40" font-size="11" fill="#F07352" font-family="sans-serif" font-weight="bold">24,643 Bewertungen</text>
+              <rect x="26" y="58" width="220" height="11" rx="3" fill="#ddd"/>
+              <rect x="26" y="74" width="160" height="9" rx="3" fill="#eee"/>
+              <rect x="26" y="94" width="368" height="30" rx="5" fill="none" stroke="#bbb" stroke-width="1.2" stroke-dasharray="4,2"/>
+              <text x="36" y="113" font-size="11" fill="#888" font-family="sans-serif">Sorte 1: Vanilla (vorausgewahlt) &#9660;</text>
+              <rect x="26" y="130" width="368" height="30" rx="5" fill="none" stroke="#bbb" stroke-width="1.2" stroke-dasharray="4,2"/>
+              <text x="36" y="149" font-size="11" fill="#888" font-family="sans-serif">Sorte 2: Strawberry (vorausgewahlt) &#9660;</text>
+              <rect x="26" y="166" width="368" height="30" rx="5" fill="none" stroke="#bbb" stroke-width="1.2" stroke-dasharray="4,2"/>
+              <text x="36" y="185" font-size="11" fill="#888" font-family="sans-serif">Sorte 3: Espresso (vorausgewahlt) &#9660;</text>
+              <rect x="26" y="206" width="90" height="11" rx="3" fill="#ddd"/>
+              <rect x="26" y="224" width="368" height="24" rx="12" fill="#F07352" opacity="0.88"/>
+              <text x="210" y="240" font-size="12" fill="white" font-family="sans-serif" font-weight="bold" text-anchor="middle">In den Warenkorb</text>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+        <!-- SLOT 2 -->
+        <div class="cvrt-slot-card">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-label">Slot 2</span>
+            <span class="cvrt-badge-ab">A/B Test</span>
+          </div>
+          <h3 class="cvrt-slot-name">Cart: Abnehmkur Cross-Sell</h3>
+          <div class="cvrt-slot-page">Cart Drawer (Sitewide)</div>
+          <p class="cvrt-slot-desc">The cart contains one product, a savings callout, and a checkout button. SHEKO's own customer service team replies to every satiety complaint in reviews with the same recommendation: add the Abnehmkur. The product exists in the catalog at EUR 14.95 and is not surfaced anywhere in the cart.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 380 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="12" y="12" width="356" height="306" rx="8" fill="none" stroke="#ddd" stroke-width="1.5" stroke-dasharray="6,3"/>
+              <rect x="24" y="24" width="130" height="11" rx="3" fill="#ddd"/>
+              <line x1="24" y1="48" x2="356" y2="48" stroke="#eee" stroke-width="1"/>
+              <rect x="24" y="58" width="48" height="48" rx="5" fill="#eee"/>
+              <rect x="82" y="62" width="130" height="10" rx="2" fill="#ddd"/>
+              <rect x="82" y="78" width="90" height="8"  rx="2" fill="#eee"/>
+              <rect x="82" y="92" width="60" height="8"  rx="2" fill="#eee"/>
+              <rect x="296" y="68" width="50" height="10" rx="2" fill="#ddd"/>
+              <rect x="24" y="122" width="332" height="76" rx="7" fill="rgba(240,115,82,0.06)" stroke="#F07352" stroke-width="1.5" stroke-dasharray="5,2.5"/>
+              <rect x="34" y="132" width="50" height="50" rx="4" fill="#eee"/>
+              <rect x="94" y="136" width="115" height="9" rx="2" fill="#ddd"/>
+              <rect x="94" y="151" width="145" height="7" rx="2" fill="#eee"/>
+              <text x="94" y="180" font-size="11" fill="#F07352" font-family="sans-serif" font-weight="bold">EUR 11.21  (25% Rabatt)</text>
+              <rect x="268" y="136" width="76" height="28" rx="14" fill="#F07352" opacity="0.85"/>
+              <text x="306" y="154" font-size="11" fill="white" font-family="sans-serif" font-weight="bold" text-anchor="middle">+ Hinzuf.</text>
+              <line x1="24" y1="212" x2="356" y2="212" stroke="#eee" stroke-width="1"/>
+              <rect x="24" y="222" width="80" height="8"  rx="2" fill="#eee"/>
+              <rect x="24" y="236" width="100" height="8" rx="2" fill="#eee"/>
+              <rect x="24" y="250" width="120" height="10" rx="2" fill="#ddd"/>
+              <rect x="24" y="276" width="332" height="30" rx="15" fill="#F07352" opacity="0.85"/>
+              <text x="190" y="295" font-size="12" fill="white" font-family="sans-serif" font-weight="bold" text-anchor="middle">Jetzt sicher zur Kasse</text>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+        <!-- SLOT 3 -->
+        <div class="cvrt-slot-card">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-label">Slot 3</span>
+            <span class="cvrt-badge-ab">A/B Test</span>
+          </div>
+          <h3 class="cvrt-slot-name">Homepage Hero: Results-First Headline</h3>
+          <div class="cvrt-slot-page">Homepage</div>
+          <p class="cvrt-slot-desc">SHEKO's active Meta ads lead with specific outcome claims: "-8kg in 8 Wochen ohne Verzicht" and "-4kg in 4 Wochen." The homepage headline asks a question instead of stating a result, and the CTA invites visitors to "discover" rather than act. Transformation proof that validates those outcomes (Iris: -20kg, Carina: -10kg, Mathias: -25kg) is buried in fold 3, below the product grid.</p>
+          <div class="cvrt-sketch-wrap">
+            <svg viewBox="0 0 440 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="12" y="12" width="416" height="186" rx="8" fill="#fff9f6" stroke="#ddd" stroke-width="1.5" stroke-dasharray="6,3"/>
+              <rect x="26" y="30" width="205" height="14" rx="3" fill="rgba(240,115,82,0.28)"/>
+              <rect x="26" y="49" width="180" height="14" rx="3" fill="rgba(240,115,82,0.28)"/>
+              <rect x="26" y="74" width="198" height="8" rx="2" fill="#ddd"/>
+              <rect x="26" y="87" width="168" height="8" rx="2" fill="#eee"/>
+              <rect x="26" y="106" width="168" height="32" rx="16" fill="#F07352" opacity="0.88"/>
+              <text x="110" y="126" font-size="11" fill="white" font-family="sans-serif" font-weight="bold" text-anchor="middle">Zum Starter-Set</text>
+              <rect x="26" y="152" width="128" height="7" rx="2" fill="#eee"/>
+              <rect x="26" y="164" width="105" height="7" rx="2" fill="#eee"/>
+              <ellipse cx="320" cy="108" rx="25" ry="60" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4,2"/>
+              <text x="320" y="111" font-size="9" fill="#ccc" font-family="sans-serif" text-anchor="middle">SHEKO</text>
+              <ellipse cx="362" cy="113" rx="22" ry="54" fill="none" stroke="#ccc" stroke-width="1.2" stroke-dasharray="4,2"/>
+              <ellipse cx="280" cy="113" rx="22" ry="54" fill="none" stroke="#ccc" stroke-width="1.2" stroke-dasharray="4,2"/>
+            </svg>
+            <p class="cvrt-sketch-caption">* Concept illustration only. Final design will differ.</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /panel-tests -->
+
+    <!-- ==================== PANEL: DATA INSIGHTS ==================== -->
+    <div id="cvrt-panel-data" class="cvrt-panel">
+
+      <div class="cvrt-sources-header">Data Sources</div>
+      <div class="cvrt-sources-chips">
+        <span class="cvrt-chip">Meta Ads</span>
+        <span class="cvrt-chip">Google Ads</span>
+        <span class="cvrt-chip">Reviews and UGC</span>
+        <span class="cvrt-chip">Competitor Research</span>
+        <span class="cvrt-chip">Site Screenshots</span>
+        <span class="cvrt-chip">CRO Ebook</span>
+        <span class="cvrt-chip">CRO Community Research</span>
+      </div>
+
+      <!-- Meta Ads -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">Meta Ads</div>
+          <ul class="cvrt-insight-list">
+            <li>Three ads analyzed from the Meta Ads library. Ads 1 and 2 (IDs: 1402659811352791, 3331946383623018) have run since December 28, 2025. Ad 3 (Nina Bott influencer partnership, ID: 3596375993838807) launched February 19, 2026.</li>
+            <li>Ads 1 and 2 promise "-8kg in 8 Wochen" and land on the 4 Wochen Starter-Set PDP. The product name directly contradicts the 8-week claim in the ad.</li>
+            <li>Ad 3 updated the claim to "-4kg in 4 Wochen," aligning the ad message with the product. Ads 1 and 2 were still active as of data collection.</li>
+            <li>All three ads use the same mechanism line: "Ersetze 2 Mahlzeiten taglich durch SHEKO Shakes." The consistency across creatives and accounts signals this framing is intentional.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Google Ads -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">Google Ads</div>
+          <ul class="cvrt-insight-list">
+            <li>Search, Shopping, and Display formats all active. Google headlines are feature and benefit focused ("Shake Ohne Kunstliche Susse," "27 Vitamine und Mineralien," "Kostenloser Versand ab 49 Euro"). Meta ads are transformation focused. Two channels, two different messaging frameworks.</li>
+            <li>Google ad copy uses a per-meal price frame: "ca. 3,50 Euro pro Mahlzeit." The PDP shows "1,24 Euro / Shake." These are inconsistent frames for the same product cost across channels.</li>
+            <li>Two discount promotions appear in Google Ads Transparency results (30% on Probiermonat, 10% via newsletter signup) that are not visible on the PDP.</li>
+            <li>ShakeFit ads appear alongside SHEKO in Google Ads Transparency results, indicating active search competition in the German market.</li>
+            <li>Review counts vary across Google ad variants: 4.8 stars / 1,267 reviews on one variant, 4.7 / 31,659 on another, 4.6 / 14,964 on a third. These appear to pull from different review platforms (Reviews.io, Google, Trustpilot) pooled inconsistently.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Reviews and UGC -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">Reviews and UGC (Oct 2025 to Mar 2026)</div>
+          <ul class="cvrt-insight-list">
+            <li>Weight loss results in 5-star reviews are real and specific: 7kg in 5 weeks, 6kg in 7 weeks without exercise (Gunter Moritzky, Feb 2026), 28kg lost and maintained for 1 year (Leigh Murphy, Mar 2026), 11kg in 2 months without losing muscle mass (Felice Carlantuono, Feb 2026).</li>
+            <li>The "5 hours satiety" claim is the most common friction point in 3-star reviews. Multiple reviewers report hunger returning within 1-3 hours, specifically when the shake is mixed with milk alone.</li>
+            <li>SHEKO customer service replies to every satiety complaint with the same fix: add the Abnehmkur, increase fiber, or use magerquark instead of milk. This is a consistent, documented pattern across the full review period.</li>
+            <li>The can size was reduced from 450g to 378g at the same price. Long-term customers have noticed and flagged it publicly, with one reviewer explicitly comparing it to Milka-style shrinkflation (Kristin Schmidt, Mar 2026). This segment is the most likely to churn.</li>
+            <li>Customer service is broadly praised: WhatsApp support response times highlighted specifically, and the Facebook community (SHEKO Club) is mentioned positively as a retention asset.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Competitor Research -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">Competitor Research</div>
+          <ul class="cvrt-insight-list">
+            <li>SHEKO did not appear in the German meal replacement comparison article reviewed. VitaMoment ranked first.</li>
+            <li>VitaMoment's "under 0.5g sugar" positioning is a direct counter to SHEKO's "too sweet" complaints in reviews.</li>
+            <li>ShakeFit is actively buying Google search ads in the same space. Shape Republic, Yokebe, and Huel round out the competitive field at comparable price points.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Site Screenshots -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">Site Screenshots</div>
+          <ul class="cvrt-insight-list">
+            <li>PDP CTA ("Wahle Deine Wunschsorten") appears greyed out and inactive in the screenshot until all three flavor dropdowns are completed. Klarna and delivery time appear below this inactive button.</li>
+            <li>Review count: 282 on the PDP buy box, 24,643 on the homepage product card for the same 4 Wochen Starter-Set. The announcement bar shows 20,470 reviews sitewide. The PDP shows the weakest number of the three.</li>
+            <li>Cart drawer contains: one product, a free shipping confirmation bar, a savings callout, and a checkout CTA. A large empty space sits below the product row. No cross-sell, no upsell, no recommendations of any kind.</li>
+            <li>Homepage hero uses a question as its primary headline ("Balance gewinnen oder Gewicht verlieren?") and "Jetzt entdecken" as its CTA. Transformation proof (Iris: -20kg in 5 months, Carina: -10kg in 10 weeks, Mathias: -25kg in 12 months) appears in fold 3, below the product grid.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CRO Ebook -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">CRO Ebook (Billion Dollar Websites)</div>
+          <ul class="cvrt-insight-list">
+            <li>On headlines: "Headlines are supposed to tell your customers the end result of using your product (the Dream Outcome). The subheadline describes the product (the Vessel)." The current homepage headline fails this test. The active Meta ads pass it.</li>
+            <li>On social proof at scale: displaying the largest available review count is a documented trust signal. SHEKO has 24,643 reviews and shows 282 on the PDP.</li>
+            <li>On pre-purchase cart upsells: "Pre-purchase upsells are one-click buys in your Cart and are generally great for increasing AOV... They should be complementary products that are much cheaper compared to the main product." The Abnehmkur at EUR 14.95 against the EUR 89.92 bundle fits this criteria exactly.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CRO Community Research -->
+      <div class="cvrt-insight-block">
+        <div class="cvrt-insight-card">
+          <div class="cvrt-insight-source">CRO Community Research</div>
+          <ul class="cvrt-insight-list">
+            <li>Reducing add-to-cart friction on Shopify PDPs: documented +47.61% CR lift and +48.28% revenue per visitor (Blend Commerce, 2024).</li>
+            <li>Cart cross-sell widget: documented 43% revenue lift in a comparable Shopify context (Blend Commerce, 2024). Cross-selling in the cart is documented as 4x more efficient than cross-selling on product pages.</li>
+            <li>Adding price-per-dose below the full pack price: documented +3.40% CR, +17.76% revenue per visitor, and +23% add-to-cart clicks (Blend Commerce, UK market, 2024).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cross-source themes -->
+      <div class="cvrt-themes-section">
+        <div class="cvrt-themes-title">Cross-Source Themes</div>
+
+        <div class="cvrt-theme-row">
+          <div class="cvrt-theme-copy">
+            <div class="cvrt-theme-name">CTA friction at the moment of purchase</div>
+            <div class="cvrt-theme-desc">The primary CTA on the highest-traffic page appears inactive until three sequential decisions are completed. Sources: Site Screenshots, CRO Community Research, CRO Ebook.</div>
+          </div>
+          <span class="cvrt-conf cvrt-conf-high">High confidence</span>
+        </div>
+
+        <div class="cvrt-theme-row">
+          <div class="cvrt-theme-copy">
+            <div class="cvrt-theme-name">Social proof gap between homepage and PDP</div>
+            <div class="cvrt-theme-desc">Homepage shows 24,643 reviews. PDP shows 282. Same product. Every ad-click visitor lands on the weaker number. Sources: Site Screenshots.</div>
+          </div>
+          <span class="cvrt-conf cvrt-conf-high">High confidence</span>
+        </div>
+
+        <div class="cvrt-theme-row">
+          <div class="cvrt-theme-copy">
+            <div class="cvrt-theme-name">Cart has zero AOV optimization</div>
+            <div class="cvrt-theme-desc">The Abnehmkur solves the top review complaint and is the product SHEKO's own CS team recommends. It is not in the cart. Sources: Site Screenshots, Reviews, CRO Ebook, CRO Community Research.</div>
+          </div>
+          <span class="cvrt-conf cvrt-conf-high">High confidence</span>
+        </div>
+
+        <div class="cvrt-theme-row">
+          <div class="cvrt-theme-copy">
+            <div class="cvrt-theme-name">Homepage hero doesn't match ad message</div>
+            <div class="cvrt-theme-desc">Ads lead with specific results. Homepage asks a question and offers a "discover" CTA. Transformation proof (Iris, Carina, Mathias) is buried in fold 3. Sources: Meta Ads, Google Ads, Site Screenshots, CRO Ebook.</div>
+          </div>
+          <span class="cvrt-conf cvrt-conf-high">High confidence</span>
+        </div>
+
+        <div class="cvrt-theme-row">
+          <div class="cvrt-theme-copy">
+            <div class="cvrt-theme-name">8-week ad claim landing on 4-week product</div>
+            <div class="cvrt-theme-desc">Ads 1 and 2 (active since Dec 28, 2025) promise 8-week results and land on the 4 Wochen Starter-Set. Ad 3 from Feb 2026 corrected this. Ads 1 and 2 were still active at time of analysis. Sources: Meta Ads, Site Screenshots.</div>
+          </div>
+          <span class="cvrt-conf cvrt-conf-med">Medium confidence</span>
+        </div>
+
+        <div class="cvrt-theme-row">
+          <div class="cvrt-theme-copy">
+            <div class="cvrt-theme-name">Satiety credibility gap impacts retention</div>
+            <div class="cvrt-theme-desc">Multiple 3-star reviews cite satiety falling short of the "5 hours" claim. SHEKO's CS fix (add Abnehmkur) is not surfaced proactively anywhere in the funnel. Impacts retention more than acquisition. Sources: Reviews, Site Screenshots.</div>
+          </div>
+          <span class="cvrt-conf cvrt-conf-med">Medium confidence</span>
+        </div>
+
+      </div>
+    </div><!-- /panel-data -->
+
+    <!-- FOOTER -->
+    <div class="cvrt-footer">April 2026</div>
+
+  </div><!-- /cvrt-inner -->
+</div><!-- /cvrt-roadmap -->

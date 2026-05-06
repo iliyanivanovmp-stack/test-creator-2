@@ -1,0 +1,637 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --elo-purple:       #7B30D0;
+    --elo-purple-mid:   rgba(123, 48, 208, 0.14);
+    --elo-purple-soft:  rgba(123, 48, 208, 0.07);
+    --elo-purple-light: #A068E0;
+    --elo-dark:         #0C0A18;
+    --elo-charcoal:     #1A1529;
+    --elo-surface:      #FFFFFF;
+    --elo-bg:           #F4F1FB;
+    --elo-border:       rgba(123, 48, 208, 0.13);
+    --elo-line:         rgba(123, 48, 208, 0.08);
+    --elo-text:         #1A1529;
+    --elo-sub:          #3D3557;
+    --elo-muted:        #6A6080;
+  }
+
+  /* ── RESET ── */
+  #cvrt-roadmap,
+  #cvrt-roadmap *,
+  #cvrt-roadmap *::before,
+  #cvrt-roadmap *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: inherit; line-height: inherit;
+    letter-spacing: normal; text-transform: none;
+  }
+  #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+  #cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+    font-family: inherit; font-size: inherit;
+    font-weight: inherit; color: inherit;
+    margin: 0; padding: 0;
+  }
+
+  /* ── FULL-BLEED BREAKOUT ── */
+  #cvrt-roadmap {
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--elo-text);
+    background: var(--elo-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* ── HIDDEN TAB INPUTS ── */
+  #cvrt-roadmap .cvrt-tab-input { display: none; }
+
+  /* ── HERO ── */
+  #cvrt-roadmap .cvrt-hero {
+    background: var(--elo-dark);
+    padding: 60px 64px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  #cvrt-roadmap .cvrt-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(123,48,208,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(123,48,208,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+  #cvrt-roadmap .cvrt-hero::after {
+    content: '';
+    position: absolute; top: -100px; right: -60px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(123,48,208,0.24) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  #cvrt-roadmap .cvrt-hero-inner {
+    position: relative; z-index: 1;
+  }
+  #cvrt-roadmap .cvrt-eyebrow {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--elo-purple-light);
+    margin-bottom: 10px;
+  }
+  #cvrt-roadmap .cvrt-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(60px, 7.5vw, 100px);
+    font-weight: 800; text-transform: uppercase;
+    color: #FFFFFF; line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+  #cvrt-roadmap .cvrt-h1-accent {
+    color: var(--elo-purple-light);
+  }
+  #cvrt-roadmap .cvrt-hero-summary {
+    margin-top: 28px;
+    font-size: 14.5px; font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7; max-width: 540px;
+  }
+  #cvrt-roadmap .cvrt-hero-pills {
+    margin-top: 26px;
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  #cvrt-roadmap .cvrt-hero-pill {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--elo-purple-light);
+    padding: 4px 11px;
+    border: 1px solid rgba(123,48,208,0.35);
+    border-radius: 3px;
+  }
+
+  /* ── TABS NAV ── */
+  #cvrt-roadmap .cvrt-tabs-nav {
+    background: var(--elo-charcoal);
+    display: flex; padding: 0 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  #cvrt-roadmap .cvrt-tab-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.32);
+    padding: 18px 22px; cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tabs-nav .cvrt-tab-label[for="cvrt-tab-tests"],
+  #cvrt-roadmap #cvrt-tab-data:checked  ~ .cvrt-tabs-nav .cvrt-tab-label[for="cvrt-tab-data"] {
+    color: #FFFFFF;
+    border-bottom-color: var(--elo-purple);
+  }
+
+  /* ── TAB CONTENT ── */
+  #cvrt-roadmap .cvrt-tab-content { display: none; padding: 44px 64px 60px; }
+  #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tab-content-tests { display: block; }
+  #cvrt-roadmap #cvrt-tab-data:checked  ~ .cvrt-tab-content-data  { display: block; }
+
+  /* ── SECTION LABEL ── */
+  #cvrt-roadmap .cvrt-section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--elo-muted); margin-bottom: 20px;
+  }
+
+  /* ── SLOT CARDS ── */
+  #cvrt-roadmap .cvrt-slot-card {
+    background: var(--elo-surface);
+    border: 1px solid var(--elo-border);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 420px) 300px;
+    max-width: 760px;
+  }
+  #cvrt-roadmap .cvrt-slot-text {
+    padding: 30px 34px;
+    border-right: 1px solid var(--elo-line);
+  }
+  #cvrt-roadmap .cvrt-slot-meta {
+    display: flex; align-items: center;
+    gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  #cvrt-roadmap .cvrt-slot-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--elo-purple);
+  }
+  #cvrt-roadmap .cvrt-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--elo-purple);
+    background: var(--elo-purple-mid);
+    padding: 3px 8px; border-radius: 3px;
+  }
+  #cvrt-roadmap .cvrt-slot-page {
+    font-size: 11px; font-weight: 500;
+    color: var(--elo-muted);
+    margin-left: auto;
+  }
+  #cvrt-roadmap .cvrt-slot-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 25px; font-weight: 800;
+    text-transform: uppercase; color: var(--elo-charcoal);
+    line-height: 1.05; letter-spacing: 0.01em;
+    margin-bottom: 12px;
+  }
+  #cvrt-roadmap .cvrt-slot-desc {
+    font-size: 13.5px; line-height: 1.65;
+    color: var(--elo-sub); font-weight: 400;
+  }
+
+  /* ── SLOT VISUAL ── */
+  #cvrt-roadmap .cvrt-slot-visual {
+    padding: 22px 18px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: #FAFAF8;
+  }
+  #cvrt-roadmap .cvrt-slot-visual svg { max-width: 100%; height: auto; }
+  #cvrt-roadmap .cvrt-svg-caption {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10.5px; font-style: italic;
+    color: #1A1529; text-align: center;
+    margin-top: 10px; line-height: 1.4;
+  }
+
+  /* ── DATA INSIGHTS: KILLERS ── */
+  #cvrt-roadmap .cvrt-killers {
+    background: var(--elo-charcoal);
+    border-radius: 8px;
+    padding: 30px 36px;
+    margin-bottom: 32px;
+  }
+  #cvrt-roadmap .cvrt-killers-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--elo-purple-light);
+    margin-bottom: 20px;
+  }
+  #cvrt-roadmap .cvrt-killers-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  #cvrt-roadmap .cvrt-killers-list li {
+    font-size: 15px; font-weight: 500; color: #FFFFFF;
+    line-height: 1.5; padding-left: 18px; position: relative;
+  }
+  #cvrt-roadmap .cvrt-killers-list li::before {
+    content: ''; position: absolute;
+    left: 0; top: 10px;
+    width: 5px; height: 5px;
+    background: var(--elo-purple-light);
+    border-radius: 50%;
+  }
+
+  /* ── DATA INSIGHTS: SOURCES ── */
+  #cvrt-roadmap .cvrt-sources-grid {
+    display: flex; flex-wrap: wrap;
+    gap: 8px; margin-bottom: 36px;
+  }
+  #cvrt-roadmap .cvrt-source-chip {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--elo-charcoal);
+    background: var(--elo-surface);
+    border: 1px solid var(--elo-border);
+    border-radius: 3px; padding: 5px 13px;
+  }
+
+  /* ── DATA INSIGHTS: FINDINGS ── */
+  #cvrt-roadmap .cvrt-findings-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  #cvrt-roadmap .cvrt-finding-card {
+    background: var(--elo-surface);
+    border: 1px solid var(--elo-border);
+    border-radius: 8px; padding: 22px 26px;
+  }
+  #cvrt-roadmap .cvrt-finding-source {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--elo-purple); margin-bottom: 14px;
+  }
+  #cvrt-roadmap .cvrt-finding-list {
+    list-style: none; display: flex; flex-direction: column; gap: 9px;
+  }
+  #cvrt-roadmap .cvrt-finding-list li {
+    font-size: 13px; line-height: 1.55;
+    color: var(--elo-sub); padding-left: 14px;
+    position: relative; font-weight: 400;
+  }
+  #cvrt-roadmap .cvrt-finding-list li::before {
+    content: ''; position: absolute;
+    left: 0; top: 8px;
+    width: 5px; height: 1px;
+    background: var(--elo-purple);
+  }
+
+  /* ── FOOTER ── */
+  #cvrt-roadmap .cvrt-footer {
+    background: var(--elo-dark);
+    padding: 26px 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #cvrt-roadmap .cvrt-footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.35);
+  }
+  #cvrt-roadmap .cvrt-footer-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.22);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    #cvrt-roadmap .cvrt-hero,
+    #cvrt-roadmap .cvrt-tabs-nav,
+    #cvrt-roadmap .cvrt-tab-content,
+    #cvrt-roadmap .cvrt-footer { padding-left: 20px; padding-right: 20px; }
+    #cvrt-roadmap .cvrt-hero { padding-top: 40px; padding-bottom: 36px; }
+    #cvrt-roadmap .cvrt-slot-card { grid-template-columns: 1fr; max-width: 100%; }
+    #cvrt-roadmap .cvrt-slot-text { border-right: none; border-bottom: 1px solid var(--elo-line); }
+    #cvrt-roadmap .cvrt-findings-grid { grid-template-columns: 1fr; }
+    #cvrt-roadmap .cvrt-footer { flex-direction: column; gap: 6px; text-align: center; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    #cvrt-roadmap .cvrt-slot-card,
+    #cvrt-roadmap .cvrt-finding-card,
+    #cvrt-roadmap .cvrt-killers { break-inside: avoid; }
+    #cvrt-roadmap .cvrt-tab-content-tests,
+    #cvrt-roadmap .cvrt-tab-content-data { display: block !important; }
+  }
+</style>
+
+<div id="cvrt-roadmap">
+
+  <!-- CSS tab inputs — must be first children for sibling selectors to work -->
+  <input type="radio" class="cvrt-tab-input" id="cvrt-tab-tests" name="cvrt-tabs" checked>
+  <input type="radio" class="cvrt-tab-input" id="cvrt-tab-data"  name="cvrt-tabs">
+
+  <!-- ── HERO ── -->
+  <div class="cvrt-hero">
+    <div class="cvrt-hero-inner">
+      <span class="cvrt-eyebrow">CRO Testing Roadmap</span>
+      <h1>ELO<br><span class="cvrt-h1-accent">May 2026</span></h1>
+      <p class="cvrt-hero-summary">ELO's Vagabond earns strong loyalty from buyers who know exactly what they're getting. The conversion problem lives upstream: too many buyers reach the purchase decision without the information they need to say yes with confidence. Three data sources converge on the same three gaps.</p>
+      <div class="cvrt-hero-pills">
+        <span class="cvrt-hero-pill">3 A/B Tests</span>
+        <span class="cvrt-hero-pill">Vagabond PDP</span>
+        <span class="cvrt-hero-pill">Cart Drawer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TABS NAV ── -->
+  <div class="cvrt-tabs-nav">
+    <label class="cvrt-tab-label" for="cvrt-tab-tests">CRO Tests</label>
+    <label class="cvrt-tab-label" for="cvrt-tab-data">Data Insights</label>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       TESTS TAB
+  ════════════════════════════════════════ -->
+  <div class="cvrt-tab-content cvrt-tab-content-tests">
+    <p class="cvrt-section-label">3 Concepts This Month</p>
+
+    <!-- SLOT 1 -->
+    <div class="cvrt-slot-card">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 1</span>
+          <span class="cvrt-badge">A/B Test</span>
+          <span class="cvrt-slot-page">Vagabond PDP</span>
+        </div>
+        <h3 class="cvrt-slot-title">Game Compatibility<br>in the Buy Box</h3>
+        <p class="cvrt-slot-desc">Amazon reviews show a recurring pattern: buyers discover game incompatibility only after purchase, with COD Mobile, Wuthering Waves, and Battle Prime all confirmed non-functional by verified purchasers. On the current PDP, compatibility is addressed through a collapsed accordion in fold 2, placing this decision-critical information outside the primary purchase window.</p>
+      </div>
+      <div class="cvrt-slot-visual">
+        <!--
+          Wireframe: PDP buy box with a highlighted compatibility module
+          (dashed purple border) inserted below the trust badge row.
+        -->
+        <svg width="302" height="270" viewBox="0 0 302 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Buy box frame -->
+          <rect x="1" y="1" width="300" height="268" rx="5" stroke="#D0C8EA" stroke-width="1" stroke-dasharray="4 3" fill="#FDFCFF"/>
+          <!-- Price bar -->
+          <rect x="16" y="16" width="72" height="13" rx="2" fill="#EAE4F5"/>
+          <!-- Star row -->
+          <rect x="16" y="38" width="56" height="10" rx="2" fill="#EAE4F5"/>
+          <rect x="78" y="38" width="38" height="10" rx="2" fill="#EAE4F5"/>
+          <!-- Trust badge row -->
+          <rect x="16" y="58" width="58" height="18" rx="3" fill="#F2EFF9" stroke="#D0C8EA" stroke-width="0.75"/>
+          <rect x="80" y="58" width="58" height="18" rx="3" fill="#F2EFF9" stroke="#D0C8EA" stroke-width="0.75"/>
+          <rect x="144" y="58" width="58" height="18" rx="3" fill="#F2EFF9" stroke="#D0C8EA" stroke-width="0.75"/>
+          <rect x="208" y="58" width="78" height="18" rx="3" fill="#F2EFF9" stroke="#D0C8EA" stroke-width="0.75"/>
+          <!-- Compatibility module highlight -->
+          <rect x="16" y="88" width="270" height="120" rx="4" fill="rgba(123,48,208,0.05)" stroke="#7B30D0" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="28" y="107" font-family="sans-serif" font-size="8" font-weight="700" fill="#7B30D0">WORKS WITH YOUR GAMES?</text>
+          <line x1="28" y1="113" x2="274" y2="113" stroke="#D0C8EA" stroke-width="0.5"/>
+          <!-- Row 1 -->
+          <circle cx="36" cy="128" r="5" fill="rgba(123,48,208,0.15)" stroke="#7B30D0" stroke-width="0.8"/>
+          <text x="36" y="131" font-family="sans-serif" font-size="6" font-weight="700" fill="#7B30D0" text-anchor="middle">+</text>
+          <text x="49" y="132" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#1A1529">Xbox Cloud Gaming</text>
+          <!-- Row 2 -->
+          <circle cx="36" cy="148" r="5" fill="rgba(123,48,208,0.15)" stroke="#7B30D0" stroke-width="0.8"/>
+          <text x="36" y="151" font-family="sans-serif" font-size="6" font-weight="700" fill="#7B30D0" text-anchor="middle">+</text>
+          <text x="49" y="152" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#1A1529">PlayStation Remote Play</text>
+          <!-- Row 3 -->
+          <circle cx="36" cy="168" r="5" fill="rgba(123,48,208,0.15)" stroke="#7B30D0" stroke-width="0.8"/>
+          <text x="36" y="171" font-family="sans-serif" font-size="6" font-weight="700" fill="#7B30D0" text-anchor="middle">+</text>
+          <text x="49" y="172" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#1A1529">Steam Link</text>
+          <!-- Link -->
+          <text x="28" y="198" font-family="sans-serif" font-size="8" font-weight="600" fill="#7B30D0">Full compatibility list</text>
+          <!-- ATC button -->
+          <rect x="16" y="222" width="270" height="32" rx="4" fill="#3D1A78"/>
+          <text x="151" y="242" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">ADD TO CART</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 2 -->
+    <div class="cvrt-slot-card">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 2</span>
+          <span class="cvrt-badge">A/B Test</span>
+          <span class="cvrt-slot-page">Cart Drawer (Sitewide)</span>
+        </div>
+        <h3 class="cvrt-slot-title">Cart Drawer<br>Ascend Thumbstick Upsell</h3>
+        <p class="cvrt-slot-desc">The current cart drawer contains one item, a quantity selector, and a checkout button. The space between the product line and the button is entirely blank, with no upsell, no accessory offer, and no cross-sell of any kind present.</p>
+      </div>
+      <div class="cvrt-slot-visual">
+        <!--
+          Wireframe: Cart drawer with an upsell block (dashed purple border)
+          inserted between the Vagabond line item and the subtotal line.
+        -->
+        <svg width="244" height="308" viewBox="0 0 244 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Drawer frame -->
+          <rect x="1" y="1" width="242" height="306" rx="5" stroke="#D0C8EA" stroke-width="1" stroke-dasharray="4 3" fill="#FDFCFF"/>
+          <!-- Cart header bar -->
+          <rect x="1" y="1" width="242" height="38" rx="5" fill="#1A1529"/>
+          <text x="18" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">YOUR CART</text>
+          <text x="228" y="25" font-family="sans-serif" font-size="16" font-weight="300" fill="rgba(255,255,255,0.4)" text-anchor="middle">x</text>
+          <!-- Product thumbnail -->
+          <rect x="16" y="52" width="38" height="38" rx="3" fill="#EAE4F5" stroke="#D0C8EA" stroke-width="0.75"/>
+          <text x="35" y="68" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#6A6080" text-anchor="middle">ELO</text>
+          <text x="35" y="80" font-family="sans-serif" font-size="5.5" font-weight="400" fill="#6A6080" text-anchor="middle">Vagabond</text>
+          <!-- Product text -->
+          <text x="62" y="68" font-family="sans-serif" font-size="8.5" font-weight="700" fill="#1A1529">ELO Vagabond</text>
+          <text x="62" y="81" font-family="sans-serif" font-size="7.5" font-weight="400" fill="#6A6080">USB-C Gamepad</text>
+          <text x="228" y="68" font-family="sans-serif" font-size="9" font-weight="700" fill="#1A1529" text-anchor="end">$99.99</text>
+          <!-- Divider -->
+          <line x1="16" y1="104" x2="228" y2="104" stroke="#EAE4F5" stroke-width="1"/>
+          <!-- Upsell block highlight -->
+          <rect x="16" y="112" width="212" height="92" rx="4" fill="rgba(123,48,208,0.05)" stroke="#7B30D0" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <!-- Upsell thumbnail -->
+          <rect x="24" y="120" width="34" height="34" rx="3" fill="#EAE4F5" stroke="#D0C8EA" stroke-width="0.75"/>
+          <text x="41" y="135" font-family="sans-serif" font-size="6" font-weight="700" fill="#6A6080" text-anchor="middle">ASCEND</text>
+          <text x="41" y="146" font-family="sans-serif" font-size="5" font-weight="400" fill="#6A6080" text-anchor="middle">sticks</text>
+          <!-- Upsell copy -->
+          <text x="66" y="132" font-family="sans-serif" font-size="8.5" font-weight="700" fill="#1A1529">ASCEND Pro Thumbsticks</text>
+          <text x="66" y="145" font-family="sans-serif" font-size="7.5" font-weight="400" fill="#6A6080">Drift-proof upgrade for your Vagabond</text>
+          <text x="66" y="158" font-family="sans-serif" font-size="7.5" font-weight="400" fill="#AFA8C5">$19.99</text>
+          <text x="94" y="158" font-family="sans-serif" font-size="8" font-weight="700" fill="#7B30D0">$16.99</text>
+          <!-- Add to order button -->
+          <rect x="24" y="168" width="196" height="26" rx="3" fill="#7B30D0"/>
+          <text x="122" y="185" font-family="sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle">ADD TO ORDER</text>
+          <!-- Subtotal -->
+          <text x="16" y="224" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#6A6080">Subtotal</text>
+          <text x="228" y="224" font-family="sans-serif" font-size="9" font-weight="700" fill="#1A1529" text-anchor="end">$99.99</text>
+          <text x="122" y="238" font-family="sans-serif" font-size="7.5" font-weight="400" fill="#AFA8C5" text-anchor="middle">Shipping calculated at checkout</text>
+          <!-- Checkout button -->
+          <rect x="16" y="250" width="212" height="40" rx="4" fill="#7B30D0"/>
+          <text x="122" y="274" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CHECKOUT</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 3 -->
+    <div class="cvrt-slot-card">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 3</span>
+          <span class="cvrt-badge">A/B Test</span>
+          <span class="cvrt-slot-page">Vagabond PDP (Retargeting Traffic)</span>
+        </div>
+        <h3 class="cvrt-slot-title">Retargeting Landing Page:<br>ELO15 Discount Confirmed</h3>
+        <p class="cvrt-slot-desc">The active ELO15 retargeting ad, live since April 25, explicitly promises 15% off to warm traffic returning to the page. The Vagabond PDP shows no banner, no price modification, and no code confirmation anywhere, requiring visitors to recall the code independently and locate the discount field at checkout.</p>
+      </div>
+      <div class="cvrt-slot-visual">
+        <!--
+          Wireframe: PDP with two additions for retargeting visitors:
+          1. Discount banner below announcement bar (dashed purple).
+          2. "Save 15% with code ELO15" line in the buy box below price.
+        -->
+        <svg width="302" height="252" viewBox="0 0 302 252" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Page frame -->
+          <rect x="1" y="1" width="300" height="250" rx="5" stroke="#D0C8EA" stroke-width="1" stroke-dasharray="4 3" fill="#FDFCFF"/>
+          <!-- Announcement bar -->
+          <rect x="1" y="1" width="300" height="22" rx="5" fill="#1A1529"/>
+          <text x="151" y="15" font-family="sans-serif" font-size="7" font-weight="600" fill="rgba(255,255,255,0.5)" text-anchor="middle">30-Day Return  |  2-Year Warranty  |  24/7 Support</text>
+          <!-- Discount banner (new element, dashed purple) -->
+          <rect x="1" y="23" width="300" height="28" fill="rgba(123,48,208,0.1)" stroke="#7B30D0" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="82" y="40" font-family="sans-serif" font-size="8.5" font-weight="700" fill="#7B30D0">Your 15% off is ready. Use code</text>
+          <rect x="210" y="30" width="42" height="16" rx="2" fill="#7B30D0"/>
+          <text x="231" y="42" font-family="sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">ELO15</text>
+          <!-- Nav -->
+          <rect x="1" y="51" width="300" height="22" fill="#0C0A18"/>
+          <text x="16" y="66" font-family="sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,0.4)">OUR PRODUCTS</text>
+          <text x="104" y="66" font-family="sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,0.4)">PLATFORMS</text>
+          <text x="178" y="66" font-family="sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,0.4)">UNLEASHED APP</text>
+          <!-- Hero image area -->
+          <rect x="1" y="73" width="162" height="98" fill="#111022"/>
+          <rect x="38" y="84" width="88" height="76" rx="3" fill="#1A1529"/>
+          <!-- Buy box area -->
+          <rect x="163" y="73" width="138" height="98" fill="#F8F6FF"/>
+          <text x="175" y="94" font-family="sans-serif" font-size="12" font-weight="700" fill="#1A1529">$99.99</text>
+          <!-- Save 15% line (new element) -->
+          <text x="175" y="110" font-family="sans-serif" font-size="7.5" font-weight="700" fill="#7B30D0">Save 15% with code ELO15</text>
+          <!-- Rating -->
+          <text x="175" y="124" font-family="sans-serif" font-size="7" font-weight="400" fill="#6A6080">4.7 / 5  399 reviews</text>
+          <!-- ATC -->
+          <rect x="175" y="132" width="116" height="24" rx="3" fill="#2D8F4E"/>
+          <text x="233" y="148" font-family="sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">ADD TO CART</text>
+          <!-- Trust strip -->
+          <rect x="1" y="171" width="300" height="26" fill="#F0EDF9"/>
+          <text x="151" y="188" font-family="sans-serif" font-size="6.5" font-weight="600" fill="#6A6080" text-anchor="middle">30-Day Return  .  2-Year Warranty  .  24/7 Support  .  Built for Winners</text>
+          <!-- Below fold -->
+          <rect x="20" y="212" width="262" height="10" rx="2" fill="#EAE4F5"/>
+          <rect x="56" y="228" width="190" height="8" rx="2" fill="#EAE4F5"/>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       DATA INSIGHTS TAB
+  ════════════════════════════════════════ -->
+  <div class="cvrt-tab-content cvrt-tab-content-data">
+
+    <!-- Biggest Killers — always rendered first -->
+    <div class="cvrt-killers">
+      <p class="cvrt-killers-heading">Biggest Killers of Conversion Rate</p>
+      <ul class="cvrt-killers-list">
+        <li>Game compatibility is buried in a collapsed accordion. Buyers discover incompatibility after purchase, not before. COD Mobile and Wuthering Waves appear repeatedly as named return drivers in verified reviews.</li>
+        <li>The cart drawer is an empty funnel layer. One item, a quantity selector, and a checkout button. No upsell, no cross-sell, no AOV lift of any kind in the space between product and checkout.</li>
+        <li>The retargeting ad promises 15% off and the landing page confirms nothing. Visitors must recall the code, find the discount field, and apply it manually with no on-page cue.</li>
+      </ul>
+    </div>
+
+    <!-- Data sources grid -->
+    <p class="cvrt-section-label">Data Sources</p>
+    <div class="cvrt-sources-grid">
+      <span class="cvrt-source-chip">Meta Ads</span>
+      <span class="cvrt-source-chip">Reviews &amp; UGC</span>
+      <span class="cvrt-source-chip">Page Speed / Core Web Vitals</span>
+      <span class="cvrt-source-chip">Competitor Research</span>
+      <span class="cvrt-source-chip">Site Screenshots</span>
+      <span class="cvrt-source-chip">CRO Ebook</span>
+      <span class="cvrt-source-chip">CRO Community Research</span>
+    </div>
+
+    <!-- Per-source findings -->
+    <p class="cvrt-section-label">Findings by Source</p>
+    <div class="cvrt-findings-grid">
+
+      <div class="cvrt-finding-card">
+        <p class="cvrt-finding-source">Meta Ads</p>
+        <ul class="cvrt-finding-list">
+          <li>The active retargeting ad (live April 25) explicitly offers 15% off with code ELO15. The Vagabond PDP shows no trace of this offer anywhere on the page.</li>
+          <li>Prospecting ads lead with competitor pain points: drift, lag, case incompatibility, mushy buttons. The PDP hero responds with a generic claim that does not mirror that framing.</li>
+          <li>3 ads analyzed: 2 prospecting (same copy, different creatives, likely a creative split test) and 1 retargeting. All launched late April 2026.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding-card">
+        <p class="cvrt-finding-source">Reviews &amp; UGC</p>
+        <ul class="cvrt-finding-list">
+          <li>Game compatibility is the top return driver. COD Mobile, Wuthering Waves, Battle Prime, and several Hoyoverse titles confirmed non-functional by verified purchasers. Buyers discover this only post-purchase.</li>
+          <li>Works-with-phone-cases is the most-cited purchase driver and the clearest stated differentiator over Backbone.</li>
+          <li>App quality is the most-cited post-purchase frustration: "useless," "barely an app," with the iOS version still in TestFlight beta across multiple recent reviews.</li>
+          <li>Stick drift reports appear from multiple verified purchasers despite Hall Effect (drift-free) marketing, directly contradicting the core value proposition.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding-card">
+        <p class="cvrt-finding-source">Page Speed / Core Web Vitals</p>
+        <ul class="cvrt-finding-list">
+          <li>Vagabond PDP LCP: 7.9s from real mobile users. The "poor" threshold is 4s. This is the page receiving all paid ad traffic.</li>
+          <li>Total Blocking Time: 790ms. The page is largely unresponsive during load for mobile visitors.</li>
+          <li>Page weight: 8.7MB. Image delivery alone represents 839KB of savings potential.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding-card">
+        <p class="cvrt-finding-source">Competitor Research</p>
+        <ul class="cvrt-finding-list">
+          <li>GameSir G8 Plus offers wireless Bluetooth, 6-axis gyro, and rumble for $79.99, $20 less than the Vagabond.</li>
+          <li>Razer Kishi Ultra (formerly $150) now sells at $70-80. ELO is price-squeezed from both directions.</li>
+          <li>ELO's clearest advantages: works with phone cases, larger ergonomics, 2-year warranty. None are prominently featured in the PDP buy box.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding-card">
+        <p class="cvrt-finding-source">Site Screenshots</p>
+        <ul class="cvrt-finding-list">
+          <li>Cart drawer: one item, quantity selector, checkout button. Large blank space between the product line and checkout with zero upsell presence.</li>
+          <li>PDP compatibility content sits inside a collapsed accordion in fold 2, not visible in fold 1 where the purchase decision forms.</li>
+          <li>The homepage hero shows the Vagabond without a phone inserted, making the product's primary use case less immediately legible to first-time visitors.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding-card">
+        <p class="cvrt-finding-source">CRO Ebook &amp; Community Research</p>
+        <ul class="cvrt-finding-list">
+          <li>Moving compatibility and FAQ content higher on paid-traffic landing pages produces measurable revenue lifts. Visitors carry an unspoken checklist of questions; answering them faster reduces exit.</li>
+          <li>Pre-purchase cart upsells should be discounted, relevant, one-click, and priced well below the main product. In-cart acceptance rates run 5-12% for relevant offers.</li>
+          <li>Any discount used to drive a click must be confirmed on the landing page. The promise that stopped the scroll needs to be visible the moment the visitor arrives.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="cvrt-footer">
+    <span class="cvrt-footer-brand">ELO</span>
+    <span class="cvrt-footer-date">May 2026</span>
+  </div>
+
+</div>

@@ -176,7 +176,7 @@ Before writing the brief, save two files in the brand's directory:
 
 **`[brand-name]-[store-name]-research-audit.md`** - All findings from the data collection, organized by source. Serves as a reference for the brief and future conversations with the prospect. Format: one section per data source (only sources collected), key metrics, quotes, and findings, plus a cross-source analysis section at the end highlighting converging themes.
 
-**`[brand-name]-[month]-[year]-roadmap.md`** - The brief itself (the full output from Step 5). Use the current month and year to determine the filename (e.g., `coldlife-april-2026-roadmap.md`). This naming ensures `/roadmap-to-html` can pick it up automatically.
+**`[brand-name]-[month]-[year]-roadmap.md`** - The brief itself (the full output from Step 5). Use the current month and year to determine the filename. **Date rule:** If today's date is the 23rd or later, use next month's name instead. The roadmap will be presented to the client days after generation, so it should read as current. Example: generated April 25 → filename uses `may-2026`, title reads "May 2026 CRO Roadmap." This naming ensures `/roadmap-to-html` can pick it up automatically.
 
 The audit is the evidence library. The brief is the pitch.
 
