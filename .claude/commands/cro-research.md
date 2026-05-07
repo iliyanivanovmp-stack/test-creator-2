@@ -198,3 +198,5 @@ Before sharing the brief with the user, run through this checklist silently. Fix
 ## Step 8: Summary
 
 No priority table needed. The slot numbering (Slot 1, Slot 2, Slot 3) already communicates priority order. If there are strong test ideas that didn't fit into the recommended slots, list them in a **Future Slot Candidates** section at the end of the brief so they're queued for discussion.
+
+**Do NOT output the brief content in chat.** After saving both files in Step 6, simply tell the user the files are ready and share their paths. The full brief is in the file. Repeating it in chat adds no value.

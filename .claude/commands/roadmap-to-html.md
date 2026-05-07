@@ -71,6 +71,7 @@ The Data Insights tab should be insightful but scannable. A client should be abl
 - No em dashes. Use periods, commas, or colons.
 - Every word earns its place. No filler, no hedging, no fluff.
 - Direct, active voice. Short sentences.
+- **No bold text in body paragraphs.** Only headings and slot labels may be bold. Never bold a sentence or phrase inside a paragraph. This is a hard rule with no exceptions.
 
 ## Step 4: Generate HTML
 
@@ -158,7 +159,7 @@ Mobile styles can collapse to single-column, but do not let mobile layout constr
 
 **Light backgrounds only.** SVG sketches and text readability depend on light backgrounds. The brand color should be used as an accent, not as a background fill.
 
-**No one-sided accent borders.** Do not apply a colored border, stripe, or rule to a single edge of a card or container (e.g., a colored left stripe on a slot card, a single-side accent on the executive summary box). This is a generic AI design tic and reads as cheap. Use one of: (a) a consistent thin border on all four sides (1px, neutral grey or low-opacity brand tone), (b) a soft full-perimeter shadow with no border, or (c) no border at all, relying on whitespace and background contrast to separate sections. Pick one approach and apply it consistently across every card on the page.
+**No one-sided accent borders. This is a hard rule.** Do not apply a colored border, stripe, or rule to a single edge of a card or container (e.g., a colored left stripe on a slot card, a single-side accent on the executive summary box, a bottom-only divider that looks decorative). Left-side borders in particular are the most recognizable AI design tic and will immediately read as template-generated. Use one of: (a) a consistent thin border on all four sides (1px, neutral grey or low-opacity brand tone), (b) a soft full-perimeter shadow with no border, or (c) no border at all, relying on whitespace and background contrast to separate sections. Pick one approach and apply it consistently across every card on the page. If in doubt, use no border.
 
 **Responsive and print styles:** Include mobile breakpoints and print-friendly styles (no shadows, avoid page breaks inside cards).
 
@@ -186,7 +187,8 @@ Before saving, verify silently:
 - [ ] No variation descriptions, briefs, or source citations leaked through
 - [ ] No revenue figures anywhere in the output
 - [ ] Brand color from the screenshot is applied consistently
-- [ ] No one-sided accent borders on cards or containers (no left stripe, no single-edge rule). Borders are either full-perimeter or absent
+- [ ] No one-sided accent borders on ANY card or container. No left stripe, no right stripe, no single-edge rule of any kind. If in doubt, remove the border entirely
+- [ ] No bold text inside body paragraphs. Bold is for headings and slot labels only. Scan the full output for `<strong>`, `<b>`, or `font-weight: bold` applied to paragraph text and remove it
 - [ ] No JavaScript
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
