@@ -1,0 +1,877 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET ──────────────────────────────────────────────── */
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes cvrt-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cvrt-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── ROOT ───────────────────────────────────────────────── */
+#cvrt-roadmap {
+  --red:        #D42B1E;
+  --red-pale:   #FDF2F1;
+  --red-mid:    #F9E8E6;
+  --dark:       #1A1A1A;
+  --mid:        #525252;
+  --muted:      #909090;
+  --bg:         #F4F2EF;
+  --white:      #FFFFFF;
+  --border:     #E6DFD9;
+  --shadow-sm:  0 2px 12px rgba(26,26,26,0.07);
+  --shadow-md:  0 6px 28px rgba(26,26,26,0.12);
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dark);
+
+  /* Dot-grid texture */
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(212,43,30,0.10) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: hidden;
+}
+
+/* ─── TABS (CSS-only) ────────────────────────────────────── */
+#cvrt-roadmap .cvrt-tab-radio { display: none; }
+#cvrt-roadmap .cvrt-panel     { display: none; }
+#cvrt-r1:checked ~ .cvrt-p1  { display: block; }
+#cvrt-r2:checked ~ .cvrt-p2  { display: block; }
+#cvrt-r1:checked ~ .cvrt-tab-nav .cvrt-tab-label[for="cvrt-r1"],
+#cvrt-r2:checked ~ .cvrt-tab-nav .cvrt-tab-label[for="cvrt-r2"] {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+/* ─── HEADER ─────────────────────────────────────────────── */
+#cvrt-roadmap .cvrt-header {
+  background-color: var(--red);
+  background-image:
+    repeating-linear-gradient(
+      -52deg,
+      rgba(255,255,255,0.025) 0,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 11px
+    );
+  padding: 36px 56px;
+  animation: cvrt-fade 0.5s ease both;
+}
+#cvrt-roadmap .cvrt-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+#cvrt-roadmap .cvrt-logo-wrap {
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 6px 11px;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+#cvrt-roadmap .cvrt-logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+#cvrt-roadmap .cvrt-header-right { text-align: right; }
+#cvrt-roadmap .cvrt-header-month {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+#cvrt-roadmap .cvrt-header-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ─── EXECUTIVE SUMMARY ──────────────────────────────────── */
+#cvrt-roadmap .cvrt-summary {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 56px;
+  animation: cvrt-fade 0.6s ease 0.1s both;
+}
+#cvrt-roadmap .cvrt-summary-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+#cvrt-roadmap .cvrt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+#cvrt-roadmap .cvrt-summary-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--dark);
+}
+
+/* ─── TAB NAV ────────────────────────────────────────────── */
+#cvrt-roadmap .cvrt-tab-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 56px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(26,26,26,0.04);
+}
+#cvrt-roadmap .cvrt-tab-nav-inner { display: flex; }
+#cvrt-roadmap .cvrt-tab-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 15px 24px;
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  display: block;
+  user-select: none;
+  transition: color 0.18s, border-color 0.18s;
+}
+#cvrt-roadmap .cvrt-tab-label:hover { color: var(--dark); }
+
+/* ─── PANELS ─────────────────────────────────────────────── */
+#cvrt-roadmap .cvrt-panel { padding: 48px 56px 80px; }
+
+/* ─── SLOT CARDS ─────────────────────────────────────────── */
+#cvrt-roadmap .cvrt-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+#cvrt-roadmap .cvrt-slot-card {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  max-width: 760px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+#cvrt-roadmap .cvrt-slot-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Staggered entrance */
+#cvrt-roadmap .cvrt-p1 .cvrt-slot-card:nth-child(1) { animation: cvrt-rise 0.55s cubic-bezier(0.22,1,0.36,1) 0.08s both; }
+#cvrt-roadmap .cvrt-p1 .cvrt-slot-card:nth-child(2) { animation: cvrt-rise 0.55s cubic-bezier(0.22,1,0.36,1) 0.18s both; }
+#cvrt-roadmap .cvrt-p1 .cvrt-slot-card:nth-child(3) { animation: cvrt-rise 0.55s cubic-bezier(0.22,1,0.36,1) 0.28s both; }
+
+#cvrt-roadmap .cvrt-slot-head {
+  background: var(--red-pale);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 28px 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large decorative number behind the header */
+#cvrt-roadmap .cvrt-slot-head::after {
+  content: attr(data-num);
+  position: absolute;
+  right: -4px;
+  top: -14px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 96px;
+  font-weight: 800;
+  color: rgba(212,43,30,0.09);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  user-select: none;
+  pointer-events: none;
+}
+
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+#cvrt-roadmap .cvrt-slot-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+#cvrt-roadmap .cvrt-slot-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(212,43,30,0.12);
+  border-radius: 3px;
+  padding: 3px 9px;
+}
+#cvrt-roadmap .cvrt-slot-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+#cvrt-roadmap .cvrt-slot-page {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+#cvrt-roadmap .cvrt-slot-body {
+  padding: 20px 28px 26px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+#cvrt-roadmap .cvrt-slot-copy { flex: 1; min-width: 0; }
+#cvrt-roadmap .cvrt-slot-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--mid);
+}
+#cvrt-roadmap .cvrt-slot-fig {
+  flex: 0 0 280px;
+  width: 280px;
+}
+#cvrt-roadmap .cvrt-slot-fig svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+#cvrt-roadmap .cvrt-fig-cap {
+  display: block;
+  font-size: 10px;
+  font-style: italic;
+  color: #1A1A1A;
+  margin-top: 7px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ─── DATA INSIGHTS ──────────────────────────────────────── */
+#cvrt-roadmap .cvrt-insights-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+#cvrt-roadmap .cvrt-section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#cvrt-roadmap .cvrt-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Killers box */
+#cvrt-roadmap .cvrt-killers-box {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  padding: 32px 36px;
+  margin-bottom: 44px;
+}
+#cvrt-roadmap .cvrt-killers-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+#cvrt-roadmap .cvrt-killer {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.68;
+  color: var(--dark);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+#cvrt-roadmap .cvrt-killers-list li:last-child .cvrt-killer {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+#cvrt-roadmap .cvrt-killer-n {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+  min-width: 30px;
+  padding-top: 1px;
+}
+
+/* Sources */
+#cvrt-roadmap .cvrt-sources-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+#cvrt-roadmap .cvrt-sources-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 2px;
+}
+#cvrt-roadmap .cvrt-sources-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+#cvrt-roadmap .cvrt-source-chip {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dark);
+  background: var(--white);
+  border-radius: 4px;
+  padding: 6px 14px;
+  box-shadow: 0 1px 6px rgba(26,26,26,0.09);
+}
+#cvrt-roadmap .cvrt-source-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#cvrt-roadmap .cvrt-source-card {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  padding: 24px 28px;
+}
+#cvrt-roadmap .cvrt-source-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#cvrt-roadmap .cvrt-source-name::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+#cvrt-roadmap .cvrt-source-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+#cvrt-roadmap .cvrt-source-list li {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.68;
+  padding-left: 18px;
+  position: relative;
+}
+#cvrt-roadmap .cvrt-source-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(212,43,30,0.35);
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+#cvrt-roadmap .cvrt-footer {
+  background: var(--dark);
+  padding: 26px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#cvrt-roadmap .cvrt-footer::before {
+  content: 'DA VALERIA';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 120px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.03);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+#cvrt-roadmap .cvrt-footer span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 720px) {
+  #cvrt-roadmap .cvrt-header { padding: 24px 20px; }
+  #cvrt-roadmap .cvrt-header-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+  #cvrt-roadmap .cvrt-header-right { text-align: left; }
+  #cvrt-roadmap .cvrt-header-month { font-size: 36px; }
+  #cvrt-roadmap .cvrt-summary { padding: 28px 20px; }
+  #cvrt-roadmap .cvrt-tab-nav { padding: 0 20px; }
+  #cvrt-roadmap .cvrt-panel { padding: 28px 16px 56px; }
+  #cvrt-roadmap .cvrt-slot-body { flex-direction: column; }
+  #cvrt-roadmap .cvrt-slot-fig { flex: none; width: 100%; }
+  #cvrt-roadmap .cvrt-slot-head::after { font-size: 60px; }
+  #cvrt-roadmap .cvrt-killers-box { padding: 22px 20px; }
+  #cvrt-roadmap .cvrt-source-card { padding: 18px 20px; }
+  #cvrt-roadmap .cvrt-footer { padding: 22px 20px; }
+}
+
+@media print {
+  #cvrt-roadmap { background-image: none; }
+  #cvrt-roadmap .cvrt-slot-card,
+  #cvrt-roadmap .cvrt-killers-box,
+  #cvrt-roadmap .cvrt-source-card { box-shadow: none; border: 1px solid var(--border); page-break-inside: avoid; animation: none; }
+  #cvrt-roadmap .cvrt-tab-nav { position: static; box-shadow: none; }
+  #cvrt-roadmap .cvrt-p1,
+  #cvrt-roadmap .cvrt-p2 { display: block !important; }
+  #cvrt-roadmap .cvrt-slot-card { transform: none !important; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input type="radio" name="cvrt-tabs" id="cvrt-r1" checked class="cvrt-tab-radio">
+  <input type="radio" name="cvrt-tabs" id="cvrt-r2" class="cvrt-tab-radio">
+
+  <!-- HEADER -->
+  <header class="cvrt-header">
+    <div class="cvrt-header-inner">
+      <div class="cvrt-logo-wrap">
+        <img src="https://www.davaleria.com/img/my-store-logo-1614165649.jpg" alt="Da Valeria" class="cvrt-logo">
+      </div>
+      <div class="cvrt-header-right">
+        <span class="cvrt-header-month">Maggio 2026</span>
+        <span class="cvrt-header-sub">CRO Testing Roadmap</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section class="cvrt-summary">
+    <div class="cvrt-summary-inner">
+      <span class="cvrt-eyebrow">Overview</span>
+      <p class="cvrt-summary-text">Da Valeria has a verified 48-hour delivery reputation, confirmed across four years of Trustpilot reviews, but the site's above-the-fold experience doesn't reflect it. The homepage leads with a generic seasonal discount, product pages carry zero reviews despite strong Trustpilot ratings, and the cart shows a shipping fee with no nudge toward the €59 free shipping threshold. All three major conversion opportunities are inside the site, not in ad spend.</p>
+    </div>
+  </section>
+
+  <!-- TAB NAV -->
+  <nav class="cvrt-tab-nav">
+    <div class="cvrt-tab-nav-inner">
+      <label for="cvrt-r1" class="cvrt-tab-label">CRO Tests</label>
+      <label for="cvrt-r2" class="cvrt-tab-label">Data Insights</label>
+    </div>
+  </nav>
+
+  <!-- TESTS PANEL -->
+  <div class="cvrt-panel cvrt-p1">
+    <div class="cvrt-slots">
+
+      <!-- SLOT 1 -->
+      <div class="cvrt-slot-card">
+        <div class="cvrt-slot-head" data-num="01">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-num">Slot 1</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <div class="cvrt-slot-title">PDP Trust Overhaul: Reviews + Buy Box Cleanup</div>
+          <div class="cvrt-slot-page">Page: Product Detail Pages</div>
+        </div>
+        <div class="cvrt-slot-body">
+          <div class="cvrt-slot-copy">
+            <p class="cvrt-slot-desc">Trustpilot reviews from 2021 to 2025 confirm strong product satisfaction across the catalog, yet no reviews appear on any product detail page. Sidebar banners actively link visitors away from the product they are viewing, and a PayPal financing banner for purchases between €120 and €5,000 appears above the product title on a €5.20 item, creating irrelevant friction at the exact moment the purchase decision happens.</p>
+          </div>
+          <div class="cvrt-slot-fig">
+            <svg viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="280" rx="6" fill="#F4F2EF"/>
+              <!-- product image -->
+              <rect x="12" y="12" width="100" height="100" rx="4" stroke="#D42B1E" stroke-width="1.5" stroke-dasharray="6 4" fill="#ffffff"/>
+              <text x="62" y="57" font-family="sans-serif" font-size="10" fill="#909090" text-anchor="middle">Immagine</text>
+              <text x="62" y="71" font-family="sans-serif" font-size="10" fill="#909090" text-anchor="middle">prodotto</text>
+              <!-- product name -->
+              <rect x="124" y="12" width="164" height="13" rx="2" fill="#E6DFD9"/>
+              <!-- star rating NEW -->
+              <rect x="124" y="31" width="156" height="23" rx="3" fill="#FDF2F1" stroke="#D42B1E" stroke-width="1.2" stroke-dasharray="5 3"/>
+              <text x="130" y="48" font-family="sans-serif" font-size="15" fill="#D42B1E">★★★★★</text>
+              <text x="215" y="48" font-family="sans-serif" font-size="10" fill="#D42B1E" font-weight="600">4.8 · 324</text>
+              <!-- review 1 -->
+              <rect x="124" y="60" width="164" height="38" rx="3" fill="#ffffff" stroke="#E6DFD9" stroke-width="1"/>
+              <text x="130" y="76" font-family="sans-serif" font-size="9" fill="#525252" font-style="italic">"Arrivato in 2 giorni, prodotto</text>
+              <text x="130" y="89" font-family="sans-serif" font-size="9" fill="#525252" font-style="italic">esattamente come descritto."</text>
+              <!-- review 2 -->
+              <rect x="124" y="104" width="164" height="27" rx="3" fill="#ffffff" stroke="#E6DFD9" stroke-width="1"/>
+              <text x="130" y="120" font-family="sans-serif" font-size="9" fill="#525252" font-style="italic">"Velocissimi, ottima qualita."</text>
+              <text x="130" y="129" font-family="sans-serif" font-size="8" fill="#909090"> - Lucia M.</text>
+              <!-- price -->
+              <text x="124" y="152" font-family="sans-serif" font-size="17" fill="#1A1A1A" font-weight="700">€5.20</text>
+              <!-- shipping nudge (replaces BNPL) -->
+              <rect x="124" y="158" width="164" height="17" rx="3" fill="#EDF7EE"/>
+              <text x="206" y="170" font-family="sans-serif" font-size="9" fill="#2E7D32" text-anchor="middle" font-weight="600">Spedizione gratuita oltre €59</text>
+              <!-- ATC button -->
+              <rect x="124" y="181" width="164" height="30" rx="4" fill="#D42B1E"/>
+              <text x="206" y="201" font-family="sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="600">Aggiungi al carrello</text>
+              <!-- removed badges -->
+              <text x="62" y="128" font-family="sans-serif" font-size="8" fill="#D42B1E" text-anchor="middle" font-weight="700" letter-spacing="0.06em">RIMOSSO</text>
+              <rect x="12" y="133" width="100" height="20" rx="2" fill="#FEF0F0" stroke="#D42B1E" stroke-width="1" stroke-dasharray="4 3" opacity="0.85"/>
+              <line x1="12" y1="133" x2="112" y2="153" stroke="#D42B1E" stroke-width="1.2" opacity="0.6"/>
+              <line x1="112" y1="133" x2="12" y2="153" stroke="#D42B1E" stroke-width="1.2" opacity="0.6"/>
+              <text x="62" y="164" font-family="sans-serif" font-size="8.5" fill="#909090" text-anchor="middle">Banner laterale</text>
+              <rect x="12" y="170" width="100" height="18" rx="2" fill="#FEF0F0" stroke="#D42B1E" stroke-width="1" stroke-dasharray="4 3" opacity="0.85"/>
+              <line x1="12" y1="170" x2="112" y2="188" stroke="#D42B1E" stroke-width="1.2" opacity="0.6"/>
+              <line x1="112" y1="170" x2="12" y2="188" stroke="#D42B1E" stroke-width="1.2" opacity="0.6"/>
+              <text x="62" y="199" font-family="sans-serif" font-size="8.5" fill="#909090" text-anchor="middle">Banner BNPL</text>
+              <!-- trust strip -->
+              <rect x="12" y="220" width="276" height="48" rx="3" fill="#F4F2EF"/>
+              <text x="150" y="238" font-family="sans-serif" font-size="9" fill="#525252" text-anchor="middle">Pagamenti sicuri al 100%</text>
+              <text x="150" y="253" font-family="sans-serif" font-size="9" fill="#525252" text-anchor="middle">Spedizione gratuita oltre €59 · Reso gratuito</text>
+            </svg>
+            <span class="cvrt-fig-cap">* Concept illustration only. Final design will differ.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLOT 2 -->
+      <div class="cvrt-slot-card">
+        <div class="cvrt-slot-head" data-num="02">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-num">Slot 2</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <div class="cvrt-slot-title">Homepage Hero: Delivery Speed vs. Generic Discount</div>
+          <div class="cvrt-slot-page">Page: Homepage</div>
+        </div>
+        <div class="cvrt-slot-body">
+          <div class="cvrt-slot-copy">
+            <p class="cvrt-slot-desc">Fast delivery is Da Valeria's most consistently cited competitive strength, mentioned in virtually every Trustpilot review since 2021, yet the homepage hero leads with a generic seasonal discount and no delivery promise above the fold. No direct competitor, including Kasanova, positions on delivery speed in their hero, leaving this UVP completely unowned in the market.</p>
+          </div>
+          <div class="cvrt-slot-fig">
+            <svg viewBox="0 0 300 258" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="258" rx="6" fill="#F4F2EF"/>
+              <!-- hero box -->
+              <rect x="12" y="12" width="276" height="172" rx="4" stroke="#D42B1E" stroke-width="1.5" stroke-dasharray="6 4" fill="#ffffff"/>
+              <!-- lifestyle image right -->
+              <rect x="182" y="20" width="98" height="156" rx="3" fill="#EDE8E3"/>
+              <text x="231" y="101" font-family="sans-serif" font-size="9" fill="#909090" text-anchor="middle">Lifestyle</text>
+              <text x="231" y="113" font-family="sans-serif" font-size="9" fill="#909090" text-anchor="middle">image</text>
+              <!-- copy left -->
+              <text x="22" y="56" font-family="sans-serif" font-size="24" fill="#1A1A1A" font-weight="800">Consegna</text>
+              <text x="22" y="82" font-family="sans-serif" font-size="24" fill="#D42B1E" font-weight="800">in 48 ore</text>
+              <text x="22" y="100" font-family="sans-serif" font-size="9" fill="#525252">Casalinghi, arredamento,</text>
+              <text x="22" y="112" font-family="sans-serif" font-size="9" fill="#525252">outdoor: tutto per la tua casa.</text>
+              <!-- CTA -->
+              <rect x="22" y="121" width="134" height="27" rx="4" fill="#D42B1E"/>
+              <text x="89" y="139" font-family="sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">Scopri i prodotti</text>
+              <!-- PRIMO10 pill -->
+              <rect x="22" y="155" width="146" height="17" rx="8" fill="#FDF2F1" stroke="#D42B1E" stroke-width="1"/>
+              <text x="95" y="167" font-family="sans-serif" font-size="8" fill="#D42B1E" text-anchor="middle" font-weight="600">Usa PRIMO10 · 10% di sconto</text>
+              <!-- trust badges row -->
+              <rect x="12" y="190" width="276" height="34" rx="3" fill="#EDE8E3"/>
+              <line x1="108" y1="197" x2="108" y2="218" stroke="#D0C9C2" stroke-width="1"/>
+              <line x1="204" y1="197" x2="204" y2="218" stroke="#D0C9C2" stroke-width="1"/>
+              <text x="60" y="202" font-family="sans-serif" font-size="9" fill="#1A1A1A" text-anchor="middle" font-weight="600">48h Consegna</text>
+              <text x="60" y="214" font-family="sans-serif" font-size="7.5" fill="#525252" text-anchor="middle">veloce garantita</text>
+              <text x="156" y="202" font-family="sans-serif" font-size="9" fill="#1A1A1A" text-anchor="middle" font-weight="600">Spediz. gratuita</text>
+              <text x="156" y="214" font-family="sans-serif" font-size="7.5" fill="#525252" text-anchor="middle">ordini oltre €59</text>
+              <text x="252" y="202" font-family="sans-serif" font-size="9" fill="#1A1A1A" text-anchor="middle" font-weight="600">Reso facile</text>
+              <text x="252" y="214" font-family="sans-serif" font-size="7.5" fill="#525252" text-anchor="middle">soddisfatti o rimborsati</text>
+              <!-- caption -->
+              <text x="150" y="248" font-family="sans-serif" font-size="8.5" fill="#909090" text-anchor="middle">Trust badges moved above the fold</text>
+            </svg>
+            <span class="cvrt-fig-cap">* Concept illustration only. Final design will differ.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLOT 3 -->
+      <div class="cvrt-slot-card">
+        <div class="cvrt-slot-head" data-num="03">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-num">Slot 3</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <div class="cvrt-slot-title">Cart: Free Shipping Progress Bar + AOV Nudge</div>
+          <div class="cvrt-slot-page">Page: Cart Drawer</div>
+        </div>
+        <div class="cvrt-slot-body">
+          <div class="cvrt-slot-copy">
+            <p class="cvrt-slot-desc">A shopper with €39 in their cart is €20 away from free shipping, but the cart shows only a €5.90 shipping line with no indicator of proximity to the €59 threshold. The cart UI also displays entirely in English on an Italian-language site, a localization bug that degrades trust at the most critical moment in the purchase funnel.</p>
+          </div>
+          <div class="cvrt-slot-fig">
+            <svg viewBox="0 0 300 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="316" rx="6" fill="#F4F2EF"/>
+              <!-- cart panel -->
+              <rect x="12" y="12" width="276" height="292" rx="4" stroke="#909090" stroke-width="1.5" stroke-dasharray="6 4" fill="#ffffff"/>
+              <!-- header -->
+              <text x="24" y="34" font-family="sans-serif" font-size="13" fill="#1A1A1A" font-weight="700">CARRELLO</text>
+              <text x="280" y="34" font-family="sans-serif" font-size="13" fill="#909090" text-anchor="end">x</text>
+              <line x1="12" y1="42" x2="288" y2="42" stroke="#E6DFD9" stroke-width="1"/>
+              <!-- free shipping bar NEW -->
+              <rect x="20" y="50" width="260" height="46" rx="4" fill="#FDF2F1" stroke="#D42B1E" stroke-width="1.2" stroke-dasharray="5 3"/>
+              <text x="150" y="65" font-family="sans-serif" font-size="9.5" fill="#D42B1E" text-anchor="middle" font-weight="600">Sei a €20 dalla Spedizione Gratuita!</text>
+              <rect x="28" y="70" width="244" height="9" rx="4.5" fill="#F0E0DE"/>
+              <rect x="28" y="70" width="158" height="9" rx="4.5" fill="#D42B1E"/>
+              <text x="28" y="87" font-family="sans-serif" font-size="7.5" fill="#909090">€39</text>
+              <text x="272" y="87" font-family="sans-serif" font-size="7.5" fill="#D42B1E" text-anchor="end">€59 Gratis</text>
+              <line x1="12" y1="102" x2="288" y2="102" stroke="#E6DFD9" stroke-width="1"/>
+              <!-- product row -->
+              <rect x="20" y="110" width="46" height="46" rx="3" fill="#F4F2EF" stroke="#E6DFD9" stroke-width="1"/>
+              <text x="43" y="135" font-family="sans-serif" font-size="8" fill="#909090" text-anchor="middle">img</text>
+              <text x="74" y="124" font-family="sans-serif" font-size="10" fill="#1A1A1A" font-weight="500">Sedia da Giardino PP</text>
+              <text x="74" y="138" font-family="sans-serif" font-size="10" fill="#525252">€39.00</text>
+              <line x1="12" y1="165" x2="288" y2="165" stroke="#E6DFD9" stroke-width="1"/>
+              <!-- totals -->
+              <text x="22" y="181" font-family="sans-serif" font-size="11" fill="#525252">Subtotale</text>
+              <text x="278" y="181" font-family="sans-serif" font-size="11" fill="#525252" text-anchor="end">€39.00</text>
+              <text x="22" y="197" font-family="sans-serif" font-size="11" fill="#525252">Spedizione</text>
+              <text x="278" y="197" font-family="sans-serif" font-size="11" fill="#525252" text-anchor="end">€5.90</text>
+              <line x1="22" y1="204" x2="278" y2="204" stroke="#E6DFD9" stroke-width="0.5"/>
+              <text x="22" y="218" font-family="sans-serif" font-size="12" fill="#1A1A1A" font-weight="700">Totale (IVA inclusa)</text>
+              <text x="278" y="218" font-family="sans-serif" font-size="12" fill="#1A1A1A" font-weight="700" text-anchor="end">€44.90</text>
+              <line x1="12" y1="226" x2="288" y2="226" stroke="#E6DFD9" stroke-width="1"/>
+              <!-- cross-sell -->
+              <text x="22" y="240" font-family="sans-serif" font-size="8.5" fill="#909090" font-weight="600" letter-spacing="0.05em">POTREBBE INTERESSARTI</text>
+              <rect x="20" y="246" width="72" height="38" rx="3" fill="#F4F2EF" stroke="#E6DFD9" stroke-width="1"/>
+              <text x="56" y="261" font-family="sans-serif" font-size="8" fill="#909090" text-anchor="middle">Cuscino</text>
+              <text x="56" y="274" font-family="sans-serif" font-size="9" fill="#D42B1E" text-anchor="middle" font-weight="600">€8.90</text>
+              <rect x="100" y="246" width="72" height="38" rx="3" fill="#F4F2EF" stroke="#E6DFD9" stroke-width="1"/>
+              <text x="136" y="261" font-family="sans-serif" font-size="8" fill="#909090" text-anchor="middle">Copriasse</text>
+              <text x="136" y="274" font-family="sans-serif" font-size="9" fill="#D42B1E" text-anchor="middle" font-weight="600">€12.50</text>
+              <rect x="180" y="246" width="72" height="38" rx="3" fill="#F4F2EF" stroke="#E6DFD9" stroke-width="1"/>
+              <text x="216" y="261" font-family="sans-serif" font-size="8" fill="#909090" text-anchor="middle">Tavolino</text>
+              <text x="216" y="274" font-family="sans-serif" font-size="9" fill="#D42B1E" text-anchor="middle" font-weight="600">€24.90</text>
+              <!-- CTA -->
+              <rect x="20" y="291" width="260" height="28" rx="4" fill="#D42B1E"/>
+              <text x="150" y="310" font-family="sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">ACQUISTA</text>
+            </svg>
+            <span class="cvrt-fig-cap">* Concept illustration only. Final design will differ.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DATA INSIGHTS PANEL -->
+  <div class="cvrt-panel cvrt-p2">
+    <div class="cvrt-insights-wrap">
+
+      <!-- KILLERS -->
+      <div class="cvrt-killers-box">
+        <div class="cvrt-section-title">Biggest Killers of Conversion Rate</div>
+        <ul class="cvrt-killers-list">
+          <li>
+            <div class="cvrt-killer">
+              <span class="cvrt-killer-n">1</span>
+              <span>Paid traffic lands on mismatched pages: the kitchen organizer ad sends visitors to a homepage showing outdoor products and a cherry blossom hero. The garden chair ad sends visitors to a raw search results page titled "RISULTATI RICERCA" with a sidebar featuring a blender, a hair dryer, and an inflatable mattress.</span>
+            </div>
+          </li>
+          <li>
+            <div class="cvrt-killer">
+              <span class="cvrt-killer-n">2</span>
+              <span>A verified fast-delivery reputation is invisible on-site. "Velocissima," "ultrarapida," and "2 giorni lavorativi" appear in the majority of Trustpilot reviews across four years. The homepage buries this in the announcement bar. No competitor leads with it, making it a first-mover UVP that Da Valeria is not using.</span>
+            </div>
+          </li>
+          <li>
+            <div class="cvrt-killer">
+              <span class="cvrt-killer-n">3</span>
+              <span>Product pages suppress conversion at the decision moment: zero reviews surfaced despite consistent Trustpilot ratings, sidebar banners link visitors off the page, and a financing widget for purchases between €120 and €5,000 appears on a €5.20 item.</span>
+            </div>
+          </li>
+          <li>
+            <div class="cvrt-killer">
+              <span class="cvrt-killer-n">4</span>
+              <span>The cart recovers zero AOV from the €59 free shipping threshold. A customer with €39 in their cart has no way to know they are €20 away from free shipping. The cart UI is entirely in English on an Italian-language site, and there are no cross-sells or trust signals at checkout.</span>
+            </div>
+          </li>
+          <li>
+            <div class="cvrt-killer">
+              <span class="cvrt-killer-n">5</span>
+              <span>Mobile LCP of 9.5 seconds against a 2.5-second threshold. The page takes nearly 10 seconds to visually complete on mobile. This is a conversion ceiling that limits the impact of every other improvement on the site.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- DATA SOURCES -->
+      <span class="cvrt-sources-eyebrow">Data sources analyzed</span>
+      <div class="cvrt-sources-row">
+        <span class="cvrt-source-chip">Meta Ads</span>
+        <span class="cvrt-source-chip">Reviews &amp; UGC (Trustpilot)</span>
+        <span class="cvrt-source-chip">Page Speed / Core Web Vitals</span>
+        <span class="cvrt-source-chip">Competitor Research</span>
+        <span class="cvrt-source-chip">Site Screenshots</span>
+      </div>
+
+      <!-- PER-SOURCE -->
+      <div class="cvrt-section-title">Findings by Source</div>
+      <div class="cvrt-source-blocks">
+
+        <div class="cvrt-source-card">
+          <div class="cvrt-source-name">Meta Ads (3 ads analyzed, April-May 2026)</div>
+          <ul class="cvrt-source-list">
+            <li>2 of 3 analyzed ads send paid traffic to pages with no connection to the ad's product or category.</li>
+            <li>Ad 1 (kitchen organizer, €14.90) lands on a homepage hero showing outdoor furniture and a seasonal cherry blossom campaign.</li>
+            <li>Ad 3 (PP garden chair, €39.00) lands on a raw search results page with a sidebar showing a blender, inflatable mattress, and hair dryer. One product card shows a 948-day countdown timer, likely a technical glitch.</li>
+            <li>Ad 2 passes: the Tescoma apple slicer links directly to the correct product page.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-card">
+          <div class="cvrt-source-name">Reviews &amp; UGC (Trustpilot, Aug 2021 - Dec 2025)</div>
+          <ul class="cvrt-source-list">
+            <li>Fast delivery is the top positive across four years: "Spedizione e ricezione velocissima," "Consegna ultrarapida," "Arrivato due giorni dopo l'acquisto."</li>
+            <li>Product quality consistently matches descriptions and images per reviewer feedback.</li>
+            <li>The first-purchase discount is confirmed as appreciated: "Ho usufruito di uno sconto del 10% per primo acquisto."</li>
+            <li>Main friction: GLS courier reliability in some provinces, no floor delivery for heavy furniture, assembly instructions not always included in packaging.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-card">
+          <div class="cvrt-source-name">Page Speed / Core Web Vitals (Mobile, May 2026)</div>
+          <ul class="cvrt-source-list">
+            <li>LCP of 9.5 seconds on mobile fails the Core Web Vitals threshold of 2.5 seconds. Performance score: 68/100.</li>
+            <li>Render-blocking requests account for an estimated 2,802ms of delay. Unoptimized images add approximately 566 KB of unnecessary weight.</li>
+            <li>CLS passes at 0.05. INP at 118ms needs improvement. Unused JavaScript accounts for an estimated 213 KB.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-card">
+          <div class="cvrt-source-name">Competitor Research (May 2026)</div>
+          <ul class="cvrt-source-list">
+            <li>Kasanova and Da Valeria share identical €59 free shipping thresholds and 10% first-order discount mechanics.</li>
+            <li>Kasanova runs a VIP loyalty card with member-exclusive pricing. Da Valeria has no equivalent program.</li>
+            <li>Duebi Casalinghi displays its 4.8/5 rating (611 reviews) prominently on the homepage. Da Valeria surfaces no reviews anywhere on-site.</li>
+            <li>Neither Kasanova nor Duebi Casalinghi leads with delivery speed as a primary UVP. The position is unclaimed in the market.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-card">
+          <div class="cvrt-source-name">Site Screenshots (May 2026)</div>
+          <ul class="cvrt-source-list">
+            <li>The cart drawer displays entirely in English ("CART," "Subtotal," "Shipping," "BUY") on an Italian-language site.</li>
+            <li>A €5.20 product page shows a PayPal BNPL banner for purchases between €120 and €5,000, positioned above the product title.</li>
+            <li>Two sidebar banners on product pages link visitors away from the product they are currently viewing.</li>
+            <li>The free shipping threshold (€59) and PRIMO10 discount code appear only in the announcement bar. Neither appears in the hero, on product pages, or in the cart.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="cvrt-footer">
+    <span>Da Valeria &nbsp;·&nbsp; Maggio 2026</span>
+  </footer>
+
+</div>

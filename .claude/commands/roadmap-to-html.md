@@ -130,7 +130,7 @@ These are the content and layout requirements. The visual styling (fonts, colors
 - Test name as a heading
 - Page being tested
 - Description (1-2 sentences)
-- **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted tones, and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test). Keep the style loose and hand-drawn: dashed borders, light or no fills, rounded rects. Max-width 420px, viewBox sized to content. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
+- **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted tones, and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test). Keep the style loose and hand-drawn: dashed borders, light or no fills, rounded rects. The SVG spans the full card width — do not cap it at 420px. Size the viewBox to make full use of the available width: more horizontal space means more detail, more readable labels, and better wireframe fidelity. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
 - Estimated launch date (if provided)
 
 **SVG text readability.** The frontend-design skill owns visual style, but SVG text has specific rendering constraints that must be respected regardless of aesthetic direction:
@@ -148,10 +148,9 @@ These are the content and layout requirements. The visual styling (fonts, colors
 **Data Insights tab section order:** "Biggest Killers of Conversion Rate" first, then the data sources grid, then per-source summaries. Do not place the killers section at the bottom.
 
 **Layout direction: desktop-first, presentation-ready.** This roadmap is built for desktop — screen sharing, client meetings, PDF handoffs. The `/frontend-design` skill makes all visual decisions, but it should be directed toward:
-- Slot card body: text content on the left, SVG wireframe on the right. Two-column layout. The SVG column should be fixed-width (around 300px) to anchor the illustration; the text column takes remaining space but is capped so lines wrap naturally.
-- **Slot cards must be constrained and centered.** Use `max-width: 760px; margin-left: auto; margin-right: auto;` on each slot card. This prevents the text column from stretching across the full viewport, which collapses descriptions into 1-2 long lines. The goal is 4+ lines of wrapped text so the card feels dense and readable, not spread thin.
+- Slot card body: text content stacked above the SVG wireframe. Single-column layout. The SVG sits below the description and spans the full card width, giving it maximum horizontal space for detail and readable labels.
+- **Slot cards must be constrained and centered.** Use `max-width: 860px; margin-left: auto; margin-right: auto;` on each slot card. The text block should be further capped (e.g., `max-width: 640px`) so description lines wrap naturally into 4+ lines rather than stretching edge to edge.
 - Condensed, information-dense layout. Avoid large blank gaps between sections. Every spacing decision should feel intentional, not padded out.
-- Wide text columns that force long lines make cards harder to scan during a presentation. The 760px card max-width enforces this constraint automatically.
 - No empty spacer elements. Whitespace comes from `padding` and `margin` on real elements, not from blank `div`s with fixed heights.
 - The card should feel like a well-designed slide: easy to read at a glance, not spread thin across the viewport.
 
@@ -198,7 +197,7 @@ Before saving, verify silently:
 - [ ] SVG text is readable without zooming during a screen share — if any label looks small, increase font-size and expand the viewBox
 - [ ] SVG caption ("* Concept illustration only. Final design will differ.") is black or near-black, not gray or muted
 - [ ] Data Insights tab: "Biggest Killers of Conversion Rate" section appears at the top, before data sources and per-source findings
-- [ ] Slot cards: text left, SVG right (two-column layout, SVG column fixed-width)
+- [ ] Slot cards: text above, SVG below (single column, SVG spans full card width)
 - [ ] No empty spacer divs; whitespace comes from element padding/margin only
 - [ ] Layout is tight and scannable on a standard laptop screen at 100% zoom
 - [ ] If logo URL was provided, it renders visibly against the header background
