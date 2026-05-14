@@ -42,11 +42,15 @@ Wait for reply. Then read:
 1. `brands/[brand-name]/manifest.md`
 2. `brands/[brand-name]/[brand-name]-research-audit.md`
 
+Normalize the brand name for file paths: lowercase, replace spaces with hyphens, remove special characters. Example: 'Defender Shield' → `defender-shield`. Use this normalized form as `[brand-name]` in all file paths.
+
 Do not open any other files. Do not open raw/ source files. Do not open screenshots.
 
 If no audit file is found, say: "No audit found for [brand-name]. Run `/cro-research` first."
 
 Confirm from the manifest: slot count, dev slots, variations per test, areas of focus.
+
+If any of these fields are missing from the manifest, stop and say: "Manifest for [brand-name] is missing [field]. Update it before continuing."
 
 ---
 
@@ -55,6 +59,8 @@ Confirm from the manifest: slot count, dev slots, variations per test, areas of 
 Use the slot count and dev slots from the manifest.
 
 **Dev/project slots first.** Write those before A/B test slots.
+
+Number all slots sequentially starting at 1. Dev slots occupy the first N positions (e.g. if 2 dev slots: Slots 1-2 are dev, Slots 3+ are A/B tests).
 
 **A/B test selection criteria:**
 - Data support: multiple sources in the audit point to the same issue
@@ -90,7 +96,7 @@ Funnel stages:
 
 **File:** `brands/[brand-name]/[brand-name]-[month]-[year]-roadmap.md`
 
-Date rule: if today is the 23rd or later, use next month.
+Date rule: if today is the 23rd or later, use next month. If next month is January, increment the year.
 
 ---
 
@@ -98,7 +104,7 @@ Date rule: if today is the 23rd or later, use next month.
 
 **Header:** `# [Store Name] CRO Research Brief`
 
-Do NOT include store URL, period, or generated date lines.
+Do not include a trailing period after the store name, the store URL, or a generated-date line.
 
 **Data Sources line:**
 
@@ -110,6 +116,7 @@ Do NOT include store URL, period, or generated date lines.
 
 - Lead with the single biggest insight from the audit.
 - Highlight 2-3 converging findings across sources. Be specific, use numbers, quote customers directly when verbatims are strong.
+- Cite source names inline when stating specific metrics or findings (e.g. 'customers report X — Source: Reviews').
 - Close with a revenue opportunity estimate if enough data exists. Show the math in one line.
 - 4-6 short paragraphs max. No bullet points. Write it like a brief to a CEO who has 60 seconds.
 
@@ -117,12 +124,16 @@ Do NOT include store URL, period, or generated date lines.
 
 ### Slot Format: A/B Test
 
+Use a conservative CR lift of 0.2% absolute unless the audit's data supports a specific benchmark range — in which case use the lower bound.
+
+Show the full calculation inline. Use conservative assumptions.
+
 ```markdown
 ## Slot [N]: [Short, Clear Test Name]
 
 **Type:** A/B test ([N] variation vs. control)
 **Page:** [Page name] ([URL])
-**Revenue potential:** [Sessions/mo] x [conservative CR lift] x [AOV] = [estimated monthly revenue]. Show the math.
+**Revenue potential:** [Sessions/mo] x [conservative CR lift] x [AOV] = [estimated monthly revenue].
 
 **Hypothesis:** If we [specific change], [measurable outcome] because [data-backed reason]. One sentence. Two max.
 
@@ -134,6 +145,8 @@ Do NOT include store URL, period, or generated date lines.
 ---
 
 ### Slot Format: Dev/Project
+
+If the dev project occupies a single slot, use `## Slot [N]` (singular) instead of `## Slots [N & M]`.
 
 ```markdown
 ## Slots [N & M]: [Short, Clear Project Name]
@@ -157,13 +170,15 @@ Do NOT include store URL, period, or generated date lines.
 
 ### Future Slot Candidates
 
-If strong ideas didn't fit the allocated slots:
+If any idea meets the A/B selection criteria (data support + revenue potential + actionability) but was not chosen due to slot constraints, list it here.
 
 ```markdown
 ## Future Slot Candidates
 
 1. **[Idea]** - [One concise sentence on the opportunity.]
 ```
+
+List in priority order — highest data support first.
 
 ---
 
