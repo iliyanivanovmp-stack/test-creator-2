@@ -95,7 +95,7 @@ Say in chat:
 8. Non-Data Context (call notes, strategic priorities)
 9. Current Site Screenshots"
 
-Wait for reply. Note selected sources. Record the selected sources in the manifest under `## Sources Selected`.
+Wait for reply. Note selected sources. Record the selected sources in the manifest under `## Sources Collected`.
 
 ---
 
