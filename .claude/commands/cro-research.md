@@ -36,11 +36,13 @@ You can send all of this in one message."
 
 Wait for the user's reply. Save to `brands/[brand-name]/manifest.md`.
 
+Brand folder name: lowercase the store name, replace spaces with hyphens, remove special characters. Example: "Defender Shield" → `defender-shield`. Use this as `[brand-name]` throughout.
+
 ---
 
 ## Step 2: Create Folder + Print Naming Convention
 
-Immediately create:
+After receiving the Step 1 reply and confirming the brand name, create:
 
 ```
 brands/[brand-name]/
@@ -73,7 +75,7 @@ Then say in chat:
 - `competitor-[brand-name].png`
 - `inspiration-[site-name].png`
 
-Let me know when you've dropped the files in, or just tell me which sources you have and we'll start."
+Let me know which sources you have and we'll start collecting."
 
 ---
 
@@ -93,11 +95,13 @@ Say in chat:
 8. Non-Data Context (call notes, strategic priorities)
 9. Current Site Screenshots"
 
-Wait for reply. Note selected sources.
+Wait for reply. Note selected sources. Record the selected sources in the manifest under `## Sources Selected`.
 
 ---
 
 ## Step 4: Collect Text Data (Chat Only)
+
+Only collect sources the user confirmed in Step 3. Skip all others without asking.
 
 For each selected source that involves text input, ask in chat one source at a time. The user can type `skip` at any point.
 
@@ -108,6 +112,8 @@ Do not ask the user to send screenshots in chat. Screenshots go into the folder 
 Say: "For Meta Ads — send me the URL for Ad #1's landing page."
 After reply: "Send the URL for Ad #2, or type `skip`."
 After reply: "Send the URL for Ad #3, or type `skip`."
+
+We collect up to 3 ads. After Ad #3, move on.
 
 Save URLs to `brands/[brand-name]/raw/meta-ads.md` under `## Raw Input`.
 
@@ -141,6 +147,8 @@ Say: "Any competitor data to share? Names, pricing, features, weaknesses. Or typ
 
 Save user-provided data to `brands/[brand-name]/raw/competitors.md`. Mark it as user-provided. Note that self-research will supplement during audit.
 
+During the audit (Step 6), always conduct your own WebSearch competitor research regardless of whether the user provided competitor data. User data takes priority; self-research supplements it.
+
 **Inspiration Sites**
 
 Say: "Any inspiration sites? Send URLs and what specifically caught your eye. Or type `skip`."
@@ -149,7 +157,9 @@ Save to `brands/[brand-name]/raw/inspiration.md`.
 
 **Email Campaigns**
 
-Say: "Send email copy or paste subject lines, CTAs, and any performance data (open rate, click rate, revenue per email). Or drop screenshots as `email-1.png`, `email-2.png`, etc. and type `done` when ready."
+Say: "Send email copy or paste subject lines, CTAs, and any performance data (open rate, click rate, revenue per email). Or drop screenshots as `email-1.png`, `email-2.png`, etc. into the folder. Either way, type `done` when you're finished."
+
+If the user pastes email copy, wait until they stop replying and say `done`. If they're dropping screenshots into the folder, wait for `done`. Either way, `done` signals you can move on.
 
 Save to `brands/[brand-name]/raw/emails.md`.
 
@@ -213,7 +223,25 @@ Now analyze. Read source files. Load screenshots on-demand — one at a time, on
 
 Do web research (competitors, CRO community, ebook) during the relevant sections only.
 
-Write the audit to `brands/[brand-name]/[brand-name]-research-audit.md`:
+Write the audit to `brands/[brand-name]/[brand-name]-research-audit.md`.
+
+Build the file section by section. Before writing each section, follow the action instructions below. The code block shows only the file content — do not write action instructions into the file.
+
+**Before writing the Meta Ads section:** Load `meta-ad-1.png` and `meta-ad-1-lp.png` from disk. Analyze them. Then load `meta-ad-2` and `meta-ad-3` (with their landing page screenshots) if available. Write findings in the section below.
+
+**Before writing the Competitor Analysis section:** Load `competitor-[name].png` if available. Then use WebSearch to find top 2-3 direct competitors. Note what came from user vs. self-research. Include research date.
+
+**Before writing the Google Ads section:** Load `google-ads.png` from disk. Analyze messaging match with Meta ads, consistency, and gaps.
+
+**Before writing the Emails section:** Load `email-1.png`, `email-2.png`, etc. one at a time from disk. Analyze subject lines, CTAs, messaging themes, and message match with landing pages.
+
+**Before writing the Inspiration Sites section:** Load `inspiration-[site-name].png` if available. Analyze relevant UX/conversion patterns only.
+
+**Before writing the Current Site Screenshots section:** Load `homepage-f1.png`, `homepage-f2.png`, etc. one at a time. Analyze conversion friction, hierarchy, trust signals, CTAs. Then load `pdp-f1.png`, `pdp-f2.png` — same analysis. Then `collection-f1.png`. Then `cart.png` — if missing, note the gap.
+
+**Before writing the CRO Ebook Reference section:** If `resources/cro-ebook/cro-ebook.md` is not found, skip this section. Otherwise grep for top themes, read matching sections only, pull short relevant passages with chapter references.
+
+**Before writing the CRO Community Research section:** Use WebSearch to find relevant CRO ideas from Reddit (r/ecommerce, r/shopify, r/CRO) and X/Twitter. Real practitioner discussions only, not generic blog posts. Include source links and dates.
 
 ```markdown
 # [Store Name] CRO Research Audit
@@ -225,8 +253,6 @@ Write the audit to `brands/[brand-name]/[brand-name]-research-audit.md`:
 ## Source Findings
 
 ### Meta Ads & Landing Pages
-
-[Load meta-ad-1.png, meta-ad-1-lp.png. Analyze. Write findings. Then meta-ad-2, meta-ad-3 if available.]
 
 [Key findings: message match, ad angles, gaps between ad promise and landing page delivery.]
 
@@ -250,19 +276,19 @@ Write the audit to `brands/[brand-name]/[brand-name]-research-audit.md`:
 
 ### Competitor Analysis
 
-[Load competitor-[name].png if available. Then use WebSearch to find top 2-3 direct competitors. Table comparing price, key features, weaknesses. Note what came from user vs. self-research. Include research date.]
+[Table comparing price, key features, weaknesses across top 2-3 direct competitors. Note what came from user vs. self-research. Include research date.]
 
 ### Google Ads
 
-[Load google-ads.png. Message match with Meta ads, consistency, gaps.]
+[Message match with Meta ads, consistency, gaps.]
 
 ### Emails
 
-[Load email-1.png, email-2.png, etc. Subject lines, CTAs, messaging themes, message match with landing pages.]
+[Subject lines, CTAs, messaging themes, message match with landing pages.]
 
 ### Inspiration Sites
 
-[Load inspiration-[site-name].png if available. Relevant UX/conversion patterns only.]
+[Relevant UX/conversion patterns only.]
 
 ### Non-Data Context
 
@@ -270,21 +296,21 @@ Write the audit to `brands/[brand-name]/[brand-name]-research-audit.md`:
 
 ### Current Site Screenshots
 
-[Load homepage-f1.png, homepage-f2.png, etc. one at a time. Describe what's visible. Analyze conversion friction, hierarchy, trust signals, CTAs.]
+[Homepage: conversion friction, hierarchy, trust signals, CTAs.]
 
-[Load pdp-f1.png, pdp-f2.png. Same.]
+[PDP: conversion friction, hierarchy, trust signals, CTAs.]
 
-[Load collection-f1.png. Same.]
+[Collection page: conversion friction, hierarchy, CTAs.]
 
-[Load cart.png. Same. If missing, note the gap.]
+[Cart: conversion friction, AOV opportunities. If missing, note the gap.]
 
 ### CRO Ebook Reference
 
-[Grep resources/cro-ebook/cro-ebook.md for the top themes. Read matching sections only. Pull short relevant passages with chapter references.]
+[Short relevant passages with chapter references.]
 
 ### CRO Community Research
 
-[WebSearch for relevant CRO ideas from Reddit (r/ecommerce, r/shopify, r/CRO) and X/Twitter. Real practitioner discussions, not generic blog posts. Include source links and dates.]
+[Relevant CRO ideas with source links and dates.]
 
 ## Cross-Source Themes
 
