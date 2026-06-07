@@ -1,0 +1,1096 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* === RESET === */
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1,#cvrt-roadmap h2,#cvrt-roadmap h3,
+#cvrt-roadmap h4,#cvrt-roadmap p,#cvrt-roadmap span,
+#cvrt-roadmap div,#cvrt-roadmap li,#cvrt-roadmap label {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+
+/* === FULL BLEED === */
+#cvrt-roadmap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #F5EDD6;
+  font-family: 'Figtree', sans-serif;
+  color: #111111;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* === HIDDEN TAB INPUTS === */
+#cvrt-roadmap .cvrt-tab-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ===========================
+   HERO
+   =========================== */
+#cvrt-roadmap .cvrt-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://hollowsocks.com/cdn/shop/files/fathersDay-2026-HP-Hero-verM-DESKTOP.jpg?v=1780419533&width=1600');
+  background-size: cover;
+  background-position: center 20%;
+}
+
+#cvrt-roadmap .cvrt-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    rgba(0,0,0,0.18) 0%,
+    rgba(0,0,0,0.42) 35%,
+    rgba(0,0,0,0.76) 68%,
+    rgba(0,0,0,0.92) 100%
+  );
+}
+
+#cvrt-roadmap .cvrt-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 56px 0;
+  width: 100%;
+}
+
+#cvrt-roadmap .cvrt-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  margin-bottom: 52px;
+  filter: brightness(0) invert(1);
+}
+
+#cvrt-roadmap .cvrt-hero-eyebrow {
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #BEFF2E;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+#cvrt-roadmap .cvrt-hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 110px;
+  line-height: 0.86;
+  color: #FFFFFF;
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-hero-summary {
+  font-family: 'Figtree', sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  color: #FFFFFF;
+  max-width: 540px;
+  margin-bottom: 52px;
+  font-weight: 400;
+}
+
+/* === TAB NAV === */
+#cvrt-roadmap .cvrt-tab-nav {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+
+#cvrt-roadmap .cvrt-tab-label {
+  display: block;
+  padding: 22px 36px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.70);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  user-select: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+#cvrt-roadmap .cvrt-tab-label:hover {
+  color: rgba(255,255,255,0.88);
+}
+
+/* Active tab states */
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tab-label-tests {
+  color: #FFFFFF;
+  border-bottom-color: #BEFF2E;
+}
+
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tab-label-insights {
+  color: #FFFFFF;
+  border-bottom-color: #BEFF2E;
+}
+
+/* ===========================
+   PANELS
+   =========================== */
+#cvrt-roadmap .cvrt-panel-insights {
+  display: none;
+}
+
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-panel-insights {
+  display: block;
+}
+
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-panel-tests {
+  display: none;
+}
+
+#cvrt-roadmap .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-panel-insights {
+  padding: 64px 24px 88px;
+}
+
+/* ===========================
+   SLOT CARDS
+   =========================== */
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px;
+  margin: 0 auto 44px;
+  background: #FFFFFF;
+  box-shadow: 0 3px 24px rgba(17,17,17,0.07), 0 1px 6px rgba(17,17,17,0.04);
+}
+
+#cvrt-roadmap .cvrt-slot-header {
+  padding: 40px 44px 0;
+}
+
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+#cvrt-roadmap .cvrt-slot-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: #3D2010;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-slot-badge {
+  font-family: 'Figtree', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: #BEFF2E;
+  color: #111111;
+  padding: 3px 10px;
+  line-height: 1.7;
+}
+
+#cvrt-roadmap .cvrt-slot-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  color: #111111;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-slot-page {
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #3D2010;
+  margin-bottom: 18px;
+}
+
+#cvrt-roadmap .cvrt-slot-desc {
+  font-family: 'Figtree', sans-serif;
+  font-size: 15px;
+  line-height: 1.74;
+  color: #1A1A1A;
+  max-width: 620px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+#cvrt-roadmap .cvrt-slot-svg-area {
+  background: #F7F1E5;
+  padding: 36px 28px 28px;
+  border-top: 1px solid #EAE0CB;
+}
+
+#cvrt-roadmap .cvrt-slot-svg-area svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#cvrt-roadmap .cvrt-svg-caption {
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  color: #111111;
+  font-style: italic;
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ===========================
+   DATA INSIGHTS
+   =========================== */
+#cvrt-roadmap .cvrt-killers {
+  max-width: 860px;
+  margin: 0 auto 52px;
+  background: #111111;
+  padding: 56px 56px 52px;
+}
+
+#cvrt-roadmap .cvrt-killers-eyebrow {
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #BEFF2E;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+#cvrt-roadmap .cvrt-killers-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 54px;
+  line-height: 1;
+  color: #FFFFFF;
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-killers-list {
+  list-style: none;
+}
+
+#cvrt-roadmap .cvrt-killers-list li {
+  display: flex;
+  gap: 22px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+  font-family: 'Figtree', sans-serif;
+  font-size: 15px;
+  line-height: 1.62;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+#cvrt-roadmap .cvrt-killers-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#cvrt-roadmap .cvrt-killer-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #BEFF2E;
+  min-width: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Data Sources */
+#cvrt-roadmap .cvrt-sources-section {
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+#cvrt-roadmap .cvrt-sources-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: #111111;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 10px;
+}
+
+#cvrt-roadmap .cvrt-source-chip {
+  font-family: 'Figtree', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #111111;
+  background: #EDE4D0;
+  border: 1px solid #CFBFA6;
+  padding: 11px 16px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+#cvrt-roadmap .cvrt-insight-blocks-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: #111111;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 16px;
+}
+
+#cvrt-roadmap .cvrt-source-block {
+  max-width: 860px;
+  margin: 0 auto 28px;
+  background: #FFFFFF;
+  box-shadow: 0 3px 24px rgba(17,17,17,0.07), 0 1px 6px rgba(17,17,17,0.04);
+  padding: 36px 44px 28px;
+}
+
+#cvrt-roadmap .cvrt-source-block-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: #111111;
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-source-block ul {
+  list-style: none;
+}
+
+#cvrt-roadmap .cvrt-source-block li {
+  font-family: 'Figtree', sans-serif;
+  font-size: 14px;
+  line-height: 1.70;
+  color: #1A1A1A;
+  padding: 12px 0 12px 24px;
+  border-bottom: 1px solid #EDE4D0;
+  position: relative;
+  font-weight: 400;
+}
+
+#cvrt-roadmap .cvrt-source-block li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#cvrt-roadmap .cvrt-source-block li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 7px;
+  height: 7px;
+  background: #BEFF2E;
+  border-radius: 50%;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+#cvrt-roadmap .cvrt-footer {
+  background: #111111;
+  text-align: center;
+  padding: 30px 24px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ===========================
+   MOBILE
+   =========================== */
+@media (max-width: 768px) {
+  #cvrt-roadmap .cvrt-hero { min-height: 460px; }
+  #cvrt-roadmap .cvrt-hero-inner { padding: 48px 24px 0; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: 68px; }
+  #cvrt-roadmap .cvrt-hero-summary { font-size: 14px; margin-bottom: 40px; }
+  #cvrt-roadmap .cvrt-tab-nav { padding: 0 24px; }
+  #cvrt-roadmap .cvrt-tab-label { padding: 18px 20px; font-size: 11px; }
+  #cvrt-roadmap .cvrt-slot-header { padding: 28px 24px 0; }
+  #cvrt-roadmap .cvrt-slot-name { font-size: 30px; }
+  #cvrt-roadmap .cvrt-slot-svg-area { padding: 24px 12px 20px; }
+  #cvrt-roadmap .cvrt-killers { padding: 40px 28px 36px; }
+  #cvrt-roadmap .cvrt-killers-title { font-size: 38px; }
+  #cvrt-roadmap .cvrt-source-block { padding: 28px 24px; }
+  #cvrt-roadmap .cvrt-sources-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===========================
+   PRINT
+   =========================== */
+@media print {
+  #cvrt-roadmap .cvrt-hero-bg { opacity: 0.35; }
+  #cvrt-roadmap .cvrt-slot { box-shadow: none; border: 1px solid #DDD; page-break-inside: avoid; }
+  #cvrt-roadmap .cvrt-killers { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #cvrt-roadmap .cvrt-panel-insights,
+  #cvrt-roadmap .cvrt-panel-tests { display: block !important; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+
+  <input type="radio" name="cvrt-tab" id="cvrt-tab-tests" class="cvrt-tab-input" checked>
+  <input type="radio" name="cvrt-tab" id="cvrt-tab-insights" class="cvrt-tab-input">
+
+  <!-- ===== HERO ===== -->
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-bg"></div>
+    <div class="cvrt-hero-overlay"></div>
+    <div class="cvrt-hero-inner">
+      <img
+        src="https://hollowsocks.com/cdn/shop/files/hollow_logo_bk.svg?v=1776959789&width=3000"
+        alt="Hollow Socks"
+        class="cvrt-logo"
+      >
+      <p class="cvrt-hero-eyebrow">CRO Testing Roadmap</p>
+      <h1 class="cvrt-hero-title">June 2026</h1>
+      <p class="cvrt-hero-summary">Three high-volume touchpoints are leaking revenue before purchase intent converts: the PDP buy box defaults to the lowest-value option, the compression landing page loads in 8.4 seconds on mobile, and the cart's AOV mechanic prompts visitors with no product to act on. Eight test slots address these gaps in evidence-strength order.</p>
+    </div>
+    <nav class="cvrt-tab-nav">
+      <label for="cvrt-tab-tests" class="cvrt-tab-label cvrt-tab-label-tests">Tests</label>
+      <label for="cvrt-tab-insights" class="cvrt-tab-label cvrt-tab-label-insights">Data Insights</label>
+    </nav>
+  </section>
+
+  <!-- ===== TESTS PANEL ===== -->
+  <div class="cvrt-panel-tests">
+
+    <!-- SLOT 1 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 1</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">PDP Buy Box - Pre-Select Best Value Tier</h2>
+        <p class="cvrt-slot-page">Compression Socks PDP</p>
+        <p class="cvrt-slot-desc">The buy box stacks three pricing tiers between the size selector and Add to Cart, with the lowest-value 1-pair option pre-selected by default. The 4-pair "BEST VALUE" tier carries a text label but no visual distinction, requiring a three-way pricing decision before a visitor commits.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- Product image placeholder (right) -->
+          <rect x="430" y="20" width="330" height="330" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="7,4"/>
+          <text x="595" y="178" font-family="Arial,sans-serif" font-size="14" fill="#4A3020" text-anchor="middle">Product</text>
+          <text x="595" y="198" font-family="Arial,sans-serif" font-size="14" fill="#4A3020" text-anchor="middle">Gallery</text>
+
+          <!-- Buy box (left) -->
+          <rect x="20" y="20" width="260" height="14" fill="#D4C8B0" rx="1"/>
+          <rect x="20" y="42" width="190" height="10" fill="#E4D8C4" rx="1"/>
+
+          <text x="20" y="76" font-family="Arial,sans-serif" font-size="11" fill="#333" font-weight="600" letter-spacing="1.5">WIDTH</text>
+          <rect x="20" y="84" width="116" height="34" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="38" cy="101" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="54" y="106" font-family="Arial,sans-serif" font-size="13" fill="#222">Standard</text>
+          <rect x="144" y="84" width="80" height="34" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="162" cy="101" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="178" y="106" font-family="Arial,sans-serif" font-size="13" fill="#222">Wide</text>
+
+          <line x1="20" y1="130" x2="400" y2="130" stroke="#E0D4BC" stroke-width="1"/>
+          <text x="20" y="150" font-family="Arial,sans-serif" font-size="11" fill="#333" font-weight="600" letter-spacing="1.5">QUANTITY</text>
+
+          <!-- Tier 1: 1 pair, unselected -->
+          <rect x="20" y="158" width="390" height="48" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="42" cy="182" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="60" y="178" font-family="Arial,sans-serif" font-size="13" fill="#333">1 Pair</text>
+          <text x="60" y="196" font-family="Arial,sans-serif" font-size="12" fill="#444">$49.99</text>
+          <text x="400" y="184" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="end">per pair</text>
+
+          <!-- Tier 2: 2 pairs, unselected -->
+          <rect x="20" y="214" width="390" height="48" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="42" cy="238" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="60" y="234" font-family="Arial,sans-serif" font-size="13" fill="#333">2 Pairs</text>
+          <text x="60" y="252" font-family="Arial,sans-serif" font-size="12" fill="#444">$37.49 / pair</text>
+          <text x="400" y="240" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="end">$74.98</text>
+
+          <!-- Tier 3: 4 pairs, PRE-SELECTED (V1) -->
+          <rect x="20" y="270" width="390" height="56" fill="rgba(190,255,46,0.08)" stroke="#BEFF2E" stroke-width="2" stroke-dasharray="7,3"/>
+          <circle cx="42" cy="298" r="7" fill="none" stroke="#BEFF2E" stroke-width="2"/>
+          <circle cx="42" cy="298" r="3.5" fill="#BEFF2E"/>
+          <text x="60" y="293" font-family="Arial,sans-serif" font-size="13" fill="#111" font-weight="700">4 Pairs - Best Value</text>
+          <text x="60" y="311" font-family="Arial,sans-serif" font-size="12" fill="#222">$25.00 / pair</text>
+          <rect x="318" y="276" width="84" height="18" fill="#BEFF2E"/>
+          <text x="360" y="289" font-family="Arial,sans-serif" font-size="9" fill="#111" font-weight="700" text-anchor="middle" letter-spacing="1">PRE-SELECTED</text>
+          <text x="400" y="311" font-family="Arial,sans-serif" font-size="13" fill="#111" font-weight="700" text-anchor="end">$100</text>
+
+          <!-- ATC button -->
+          <rect x="20" y="340" width="390" height="38" fill="#111111"/>
+          <text x="215" y="364" font-family="Arial,sans-serif" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.5">ADD TO CART - 4 PAIRS - $100</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 2 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 2</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">PDP Wide-Calf Fit Reassurance</h2>
+        <p class="cvrt-slot-page">Compression Socks PDP</p>
+        <p class="cvrt-slot-desc">Over 10 of 27 negative Amazon reviews cite calf fit failure from buyers with edema, DVT, or post-surgery conditions. The PDP width selector shows only "Standard" and "Wide" labels with a Width Guide link, but no calf circumference ranges inline for buyers who arrive directly on the product page.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 260" xmlns="http://www.w3.org/2000/svg">
+          <text x="390" y="24" font-family="Arial,sans-serif" font-size="11" fill="#333" text-anchor="middle" font-weight="600" letter-spacing="1.5">WIDTH SELECTOR - BUY BOX</text>
+
+          <!-- Left: Control -->
+          <text x="190" y="48" font-family="Arial,sans-serif" font-size="10" fill="#444" text-anchor="middle" font-weight="600" letter-spacing="1">CONTROL</text>
+          <rect x="30" y="56" width="320" height="52" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="56" cy="82" r="8" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="76" y="88" font-family="Arial,sans-serif" font-size="14" fill="#222">Standard</text>
+
+          <rect x="30" y="116" width="320" height="52" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="56" cy="142" r="8" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="76" y="148" font-family="Arial,sans-serif" font-size="14" fill="#222">Wide</text>
+
+          <text x="30" y="190" font-family="Arial,sans-serif" font-size="12" fill="#AABB44">Width Guide</text>
+
+          <!-- Arrow -->
+          <text x="390" y="148" font-family="Arial,sans-serif" font-size="28" fill="#BEFF2E" text-anchor="middle">&#8594;</text>
+
+          <!-- Right: Variation -->
+          <text x="590" y="48" font-family="Arial,sans-serif" font-size="10" fill="#7A9900" text-anchor="middle" font-weight="600" letter-spacing="1">VARIATION - MEASUREMENTS ADDED</text>
+          <rect x="430" y="56" width="320" height="52" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="456" cy="74" r="8" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="476" y="74" font-family="Arial,sans-serif" font-size="14" fill="#222">Standard</text>
+          <text x="476" y="93" font-family="Arial,sans-serif" font-size="12" fill="#333">Up to 15 in calf circumference</text>
+
+          <rect x="430" y="116" width="320" height="62" fill="rgba(190,255,46,0.07)" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <circle cx="456" cy="136" r="8" fill="none" stroke="#BEFF2E" stroke-width="2"/>
+          <text x="476" y="136" font-family="Arial,sans-serif" font-size="14" fill="#333" font-weight="600">Wide</text>
+          <text x="476" y="155" font-family="Arial,sans-serif" font-size="12" fill="#222">Up to 20 in calf circumference</text>
+          <text x="476" y="170" font-family="Arial,sans-serif" font-size="11" fill="#7A9900">Fits edema and post-surgery buyers</text>
+
+          <text x="430" y="202" font-family="Arial,sans-serif" font-size="12" fill="#AABB44">Width Guide</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 3 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 3</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">Cart Cross-Sell Widget</h2>
+        <p class="cvrt-slot-page">Cart Drawer</p>
+        <p class="cvrt-slot-desc">The cart shows a progress bar reading "Add 1 more pair to unlock 2 free pairs," but below the single cart item, roughly 40% of the drawer height is blank white space with no product tiles. The mechanic is present; the payoff is not.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 420" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cart drawer container -->
+          <rect x="180" y="20" width="420" height="380" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+          <!-- Progress bar -->
+          <rect x="196" y="36" width="388" height="36" fill="#F0EBDE" stroke="#DDD4BE" stroke-width="1"/>
+          <rect x="196" y="36" width="194" height="36" fill="rgba(190,255,46,0.22)"/>
+          <text x="390" y="56" font-family="Arial,sans-serif" font-size="11" fill="#444" text-anchor="middle" font-weight="600">ADD 1 MORE PAIR</text>
+          <text x="390" y="68" font-family="Arial,sans-serif" font-size="10" fill="#333" text-anchor="middle">TO UNLOCK 2 FREE PAIRS</text>
+
+          <!-- Cart item -->
+          <rect x="196" y="82" width="388" height="72" fill="none" stroke="#DDD4BE" stroke-width="1"/>
+          <rect x="208" y="90" width="54" height="54" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <text x="235" y="120" font-family="Arial,sans-serif" font-size="10" fill="#4A3020" text-anchor="middle">IMG</text>
+          <text x="274" y="108" font-family="Arial,sans-serif" font-size="13" fill="#333" font-weight="600">Compression Socks</text>
+          <text x="274" y="125" font-family="Arial,sans-serif" font-size="12" fill="#333">Wide · 1 Pair · $49.99</text>
+          <rect x="274" y="134" width="60" height="18" fill="none" stroke="#C8B89A" stroke-width="1"/>
+          <text x="304" y="147" font-family="Arial,sans-serif" font-size="11" fill="#222" text-anchor="middle">Qty: 1</text>
+
+          <!-- Cross-sell area (variation) -->
+          <rect x="196" y="164" width="388" height="144" fill="rgba(190,255,46,0.06)" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="390" y="183" font-family="Arial,sans-serif" font-size="10" fill="#7A9900" text-anchor="middle" font-weight="600" letter-spacing="1">RECOMMENDATIONS - FILLS BLANK SPACE (V1)</text>
+
+          <!-- Tile 1 -->
+          <rect x="204" y="192" width="178" height="106" fill="#FFFFFF" stroke="#C8B89A" stroke-width="1.5"/>
+          <rect x="204" y="192" width="178" height="62" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="293" y="226" font-family="Arial,sans-serif" font-size="12" fill="#4A3020" text-anchor="middle">Product</text>
+          <text x="293" y="242" font-family="Arial,sans-serif" font-size="12" fill="#4A3020" text-anchor="middle">Image</text>
+          <text x="293" y="271" font-family="Arial,sans-serif" font-size="13" fill="#333" text-anchor="middle" font-weight="600">Crew Socks</text>
+          <text x="293" y="288" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">$34.00</text>
+
+          <!-- Tile 2 -->
+          <rect x="390" y="192" width="178" height="106" fill="#FFFFFF" stroke="#C8B89A" stroke-width="1.5"/>
+          <rect x="390" y="192" width="178" height="62" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="479" y="226" font-family="Arial,sans-serif" font-size="12" fill="#4A3020" text-anchor="middle">Product</text>
+          <text x="479" y="242" font-family="Arial,sans-serif" font-size="12" fill="#4A3020" text-anchor="middle">Image</text>
+          <text x="479" y="271" font-family="Arial,sans-serif" font-size="13" fill="#333" text-anchor="middle" font-weight="600">Trades Socks</text>
+          <text x="479" y="288" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">$34.00</text>
+
+          <!-- Subtotal -->
+          <rect x="196" y="318" width="388" height="32" fill="#F5F0E8" stroke="#DDD4BE" stroke-width="1"/>
+          <text x="212" y="339" font-family="Arial,sans-serif" font-size="13" fill="#333" font-weight="600">Subtotal</text>
+          <text x="572" y="339" font-family="Arial,sans-serif" font-size="13" fill="#333" font-weight="600" text-anchor="end">$49.99</text>
+
+          <!-- Checkout button -->
+          <rect x="196" y="358" width="388" height="36" fill="#111111"/>
+          <text x="390" y="381" font-family="Arial,sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="600" letter-spacing="0.5">SECURE CHECKOUT</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 4 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 4</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">Landing Page LCP Optimization</h2>
+        <p class="cvrt-slot-page">Compression Landing Page</p>
+        <p class="cvrt-slot-desc">Lighthouse scores the compression landing page at 8.4s LCP and 33.2s TTI on mobile, the destination for all Meta compression ads and Google search ads targeting edema and compression queries. At 2.8x Google's 3-second abandonment threshold, paid sessions are leaving before the page renders.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left: current state -->
+          <text x="175" y="26" font-family="Arial,sans-serif" font-size="11" fill="#444" text-anchor="middle" font-weight="600" letter-spacing="1">CURRENT STATE</text>
+          <rect x="30" y="36" width="290" height="260" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="30" y="36" width="290" height="26" fill="#E8E0CC"/>
+          <text x="175" y="54" font-family="Arial,sans-serif" font-size="11" fill="#333" text-anchor="middle">Announcement Bar + Countdown</text>
+          <rect x="30" y="62" width="290" height="86" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="175" y="108" font-family="Arial,sans-serif" font-size="12" fill="#4A3020" text-anchor="middle">Hero Image</text>
+          <text x="175" y="126" font-family="Arial,sans-serif" font-size="11" fill="#4A3020" text-anchor="middle">(unoptimized load)</text>
+          <rect x="46" y="158" width="190" height="12" fill="#D4C8B0" rx="1"/>
+          <rect x="46" y="176" width="150" height="10" fill="#E4D8C4" rx="1"/>
+          <rect x="46" y="196" width="240" height="8" fill="#EDE4D0" rx="1"/>
+          <rect x="46" y="210" width="220" height="8" fill="#EDE4D0" rx="1"/>
+          <rect x="46" y="224" width="200" height="8" fill="#EDE4D0" rx="1"/>
+          <!-- Speed badge: bad -->
+          <rect x="46" y="248" width="108" height="28" fill="#FFE8E8" stroke="#F09090" stroke-width="1.5"/>
+          <text x="100" y="267" font-family="Arial,sans-serif" font-size="14" fill="#CC3333" text-anchor="middle" font-weight="700">LCP: 8.4s</text>
+
+          <!-- Center arrow -->
+          <text x="390" y="178" font-family="Arial,sans-serif" font-size="28" fill="#BEFF2E" text-anchor="middle">&#8594;</text>
+          <text x="390" y="200" font-family="Arial,sans-serif" font-size="10" fill="#9A8870" text-anchor="middle" letter-spacing="1">OPTIMIZED</text>
+
+          <!-- Right: variation -->
+          <text x="605" y="26" font-family="Arial,sans-serif" font-size="11" fill="#7A9900" text-anchor="middle" font-weight="600" letter-spacing="1">VARIATION - OPTIMIZED</text>
+          <rect x="460" y="36" width="290" height="260" fill="none" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <rect x="460" y="36" width="290" height="26" fill="#E8E0CC"/>
+          <text x="605" y="54" font-family="Arial,sans-serif" font-size="11" fill="#333" text-anchor="middle">Announcement Bar + Countdown</text>
+          <rect x="460" y="62" width="290" height="86" fill="rgba(190,255,46,0.07)" stroke="#BEFF2E" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="605" y="100" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">Hero Image</text>
+          <text x="605" y="118" font-family="Arial,sans-serif" font-size="11" fill="#333" text-anchor="middle">(preloaded, render-critical only)</text>
+          <rect x="476" y="158" width="190" height="12" fill="#D4C8B0" rx="1"/>
+          <rect x="476" y="176" width="150" height="10" fill="#E4D8C4" rx="1"/>
+          <rect x="476" y="196" width="240" height="8" fill="#EDE4D0" rx="1"/>
+          <rect x="476" y="210" width="220" height="8" fill="#EDE4D0" rx="1"/>
+          <rect x="476" y="224" width="200" height="8" fill="#EDE4D0" rx="1"/>
+          <!-- Speed badge: good -->
+          <rect x="476" y="248" width="108" height="28" fill="#F0FFD0" stroke="#BEFF2E" stroke-width="1.5"/>
+          <text x="530" y="267" font-family="Arial,sans-serif" font-size="14" fill="#4A7A00" text-anchor="middle" font-weight="700">LCP: &lt; 3s</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 5 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 5</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">PDP Review Snippet Near ATC</h2>
+        <p class="cvrt-slot-page">Compression Socks PDP</p>
+        <p class="cvrt-slot-desc">6,333 reviews are cited in the buy box as a linked count, but no star breakdown, no quote, and no featured snippet appear at the point of purchase. The next review content on the PDP is a UGC video strip in Fold 3, below the sticky footer bar and the spec table.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- Review count (existing) -->
+          <text x="40" y="38" font-family="Arial,sans-serif" font-size="14" fill="#F5A623">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="120" y="38" font-family="Arial,sans-serif" font-size="13" fill="#333"> 6,333 Reviews</text>
+
+          <!-- Tier 1 -->
+          <rect x="40" y="50" width="370" height="46" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="62" cy="73" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="80" y="78" font-family="Arial,sans-serif" font-size="13" fill="#333">1 Pair - $49.99</text>
+
+          <!-- Tier 2 -->
+          <rect x="40" y="104" width="370" height="46" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="62" cy="127" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="80" y="132" font-family="Arial,sans-serif" font-size="13" fill="#333">2 Pairs - $37.49 / pair</text>
+
+          <!-- Tier 3 -->
+          <rect x="40" y="158" width="370" height="46" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <circle cx="62" cy="181" r="7" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="80" y="186" font-family="Arial,sans-serif" font-size="13" fill="#333">4 Pairs - $25.00 / pair - Best Value</text>
+
+          <!-- NEW: Review snippet (V1) -->
+          <rect x="40" y="214" width="370" height="94" fill="rgba(190,255,46,0.07)" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="58" y="233" font-family="Arial,sans-serif" font-size="10" fill="#7A9900" font-weight="600" letter-spacing="1">FEATURED REVIEW - INSERTED HERE (V1)</text>
+          <text x="58" y="254" font-family="Arial,sans-serif" font-size="14" fill="#F5A623">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="140" y="254" font-family="Arial,sans-serif" font-size="12" fill="#444">  Verified Buyer</text>
+          <text x="58" y="274" font-family="Arial,sans-serif" font-size="12" fill="#333">"After heart surgery, my swelling has totally gone away."</text>
+          <text x="58" y="293" font-family="Arial,sans-serif" font-size="12" fill="#333">- Joe S., post-surgery</text>
+
+          <!-- ATC button -->
+          <rect x="40" y="322" width="370" height="40" fill="#111111"/>
+          <text x="225" y="347" font-family="Arial,sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.5">ADD TO CART</text>
+
+          <!-- Product image (right) -->
+          <rect x="460" y="20" width="300" height="342" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="7,4"/>
+          <text x="610" y="188" font-family="Arial,sans-serif" font-size="14" fill="#4A3020" text-anchor="middle">Product</text>
+          <text x="610" y="208" font-family="Arial,sans-serif" font-size="14" fill="#4A3020" text-anchor="middle">Gallery</text>
+
+          <!-- Insertion indicator -->
+          <text x="430" y="262" font-family="Arial,sans-serif" font-size="20" fill="#BEFF2E" text-anchor="middle">&#8592;</text>
+          <text x="430" y="280" font-family="Arial,sans-serif" font-size="9" fill="#7A9900" text-anchor="middle" font-weight="600">INSERTED</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 6 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 6</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">Landing Page Countdown Urgency</h2>
+        <p class="cvrt-slot-page">Compression Landing Page</p>
+        <p class="cvrt-slot-desc">The compression LP announcement bar includes a countdown timer observed reading "THIS WEEKEND" on a 4th of July-framed ad after the relevant period had passed. A static or post-expiry countdown reduces urgency credibility for retargeted visitors who have seen the same creative multiple times.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left: Current state -->
+          <text x="185" y="26" font-family="Arial,sans-serif" font-size="11" fill="#444" text-anchor="middle" font-weight="600" letter-spacing="1">CURRENT - STATIC / EXPIRED</text>
+          <rect x="30" y="34" width="310" height="52" fill="#E8E0CC" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="185" y="56" font-family="Arial,sans-serif" font-size="13" fill="#333" text-anchor="middle">FATHER'S DAY SALE</text>
+          <text x="185" y="76" font-family="Arial,sans-serif" font-size="14" fill="#AA6644" text-anchor="middle" font-weight="600">THIS WEEKEND</text>
+          <!-- X mark -->
+          <circle cx="326" cy="60" r="16" fill="none" stroke="#CC3333" stroke-width="1.5"/>
+          <line x1="316" y1="50" x2="336" y2="70" stroke="#CC3333" stroke-width="2"/>
+          <line x1="336" y1="50" x2="316" y2="70" stroke="#CC3333" stroke-width="2"/>
+
+          <!-- Arrow -->
+          <text x="390" y="76" font-family="Arial,sans-serif" font-size="28" fill="#BEFF2E" text-anchor="middle">&#8594;</text>
+
+          <!-- Right: Variation -->
+          <text x="600" y="26" font-family="Arial,sans-serif" font-size="11" fill="#7A9900" text-anchor="middle" font-weight="600" letter-spacing="1">VARIATION - DYNAMIC DEADLINE</text>
+          <rect x="430" y="34" width="320" height="72" fill="#F0FFD0" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="590" y="54" font-family="Arial,sans-serif" font-size="11" fill="#444" text-anchor="middle" font-weight="600">OFFER ENDS SUNDAY AT MIDNIGHT</text>
+          <!-- Countdown boxes -->
+          <rect x="448" y="60" width="52" height="38" fill="#BEFF2E"/>
+          <text x="474" y="84" font-family="Arial,sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="700">02</text>
+          <text x="474" y="102" font-family="Arial,sans-serif" font-size="9" fill="#222" text-anchor="middle" letter-spacing="0.5">DAYS</text>
+
+          <rect x="508" y="60" width="52" height="38" fill="#BEFF2E"/>
+          <text x="534" y="84" font-family="Arial,sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="700">14</text>
+          <text x="534" y="102" font-family="Arial,sans-serif" font-size="9" fill="#222" text-anchor="middle" letter-spacing="0.5">HOURS</text>
+
+          <rect x="568" y="60" width="52" height="38" fill="#BEFF2E"/>
+          <text x="594" y="84" font-family="Arial,sans-serif" font-size="20" fill="#111" text-anchor="middle" font-weight="700">37</text>
+          <text x="594" y="102" font-family="Arial,sans-serif" font-size="9" fill="#222" text-anchor="middle" letter-spacing="0.5">MINS</text>
+
+          <rect x="630" y="60" width="106" height="38" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="683" y="76" font-family="Arial,sans-serif" font-size="11" fill="#333" text-anchor="middle">Buy 2 Get 2</text>
+          <text x="683" y="92" font-family="Arial,sans-serif" font-size="11" fill="#333" text-anchor="middle">Free Offer</text>
+
+          <!-- LP hero below -->
+          <rect x="30" y="142" width="720" height="110" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="5,4"/>
+          <text x="390" y="200" font-family="Arial,sans-serif" font-size="13" fill="#4A3020" text-anchor="middle">Compression LP - hero and body content unchanged below the bar</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 7 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 7</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">PDP UGC Video Above the Buy Box</h2>
+        <p class="cvrt-slot-page">Compression Socks PDP</p>
+        <p class="cvrt-slot-desc">UGC video thumbnails currently appear in Fold 3 on the Compression Socks PDP, below the sticky footer bar and the spec table. A visitor who decides at the buy box without scrolling deeply never sees this social proof.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left column: buy box with UGC below ATC -->
+          <rect x="20" y="20" width="230" height="12" fill="#D4C8B0" rx="1"/>
+          <text x="20" y="52" font-family="Arial,sans-serif" font-size="13" fill="#F5A623">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="100" y="52" font-family="Arial,sans-serif" font-size="12" fill="#333"> 6,333</text>
+
+          <!-- Simplified tier selector -->
+          <rect x="20" y="60" width="330" height="68" fill="none" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="185" y="90" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle">1 Pair / 2 Pairs / 4 Pairs</text>
+          <text x="185" y="108" font-family="Arial,sans-serif" font-size="11" fill="#4A3020" text-anchor="middle">Quantity selector</text>
+
+          <!-- ATC -->
+          <rect x="20" y="138" width="330" height="40" fill="#111"/>
+          <text x="185" y="163" font-family="Arial,sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.5">ADD TO CART</text>
+
+          <!-- NEW: UGC strip below ATC (V1) -->
+          <rect x="20" y="188" width="330" height="92" fill="rgba(190,255,46,0.07)" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="35" y="207" font-family="Arial,sans-serif" font-size="10" fill="#7A9900" font-weight="600" letter-spacing="1">UGC VIDEOS - MOVED HERE (V1)</text>
+          <!-- Thumbnails -->
+          <rect x="30" y="214" width="68" height="56" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="64" cy="242" r="12" fill="none" stroke="#BEFF2E" stroke-width="1.5"/>
+          <polygon points="60,237 60,247 70,242" fill="#BEFF2E"/>
+
+          <rect x="106" y="214" width="68" height="56" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="140" cy="242" r="12" fill="none" stroke="#BEFF2E" stroke-width="1.5"/>
+          <polygon points="136,237 136,247 146,242" fill="#BEFF2E"/>
+
+          <rect x="182" y="214" width="68" height="56" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="216" cy="242" r="12" fill="none" stroke="#BEFF2E" stroke-width="1.5"/>
+          <polygon points="212,237 212,247 222,242" fill="#BEFF2E"/>
+
+          <rect x="258" y="214" width="68" height="56" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="292" cy="242" r="12" fill="none" stroke="#BEFF2E" stroke-width="1.5"/>
+          <polygon points="288,237 288,247 298,242" fill="#BEFF2E"/>
+
+          <!-- Spec table below -->
+          <rect x="20" y="292" width="330" height="80" fill="none" stroke="#DDD4BE" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="185" y="328" font-family="Arial,sans-serif" font-size="12" fill="#4A3020" text-anchor="middle">Spec table</text>
+          <text x="185" y="346" font-family="Arial,sans-serif" font-size="11" fill="#4A3020" text-anchor="middle">(remains in place, shifted down)</text>
+
+          <!-- Right column: current fold diagram -->
+          <rect x="420" y="20" width="340" height="360" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <text x="590" y="42" font-family="Arial,sans-serif" font-size="11" fill="#444" text-anchor="middle" font-weight="600" letter-spacing="1">CURRENT FOLD STRUCTURE</text>
+
+          <rect x="430" y="50" width="320" height="62" fill="#F5F0E8" stroke="#DDD4BE" stroke-width="1"/>
+          <text x="590" y="85" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle">Fold 1 - Buy Box + ATC</text>
+
+          <rect x="430" y="120" width="320" height="52" fill="#F0EBE0" stroke="#DDD4BE" stroke-width="1"/>
+          <text x="590" y="150" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle">Fold 2 - Spec Table</text>
+
+          <rect x="430" y="180" width="320" height="84" fill="#FFF8E8" stroke="#C8B89A" stroke-width="1.5"/>
+          <text x="590" y="204" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle" font-weight="600">Fold 3 - Current UGC Location</text>
+          <rect x="446" y="213" width="44" height="34" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="498" y="213" width="44" height="34" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="550" y="213" width="44" height="34" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="602" y="213" width="44" height="34" fill="none" stroke="#C8B89A" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="590" y="256" font-family="Arial,sans-serif" font-size="11" fill="#4A3020" text-anchor="middle">below sticky footer bar</text>
+
+          <rect x="430" y="272" width="320" height="52" fill="#EDE4D0" stroke="#DDD4BE" stroke-width="1"/>
+          <text x="590" y="302" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle">Fold 4 - Reviews</text>
+
+          <rect x="430" y="332" width="320" height="40" fill="#E8E0CC" stroke="#DDD4BE" stroke-width="1"/>
+          <text x="590" y="356" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle">Fold 5+</text>
+
+          <!-- Move arrow -->
+          <text x="408" y="246" font-family="Arial,sans-serif" font-size="22" fill="#BEFF2E" text-anchor="middle">&#8592;</text>
+          <text x="408" y="264" font-family="Arial,sans-serif" font-size="9" fill="#7A9900" text-anchor="middle" font-weight="600">MOVED</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+    <!-- SLOT 8 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-header">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">Slot 8</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-name">Cart Social Proof Strip</h2>
+        <p class="cvrt-slot-page">Cart Drawer</p>
+        <p class="cvrt-slot-desc">The cart drawer has roughly 40% blank white space below the single cart item and above the checkout footer. Medical-outcome proof at this stage addresses last-moment hesitation at the highest-intent point in the funnel.</p>
+      </div>
+      <div class="cvrt-slot-svg-area">
+        <svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cart drawer container -->
+          <rect x="190" y="20" width="400" height="340" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+          <!-- Progress bar -->
+          <rect x="206" y="36" width="368" height="34" fill="#F0EBDE" stroke="#DDD4BE" stroke-width="1"/>
+          <rect x="206" y="36" width="184" height="34" fill="rgba(190,255,46,0.22)"/>
+          <text x="390" y="58" font-family="Arial,sans-serif" font-size="11" fill="#444" text-anchor="middle" font-weight="600">ADD 1 MORE PAIR TO UNLOCK 2 FREE</text>
+
+          <!-- Cart item -->
+          <rect x="206" y="80" width="368" height="68" fill="none" stroke="#DDD4BE" stroke-width="1"/>
+          <rect x="214" y="87" width="54" height="54" fill="none" stroke="#C8B89A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <text x="241" y="117" font-family="Arial,sans-serif" font-size="10" fill="#4A3020" text-anchor="middle">IMG</text>
+          <text x="278" y="103" font-family="Arial,sans-serif" font-size="13" fill="#333" font-weight="600">Compression Socks · Wide</text>
+          <text x="278" y="120" font-family="Arial,sans-serif" font-size="12" fill="#333">$49.99</text>
+          <text x="278" y="137" font-family="Arial,sans-serif" font-size="11" fill="#444">Qty: 1</text>
+
+          <!-- NEW: Review strip (V1) -->
+          <rect x="206" y="158" width="368" height="104" fill="rgba(190,255,46,0.07)" stroke="#BEFF2E" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="390" y="177" font-family="Arial,sans-serif" font-size="10" fill="#7A9900" text-anchor="middle" font-weight="600" letter-spacing="1">SOCIAL PROOF - ADDED HERE (V1)</text>
+          <text x="224" y="198" font-family="Arial,sans-serif" font-size="14" fill="#F5A623">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="310" y="198" font-family="Arial,sans-serif" font-size="12" fill="#444">Verified Buyer</text>
+          <text x="224" y="220" font-family="Arial,sans-serif" font-size="12" fill="#333">"After quadruple heart surgery, my swelling</text>
+          <text x="224" y="237" font-family="Arial,sans-serif" font-size="12" fill="#333">has totally gone away."</text>
+          <text x="224" y="253" font-family="Arial,sans-serif" font-size="12" fill="#333">- Joe S., post-surgery</text>
+
+          <!-- Subtotal -->
+          <rect x="206" y="272" width="368" height="30" fill="#F5F0E8" stroke="#DDD4BE" stroke-width="1"/>
+          <text x="222" y="292" font-family="Arial,sans-serif" font-size="13" fill="#333" font-weight="600">Subtotal</text>
+          <text x="558" y="292" font-family="Arial,sans-serif" font-size="13" fill="#333" font-weight="600" text-anchor="end">$49.99</text>
+
+          <!-- Checkout button -->
+          <rect x="206" y="310" width="368" height="38" fill="#111111"/>
+          <text x="390" y="334" font-family="Arial,sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="600" letter-spacing="0.5">SECURE CHECKOUT</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </div>
+
+  </div><!-- end .cvrt-panel-tests -->
+
+  <!-- ===== DATA INSIGHTS PANEL ===== -->
+  <div class="cvrt-panel-insights">
+
+    <div class="cvrt-killers">
+      <p class="cvrt-killers-eyebrow">Cross-Source Analysis</p>
+      <h2 class="cvrt-killers-title">Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killers-list">
+        <li>
+          <span class="cvrt-killer-num">1</span>
+          <span>Paid traffic landing on an 8.4-second page. Lighthouse scores the compression LP at 8.4s LCP on mobile, 2.8x Google's 3-second abandonment threshold. All Meta compression ads and Google edema queries route to this page first.</span>
+        </li>
+        <li>
+          <span class="cvrt-killer-num">2</span>
+          <span>Buy box defaults to the lowest-value option. The 1-pair tier at $49.99 is pre-selected. Visitors must make a three-way pricing decision before they have decided to buy at all.</span>
+        </li>
+        <li>
+          <span class="cvrt-killer-num">3</span>
+          <span>Cart AOV mechanic with no payoff. The progress bar prompts visitors to add one more pair to unlock two free pairs, but roughly 40% of the cart drawer height is blank white space with no product to act on.</span>
+        </li>
+        <li>
+          <span class="cvrt-killer-num">4</span>
+          <span>Sizing cuts out the primary medical audience. Calf fit failure is the single most common negative review theme. Edema, post-surgery, and DVT buyers statistically have larger legs, and the PDP gives them no inline fit reassurance.</span>
+        </li>
+        <li>
+          <span class="cvrt-killer-num">5</span>
+          <span>6,333 reviews are invisible at the moment of decision. The buy box shows a linked count. No snippet, no star breakdown, and no featured quote appear before the Add to Cart button.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cvrt-sources-section">
+      <h3 class="cvrt-sources-section-title">Data Sources</h3>
+      <div class="cvrt-sources-grid">
+        <div class="cvrt-source-chip">Meta Ads</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Page Speed Insights</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Competitor Analysis</div>
+      </div>
+    </div>
+
+    <h3 class="cvrt-insight-blocks-title">Findings by Source</h3>
+
+    <div class="cvrt-source-block">
+      <h4 class="cvrt-source-block-title">Meta Ads</h4>
+      <ul>
+        <li>Three ads are active across Facebook, Instagram, Messenger, and Reels. Ad 1 (compression angle, running since June 1) uses a problem-agitate frame on tightness, overheating, and sliding. It routes to the compression LP with strong message match: the ad's three pain points mirror the comparison table's first three rows.</li>
+        <li>The longest-running ad (Father's Day gift frame, active since May 29) has no captured landing page. Message match for this ad cannot be evaluated.</li>
+        <li>Ad 3's countdown timer reads "THIS WEEKEND" on a 4th of July-framed creative. For retargeted visitors who see this ad after the holiday, the countdown is a broken urgency signal.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-source-block">
+      <h4 class="cvrt-source-block-title">Google Ads</h4>
+      <ul>
+        <li>Three ad formats are active: video, search, and shopping. Keyword targeting is broader than Meta, with condition-specific queries (edema, hyperhidrosis) and audience-specific terms (construction workers, ski socks) alongside comfort-led video ads.</li>
+        <li>The Shopping ad shows 4.0 stars from 28 reviews, vs. 6,383 reviews on-site. A Merchant Center feed fix could improve Shopping CTR at no creative cost.</li>
+        <li>Google leads with comfort and sensation ("no squeeze," "no itching"); Meta leads with clinical comparison and material science. These are complementary angles serving different buyer awareness levels.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-source-block">
+      <h4 class="cvrt-source-block-title">Reviews and UGC</h4>
+      <ul>
+        <li>80 Amazon reviews collected. The distribution is bimodal: 37 five-star reviews and 27 one-or-two-star reviews, with a smaller cluster in the middle. Primary praise centers on comfort, ease of donning, and medical outcomes. "After having quadruple heart surgery, my swelling has totally gone away." "These are the first compression socks I can actually put on easily."</li>
+        <li>Calf fit failure is the most common negative theme. Over 10 of 27 negative reviews cite inability to pull the sock past the calf from buyers with edema, DVT, or post-surgery conditions. The primary medical use case correlates with larger legs, making this the deepest product-audience mismatch in the review pool.</li>
+        <li>Secondary complaints: compression inadequacy in some buyer experiences ("no compression, except a little bit of grabbiness at the very top band"), durability issues after first wash, and price-value friction from buyers who paid full price and later encountered the BOGO promotion.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-source-block">
+      <h4 class="cvrt-source-block-title">Page Speed Insights</h4>
+      <ul>
+        <li>Homepage: Performance 39/100. FCP 3.7s, LCP 5.9s, TTI 33.4s. Compression LP: Performance 42/100. FCP 3.9s, LCP 8.4s, TTI 33.2s. Both pages score in the bottom quartile for ecommerce performance.</li>
+        <li>The compression LP's 8.4s LCP is the most critical number in the audit. This page receives all paid Meta and Google compression traffic, and at this load time a significant share of paid sessions abandon before the comparison table or offer renders.</li>
+        <li>One positive: CLS is 0 on both pages. PDP performance was not tested, leaving a gap for the primary conversion page from organic and retargeting traffic.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-source-block">
+      <h4 class="cvrt-source-block-title">Site Screenshots</h4>
+      <ul>
+        <li>Homepage trust signals (21,000+ 5-star reviews, 3 million+ pairs sold) sit below the fold. Visitors who bounce early on the hero never encounter them.</li>
+        <li>Collection page: every product card carries the "BUY 2 GET 2 FREE" badge, reducing urgency through repetition. Star ratings display inconsistently across visible product cards.</li>
+        <li>PDP: 6,333 reviews appear as a linked count only. The three-tier pricing block sits between size selection and Add to Cart, creating a sequential decision sequence before commitment. The "BEST VALUE" 4-pair tier is labeled but not pre-selected.</li>
+        <li>Cart drawer: the progress bar mechanic is present and correct. The cart body below the single item is roughly 40% blank white space with no product recommendations or cross-sell tiles rendering.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-source-block">
+      <h4 class="cvrt-source-block-title">Competitor Analysis</h4>
+      <ul>
+        <li>The nearest price competitor (Clohill) offers compression socks at approximately $7 per pair in multi-packs vs. Hollow's $25 per pair at the 4-pack price point. The pricing gap is significant for buyers who discover it mid-consideration.</li>
+        <li>Hollow's primary moat: USA-made positioning, 21,000+ reviews, and a clinical compression angle. If compression claims are challenged in reviews, the premium price point loses its primary defense against lower-cost alternatives.</li>
+      </ul>
+    </div>
+
+  </div><!-- end .cvrt-panel-insights -->
+
+  <footer class="cvrt-footer">Hollow Socks &middot; June 2026</footer>
+
+</div><!-- end #cvrt-roadmap -->

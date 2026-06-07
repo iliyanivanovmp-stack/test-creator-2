@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Workflow Upgrade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e0c;
+    --bg-card: #161512;
+    --bg-hover: #1d1b17;
+    --border: #2a2820;
+    --border-light: #3a3830;
+    --text: #e8e2d6;
+    --text-muted: #8a8278;
+    --text-dim: #5a5650;
+    --accent: #c9a96e;
+    --accent-dim: rgba(201, 169, 110, 0.12);
+    --accent-glow: rgba(201, 169, 110, 0.06);
+    --red: #c0564a;
+    --red-dim: rgba(192, 86, 74, 0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 80px 24px 120px;
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.65;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 64px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    max-width: 640px;
+  }
+
+  p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Problem callout */
+  .problem-block {
+    background: var(--red-dim);
+    border: 1px solid rgba(192, 86, 74, 0.2);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+  }
+
+  .problem-block .label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .problem-block p {
+    font-size: 14.5px;
+    color: #c8b8b4;
+    margin: 0;
+  }
+
+  /* Pipeline table */
+  .pipeline {
+    display: grid;
+    gap: 2px;
+    margin-bottom: 48px;
+  }
+
+  .pipeline-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr;
+    gap: 2px;
+  }
+
+  .pipeline-row.header-row .cell {
+    background: var(--bg);
+    color: var(--text-dim);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+  }
+
+  .cell {
+    background: var(--bg-card);
+    padding: 18px 20px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border: 1px solid var(--border);
+  }
+
+  .cell.stage {
+    color: var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+  }
+
+  .cell.old {
+    color: #7a6e6a;
+    text-decoration: line-through;
+    text-decoration-color: rgba(192, 86, 74, 0.4);
+  }
+
+  .cell.new {
+    color: var(--text-muted);
+  }
+
+  .cell.new strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Insight cards */
+  .insights {
+    display: grid;
+    gap: 12px;
+  }
+
+  .insight {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .insight:hover {
+    border-color: var(--border-light);
+  }
+
+  .insight-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--text-dim);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .insight-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .insight-body {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  /* Result block */
+  .result-block {
+    background: var(--accent-dim);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-top: 48px;
+  }
+
+  .result-block .label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .result-block p {
+    font-size: 15px;
+    color: #c8bd9e;
+    margin: 0;
+    max-width: 100%;
+    line-height: 1.7;
+  }
+
+  .result-block p strong {
+    color: var(--accent);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-dim);
+  }
+
+  .footer-date {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header { animation: fadeUp 0.6s ease both; }
+  .section:nth-child(2) { animation: fadeUp 0.6s 0.1s ease both; }
+  .section:nth-child(3) { animation: fadeUp 0.6s 0.2s ease both; }
+  .section:nth-child(4) { animation: fadeUp 0.6s 0.3s ease both; }
+  .footer { animation: fadeUp 0.6s 0.4s ease both; }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="eyebrow">Internal Process Document</div>
+    <h1>How our CRO workflow<br><em>got smarter</em></h1>
+    <p class="subtitle">A plain-English summary of what changed between our old system and the one we use today — and why the difference matters for the quality of your test ideas.</p>
+  </header>
+
+  <!-- Problem -->
+  <section class="section">
+    <div class="section-label">The Problem We Solved</div>
+
+    <div class="problem-block">
+      <div class="label">Root Cause</div>
+      <p>In the old workflow, data collection and strategic analysis happened in the same session. By the time we were generating test ideas, the AI was carrying the full weight of intake work — reviews, ads, speed data, screenshots — all loaded at once. The result: safe, predictable recommendations shaped by data volume, not sharp thinking.</p>
+    </div>
+
+    <p>The fix wasn't to collect less data. It was to <strong>separate the jobs</strong> so each stage gets a clean slate and full focus.</p>
+  </section>
+
+  <!-- Pipeline comparison -->
+  <section class="section">
+    <div class="section-label">Pipeline Comparison</div>
+
+    <div class="pipeline">
+      <div class="pipeline-row header-row">
+        <div class="cell">Stage</div>
+        <div class="cell">Old</div>
+        <div class="cell">New</div>
+      </div>
+      <div class="pipeline-row">
+        <div class="cell stage">Data Collection</div>
+        <div class="cell old">Collected data, loaded screenshots, started forming opinions — all in one shot</div>
+        <div class="cell new"><strong>/cro-collect</strong> — intake only. Zero analysis, zero screenshots, zero opinions. Just saves to disk.</div>
+      </div>
+      <div class="pipeline-row">
+        <div class="cell stage">Research Audit</div>
+        <div class="cell old">Ran as part of collection. Context window already heavy with intake noise</div>
+        <div class="cell new"><strong>/cro-audit</strong> — fresh session. Reads everything from disk, loads screenshots on demand, ranks top opportunities by evidence × revenue potential.</div>
+      </div>
+      <div class="pipeline-row">
+        <div class="cell stage">Test Roadmap</div>
+        <div class="cell old">Generated immediately after audit in the same saturated session</div>
+        <div class="cell new"><strong>/cro-research-roadmap</strong> — fresh session. Picks from pre-ranked opportunities. Adds CRO pattern research at exactly the moment it's useful: ideation.</div>
+      </div>
+      <div class="pipeline-row">
+        <div class="cell stage">Client Output</div>
+        <div class="cell old">Manual formatting, inconsistent across brands</div>
+        <div class="cell new"><strong>/roadmap-to-html</strong> — fresh session. Branded, consistent HTML deliverable every time.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What this changes -->
+  <section class="section">
+    <div class="section-label">What This Changes in Practice</div>
+
+    <div class="insights">
+      <div class="insight">
+        <div class="insight-num">01</div>
+        <div>
+          <div class="insight-title">Better test ideas</div>
+          <p class="insight-body">The ideation stage now starts with a clean context window. The AI isn't reasoning through a backlog of intake data — it's reading a pre-ranked shortlist and applying CRO pattern research at the exact moment it's useful. Ideas are more specific and more creative.</p>
+        </div>
+      </div>
+      <div class="insight">
+        <div class="insight-num">02</div>
+        <div>
+          <div class="insight-title">Smarter slot prioritization</div>
+          <p class="insight-body">The audit now ends with a scored opportunity list — evidence strength × revenue potential × how fixable it is. The roadmap reads this list first and picks slots top-down. Priority is derived once, correctly, not re-guessed in a different session.</p>
+        </div>
+      </div>
+      <div class="insight">
+        <div class="insight-num">03</div>
+        <div>
+          <div class="insight-title">Screenshots used at the right moment</div>
+          <p class="insight-body">In the old system, screenshots were referenced during collection — adding visual weight before any analysis began. Now they stay on disk and are loaded only during the audit, when the AI is actually analyzing the site experience.</p>
+        </div>
+      </div>
+      <div class="insight">
+        <div class="insight-num">04</div>
+        <div>
+          <div class="insight-title">Consistent, polished deliverables</div>
+          <p class="insight-body">The HTML roadmap is now a dedicated stage with its own clean session. Brand colors, typography, and layout are extracted fresh from the homepage each time — not inherited from a previous session's context.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-block">
+      <div class="label">Bottom Line</div>
+      <p>Each stage gets the <strong>full budget of intelligence</strong> for exactly the thing it's responsible for. Collection is purely mechanical. Analysis is thorough. Ideation is creative. Output is polished. None of these jobs dilute the others.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">CRO Workflow v2</div>
+    <div class="footer-date">June 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
