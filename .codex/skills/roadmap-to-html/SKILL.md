@@ -39,7 +39,7 @@ From the roadmap, extract:
   - Slot number(s) (e.g., "Slot 1" or "Slots 1 & 2")
   - Test or project name (keep it to the component/page being tested, e.g., "Homepage Top 2 Folds" not "Homepage Hero + Fold 2 Restructure")
   - Type: "A/B Test" or the dev project type (e.g., "Custom Shopify App")
-  - Page being tested
+  - Page being tested. If the slot is for one specific canonical page, render the page label as a clickable link to that page. Use `target="_blank"` and `rel="noopener"`. If the source includes the exact page URL, use it. If the source only provides a generic homepage URL but the slot clearly names a single product, collection, landing page, blog post, or other specific page, locate the actual canonical URL from the data audit, screenshots, product/catalog exports, live site, or collected source files before generating the HTML. If no exact canonical URL can be verified, keep the page label as plain text. If the slot covers multiple pages, paths, funnels, page types, or surfaces, keep the page label as plain text.
   - A 2-3 sentence description focused on the data and why this component matters. Rules:
     1. Every factual claim must trace back to a specific data point in the data audit or internal roadmap. If you cannot point to the exact line in the source file, do not include the claim.
     2. Do NOT describe what we plan to change or how the test will work. Sell the problem and the opportunity, not the solution.
@@ -120,6 +120,7 @@ The hero is the main branded moment and must include a real brand picture.
 - Apply an overlay, crop, or adjacent surface as needed so the roadmap title and summary remain highly readable.
 - Include the logo when it improves the composition. Preserve its aspect ratio and intended colors.
 - Include the roadmap label, brand name, month and year, short executive summary, and tab navigation.
+- Do not place explanatory labels, captions, or internal notes on the hero image, such as "homepage visual reference", "hero image", "brand screenshot", or similar. These are production/client-facing pages, not annotated design drafts.
 - Keep the hero purposeful. Do not add decorative metrics, test-count pills, fake UI previews, or visual clutter unless they communicate useful roadmap information and genuinely fit the brand.
 - The picture must remain visible and meaningful on desktop and mobile. Do not hide it entirely behind an opaque overlay.
 
@@ -182,10 +183,22 @@ These are the content and layout requirements. The visual styling comes from the
 **Content structure for each slot card:**
 - Slot label and type badge (A/B test vs. dev project)
 - Test name as a heading
-- Page being tested
+- Page being tested. If this is one specific canonical page, make the page label a clickable link. If the roadmap gives only a generic homepage URL but the slot clearly names one specific page, verify the actual canonical URL from available sources before linking. If it references multiple pages, a funnel path, or a page type without one verified canonical URL, keep it plain text.
 - Description (1-2 sentences)
-- **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted tones, and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test). Keep the style loose and hand-drawn: dashed borders, light or no fills, rounded rects. The SVG spans the full card width — do not cap it at 420px. Size the viewBox to make full use of the available width: more horizontal space means more detail, more readable labels, and better wireframe fidelity. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
+- **SVG sketch illustration:** An inline SVG low-fidelity UX wireframe visualizing the real interface surface being tested. Use dashed strokes, muted tones, and the brand color as an accent, but prioritize product-design specificity over decorative illustration. The SVG should look like a designer's rough Figma wireframe for scoping the test, not a marketing icon or abstract concept diagram. It must represent what the slot actually changes (e.g., the product-card anatomy, offer stack, cart drawer, buy box, video upsell, quiz step, or PDP proof module). The SVG spans the full card width — do not cap it at 420px. Size the viewBox to make full use of the available width: more horizontal space means more detail, more readable labels, and better wireframe fidelity. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
 - Estimated launch date (if provided)
+
+**SVG wireframe quality.** This is a hard quality bar. The SVG is a UX artifact, not decoration.
+- Draw the actual UI surface named in the slot, not a symbolic representation of the idea. If the slot affects product cards, draw a product card with image area, title, rating, price, issue zone, and CTA. If it affects a PDP buy box, draw a buy box with title, rating, price, offer rows, selectors, purchase options, proof, and CTA. If it affects cart, draw the drawer, line item, savings/progress area, coupon input, total, and checkout CTA.
+- For A/B tests, prefer a current-vs-variation composition. Show the before state and the proposed changed state side by side, unless the concept is better expressed as a funnel/path. Label them plainly, e.g., "Current" and "Variation".
+- Make the changed zone visually obvious through a highlight, conflict marker, removed space, moved module, before/after alignment, or callout. The viewer should understand the delta in 3 seconds.
+- Include 5-10 concrete UI elements from the roadmap, data audit, or screenshots. Use real labels, coupon codes, prices, ratings, selectors, CTA text, review counts, policy labels, error text, and friction points when they are documented. Examples: `DAYONE`, `DPR15`, `₹394`, `4.7 | 939`, `Add to Cart`, `Subscribe & Save`, `Select size`, `liquid render error`.
+- Do not invent UI details. Every concrete label or metric in the SVG must be traceable to the roadmap, data audit, or provided screenshot. If the source does not document the current page state, use generic structural labels and mark the area as needing audit.
+- Preserve component anatomy. Draw the page region as a real ecommerce component with believable hierarchy, spacing, and controls. Avoid generic boxes labeled "Product card", "PDP offer area", or "Buy box decision area" unless those labels sit inside a more detailed component drawing.
+- Show the uncomfortable source-backed details. If the issue is a broken template error, draw the error line. If the issue is offer conflict, show the conflicting codes and a mismatch marker. If the issue is proof buried below selectors, show proof below the current stack and moved above the key decision area in the variation.
+- Keep the wireframe low fidelity, but specific. Use simple rectangles, image placeholders, rows, toggles, dropdown chevrons, buttons, star rows, and module labels. Do not use polished product mockups, fake screenshots, abstract diagrams, ornamental icons, or decorative scenes.
+- Brand styling is secondary inside the SVG. Use the brand accent to highlight the change, CTA, or variation state, but do not let brand styling replace accurate UX anatomy.
+- Avoid over-dense microcopy. Specificity matters, but labels must remain readable during a client screen share. If there are too many elements, simplify the surrounding UI while preserving the changed zone and the most important real labels.
 
 **SVG text readability.** The frontend-design skill owns visual style, but SVG text has specific rendering constraints that must be respected regardless of aesthetic direction:
 - **Err on the side of bigger.** SVG text that looks fine at full zoom becomes unreadable during screen sharing. Prefer larger font sizes and a more spacious viewBox over cramming many elements into a tight space.
@@ -201,9 +214,11 @@ These are the content and layout requirements. The visual styling comes from the
 
 1. the real page surface being changed
 2. the exact proposed variation the client is being asked to approve
-3. the minimum surrounding UI needed to establish context
-4. the most important visual change the viewer should notice first
-5. a composition that is distinct from every other slot in this roadmap
+3. whether the clearest composition is current-vs-variation, a path/funnel, or a single annotated component
+4. the concrete source-backed UI labels, metrics, coupon codes, prices, ratings, selectors, CTAs, or error messages that should appear
+5. the minimum surrounding UI needed to establish context
+6. the most important visual change the viewer should notice first
+7. a composition that is distinct from every other slot in this roadmap
 
 Do not output this planning text. Use it to design the wireframe.
 
@@ -289,6 +304,7 @@ Before saving, verify silently:
 - [ ] Brand color from the screenshot is applied consistently
 - [ ] The design visibly reflects the brand's imagery, typography, logo, palette, and visual character rather than only swapping an accent color
 - [ ] The hero contains a real brand picture, and the picture remains meaningfully visible on desktop and mobile
+- [ ] The hero image has no explanatory labels, captions, or internal notes such as "homepage visual reference"
 - [ ] The logo is sharp, correctly proportioned, and readable without automatic inversion or a visible matte
 - [ ] Hero title and summary remain readable over or beside the picture
 - [ ] Tabs are inside or directly attached to the hero and read as part of the same composition
@@ -297,7 +313,14 @@ Before saving, verify silently:
 - [ ] No JavaScript
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
-- [ ] Each slot has an inline SVG sketch illustration that visually represents the concept
+- [ ] Single-page slot labels with a verified canonical URL are clickable links using `target="_blank"` and `rel="noopener"`, including cases where the source roadmap used a generic homepage URL but the actual page can be verified from local data or the live site
+- [ ] Each slot has an inline SVG low-fidelity UX wireframe that represents the real interface surface being tested
+- [ ] Each A/B test SVG uses current-vs-variation unless a path/funnel composition communicates the change more clearly
+- [ ] Each SVG preserves real component anatomy, e.g., product-card image/title/rating/price/CTA, PDP title/rating/price/offers/selectors/CTA, or cart line item/coupon/total/checkout
+- [ ] Each SVG includes concrete source-backed UI details where documented: labels, coupon codes, prices, ratings, selectors, CTA text, error text, or friction points
+- [ ] Each SVG makes the changed zone obvious within 3 seconds through a highlight, conflict marker, removed space, moved module, before/after alignment, or callout
+- [ ] No SVG is merely a symbolic icon, abstract concept diagram, decorative scene, or generic box layout
+- [ ] SVG labels like "Product card", "PDP offer area", or "Buy box decision area" are not used as substitutes for detailed component anatomy
 - [ ] SVG sketches use dashed strokes and the brand accent color consistently
 - [ ] SVG text: high contrast, full opacity, no overlapping elements, heavy enough weight to read at screen resolution
 - [ ] SVG text is readable without zooming during a screen share — if any label looks small, increase font-size and expand the viewBox

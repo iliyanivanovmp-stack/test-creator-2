@@ -39,7 +39,7 @@ From the roadmap, extract:
   - Slot number(s) (e.g., "Slot 1" or "Slots 1 & 2")
   - Test or project name (keep it to the component/page being tested, e.g., "Homepage Top 2 Folds" not "Homepage Hero + Fold 2 Restructure")
   - Type: "A/B Test" or the dev project type (e.g., "Custom Shopify App")
-  - Page being tested
+  - Page being tested. If the slot is for one specific page and the source includes a single URL, render the page label as a clickable link to that URL. Use `target="_blank"` and `rel="noopener"`. If the slot covers multiple pages, paths, or page types, render the page label as plain text.
   - A 2-3 sentence description focused on the data and why this component matters. Rules:
     1. Every factual claim must trace back to a specific data point in the data audit or internal roadmap. If you cannot point to the exact line in the source file, do not include the claim.
     2. Do NOT describe what we plan to change or how the test will work. Sell the problem and the opportunity, not the solution.
@@ -182,7 +182,7 @@ These are the content and layout requirements. The visual styling comes from the
 **Content structure for each slot card:**
 - Slot label and type badge (A/B test vs. dev project)
 - Test name as a heading
-- Page being tested
+- Page being tested. If this is one specific page with one source URL, make the page label a clickable link. If it references multiple pages, a funnel path, or a page type without one canonical URL, keep it plain text.
 - Description (1-2 sentences)
 - **SVG sketch illustration:** An inline SVG pencil-sketch wireframe visualizing the concept. Use dashed strokes, muted tones, and the brand color as an accent. The sketch should represent what the slot actually does (e.g., a video player wireframe for a video upsell, a cart drawer wireframe for a cart test). Keep the style loose and hand-drawn: dashed borders, light or no fills, rounded rects. The SVG spans the full card width — do not cap it at 420px. Size the viewBox to make full use of the available width: more horizontal space means more detail, more readable labels, and better wireframe fidelity. Below the SVG, always add a small italic caption: "* Concept illustration only. Final design will differ." This prevents brand owners from confusing the sketch with a deliverable.
 - Estimated launch date (if provided)
@@ -299,6 +299,7 @@ Before saving, verify silently:
 - [ ] No JavaScript
 - [ ] Executive summary is 2-3 sentences max, not a wall of text
 - [ ] Each slot description is 1-2 sentences max
+- [ ] Single-page slot labels with one source URL are clickable links using `target="_blank"` and `rel="noopener"`; multi-page slot labels remain plain text
 - [ ] Each slot has an inline SVG sketch illustration that visually represents the concept
 - [ ] SVG sketches use dashed strokes and the brand accent color consistently
 - [ ] SVG text: high contrast, full opacity, no overlapping elements, heavy enough weight to read at screen resolution

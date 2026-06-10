@@ -3,7 +3,7 @@ name: cro-collect
 description: Collect CRO source data for a Shopify prospect — intake only, no analysis
 ---
 
-You are collecting CRO source data for a Shopify prospect. Your only job is to intake, save to disk, and write the manifest. Do not analyze anything. Do not form opinions. Do not load screenshots.
+You are collecting CRO source data for a Shopify prospect. Your job is to intake source data, save it to disk, generate visual summary files from collected screenshots at the end, and write the manifest. Do not form CRO opinions or test ideas during collection.
 
 Run `/cro-audit` after this command to generate the research audit.
 
@@ -11,8 +11,9 @@ Run `/cro-audit` after this command to generate the research audit.
 
 ## Data Integrity
 
-- Save exactly what the user provides. Do not interpret, summarize, or analyze.
-- Never load or view any screenshot.
+- Save exactly what the user provides. Do not interpret, summarize, or analyze text inputs.
+- During Step 1 through Step 3, never load or view any screenshot.
+- During Step 4 only, load collected screenshots to write neutral visual summaries. Describe only what is visible; do not create CRO findings, hypotheses, or test ideas.
 - Never run WebFetch. Save URLs to disk only.
 - If a source is skipped, do not create a file for it.
 
@@ -74,6 +75,8 @@ Then say in chat:
 **Competitors / Inspiration**
 - `competitor-[brand-name].png`
 - `inspiration-[site-name].png`
+
+Close names are okay. I will normalize common screenshot names at the summary step, including `ad-creative-1.png`, `ad1-landing-f1.png`, `google-ads-1.png`, `collections-f1.png`, and `cart-drawer.png`.
 
 Now — which of these data sources do you have available?
 
@@ -162,9 +165,37 @@ Run `ls brands/[brand-name]/raw/screenshots/` to capture all files present. Use 
 
 Analyze only the three groups below. Do not load email, competitor, or inspiration screenshots.
 
-**Meta Ads (if any `meta-ad-*.png` files are present):**
+Before loading screenshots, build a filename map from the actual `ls` output. Accept canonical names and close/legacy names. Do not rename user files unless the user explicitly asks; use the mapped actual filenames when loading.
 
-Load one ad group at a time. For each ad: load the creative (`meta-ad-N.png`), then its landing page folds (`meta-ad-N-lp-f1.png`, `meta-ad-N-lp-f2.png`, `meta-ad-N-lp-f3.png`). Write findings, then move to the next ad.
+**Accepted filename aliases**
+
+Use these patterns case-insensitively. Treat hyphens, underscores, and spaces as equivalent where practical.
+
+**Meta ad creatives**
+- Canonical: `meta-ad-N.png`
+- Also accept: `ad-creative-N.png`, `meta-ad-creative-N.png`, `facebook-ad-N.png`, `fb-ad-N.png`, `ad-N.png`
+
+**Meta ad landing page folds**
+- Canonical: `meta-ad-N-lp-fM.png`
+- Also accept: `adN-landing-fM.png`, `ad-N-landing-fM.png`, `adN-lp-fM.png`, `meta-ad-N-landing-fM.png`, `meta-ad-N-lp-fold-M.png`
+- Accept obvious typo variants such as `ladning` for `landing`.
+
+**Google Ads**
+- Canonical single screenshot: `google-ads.png`
+- Also accept multiple screenshots: `google-ads-1.png`, `google-ads-2.png`, `google-ads-3.png`, `google-ads-f1.png`, `google-ads-f2.png`, `google-ads-f3.png`, `google-ad-1.png`
+
+**Site screenshots**
+- Homepage canonical: `homepage-fM.png`; also accept `home-fM.png`, `home-page-fM.png`
+- Collection canonical: `collection-fM.png`; also accept `collections-fM.png`, `collection-page-fM.png`, `plp-fM.png`
+- PDP canonical: `pdp-fM.png`; also accept `product-fM.png`, `product-page-fM.png`
+- Landing page canonical: `landing-page-fM.png`; also accept `lp-fM.png`, `landing-fM.png`
+- Cart canonical: `cart.png`; also accept `cart-drawer.png`, `cart-page.png`, `checkout-cart.png`
+
+When multiple files map to the same canonical slot, use the closest canonical match first; otherwise use the lowest numbered matching file. Record any alias mapping uncertainty under `## Open Questions` in the manifest.
+
+**Meta Ads (if any canonical or accepted Meta ad creative files are present):**
+
+Load one ad group at a time. For each ad: load the mapped creative, then its mapped landing page folds 1-3 if present. Write the neutral visual summary entry, then move to the next ad.
 
 Write `brands/[brand-name]/raw/meta-ads-visual-summary.md`:
 
@@ -178,16 +209,17 @@ Write `brands/[brand-name]/raw/meta-ads-visual-summary.md`:
 **Landing Page Fold 3:** [Social proof, lower-funnel content, secondary CTAs]
 **Message Match:** [Does the ad promise match what the landing page delivers? Note specific gaps.]
 
-[Repeat for each ad present]
+[Repeat for each ad present. If a landing page fold is missing, write "Not collected."]
 ```
 
-**Google Ads (if `google-ads.png` is present):**
+**Google Ads (if any canonical or accepted Google Ads screenshot files are present):**
 
-Load `google-ads.png`. Write `brands/[brand-name]/raw/google-ads-visual-summary.md`:
+Load each mapped Google Ads screenshot in numeric order. Write `brands/[brand-name]/raw/google-ads-visual-summary.md`:
 
 ```markdown
 # Google Ads Visual Summary
 
+**Screenshots reviewed:** [Actual filenames loaded]
 **Ads visible:** [Count and format types — search, display, shopping, etc.]
 **Headline themes:** [Messaging angles and copy patterns across ads]
 **Offers and CTAs:** [Specific offers, discounts, or CTAs visible]
@@ -197,7 +229,7 @@ Load `google-ads.png`. Write `brands/[brand-name]/raw/google-ads-visual-summary.
 
 **Site Pages (if any homepage, collection, PDP, cart, or landing page screenshots are present):**
 
-Load in this order, skipping any file not present: `homepage-f1.png`, `homepage-f2.png`, `homepage-f3.png`, `collection-f1.png`, `collection-f2.png`, `collection-f3.png`, `pdp-f1.png`, `pdp-f2.png`, `pdp-f3.png`, `landing-page-f1.png`, `landing-page-f2.png`, `landing-page-f3.png`, `cart.png`. Write one summary file after loading all available files.
+Load mapped files in this canonical order, skipping any slot not present: `homepage-f1.png`, `homepage-f2.png`, `homepage-f3.png`, `collection-f1.png`, `collection-f2.png`, `collection-f3.png`, `pdp-f1.png`, `pdp-f2.png`, `pdp-f3.png`, `landing-page-f1.png`, `landing-page-f2.png`, `landing-page-f3.png`, `cart.png`. Write one summary file after loading all available files.
 
 Write `brands/[brand-name]/raw/site-visual-summary.md`:
 
@@ -239,7 +271,9 @@ Write `brands/[brand-name]/raw/site-visual-summary.md`:
 
 Run `ls brands/[brand-name]/raw/screenshots/` to capture all files present.
 
-If `cart.png` is missing, record `MISSING_DATA: cart_drawer` in the manifest.
+Use the same alias map from Step 4 when deciding which sources were collected. If screenshots exist for a source, record that source as collected even when the user did not use canonical filenames.
+
+If neither `cart.png` nor an accepted cart alias such as `cart-drawer.png` is present, record `MISSING_DATA: cart_drawer` in the manifest. If `cart-drawer.png` or another cart alias is present, record it as cart collected and note the actual filename.
 
 Write `brands/[brand-name]/manifest.md`:
 
@@ -265,6 +299,7 @@ Write `brands/[brand-name]/manifest.md`:
 - Meta Ads (if collected) → raw/meta-ads-visual-summary.md
 - Google Ads (if collected) → raw/google-ads-visual-summary.md
 - Site Screenshots (if collected) → raw/site-visual-summary.md
+- [If screenshots used accepted aliases, add: Screenshot aliases mapped → [actual filename] used as [canonical slot]]
 
 ## Screenshots Present
 

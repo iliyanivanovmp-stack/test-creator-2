@@ -80,6 +80,14 @@ Use the slot count and dev slots from the manifest.
 
 Number all slots sequentially starting at 1. Dev slots occupy the first N positions (e.g. if 2 dev slots: Slots 1-2 are dev, Slots 3+ are A/B tests).
 
+**Slot type classification — use this order of precedence:**
+
+1. **Immediate Fix** — a broken or malfunctioning UI element that hurts conversion regardless of traffic volume (e.g. template errors, broken add-to-cart, missing images, JS errors on product cards). Do not A/B test these. Just fix them and label the slot "Immediate Fix" in the roadmap. No variation format needed.
+2. **Dev/Project** — a net-new capability requiring build work (app, integration, custom feature). Use the dev slot format.
+3. **A/B Test** — a hypothesis-driven change to an existing, functional element. Use the A/B test slot format.
+
+If an audit finding is a clear site breakage (errors, non-functional UI, template liquid output visible to shoppers), classify it as an Immediate Fix, not an A/B test.
+
 **A/B test selection criteria:**
 - Data support: multiple sources in the audit point to the same issue
 - Opportunity size: traffic volume x conversion gap = revenue potential

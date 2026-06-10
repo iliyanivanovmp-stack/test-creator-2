@@ -27,8 +27,10 @@ Write like a clear CRO strategist pitching a prospective client.
 - Every word earns its place. Cut filler, hedging, fluff.
 - Be direct. Short sentences. One idea per sentence.
 - Lead with the insight.
-- Specific numbers: "2.05% CR" not "low conversion rate."
+- Be specific: "2.05% CR" not "low conversion rate." "$82.50 welcome gift" not "the free gift."
 - Active voice.
+- No jargon without purpose. If a simpler word works, use it.
+- No em dashes. Em dashes are an AI giveaway.
 - Tables over paragraphs when comparing data.
 - Bullets over prose when listing items.
 
@@ -77,6 +79,14 @@ Use the slot count and dev slots from the manifest.
 **Dev/project slots first.** Write those before A/B test slots.
 
 Number all slots sequentially starting at 1. Dev slots occupy the first N positions (e.g. if 2 dev slots: Slots 1-2 are dev, Slots 3+ are A/B tests).
+
+**Slot type classification — use this order of precedence:**
+
+1. **Immediate Fix** — a broken or malfunctioning UI element that hurts conversion regardless of traffic volume (e.g. template errors, broken add-to-cart, missing images, JS errors on product cards). Do not A/B test these. Just fix them and label the slot "Immediate Fix" in the roadmap. No variation format needed.
+2. **Dev/Project** — a net-new capability requiring build work (app, integration, custom feature). Use the dev slot format.
+3. **A/B Test** — a hypothesis-driven change to an existing, functional element. Use the A/B test slot format.
+
+If an audit finding is a clear site breakage (errors, non-functional UI, template liquid output visible to shoppers), classify it as an Immediate Fix, not an A/B test.
 
 **A/B test selection criteria:**
 - Data support: multiple sources in the audit point to the same issue
@@ -140,7 +150,7 @@ Do not include a trailing period after the store name, the store URL, or a gener
 
 ### Slot Format: A/B Test
 
-Use a conservative CR lift of 0.2% absolute unless the seed's key data supports a specific benchmark range — in which case use the lower bound.
+Use a conservative lift derived from the seed's key data. If the seed does not support a specific number, omit it — do not invent one. Never promise a specific uplift.
 
 Show the full calculation inline. Use conservative assumptions.
 
@@ -149,11 +159,11 @@ Show the full calculation inline. Use conservative assumptions.
 
 **Type:** A/B test ([N] variation vs. control)
 **Page:** [Page name] ([URL])
-**Revenue potential:** [Sessions/mo] x [conservative CR lift] x [AOV] = [estimated monthly revenue].
+**Revenue potential:** [Sessions/mo] x [conservative CR or ATC lift] x [AOV] = [estimated monthly revenue].
 
 **Hypothesis:** If we [specific change], [measurable outcome] because [data-backed reason]. One sentence. Two max.
 
-**Data:** [Evidence inline, citing sources with "Source:" prefix. One or two flowing sentences. No bullet points.]
+**Data:** [Evidence inline, citing sources with "Source:" prefix. One or two flowing sentences. No bullet points. Every data point must be directly relevant to this specific test. Do not include data about other pages, ads, or products that could be a separate test.]
 
 **V[N]:** [One clear prose description. What changes, what stays the same, mobile and desktop behavior. Specific enough for a designer to mock up without further clarification.]
 ```
