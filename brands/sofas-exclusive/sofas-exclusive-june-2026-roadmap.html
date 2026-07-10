@@ -1,0 +1,713 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div,
+#cvrt-roadmap a, #cvrt-roadmap ul, #cvrt-roadmap li,
+#cvrt-roadmap label {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li {
+  list-style: none;
+}
+#cvrt-roadmap li::marker {
+  content: "";
+}
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important;
+  display: none !important;
+}
+
+#cvrt-roadmap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #F3F0EA;
+  color: #171615;
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+#cvrt-roadmap .cvrt-tab-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+#cvrt-roadmap .cvrt-hero {
+  position: relative;
+  min-height: 660px;
+  background: #181716;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-hero-grid {
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: minmax(420px, 0.92fr) minmax(520px, 1.08fr);
+  align-items: stretch;
+}
+
+#cvrt-roadmap .cvrt-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 58px 56px 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(135deg, rgba(34,31,28,0.98), rgba(18,17,16,0.98)),
+    #181716;
+}
+
+#cvrt-roadmap .cvrt-logo {
+  width: 156px;
+  height: auto;
+  display: block;
+  margin-bottom: 72px;
+}
+
+#cvrt-roadmap .cvrt-eyebrow {
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #C9A45B;
+  margin-bottom: 18px;
+}
+
+#cvrt-roadmap .cvrt-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 76px;
+  line-height: 0.96;
+  color: #FFFFFF;
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+#cvrt-roadmap .cvrt-summary {
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  max-width: 540px;
+}
+
+#cvrt-roadmap .cvrt-hero-image-wrap {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-hero-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://sofasexclusive.com/cdn/shop/files/IMG_3900_0ac3f87c-50fb-4e30-94f3-844b36f03f10.jpg?v=1768187716');
+  background-size: cover;
+  background-position: center;
+}
+
+#cvrt-roadmap .cvrt-hero-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(24,23,22,0.48), rgba(24,23,22,0.08) 42%, rgba(24,23,22,0.22));
+}
+
+#cvrt-roadmap .cvrt-tabs {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  background: #181716;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+#cvrt-roadmap .cvrt-tab-label {
+  cursor: pointer;
+  display: block;
+  min-width: 220px;
+  padding: 24px 34px 22px;
+  color: rgba(255,255,255,0.62);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 3px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+#cvrt-roadmap .cvrt-tab-label:hover {
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.04);
+}
+
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tab-label-tests,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tab-label-insights {
+  color: #FFFFFF;
+  border-bottom-color: #C9A45B;
+}
+
+#cvrt-roadmap .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-panel-insights {
+  padding: 48px 24px 72px;
+}
+
+#cvrt-roadmap .cvrt-panel-insights {
+  display: none;
+}
+
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-panel-insights {
+  display: block;
+}
+
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-panel-tests {
+  display: none;
+}
+
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 34px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0 18px 44px rgba(32,29,25,0.10);
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-slot-copy {
+  padding: 36px 42px 30px;
+}
+
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+#cvrt-roadmap .cvrt-slot-number {
+  color: #7E6231;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-slot-badge {
+  color: #171615;
+  background: #E7D8B9;
+  border-radius: 2px;
+  padding: 6px 10px;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+#cvrt-roadmap .cvrt-slot-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  line-height: 1.04;
+  color: #171615;
+  margin-bottom: 12px;
+}
+
+#cvrt-roadmap .cvrt-slot-page {
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6A5A44;
+  margin-bottom: 18px;
+}
+
+#cvrt-roadmap .cvrt-slot-page a {
+  color: #6A5A44;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+#cvrt-roadmap .cvrt-slot-desc {
+  max-width: 620px;
+  color: #312E2A;
+  font-size: 15px;
+  line-height: 1.78;
+  font-weight: 500;
+}
+
+#cvrt-roadmap .cvrt-wireframe {
+  background: #F7F5F0;
+  padding: 28px 30px 30px;
+  border-top: 1px solid rgba(23,22,21,0.08);
+}
+
+#cvrt-roadmap .cvrt-wireframe svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#cvrt-roadmap .cvrt-svg-caption {
+  color: #111111;
+  font-size: 12px;
+  line-height: 1.5;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+#cvrt-roadmap .cvrt-insights-intro,
+#cvrt-roadmap .cvrt-source-grid,
+#cvrt-roadmap .cvrt-source-block {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#cvrt-roadmap .cvrt-insights-intro {
+  background: #181716;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 36px 42px;
+  box-shadow: 0 18px 44px rgba(32,29,25,0.12);
+  margin-bottom: 28px;
+}
+
+#cvrt-roadmap .cvrt-section-kicker {
+  color: #C9A45B;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+#cvrt-roadmap .cvrt-section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 38px;
+  line-height: 1.08;
+  color: inherit;
+  margin-bottom: 22px;
+}
+
+#cvrt-roadmap .cvrt-killer-list {
+  list-style: none;
+  display: grid;
+  gap: 13px;
+}
+
+#cvrt-roadmap .cvrt-killer-list li {
+  color: rgba(255,255,255,0.84);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+#cvrt-roadmap .cvrt-source-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+#cvrt-roadmap .cvrt-source-chip {
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 18px 16px;
+  color: #171615;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(32,29,25,0.07);
+}
+
+#cvrt-roadmap .cvrt-source-block {
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 32px 38px;
+  box-shadow: 0 12px 32px rgba(32,29,25,0.08);
+  margin-bottom: 18px;
+}
+
+#cvrt-roadmap .cvrt-source-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #171615;
+  margin-bottom: 14px;
+}
+
+#cvrt-roadmap .cvrt-source-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+#cvrt-roadmap .cvrt-source-list li {
+  color: #312E2A;
+  font-size: 15px;
+  line-height: 1.68;
+  font-weight: 500;
+}
+
+#cvrt-roadmap .cvrt-footer {
+  padding: 28px 24px 36px;
+  background: #181716;
+  color: rgba(255,255,255,0.62);
+  text-align: center;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 920px) {
+  #cvrt-roadmap .cvrt-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  #cvrt-roadmap .cvrt-hero-copy {
+    min-height: 430px;
+    padding: 42px 28px 34px;
+  }
+  #cvrt-roadmap .cvrt-logo {
+    margin-bottom: 46px;
+  }
+  #cvrt-roadmap .cvrt-title {
+    font-size: 54px;
+  }
+  #cvrt-roadmap .cvrt-hero-image-wrap {
+    min-height: 280px;
+  }
+  #cvrt-roadmap .cvrt-tabs {
+    justify-content: stretch;
+  }
+  #cvrt-roadmap .cvrt-tab-label {
+    min-width: 0;
+    flex: 1;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  #cvrt-roadmap .cvrt-source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  #cvrt-roadmap .cvrt-panel-tests,
+  #cvrt-roadmap .cvrt-panel-insights {
+    padding: 30px 14px 48px;
+  }
+  #cvrt-roadmap .cvrt-slot-copy,
+  #cvrt-roadmap .cvrt-insights-intro,
+  #cvrt-roadmap .cvrt-source-block {
+    padding: 28px 22px;
+  }
+  #cvrt-roadmap .cvrt-wireframe {
+    padding: 18px 14px 22px;
+  }
+  #cvrt-roadmap .cvrt-slot-title {
+    font-size: 34px;
+  }
+  #cvrt-roadmap .cvrt-section-title {
+    font-size: 32px;
+  }
+  #cvrt-roadmap .cvrt-source-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  #cvrt-roadmap {
+    width: 100%;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #cvrt-roadmap .cvrt-slot,
+  #cvrt-roadmap .cvrt-insights-intro,
+  #cvrt-roadmap .cvrt-source-block,
+  #cvrt-roadmap .cvrt-source-chip {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  #cvrt-roadmap .cvrt-hero {
+    min-height: auto;
+  }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" id="cvrt-tab-tests" name="cvrt-tabs" checked>
+  <input class="cvrt-tab-input" type="radio" id="cvrt-tab-insights" name="cvrt-tabs">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://sofasexclusive.com/cdn/shop/files/logo_new123.png?v=1764989446&width=225" alt="Sofas Exclusive">
+        <div class="cvrt-eyebrow">CRO Testing Roadmap</div>
+        <h1 class="cvrt-title">June 2026</h1>
+        <p class="cvrt-summary">Trust and decision clarity are the pressure points across the funnel. This roadmap focuses on the cart drawer, PDP buy box, and homepage hero because each surface creates friction at a high-intent moment while proof, CTA clarity, and AOV mechanics are missing or delayed.</p>
+      </div>
+      <div class="cvrt-hero-image-wrap">
+        <div class="cvrt-hero-image"></div>
+      </div>
+    </div>
+    <nav class="cvrt-tabs" aria-label="Roadmap tabs">
+      <label class="cvrt-tab-label cvrt-tab-label-tests" for="cvrt-tab-tests">Tests</label>
+      <label class="cvrt-tab-label cvrt-tab-label-insights" for="cvrt-tab-insights">Data Insights</label>
+    </nav>
+  </section>
+
+  <section class="cvrt-panel-tests">
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-number">Slot 1</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Cart Drawer</h2>
+        <div class="cvrt-slot-page">Cart drawer</div>
+        <p class="cvrt-slot-desc">The cart drawer has a large empty section between the line item and subtotal, with no threshold bar, cross-sell, bundle prompt, or promotional message. The announcement bar says free shipping is available, but the cart does not reinforce it at the moment every order passes through.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 960 500" role="img" aria-label="Cart drawer current versus variation wireframe">
+          <rect x="0" y="0" width="960" height="500" rx="4" fill="#FBFAF7"/>
+          <text x="40" y="42" fill="#171615" font-size="22" font-weight="800">Current</text>
+          <text x="520" y="42" fill="#171615" font-size="22" font-weight="800">Variation</text>
+          <rect x="40" y="68" width="390" height="382" rx="14" fill="#FFFFFF" stroke="#A9A096" stroke-width="2" stroke-dasharray="7 7"/>
+          <rect x="520" y="68" width="390" height="382" rx="14" fill="#FFFFFF" stroke="#A9A096" stroke-width="2" stroke-dasharray="7 7"/>
+          <text x="64" y="104" fill="#171615" font-size="18" font-weight="800">Cart 1 item</text>
+          <text x="544" y="104" fill="#171615" font-size="18" font-weight="800">Cart 1 item</text>
+          <rect x="64" y="128" width="70" height="70" rx="6" fill="#E3DED5"/>
+          <rect x="544" y="128" width="70" height="70" rx="6" fill="#E3DED5"/>
+          <text x="148" y="150" fill="#171615" font-size="16" font-weight="800">THE VOLOS Chair</text>
+          <text x="148" y="176" fill="#171615" font-size="15" font-weight="700">USD 278.00</text>
+          <text x="628" y="150" fill="#171615" font-size="16" font-weight="800">THE VOLOS Chair</text>
+          <text x="628" y="176" fill="#171615" font-size="15" font-weight="700">USD 278.00</text>
+          <rect x="148" y="206" width="96" height="32" rx="4" fill="#F6F4EF" stroke="#BEB5AA" stroke-width="1.5"/>
+          <text x="171" y="228" fill="#171615" font-size="15" font-weight="800">- 1 +</text>
+          <rect x="628" y="206" width="96" height="32" rx="4" fill="#F6F4EF" stroke="#BEB5AA" stroke-width="1.5"/>
+          <text x="651" y="228" fill="#171615" font-size="15" font-weight="800">- 1 +</text>
+          <rect x="64" y="264" width="342" height="86" rx="8" fill="#F3F0EA" stroke="#C9A45B" stroke-width="2" stroke-dasharray="7 7"/>
+          <line x1="88" y1="307" x2="382" y2="307" stroke="#C9A45B" stroke-width="3" stroke-dasharray="8 8"/>
+          <text x="112" y="300" fill="#171615" font-size="17" font-weight="800">Empty revenue space</text>
+          <text x="100" y="328" fill="#171615" font-size="15" font-weight="700">No threshold or cross-sell</text>
+          <rect x="544" y="258" width="342" height="58" rx="8" fill="#F2E9D6" stroke="#C9A45B" stroke-width="2"/>
+          <text x="568" y="282" fill="#171615" font-size="16" font-weight="800">Free shipping progress</text>
+          <rect x="568" y="294" width="252" height="8" rx="4" fill="#D6C9B5"/>
+          <rect x="568" y="294" width="154" height="8" rx="4" fill="#C9A45B"/>
+          <rect x="544" y="330" width="342" height="72" rx="8" fill="#FFFFFF" stroke="#C9A45B" stroke-width="2" stroke-dasharray="7 7"/>
+          <rect x="564" y="348" width="46" height="38" rx="4" fill="#E3DED5"/>
+          <text x="626" y="358" fill="#171615" font-size="15" font-weight="800">One complementary item</text>
+          <rect x="754" y="364" width="106" height="26" rx="3" fill="#181716"/>
+          <text x="780" y="382" fill="#FFFFFF" font-size="13" font-weight="800">Add</text>
+          <text x="64" y="394" fill="#171615" font-size="16" font-weight="800">Subtotal: $278.00 USD</text>
+          <text x="544" y="426" fill="#171615" font-size="16" font-weight="800">Subtotal: $278.00 USD</text>
+          <rect x="64" y="414" width="342" height="36" rx="4" fill="#181716"/>
+          <text x="159" y="438" fill="#FFFFFF" font-size="15" font-weight="800">GO TO CHECKOUT</text>
+          <rect x="544" y="444" width="342" height="36" rx="4" fill="#181716"/>
+          <text x="639" y="468" fill="#FFFFFF" font-size="15" font-weight="800">GO TO CHECKOUT</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-number">Slot 2</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">PDP Buy Box</h2>
+        <div class="cvrt-slot-page"><a href="https://sofasexclusive.com/products/the-volos-chair" target="_blank" rel="noopener">Product Detail Page</a></div>
+        <p class="cvrt-slot-desc">On the Volos Chair PDP, the trust icons sit below both purchase buttons, and no reviews appear in the first three captured folds. The installment line is present but small, even though products span $278 to $5,992 and payment reassurance matters before the buy decision.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 960 520" role="img" aria-label="PDP buy box current versus variation wireframe">
+          <rect x="0" y="0" width="960" height="520" rx="4" fill="#FBFAF7"/>
+          <text x="40" y="42" fill="#171615" font-size="22" font-weight="800">Current</text>
+          <text x="520" y="42" fill="#171615" font-size="22" font-weight="800">Variation</text>
+          <rect x="40" y="70" width="390" height="400" rx="14" fill="#FFFFFF" stroke="#A9A096" stroke-width="2" stroke-dasharray="7 7"/>
+          <rect x="520" y="70" width="390" height="400" rx="14" fill="#FFFFFF" stroke="#A9A096" stroke-width="2" stroke-dasharray="7 7"/>
+          <text x="68" y="112" fill="#171615" font-size="16" font-weight="800">THE VOLOS Chair</text>
+          <text x="68" y="146" fill="#171615" font-size="22" font-weight="800">USD 278.00</text>
+          <text x="68" y="178" fill="#171615" font-size="14" font-weight="700">4 interest-free installments</text>
+          <text x="68" y="200" fill="#171615" font-size="14" font-weight="700">or from $25.09/mo</text>
+          <rect x="68" y="226" width="116" height="38" rx="4" fill="#F6F4EF" stroke="#BEB5AA" stroke-width="1.5"/>
+          <text x="96" y="251" fill="#171615" font-size="16" font-weight="800">- 1 +</text>
+          <rect x="68" y="282" width="316" height="42" rx="4" fill="#181716"/>
+          <text x="168" y="309" fill="#FFFFFF" font-size="15" font-weight="800">ADD TO CART</text>
+          <rect x="68" y="336" width="316" height="42" rx="4" fill="#5A31F4"/>
+          <text x="173" y="363" fill="#FFFFFF" font-size="15" font-weight="800">Buy with SHOP</text>
+          <text x="68" y="410" fill="#171615" font-size="15" font-weight="800">17 in Stock Now</text>
+          <rect x="68" y="430" width="316" height="26" rx="5" fill="#F3F0EA" stroke="#C9A45B" stroke-width="2" stroke-dasharray="6 6"/>
+          <text x="97" y="449" fill="#171615" font-size="13" font-weight="800">Trust icons arrive below CTAs</text>
+          <text x="548" y="112" fill="#171615" font-size="16" font-weight="800">THE VOLOS Chair</text>
+          <text x="548" y="146" fill="#171615" font-size="22" font-weight="800">USD 278.00</text>
+          <rect x="548" y="166" width="316" height="56" rx="8" fill="#F2E9D6" stroke="#C9A45B" stroke-width="2"/>
+          <text x="570" y="188" fill="#171615" font-size="16" font-weight="800">4 interest-free installments</text>
+          <text x="570" y="210" fill="#171615" font-size="16" font-weight="800">or from $25.09/mo</text>
+          <rect x="548" y="238" width="316" height="74" rx="8" fill="#FFFFFF" stroke="#C9A45B" stroke-width="2" stroke-dasharray="7 7"/>
+          <text x="572" y="262" fill="#171615" font-size="13" font-weight="800">Nationwide Shipping</text>
+          <text x="716" y="262" fill="#171615" font-size="13" font-weight="800">Premium Quality</text>
+          <text x="572" y="292" fill="#171615" font-size="13" font-weight="800">Dedicated Support</text>
+          <text x="716" y="292" fill="#171615" font-size="13" font-weight="800">Secure Checkout</text>
+          <rect x="548" y="334" width="116" height="38" rx="4" fill="#F6F4EF" stroke="#BEB5AA" stroke-width="1.5"/>
+          <text x="576" y="359" fill="#171615" font-size="16" font-weight="800">- 1 +</text>
+          <rect x="548" y="390" width="316" height="42" rx="4" fill="#181716"/>
+          <text x="648" y="417" fill="#FFFFFF" font-size="15" font-weight="800">ADD TO CART</text>
+          <rect x="548" y="446" width="316" height="42" rx="4" fill="#5A31F4"/>
+          <text x="653" y="473" fill="#FFFFFF" font-size="15" font-weight="800">Buy with SHOP</text>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-number">Slot 3</span>
+          <span class="cvrt-slot-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Homepage Hero</h2>
+        <div class="cvrt-slot-page"><a href="https://sofasexclusive.com/" target="_blank" rel="noopener">Homepage</a></div>
+        <p class="cvrt-slot-desc">The homepage hero shows two side-by-side buttons with identical size, color, weight, and styling: VIEW MORE and SHOP NOW. Neither label clarifies the destination, so the first purchase path asks visitors to choose between two visually equal actions.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 960 500" role="img" aria-label="Homepage hero CTA current versus variation wireframe">
+          <rect x="0" y="0" width="960" height="500" rx="4" fill="#FBFAF7"/>
+          <text x="40" y="42" fill="#171615" font-size="22" font-weight="800">Current</text>
+          <text x="520" y="42" fill="#171615" font-size="22" font-weight="800">Variation</text>
+          <rect x="40" y="70" width="390" height="360" rx="14" fill="#FFFFFF" stroke="#A9A096" stroke-width="2" stroke-dasharray="7 7"/>
+          <rect x="520" y="70" width="390" height="360" rx="14" fill="#FFFFFF" stroke="#A9A096" stroke-width="2" stroke-dasharray="7 7"/>
+          <rect x="64" y="96" width="342" height="200" rx="10" fill="#221F1C"/>
+          <path d="M64 246 C142 210 222 228 310 194 C352 178 380 188 406 174 L406 296 L64 296 Z" fill="#4A3A2F"/>
+          <text x="164" y="166" fill="#FFFFFF" font-size="24" font-weight="800">Lounge in Luxury</text>
+          <text x="135" y="198" fill="#FFFFFF" font-size="14" font-weight="700">Experience furniture crafted</text>
+          <rect x="124" y="226" width="106" height="34" rx="2" fill="#FFFFFF"/>
+          <rect x="244" y="226" width="106" height="34" rx="2" fill="#FFFFFF"/>
+          <text x="149" y="248" fill="#171615" font-size="12" font-weight="800">VIEW MORE</text>
+          <text x="270" y="248" fill="#171615" font-size="12" font-weight="800">SHOP NOW</text>
+          <rect x="106" y="318" width="258" height="62" rx="8" fill="#F3F0EA" stroke="#C9A45B" stroke-width="2" stroke-dasharray="7 7"/>
+          <text x="138" y="344" fill="#171615" font-size="17" font-weight="800">Two equal CTAs</text>
+          <text x="112" y="369" fill="#171615" font-size="15" font-weight="700">No hierarchy or destination clarity</text>
+          <rect x="544" y="96" width="342" height="200" rx="10" fill="#221F1C"/>
+          <path d="M544 246 C622 210 702 228 790 194 C832 178 860 188 886 174 L886 296 L544 296 Z" fill="#4A3A2F"/>
+          <text x="644" y="166" fill="#FFFFFF" font-size="24" font-weight="800">Lounge in Luxury</text>
+          <text x="615" y="198" fill="#FFFFFF" font-size="14" font-weight="700">Experience furniture crafted</text>
+          <rect x="644" y="226" width="142" height="38" rx="2" fill="#C9A45B"/>
+          <text x="681" y="251" fill="#171615" font-size="13" font-weight="800">Shop Sofas</text>
+          <rect x="594" y="318" width="240" height="62" rx="8" fill="#F2E9D6" stroke="#C9A45B" stroke-width="2"/>
+          <text x="640" y="344" fill="#171615" font-size="17" font-weight="800">One primary CTA</text>
+          <text x="625" y="369" fill="#171615" font-size="15" font-weight="700">Clear product path from hero</text>
+          <line x1="426" y1="238" x2="520" y2="238" stroke="#C9A45B" stroke-width="3" stroke-dasharray="8 8"/>
+          <path d="M510 229 L525 238 L510 247" fill="none" stroke="#C9A45B" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-panel-insights">
+    <div class="cvrt-insights-intro">
+      <div class="cvrt-section-kicker">Highest Confidence Themes</div>
+      <h2 class="cvrt-section-title">Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li>Trust is weak or delayed across the journey: 11 reviews on the homepage, a 2-star Dakota product rating in the collection grid, no reviews visible in three PDP folds, and trust icons below the buy box.</li>
+        <li>Mobile performance limits paid traffic returns. Homepage TTI is 24.3s, and the Volos Chair PDP returned a 30.8s incomplete TTI result.</li>
+        <li>The cart drawer has no AOV mechanics. There is no threshold bar, no cross-sell, no bundle prompt, and no promotional message between the line item and checkout.</li>
+        <li>Premium ad messaging does not cleanly match the shopping experience. Ads lean aspirational, while Best Selling surfaces the $278 Volos Chair first in a collection with products up to $5,992.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-source-grid" aria-label="Data sources used">
+      <div class="cvrt-source-chip">Google Ads</div>
+      <div class="cvrt-source-chip">PageSpeed and Core Web Vitals</div>
+      <div class="cvrt-source-chip">Site Screenshots</div>
+      <div class="cvrt-source-chip">Live Site Fetch</div>
+    </div>
+
+    <article class="cvrt-source-block">
+      <h3 class="cvrt-source-title">Google Ads</h3>
+      <ul class="cvrt-source-list">
+        <li>Seven or more search text ads and multiple Shopping cards were visible, with product-specific, category, brand, and feature-led messages running at the same time.</li>
+        <li>One ad mentions free shipping. No visible ad uses discount, sale, percent-off, or Shop Pay installment messaging.</li>
+        <li>Theodore Sofa copy uses aspirational language around sophistication and exploration, while the live collection experience can lead with a $278 product anchor.</li>
+      </ul>
+    </article>
+
+    <article class="cvrt-source-block">
+      <h3 class="cvrt-source-title">PageSpeed and Core Web Vitals</h3>
+      <ul class="cvrt-source-list">
+        <li>The homepage scored 53/100 on mobile, with 7.5s LCP, 11.5s Speed Index, 24.3s TTI, and 0.163 CLS.</li>
+        <li>The Volos Chair PDP scored 65/100 on mobile, with 6.5s LCP, 6.4s Speed Index, 30.8s TTI, and 0.101 CLS.</li>
+        <li>The PDP Lighthouse run warned that the page loaded too slowly to finish within the time limit, so the 30.8s TTI result may understate the real number.</li>
+        <li>Homepage CLS sits in the needs-improvement band, meaning visible layout shifts are part of the first impression.</li>
+      </ul>
+    </article>
+
+    <article class="cvrt-source-block">
+      <h3 class="cvrt-source-title">Site Screenshots</h3>
+      <ul class="cvrt-source-list">
+        <li>The homepage hero uses two identical white CTAs, VIEW MORE and SHOP NOW, with no visual hierarchy or destination clarity.</li>
+        <li>The customer proof section shows 4.91 stars from 11 reviews and a single testimonial carousel from Stephan W. about the Aphrodite Loveseat.</li>
+        <li>The collection page shows 43 results, a $278 to $5,992 price range, and a visible 2-star rating on THE DAKOTA card with no review count.</li>
+        <li>The Volos Chair PDP shows price, installment text, quantity, ADD TO CART, Buy with SHOP, and 17 in Stock Now before the trust icons appear below the buy box.</li>
+      </ul>
+    </article>
+
+    <article class="cvrt-source-block">
+      <h3 class="cvrt-source-title">Live Site Fetch</h3>
+      <ul class="cvrt-source-list">
+        <li>The live site confirms 4.91 stars from 11 reviews in a high-visibility homepage area.</li>
+        <li>The cart drawer has a single line item, subtotal, taxes and shipping note, GO TO CHECKOUT, and GO TO CART, with no free shipping threshold or cross-sell mechanic.</li>
+        <li>The site-wide announcement mentions shipping, but the cart drawer does not use that offer as a threshold incentive.</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer class="cvrt-footer">June 2026</footer>
+</div>

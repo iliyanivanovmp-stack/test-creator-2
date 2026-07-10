@@ -5,7 +5,7 @@ description: Convert a CRO roadmap markdown file into a branded, Shopify-ready H
 
 You are converting a CRO testing roadmap from a detailed internal execution format into a branded, client-facing HTML concept pitch that can be pasted directly into a Shopify page. The HTML version is what the client sees. The markdown stays internal.
 
-The goal: the client scans the HTML in 60 seconds, understands which pages/components we want to test and what data backs each decision. This is a concept-level overview, not a test spec. We show the "what" and "why," not the "how." The client can then approve, reject, or swap concepts before we invest effort building the actual tests.
+The goal: the client scans the HTML in 60 seconds, understands which pages/components we want to test and what data backs each decision. This is a concept-level overview, not a test spec. We show the "what" and "why," not the "how." The client can then review or swap ideas before we invest effort building the actual tests.
 
 ## Step 1: Collect Inputs
 
@@ -72,9 +72,17 @@ The Data Insights tab should be insightful but scannable. A client should be abl
 
 **Content rules:**
 - No em dashes. Use periods, commas, or colons.
+- Never mention approval, concepts for approval, approval status, requests for approval, or approval of any kind anywhere in the client-facing HTML. Present the roadmap as testing ideas for client review.
 - Every word earns its place. No filler, no hedging, no fluff.
 - Direct, active voice. Short sentences.
 - **No bold text in body paragraphs.** Only headings and slot labels may be bold. Never bold a sentence or phrase inside a paragraph. This is a hard rule with no exceptions.
+- When rendering subscription or auto-replenishment wireframes, preserve the full benefit-stack copy from the roadmap. Do not reduce broader subscriber-benefit language to only "Includes free shipping."
+
+**Client-facing acquisition-source rules:**
+- Do not expose internal ad indexing or campaign enumeration in the HTML. Never write labels like "Ad 1", "Ad 2", "Ad 3", "Meta Ad 3", "2 of 3 ads", "three ads", or similar ordinal/count language in slot descriptions, executive summaries, Data Insights bullets, SVG labels, or any other client-facing copy.
+- The Data Insights tab may list "Meta Ads and Landing Pages" as a data source when that source was collected, but the findings must be summarized in plain client-facing terms such as "paid-social creative", "offer-focused traffic", "discount traffic", or "code-based offers".
+- The Tests tab must not mention Meta ads, ad numbers, campaign numbers, or platform-specific ad labels. Use the customer-facing promise or traffic intent instead, e.g. "offer-focused paid traffic arrives with SWEET15" rather than "Meta Ad 3 promises SWEET15".
+- If the source material uses ad numbers, translate them before writing the HTML. Keep the factual claim, remove the internal label.
 
 ## Step 4: Generate HTML
 
@@ -176,6 +184,26 @@ Add a reset block at the top of the `<style>` to strip inherited theme styles:
 }
 ```
 
+When using `<ul>`, `<ol>`, or `<li>` for Data Insights or any other roadmap copy, also reset list styling and theme pseudo-elements inside `#cvrt-roadmap`. Shopify themes often add custom `li::before` markers, colored dashes, or decorative bullets that survive `list-style: none` and appear as tiny marks at the start of each point. Include scoped rules like:
+```css
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li {
+  list-style: none;
+}
+#cvrt-roadmap li::marker {
+  content: "";
+}
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important;
+  display: none !important;
+}
+```
+Do not use decorative bullets, colored dashes, checkmarks, or single-character pseudo-elements before Data Insights list items unless the user explicitly asks for them.
+
 ### Structural Requirements
 
 These are the content and layout requirements. The visual styling comes from the frontend-design skill and the brand's visual identity. Keep the structure stable enough to scan, but let the visual treatment vary with the brand.
@@ -213,7 +241,7 @@ These are the content and layout requirements. The visual styling comes from the
 **SVG pre-planning.** Before writing each SVG, silently define:
 
 1. the real page surface being changed
-2. the exact proposed variation the client is being asked to approve
+2. the exact proposed variation being presented to the client
 3. whether the clearest composition is current-vs-variation, a path/funnel, or a single annotated component
 4. the concrete source-backed UI labels, metrics, coupon codes, prices, ratings, selectors, CTAs, or error messages that should appear
 5. the minimum surrounding UI needed to establish context
@@ -327,6 +355,7 @@ Before saving, verify silently:
 - [ ] SVG caption ("* Concept illustration only. Final design will differ.") is black or near-black, not gray or muted
 - [ ] Data Insights tab: "Biggest Killers of Conversion Rate" section appears at the top, before data sources and per-source findings
 - [ ] "Biggest Killers of Conversion Rate" is the strongest visual block in Data Insights
+- [ ] Data Insights lists have no theme-injected bullets, tiny colored dashes, checkmarks, or decorative `li::before` markers. Reset `ul`, `ol`, `li`, `li::marker`, and Data Insights list `li::before`/`li::after` inside `#cvrt-roadmap`
 - [ ] Data sources are easy to scan, and per-source findings are not forced into cramped columns
 - [ ] Slot cards: text above, SVG below (single column, SVG spans full card width)
 - [ ] Slot cards share one coherent card language with clear separation between copy and SVG areas

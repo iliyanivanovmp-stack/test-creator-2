@@ -1,0 +1,1025 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   EUREKA PET — CRO TESTING ROADMAP — JUNE 2026
+   ================================================================ */
+
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3, #cvrt-roadmap h4,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div,
+#cvrt-roadmap ul, #cvrt-roadmap li, #cvrt-roadmap a, #cvrt-roadmap label {
+  font-family: inherit; font-size: inherit; font-weight: inherit;
+  color: inherit; margin: 0; padding: 0;
+  text-decoration: none; list-style: none;
+}
+
+#cvrt-roadmap {
+  --amber:        #F0A200;
+  --amber-light:  #FEF3D4;
+  --amber-dark:   #C87F00;
+  --cream:        #FAF7F0;
+  --paper:        #F4F0E7;
+  --charcoal:     #2D2B27;
+  --ink:          #1A1814;
+  --mid:          #6B5C47;
+  --border:       rgba(45,43,39,0.13);
+  --shadow-sm:    0 1px 8px rgba(45,43,39,0.06);
+
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CSS Tab Switch */
+#cvrt-roadmap .cvrt-sr-tab {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+  pointer-events: none;
+}
+
+#cvrt-roadmap .cvrt-panel { display: none; }
+#cvrt-radio-tests:checked ~ .cvrt-panel-tests { display: block; }
+#cvrt-radio-insights:checked ~ .cvrt-panel-insights { display: block; }
+
+#cvrt-radio-tests:checked ~ .cvrt-hero .cvrt-tab[for="cvrt-radio-tests"],
+#cvrt-radio-insights:checked ~ .cvrt-hero .cvrt-tab[for="cvrt-radio-insights"] {
+  color: #FAF7F0;
+  border-bottom-color: var(--amber);
+}
+
+/* HERO */
+#cvrt-roadmap .cvrt-hero {
+  background: var(--charcoal);
+  position: relative;
+}
+
+#cvrt-roadmap .cvrt-hero-header {
+  background: var(--cream);
+  padding: 14px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#cvrt-roadmap .cvrt-logo {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+#cvrt-roadmap .cvrt-header-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.07em;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 14px;
+}
+
+#cvrt-roadmap .cvrt-hero-body {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  min-height: 400px;
+}
+
+#cvrt-roadmap .cvrt-hero-left {
+  padding: 68px 56px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#cvrt-roadmap .cvrt-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--amber);
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+  display: block;
+}
+
+#cvrt-roadmap .cvrt-hero-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 0.97;
+  color: #FAF7F0;
+  margin-bottom: 32px;
+  font-optical-sizing: auto;
+}
+
+#cvrt-roadmap .cvrt-hero-summary {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #FAF7F0;
+  max-width: 500px;
+}
+
+#cvrt-roadmap .cvrt-hero-right {
+  background: var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 68px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-hero-right::after {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(45,43,39,0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#cvrt-roadmap .cvrt-manifesto {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.1;
+  color: var(--charcoal);
+  font-optical-sizing: auto;
+  position: relative;
+  z-index: 1;
+}
+
+#cvrt-roadmap .cvrt-tab-nav {
+  display: flex;
+  padding: 0 56px;
+  border-top: 1px solid rgba(250,247,240,0.12);
+}
+
+#cvrt-roadmap .cvrt-tab {
+  font-size: 14px;
+  font-weight: 500;
+  color: #C5BDB3;
+  padding: 17px 28px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  display: inline-block;
+}
+
+#cvrt-roadmap .cvrt-tab:hover { color: #FAF7F0; }
+
+/* WAVE DIVIDER */
+#cvrt-roadmap .cvrt-wave-divider {
+  display: block;
+  width: 100%;
+  background: var(--charcoal);
+  line-height: 0;
+  overflow: hidden;
+}
+#cvrt-roadmap .cvrt-wave-divider svg { display: block; width: 100%; height: 80px; }
+
+/* PANELS */
+#cvrt-roadmap .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-panel-insights {
+  background: var(--cream);
+  padding: 60px 20px 80px;
+}
+
+/* SLOT CARD */
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-slot-text {
+  padding: 36px 40px 28px;
+  max-width: 640px;
+}
+
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+#cvrt-roadmap .cvrt-slot-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+}
+
+#cvrt-roadmap .cvrt-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--charcoal);
+  background: var(--amber-light);
+  border: 1px solid rgba(240,162,0,0.35);
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+#cvrt-roadmap .cvrt-slot h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-optical-sizing: auto;
+}
+
+#cvrt-roadmap .cvrt-slot-page {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mid);
+  margin-bottom: 14px;
+  display: block;
+}
+
+#cvrt-roadmap .cvrt-slot-page a {
+  color: var(--amber-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#cvrt-roadmap .cvrt-slot-text p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+#cvrt-roadmap .cvrt-svg-area {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+}
+
+#cvrt-roadmap .cvrt-svg-area svg { display: block; width: 100%; }
+
+#cvrt-roadmap .cvrt-svg-caption {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink);
+  padding: 10px 20px 14px;
+  display: block;
+}
+
+/* DATA INSIGHTS */
+#cvrt-roadmap .cvrt-killers {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 56px;
+  background: var(--charcoal);
+  border-radius: 14px;
+  padding: 52px 56px;
+}
+
+#cvrt-roadmap .cvrt-killers-heading {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.25;
+  color: var(--amber);
+  margin-bottom: 36px;
+  font-optical-sizing: auto;
+}
+
+#cvrt-roadmap .cvrt-killers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+#cvrt-roadmap .cvrt-killer {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+#cvrt-roadmap .cvrt-killer-n {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--amber);
+  font-optical-sizing: auto;
+}
+
+#cvrt-roadmap .cvrt-killer-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #FAF7F0;
+  padding-top: 5px;
+}
+
+#cvrt-roadmap .cvrt-insights-section {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 52px;
+}
+
+#cvrt-roadmap .cvrt-section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--ink);
+  margin-bottom: 20px;
+  font-optical-sizing: auto;
+}
+
+#cvrt-roadmap .cvrt-sources-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#cvrt-roadmap .cvrt-source-chip {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+#cvrt-roadmap .cvrt-finding-block {
+  padding-bottom: 36px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+}
+
+#cvrt-roadmap .cvrt-finding-block:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+#cvrt-roadmap .cvrt-finding-source {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.09em;
+  margin-bottom: 14px;
+  display: block;
+}
+
+#cvrt-roadmap .cvrt-finding-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#cvrt-roadmap .cvrt-fi {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink);
+  padding-left: 20px;
+  position: relative;
+}
+
+#cvrt-roadmap .cvrt-fi::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+/* FOOTER */
+#cvrt-roadmap .cvrt-footer {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  padding: 28px;
+  text-align: center;
+}
+
+#cvrt-roadmap .cvrt-footer p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #cvrt-roadmap .cvrt-hero-header { padding: 12px 20px; }
+  #cvrt-roadmap .cvrt-hero-body { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-left { padding: 48px 24px 40px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: 48px; }
+  #cvrt-roadmap .cvrt-hero-right { padding: 40px 24px; min-height: 160px; }
+  #cvrt-roadmap .cvrt-manifesto { font-size: 34px; }
+  #cvrt-roadmap .cvrt-tab-nav { padding: 0 20px; }
+  #cvrt-roadmap .cvrt-tab { padding: 14px 16px; font-size: 13px; }
+  #cvrt-roadmap .cvrt-panel-tests,
+  #cvrt-roadmap .cvrt-panel-insights { padding: 40px 12px 60px; }
+  #cvrt-roadmap .cvrt-slot-text { padding: 24px 20px 20px; max-width: 100%; }
+  #cvrt-roadmap .cvrt-slot h3 { font-size: 19px; }
+  #cvrt-roadmap .cvrt-killers { padding: 36px 24px; }
+  #cvrt-roadmap .cvrt-killers-heading { font-size: 24px; }
+  #cvrt-roadmap .cvrt-killer-n { font-size: 24px; }
+}
+
+@media print {
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-slot { box-shadow: none; break-inside: avoid; page-break-inside: avoid; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+
+  <input class="cvrt-sr-tab" type="radio" name="cvrt-tab-sel" id="cvrt-radio-tests" checked>
+  <input class="cvrt-sr-tab" type="radio" name="cvrt-tab-sel" id="cvrt-radio-insights">
+
+  <!-- HERO -->
+  <div class="cvrt-hero">
+    <div class="cvrt-hero-header">
+      <img class="cvrt-logo" src="https://eurekapet.co/cdn/shop/files/Eureka_WordMark-01.svg?v=1687847999&width=180" alt="Eureka Pet" loading="eager">
+      <span class="cvrt-header-badge">CRO Testing Roadmap</span>
+    </div>
+
+    <div class="cvrt-hero-body">
+      <div class="cvrt-hero-left">
+        <span class="cvrt-hero-eyebrow">JUNE 2026</span>
+        <h1 class="cvrt-hero-title">Conversion<br>Research</h1>
+        <p class="cvrt-hero-summary">Price sensitivity and a thin post-click funnel are the two forces limiting Eureka Pet's conversion performance. The $6 Taste Tester drives the most new customer volume of any funnel, but the page and cart following that click have no subscription path, no free shipping signal, and no AOV optimization. The homepage, which receives paid search intent traffic, offers a single low-commitment CTA and no social proof above the fold.</p>
+      </div>
+      <div class="cvrt-hero-right">
+        <p class="cvrt-manifesto">No fillers.<br>No preservatives.<br>No nonsense.</p>
+      </div>
+    </div>
+
+    <nav class="cvrt-tab-nav" aria-label="Roadmap sections">
+      <label class="cvrt-tab" for="cvrt-radio-tests">Tests</label>
+      <label class="cvrt-tab" for="cvrt-radio-insights">Data Insights</label>
+    </nav>
+  </div>
+
+  <!-- Wave Divider -->
+  <div class="cvrt-wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1440" height="80" fill="#2D2B27"/>
+      <path d="M0,32 C180,72 360,8 540,38 C720,68 900,8 1080,38 C1260,68 1350,18 1440,36 L1440,80 L0,80 Z" fill="#FAF7F0"/>
+    </svg>
+  </div>
+
+  <!-- TESTS PANEL -->
+  <div class="cvrt-panel cvrt-panel-tests">
+
+    <!-- Slot 1 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 1</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Homepage Hero — CTA Upgrade</h3>
+        <span class="cvrt-slot-page">Page: <a href="https://eurekapet.co/" target="_blank" rel="noopener">eurekapet.co homepage</a></span>
+        <p>The only above-fold CTA on the homepage is an outline "Discover More" button with no product, price, or social proof visible. Google Ads sends intent-based search traffic to this page, and the Ad 1 landing page already runs a filled "Try a Sample - $6" CTA with a star ratings bar in the same hero position.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 330" style="display:block;width:100%;">
+          <rect width="840" height="330" fill="#F4F0E7"/>
+          <rect x="0" y="0" width="840" height="26" fill="#E2DDD5"/>
+          <circle cx="18" cy="13" r="4" fill="#C8C3BA"/>
+          <circle cx="34" cy="13" r="4" fill="#C8C3BA"/>
+          <circle cx="50" cy="13" r="4" fill="#C8C3BA"/>
+          <rect x="78" y="5" width="200" height="16" fill="#FAF7F0" rx="8"/>
+          <text x="178" y="17" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5C47" text-anchor="middle">eurekapet.co</text>
+          <!-- Left hero column -->
+          <rect x="24" y="40" width="382" height="272" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <rect x="42" y="60" width="198" height="12" fill="#2D2B27" rx="2"/>
+          <rect x="42" y="80" width="172" height="12" fill="#2D2B27" rx="2"/>
+          <rect x="42" y="100" width="150" height="12" fill="#2D2B27" rx="2"/>
+          <rect x="42" y="124" width="220" height="7" fill="#6B5C47" rx="2"/>
+          <rect x="42" y="138" width="188" height="7" fill="#6B5C47" rx="2"/>
+          <!-- Filled amber primary CTA -->
+          <rect x="42" y="158" width="152" height="34" fill="#F0A200" rx="6"/>
+          <text x="118" y="179" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814" text-anchor="middle">Try a Sample - $6</text>
+          <!-- Outline secondary CTA -->
+          <rect x="204" y="158" width="150" height="34" fill="none" stroke="#2D2B27" stroke-width="1.5" rx="6"/>
+          <text x="279" y="179" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814" text-anchor="middle">Shop the Recipes</text>
+          <!-- Star rating bar -->
+          <rect x="42" y="204" width="296" height="26" fill="#FEF3D4" rx="5"/>
+          <text x="58" y="221" font-family="DM Sans, sans-serif" font-size="13" fill="#F0A200">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="138" y="221" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814">4.8 | 6,000+ Happy Dogs</text>
+          <!-- NEW annotation -->
+          <rect x="42" y="244" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="62" y="255" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <text x="90" y="255" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814">Filled CTA, secondary CTA, star rating bar added</text>
+          <!-- Right hero column: photo -->
+          <rect x="420" y="40" width="396" height="272" fill="#E2DDD5" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <line x1="420" y1="40" x2="816" y2="312" stroke="#CCC8C0" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="816" y1="40" x2="420" y2="312" stroke="#CCC8C0" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="618" y="170" font-family="DM Sans, sans-serif" font-size="13" fill="#6B5C47" text-anchor="middle">Lifestyle photo</text>
+          <text x="618" y="188" font-family="DM Sans, sans-serif" font-size="13" fill="#6B5C47" text-anchor="middle">(unchanged)</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 2 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 2</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Cart — Free Shipping Progress Bar</h3>
+        <span class="cvrt-slot-page">Page: Cart drawer</span>
+        <p>A $6 Taste Tester order sits $53 below the $59 free shipping threshold, and no indicator of that gap exists anywhere in the cart. The current cart has one static cross-sell with no price-to-threshold framing and no subscription touchpoint.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 360" style="display:block;width:100%;">
+          <rect width="840" height="360" fill="#F4F0E7"/>
+          <!-- Cart drawer frame -->
+          <rect x="240" y="20" width="360" height="324" fill="#FFFFFF" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="6"/>
+          <rect x="240" y="20" width="360" height="40" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="6 6 0 0"/>
+          <text x="420" y="44" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1A1814" text-anchor="middle">Your Cart</text>
+          <!-- Progress bar -->
+          <rect x="256" y="72" width="328" height="36" fill="#FEF3D4" stroke="#F0A200" stroke-width="1.5" rx="5"/>
+          <!-- NEW badge -->
+          <rect x="244" y="64" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="264" y="75" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <rect x="262" y="80" width="320" height="12" fill="#E8E3D8" rx="3"/>
+          <rect x="262" y="80" width="33" height="12" fill="#F0A200" rx="3"/>
+          <text x="420" y="101" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814" text-anchor="middle">Add $53.00 for free shipping</text>
+          <!-- Line item -->
+          <rect x="256" y="118" width="328" height="68" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <rect x="268" y="130" width="44" height="44" fill="#E2DDD5" rx="3"/>
+          <text x="326" y="150" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814">Taste Tester Sample</text>
+          <text x="326" y="168" font-family="DM Sans, sans-serif" font-size="11" fill="#6B5C47">Qty: 1</text>
+          <text x="562" y="150" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1A1814" text-anchor="end">$6.00</text>
+          <!-- Divider -->
+          <line x1="256" y1="198" x2="584" y2="198" stroke="#E2DDD5" stroke-width="1"/>
+          <!-- Cross-sell -->
+          <text x="256" y="218" font-family="DM Sans, sans-serif" font-size="11" fill="#6B5C47">I'm even better with...</text>
+          <rect x="256" y="226" width="164" height="60" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <rect x="264" y="234" width="36" height="36" fill="#E2DDD5" rx="3"/>
+          <text x="308" y="252" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814">Cluckin Good Chews</text>
+          <text x="308" y="268" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814">$18.95</text>
+          <!-- Checkout -->
+          <rect x="256" y="300" width="328" height="28" fill="#2D2B27" rx="5"/>
+          <text x="420" y="318" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#FAF7F0" text-anchor="middle">Checkout - $6.00</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 3 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 3</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Taste Tester PDP — Subscribe &amp; Save Toggle</h3>
+        <span class="cvrt-slot-page">Page: <a href="https://eurekapet.co/products/natural-dog-food-sample" target="_blank" rel="noopener">Taste Tester PDP</a></span>
+        <p>The Taste Tester buy box has no subscription option despite a "Subscribe &amp; Save 15%" announcement bar running persistently at the top of every page. The Variety Pack PDP already has a working subscribe/one-time toggle, so the technology is confirmed live on the site.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 370" style="display:block;width:100%;">
+          <rect width="840" height="370" fill="#F4F0E7"/>
+          <!-- Announcement bar -->
+          <rect x="0" y="0" width="840" height="28" fill="#F0A200"/>
+          <text x="420" y="18" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#1A1814" text-anchor="middle">Subscribe &amp; Save 15% - Free delivery on orders over $59</text>
+          <!-- Product image -->
+          <rect x="24" y="44" width="334" height="306" fill="#E2DDD5" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <text x="191" y="200" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47" text-anchor="middle">Product image</text>
+          <!-- Buy box elements -->
+          <text x="390" y="66" font-family="DM Sans, sans-serif" font-size="16" font-weight="600" fill="#1A1814">Taste Tester</text>
+          <text x="390" y="84" font-family="DM Sans, sans-serif" font-size="12" fill="#F0A200">&#9733;&#9733;&#9733;&#9733;&#9733;  4.9 (335 reviews)</text>
+          <text x="390" y="102" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47">Perfect for fussy dogs. Includes 3 recipes.</text>
+          <!-- NEW: Subscribe/one-time toggle -->
+          <rect x="390" y="116" width="424" height="114" fill="#FEF3D4" stroke="#F0A200" stroke-width="1.5" rx="6"/>
+          <rect x="394" y="112" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="414" y="122" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <!-- One-time radio -->
+          <circle cx="408" cy="146" r="7" fill="none" stroke="#2D2B27" stroke-width="1.5"/>
+          <text x="424" y="150" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814">One-time purchase</text>
+          <text x="800" y="150" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814" text-anchor="end">$6.00</text>
+          <!-- Subscribe radio (selected) -->
+          <circle cx="408" cy="174" r="7" fill="#F0A200" stroke="#F0A200" stroke-width="1.5"/>
+          <circle cx="408" cy="174" r="3" fill="#1A1814"/>
+          <text x="424" y="178" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814">Subscribe &amp; Save 15%</text>
+          <text x="800" y="178" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814" text-anchor="end">$5.10</text>
+          <!-- Frequency dropdown -->
+          <rect x="406" y="194" width="200" height="24" fill="#FFFFFF" stroke="#2D2B27" stroke-width="1" rx="4"/>
+          <text x="420" y="210" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814">Every 4 Weeks</text>
+          <text x="594" y="210" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5C47">&#9660;</text>
+          <!-- Qty + CTA -->
+          <rect x="390" y="240" width="58" height="32" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" rx="4"/>
+          <text x="419" y="260" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814" text-anchor="middle">1</text>
+          <rect x="458" y="240" width="356" height="32" fill="#2D2B27" rx="6"/>
+          <text x="636" y="260" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FAF7F0" text-anchor="middle">Add to Cart</text>
+          <!-- Trust icons below -->
+          <text x="390" y="296" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5C47">Australian Made  |  Money Back  |  68C Air Dried  |  No Fillers</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 4 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 4</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Variety Pack PDP — Savings Claim Alignment</h3>
+        <span class="cvrt-slot-page">Page: <a href="https://eurekapet.co/products/variety-pack" target="_blank" rel="noopener">Variety Pack PDP</a></span>
+        <p>Meta Ad 2 promises "save $77" for the Variety Pack, but the landing page displays "SAVE $53.85" -- a $23 discrepancy visible the moment a click-through lands on a $359 purchase decision. The ad also uses "limited time only" urgency language with no corresponding signal on the page.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 320" style="display:block;width:100%;">
+          <rect width="840" height="320" fill="#F4F0E7"/>
+          <rect x="24" y="24" width="330" height="272" fill="#E2DDD5" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <text x="189" y="164" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47" text-anchor="middle">Product image</text>
+          <text x="390" y="52" font-family="DM Sans, sans-serif" font-size="16" font-weight="600" fill="#1A1814">Variety Pack</text>
+          <text x="390" y="70" font-family="DM Sans, sans-serif" font-size="12" fill="#F0A200">&#9733;&#9733;&#9733;&#9733;&#9733;  4.9 (75 reviews)</text>
+          <!-- Subscribe toggle -->
+          <circle cx="402" cy="98" r="6" fill="none" stroke="#2D2B27" stroke-width="1.5"/>
+          <text x="416" y="102" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814">One-time</text>
+          <text x="806" y="102" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814" text-anchor="end">$359.00</text>
+          <circle cx="402" cy="124" r="6" fill="#F0A200" stroke="#F0A200" stroke-width="1.5"/>
+          <circle cx="402" cy="124" r="3" fill="#1A1814"/>
+          <text x="416" y="128" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814">Subscribe &amp; Save 15%</text>
+          <text x="806" y="128" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814" text-anchor="end">$305.15</text>
+          <!-- NEW: Updated savings claim -->
+          <rect x="390" y="146" width="428" height="62" fill="#FEF3D4" stroke="#F0A200" stroke-width="1.5" rx="6"/>
+          <rect x="394" y="142" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="414" y="152" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <text x="406" y="172" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1A1814">Save $77 today</text>
+          <text x="406" y="192" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814">First-order discount + Subscribe &amp; Save 15%</text>
+          <!-- Urgency line -->
+          <text x="390" y="228" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814">Limited time offer</text>
+          <!-- CTA -->
+          <rect x="390" y="246" width="58" height="30" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" rx="4"/>
+          <text x="419" y="265" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814" text-anchor="middle">1</text>
+          <rect x="458" y="246" width="360" height="30" fill="#2D2B27" rx="5"/>
+          <text x="638" y="265" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FAF7F0" text-anchor="middle">Add to Cart</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 5 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 5</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Taste Tester PDP — Trust Icons Above Buy Button</h3>
+        <span class="cvrt-slot-page">Page: <a href="https://eurekapet.co/products/natural-dog-food-sample" target="_blank" rel="noopener">Taste Tester PDP</a></span>
+        <p>The four trust icons (Australian Made, Money Back Guarantee, 68°C air drying, No Fillers) currently sit below "Add to cart," placing purchase reassurance after the decision point. Multiple Trustpilot reviews specifically cite Australian provenance and the money-back guarantee as reasons they completed the purchase.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 310" style="display:block;width:100%;">
+          <rect width="840" height="310" fill="#F4F0E7"/>
+          <rect x="24" y="24" width="330" height="262" fill="#E2DDD5" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <text x="189" y="157" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47" text-anchor="middle">Product image</text>
+          <text x="390" y="48" font-family="DM Sans, sans-serif" font-size="16" font-weight="600" fill="#1A1814">Taste Tester</text>
+          <text x="390" y="66" font-family="DM Sans, sans-serif" font-size="12" fill="#F0A200">&#9733;&#9733;&#9733;&#9733;&#9733;  4.9 (335 reviews)</text>
+          <text x="390" y="84" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47">Perfect for fussy dogs.</text>
+          <text x="390" y="106" font-family="DM Sans, sans-serif" font-size="18" font-weight="700" fill="#1A1814">$6.00</text>
+          <rect x="390" y="118" width="58" height="28" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" rx="4"/>
+          <text x="419" y="136" font-family="DM Sans, sans-serif" font-size="12" fill="#1A1814" text-anchor="middle">1</text>
+          <!-- NEW: Trust icons ABOVE Add to Cart -->
+          <rect x="390" y="156" width="428" height="54" fill="#FEF3D4" stroke="#F0A200" stroke-width="1.5" rx="6"/>
+          <rect x="398" y="162" width="94" height="40" fill="#FFFFFF" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <text x="445" y="178" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">Australian</text>
+          <text x="445" y="192" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">Made</text>
+          <rect x="500" y="162" width="94" height="40" fill="#FFFFFF" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <text x="547" y="178" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">Money Back</text>
+          <text x="547" y="192" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">Guarantee</text>
+          <rect x="602" y="162" width="94" height="40" fill="#FFFFFF" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <text x="649" y="178" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">68C Gentle</text>
+          <text x="649" y="192" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">Air Drying</text>
+          <rect x="704" y="162" width="94" height="40" fill="#FFFFFF" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <text x="751" y="178" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">No Fillers</text>
+          <text x="751" y="192" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1814" text-anchor="middle">or Additives</text>
+          <rect x="394" y="152" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="414" y="162" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <!-- Add to Cart button below -->
+          <rect x="390" y="220" width="428" height="34" fill="#2D2B27" rx="6"/>
+          <text x="604" y="241" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FAF7F0" text-anchor="middle">Add to Cart</text>
+          <text x="390" y="274" font-family="DM Sans, sans-serif" font-size="11" fill="#6B5C47">Icons moved from below button to above -- reassurance visible at decision point</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 6 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 6</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Cart — Subscription Upsell Block</h3>
+        <span class="cvrt-slot-page">Page: Cart drawer</span>
+        <p>A large empty space sits between the Taste Tester line item and the cross-sell in the cart drawer, with no subscription touchpoint despite the site-wide "Subscribe &amp; Save 15%" announcement bar. Multiple Trustpilot reviewers explicitly praise subscription flexibility, validating intent for subscribe-and-save at the cart stage.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 390" style="display:block;width:100%;">
+          <rect width="840" height="390" fill="#F4F0E7"/>
+          <rect x="240" y="20" width="360" height="354" fill="#FFFFFF" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="6"/>
+          <rect x="240" y="20" width="360" height="40" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="6 6 0 0"/>
+          <text x="420" y="44" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1A1814" text-anchor="middle">Your Cart</text>
+          <!-- Progress bar -->
+          <rect x="256" y="70" width="328" height="28" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <text x="420" y="88" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814" text-anchor="middle">Add $53.00 for free shipping</text>
+          <!-- Line item -->
+          <rect x="256" y="108" width="328" height="64" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <rect x="264" y="116" width="44" height="44" fill="#E2DDD5" rx="3"/>
+          <text x="320" y="136" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814">Taste Tester Sample</text>
+          <text x="320" y="152" font-family="DM Sans, sans-serif" font-size="11" fill="#6B5C47">Qty: 1</text>
+          <text x="562" y="136" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1A1814" text-anchor="end">$6.00</text>
+          <!-- NEW: Subscription upsell card -->
+          <rect x="256" y="186" width="328" height="80" fill="#FEF3D4" stroke="#F0A200" stroke-width="1.5" rx="6"/>
+          <rect x="244" y="180" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="264" y="191" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <text x="272" y="208" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1A1814">Subscribe &amp; Save 15%</text>
+          <text x="272" y="226" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814">Switch to monthly delivery and save on every order</text>
+          <rect x="272" y="242" width="190" height="18" fill="#F0A200" rx="4"/>
+          <text x="367" y="254" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#1A1814" text-anchor="middle">Switch to Subscribe &amp; Save</text>
+          <!-- Cross-sell -->
+          <text x="256" y="288" font-family="DM Sans, sans-serif" font-size="11" fill="#6B5C47">I'm even better with...</text>
+          <rect x="256" y="296" width="164" height="52" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="4"/>
+          <rect x="264" y="304" width="32" height="32" fill="#E2DDD5" rx="3"/>
+          <text x="306" y="320" font-family="DM Sans, sans-serif" font-size="11" fill="#1A1814">Cluckin Good Chews</text>
+          <text x="306" y="336" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#1A1814">$18.95</text>
+          <!-- Checkout -->
+          <rect x="256" y="358" width="328" height="26" fill="#2D2B27" rx="5"/>
+          <text x="420" y="374" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#FAF7F0" text-anchor="middle">Checkout - $6.00</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 7 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 7</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Homepage Hero — Outcome Headline Copy</h3>
+        <span class="cvrt-slot-page">Page: <a href="https://eurekapet.co/" target="_blank" rel="noopener">eurekapet.co homepage</a></span>
+        <p>The homepage hero subtext leads with a product specification ("90% Aussie protein, 10% fruit, veg and seeds") while Google Ads actively run "Smaller Poos, Better Guts" as in-market copy. That outcome language is absent from every landing page and product page on the site.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 300" style="display:block;width:100%;">
+          <rect width="840" height="300" fill="#F4F0E7"/>
+          <rect x="0" y="0" width="840" height="24" fill="#E2DDD5"/>
+          <circle cx="18" cy="12" r="4" fill="#C8C3BA"/>
+          <circle cx="34" cy="12" r="4" fill="#C8C3BA"/>
+          <circle cx="50" cy="12" r="4" fill="#C8C3BA"/>
+          <!-- Left hero column -->
+          <rect x="24" y="36" width="382" height="246" fill="#FAF7F0" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <text x="42" y="58" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5C47">Headline (unchanged):</text>
+          <rect x="42" y="66" width="198" height="12" fill="#2D2B27" rx="2"/>
+          <rect x="42" y="86" width="172" height="12" fill="#2D2B27" rx="2"/>
+          <rect x="42" y="106" width="150" height="12" fill="#2D2B27" rx="2"/>
+          <!-- Control subtext (struck through) -->
+          <text x="42" y="132" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5C47">Control subtext (spec-led):</text>
+          <rect x="42" y="138" width="280" height="8" fill="#C8C3BA" rx="2"/>
+          <rect x="42" y="152" width="240" height="8" fill="#C8C3BA" rx="2"/>
+          <line x1="42" y1="142" x2="322" y2="142" stroke="#C87F00" stroke-width="1.5"/>
+          <line x1="42" y1="156" x2="282" y2="156" stroke="#C87F00" stroke-width="1.5"/>
+          <!-- NEW variation subtext -->
+          <rect x="42" y="172" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="62" y="183" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <text x="42" y="170" font-family="DM Sans, sans-serif" font-size="10" fill="#F0A200" font-weight="600">Variation (outcome-led):</text>
+          <text x="42" y="202" font-family="DM Sans, sans-serif" font-size="13" fill="#1A1814" font-style="italic">"Smaller poos, better guts, more energy."</text>
+          <text x="42" y="222" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47">Air dried at 68C to lock in real nutrition.</text>
+          <!-- CTA -->
+          <rect x="42" y="242" width="148" height="28" fill="#F0A200" rx="5"/>
+          <text x="116" y="260" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#1A1814" text-anchor="middle">Try a Sample - $6</text>
+          <!-- Right column -->
+          <rect x="420" y="36" width="396" height="246" fill="#E2DDD5" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="4"/>
+          <line x1="420" y1="36" x2="816" y2="282" stroke="#CCC8C0" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="816" y1="36" x2="420" y2="282" stroke="#CCC8C0" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="618" y="163" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47" text-anchor="middle">Hero image unchanged</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 8 -->
+    <div class="cvrt-slot">
+      <div class="cvrt-slot-text">
+        <div class="cvrt-slot-meta">
+          <span class="cvrt-slot-num">SLOT 8</span>
+          <span class="cvrt-badge">A/B Test</span>
+        </div>
+        <h3>Taste Tester PDP — 3rd Party Rating Badge</h3>
+        <span class="cvrt-slot-page">Page: <a href="https://eurekapet.co/products/natural-dog-food-sample" target="_blank" rel="noopener">Taste Tester PDP</a></span>
+        <p>The petfoodreviews.com.au 9.5/10 rating appears in Google Ad copy but is absent from the website and every Meta landing page. Adding it as a fifth trust icon gives first-time buyers an independent validation signal at the point of decision.</p>
+      </div>
+      <div class="cvrt-svg-area">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 230" style="display:block;width:100%;">
+          <rect width="840" height="230" fill="#F4F0E7"/>
+          <text x="420" y="30" font-family="DM Sans, sans-serif" font-size="12" fill="#6B5C47" text-anchor="middle">Trust icon row — Taste Tester PDP (variation: 5 icons)</text>
+          <rect x="24" y="46" width="792" height="144" fill="#FFFFFF" stroke="#2D2B27" stroke-width="1.5" stroke-dasharray="6,4" rx="6"/>
+          <!-- Icon 1 -->
+          <rect x="40" y="62" width="132" height="110" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="6"/>
+          <circle cx="106" cy="102" r="22" fill="#E2DDD5"/>
+          <text x="106" y="142" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">Australian</text>
+          <text x="106" y="156" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">Made &amp; Owned</text>
+          <!-- Icon 2 -->
+          <rect x="182" y="62" width="132" height="110" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="6"/>
+          <circle cx="248" cy="102" r="22" fill="#E2DDD5"/>
+          <text x="248" y="142" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">Money Back</text>
+          <text x="248" y="156" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">Guarantee</text>
+          <!-- Icon 3 -->
+          <rect x="324" y="62" width="132" height="110" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="6"/>
+          <circle cx="390" cy="102" r="22" fill="#E2DDD5"/>
+          <text x="390" y="142" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">68C Gentle</text>
+          <text x="390" y="156" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">Air Drying</text>
+          <!-- Icon 4 -->
+          <rect x="466" y="62" width="132" height="110" fill="#FAF7F0" stroke="#E2DDD5" stroke-width="1" rx="6"/>
+          <circle cx="532" cy="102" r="22" fill="#E2DDD5"/>
+          <text x="532" y="142" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">No Fillers</text>
+          <text x="532" y="156" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">or Additives</text>
+          <!-- Icon 5: NEW -->
+          <rect x="608" y="58" width="160" height="118" fill="#FEF3D4" stroke="#F0A200" stroke-width="2" rx="6"/>
+          <rect x="612" y="54" width="40" height="16" fill="#F0A200" rx="3"/>
+          <text x="632" y="64" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1A1814" text-anchor="middle">NEW</text>
+          <text x="688" y="98" font-family="DM Sans, sans-serif" font-size="26" font-weight="700" fill="#F0A200" text-anchor="middle">9.5</text>
+          <text x="688" y="118" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1A1814" text-anchor="middle">/10</text>
+          <text x="688" y="140" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">petfoodreviews</text>
+          <text x="688" y="154" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1814" text-anchor="middle">.com.au</text>
+        </svg>
+        <span class="cvrt-svg-caption">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+  </div><!-- end cvrt-panel-tests -->
+
+  <!-- DATA INSIGHTS PANEL -->
+  <div class="cvrt-panel cvrt-panel-insights">
+
+    <!-- Biggest Killers -->
+    <div class="cvrt-killers">
+      <h2 class="cvrt-killers-heading">Biggest Killers of Conversion Rate</h2>
+      <div class="cvrt-killers-list">
+        <div class="cvrt-killer">
+          <span class="cvrt-killer-n">1</span>
+          <p class="cvrt-killer-text">Price anxiety with no on-site solution for large breed owners, multi-dog households, or fixed-income buyers. Multiple 1-3 star reviews cite structural unaffordability despite product satisfaction, and no bundle, per-day framing, or topper-use positioning exists to address the most price-blocked segments.</p>
+        </div>
+        <div class="cvrt-killer">
+          <span class="cvrt-killer-n">2</span>
+          <p class="cvrt-killer-text">The $6 sample funnel drops buyers at checkout with no subscription path, no free shipping indicator, and no AOV optimization. The most-trafficked acquisition page converts customers into one-time $6 transactions with near-zero LTV infrastructure attached.</p>
+        </div>
+        <div class="cvrt-killer">
+          <span class="cvrt-killer-n">3</span>
+          <p class="cvrt-killer-text">The homepage receives paid search intent traffic but offers a single outline "Discover More" CTA with no product, price, or social proof above the fold. Google Ads sends buyers with product-level intent to a page that leads with brand storytelling across the first three folds.</p>
+        </div>
+        <div class="cvrt-killer">
+          <span class="cvrt-killer-n">4</span>
+          <p class="cvrt-killer-text">A $23 savings claim mismatch between Meta Ad 2 and the Variety Pack landing page creates trust friction at the highest-ticket purchase moment. "Save $77" in the ad versus "SAVE $53.85" on the page is the first thing a click-through sees when forming a $359 decision.</p>
+        </div>
+        <div class="cvrt-killer">
+          <span class="cvrt-killer-n">5</span>
+          <p class="cvrt-killer-text">Mobile performance on the primary acquisition page is extreme. The Taste Tester PDP scores 33/100 Lighthouse mobile with a 40.7-second Time to Interactive, meaning the most important entry point in the business is nearly non-interactive for mobile ad traffic.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Sources -->
+    <div class="cvrt-insights-section">
+      <h2 class="cvrt-section-title">Data Sources</h2>
+      <div class="cvrt-sources-grid">
+        <span class="cvrt-source-chip">Meta Ads</span>
+        <span class="cvrt-source-chip">Google Ads</span>
+        <span class="cvrt-source-chip">Reviews and UGC</span>
+        <span class="cvrt-source-chip">Page Speed Insights</span>
+        <span class="cvrt-source-chip">Site Screenshots</span>
+        <span class="cvrt-source-chip">Live Site Data</span>
+        <span class="cvrt-source-chip">Competitor Research</span>
+      </div>
+    </div>
+
+    <!-- Source Findings -->
+    <div class="cvrt-insights-section">
+      <h2 class="cvrt-section-title">Source Findings</h2>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">META ADS</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Three campaigns run simultaneously with distinct angles: education funnel (kibble vs. air-dried), Variety Pack deal, and $6 sample acquisition. Message match is strong on the education and sample funnels but partial on the Variety Pack.</p>
+          <p class="cvrt-fi">"Save $77" in Ad 2 does not match "SAVE $53.85" on the Variety Pack landing page. The $23 gap is visible immediately on a $359 product decision, with no urgency signal on the page to offset the friction.</p>
+          <p class="cvrt-fi">"Limited time only" urgency language appears in both Ads 2 and 3. Neither landing page has a matching scarcity or urgency signal.</p>
+          <p class="cvrt-fi">"6,000+ Happy Dogs" on the why-air-dried landing page conflicts with "15,000+ satisfied customers" on the live site -- a credibility inconsistency worth auditing before driving more traffic to that page.</p>
+        </div>
+      </div>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">GOOGLE ADS</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Google deploys a materially wider intent set than Meta: educational queries, outcome-led health language, recipe-specific terms, feeding calculators, and third-party validation -- angles not present in the Meta campaigns.</p>
+          <p class="cvrt-fi">Health-outcome language ("Smaller Poos, Better Guts") is proven in-market in Google Ads but does not appear on any landing page or product page on the site.</p>
+          <p class="cvrt-fi">The petfoodreviews.com.au 9.5/10 rating is used in Google Ad copy but is absent from the website and every Meta landing page -- an independent validation signal not yet deployed at any on-site decision point.</p>
+        </div>
+      </div>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">REVIEWS AND UGC</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Price is the single most-cited friction point across reviews. Large breed owners, pensioners, and multi-dog households explicitly cite cost as the reason they won't repeat-purchase despite loving the product.</p>
+          <p class="cvrt-fi">Palatability for fussy dogs is the dominant positive theme. The $6 sample is cited repeatedly as a low-risk way to test before committing, validating the Taste Tester as the correct primary acquisition entry point.</p>
+          <p class="cvrt-fi">Visible health outcomes -- shinier coat, better digestion, more energy, healthy weight -- are cited by subscribers as retention drivers, not just initial purchase motivators.</p>
+          <p class="cvrt-fi">At least two reviewers report unexpected subscription enrollment: one after a sample purchase, one after a Variety Pack order. The subscription opt-in confirmation experience needs strengthening.</p>
+        </div>
+      </div>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">PAGE SPEED INSIGHTS</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Homepage: 46/100 Lighthouse mobile score, 35.7s Time to Interactive. This page receives paid search intent traffic and fails Core Web Vitals on mobile.</p>
+          <p class="cvrt-fi">Taste Tester PDP: 33/100 mobile, 40.7s TTI. An extreme result -- the primary acquisition page is nearly non-interactive for mobile visitors arriving from paid ads.</p>
+          <p class="cvrt-fi">Heavy JavaScript from third-party apps (subscription widget, review widget, analytics stack) blocks the main thread on the PDP, accounting for 1,450ms of Total Blocking Time.</p>
+        </div>
+      </div>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">SITE SCREENSHOTS</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Homepage above fold: one outline "Discover More" button, no price, no product name, no social proof. Three folds of brand storytelling precede any product grid or direct shop entry point.</p>
+          <p class="cvrt-fi">Taste Tester PDP: no subscription widget in the buy box despite a site-wide "Subscribe &amp; Save 15%" announcement bar running on every page.</p>
+          <p class="cvrt-fi">Cart: no free shipping progress bar, one static cross-sell with no context, no subscription touchpoint, and a prominent discount code field that may prompt exits to look for codes that don't exist.</p>
+        </div>
+      </div>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">LIVE SITE DATA</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Free shipping threshold confirmed at $59. A $6 sample order sits $53 below with no on-screen indicator of that gap anywhere in the cart or on the product page.</p>
+          <p class="cvrt-fi">Variety Pack subscription price is $305.15 against one-time $359.00. The "SAVE $53.85" badge reflects the subscription discount only. The ad-claimed "$77 savings" combines the first-order welcome discount with the subscription discount -- a figure not currently surfaced on the page.</p>
+          <p class="cvrt-fi">The "Subscribe &amp; Save 15%" announcement bar runs site-wide but the Taste Tester PDP has no subscription toggle. The technology exists on the Variety Pack PDP and is simply not deployed on the primary acquisition page.</p>
+        </div>
+      </div>
+
+      <div class="cvrt-finding-block">
+        <span class="cvrt-finding-source">COMPETITOR RESEARCH</span>
+        <div class="cvrt-finding-items">
+          <p class="cvrt-fi">Eureka's $6 Taste Tester is a meaningful DTC differentiator. No main competitor -- Ziwi Peak, Frontier Pets, or Scratch -- offers an equivalent low-barrier sample entry product.</p>
+          <p class="cvrt-fi">Ziwi Peak's physical retail presence (pet specialty stores, vets) provides a touchpoint advantage Eureka cannot replicate DTC, making on-site conversion optimization more critical per digital visit.</p>
+          <p class="cvrt-fi">The petfoodreviews.com.au 9.5/10 rating gives Eureka a verifiable third-party validation advantage that is already deployed in Google Ads but not yet used to influence on-site purchase decisions.</p>
+        </div>
+      </div>
+
+    </div><!-- end findings section -->
+
+  </div><!-- end cvrt-panel-insights -->
+
+  <footer class="cvrt-footer">
+    <p>June 2026</p>
+  </footer>
+
+</div><!-- end cvrt-roadmap -->

@@ -1,0 +1,983 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1,#cvrt-roadmap h2,#cvrt-roadmap h3,
+#cvrt-roadmap p,#cvrt-roadmap span,#cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+
+/* ROOT */
+#cvrt-roadmap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  font-family: 'DM Sans', sans-serif;
+  background: #f5efe3;
+  color: #1a1916;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* RADIO INPUTS */
+#cvrt-roadmap .cvrt-tab-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* HERO */
+#cvrt-roadmap .cvrt-hero {
+  position: relative;
+  min-height: 520px;
+  background-image: url('https://rforrabbit.com/cdn/shop/files/Customization-3-1920x760_b34fe186-491b-42bd-ba57-c5b9bd3f4926.jpg?v=1737635527');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#cvrt-roadmap .cvrt-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(108deg,
+    rgba(22, 36, 12, 0.95) 36%,
+    rgba(22, 36, 12, 0.65) 58%,
+    rgba(22, 36, 12, 0.18) 100%
+  );
+  pointer-events: none;
+}
+
+#cvrt-roadmap .cvrt-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 56px 72px 0;
+}
+
+#cvrt-roadmap .cvrt-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+  margin-bottom: 32px;
+  filter: brightness(0) invert(1);
+}
+
+#cvrt-roadmap .cvrt-eyebrow {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 11px;
+}
+
+#cvrt-roadmap .cvrt-hero-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.08;
+  color: #ffffff;
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+
+#cvrt-roadmap .cvrt-hero-intro {
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.88);
+  max-width: 490px;
+  margin-bottom: 46px;
+}
+
+/* TAB NAV */
+#cvrt-roadmap .cvrt-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  padding: 0 72px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+
+#cvrt-roadmap .cvrt-tabl {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.48);
+  padding: 13px 22px 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.18s, border-color 0.18s;
+  user-select: none;
+}
+
+#cvrt-roadmap .cvrt-tabl:hover {
+  color: rgba(255,255,255,0.82);
+}
+
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tabl[for="cvrt-tab-tests"],
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tabl[for="cvrt-tab-insights"] {
+  color: #ffffff;
+  border-bottom-color: #8fba52;
+}
+
+/* PANELS */
+#cvrt-roadmap .cvrt-panel {
+  display: none;
+  background: #f5efe3;
+  padding: 60px 24px 84px;
+}
+
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-panel-tests {
+  display: block;
+}
+
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-panel-insights {
+  display: block;
+}
+
+/* SLOT CARDS */
+#cvrt-roadmap .cvrt-card {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 36px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(58,90,40,0.13);
+  box-shadow: 0 3px 26px rgba(58,90,40,0.07);
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-card-body {
+  padding: 38px 48px 30px;
+  max-width: 660px;
+}
+
+#cvrt-roadmap .cvrt-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+#cvrt-roadmap .cvrt-c-slot {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a5a28;
+}
+
+#cvrt-roadmap .cvrt-c-badge {
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(58,90,40,0.09);
+  color: #3a5a28;
+}
+
+#cvrt-roadmap .cvrt-c-page {
+  font-size: 10.5px;
+  font-weight: 400;
+  color: #1a1916;
+  margin-left: auto;
+}
+
+#cvrt-roadmap .cvrt-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #1a1916;
+  margin-bottom: 14px;
+}
+
+#cvrt-roadmap .cvrt-card-desc {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.74;
+  color: #1a1916;
+}
+
+/* SKETCH ZONE */
+#cvrt-roadmap .cvrt-sketch {
+  background: #f8f3eb;
+  border-top: 1px solid rgba(58,90,40,0.09);
+  padding: 36px 48px 0;
+}
+
+#cvrt-roadmap .cvrt-sketch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#cvrt-roadmap .cvrt-sketch-note {
+  display: block;
+  font-size: 12px;
+  font-style: italic;
+  color: #1a1916;
+  padding: 10px 0 28px;
+}
+
+/* KILLERS BLOCK */
+#cvrt-roadmap .cvrt-killers {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 52px;
+  background: #3a5a28;
+  border-radius: 12px;
+  padding: 50px 58px;
+}
+
+#cvrt-roadmap .cvrt-killers-eyebrow {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.48);
+  margin-bottom: 10px;
+}
+
+#cvrt-roadmap .cvrt-killers-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+#cvrt-roadmap .cvrt-k-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#cvrt-roadmap .cvrt-k-list li {
+  position: relative;
+  padding-left: 19px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: rgba(255,255,255,0.92);
+}
+
+#cvrt-roadmap .cvrt-k-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #8fba52;
+}
+
+#cvrt-roadmap .cvrt-k-dot {
+  display: none;
+}
+
+/* SOURCES */
+#cvrt-roadmap .cvrt-sources-wrap {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+}
+
+#cvrt-roadmap .cvrt-section-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3a5a28;
+  margin-bottom: 14px;
+}
+
+#cvrt-roadmap .cvrt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+#cvrt-roadmap .cvrt-chip {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1916;
+  padding: 7px 15px;
+  border-radius: 7px;
+  border: 1px solid rgba(58,90,40,0.18);
+  background: #ffffff;
+}
+
+/* FINDINGS */
+#cvrt-roadmap .cvrt-findings-wrap {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#cvrt-roadmap .cvrt-finding {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(58,90,40,0.12);
+  padding: 36px 48px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 16px rgba(58,90,40,0.05);
+}
+
+#cvrt-roadmap .cvrt-finding-name {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3a5a28;
+  margin-bottom: 20px;
+}
+
+#cvrt-roadmap .cvrt-flist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#cvrt-roadmap .cvrt-flist li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.68;
+  color: #1a1916;
+}
+
+#cvrt-roadmap .cvrt-flist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3a5a28;
+}
+
+/* FOOTER */
+#cvrt-roadmap .cvrt-foot {
+  background: #273a18;
+  padding: 30px 72px;
+  text-align: center;
+}
+
+#cvrt-roadmap .cvrt-foot-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.48);
+  letter-spacing: 0.07em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #cvrt-roadmap .cvrt-hero-inner { padding: 40px 24px 0; }
+  #cvrt-roadmap .cvrt-hero-heading { font-size: 36px; }
+  #cvrt-roadmap .cvrt-hero-intro { font-size: 15px; }
+  #cvrt-roadmap .cvrt-nav { padding: 0 24px; }
+  #cvrt-roadmap .cvrt-panel { padding: 40px 16px 64px; }
+  #cvrt-roadmap .cvrt-card-body { padding: 28px 24px 22px; }
+  #cvrt-roadmap .cvrt-sketch { padding: 24px 20px 0; }
+  #cvrt-roadmap .cvrt-killers { padding: 36px 28px; }
+  #cvrt-roadmap .cvrt-killers-heading { font-size: 22px; }
+  #cvrt-roadmap .cvrt-finding { padding: 28px 24px; }
+  #cvrt-roadmap .cvrt-foot { padding: 24px; }
+  #cvrt-roadmap .cvrt-c-page { margin-left: 0; }
+}
+
+@media print {
+  #cvrt-roadmap .cvrt-card,
+  #cvrt-roadmap .cvrt-killers,
+  #cvrt-roadmap .cvrt-finding { box-shadow: none !important; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input type="radio" name="cvrt-tabs" id="cvrt-tab-tests" class="cvrt-tab-radio" checked>
+  <input type="radio" name="cvrt-tabs" id="cvrt-tab-insights" class="cvrt-tab-radio">
+
+  <!-- HERO -->
+  <div class="cvrt-hero">
+    <div class="cvrt-hero-bg"></div>
+    <div class="cvrt-hero-inner">
+      <img class="cvrt-logo" src="https://rforrabbit.com/cdn/shop/files/R_for_Rabbit_Website_logo_f10cf445-cc8c-42f3-9b3a-4b45261d6236.png?v=1759923592" alt="R for Rabbit">
+      <span class="cvrt-eyebrow">CRO Testing Roadmap &middot; June 2026</span>
+      <h1 class="cvrt-hero-heading">R for Rabbit</h1>
+      <p class="cvrt-hero-intro">R for Rabbit has strong product conviction from customers and a broad, loyal base, but the buying path creates friction before that conviction can convert. Template errors on product cards, fragmented offer codes across the ad-to-checkout funnel, and a cluttered PDP buy box all interrupt purchase intent at its most critical moments.</p>
+    </div>
+    <div class="cvrt-nav">
+      <label for="cvrt-tab-tests" class="cvrt-tabl">Tests</label>
+      <label for="cvrt-tab-insights" class="cvrt-tabl">Data Insights</label>
+    </div>
+  </div>
+
+  <!-- TESTS PANEL -->
+  <div class="cvrt-panel cvrt-panel-tests">
+
+    <!-- Slot 1 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 1</span>
+          <span class="cvrt-c-badge">Immediate Fix</span>
+          <span class="cvrt-c-page">Homepage + Collection</span>
+        </div>
+        <h2 class="cvrt-card-title">Product Card Error Text</h2>
+        <p class="cvrt-card-desc">Product cards across the homepage carousels and collection grid display a red template error between the price and the Add to Cart button. The error appears on Most Loved Products, Just Launched, and the Feather Diapers collection, creating a broken-store signal at the exact point shoppers decide to add.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 325" xmlns="http://www.w3.org/2000/svg">
+          <!-- Column labels -->
+          <text x="240" y="18" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#c03030" text-anchor="middle" letter-spacing="0.1em">CURRENT STATE</text>
+          <text x="620" y="18" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#3a5a28" text-anchor="middle" letter-spacing="0.1em">VARIATION</text>
+
+          <!-- LEFT CARD (CURRENT) -->
+          <rect x="80" y="28" width="320" height="286" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5"/>
+          <rect x="92" y="40" width="296" height="148" rx="4" fill="#ede7db"/>
+          <line x1="92" y1="40" x2="388" y2="188" stroke="#ccc4b4" stroke-width="0.8"/>
+          <line x1="388" y1="40" x2="92" y2="188" stroke="#ccc4b4" stroke-width="0.8"/>
+          <rect x="92" y="198" width="186" height="10" rx="3" fill="#d4cec0"/>
+          <rect x="92" y="213" width="126" height="8" rx="3" fill="#dcd8cc"/>
+          <text x="92" y="240" font-family="'DM Sans', sans-serif" font-size="15" fill="#d4930a">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="182" y="240" font-family="'DM Sans', sans-serif" font-size="13" fill="#1a1916">4.7</text>
+          <text x="92" y="259" font-family="'DM Sans', sans-serif" font-size="14" font-weight="600" fill="#1a1916">&#x20B9;394</text>
+          <!-- ERROR ZONE -->
+          <rect x="92" y="267" width="296" height="22" rx="4" fill="rgba(200,40,30,0.09)" stroke="#c03030" stroke-width="1.4" stroke-dasharray="5,3"/>
+          <text x="240" y="282" font-family="'DM Sans', sans-serif" font-size="12" fill="#c03030" text-anchor="middle" font-weight="500">liquid render error</text>
+          <!-- CTA -->
+          <rect x="92" y="296" width="296" height="26" rx="6" fill="none" stroke="#b8c8a8" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <text x="240" y="313" font-family="'DM Sans', sans-serif" font-size="12" fill="#3a5a28" text-anchor="middle" font-weight="500">Add to Cart</text>
+
+          <!-- ARROW -->
+          <line x1="412" y1="165" x2="452" y2="165" stroke="#3a5a28" stroke-width="1.5"/>
+          <polygon points="452,161 462,165 452,169" fill="#3a5a28"/>
+
+          <!-- RIGHT CARD (VARIATION) -->
+          <rect x="460" y="28" width="320" height="264" rx="8" fill="white" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="472" y="40" width="296" height="148" rx="4" fill="#ede7db"/>
+          <line x1="472" y1="40" x2="768" y2="188" stroke="#ccc4b4" stroke-width="0.8"/>
+          <line x1="768" y1="40" x2="472" y2="188" stroke="#ccc4b4" stroke-width="0.8"/>
+          <rect x="472" y="198" width="186" height="10" rx="3" fill="#d4cec0"/>
+          <rect x="472" y="213" width="126" height="8" rx="3" fill="#dcd8cc"/>
+          <text x="472" y="240" font-family="'DM Sans', sans-serif" font-size="15" fill="#d4930a">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="562" y="240" font-family="'DM Sans', sans-serif" font-size="13" fill="#1a1916">4.7</text>
+          <text x="472" y="259" font-family="'DM Sans', sans-serif" font-size="14" font-weight="600" fill="#1a1916">&#x20B9;394</text>
+          <!-- CTA (direct, no error above it) -->
+          <rect x="472" y="267" width="296" height="26" rx="6" fill="#3a5a28"/>
+          <text x="620" y="284" font-family="'DM Sans', sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">Add to Cart</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 2 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 2</span>
+          <span class="cvrt-c-badge">A/B Test</span>
+          <span class="cvrt-c-page">Ad landing path, PDP + Cart</span>
+        </div>
+        <h2 class="cvrt-card-title">First-Order Offer Alignment</h2>
+        <p class="cvrt-card-desc">Meta ads promote NEW12, TRYSAMPLE, and DPR15 depending on the campaign, while the cart and PDP surface DAYONE alongside cashback, app savings, and subscription options. Shoppers arriving from paid channels encounter a different code than the one they clicked on, adding reconciliation friction at the moment they should be committing.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 222" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- BOX 1: AD CREATIVE -->
+          <rect x="36" y="36" width="210" height="130" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="36" y="36" width="210" height="36" rx="8" fill="#ede7db"/>
+          <rect x="36" y="58" width="210" height="14" rx="0" fill="#ede7db"/>
+          <text x="141" y="59" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#1a1916" text-anchor="middle" letter-spacing="0.08em">AD CREATIVE</text>
+          <line x1="36" y1="72" x2="246" y2="72" stroke="#d8d0c0" stroke-width="1"/>
+          <text x="141" y="104" font-family="'DM Sans', sans-serif" font-size="22" font-weight="600" fill="#c03030" text-anchor="middle">DPR15</text>
+          <text x="141" y="122" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">or NEW12 or TRYSAMPLE</text>
+          <text x="141" y="138" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">depending on campaign</text>
+          <text x="141" y="157" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">code shopper expects</text>
+
+          <!-- ARROW 1 with conflict marker -->
+          <line x1="252" y1="101" x2="293" y2="101" stroke="#1a1916" stroke-width="1.3"/>
+          <polygon points="293,97 302,101 293,105" fill="#1a1916"/>
+          <text x="277" y="88" font-family="'DM Sans', sans-serif" font-size="17" font-weight="700" fill="#c03030" text-anchor="middle">&#8800;</text>
+
+          <!-- BOX 2: PRODUCT PAGE -->
+          <rect x="302" y="36" width="256" height="130" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="302" y="36" width="256" height="36" rx="8" fill="#ede7db"/>
+          <rect x="302" y="58" width="256" height="14" rx="0" fill="#ede7db"/>
+          <text x="430" y="59" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#1a1916" text-anchor="middle" letter-spacing="0.08em">PRODUCT PAGE</text>
+          <line x1="302" y1="72" x2="558" y2="72" stroke="#d8d0c0" stroke-width="1"/>
+          <rect x="316" y="80" width="228" height="20" rx="4" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1"/>
+          <text x="430" y="94" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#3a5a28" text-anchor="middle">DAYONE</text>
+          <rect x="316" y="106" width="108" height="16" rx="3" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="370" y="118" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">cashback</text>
+          <rect x="430" y="106" width="114" height="16" rx="3" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="487" y="118" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">app savings</text>
+          <rect x="316" y="128" width="228" height="16" rx="3" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="430" y="140" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">DPR15 (de-emphasized)</text>
+
+          <!-- ARROW 2 -->
+          <line x1="564" y1="101" x2="605" y2="101" stroke="#1a1916" stroke-width="1.3"/>
+          <polygon points="605,97 614,101 605,105" fill="#1a1916"/>
+
+          <!-- BOX 3: CART -->
+          <rect x="614" y="36" width="210" height="130" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="614" y="36" width="210" height="36" rx="8" fill="#ede7db"/>
+          <rect x="614" y="58" width="210" height="14" rx="0" fill="#ede7db"/>
+          <text x="719" y="59" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#1a1916" text-anchor="middle" letter-spacing="0.08em">CART</text>
+          <line x1="614" y1="72" x2="824" y2="72" stroke="#d8d0c0" stroke-width="1"/>
+          <text x="719" y="97" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Use Coupon:</text>
+          <text x="719" y="118" font-family="'DM Sans', sans-serif" font-size="20" font-weight="600" fill="#3a5a28" text-anchor="middle">DAYONE</text>
+          <text x="719" y="155" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Ad code no longer surfaced</text>
+
+          <!-- Bottom note -->
+          <text x="430" y="204" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle" font-style="italic">Shopper arrives expecting one code. Site emphasizes a different one at every step.</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 3 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 3</span>
+          <span class="cvrt-c-badge">A/B Test</span>
+          <a class="cvrt-c-page" href="https://rforrabbit.com/products/feather-baby-diapers" target="_blank" rel="noopener" style="color:#1a1916;text-decoration:underline;text-decoration-color:rgba(58,90,40,0.35);text-underline-offset:2px;">Feather Diapers PDP</a>
+        </div>
+        <h2 class="cvrt-card-title">Feather Diapers Buy Box</h2>
+        <p class="cvrt-card-desc">The Feather Diapers buy box stacks app savings, cashback, size and pack selectors, and subscription vs one-time options before any comfort or safety proof reaches the shopper. With 939 ratings averaging 4.7 and reviews praising softness and rash-free comfort, the proof already exists but sits below the full decision stack.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 350" xmlns="http://www.w3.org/2000/svg">
+          <!-- Column labels -->
+          <text x="250" y="18" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#c03030" text-anchor="middle" letter-spacing="0.1em">CURRENT</text>
+          <text x="610" y="18" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#3a5a28" text-anchor="middle" letter-spacing="0.1em">VARIATION</text>
+
+          <!-- LEFT: CURRENT BUY BOX -->
+          <rect x="110" y="28" width="280" height="28" rx="5" fill="#ede7db" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="250" y="46" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#1a1916" text-anchor="middle">Feather Diapers</text>
+
+          <rect x="110" y="64" width="280" height="24" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="122" y="80" font-family="'DM Sans', sans-serif" font-size="13" fill="#d4930a">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="196" y="80" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">4.7 | 939</text>
+          <text x="383" y="80" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#1a1916" text-anchor="end">&#x20B9;394</text>
+
+          <rect x="110" y="96" width="280" height="22" rx="5" fill="rgba(58,90,40,0.09)" stroke="#3a5a28" stroke-width="1" stroke-dasharray="5,3"/>
+          <text x="250" y="111" font-family="'DM Sans', sans-serif" font-size="12" fill="#3a5a28" text-anchor="middle">App savings: extra 5% off</text>
+
+          <rect x="110" y="126" width="280" height="22" rx="5" fill="rgba(195,115,15,0.09)" stroke="#b07020" stroke-width="1" stroke-dasharray="5,3"/>
+          <text x="250" y="141" font-family="'DM Sans', sans-serif" font-size="12" fill="#7a4a08" text-anchor="middle">Cashback: &#x20B9;40 on this order</text>
+
+          <rect x="110" y="156" width="280" height="22" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="122" y="171" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">Style</text>
+          <text x="383" y="171" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="end">&#x25BE;</text>
+
+          <rect x="110" y="186" width="280" height="22" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="122" y="201" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">Select size</text>
+          <text x="383" y="201" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="end">&#x25BE;</text>
+
+          <rect x="110" y="216" width="280" height="22" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="122" y="231" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">Select pack</text>
+          <text x="383" y="231" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="end">&#x25BE;</text>
+
+          <rect x="110" y="246" width="280" height="30" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <rect x="114" y="250" width="134" height="22" rx="4" fill="#ede7db"/>
+          <text x="181" y="265" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Subscribe &amp; Save</text>
+          <text x="317" y="265" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">One-Time</text>
+
+          <rect x="110" y="284" width="280" height="30" rx="6" fill="#3a5a28"/>
+          <text x="250" y="304" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="white" text-anchor="middle">Add to Cart</text>
+
+          <text x="250" y="330" font-family="'DM Sans', sans-serif" font-size="11" fill="#c03030" text-anchor="middle" font-style="italic">Proof visible below fold only</text>
+
+          <!-- RIGHT: VARIATION BUY BOX -->
+          <rect x="470" y="28" width="280" height="28" rx="5" fill="#ede7db" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="610" y="46" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#1a1916" text-anchor="middle">Feather Diapers</text>
+
+          <rect x="470" y="64" width="280" height="24" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="482" y="80" font-family="'DM Sans', sans-serif" font-size="13" fill="#d4930a">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="556" y="80" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">4.7 | 939</text>
+          <text x="743" y="80" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#1a1916" text-anchor="end">&#x20B9;394</text>
+
+          <!-- PROOF moved up (highlighted) -->
+          <rect x="470" y="96" width="280" height="32" rx="5" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <text x="610" y="110" font-family="'DM Sans', sans-serif" font-size="12" fill="#3a5a28" text-anchor="middle" font-weight="500">Soft · Rash-free · 939 verified ratings</text>
+          <text x="610" y="124" font-family="'DM Sans', sans-serif" font-size="11" fill="#3a5a28" text-anchor="middle">Comfort proof before selectors</text>
+
+          <rect x="470" y="136" width="280" height="22" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="482" y="151" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">Style</text>
+          <text x="743" y="151" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="end">&#x25BE;</text>
+
+          <rect x="470" y="166" width="280" height="22" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="482" y="181" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">Select size</text>
+          <text x="743" y="181" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="end">&#x25BE;</text>
+
+          <rect x="470" y="196" width="280" height="22" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <text x="482" y="211" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916">Select pack</text>
+          <text x="743" y="211" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="end">&#x25BE;</text>
+
+          <rect x="470" y="226" width="280" height="30" rx="5" fill="white" stroke="#c8c0b0" stroke-width="1.2" stroke-dasharray="5,3"/>
+          <rect x="474" y="230" width="134" height="22" rx="4" fill="#ede7db"/>
+          <text x="541" y="245" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Subscribe &amp; Save</text>
+          <text x="677" y="245" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">One-Time</text>
+
+          <rect x="470" y="264" width="280" height="30" rx="6" fill="#3a5a28"/>
+          <text x="610" y="284" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="white" text-anchor="middle">Add to Cart</text>
+
+          <text x="610" y="310" font-family="'DM Sans', sans-serif" font-size="11" fill="#3a5a28" text-anchor="middle" font-style="italic">CTA reached with proof in view</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 4 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 4</span>
+          <span class="cvrt-c-badge">A/B Test</span>
+          <span class="cvrt-c-page">Cart + PDP</span>
+        </div>
+        <h2 class="cvrt-card-title">Delivery and Return Confidence</h2>
+        <p class="cvrt-card-desc">Reviews show the sharpest trust damage around delayed delivery, wrong items, tampered products, refund delays, and support gaps. The cart currently asks shoppers to check out after coupon, pincode, app savings, and total modules, but does not make delivery escalation, damaged-item replacement, or refund reassurance visible near the final decision.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg">
+          <text x="250" y="22" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#c03030" text-anchor="middle" letter-spacing="0.1em">CURRENT CART</text>
+          <text x="610" y="22" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#3a5a28" text-anchor="middle" letter-spacing="0.1em">VARIATION</text>
+
+          <rect x="110" y="38" width="280" height="178" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5"/>
+          <rect x="128" y="58" width="244" height="24" rx="5" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1"/>
+          <text x="250" y="74" font-family="'DM Sans', sans-serif" font-size="12" fill="#3a5a28" text-anchor="middle">Use Coupon: DAYONE</text>
+          <rect x="128" y="94" width="244" height="24" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="250" y="110" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">Pincode checker</text>
+          <rect x="128" y="130" width="244" height="24" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="250" y="146" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">Estimated total</text>
+          <rect x="128" y="166" width="244" height="32" rx="6" fill="#3a5a28"/>
+          <text x="250" y="187" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="white" text-anchor="middle">Check Out</text>
+          <text x="250" y="238" font-family="'DM Sans', sans-serif" font-size="11" fill="#c03030" text-anchor="middle" font-style="italic">No visible damaged/wrong-item reassurance</text>
+
+          <line x1="410" y1="127" x2="450" y2="127" stroke="#3a5a28" stroke-width="1.5"/>
+          <polygon points="450,123 460,127 450,131" fill="#3a5a28"/>
+
+          <rect x="470" y="38" width="280" height="196" rx="8" fill="white" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="488" y="56" width="244" height="28" rx="5" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1.2"/>
+          <text x="610" y="74" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#3a5a28" text-anchor="middle">Delivery issue? We help resolve it.</text>
+          <rect x="488" y="96" width="114" height="42" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="545" y="114" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Wrong item</text>
+          <text x="545" y="130" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">replacement</text>
+          <rect x="618" y="96" width="114" height="42" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="675" y="114" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Damaged pack</text>
+          <text x="675" y="130" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">support path</text>
+          <rect x="488" y="150" width="244" height="24" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="610" y="166" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">Clear refund / escalation link</text>
+          <rect x="488" y="188" width="244" height="32" rx="6" fill="#3a5a28"/>
+          <text x="610" y="209" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="white" text-anchor="middle">Check Out</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 5 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 5</span>
+          <span class="cvrt-c-badge">A/B Test</span>
+          <span class="cvrt-c-page">Cart Drawer</span>
+        </div>
+        <h2 class="cvrt-card-title">Cart Savings Progress</h2>
+        <p class="cvrt-card-desc">The cart shows threshold savings, app savings, a coupon field, and "You are saving INR0 on this order" in the same drawer. That makes the reward moment feel fragmented and can make an otherwise motivating cart look like the shopper failed to unlock value.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg">
+          <text x="250" y="22" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#c03030" text-anchor="middle" letter-spacing="0.1em">CURRENT</text>
+          <text x="610" y="22" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#3a5a28" text-anchor="middle" letter-spacing="0.1em">VARIATION</text>
+
+          <rect x="100" y="42" width="300" height="158" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5"/>
+          <text x="250" y="70" font-family="'DM Sans', sans-serif" font-size="13" fill="#1a1916" text-anchor="middle">Add INR1106 more to save INR100</text>
+          <rect x="130" y="88" width="240" height="10" rx="5" fill="#ede7db"/>
+          <rect x="130" y="88" width="82" height="10" rx="5" fill="#b07020"/>
+          <rect x="130" y="116" width="240" height="24" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="250" y="132" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">App savings available</text>
+          <rect x="130" y="152" width="240" height="24" rx="5" fill="rgba(192,48,48,0.08)" stroke="#c03030" stroke-width="1"/>
+          <text x="250" y="168" font-family="'DM Sans', sans-serif" font-size="12" fill="#c03030" text-anchor="middle">You are saving INR0</text>
+          <text x="250" y="224" font-family="'DM Sans', sans-serif" font-size="11" fill="#c03030" text-anchor="middle" font-style="italic">Multiple savings systems compete</text>
+
+          <line x1="414" y1="121" x2="454" y2="121" stroke="#3a5a28" stroke-width="1.5"/>
+          <polygon points="454,117 464,121 454,125" fill="#3a5a28"/>
+
+          <rect x="470" y="42" width="300" height="170" rx="8" fill="white" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <text x="620" y="70" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#1a1916" text-anchor="middle">Your unlocked savings</text>
+          <rect x="500" y="86" width="240" height="34" rx="6" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1.2"/>
+          <text x="620" y="107" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#3a5a28" text-anchor="middle">DAYONE applied at checkout</text>
+          <rect x="500" y="136" width="240" height="10" rx="5" fill="#ede7db"/>
+          <rect x="500" y="136" width="118" height="10" rx="5" fill="#3a5a28"/>
+          <text x="620" y="166" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">Add INR1106 for the next INR100 reward</text>
+          <text x="620" y="190" font-family="'DM Sans', sans-serif" font-size="11" fill="#3a5a28" text-anchor="middle" font-style="italic">No zero-savings dead end</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 6 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 6</span>
+          <span class="cvrt-c-badge">Performance Fix</span>
+          <span class="cvrt-c-page">Homepage + Feather Diapers PDP</span>
+        </div>
+        <h2 class="cvrt-card-title">Mobile Speed Priority Pass</h2>
+        <p class="cvrt-card-desc">PageSpeed shows homepage Performance 27 with 26.5s LCP and Feather Diapers PDP Performance 29 with 20.0s LCP. The biggest conversion risk is waiting and main-thread blockage, especially with carousels, UGC/video, floating widgets, app banners, and offer logic competing before shoppers can evaluate products.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg">
+          <text x="430" y="24" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#1a1916" text-anchor="middle" letter-spacing="0.1em">LOAD ORDER TEST</text>
+
+          <rect x="80" y="56" width="700" height="34" rx="7" fill="white" stroke="#d8d0c0" stroke-width="1.5"/>
+          <rect x="80" y="56" width="560" height="34" rx="7" fill="rgba(192,48,48,0.08)" stroke="#c03030" stroke-width="1.2"/>
+          <text x="360" y="78" font-family="'DM Sans', sans-serif" font-size="13" fill="#c03030" text-anchor="middle">Current: page waits on carousels, widgets, video, offers, and app modules</text>
+
+          <rect x="80" y="126" width="700" height="34" rx="7" fill="white" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="80" y="126" width="190" height="34" rx="7" fill="rgba(58,90,40,0.13)"/>
+          <rect x="286" y="126" width="156" height="34" rx="7" fill="rgba(58,90,40,0.08)"/>
+          <rect x="458" y="126" width="132" height="34" rx="7" fill="#f5efe3"/>
+          <rect x="606" y="126" width="132" height="34" rx="7" fill="#f5efe3"/>
+          <text x="175" y="148" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#3a5a28" text-anchor="middle">Product above fold</text>
+          <text x="364" y="148" font-family="'DM Sans', sans-serif" font-size="12" fill="#3a5a28" text-anchor="middle">CTA logic</text>
+          <text x="524" y="148" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">UGC later</text>
+          <text x="672" y="148" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle">widgets later</text>
+
+          <line x1="430" y1="96" x2="430" y2="118" stroke="#3a5a28" stroke-width="1.5"/>
+          <polygon points="426,118 430,128 434,118" fill="#3a5a28"/>
+          <text x="430" y="206" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle" font-style="italic">Prioritize hero/product media and purchase controls before non-critical modules.</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 7 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 7</span>
+          <span class="cvrt-c-badge">A/B Test</span>
+          <span class="cvrt-c-page">All Collection</span>
+        </div>
+        <h2 class="cvrt-card-title">Collection Category Clarity</h2>
+        <p class="cvrt-card-desc">The All collection has deep filters, but the visible grid repeats Feather Diapers variants and forces shoppers to understand product range through filters and similar cards. R for Rabbit sells across baby gear, diapering, feeding, nursery, toys, furniture, and gifts, so the collection should make breadth easier to scan before shoppers hit repeated SKUs.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg">
+          <text x="250" y="22" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#c03030" text-anchor="middle" letter-spacing="0.1em">CURRENT GRID</text>
+          <text x="610" y="22" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#3a5a28" text-anchor="middle" letter-spacing="0.1em">VARIATION</text>
+
+          <rect x="84" y="42" width="330" height="190" rx="8" fill="white" stroke="#d8d0c0" stroke-width="1.5"/>
+          <rect x="104" y="62" width="74" height="58" rx="5" fill="#ede7db"/>
+          <rect x="190" y="62" width="74" height="58" rx="5" fill="#ede7db"/>
+          <rect x="276" y="62" width="74" height="58" rx="5" fill="#ede7db"/>
+          <rect x="104" y="142" width="74" height="58" rx="5" fill="#ede7db"/>
+          <rect x="190" y="142" width="74" height="58" rx="5" fill="#ede7db"/>
+          <rect x="276" y="142" width="74" height="58" rx="5" fill="#ede7db"/>
+          <text x="141" y="130" font-family="'DM Sans', sans-serif" font-size="10" fill="#1a1916" text-anchor="middle">Diaper</text>
+          <text x="227" y="130" font-family="'DM Sans', sans-serif" font-size="10" fill="#1a1916" text-anchor="middle">Diaper</text>
+          <text x="313" y="130" font-family="'DM Sans', sans-serif" font-size="10" fill="#1a1916" text-anchor="middle">Diaper</text>
+          <text x="141" y="210" font-family="'DM Sans', sans-serif" font-size="10" fill="#1a1916" text-anchor="middle">Diaper</text>
+          <text x="227" y="210" font-family="'DM Sans', sans-serif" font-size="10" fill="#1a1916" text-anchor="middle">Diaper</text>
+          <text x="313" y="210" font-family="'DM Sans', sans-serif" font-size="10" fill="#1a1916" text-anchor="middle">Diaper</text>
+          <text x="250" y="256" font-family="'DM Sans', sans-serif" font-size="11" fill="#c03030" text-anchor="middle" font-style="italic">Breadth is hidden behind repeated variants</text>
+
+          <line x1="426" y1="137" x2="466" y2="137" stroke="#3a5a28" stroke-width="1.5"/>
+          <polygon points="466,133 476,137 466,141" fill="#3a5a28"/>
+
+          <rect x="486" y="42" width="330" height="200" rx="8" fill="white" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <rect x="506" y="62" width="290" height="34" rx="6" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1.2"/>
+          <text x="651" y="84" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#3a5a28" text-anchor="middle">Shop by need</text>
+          <rect x="506" y="116" width="88" height="48" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <rect x="606" y="116" width="88" height="48" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <rect x="706" y="116" width="88" height="48" rx="5" fill="#f5efe3" stroke="#c8c0b0" stroke-width="1"/>
+          <text x="550" y="145" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Diapering</text>
+          <text x="650" y="145" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Strollers</text>
+          <text x="750" y="145" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Feeding</text>
+          <rect x="506" y="184" width="290" height="32" rx="6" fill="#3a5a28"/>
+          <text x="651" y="205" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="white" text-anchor="middle">Then show matching products</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+    <!-- Slot 8 -->
+    <div class="cvrt-card">
+      <div class="cvrt-card-body">
+        <div class="cvrt-card-meta">
+          <span class="cvrt-c-slot">Slot 8</span>
+          <span class="cvrt-c-badge">A/B Test</span>
+          <span class="cvrt-c-page">PDP + Homepage</span>
+        </div>
+        <h2 class="cvrt-card-title">Community and Expert Proof</h2>
+        <p class="cvrt-card-desc">Positive reviews mention the app, subscription plan, parenting community, expert consultation, and helpful support agents, but those differentiators are not prominent in the collected first-fold journey. For a baby brand selling trust, expert access and parent community proof can reduce uncertainty before shoppers compare only on price or coupons.</p>
+      </div>
+      <div class="cvrt-sketch">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg">
+          <rect x="105" y="42" width="650" height="156" rx="8" fill="white" stroke="#3a5a28" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <text x="430" y="72" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#3a5a28" text-anchor="middle" letter-spacing="0.1em">TRUST MODULE TEST</text>
+
+          <rect x="135" y="98" width="170" height="64" rx="6" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1"/>
+          <text x="220" y="122" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#3a5a28" text-anchor="middle">Parent community</text>
+          <text x="220" y="144" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Questions after purchase</text>
+
+          <rect x="345" y="98" width="170" height="64" rx="6" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1"/>
+          <text x="430" y="122" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#3a5a28" text-anchor="middle">Expert consultation</text>
+          <text x="430" y="144" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Guidance for new parents</text>
+
+          <rect x="555" y="98" width="170" height="64" rx="6" fill="rgba(58,90,40,0.10)" stroke="#3a5a28" stroke-width="1"/>
+          <text x="640" y="122" font-family="'DM Sans', sans-serif" font-size="13" font-weight="500" fill="#3a5a28" text-anchor="middle">Subscription support</text>
+          <text x="640" y="144" font-family="'DM Sans', sans-serif" font-size="11" fill="#1a1916" text-anchor="middle">Useful for repeat diapers</text>
+
+          <line x1="430" y1="198" x2="430" y2="218" stroke="#3a5a28" stroke-width="1.5"/>
+          <polygon points="426,218 430,228 434,218" fill="#3a5a28"/>
+          <text x="430" y="238" font-family="'DM Sans', sans-serif" font-size="12" fill="#1a1916" text-anchor="middle" font-style="italic">Place near PDP proof and homepage product discovery, not buried after offers.</text>
+        </svg>
+        <span class="cvrt-sketch-note">* Concept illustration only. Final design will differ.</span>
+      </div>
+    </div>
+
+  </div><!-- /cvrt-panel-tests -->
+
+  <!-- DATA INSIGHTS PANEL -->
+  <div class="cvrt-panel cvrt-panel-insights">
+
+    <!-- Biggest Killers -->
+    <div class="cvrt-killers">
+      <span class="cvrt-killers-eyebrow">Cross-Source Analysis</span>
+      <h2 class="cvrt-killers-heading">Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-k-list">
+        <li><span class="cvrt-k-dot"></span>Red template error text on product cards creates a broken-store signal at the exact moment shoppers decide to add to cart.</li>
+        <li><span class="cvrt-k-dot"></span>Fragmented coupon codes across Meta ads, Google ads, PDP, and cart force shoppers to reconcile competing offers mid-funnel instead of committing.</li>
+        <li><span class="cvrt-k-dot"></span>Delivery and fulfillment failures are the primary driver of 14 out of 76 one-star reviews in the collected dataset, creating trust damage that suppresses repeat conversion.</li>
+        <li><span class="cvrt-k-dot"></span>The Feather Diapers buy box buries comfort and safety proof below decision complexity on a product with a 4.7 average and 939 ratings.</li>
+        <li><span class="cvrt-k-dot"></span>Homepage Performance score of 27, LCP 26.5s, and TTI 56.2s on mobile delay product discovery before shoppers can evaluate or add anything.</li>
+      </ul>
+    </div>
+
+    <!-- Data Sources -->
+    <div class="cvrt-sources-wrap">
+      <span class="cvrt-section-label">Data Sources Collected</span>
+      <div class="cvrt-chips">
+        <span class="cvrt-chip">Reviews and UGC</span>
+        <span class="cvrt-chip">Meta Ads</span>
+        <span class="cvrt-chip">Google Ads</span>
+        <span class="cvrt-chip">Site Screenshots</span>
+        <span class="cvrt-chip">Page Speed Insights</span>
+        <span class="cvrt-chip">Competitor Analysis</span>
+      </div>
+    </div>
+
+    <!-- Per-Source Findings -->
+    <div class="cvrt-findings-wrap">
+
+      <div class="cvrt-finding">
+        <span class="cvrt-finding-name">Reviews and UGC</span>
+        <ul class="cvrt-flist">
+          <li>57 of 76 reviews are five-star. Customers describe Feather Diapers as "the softest diapers ever witnessed" and praise comfort, range, safety, and the subscription and app experience.</li>
+          <li>14 one-star reviews concentrate around delayed delivery, wrong items, tampered products, refund delays, and support disconnects. These represent a trust gap at the exact promise the brand leads with.</li>
+          <li>Positive mentions of the parenting community, expert consultation, and subscription plan suggest these features create loyalty when the fulfillment experience matches them.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding">
+        <span class="cvrt-finding-name">Meta Ads</span>
+        <ul class="cvrt-flist">
+          <li>Three active campaign concepts: Rock N Roll stroller with NEW12, Feather Diaper Sample at 3 via TRYSAMPLE, and Feather Diapers with DPR15.</li>
+          <li>Landing pages match the featured product in each ad, but the dominant offer on arrival differs from the ad code in two of three cases, creating hesitation before Add to Cart.</li>
+          <li>The first fold presents multiple competing incentives, which conflicts with the single-code promise the ad delivers and slows the path to adding.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding">
+        <span class="cvrt-finding-name">Google Ads</span>
+        <ul class="cvrt-flist">
+          <li>Broader acquisition footprint than Meta, covering strollers, tricycles, high chairs, feeding bottles, baby carriers, car seats, and diapers across discount-led headlines.</li>
+          <li>Multiple codes including DPR15, FFRIST, and event sale references appear across campaigns, while the site header and cart currently emphasize DAYONE.</li>
+          <li>Discount messaging is consistent across channels, but the specific code changes at every touchpoint, making it difficult for a shopper to know which deal applies on arrival.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding">
+        <span class="cvrt-finding-name">Site Screenshots</span>
+        <ul class="cvrt-flist">
+          <li>Red template error text appears above Add to Cart on product cards across homepage carousels, Just Launched, and the All collection grid, affecting the primary shopping path on every visit.</li>
+          <li>Feather Diapers PDP loads app savings, cashback, selectors, subscription options, and offer cards before comfort and safety proof, pushing the most persuasive content below the first fold.</li>
+          <li>Cart drawer shows "You are saving 0 on this order" alongside multiple active savings systems, which weakens the reward moment the threshold mechanic is intended to create.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding">
+        <span class="cvrt-finding-name">Page Speed Insights</span>
+        <ul class="cvrt-flist">
+          <li>Homepage on mobile: Performance 27, LCP 26.5s, Total Blocking Time 6,030ms, Time to Interactive 56.2s, with 1,718 KiB of unused JavaScript identified.</li>
+          <li>Feather Diapers PDP on mobile: Performance 29, LCP 20.0s, Total Blocking Time 7,580ms, Time to Interactive 75.1s.</li>
+          <li>The primary conversion risk is main-thread blockage and delayed product module rendering. Product cards, buy box options, and offer logic likely arrive late on the devices most shoppers use.</li>
+        </ul>
+      </div>
+
+      <div class="cvrt-finding">
+        <span class="cvrt-finding-name">Competitor Analysis</span>
+        <ul class="cvrt-flist">
+          <li>Babyhug diaper pants range from 6.03 to 22.32 per diaper. LuvLap strollers range from 3,999 to 6,999 with discounts of 19 to 33 percent. Price pressure from marketplace competitors is significant.</li>
+          <li>R for Rabbit's differentiation is the app ecosystem, subscription model, parenting community, and owned-brand safety and quality claims rather than price. These advantages are not visible at the buy decision on the current PDP.</li>
+          <li>Cleaner offer clarity and sharper proof near the price and Add to Cart would make the premium positioning more defensible against competitors who win primarily on visible review counts and price.</li>
+        </ul>
+      </div>
+
+    </div><!-- /cvrt-findings-wrap -->
+
+  </div><!-- /cvrt-panel-insights -->
+
+  <footer class="cvrt-foot">
+    <p class="cvrt-foot-text">R for Rabbit &middot; June 2026</p>
+  </footer>
+
+</div><!-- /#cvrt-roadmap -->

@@ -1,0 +1,751 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;700;800;900&family=Petrona:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li {
+  list-style: none;
+}
+#cvrt-roadmap li::marker {
+  content: "";
+}
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important;
+  display: none !important;
+}
+#cvrt-roadmap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  color: #2f3735;
+  background: #fffdf6;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.45;
+  overflow: hidden;
+}
+#cvrt-roadmap .cvrt-roadmap-inner {
+  background:
+    radial-gradient(circle at 10% 28%, rgba(255, 207, 87, 0.18), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(236, 106, 117, 0.13), transparent 26%),
+    linear-gradient(180deg, #fffdf6 0%, #f7fbf8 100%);
+}
+#cvrt-roadmap .cvrt-tabs {
+  display: grid;
+}
+#cvrt-roadmap .cvrt-tab-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+#cvrt-roadmap .cvrt-hero {
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.92fr) minmax(440px, 1.08fr);
+  background: #05a7a7;
+  color: #ffffff;
+  position: relative;
+}
+#cvrt-roadmap .cvrt-hero-copy {
+  padding: 58px clamp(28px, 5vw, 76px) 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 34px;
+  background:
+    linear-gradient(135deg, rgba(0, 107, 104, 0.94), rgba(4, 167, 167, 0.91)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 16px);
+}
+#cvrt-roadmap .cvrt-logo {
+  width: 178px;
+  height: auto;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: 0 12px 30px rgba(26, 69, 65, 0.22);
+}
+#cvrt-roadmap .cvrt-label {
+  display: inline-flex;
+  width: fit-content;
+  color: #2f3735;
+  background: #ffd35d;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+#cvrt-roadmap .cvrt-title {
+  font-family: "Petrona", serif;
+  font-size: clamp(48px, 5.6vw, 82px);
+  line-height: 0.95;
+  font-weight: 800;
+  max-width: 640px;
+}
+#cvrt-roadmap .cvrt-summary {
+  font-family: "Petrona", serif;
+  font-size: 20px;
+  line-height: 1.42;
+  max-width: 610px;
+  margin-top: 24px;
+  color: rgba(255,255,255,0.93);
+}
+#cvrt-roadmap .cvrt-tab-labels {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+#cvrt-roadmap .cvrt-tab-label {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.13);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,0.28);
+}
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tab-label[for="cvrt-tab-tests"],
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tab-label[for="cvrt-tab-insights"] {
+  background: #ec6a75;
+  border-color: #ec6a75;
+  color: #ffffff;
+}
+#cvrt-roadmap .cvrt-hero-image {
+  min-height: 600px;
+  background-image:
+    linear-gradient(90deg, rgba(4, 167, 167, 0.18), rgba(47, 55, 53, 0.05)),
+    url("https://tropicalfruitbox.com/cdn/shop/files/Artboard_1.png?v=1656817247");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#cvrt-roadmap .cvrt-hero-image::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 130px;
+  background: linear-gradient(0deg, rgba(255,253,246,0.88), transparent);
+}
+#cvrt-roadmap .cvrt-panel {
+  display: none;
+  padding: 54px clamp(20px, 4vw, 58px) 68px;
+}
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-panels .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-panels .cvrt-insights-panel {
+  display: block;
+}
+#cvrt-roadmap .cvrt-section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#cvrt-roadmap .cvrt-eyebrow {
+  color: #ec6a75;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+#cvrt-roadmap .cvrt-section-heading h2 {
+  font-family: "Petrona", serif;
+  color: #04a7a7;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1;
+  font-weight: 800;
+}
+#cvrt-roadmap .cvrt-slot-card {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  border: 1px solid rgba(4, 167, 167, 0.22);
+  border-radius: 6px;
+  box-shadow: 0 18px 46px rgba(33, 87, 83, 0.13);
+  overflow: hidden;
+}
+#cvrt-roadmap .cvrt-slot-card + .cvrt-slot-card {
+  margin-top: 28px;
+}
+#cvrt-roadmap .cvrt-slot-copy {
+  padding: 28px 30px 24px;
+}
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-slot-label {
+  font-size: 13px;
+  font-weight: 900;
+  color: #753e3e;
+}
+#cvrt-roadmap .cvrt-type-badge {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ffffff;
+  background: #04a7a7;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+#cvrt-roadmap .cvrt-slot-title {
+  font-family: "Petrona", serif;
+  color: #04a7a7;
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+#cvrt-roadmap .cvrt-page-link,
+#cvrt-roadmap .cvrt-page-label {
+  display: inline-flex;
+  color: #753e3e;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+#cvrt-roadmap .cvrt-page-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#cvrt-roadmap .cvrt-description {
+  max-width: 560px;
+  color: #394340;
+  font-size: 16px;
+  line-height: 1.58;
+}
+#cvrt-roadmap .cvrt-wireframe-wrap {
+  background: #fbf7ea;
+  padding: 24px 24px 20px;
+}
+#cvrt-roadmap .cvrt-wireframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  border-radius: 5px;
+}
+#cvrt-roadmap .cvrt-caption {
+  color: #111111;
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 11px;
+}
+#cvrt-roadmap .cvrt-killers {
+  background:
+    linear-gradient(135deg, #036f6d, #04a7a7 64%, #0bbbbb);
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 34px;
+  box-shadow: 0 20px 50px rgba(33, 87, 83, 0.2);
+  margin-bottom: 34px;
+}
+#cvrt-roadmap .cvrt-killers h2 {
+  font-family: "Petrona", serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.02;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+#cvrt-roadmap .cvrt-killer-list {
+  display: grid;
+  gap: 12px;
+}
+#cvrt-roadmap .cvrt-killer-list li {
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 5px;
+  padding: 15px 16px;
+  font-size: 16px;
+  line-height: 1.46;
+}
+#cvrt-roadmap .cvrt-killer-list span {
+  display: block;
+  font-weight: 900;
+  color: #ffd35d;
+  margin-bottom: 3px;
+}
+#cvrt-roadmap .cvrt-source-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 28px;
+}
+#cvrt-roadmap .cvrt-source-chip {
+  background: #ffffff;
+  border: 1px solid rgba(4, 167, 167, 0.24);
+  border-radius: 6px;
+  padding: 14px 16px;
+  color: #04a7a7;
+  font-size: 14px;
+  font-weight: 900;
+  text-align: center;
+}
+#cvrt-roadmap .cvrt-source-block {
+  background: #ffffff;
+  border: 1px solid rgba(4, 167, 167, 0.18);
+  border-radius: 6px;
+  padding: 26px 28px;
+  box-shadow: 0 12px 34px rgba(33, 87, 83, 0.08);
+}
+#cvrt-roadmap .cvrt-source-block + .cvrt-source-block {
+  margin-top: 16px;
+}
+#cvrt-roadmap .cvrt-source-block h3 {
+  font-family: "Petrona", serif;
+  color: #04a7a7;
+  font-size: 27px;
+  line-height: 1.08;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+#cvrt-roadmap .cvrt-source-list {
+  display: grid;
+  gap: 9px;
+}
+#cvrt-roadmap .cvrt-source-list li {
+  color: #394340;
+  font-size: 16px;
+  line-height: 1.5;
+}
+#cvrt-roadmap .cvrt-footer {
+  padding: 28px clamp(20px, 4vw, 58px) 36px;
+  text-align: center;
+  color: #753e3e;
+  font-size: 13px;
+  font-weight: 900;
+  background: #fff8df;
+}
+#cvrt-roadmap svg text {
+  font-family: "Nunito Sans", sans-serif;
+  fill: #26312f;
+  font-weight: 800;
+}
+#cvrt-roadmap svg .cvrt-svg-title {
+  font-family: "Petrona", serif;
+  font-weight: 800;
+  fill: #04a7a7;
+}
+#cvrt-roadmap svg .cvrt-svg-small {
+  font-size: 16px;
+}
+#cvrt-roadmap svg .cvrt-svg-label {
+  font-size: 18px;
+}
+#cvrt-roadmap svg .cvrt-svg-head {
+  font-size: 22px;
+}
+#cvrt-roadmap svg .cvrt-svg-muted {
+  fill: #5b6663;
+}
+@media (max-width: 920px) {
+  #cvrt-roadmap .cvrt-hero {
+    grid-template-columns: 1fr;
+  }
+  #cvrt-roadmap .cvrt-hero-copy {
+    min-height: 470px;
+  }
+  #cvrt-roadmap .cvrt-hero-image {
+    min-height: 360px;
+  }
+  #cvrt-roadmap .cvrt-source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  #cvrt-roadmap .cvrt-hero-copy {
+    padding: 34px 20px 30px;
+  }
+  #cvrt-roadmap .cvrt-panel {
+    padding: 38px 16px 46px;
+  }
+  #cvrt-roadmap .cvrt-slot-copy,
+  #cvrt-roadmap .cvrt-wireframe-wrap,
+  #cvrt-roadmap .cvrt-killers,
+  #cvrt-roadmap .cvrt-source-block {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  #cvrt-roadmap .cvrt-source-grid {
+    grid-template-columns: 1fr;
+  }
+  #cvrt-roadmap .cvrt-slot-title {
+    font-size: 28px;
+  }
+}
+@media print {
+  #cvrt-roadmap {
+    width: 100%;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #cvrt-roadmap .cvrt-slot-card,
+  #cvrt-roadmap .cvrt-source-block,
+  #cvrt-roadmap .cvrt-killers {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  #cvrt-roadmap .cvrt-panel {
+    display: block;
+  }
+}
+</style>
+<div id="cvrt-roadmap">
+  <div class="cvrt-roadmap-inner">
+    <div class="cvrt-tabs">
+      <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tab-tests" checked>
+      <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tab-insights">
+
+      <section class="cvrt-hero">
+        <div class="cvrt-hero-copy">
+          <div>
+            <img class="cvrt-logo" src="https://tropicalfruitbox.com/cdn/shop/files/Tropical-Fruit-Box-Horizontal_256x.png?v=1628905639" alt="Tropical Fruit Box">
+          </div>
+          <div>
+            <div class="cvrt-label">CRO Testing Roadmap</div>
+            <h1 class="cvrt-title">July 2026 Roadmap</h1>
+            <p class="cvrt-summary">Paid traffic is landing with specific discount and gifting expectations that the site does not reinforce. The highest-confidence opportunity is to close that message gap before shoppers reach the product grid or buy box.</p>
+          </div>
+          <div class="cvrt-tab-labels" role="tablist" aria-label="Roadmap tabs">
+            <label class="cvrt-tab-label" for="cvrt-tab-tests">Tests</label>
+            <label class="cvrt-tab-label" for="cvrt-tab-insights">Data Insights</label>
+          </div>
+        </div>
+        <div class="cvrt-hero-image" role="img" aria-label="Tropical Fruit Box product spread"></div>
+      </section>
+
+      <div class="cvrt-panels">
+        <section class="cvrt-panel cvrt-tests-panel">
+          <div class="cvrt-section-heading">
+            <h2>Testing Concepts</h2>
+          </div>
+
+          <article class="cvrt-slot-card">
+            <div class="cvrt-slot-copy">
+              <div class="cvrt-slot-meta">
+                <span class="cvrt-slot-label">Slot 1</span>
+                <span class="cvrt-type-badge">A/B Test</span>
+              </div>
+              <h3 class="cvrt-slot-title">Best Sellers Discount Banner</h3>
+              <a class="cvrt-page-link" href="https://tropicalfruitbox.com/collections/best-sellers" target="_blank" rel="noopener">Best Sellers</a>
+              <p class="cvrt-description">Offer-focused paid traffic arrives with the promise "Use SWEET15 to get $15 OFF." The Best Sellers landing page shows PRIME20 in the announcement bar and no SWEET15 confirmation, creating an immediate trust gap for shoppers who clicked for that offer.</p>
+            </div>
+            <div class="cvrt-wireframe-wrap">
+              <svg class="cvrt-wireframe" viewBox="0 0 1120 500" role="img" aria-label="Best Sellers discount banner current and variation wireframe">
+                <rect x="0" y="0" width="1120" height="500" fill="#fffdf6"/>
+                <rect x="34" y="34" width="500" height="420" rx="8" fill="#ffffff" stroke="#91bbb4" stroke-width="2" stroke-dasharray="8 8"/>
+                <rect x="586" y="34" width="500" height="420" rx="8" fill="#ffffff" stroke="#04a7a7" stroke-width="3" stroke-dasharray="8 8"/>
+                <text x="58" y="76" class="cvrt-svg-title cvrt-svg-head">Current</text>
+                <text x="610" y="76" class="cvrt-svg-title cvrt-svg-head">Variation</text>
+                <rect x="58" y="100" width="452" height="34" rx="17" fill="#ec6a75"/>
+                <text x="160" y="123" font-size="18" fill="#ffffff">PRIME20: 20% OFF $89+</text>
+                <rect x="610" y="100" width="452" height="44" rx="22" fill="#ffd35d" stroke="#04a7a7" stroke-width="3"/>
+                <text x="676" y="128" font-size="20" fill="#26312f">Your $15 off is ready. Use SWEET15</text>
+                <rect x="58" y="160" width="452" height="58" fill="#04a7a7"/>
+                <text x="213" y="197" font-size="24" fill="#ffffff">Best Sellers</text>
+                <rect x="610" y="170" width="452" height="58" fill="#04a7a7"/>
+                <text x="765" y="207" font-size="24" fill="#ffffff">Best Sellers</text>
+                <rect x="374" y="238" width="136" height="34" rx="4" fill="#f2f2f2" stroke="#d7d7d7"/>
+                <text x="402" y="261" class="cvrt-svg-small">Featured</text>
+                <rect x="926" y="248" width="136" height="34" rx="4" fill="#f2f2f2" stroke="#d7d7d7"/>
+                <text x="954" y="271" class="cvrt-svg-small">Featured</text>
+                <g>
+                  <rect x="58" y="296" width="130" height="118" fill="#f8e7ca" stroke="#d8c6a8"/>
+                  <rect x="74" y="312" width="98" height="56" fill="#08a7a7" fill-opacity="0.18"/>
+                  <text x="72" y="390" class="cvrt-svg-small">Taste Tropics</text>
+                  <text x="72" y="411" class="cvrt-svg-small">$109</text>
+                  <rect x="214" y="296" width="130" height="118" fill="#f8e7ca" stroke="#d8c6a8"/>
+                  <rect x="230" y="312" width="98" height="56" fill="#08a7a7" fill-opacity="0.18"/>
+                  <text x="228" y="390" class="cvrt-svg-small">Create Box</text>
+                  <text x="228" y="411" class="cvrt-svg-small">$119</text>
+                  <rect x="370" y="296" width="130" height="118" fill="#f8e7ca" stroke="#d8c6a8"/>
+                  <rect x="386" y="312" width="98" height="56" fill="#08a7a7" fill-opacity="0.18"/>
+                  <text x="386" y="390" class="cvrt-svg-small">Dragon Fruit</text>
+                  <text x="386" y="411" class="cvrt-svg-small">$69</text>
+                </g>
+                <g>
+                  <rect x="610" y="306" width="130" height="118" fill="#f8e7ca" stroke="#d8c6a8"/>
+                  <rect x="626" y="322" width="98" height="56" fill="#08a7a7" fill-opacity="0.18"/>
+                  <text x="624" y="400" class="cvrt-svg-small">Taste Tropics</text>
+                  <text x="624" y="421" class="cvrt-svg-small">$109</text>
+                  <rect x="766" y="306" width="130" height="118" fill="#f8e7ca" stroke="#d8c6a8"/>
+                  <rect x="782" y="322" width="98" height="56" fill="#08a7a7" fill-opacity="0.18"/>
+                  <text x="780" y="400" class="cvrt-svg-small">Create Box</text>
+                  <text x="780" y="421" class="cvrt-svg-small">$119</text>
+                  <rect x="922" y="306" width="130" height="118" fill="#f8e7ca" stroke="#d8c6a8"/>
+                  <rect x="938" y="322" width="98" height="56" fill="#08a7a7" fill-opacity="0.18"/>
+                  <text x="938" y="400" class="cvrt-svg-small">Dragon Fruit</text>
+                  <text x="938" y="421" class="cvrt-svg-small">$69</text>
+                </g>
+                <rect x="486" y="224" width="150" height="34" rx="17" fill="#ffffff" stroke="#ec6a75" stroke-width="2"/>
+                <text x="503" y="247" font-size="18" fill="#753e3e">offer mismatch</text>
+              </svg>
+              <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+            </div>
+          </article>
+
+          <article class="cvrt-slot-card">
+            <div class="cvrt-slot-copy">
+              <div class="cvrt-slot-meta">
+                <span class="cvrt-slot-label">Slot 2</span>
+                <span class="cvrt-type-badge">A/B Test</span>
+              </div>
+              <h3 class="cvrt-slot-title">Homepage Price Advantage Frame</h3>
+              <a class="cvrt-page-link" href="https://tropicalfruitbox.com/" target="_blank" rel="noopener">Homepage</a>
+              <p class="cvrt-description">Miami Fruit prices from $147 versus Tropical Fruit Box's $109 entry point, a 26% price advantage with no on-site expression. The homepage currently leads with a broad farm-fresh promise, press logos, BBB proof, and product sections, but does not frame Tropical Fruit Box as premium tropical fruit at a more accessible price.</p>
+            </div>
+            <div class="cvrt-wireframe-wrap">
+              <svg class="cvrt-wireframe" viewBox="0 0 1120 600" role="img" aria-label="Homepage price advantage current and variation wireframe">
+                <rect x="0" y="0" width="1120" height="600" fill="#fffdf6"/>
+                <rect x="34" y="38" width="500" height="508" rx="8" fill="#ffffff" stroke="#91bbb4" stroke-width="2" stroke-dasharray="8 8"/>
+                <rect x="586" y="38" width="500" height="508" rx="8" fill="#ffffff" stroke="#04a7a7" stroke-width="3" stroke-dasharray="8 8"/>
+                <text x="58" y="80" class="cvrt-svg-title cvrt-svg-head">Current</text>
+                <text x="610" y="80" class="cvrt-svg-title cvrt-svg-head">Variation</text>
+                <rect x="58" y="108" width="452" height="132" rx="6" fill="#d8b23a" fill-opacity="0.28" stroke="#d8c6a8"/>
+                <rect x="82" y="130" width="108" height="74" fill="#04a7a7" fill-opacity="0.20"/>
+                <text x="210" y="148" font-size="20" fill="#26312f">Farm-Fresh, Tropical Fruits</text>
+                <text x="210" y="174" font-size="20" fill="#26312f">Delivered to You</text>
+                <rect x="210" y="194" width="112" height="30" rx="15" fill="#04a7a7"/>
+                <text x="232" y="214" font-size="14" fill="#ffffff">Variety Boxes</text>
+                <rect x="330" y="194" width="136" height="30" rx="15" fill="#ec6a75"/>
+                <text x="350" y="214" font-size="14" fill="#ffffff">Build Your Box</text>
+                <rect x="58" y="264" width="452" height="56" rx="5" fill="#ffffff" stroke="#d8c6a8"/>
+                <text x="94" y="299" font-size="18" fill="#26312f">Chowhound · BYRDIE · Fodor's · BBB</text>
+                <text x="58" y="360" class="cvrt-svg-title cvrt-svg-head">Popular Fruit Boxes</text>
+                <rect x="58" y="388" width="130" height="112" fill="#f8e7ca" stroke="#d8c6a8"/>
+                <rect x="74" y="404" width="98" height="48" fill="#08a7a7" fill-opacity="0.18"/>
+                <text x="72" y="474" class="cvrt-svg-small">Taste Tropics</text>
+                <text x="72" y="494" class="cvrt-svg-small">from $109</text>
+                <rect x="214" y="388" width="130" height="112" fill="#f8e7ca" stroke="#d8c6a8"/>
+                <rect x="230" y="404" width="98" height="48" fill="#08a7a7" fill-opacity="0.18"/>
+                <text x="228" y="474" class="cvrt-svg-small">Create Box</text>
+                <text x="228" y="494" class="cvrt-svg-small">$119</text>
+                <rect x="370" y="388" width="130" height="112" fill="#f8e7ca" stroke="#d8c6a8"/>
+                <rect x="386" y="404" width="98" height="48" fill="#08a7a7" fill-opacity="0.18"/>
+                <text x="386" y="474" class="cvrt-svg-small">Dragon Fruit</text>
+                <text x="386" y="494" class="cvrt-svg-small">$69</text>
+                <rect x="610" y="108" width="452" height="132" rx="6" fill="#d8b23a" fill-opacity="0.28" stroke="#d8c6a8"/>
+                <rect x="634" y="130" width="108" height="74" fill="#04a7a7" fill-opacity="0.20"/>
+                <text x="762" y="148" font-size="20" fill="#26312f">Farm-Fresh, Tropical Fruits</text>
+                <text x="762" y="174" font-size="20" fill="#26312f">Delivered to You</text>
+                <rect x="762" y="194" width="112" height="30" rx="15" fill="#04a7a7"/>
+                <text x="784" y="214" font-size="14" fill="#ffffff">Variety Boxes</text>
+                <rect x="882" y="194" width="136" height="30" rx="15" fill="#ec6a75"/>
+                <text x="902" y="214" font-size="14" fill="#ffffff">Build Your Box</text>
+                <rect x="610" y="264" width="452" height="90" rx="8" fill="#ffd35d" stroke="#04a7a7" stroke-width="3" stroke-dasharray="9 7"/>
+                <text x="636" y="296" class="cvrt-svg-title cvrt-svg-head">Premium tropical fruit from $109</text>
+                <text x="636" y="326" font-size="18" fill="#26312f">Miami Fruit starts at $147+. TFB starts at $109.</text>
+                <text x="610" y="394" class="cvrt-svg-title cvrt-svg-head">Popular Fruit Boxes</text>
+                <rect x="610" y="422" width="130" height="96" fill="#f8e7ca" stroke="#d8c6a8"/>
+                <rect x="626" y="438" width="98" height="34" fill="#08a7a7" fill-opacity="0.18"/>
+                <text x="624" y="494" class="cvrt-svg-small">Taste Tropics</text>
+                <text x="624" y="514" class="cvrt-svg-small">from $109</text>
+                <rect x="766" y="422" width="130" height="96" fill="#f8e7ca" stroke="#d8c6a8"/>
+                <rect x="782" y="438" width="98" height="34" fill="#08a7a7" fill-opacity="0.18"/>
+                <text x="780" y="494" class="cvrt-svg-small">Create Box</text>
+                <text x="780" y="514" class="cvrt-svg-small">$119</text>
+                <rect x="922" y="422" width="130" height="96" fill="#f8e7ca" stroke="#d8c6a8"/>
+                <rect x="938" y="438" width="98" height="34" fill="#08a7a7" fill-opacity="0.18"/>
+                <text x="938" y="494" class="cvrt-svg-small">Dragon Fruit</text>
+                <text x="938" y="514" class="cvrt-svg-small">$69</text>
+              </svg>
+              <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+            </div>
+          </article>
+
+          <article class="cvrt-slot-card">
+            <div class="cvrt-slot-copy">
+              <div class="cvrt-slot-meta">
+                <span class="cvrt-slot-label">Slot 3</span>
+                <span class="cvrt-type-badge">A/B Test</span>
+              </div>
+              <h3 class="cvrt-slot-title">Create Your Own Buy Box Code</h3>
+              <a class="cvrt-page-link" href="https://tropicalfruitbox.com/products/u-pick-custom-box" target="_blank" rel="noopener">Create Your Own Tropical Fruit Box PDP</a>
+              <p class="cvrt-description">Offer-focused traffic arrives with "Save $15 with code META15," but the Create Your Own PDP does not mention META15 in the announcement bar or buy box. The PDP has only 1 review with no written text, so the code confirmation has to carry more trust at the $119 decision point.</p>
+            </div>
+            <div class="cvrt-wireframe-wrap">
+              <svg class="cvrt-wireframe" viewBox="0 0 1120 820" role="img" aria-label="Create Your Own PDP buy box current and variation wireframe">
+                <rect x="0" y="0" width="1120" height="820" fill="#fffdf6"/>
+                <rect x="34" y="36" width="500" height="736" rx="8" fill="#ffffff" stroke="#91bbb4" stroke-width="2" stroke-dasharray="8 8"/>
+                <rect x="586" y="36" width="500" height="736" rx="8" fill="#ffffff" stroke="#04a7a7" stroke-width="3" stroke-dasharray="8 8"/>
+                <text x="58" y="78" class="cvrt-svg-title cvrt-svg-head">Current</text>
+                <text x="610" y="78" class="cvrt-svg-title cvrt-svg-head">Variation</text>
+                <rect x="58" y="104" width="452" height="92" rx="6" fill="#fff8df" stroke="#d8c6a8"/>
+                <rect x="82" y="124" width="76" height="52" fill="#04a7a7" fill-opacity="0.18"/>
+                <text x="178" y="132" font-size="20" fill="#ff8a26">★★★★★</text>
+                <text x="178" y="158" class="cvrt-svg-title cvrt-svg-head">Create Your Own</text>
+                <text x="178" y="184" font-size="22" fill="#26312f">$119.00</text>
+                <rect x="610" y="104" width="452" height="92" rx="6" fill="#fff8df" stroke="#d8c6a8"/>
+                <rect x="634" y="124" width="76" height="52" fill="#04a7a7" fill-opacity="0.18"/>
+                <text x="730" y="132" font-size="20" fill="#ff8a26">★★★★★</text>
+                <text x="730" y="158" class="cvrt-svg-title cvrt-svg-head">Create Your Own</text>
+                <text x="730" y="184" font-size="22" fill="#26312f">$119.00</text>
+                <text x="58" y="236" class="cvrt-svg-label">Size</text>
+                <rect x="58" y="254" width="150" height="42" rx="6" fill="#04a7a7"/>
+                <text x="82" y="281" font-size="16" fill="#ffffff">Regular 10lbs</text>
+                <rect x="224" y="254" width="128" height="42" rx="6" fill="#eeeeee"/>
+                <text x="249" y="281" font-size="16" fill="#26312f">Large 14lbs</text>
+                <text x="610" y="236" class="cvrt-svg-label">Size</text>
+                <rect x="610" y="254" width="150" height="42" rx="6" fill="#04a7a7"/>
+                <text x="634" y="281" font-size="16" fill="#ffffff">Regular 10lbs</text>
+                <rect x="776" y="254" width="128" height="42" rx="6" fill="#eeeeee"/>
+                <text x="801" y="281" font-size="16" fill="#26312f">Large 14lbs</text>
+                <text x="58" y="340" class="cvrt-svg-label">Greeting Card</text>
+                <rect x="58" y="358" width="452" height="44" rx="6" fill="#eeeeee"/>
+                <text x="82" y="386" font-size="17" fill="#26312f">Generic, Birthday, Anniversary, Love you</text>
+                <text x="610" y="340" class="cvrt-svg-label">Greeting Card</text>
+                <rect x="610" y="358" width="452" height="44" rx="6" fill="#eeeeee"/>
+                <text x="634" y="386" font-size="17" fill="#26312f">Generic, Birthday, Anniversary, Love you</text>
+                <rect x="58" y="438" width="452" height="86" rx="8" fill="#ffffff" stroke="#d8c6a8"/>
+                <circle cx="86" cy="469" r="8" fill="#04a7a7"/>
+                <text x="112" y="476" font-size="18" fill="#26312f">$119.00 One-time purchase</text>
+                <circle cx="86" cy="499" r="8" fill="#ffffff" stroke="#91bbb4"/>
+                <text x="112" y="506" font-size="18" fill="#26312f">$98.10 Subscribe & Save 10%</text>
+                <rect x="610" y="438" width="452" height="86" rx="8" fill="#ffffff" stroke="#d8c6a8"/>
+                <circle cx="638" cy="469" r="8" fill="#04a7a7"/>
+                <text x="664" y="476" font-size="18" fill="#26312f">$119.00 One-time purchase</text>
+                <circle cx="638" cy="499" r="8" fill="#ffffff" stroke="#91bbb4"/>
+                <text x="664" y="506" font-size="18" fill="#26312f">$98.10 Subscribe & Save 10%</text>
+                <rect x="58" y="552" width="452" height="52" rx="26" fill="#ffffff" stroke="#ec6a75" stroke-width="3"/>
+                <text x="174" y="585" font-size="20" fill="#753e3e">No META15 confirmation</text>
+                <rect x="610" y="552" width="452" height="52" rx="26" fill="#ffd35d" stroke="#04a7a7" stroke-width="3"/>
+                <text x="702" y="585" font-size="20" fill="#26312f">META15 saves $15 on this order</text>
+                <rect x="58" y="632" width="132" height="42" rx="5" fill="#eeeeee"/>
+                <text x="103" y="659" font-size="18" fill="#26312f">- 1 +</text>
+                <rect x="214" y="632" width="296" height="42" rx="21" fill="#04a7a7"/>
+                <text x="315" y="659" font-size="18" fill="#ffffff">Add to cart</text>
+                <rect x="610" y="632" width="132" height="42" rx="5" fill="#eeeeee"/>
+                <text x="655" y="659" font-size="18" fill="#26312f">- 1 +</text>
+                <rect x="766" y="632" width="296" height="42" rx="21" fill="#04a7a7"/>
+                <text x="867" y="659" font-size="18" fill="#ffffff">Add to cart</text>
+                <rect x="58" y="704" width="452" height="50" rx="6" fill="#ffffff" stroke="#04a7a7"/>
+                <text x="82" y="735" class="cvrt-svg-small">Satisfaction Guarantee · Free Shipping · A+ Rating</text>
+                <rect x="610" y="704" width="452" height="50" rx="6" fill="#ffffff" stroke="#04a7a7"/>
+                <text x="634" y="735" class="cvrt-svg-small">Satisfaction Guarantee · Free Shipping · A+ Rating</text>
+              </svg>
+              <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="cvrt-panel cvrt-insights-panel">
+          <section class="cvrt-killers">
+            <h2>Biggest Killers of Conversion Rate</h2>
+            <ul class="cvrt-killer-list">
+              <li><span>Discount code message match failure</span>Active paid-social offers promise META15 and SWEET15, but neither code appears on its landing page.</li>
+              <li><span>Mobile performance fails before persuasion starts</span>The homepage records 12.0s LCP and 51.6s TTI. Best Sellers records 8.6s LCP and 43.6s TTI.</li>
+              <li><span>The main paid landing page lacks guided selling</span>Best Sellers receives paid traffic, has 14+ products, and offers no filter panel or occasion path.</li>
+            </ul>
+          </section>
+
+          <div class="cvrt-section-heading">
+            <div class="cvrt-eyebrow">Research Inputs</div>
+            <h2>Data Sources Used</h2>
+          </div>
+
+          <div class="cvrt-source-grid">
+            <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+            <div class="cvrt-source-chip">Google Ads</div>
+            <div class="cvrt-source-chip">Reviews and UGC</div>
+            <div class="cvrt-source-chip">PageSpeed and Core Web Vitals</div>
+            <div class="cvrt-source-chip">Site Screenshots</div>
+            <div class="cvrt-source-chip">Live Site Fetch</div>
+            <div class="cvrt-source-chip">Competitor Research</div>
+          </div>
+
+          <section class="cvrt-source-block">
+            <h3>Meta Ads and Landing Pages</h3>
+            <ul class="cvrt-source-list">
+              <li>Multiple active paid-social creatives promise specific discount codes that are invisible on their landing pages.</li>
+              <li>"Save $15 with code META15" sends traffic to the $119 Create Your Own PDP with no matching buy-box confirmation.</li>
+              <li>"Use SWEET15 to get $15 OFF" sends traffic to Best Sellers with no code reinforcement on the page.</li>
+              <li>The code-based offers have been active since January 19, 2026.</li>
+            </ul>
+          </section>
+
+          <section class="cvrt-source-block">
+            <h3>Google Ads</h3>
+            <ul class="cvrt-source-list">
+              <li>Shopping ads are SKU-led and flavor-specific, including "Buy Fresh Cherimoya Fruit," "Fresh Soursop," "Taste the Exotics Fruit Box," and "PinkGlow Pineapple."</li>
+              <li>Free Shipping appears in at least one visible listing.</li>
+              <li>No discount codes appear in visible Shopping headlines.</li>
+              <li>Shopping ads and paid-social creative do not share a clear cross-channel message architecture.</li>
+            </ul>
+          </section>
+
+          <section class="cvrt-source-block">
+            <h3>Reviews and UGC</h3>
+            <ul class="cvrt-source-list">
+              <li>Novelty and discovery are the strongest emotional drivers, with reviewers describing fruits they had never seen or tasted.</li>
+              <li>Gifting is consistently successful, with reviewers describing impressed and excited recipients.</li>
+              <li>Pink pineapple is the most memorable product in the review set, with multiple reviewers calling it out directly.</li>
+              <li>Fruit identification cards are a hidden differentiator. One reviewer said they helped explain how to cut the fruits and when they were ripe enough to eat.</li>
+            </ul>
+          </section>
+
+          <section class="cvrt-source-block">
+            <h3>PageSpeed and Core Web Vitals</h3>
+            <ul class="cvrt-source-list">
+              <li>The homepage has a 51 performance score, 12.0s LCP, 51.6s TTI, and 420ms total blocking time on mobile emulation.</li>
+              <li>Best Sellers has a 52 performance score, 8.6s LCP, 43.6s TTI, and 330ms total blocking time on mobile emulation.</li>
+              <li>CLS is clean on both pages at 0.01 for the homepage and 0.00 for Best Sellers.</li>
+              <li>Server response time is healthy at 10 to 20ms, pointing to client-side JavaScript and render-blocking resources as the bottleneck.</li>
+            </ul>
+          </section>
+
+          <section class="cvrt-source-block">
+            <h3>Site Screenshots</h3>
+            <ul class="cvrt-source-list">
+              <li>The homepage places press logos and a BBB badge immediately after the hero, giving trust proof strong early placement.</li>
+              <li>Best Sellers opens with a title, Featured sort, and a 3-column grid of 14+ products with no filter panel or occasion framing.</li>
+              <li>The PDP buy box is dense but structured, with size variants, greeting card options, subscribe and save, quantity, Add to Cart, and trust badges above the fold.</li>
+              <li>The cart drawer has developed AOV mechanics, including add-ons, shipping protection, subscription upsell, cart expiry countdown, and TropiRewards at the bottom.</li>
+            </ul>
+          </section>
+
+          <section class="cvrt-source-block">
+            <h3>Live Site Fetch</h3>
+            <ul class="cvrt-source-list">
+              <li>The live announcement bar uses PRIME20 for 20% off $89+.</li>
+              <li>SWEET15 was not visible on the Best Sellers landing page during the live fetch.</li>
+              <li>META15 was not visible on the Create Your Own PDP in the audited page state.</li>
+            </ul>
+          </section>
+
+          <section class="cvrt-source-block">
+            <h3>Competitor Research</h3>
+            <ul class="cvrt-source-list">
+              <li>Miami Fruit is the most direct competitor and prices from $147 versus Tropical Fruit Box's $109 entry point.</li>
+              <li>Miami Fruit states 6,000+ reviews, while Tropical Fruit Box has roughly 192 on the flagship SKU.</li>
+              <li>Tropical Fruit Box has a price advantage, gifting angle, women-owned story, and fruit ID cards that are not fully expressed on-site.</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <footer class="cvrt-footer">July 2026</footer>
+  </div>
+</div>

@@ -141,6 +141,8 @@ Ranked by evidence strength x revenue potential x fixability. The roadmap comman
 
 Write 5 entries max. Each entry is one specific, testable opportunity — not a broad theme.
 
+Before finalizing, deduplicate by test mechanic. If two opportunities use the same intervention on the same component, keep one broader opportunity and mention the narrower case as the strongest example.
+
 Format each entry as:
 **[Test Name]** — [One sentence: what's broken, what it costs.] Evidence: [source list]. Est. lift: [conservative CR lift] x [sessions/mo] x [AOV] = [$].
 
@@ -174,6 +176,8 @@ Write `brands/[brand-name]/roadmap-seed.md`. This is the only file the roadmap c
 [2-3 short paragraphs. Cross-source themes with specific numbers and direct customer quotes. Write to roadmap brief standard — the roadmap command uses this section verbatim for its Insights section.]
 
 ## Top Test Opportunities
+
+Top Test Opportunities must be mutually exclusive. If an opportunity is a broader version of another, keep the broader version and mention the narrower case inside it.
 
 ### 1. [Test Name]
 **What's broken:** Describe the current UI state visually, not just the problem. Include: the element name, its position on the page, what it looks like (layout, content, labels, visual treatment), and the friction it creates. The roadmap agent cannot open screenshots — this description must stand alone as a complete picture of what exists on the page today. A designer must be able to mock up a variation from this description alone.

@@ -1,0 +1,333 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after { margin: 0; padding: 0; box-sizing: border-box; font-family: inherit; line-height: inherit; letter-spacing: normal; text-transform: none; }
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div { font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; margin: 0; padding: 0; }
+#cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before, #cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before, #cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap { --cvrt-ink:#101210; --cvrt-paper:#f4f4f0; --cvrt-white:#fff; --cvrt-green:#35b729; --cvrt-moss:#dfe8d8; --cvrt-line:#d8dbd5; width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; overflow:hidden; background:var(--cvrt-paper); color:var(--cvrt-ink); font-family:'Manrope',sans-serif; line-height:1.55; }
+#cvrt-roadmap .cvrt-tab-input { position:absolute; opacity:0; pointer-events:none; }
+#cvrt-roadmap .cvrt-hero { min-height:610px; display:grid; grid-template-columns:minmax(360px,42%) 1fr; background:#050605; color:var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-copy { padding:58px clamp(34px,5vw,86px) 0; display:flex; flex-direction:column; position:relative; z-index:2; }
+#cvrt-roadmap .cvrt-logo { width:72px; height:72px; object-fit:contain; margin-bottom:60px; }
+#cvrt-roadmap .cvrt-eyebrow { font:700 15px/1 'Barlow Condensed',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#a9dfa2; margin-bottom:18px; }
+#cvrt-roadmap .cvrt-hero h1 { max-width:520px; font:700 clamp(58px,6vw,92px)/.87 'Barlow Condensed',sans-serif; letter-spacing:-.025em; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-summary { max-width:520px; margin-top:28px; font-size:16px; line-height:1.75; color:#d6d8d4; }
+#cvrt-roadmap .cvrt-hero-image { min-height:610px; background-image:linear-gradient(90deg,#050605 0%,rgba(5,6,5,.34) 18%,rgba(5,6,5,.04) 48%),url('https://www.tiege.com/cdn/shop/files/eric-face-splash_2500px_03.jpg?v=1776096594&width=2000'); background-size:cover; background-position:center; }
+#cvrt-roadmap .cvrt-tabs { margin-top:auto; display:flex; gap:0; padding-top:42px; }
+#cvrt-roadmap .cvrt-tab-label { min-width:150px; padding:17px 22px 18px; border:1px solid rgba(255,255,255,.28); border-bottom:0; cursor:pointer; font:700 15px/1 'Barlow Condensed',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#c8cbc7; text-align:center; }
+#cvrt-roadmap .cvrt-tab-label + .cvrt-tab-label { border-left:0; }
+#cvrt-roadmap .cvrt-panel { display:none; padding:64px clamp(24px,5vw,80px) 82px; }
+#cvrt-roadmap #cvrt-tests:checked ~ .cvrt-hero .cvrt-tabs .cvrt-tests-label,
+#cvrt-roadmap #cvrt-insights:checked ~ .cvrt-hero .cvrt-tabs .cvrt-insights-label { background:var(--cvrt-paper); color:var(--cvrt-ink); border-color:var(--cvrt-paper); }
+#cvrt-roadmap #cvrt-tests:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-insights:checked ~ .cvrt-insights-panel { display:block; }
+#cvrt-roadmap .cvrt-section-head { margin:0 0 30px; }
+#cvrt-roadmap .cvrt-section-kicker { font:700 14px/1 'Barlow Condensed',sans-serif; letter-spacing:.14em; text-transform:uppercase; color:#288e20; margin-bottom:10px; }
+#cvrt-roadmap .cvrt-section-head h2 { font:700 clamp(38px,5vw,58px)/.96 'Barlow Condensed',sans-serif; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-slot { max-width:860px; margin-left:auto; margin-right:auto; background:var(--cvrt-white); border:1px solid var(--cvrt-line); border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(17,22,16,.07); }
+#cvrt-roadmap .cvrt-slot + .cvrt-slot { margin-top:28px; }
+#cvrt-roadmap .cvrt-slot-copy { max-width:640px; padding:36px 38px 30px; }
+#cvrt-roadmap .cvrt-slot-meta { display:flex; align-items:center; gap:13px; margin-bottom:19px; }
+#cvrt-roadmap .cvrt-slot-number { font:700 15px/1 'Barlow Condensed',sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-badge { padding:7px 10px; border-radius:999px; background:var(--cvrt-moss); color:#1f5f1b; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-slot h3 { font:700 clamp(32px,4vw,46px)/1 'Barlow Condensed',sans-serif; text-transform:uppercase; margin-bottom:13px; }
+#cvrt-roadmap .cvrt-page { font-size:13px; color:#62675f; margin-bottom:16px; }
+#cvrt-roadmap .cvrt-page a { color:#287f22; text-decoration:underline; text-underline-offset:3px; }
+#cvrt-roadmap .cvrt-description { font-size:15px; line-height:1.75; color:#343833; }
+#cvrt-roadmap .cvrt-wireframe { padding:30px 30px 24px; background:#f8f8f5; border-top:1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-wireframe svg { display:block; width:100%; height:auto; }
+#cvrt-roadmap .cvrt-caption { margin-top:12px; color:#161816; font-size:12px; font-style:italic; }
+#cvrt-roadmap .cvrt-killers { max-width:860px; margin:0 auto 38px; background:#0a0c0a; color:#fff; border-radius:18px; padding:42px; box-shadow:0 20px 54px rgba(0,0,0,.14); }
+#cvrt-roadmap .cvrt-killers .cvrt-section-kicker { color:#7ee174; }
+#cvrt-roadmap .cvrt-killers h2 { font:700 clamp(40px,5vw,62px)/.95 'Barlow Condensed',sans-serif; text-transform:uppercase; max-width:650px; margin-bottom:28px; }
+#cvrt-roadmap .cvrt-killer-list { display:grid; gap:12px; }
+#cvrt-roadmap .cvrt-killer-list li { padding:15px 18px; background:#181b18; border:1px solid #2a3029; border-radius:10px; color:#fff; font-size:15px; line-height:1.6; }
+#cvrt-roadmap .cvrt-sources, #cvrt-roadmap .cvrt-findings { margin-left:0; margin-right:0; }
+#cvrt-roadmap .cvrt-sources h2, #cvrt-roadmap .cvrt-findings > h2 { font:700 38px/1 'Barlow Condensed',sans-serif; text-transform:uppercase; margin-bottom:22px; }
+#cvrt-roadmap .cvrt-source-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:44px; }
+#cvrt-roadmap .cvrt-source-chip { min-height:86px; display:flex; align-items:flex-end; padding:18px; background:var(--cvrt-white); border:1px solid var(--cvrt-line); border-radius:12px; font:700 17px/1.15 'Barlow Condensed',sans-serif; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-source-block { background:var(--cvrt-white); border:1px solid var(--cvrt-line); border-radius:14px; padding:30px 32px; }
+#cvrt-roadmap .cvrt-source-block + .cvrt-source-block { margin-top:14px; }
+#cvrt-roadmap .cvrt-source-block h3 { font:700 26px/1 'Barlow Condensed',sans-serif; text-transform:uppercase; margin-bottom:18px; }
+#cvrt-roadmap .cvrt-source-list { display:grid; gap:13px; }
+#cvrt-roadmap .cvrt-source-list li { padding-top:13px; border-top:1px solid #e4e6e1; font-size:14px; line-height:1.65; color:#353a34; }
+#cvrt-roadmap .cvrt-footer { padding:24px; background:#050605; color:#aeb2ad; text-align:center; font:600 12px/1 'Manrope',sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+@media (max-width:800px) {
+  #cvrt-roadmap .cvrt-hero { grid-template-columns:1fr; min-height:0; }
+  #cvrt-roadmap .cvrt-hero-copy { padding:30px 22px 0; }
+  #cvrt-roadmap .cvrt-logo { width:58px; height:58px; margin-bottom:42px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size:58px; }
+  #cvrt-roadmap .cvrt-hero-image { min-height:330px; grid-row:1; background-image:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18)),url('https://www.tiege.com/cdn/shop/files/eric-face-splash_2500px_03.jpg?v=1776096594&width=1000'); background-position:center; }
+  #cvrt-roadmap .cvrt-tabs { margin-left:-22px; margin-right:-22px; }
+  #cvrt-roadmap .cvrt-tab-label { min-width:0; flex:1; }
+  #cvrt-roadmap .cvrt-panel { padding:42px 16px 58px; }
+  #cvrt-roadmap .cvrt-slot-copy, #cvrt-roadmap .cvrt-wireframe { padding:25px 22px; }
+  #cvrt-roadmap .cvrt-wireframe { overflow-x:auto; }
+  #cvrt-roadmap .cvrt-wireframe svg { min-width:700px; }
+  #cvrt-roadmap .cvrt-killers { padding:30px 24px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns:1fr 1fr; }
+  #cvrt-roadmap .cvrt-source-block { padding:25px 22px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot, #cvrt-roadmap .cvrt-killers { box-shadow:none; break-inside:avoid; }
+  #cvrt-roadmap .cvrt-panel { display:block !important; }
+  #cvrt-roadmap .cvrt-tabs { display:none; }
+  #cvrt-roadmap .cvrt-hero { min-height:520px; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tests" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-insights">
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-copy">
+      <img class="cvrt-logo" src="https://www.tiege.com/cdn/shop/files/Tiege-Square-Logo.png?v=1717791261&amp;width=90" alt="Tiege Hanley">
+      <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+      <h1>Tiege Hanley<br>July 2026</h1>
+      <p class="cvrt-summary">Tiege Hanley has a clear advantage in simple, structured skincare, but paid entry points bury that advantage beneath discount messaging and product choice. The strongest opportunities are to restore proof and simplicity after the click, then answer quantity concerns at the purchase decision.</p>
+      <nav class="cvrt-tabs" aria-label="Roadmap sections">
+        <label class="cvrt-tab-label cvrt-tests-label" for="cvrt-tests">Tests</label>
+        <label class="cvrt-tab-label cvrt-insights-label" for="cvrt-insights">Data Insights</label>
+      </nav>
+    </div>
+    <div class="cvrt-hero-image" role="img" aria-label="Man washing his face with a dramatic splash of water"></div>
+  </section>
+
+  <main class="cvrt-panel cvrt-tests-panel">
+    <header class="cvrt-section-head">
+      <p class="cvrt-section-kicker">Priority Concepts</p>
+      <h2>What We Want to Test</h2>
+    </header>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 1</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>Bundle Builder Hero</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/pages/bundle-builder" target="_blank" rel="noopener">Bundle Builder</a></p>
+        <p class="cvrt-description">Offer-focused paid traffic arrives with clinically proven, fast-results positioning, while the destination opens with a discount and free gift. The homepage has 26,525 verified reviews, but proof is absent above the bundle-builder fold.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 380" role="img" aria-label="Current and variation bundle-builder hero wireframe">
+          <defs><style>.a{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.b{fill:#eef0eb}.c{fill:#101210}.d{fill:#35b729}.e{font:700 18px Manrope,sans-serif;fill:#101210}.f{font:700 14px Manrope,sans-serif;fill:#101210}.g{font:600 12px Manrope,sans-serif;fill:#30352f}.h{font:700 14px Manrope,sans-serif;fill:#fff}.w{font:600 12px Manrope,sans-serif;fill:#fff}.i{fill:#e5f2e1;stroke:#35b729;stroke-width:2}</style></defs>
+          <text x="28" y="30" class="e">Current</text><text x="421" y="30" class="e">Variation</text>
+          <rect x="28" y="48" width="350" height="300" rx="10" class="a"/><rect x="421" y="48" width="350" height="300" rx="10" class="a"/>
+          <rect x="45" y="66" width="316" height="120" rx="6" class="c"/><rect x="438" y="66" width="316" height="168" rx="6" class="c"/>
+          <rect x="61" y="83" width="92" height="84" rx="3" fill="#343834"/><path d="M72 151 L101 105 L126 135 L143 113" fill="none" stroke="#727970" stroke-width="3" stroke-dasharray="5 4"/>
+          <text x="170" y="101" class="h">Up to 40% Off</text><text x="170" y="121" class="h">Premium Skin Care</text><text x="170" y="148" class="w">Free gift over €25</text>
+          <rect x="161" y="157" width="188" height="26" rx="13" class="d"/><text x="180" y="175" class="h">BUILD BETTER SKIN</text>
+          <rect x="438" y="66" width="316" height="168" rx="6" fill="none" stroke="#35b729" stroke-width="3"/>
+          <text x="458" y="96" class="h">Weeks. Not Months.</text><text x="458" y="120" class="h">Clinically proven.</text>
+          <rect x="458" y="137" width="210" height="38" rx="5" class="i"/><text x="474" y="161" class="f">95% saw improvement</text>
+          <text x="458" y="196" class="w">Up to 40% off + free gift</text><rect x="458" y="205" width="222" height="27" rx="13" class="d"/><text x="481" y="224" class="h">BUILD BETTER SKIN</text>
+          <rect x="45" y="205" width="96" height="112" rx="5" class="b"/><rect x="153" y="205" width="96" height="112" rx="5" class="b"/><rect x="261" y="205" width="100" height="112" rx="5" class="b"/>
+          <text x="93" y="242" class="f" text-anchor="middle"><tspan x="93">Product</tspan><tspan x="93" dy="20">grid</tspan></text>
+          <text x="201" y="242" class="f" text-anchor="middle"><tspan x="201">Discount</tspan><tspan x="201" dy="20">tiers</tspan></text>
+          <text x="311" y="234" class="f" text-anchor="middle"><tspan x="311">Your</tspan><tspan x="311" dy="20">Routine</tspan></text><text x="311" y="280" class="g" text-anchor="middle">Empty</text>
+          <rect x="438" y="253" width="96" height="70" rx="5" class="b"/><rect x="546" y="253" width="96" height="70" rx="5" class="b"/><rect x="654" y="253" width="100" height="70" rx="5" class="b"/>
+          <text x="486" y="286" class="f" text-anchor="middle">Products</text>
+          <text x="594" y="276" class="f" text-anchor="middle"><tspan x="594">Routine</tspan><tspan x="594" dy="20">tabs</tspan></text>
+          <text x="704" y="276" class="f" text-anchor="middle"><tspan x="704">Your</tspan><tspan x="704" dy="20">Routine</tspan></text>
+          <path d="M389 185 H411" stroke="#35b729" stroke-width="3"/><path d="M405 178 L413 185 L405 192" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 2</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>Recommended Routine</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/pages/bundle-builder" target="_blank" rel="noopener">Bundle Builder</a></p>
+        <p class="cvrt-description">The page asks visitors to navigate six product filters, five routine tabs, a three-column grid, four discount tiers, and an empty routine panel. Customer reviews repeatedly value the opposite experience: a straightforward routine with no guessing.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 410" role="img" aria-label="Current empty routine panel and variation recommended routine wireframe">
+          <defs><style>.a2{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.b2{fill:#eef0eb}.c2{fill:#35b729}.d2{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.e2{font:700 18px Manrope,sans-serif;fill:#101210}.f2{font:700 14px Manrope,sans-serif;fill:#101210}.g2{font:600 12px Manrope,sans-serif;fill:#30352f}.h2{font:700 13px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="e2">Current</text><text x="421" y="30" class="e2">Variation</text>
+          <rect x="28" y="48" width="350" height="330" rx="10" class="a2"/><rect x="421" y="48" width="350" height="330" rx="10" class="a2"/>
+          <text x="49" y="80" class="f2">Choose products</text>
+          <rect x="48" y="95" width="310" height="34" rx="17" class="b2"/><text x="64" y="117" class="g2">6 product filters</text>
+          <rect x="48" y="142" width="310" height="34" rx="17" class="b2"/><text x="64" y="164" class="g2">5 routine tabs</text>
+          <rect x="48" y="190" width="91" height="82" rx="5" class="b2"/><rect x="158" y="190" width="91" height="82" rx="5" class="b2"/><rect x="267" y="190" width="91" height="82" rx="5" class="b2"/>
+          <text x="68" y="235" class="g2">Product</text><text x="178" y="235" class="g2">Product</text><text x="287" y="235" class="g2">Product</text>
+          <rect x="48" y="289" width="310" height="68" rx="6" class="b2"/><text x="65" y="316" class="f2">Your Routine</text><text x="65" y="339" class="g2">Empty · 4 discount tiers</text>
+          <rect x="441" y="70" width="310" height="270" rx="8" class="d2"/>
+          <text x="461" y="101" class="f2">Recommended routine</text><text x="461" y="124" class="g2">Complete AM / PM starting point</text>
+          <rect x="461" y="143" width="58" height="68" rx="4" class="b2"/><rect x="530" y="143" width="58" height="68" rx="4" class="b2"/><rect x="599" y="143" width="58" height="68" rx="4" class="b2"/><rect x="668" y="143" width="58" height="68" rx="4" class="b2"/>
+          <text x="473" y="181" class="g2">WASH</text><text x="548" y="181" class="g2">AM</text><text x="617" y="181" class="g2">PM</text><text x="678" y="181" class="g2">SCRUB</text>
+          <rect x="461" y="229" width="119" height="31" rx="4" fill="#fff"/><text x="477" y="249" class="g2">AM sequence</text><rect x="591" y="229" width="135" height="31" rx="4" fill="#fff"/><text x="607" y="249" class="g2">PM sequence</text>
+          <text x="461" y="290" class="f2">Routine price</text><rect x="461" y="302" width="265" height="31" rx="16" class="c2"/><text x="548" y="323" class="h2">ADD ROUTINE</text>
+          <text x="468" y="367" class="g2">Customize products below</text>
+          <path d="M389 203 H411" stroke="#35b729" stroke-width="3"/><path d="M405 196 L413 203 L405 210" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 3</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>30-Day Supply Proof</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/products/skin-care-system-level-1" target="_blank" rel="noopener">Level 1: The Essential Routine</a></p>
+        <p class="cvrt-description">Reviews repeatedly call the bottles tiny or insufficient, including a claim that a 30-day supply appeared closer to two weeks. The buy box shows product volumes and a 30-day option, but no per-use amounts, expected applications, or duration explanation.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 470" role="img" aria-label="Current and variation Level 1 buy-box wireframe">
+          <defs><style>.a3{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.b3{fill:#eef0eb}.c3{fill:#35b729}.d3{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.e3{font:700 18px Manrope,sans-serif;fill:#101210}.f3{font:700 14px Manrope,sans-serif;fill:#101210}.g3{font:600 12px Manrope,sans-serif;fill:#30352f}.h3{font:700 13px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="e3">Current</text><text x="421" y="30" class="e3">Variation</text>
+          <rect x="28" y="48" width="350" height="390" rx="10" class="a3"/><rect x="421" y="48" width="350" height="390" rx="10" class="a3"/>
+          <text x="48" y="79" class="f3">Level 1: The Essential Routine</text><text x="48" y="103" class="g3">★★★★★ 4,110 reviews</text>
+          <rect x="48" y="120" width="310" height="42" rx="21" class="b3"/><text x="72" y="146" class="f3">● 30 Day Supply</text><text x="236" y="146" class="g3">○ 90 Day Supply</text>
+          <text x="48" y="187" class="g3">WASH 2.5 fl oz</text><text x="48" y="207" class="g3">AM · PM · SCRUB 0.75 fl oz each</text>
+          <rect x="48" y="230" width="310" height="56" rx="9" class="d3"/><text x="65" y="254" class="f3">● Subscribe</text><text x="300" y="254" class="f3">$35</text><text x="65" y="274" class="g3">Free shipping · Cancel any time</text>
+          <rect x="48" y="298" width="310" height="50" rx="9" class="b3"/><text x="65" y="328" class="f3">○ One-time</text><text x="302" y="328" class="f3">$45</text>
+          <rect x="48" y="365" width="310" height="42" rx="21" class="c3"/><text x="151" y="392" class="h3">ADD TO CART · $35</text>
+          <text x="441" y="79" class="f3">Level 1: The Essential Routine</text><text x="441" y="103" class="g3">★★★★★ 4,110 reviews</text>
+          <rect x="441" y="120" width="310" height="42" rx="21" class="b3"/><text x="465" y="146" class="f3">● 30 Day Supply</text><text x="629" y="146" class="g3">○ 90 Day Supply</text>
+          <rect x="441" y="177" width="310" height="112" rx="8" class="d3"/><text x="458" y="203" class="f3">How this lasts 30 days</text><text x="458" y="228" class="g3">WASH · 2.5 fl oz · usage details</text><text x="458" y="249" class="g3">AM + PM · 0.75 fl oz · usage details</text><text x="458" y="270" class="g3">SCRUB · 0.75 fl oz · usage details</text>
+          <rect x="441" y="303" width="310" height="48" rx="9" class="b3"/><text x="458" y="332" class="f3">● Subscribe · $35</text>
+          <rect x="441" y="363" width="310" height="42" rx="21" class="c3"/><text x="544" y="390" class="h3">ADD TO CART · $35</text>
+          <text x="521" y="425" class="g3">100% money back guarantee</text>
+          <path d="M389 235 H411" stroke="#35b729" stroke-width="3"/><path d="M405 228 L413 235 L405 242" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 4</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>Homepage System Value</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">Offer-focused traffic promises a full system at nearly half the price, while the homepage opens with a broad discount. The routine, product set, expected result, and 26,525-review proof all arrive after the first fold.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 380" role="img" aria-label="Current discount-led homepage hero and full-system variation wireframe">
+          <defs><style>.s4f{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.s4d{fill:#111}.s4g{fill:#35b729}.s4h{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.s4t{font:700 18px Manrope,sans-serif;fill:#101210}.s4m{font:700 14px Manrope,sans-serif;fill:#101210}.s4s{font:600 12px Manrope,sans-serif;fill:#fff}.s4w{font:700 14px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="s4t">Current</text><text x="421" y="30" class="s4t">Variation</text>
+          <rect x="28" y="48" width="350" height="300" rx="10" class="s4f"/><rect x="421" y="48" width="350" height="300" rx="10" class="s4f"/>
+          <rect x="46" y="66" width="314" height="264" rx="7" class="s4d"/><rect x="439" y="66" width="314" height="264" rx="7" class="s4d"/>
+          <rect x="60" y="82" width="112" height="218" rx="5" fill="#343834"/><path d="M72 267 L104 184 L138 218 L160 143" fill="none" stroke="#798078" stroke-width="3" stroke-dasharray="6 5"/>
+          <text x="191" y="126" class="s4w"><tspan x="191">Start Today and</tspan><tspan x="191" dy="22">Get Up To 40% Off!</tspan></text><rect x="191" y="187" width="145" height="34" rx="17" class="s4g"/><text x="225" y="209" class="s4w">START NOW</text>
+          <rect x="453" y="82" width="112" height="218" rx="5" fill="#343834"/><path d="M465 267 L497 184 L531 218 L553 143" fill="none" stroke="#798078" stroke-width="3" stroke-dasharray="6 5"/>
+          <text x="584" y="111" class="s4w"><tspan x="584">The Full Skin</tspan><tspan x="584" dy="22">Care System</tspan></text><text x="584" y="166" class="s4s"><tspan x="584">A structured routine.</tspan><tspan x="584" dy="18">Nearly half the price.</tspan></text><rect x="584" y="209" width="145" height="34" rx="17" class="s4g"/><text x="618" y="231" class="s4w">START NOW</text><rect x="584" y="257" width="145" height="35" rx="5" class="s4h"/><text x="600" y="279" class="s4m">Up to 40% off</text>
+          <path d="M389 197 H411" stroke="#35b729" stroke-width="3"/><path d="M405 190 L413 197 L405 204" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 5</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>Homepage Routine Clarity</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">Search messaging repeatedly promises uncomplicated skincare, while the first homepage fold does not explain the AM/PM system. Reviews identify the straightforward routine, instructions, and no-guessing structure as core benefits.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 410" role="img" aria-label="Current homepage fold sequence and AM PM routine explainer variation">
+          <defs><style>.s5f{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.s5n{fill:#eef0eb}.s5g{fill:#35b729}.s5h{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.s5t{font:700 18px Manrope,sans-serif;fill:#101210}.s5m{font:700 14px Manrope,sans-serif;fill:#101210}.s5s{font:600 12px Manrope,sans-serif;fill:#30352f}.s5w{font:700 13px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="s5t">Current</text><text x="421" y="30" class="s5t">Variation</text><rect x="28" y="48" width="350" height="330" rx="10" class="s5f"/><rect x="421" y="48" width="350" height="330" rx="10" class="s5f"/>
+          <rect x="48" y="68" width="310" height="112" rx="7" fill="#171917"/><text x="68" y="103" class="s5w">Up to 40% off</text><rect x="68" y="125" width="118" height="30" rx="15" class="s5g"/><text x="88" y="145" class="s5w">START NOW</text>
+          <rect x="48" y="199" width="310" height="70" rx="6" class="s5n"/><text x="66" y="227" class="s5m">Routine levels</text><text x="66" y="249" class="s5s">4.7 stars · 26,525 reviews</text><rect x="48" y="286" width="310" height="67" rx="6" class="s5n"/><text x="66" y="325" class="s5m">Before / after proof</text>
+          <rect x="441" y="68" width="310" height="78" rx="7" fill="#171917"/><text x="461" y="98" class="s5w">Homepage hero</text><rect x="461" y="110" width="118" height="24" rx="12" class="s5g"/><text x="483" y="127" class="s5w">START NOW</text>
+          <rect x="441" y="160" width="310" height="148" rx="8" class="s5h"/><text x="461" y="188" class="s5m">Your uncomplicated routine</text><rect x="461" y="205" width="126" height="70" rx="6" fill="#fff"/><text x="477" y="231" class="s5m">AM</text><text x="477" y="253" class="s5s">Wash → moisturize</text><rect x="602" y="205" width="129" height="70" rx="6" fill="#fff"/><text x="618" y="231" class="s5m">PM</text><text x="618" y="253" class="s5s">Wash → treat</text><text x="461" y="294" class="s5s">Choose a routine level below</text>
+          <rect x="441" y="322" width="92" height="34" rx="5" class="s5n"/><rect x="550" y="322" width="92" height="34" rx="5" class="s5n"/><rect x="659" y="322" width="92" height="34" rx="5" class="s5n"/><text x="469" y="344" class="s5s">Level 1</text><text x="578" y="344" class="s5s">Level 2</text><text x="687" y="344" class="s5s">Level 3</text>
+          <path d="M389 212 H411" stroke="#35b729" stroke-width="3"/><path d="M405 205 L413 212 L405 219" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 6</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>PDP Results Proof</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/products/skin-care-system-level-1" target="_blank" rel="noopener">Level 1: The Essential Routine</a></p>
+        <p class="cvrt-description">Results thumbnails near the purchase area are small, while fuller evidence appears farther down the page. That separation matters because reviews contain both positive outcome reports and skepticism about visible differentiation.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 430" role="img" aria-label="Small PDP results thumbnails and enlarged proof module variation">
+          <defs><style>.s6f{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.s6n{fill:#eef0eb}.s6g{fill:#35b729}.s6h{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.s6t{font:700 18px Manrope,sans-serif;fill:#101210}.s6m{font:700 14px Manrope,sans-serif;fill:#101210}.s6s{font:600 12px Manrope,sans-serif;fill:#30352f}.s6w{font:700 13px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="s6t">Current</text><text x="421" y="30" class="s6t">Variation</text><rect x="28" y="48" width="350" height="350" rx="10" class="s6f"/><rect x="421" y="48" width="350" height="350" rx="10" class="s6f"/>
+          <text x="48" y="80" class="s6m">Level 1: The Essential Routine</text><text x="48" y="102" class="s6s">Ratings · price · purchase options</text><rect x="48" y="120" width="62" height="50" rx="4" class="s6n"/><rect x="119" y="120" width="62" height="50" rx="4" class="s6n"/><rect x="190" y="120" width="62" height="50" rx="4" class="s6n"/><text x="48" y="190" class="s6s">Small results thumbnails</text><rect x="48" y="211" width="310" height="42" rx="21" class="s6n"/><text x="72" y="237" class="s6m">30 Day Supply · 90 Day Supply</text><rect x="48" y="270" width="310" height="52" rx="8" class="s6h"/><text x="66" y="300" class="s6m">Subscribe · $35</text><rect x="48" y="338" width="310" height="38" rx="19" class="s6g"/><text x="153" y="363" class="s6w">ADD TO CART</text>
+          <text x="441" y="80" class="s6m">Level 1: The Essential Routine</text><text x="441" y="102" class="s6s">Ratings · price · purchase options</text><rect x="441" y="120" width="310" height="130" rx="8" class="s6h"/><rect x="458" y="137" width="122" height="94" rx="5" fill="#d9dcd7"/><line x1="519" y1="137" x2="519" y2="231" stroke="#35b729" stroke-width="3"/><text x="470" y="216" class="s6s">Before</text><text x="528" y="216" class="s6s">After</text><text x="599" y="158" class="s6m">Real results</text><text x="599" y="182" class="s6s"><tspan x="599">View documented</tspan><tspan x="599" dy="18">examples</tspan></text><rect x="599" y="211" width="130" height="24" rx="12" class="s6g"/><text x="623" y="228" class="s6w">VIEW MORE</text>
+          <rect x="441" y="268" width="310" height="42" rx="21" class="s6n"/><text x="465" y="294" class="s6m">30 Day Supply · 90 Day Supply</text><rect x="441" y="325" width="310" height="50" rx="8" class="s6h"/><text x="458" y="355" class="s6m">Subscribe · $35</text><path d="M389 223 H411" stroke="#35b729" stroke-width="3"/><path d="M405 216 L413 223 L405 230" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 7</span><span class="cvrt-badge">A/B Test</span></div>
+        <h3>Cart Cross-Sell Clarity</h3>
+        <p class="cvrt-page">Page: Cart Drawer, sitewide</p>
+        <p class="cvrt-description">The cart already confirms free shipping at $35, so the threshold no longer encourages a larger order. The eye-cream recommendation lacks a visible price, recommendation rationale, savings context, and direct add control in the captured view.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 450" role="img" aria-label="Incomplete cart cross-sell and complete recommendation card variation">
+          <defs><style>.s7f{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.s7n{fill:#eef0eb}.s7g{fill:#35b729}.s7h{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.s7t{font:700 18px Manrope,sans-serif;fill:#101210}.s7m{font:700 14px Manrope,sans-serif;fill:#101210}.s7s{font:600 12px Manrope,sans-serif;fill:#30352f}.s7w{font:700 13px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="s7t">Current</text><text x="421" y="30" class="s7t">Variation</text><rect x="28" y="48" width="350" height="370" rx="10" class="s7f"/><rect x="421" y="48" width="350" height="370" rx="10" class="s7f"/>
+          <text x="48" y="80" class="s7m">Your Cart</text><rect x="48" y="97" width="310" height="35" rx="17" class="s7h"/><text x="72" y="120" class="s7s">You qualify for free shipping</text><rect x="48" y="151" width="310" height="74" rx="6" class="s7n"/><rect x="62" y="163" width="52" height="50" rx="4" fill="#d8dbd6"/><text x="129" y="180" class="s7m">Level 1 System</text><text x="129" y="204" class="s7s">Quantity · price</text><rect x="48" y="243" width="310" height="74" rx="6" class="s7n"/><rect x="62" y="255" width="52" height="50" rx="4" fill="#d8dbd6"/><text x="129" y="277" class="s7m">Eye Cream</text><text x="129" y="301" class="s7s">No visible decision details</text><text x="48" y="345" class="s7m">Order total</text><rect x="48" y="360" width="310" height="38" rx="19" class="s7g"/><text x="168" y="385" class="s7w">CHECKOUT</text>
+          <text x="441" y="80" class="s7m">Your Cart</text><rect x="441" y="97" width="310" height="35" rx="17" class="s7h"/><text x="465" y="120" class="s7s">You qualify for free shipping</text><rect x="441" y="151" width="310" height="74" rx="6" class="s7n"/><rect x="455" y="163" width="52" height="50" rx="4" fill="#d8dbd6"/><text x="522" y="180" class="s7m">Level 1 System</text><text x="522" y="204" class="s7s">Quantity · price</text><rect x="441" y="243" width="310" height="104" rx="7" class="s7h"/><rect x="455" y="257" width="66" height="75" rx="4" fill="#d8dbd6"/><text x="536" y="271" class="s7m">Eye Cream · price</text><text x="536" y="294" class="s7s">Recommendation rationale</text><text x="536" y="314" class="s7s">Verified saving, if available</text><rect x="648" y="318" width="87" height="23" rx="11" class="s7g"/><text x="671" y="334" class="s7w">ADD</text><text x="441" y="373" class="s7m">Order total</text><rect x="441" y="385" width="310" height="28" rx="14" class="s7g"/><text x="561" y="404" class="s7w">CHECKOUT</text><path d="M389 230 H411" stroke="#35b729" stroke-width="3"/><path d="M405 223 L413 230 L405 237" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 8</span><span class="cvrt-badge">Immediate Fix</span></div>
+        <h3>Bundle Mobile Performance</h3>
+        <p class="cvrt-page">Page: <a href="https://www.tiege.com/pages/bundle-builder" target="_blank" rel="noopener">Bundle Builder</a></p>
+        <p class="cvrt-description">The priority paid landing page scored 27/100 in simulated mobile Lighthouse testing, with 38.7s LCP and 3,090ms TBT. Lighthouse identified 7.69 seconds of potential savings from reducing unused JavaScript.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 390" role="img" aria-label="Bundle builder mobile loading priority wireframe">
+          <defs><style>.s8f{fill:#fff;stroke:#aeb4ac;stroke-width:2;stroke-dasharray:7 6}.s8n{fill:#eef0eb}.s8g{fill:#35b729}.s8h{fill:#e5f2e1;stroke:#35b729;stroke-width:2}.s8r{fill:#f5dfdd;stroke:#b4493f;stroke-width:2}.s8t{font:700 18px Manrope,sans-serif;fill:#101210}.s8m{font:700 14px Manrope,sans-serif;fill:#101210}.s8s{font:600 12px Manrope,sans-serif;fill:#30352f}.s8w{font:700 13px Manrope,sans-serif;fill:#fff}</style></defs>
+          <text x="28" y="30" class="s8t">Current load path</text><text x="421" y="30" class="s8t">Fixed load path</text><rect x="28" y="48" width="350" height="310" rx="10" class="s8f"/><rect x="421" y="48" width="350" height="310" rx="10" class="s8f"/>
+          <rect x="48" y="70" width="310" height="67" rx="7" class="s8r"/><text x="66" y="98" class="s8m">Unused JavaScript blocks load</text><text x="66" y="120" class="s8s">3,090ms total blocking time</text><path d="M203 138 V164" stroke="#b4493f" stroke-width="3"/><rect x="48" y="165" width="310" height="74" rx="7" class="s8n"/><text x="66" y="194" class="s8m">Hero appears late</text><text x="66" y="217" class="s8s">38.7s largest contentful paint</text><path d="M203 240 V266" stroke="#b4493f" stroke-width="3"/><rect x="48" y="267" width="310" height="65" rx="7" class="s8n"/><text x="66" y="296" class="s8m">Selection controls delayed</text><text x="66" y="318" class="s8s">Bundle interaction waits</text>
+          <rect x="441" y="70" width="310" height="71" rx="7" class="s8h"/><text x="459" y="99" class="s8m">1. Render hero first</text><text x="459" y="122" class="s8s">Prioritize above-the-fold assets</text><path d="M596 142 V164" stroke="#35b729" stroke-width="3"/><rect x="441" y="165" width="310" height="71" rx="7" class="s8h"/><text x="459" y="194" class="s8m">2. Enable selection controls</text><text x="459" y="217" class="s8s">Preserve bundle and discount logic</text><path d="M596 237 V259" stroke="#35b729" stroke-width="3"/><rect x="441" y="260" width="310" height="72" rx="7" class="s8n"/><text x="459" y="289" class="s8m">3. Defer non-critical work</text><text x="459" y="312" class="s8s">Load below-the-fold assets later</text><path d="M389 203 H411" stroke="#35b729" stroke-width="3"/><path d="M405 196 L413 203 L405 210" fill="none" stroke="#35b729" stroke-width="3"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </main>
+
+  <section class="cvrt-panel cvrt-insights-panel">
+    <div class="cvrt-killers">
+      <p class="cvrt-section-kicker">Cross-Source Findings</p>
+      <h2>Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li>Simplicity is promised across acquisition and validated in reviews, but the priority landing experience introduces choice before a recommended path.</li>
+        <li>Proof is strong but arrives late or disappears after the click. The site has 26,525 verified reviews and before-and-after assets, while entry heroes lead with discounts.</li>
+        <li>Value skepticism centers on quantity and efficacy. Product volumes are visible, but the 30-day usage case is not explained near purchase.</li>
+      </ul>
+    </div>
+    <div class="cvrt-sources">
+      <h2>Data Sources Used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div><div class="cvrt-source-chip">Google Ads</div><div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Page Speed Insights</div><div class="cvrt-source-chip">Site Screenshots</div><div class="cvrt-source-chip">Competitor Catalogs</div>
+      </div>
+    </div>
+    <div class="cvrt-findings">
+      <h2>What the Data Shows</h2>
+      <article class="cvrt-source-block"><h3>Meta Ads and Landing Pages</h3><ul class="cvrt-source-list"><li>Paid-social creative emphasizes clinically proven results, visible improvement, and uncomplicated skincare. The bundle-builder destination opens with up to 40% off, a free gift, and product selection.</li><li>The clinical proof and time-to-result claims are absent above the landing-page fold.</li><li>Landing destinations consistently prioritize discounts over the creative's proof and simplicity claims.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Google Ads</h3><ul class="cvrt-source-list"><li>Search, Shopping, display, and video units consistently use “uncomplicated,” “made easy,” and “skin care that works.”</li><li>One visible search unit shows 4.6 stars from 537 reviews.</li><li>No explicit discount appears in the collected Google copy, while onsite entry points lead with up to 40% off.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Reviews and UGC</h3><ul class="cvrt-source-list"><li>Simplicity is the clearest repeated advantage. Customers value straightforward routines, included instructions, and AM/PM structure.</li><li>Perceived quantity-to-price value is the dominant objection. Reviews call the bottles “tiny,” “skimpy in size,” and “not worth the price.”</li><li>Product-tolerance concerns include dryness, oily AM moisturizer, eye burning, an abrasive scrub, and SPF20 being perceived as inadequate. These are individual reports, not clinical findings.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Page Speed Insights</h3><ul class="cvrt-source-list"><li>The bundle builder scored 27/100 in simulated mobile Lighthouse testing, with 38.7s LCP and 3,090ms TBT.</li><li>The homepage scored 28/100, with 22.3s LCP and 2,360ms TBT.</li><li>CLS was 0 in both lab runs. Rendering and main-thread blocking were the observed problems.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Site Screenshots</h3><ul class="cvrt-source-list"><li>The homepage hero leads with up to 40% off. Routine levels and the 4.7-star, 26,525-review proof arrive in the next fold.</li><li>The Level 1 buy box clearly presents supply, purchase options, pricing, free shipping, cancellation, guarantee, ratings, and the CTA, but does not explain how the product sizes last 30 days.</li><li>The cart confirms free shipping at $35. Its eye-cream cross-sell has no visible price, rationale, bundle saving, or direct add control in the captured view.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Competitor Catalogs</h3><ul class="cvrt-source-list"><li>Tiege Hanley's observed $35 subscription was below the compared official routines from Geologie, Lumin, and Brickell.</li><li>Geologie makes personalization explicit, Lumin uses concern-led naming, and Brickell frames its offer as a full-size routine.</li><li>Tiege Hanley's defensible distinction is a pre-structured, beginner-friendly AM/PM system, not price alone.</li></ul></article>
+    </div>
+  </section>
+  <footer class="cvrt-footer">July 2026</footer>
+</div>

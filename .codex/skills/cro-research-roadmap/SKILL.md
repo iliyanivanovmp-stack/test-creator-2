@@ -95,12 +95,15 @@ If an audit finding is a clear site breakage (errors, non-functional UI, templat
 
 **Go where the money is.** A 1% lift on 500K sessions beats a 5% lift on 10K sessions.
 
-**Each slot must be distinct.** Different page, different element, or different user segment.
+**Each slot must be distinct.** Never put the same test in different slots.
+Same mechanic on the same component across different products should be one bundled test, not repeated slots.
 
 **Variation rules:**
 - 1-2 changes per variation, no more.
 - When stacking makes sense: V1 adds change A, V2 adds A+B, V3 adds A+B+C.
 - Use the variation count from the manifest.
+
+**Subscription/default purchase option tests:** If testing subscription pre-selection or auto-replenishment as the default, strengthen the benefit microcopy under the selected option. If only free shipping is documented, use broader but non-specific copy such as "Includes free shipping + more subscriber benefits" rather than inventing exact perks.
 
 **Always specify mobile and desktop.** Design mobile-first.
 
@@ -220,6 +223,7 @@ Run silently. Fix any issues before saving.
 - [ ] Revenue potential on every A/B test slot.
 - [ ] Mobile and desktop specified in every variation.
 - [ ] Each slot is distinct.
+- [ ] No duplicate test mechanics. Product-specific repeats are bundled into one slot or moved to Future Slot Candidates.
 - [ ] Slots span at least 2 different pages or funnel stages.
 - [ ] Variation count matches manifest.
 - [ ] Total slot count matches manifest.

@@ -1,0 +1,176 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after { margin: 0; padding: 0; box-sizing: border-box; font-family: inherit; line-height: inherit; letter-spacing: normal; text-transform: none; }
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div { font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; margin: 0; padding: 0; }
+#cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before, #cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before, #cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap { --cvrt-green:#185f38; --cvrt-deep:#0d3f27; --cvrt-moss:#6f8a67; --cvrt-cream:#f4f1e9; --cvrt-paper:#fffefa; --cvrt-ink:#20251f; --cvrt-line:#d9ddd2; width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; background:var(--cvrt-cream); color:var(--cvrt-ink); font-family:'DM Sans',sans-serif; line-height:1.55; overflow:hidden; }
+#cvrt-roadmap .cvrt-tab-input { position:absolute; opacity:0; pointer-events:none; }
+#cvrt-roadmap .cvrt-hero { background:var(--cvrt-deep); color:#fff; padding:28px clamp(24px,5vw,76px) 0; }
+#cvrt-roadmap .cvrt-hero-grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr); min-height:500px; overflow:hidden; border-radius:30px 30px 0 0; background:#174f33; }
+#cvrt-roadmap .cvrt-hero-copy { padding:52px clamp(28px,5vw,72px) 46px; display:flex; flex-direction:column; justify-content:center; }
+#cvrt-roadmap .cvrt-logo { width:166px; height:auto; object-fit:contain; margin-bottom:54px; background:#f8f6ef; border-radius:14px; padding:12px 16px; }
+#cvrt-roadmap .cvrt-eyebrow { font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:#c9dbc6; margin-bottom:14px; }
+#cvrt-roadmap .cvrt-hero h1 { font-family:'Manrope',sans-serif; font-size:clamp(46px,6.5vw,88px); font-weight:700; line-height:.96; letter-spacing:-.055em; max-width:650px; }
+#cvrt-roadmap .cvrt-summary { max-width:620px; margin-top:24px; font-size:17px; line-height:1.65; color:#edf3e9; }
+#cvrt-roadmap .cvrt-hero-image { min-height:500px; background-image:url('https://www.soulffee.com/cdn/shop/files/Screenshot_2024-10-18_at_9.07.59_PM.png?v=1729300400&width=1400'); background-size:cover; background-position:center; position:relative; }
+#cvrt-roadmap .cvrt-hero-image::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(23,79,51,.2),transparent 36%); }
+#cvrt-roadmap .cvrt-tabs { display:flex; gap:8px; padding:0 clamp(24px,5vw,76px); background:var(--cvrt-deep); }
+#cvrt-roadmap .cvrt-tab-label { cursor:pointer; color:#cbd8cd; font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; padding:20px 26px 18px; border-radius:16px 16px 0 0; transition:background .2s ease,color .2s ease; }
+#cvrt-roadmap .cvrt-panel { display:none; padding:48px clamp(20px,5vw,76px) 60px; }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-tests"],
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-insights"] { background:var(--cvrt-cream); color:var(--cvrt-deep); }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-insights-panel { display:block; }
+#cvrt-roadmap .cvrt-section-head { max-width:860px; margin-left:auto; margin-right:auto; margin-bottom:24px; }
+#cvrt-roadmap .cvrt-section-kicker { color:var(--cvrt-green); font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-section-head h2, #cvrt-roadmap .cvrt-section-title { margin-top:6px; font-family:'Manrope',sans-serif; font-size:clamp(28px,4vw,42px); font-weight:700; line-height:1.12; letter-spacing:-.035em; }
+#cvrt-roadmap .cvrt-slot { max-width:860px; margin-left:auto; margin-right:auto; margin-bottom:28px; overflow:hidden; border:1px solid var(--cvrt-line); border-radius:24px; background:var(--cvrt-paper); box-shadow:0 14px 36px rgba(35,54,39,.07); break-inside:avoid; }
+#cvrt-roadmap .cvrt-slot-copy { max-width:640px; padding:34px 34px 30px; }
+#cvrt-roadmap .cvrt-slot-top { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+#cvrt-roadmap .cvrt-slot-label { color:var(--cvrt-green); font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-type { padding:5px 10px; border-radius:999px; background:#e7eee4; color:var(--cvrt-deep); font-size:11px; font-weight:700; }
+#cvrt-roadmap .cvrt-slot-title { font-family:'Manrope',sans-serif; font-size:29px; font-weight:700; line-height:1.15; letter-spacing:-.03em; }
+#cvrt-roadmap .cvrt-page { margin-top:9px; color:var(--cvrt-green); font-size:13px; font-weight:600; }
+#cvrt-roadmap .cvrt-page a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+#cvrt-roadmap .cvrt-description { margin-top:15px; color:#4d554d; font-size:15px; line-height:1.72; }
+#cvrt-roadmap .cvrt-wireframe { padding:28px 26px 20px; background:#f7f7f2; border-top:1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-wireframe svg { display:block; width:100%; height:auto; }
+#cvrt-roadmap .cvrt-wire-caption { margin-top:10px; color:#171b17; font-size:12px; font-style:italic; }
+#cvrt-roadmap .cvrt-svg-frame { fill:#fff; stroke:#9aaa9b; stroke-width:2; stroke-dasharray:7 6; }
+#cvrt-roadmap .cvrt-svg-soft { fill:#edf0e8; stroke:#bfc9bc; stroke-width:1.5; }
+#cvrt-roadmap .cvrt-svg-focus { fill:#e4eee0; stroke:#185f38; stroke-width:2.5; stroke-dasharray:7 5; }
+#cvrt-roadmap .cvrt-svg-button { fill:#185f38; }
+#cvrt-roadmap .cvrt-svg-alert { fill:#f3e5d8; stroke:#a96235; stroke-width:2; stroke-dasharray:6 5; }
+#cvrt-roadmap .cvrt-svg-text { fill:#20251f; font-family:'DM Sans',sans-serif; font-size:17px; font-weight:700; }
+#cvrt-roadmap .cvrt-svg-small { fill:#3e473e; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; }
+#cvrt-roadmap .cvrt-svg-tiny { fill:#526052; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; }
+#cvrt-roadmap .cvrt-svg-white { fill:#fff; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; }
+#cvrt-roadmap .cvrt-killers { padding:38px clamp(24px,5vw,56px); border-radius:28px; background:var(--cvrt-deep); color:#fff; max-width:980px; margin-left:auto; margin-right:auto; }
+#cvrt-roadmap .cvrt-panel-kicker { color:#bfd4bf; font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+#cvrt-roadmap .cvrt-killers h2 { margin-top:7px; font-family:'Manrope',sans-serif; font-size:clamp(30px,4.5vw,48px); font-weight:700; line-height:1.08; letter-spacing:-.04em; }
+#cvrt-roadmap .cvrt-killer-list { margin-top:26px; display:grid; gap:13px; }
+#cvrt-roadmap .cvrt-killer-list li { display:grid; grid-template-columns:36px 1fr; gap:14px; color:#edf2eb; font-size:15px; line-height:1.6; }
+#cvrt-roadmap .cvrt-killer-list span { color:#9fc39f; font-family:'Manrope',sans-serif; font-weight:800; }
+#cvrt-roadmap .cvrt-source-area, #cvrt-roadmap .cvrt-findings { max-width:980px; margin-left:auto; margin-right:auto; }
+#cvrt-roadmap .cvrt-source-area { padding-top:42px; }
+#cvrt-roadmap .cvrt-source-grid { margin-top:18px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+#cvrt-roadmap .cvrt-source-chip { padding:19px; border:1px solid var(--cvrt-line); border-radius:16px; background:var(--cvrt-paper); color:var(--cvrt-deep); font-family:'Manrope',sans-serif; font-weight:700; }
+#cvrt-roadmap .cvrt-findings { margin-top:36px; display:grid; gap:16px; }
+#cvrt-roadmap .cvrt-finding { padding:28px 30px; border:1px solid var(--cvrt-line); border-radius:20px; background:var(--cvrt-paper); }
+#cvrt-roadmap .cvrt-finding h3 { font-family:'Manrope',sans-serif; font-size:21px; font-weight:700; color:var(--cvrt-deep); }
+#cvrt-roadmap .cvrt-source-list { margin-top:14px; display:grid; gap:10px; }
+#cvrt-roadmap .cvrt-source-list li { padding:12px 14px; border-radius:10px; background:#f2f3ed; color:#424a42; font-size:14px; line-height:1.6; }
+#cvrt-roadmap .cvrt-footer { padding:26px; background:var(--cvrt-deep); color:#d8e3d8; text-align:center; font-family:'Manrope',sans-serif; font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+@media (max-width:760px) {
+  #cvrt-roadmap .cvrt-hero { padding:14px 14px 0; }
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns:1fr; min-height:0; border-radius:22px 22px 0 0; }
+  #cvrt-roadmap .cvrt-hero-copy { padding:30px 24px 28px; }
+  #cvrt-roadmap .cvrt-logo { width:135px; margin-bottom:34px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size:46px; }
+  #cvrt-roadmap .cvrt-summary { font-size:15px; }
+  #cvrt-roadmap .cvrt-hero-image { min-height:300px; background-position:center; }
+  #cvrt-roadmap .cvrt-tabs { padding:0 14px; }
+  #cvrt-roadmap .cvrt-tab-label { flex:1; text-align:center; padding:16px 10px; }
+  #cvrt-roadmap .cvrt-panel { padding:32px 14px 42px; }
+  #cvrt-roadmap .cvrt-slot { border-radius:18px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding:26px 22px; }
+  #cvrt-roadmap .cvrt-slot-title { font-size:25px; }
+  #cvrt-roadmap .cvrt-wireframe { padding:18px 10px 15px; overflow-x:auto; }
+  #cvrt-roadmap .cvrt-wireframe svg { min-width:700px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns:1fr; }
+  #cvrt-roadmap .cvrt-killers { border-radius:20px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot, #cvrt-roadmap .cvrt-finding { box-shadow:none; break-inside:avoid; }
+  #cvrt-roadmap .cvrt-panel { display:block !important; }
+  #cvrt-roadmap .cvrt-tabs { display:none; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-tabs" id="cvrt-tab-tests" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-tabs" id="cvrt-tab-insights">
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://www.soulffee.com/cdn/shop/files/sf-logo-green-on-transp.png?v=1726321392&amp;width=260" alt="Soulffee">
+        <p class="cvrt-eyebrow">CRO testing roadmap</p>
+        <h1>July 2026</h1>
+        <p class="cvrt-summary">Soulffee has a clear daily ritual proposition, but the highest-value purchase path is deprioritized and several key funnel moments end without a next action. The roadmap focuses on subscription adoption, clearer conversion paths, and stronger proof at the point of decision.</p>
+      </div>
+      <div class="cvrt-hero-image" role="img" aria-label="Soulffee Original coffee alternative product"></div>
+    </div>
+    <div class="cvrt-tabs" role="tablist" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label" for="cvrt-tab-tests" role="tab">Tests</label>
+      <label class="cvrt-tab-label" for="cvrt-tab-insights" role="tab">Data Insights</label>
+    </div>
+  </section>
+
+  <section class="cvrt-panel cvrt-tests-panel">
+    <div class="cvrt-section-head"><p class="cvrt-section-kicker">Testing ideas</p><h2>Testing priorities</h2></div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-top"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">A/B Test</span></div><h3 class="cvrt-slot-title">Subscribe &amp; Save Selection</h3><p class="cvrt-page"><a href="https://www.soulffee.com/products/soulffee" target="_blank" rel="noopener">Product page</a></p><p class="cvrt-description">The buy box pre-selects the $32.00 one-time purchase while the $25.92 Subscribe &amp; Save option remains unselected. Subscription benefits also sit inside a collapsed accordion, leaving the recurring option without supporting context at the decision point.</p></div>
+      <div class="cvrt-wireframe"><svg viewBox="0 0 800 430" role="img" aria-label="Current and variation product buy box subscription selection">
+        <text x="40" y="30" class="cvrt-svg-text">Current</text><text x="425" y="30" class="cvrt-svg-text">Variation</text><rect x="36" y="48" width="345" height="350" rx="14" class="cvrt-svg-frame"/><rect x="421" y="48" width="345" height="350" rx="14" class="cvrt-svg-frame"/>
+        <text x="58" y="82" class="cvrt-svg-text">Mushroom Orzo</text><text x="58" y="110" class="cvrt-svg-text">$32.00</text><text x="58" y="137" class="cvrt-svg-small">★★★★★ 38 reviews</text><rect x="58" y="157" width="142" height="38" rx="19" class="cvrt-svg-button"/><text x="81" y="181" class="cvrt-svg-white">30 servings</text><rect x="211" y="157" width="142" height="38" rx="19" class="cvrt-svg-soft"/><text x="235" y="181" class="cvrt-svg-small">60 servings</text><rect x="58" y="211" width="295" height="62" rx="10" class="cvrt-svg-soft"/><circle cx="79" cy="242" r="9" fill="#fff" stroke="#687668" stroke-width="2"/><text x="98" y="238" class="cvrt-svg-small">Subscribe &amp; Save  SAVE 19%</text><text x="98" y="260" class="cvrt-svg-small">$25.92</text><rect x="58" y="284" width="295" height="62" rx="10" class="cvrt-svg-focus"/><circle cx="79" cy="315" r="9" fill="#185f38"/><circle cx="79" cy="315" r="4" fill="#fff"/><text x="98" y="311" class="cvrt-svg-small">One Time Purchase</text><text x="98" y="333" class="cvrt-svg-small">$32.00</text><text x="58" y="375" class="cvrt-svg-tiny">Subscription Perks +</text>
+        <text x="443" y="82" class="cvrt-svg-text">Mushroom Orzo</text><text x="443" y="110" class="cvrt-svg-text">$32.00</text><text x="443" y="137" class="cvrt-svg-small">★★★★★ 38 reviews</text><rect x="443" y="157" width="142" height="38" rx="19" class="cvrt-svg-button"/><text x="466" y="181" class="cvrt-svg-white">30 servings</text><rect x="596" y="157" width="142" height="38" rx="19" class="cvrt-svg-soft"/><text x="620" y="181" class="cvrt-svg-small">60 servings</text><rect x="443" y="211" width="295" height="76" rx="10" class="cvrt-svg-focus"/><circle cx="464" cy="249" r="9" fill="#185f38"/><circle cx="464" cy="249" r="4" fill="#fff"/><text x="483" y="237" class="cvrt-svg-small">Subscribe &amp; Save</text><rect x="625" y="221" width="92" height="23" rx="11" class="cvrt-svg-button"/><text x="642" y="237" class="cvrt-svg-white">SAVE 19%</text><text x="483" y="267" class="cvrt-svg-small">$25.92</text><rect x="443" y="298" width="295" height="55" rx="10" class="cvrt-svg-soft"/><circle cx="464" cy="325" r="9" fill="#fff" stroke="#687668" stroke-width="2"/><text x="483" y="330" class="cvrt-svg-small">One Time Purchase  $32.00</text><text x="443" y="379" class="cvrt-svg-tiny">Subscription Perks +</text>
+      </svg><p class="cvrt-wire-caption">* Concept illustration only. Final design will differ.</p></div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-top"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div><h3 class="cvrt-slot-title">Homepage Hero CTA</h3><p class="cvrt-page"><a href="https://www.soulffee.com/" target="_blank" rel="noopener">Homepage</a></p><p class="cvrt-description">The homepage hero displays the core promise and rating on load, but the primary TRY NOW action is cut off below the visible viewport. The announcement bar and limited-offer tab consume additional space before visitors reach the first conversion action.</p></div>
+      <div class="cvrt-wireframe"><svg viewBox="0 0 800 390" role="img" aria-label="Current hero with hidden call to action and variation with visible call to action">
+        <text x="40" y="30" class="cvrt-svg-text">Current viewport</text><text x="427" y="30" class="cvrt-svg-text">Variation</text><rect x="36" y="48" width="345" height="310" rx="14" class="cvrt-svg-frame"/><rect x="423" y="48" width="345" height="310" rx="14" class="cvrt-svg-frame"/>
+        <rect x="36" y="48" width="345" height="31" rx="14" class="cvrt-svg-button"/><text x="113" y="69" class="cvrt-svg-white">FREE shipping on all orders!</text><rect x="53" y="94" width="311" height="248" rx="12" fill="#b8aa96"/><text x="72" y="133" class="cvrt-svg-tiny">SOULFFEE</text><text x="72" y="183" class="cvrt-svg-text">Calm Mind, Clear Focus,</text><text x="72" y="207" class="cvrt-svg-text">No Jitters</text><text x="72" y="241" class="cvrt-svg-small">Smooth, roasted, nutty ritual</text><text x="72" y="272" class="cvrt-svg-small">★★★★★ Rated 4.8+ stars</text><rect x="72" y="326" width="124" height="40" rx="20" class="cvrt-svg-alert"/><text x="99" y="351" class="cvrt-svg-small">TRY NOW</text><line x1="36" y1="342" x2="381" y2="342" stroke="#a96235" stroke-width="3" stroke-dasharray="8 5"/>
+        <rect x="423" y="48" width="345" height="31" rx="14" class="cvrt-svg-button"/><text x="500" y="69" class="cvrt-svg-white">FREE shipping on all orders!</text><rect x="440" y="94" width="311" height="248" rx="12" fill="#b8aa96"/><text x="459" y="128" class="cvrt-svg-tiny">SOULFFEE</text><text x="459" y="164" class="cvrt-svg-text">Calm Mind, Clear Focus,</text><text x="459" y="188" class="cvrt-svg-text">No Jitters</text><text x="459" y="220" class="cvrt-svg-small">Smooth, roasted, nutty ritual</text><text x="459" y="251" class="cvrt-svg-small">★★★★★ Rated 4.8+ stars</text><rect x="459" y="270" width="124" height="43" rx="21" class="cvrt-svg-focus"/><text x="486" y="297" class="cvrt-svg-small">TRY NOW</text><line x1="423" y1="342" x2="768" y2="342" stroke="#185f38" stroke-width="3" stroke-dasharray="8 5"/>
+      </svg><p class="cvrt-wire-caption">* Concept illustration only. Final design will differ.</p></div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-top"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div><h3 class="cvrt-slot-title">60-Serving Cart Upgrade</h3><p class="cvrt-page"><a href="https://www.soulffee.com/cart" target="_blank" rel="noopener">Cart</a></p><p class="cvrt-description">The cart contains a 30-serving line item and confirms free shipping, but offers no product recommendation or upgrade path. A 60-serving option is available on the product page and is absent from the captured cart experience.</p></div>
+      <div class="cvrt-wireframe"><svg viewBox="0 0 800 470" role="img" aria-label="Current cart and variation with 60-serving upgrade prompt">
+        <text x="57" y="30" class="cvrt-svg-text">Current</text><text x="462" y="30" class="cvrt-svg-text">Variation</text><rect x="52" y="48" width="290" height="390" rx="16" class="cvrt-svg-frame"/><rect x="457" y="48" width="290" height="390" rx="16" class="cvrt-svg-frame"/>
+        <text x="74" y="85" class="cvrt-svg-text">Your cart</text><rect x="74" y="104" width="58" height="67" rx="7" class="cvrt-svg-soft"/><text x="145" y="126" class="cvrt-svg-small">Mushroom Orzo</text><text x="145" y="148" class="cvrt-svg-tiny">30 servings · Qty 2</text><text x="145" y="168" class="cvrt-svg-small">$32.00</text><rect x="74" y="192" width="246" height="56" rx="9" class="cvrt-svg-soft"/><text x="93" y="218" class="cvrt-svg-tiny">Estimate shipping rates</text><text x="93" y="237" class="cvrt-svg-tiny">⌄</text><rect x="74" y="268" width="246" height="76" rx="9" class="cvrt-svg-soft"/><text x="92" y="293" class="cvrt-svg-tiny">CONGRATS YOU'VE UNLOCKED</text><text x="92" y="314" class="cvrt-svg-small">FREE SHIPPING!</text><rect x="92" y="326" width="206" height="7" rx="3" class="cvrt-svg-button"/><text x="74" y="377" class="cvrt-svg-small">Subtotal</text><text x="239" y="377" class="cvrt-svg-text">$64.00</text><rect x="74" y="394" width="246" height="24" rx="5" class="cvrt-svg-alert"/><text x="120" y="411" class="cvrt-svg-tiny">No upgrade path</text>
+        <text x="479" y="85" class="cvrt-svg-text">Your cart</text><rect x="479" y="104" width="50" height="57" rx="7" class="cvrt-svg-soft"/><text x="542" y="124" class="cvrt-svg-small">Mushroom Orzo</text><text x="542" y="145" class="cvrt-svg-tiny">30 servings · Qty 2 · $32.00</text><rect x="479" y="178" width="246" height="105" rx="10" class="cvrt-svg-focus"/><text x="495" y="204" class="cvrt-svg-text">Upgrade to 60 Servings</text><text x="495" y="229" class="cvrt-svg-tiny">Price needs confirmation</text><rect x="495" y="243" width="91" height="27" rx="13" class="cvrt-svg-button"/><text x="520" y="262" class="cvrt-svg-white">Switch</text><rect x="479" y="300" width="246" height="67" rx="9" class="cvrt-svg-soft"/><text x="497" y="324" class="cvrt-svg-tiny">CONGRATS YOU'VE UNLOCKED</text><text x="497" y="345" class="cvrt-svg-small">FREE SHIPPING!</text><rect x="497" y="353" width="206" height="6" rx="3" class="cvrt-svg-button"/><text x="479" y="403" class="cvrt-svg-small">Subtotal</text><rect x="479" y="414" width="246" height="10" rx="5" class="cvrt-svg-soft"/>
+      </svg><p class="cvrt-wire-caption">* Concept illustration only. Final design will differ.</p></div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-top"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div><h3 class="cvrt-slot-title">Comparison Table CTA</h3><p class="cvrt-page"><a href="https://www.soulffee.com/" target="_blank" rel="noopener">Homepage</a></p><p class="cvrt-description">The comparison table is the deepest documented homepage content and shows Soulffee winning five of six attributes. The section ends without a CTA, trust signal, or contextual next step.</p></div>
+      <div class="cvrt-wireframe"><svg viewBox="0 0 800 430" role="img" aria-label="Current comparison table and variation with call to action">
+        <text x="40" y="30" class="cvrt-svg-text">Current</text><text x="425" y="30" class="cvrt-svg-text">Variation</text><rect x="36" y="48" width="345" height="350" rx="14" class="cvrt-svg-frame"/><rect x="421" y="48" width="345" height="350" rx="14" class="cvrt-svg-frame"/>
+        <text x="58" y="83" class="cvrt-svg-text">Soulffee</text><text x="221" y="83" class="cvrt-svg-small">Mushroom Coffee</text><line x1="58" y1="98" x2="359" y2="98" stroke="#9aaa9b"/><text x="58" y="128" class="cvrt-svg-small">Real Mushrooms</text><text x="270" y="128" class="cvrt-svg-text">✓</text><text x="338" y="128" class="cvrt-svg-text">×</text><line x1="58" y1="143" x2="359" y2="143" stroke="#ccd3c9"/><text x="58" y="171" class="cvrt-svg-small">No Coffee Beans</text><text x="270" y="171" class="cvrt-svg-text">✓</text><text x="338" y="171" class="cvrt-svg-text">×</text><line x1="58" y1="186" x2="359" y2="186" stroke="#ccd3c9"/><text x="58" y="214" class="cvrt-svg-small">Low Caffeine</text><text x="270" y="214" class="cvrt-svg-text">✓</text><text x="338" y="214" class="cvrt-svg-text">×</text><line x1="58" y1="229" x2="359" y2="229" stroke="#ccd3c9"/><text x="58" y="257" class="cvrt-svg-small">High Fiber</text><text x="270" y="257" class="cvrt-svg-text">✓</text><text x="338" y="257" class="cvrt-svg-text">×</text><line x1="58" y1="272" x2="359" y2="272" stroke="#ccd3c9"/><text x="58" y="300" class="cvrt-svg-small">No Jitters</text><text x="270" y="300" class="cvrt-svg-text">✓</text><text x="338" y="300" class="cvrt-svg-text">✓</text><rect x="58" y="326" width="301" height="48" rx="8" class="cvrt-svg-alert"/><text x="132" y="355" class="cvrt-svg-small">Section ends here</text>
+        <text x="443" y="83" class="cvrt-svg-text">Soulffee</text><text x="606" y="83" class="cvrt-svg-small">Mushroom Coffee</text><line x1="443" y1="98" x2="744" y2="98" stroke="#9aaa9b"/><text x="443" y="128" class="cvrt-svg-small">Real Mushrooms</text><text x="655" y="128" class="cvrt-svg-text">✓</text><text x="723" y="128" class="cvrt-svg-text">×</text><line x1="443" y1="143" x2="744" y2="143" stroke="#ccd3c9"/><text x="443" y="171" class="cvrt-svg-small">No Coffee Beans</text><text x="655" y="171" class="cvrt-svg-text">✓</text><text x="723" y="171" class="cvrt-svg-text">×</text><line x1="443" y1="186" x2="744" y2="186" stroke="#ccd3c9"/><text x="443" y="214" class="cvrt-svg-small">Low Caffeine</text><text x="655" y="214" class="cvrt-svg-text">✓</text><text x="723" y="214" class="cvrt-svg-text">×</text><line x1="443" y1="229" x2="744" y2="229" stroke="#ccd3c9"/><text x="443" y="257" class="cvrt-svg-small">High Fiber</text><text x="655" y="257" class="cvrt-svg-text">✓</text><text x="723" y="257" class="cvrt-svg-text">×</text><line x1="443" y1="272" x2="744" y2="272" stroke="#ccd3c9"/><text x="443" y="300" class="cvrt-svg-small">No Jitters</text><text x="655" y="300" class="cvrt-svg-text">✓</text><text x="723" y="300" class="cvrt-svg-text">✓</text><rect x="488" y="323" width="210" height="49" rx="24" class="cvrt-svg-focus"/><text x="561" y="353" class="cvrt-svg-small">TRY NOW</text>
+      </svg><p class="cvrt-wire-caption">* Concept illustration only. Final design will differ.</p></div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-top"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div><h3 class="cvrt-slot-title">PDP Review Snippets</h3><p class="cvrt-page"><a href="https://www.soulffee.com/products/soulffee" target="_blank" rel="noopener">Product page</a></p><p class="cvrt-description">The buy box links to 38 reviews at 4.8 stars, but no customer quote appears within the first three captured folds. Available review samples support taste, steady energy, and stomach-friendly themes, although the limited dataset prevents deeper sentiment analysis.</p></div>
+      <div class="cvrt-wireframe"><svg viewBox="0 0 800 450" role="img" aria-label="Current buy box and variation with review snippets">
+        <text x="39" y="30" class="cvrt-svg-text">Current buy box</text><text x="424" y="30" class="cvrt-svg-text">Variation</text><rect x="35" y="48" width="345" height="370" rx="14" class="cvrt-svg-frame"/><rect x="420" y="48" width="345" height="370" rx="14" class="cvrt-svg-frame"/>
+        <text x="57" y="82" class="cvrt-svg-text">Mushroom Orzo</text><text x="57" y="111" class="cvrt-svg-text">$32.00</text><text x="57" y="139" class="cvrt-svg-small">★★★★★ 38 reviews</text><rect x="57" y="158" width="301" height="42" rx="20" class="cvrt-svg-soft"/><text x="77" y="184" class="cvrt-svg-small">30 servings       60 servings</text><rect x="57" y="215" width="301" height="53" rx="9" class="cvrt-svg-soft"/><text x="77" y="247" class="cvrt-svg-small">Purchase options</text><rect x="57" y="284" width="301" height="52" rx="25" class="cvrt-svg-button"/><text x="164" y="316" class="cvrt-svg-white">TRY IT NOW</text><rect x="57" y="351" width="301" height="43" rx="8" class="cvrt-svg-alert"/><text x="108" y="378" class="cvrt-svg-small">No customer voice</text>
+        <text x="442" y="82" class="cvrt-svg-text">Mushroom Orzo</text><text x="442" y="111" class="cvrt-svg-text">$32.00</text><text x="442" y="139" class="cvrt-svg-small">★★★★★ 38 reviews</text><rect x="442" y="158" width="301" height="37" rx="18" class="cvrt-svg-soft"/><text x="462" y="182" class="cvrt-svg-small">30 servings       60 servings</text><rect x="442" y="207" width="301" height="44" rx="9" class="cvrt-svg-soft"/><text x="462" y="234" class="cvrt-svg-small">Purchase options</text><rect x="442" y="263" width="301" height="45" rx="22" class="cvrt-svg-button"/><text x="549" y="292" class="cvrt-svg-white">TRY IT NOW</text><rect x="442" y="320" width="301" height="78" rx="10" class="cvrt-svg-focus"/><text x="457" y="343" class="cvrt-svg-small">★★★★★ “Smooth and rich,</text><text x="457" y="365" class="cvrt-svg-small">without the bitterness.”</text><text x="457" y="386" class="cvrt-svg-tiny">“Gentle on my stomach.”</text>
+      </svg><p class="cvrt-wire-caption">* Concept illustration only. Final design will differ.</p></div>
+    </article>
+  </section>
+
+  <section class="cvrt-panel cvrt-insights-panel">
+    <div class="cvrt-killers"><p class="cvrt-panel-kicker">Cross-source themes</p><h2>Biggest Killers of Conversion Rate</h2><ul class="cvrt-killer-list"><li><span>01</span>The product page defaults to one-time purchase while Subscribe &amp; Save offers a 19% discount and remains unselected.</li><li><span>02</span>Mobile LCP is 10.3 seconds on the homepage and 14.9 seconds on the product page. Both pages score 0/1 for LCP.</li><li><span>03</span>The homepage hero CTA is below the initial viewport, the comparison table ends without a CTA, and the cart provides no upgrade path.</li><li><span>04</span>The product page shows a 38-review link in the buy box, but no review content appears within the first three captured folds.</li></ul></div>
+    <div class="cvrt-source-area"><h2 class="cvrt-section-title">Data sources used</h2><div class="cvrt-source-grid"><div class="cvrt-source-chip">PageSpeed Insights</div><div class="cvrt-source-chip">Site Screenshots</div><div class="cvrt-source-chip">Live Site</div></div></div>
+    <div class="cvrt-findings">
+      <article class="cvrt-finding"><h3>PageSpeed Insights</h3><ul class="cvrt-source-list"><li>The homepage scores 59/100 on mobile, with 10.3s LCP, 4.8s FCP, and 13.8s Time to Interactive.</li><li>The product page scores 65/100 on mobile, with 14.9s LCP, 2.8s FCP, and 17.5s Time to Interactive.</li><li>CLS passes on both pages at 0 on the homepage and 0.013 on the product page.</li></ul></article>
+      <article class="cvrt-finding"><h3>Site Screenshots</h3><ul class="cvrt-source-list"><li>The homepage TRY NOW CTA is cut off below the visible first fold, while the rating appears without a review count.</li><li>The comparison table shows Soulffee winning five of six attributes and ends with no CTA.</li><li>The buy box pre-selects the $32.00 one-time purchase. Subscribe &amp; Save is visible at $25.92 and unselected.</li><li>The mobile cart contains no upsell, cross-sell, bundle prompt, or product recommendation. Free shipping is already unlocked.</li></ul></article>
+      <article class="cvrt-finding"><h3>Live Site</h3><ul class="cvrt-source-list"><li>The funnel is single-product, moving from the homepage to the product page. No collection page exists.</li><li>The live product page shows 38 reviews at 4.8+ stars. Available samples describe smooth taste, steady energy, and stomach friendliness.</li><li>The homepage confirms 24+ verified customer testimonials, a Learn section, a founder story, and a newsletter CTA.</li><li>Full review content was not collected, so deeper sentiment analysis is limited.</li></ul></article>
+    </div>
+  </section>
+  <footer class="cvrt-footer">July 2026</footer>
+</div>
