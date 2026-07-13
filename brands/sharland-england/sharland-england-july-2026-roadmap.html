@@ -1,0 +1,449 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap {
+  --cvrt-ink: #2e201b;
+  --cvrt-brown: #442a20;
+  --cvrt-berry: #7b342f;
+  --cvrt-clay: #b66f4d;
+  --cvrt-paper: #f7f2ec;
+  --cvrt-white: #fffdf9;
+  --cvrt-line: #d8cec4;
+  --cvrt-muted: #6c615a;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-paper);
+  color: var(--cvrt-ink);
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+}
+#cvrt-roadmap .cvrt-tab-input { position: absolute; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-hero { background: var(--cvrt-brown); color: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-grid { display: grid; grid-template-columns: minmax(440px, 46%) 1fr; min-height: 570px; }
+#cvrt-roadmap .cvrt-hero-copy { display: flex; flex-direction: column; justify-content: space-between; padding: 48px clamp(38px, 5vw, 78px) 38px; }
+#cvrt-roadmap .cvrt-logo { width: 210px; height: auto; display: block; object-fit: contain; }
+#cvrt-roadmap .cvrt-eyebrow { margin-top: 70px; color: #e8c8b5; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-hero h1 { margin-top: 12px; max-width: 610px; font-family: "Cormorant Garamond", serif; font-size: clamp(52px, 6vw, 86px); font-weight: 500; line-height: .94; letter-spacing: -.035em; }
+#cvrt-roadmap .cvrt-summary { margin-top: 26px; max-width: 570px; color: #f1e8e1; font-size: 16px; line-height: 1.7; }
+#cvrt-roadmap .cvrt-tabs { display: flex; gap: 8px; margin-top: 46px; }
+#cvrt-roadmap .cvrt-tab-label { min-width: 150px; padding: 13px 20px; border: 1px solid rgba(255,255,255,.38); color: #fff; cursor: pointer; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; transition: background .2s ease, color .2s ease; }
+#cvrt-roadmap .cvrt-hero-image { position: relative; min-height: 570px; overflow: hidden; }
+#cvrt-roadmap .cvrt-hero-image img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 55% center; }
+#cvrt-roadmap .cvrt-hero-image::after { content: ""; position: absolute; inset: 0; box-shadow: inset 20px 0 40px rgba(38,20,15,.18); pointer-events: none; }
+#cvrt-roadmap .cvrt-panel { display: none; padding: 56px clamp(24px, 6vw, 92px) 72px; }
+#cvrt-roadmap .cvrt-panel-intro { margin-bottom: 28px; padding-left: max(0px, calc((100% - 860px) / 2)); }
+#cvrt-roadmap .cvrt-panel-intro h2 { font-family: "Cormorant Garamond", serif; font-size: 43px; font-weight: 600; line-height: 1.08; }
+#cvrt-roadmap .cvrt-panel-intro p { margin-top: 8px; color: var(--cvrt-muted); font-size: 14px; }
+#cvrt-roadmap .cvrt-slot { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 28px; overflow: hidden; background: var(--cvrt-white); border: 1px solid var(--cvrt-line); box-shadow: 0 13px 32px rgba(68,42,32,.06); break-inside: avoid; }
+#cvrt-roadmap .cvrt-slot-copy { max-width: 690px; padding: 34px 38px 28px; }
+#cvrt-roadmap .cvrt-slot-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--cvrt-berry); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-slot-type { padding: 5px 9px; border: 1px solid #cbb7ad; color: var(--cvrt-brown); background: #fbf7f2; }
+#cvrt-roadmap .cvrt-slot h3 { margin-top: 15px; font-family: "Cormorant Garamond", serif; font-size: 34px; font-weight: 600; line-height: 1.05; }
+#cvrt-roadmap .cvrt-page { margin-top: 9px; color: var(--cvrt-berry); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-page a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { margin-top: 15px; color: #51443d; font-size: 15px; line-height: 1.72; }
+#cvrt-roadmap .cvrt-wireframe { padding: 28px 28px 20px; border-top: 1px solid var(--cvrt-line); background: #f4efe9; }
+#cvrt-roadmap .cvrt-wireframe svg { width: 100%; height: auto; display: block; }
+#cvrt-roadmap .cvrt-wireframe-caption { margin-top: 11px; color: #211915; font-size: 11px; font-style: italic; }
+#cvrt-roadmap .cvrt-wire { fill: #fffdf9; stroke: #8d7f76; stroke-width: 1.6; stroke-dasharray: 7 6; }
+#cvrt-roadmap .cvrt-wire-solid { fill: #fffdf9; stroke: #8d7f76; stroke-width: 1.6; }
+#cvrt-roadmap .cvrt-wire-muted { fill: #e8dfd7; }
+#cvrt-roadmap .cvrt-wire-accent { fill: #7b342f; stroke: #7b342f; stroke-width: 1.6; }
+#cvrt-roadmap .cvrt-wire-highlight { fill: #f3ded4; stroke: #7b342f; stroke-width: 2; stroke-dasharray: 7 5; }
+#cvrt-roadmap .cvrt-wire-text { fill: #2e201b; font-family: "Manrope", sans-serif; font-size: 15px; font-weight: 650; }
+#cvrt-roadmap .cvrt-wire-small { fill: #554942; font-family: "Manrope", sans-serif; font-size: 12px; font-weight: 600; }
+#cvrt-roadmap .cvrt-wire-white { fill: #fffdf9; font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 700; }
+#cvrt-roadmap .cvrt-wire-label { fill: #7b342f; font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-insights-wrap { padding-left: max(0px, calc((100% - 860px) / 2)); padding-right: max(0px, calc((100% - 860px) / 2)); }
+#cvrt-roadmap .cvrt-killers { padding: 38px; background: var(--cvrt-brown); color: var(--cvrt-white); border: 1px solid var(--cvrt-brown); }
+#cvrt-roadmap .cvrt-killers h2 { max-width: 650px; font-family: "Cormorant Garamond", serif; font-size: 43px; font-weight: 600; line-height: 1.05; }
+#cvrt-roadmap .cvrt-killer-list { margin-top: 24px; display: grid; gap: 12px; }
+#cvrt-roadmap .cvrt-killer-list li { padding: 16px 18px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); color: #f7eee8; font-size: 14px; line-height: 1.58; }
+#cvrt-roadmap .cvrt-insight-section { margin-top: 28px; padding: 34px 38px; background: var(--cvrt-white); border: 1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-insight-section h2 { font-family: "Cormorant Garamond", serif; font-size: 34px; font-weight: 600; line-height: 1.08; }
+#cvrt-roadmap .cvrt-source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+#cvrt-roadmap .cvrt-source-chip { min-height: 62px; display: flex; align-items: center; padding: 13px 15px; background: #f4efe9; border: 1px solid var(--cvrt-line); color: var(--cvrt-brown); font-size: 12px; font-weight: 700; }
+#cvrt-roadmap .cvrt-source-block { margin-top: 14px; padding: 25px 26px; background: var(--cvrt-white); border: 1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-source-block h3 { font-family: "Cormorant Garamond", serif; font-size: 27px; font-weight: 600; }
+#cvrt-roadmap .cvrt-source-list { margin-top: 12px; display: grid; gap: 11px; }
+#cvrt-roadmap .cvrt-source-list li { padding: 0; color: #51443d; font-size: 14px; line-height: 1.62; }
+#cvrt-roadmap .cvrt-footer { padding: 30px; border-top: 1px solid var(--cvrt-line); color: var(--cvrt-muted); text-align: center; font-family: "Cormorant Garamond", serif; font-size: 18px; }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-tests"],
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-insights"] { background: var(--cvrt-white); color: var(--cvrt-brown); }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-insights-panel { display: block; }
+@media (max-width: 800px) {
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-copy { min-height: 520px; padding: 32px 24px 28px; }
+  #cvrt-roadmap .cvrt-eyebrow { margin-top: 54px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: 58px; }
+  #cvrt-roadmap .cvrt-hero-image { min-height: 320px; }
+  #cvrt-roadmap .cvrt-tabs { margin-top: 32px; }
+  #cvrt-roadmap .cvrt-tab-label { min-width: 0; flex: 1; padding: 12px 10px; }
+  #cvrt-roadmap .cvrt-panel { padding: 38px 14px 52px; }
+  #cvrt-roadmap .cvrt-slot-copy, #cvrt-roadmap .cvrt-wireframe, #cvrt-roadmap .cvrt-killers, #cvrt-roadmap .cvrt-insight-section { padding-left: 22px; padding-right: 22px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+  #cvrt-roadmap .cvrt-wireframe { overflow-x: auto; }
+  #cvrt-roadmap .cvrt-wireframe svg { min-width: 680px; }
+}
+@media (max-width: 480px) {
+  #cvrt-roadmap .cvrt-logo { width: 170px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: 49px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr; }
+}
+@media print {
+  #cvrt-roadmap { width: 100%; left: 0; right: 0; margin: 0; background: #f7f2ec !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #cvrt-roadmap .cvrt-tabs, #cvrt-roadmap .cvrt-tab-input { display: none !important; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-slot { box-shadow: none; page-break-inside: avoid; }
+  #cvrt-roadmap .cvrt-killers, #cvrt-roadmap .cvrt-source-block { break-inside: avoid; }
+  #cvrt-roadmap .cvrt-hero-grid { min-height: 500px; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tab" id="cvrt-tab-tests" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tab" id="cvrt-tab-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <div>
+          <img class="cvrt-logo" src="https://sharland-england.com/cdn/shop/files/white_Sharland_England_logo_500x.png?v=1614755105" alt="Sharland England">
+          <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+          <h1>July 2026</h1>
+          <p class="cvrt-summary">Sharland England has strong product credibility, editorial authority, and customer advocacy, but those signals disappear across key browsing and checkout moments. The clearest opportunity is to reduce friction around trust, shipping, and paid-traffic message continuity while site performance is addressed in parallel.</p>
+        </div>
+        <nav class="cvrt-tabs" aria-label="Roadmap sections">
+          <label class="cvrt-tab-label" for="cvrt-tab-tests">Testing Ideas</label>
+          <label class="cvrt-tab-label" for="cvrt-tab-insights">Data Insights</label>
+        </nav>
+      </div>
+      <div class="cvrt-hero-image">
+        <img src="https://sharland-england.com/cdn/shop/files/2CFD8186-7AA4-4B80-AD68-7355B3FA0F91_-_Large_65d0e30c-9b40-4ec4-b269-b72e9690dd1b_1950x.jpg?v=1780931300" alt="Sharland England Juliette garden furniture">
+      </div>
+    </div>
+  </section>
+
+  <section class="cvrt-panel cvrt-tests-panel">
+    <div class="cvrt-panel-intro">
+      <h2>Testing Ideas</h2>
+      <p>Eight focused opportunities across collection, product, homepage, and cart experiences.</p>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 1</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Collection Popup Timing</h3>
+        <p class="cvrt-page">Outdoor Collection and US Collection</p>
+        <p class="cvrt-description">The newsletter popup appears on arrival and covers a product card before visitors interact with the collection. Its 10% offer also repeats the announcement bar, creating interruption before product discovery.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 380" role="img" aria-label="Current on-load popup compared with a variation that lets visitors browse the collection first">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="300" rx="2" class="cvrt-wire"/><rect x="415" y="45" width="360" height="300" rx="2" class="cvrt-wire"/>
+          <rect x="42" y="63" width="321" height="28" class="cvrt-wire-muted"/><text x="55" y="82" class="cvrt-wire-small">Join Our Newsletter For 10% Off</text>
+          <text x="43" y="118" class="cvrt-wire-text">Outdoor Collection</text>
+          <rect x="43" y="136" width="92" height="170" class="cvrt-wire-solid"/><rect x="145" y="136" width="92" height="170" class="cvrt-wire-solid"/><rect x="247" y="136" width="92" height="170" class="cvrt-wire-solid"/>
+          <rect x="92" y="125" width="245" height="145" class="cvrt-wire-highlight"/><text x="123" y="162" class="cvrt-wire-text">ENJOY 10% OFF</text><text x="119" y="187" class="cvrt-wire-small">YOUR FIRST ORDER</text><rect x="127" y="208" width="176" height="35" class="cvrt-wire-accent"/><text x="177" y="231" class="cvrt-wire-white">JOIN NOW</text>
+          <text x="92" y="329" class="cvrt-wire-label">Product blocked on arrival</text>
+          <rect x="432" y="63" width="326" height="28" class="cvrt-wire-muted"/><text x="445" y="82" class="cvrt-wire-small">Join Our Newsletter For 10% Off</text>
+          <text x="433" y="118" class="cvrt-wire-text">Outdoor Collection</text>
+          <rect x="433" y="136" width="94" height="170" class="cvrt-wire-solid"/><rect x="538" y="136" width="94" height="170" class="cvrt-wire-solid"/><rect x="643" y="136" width="94" height="170" class="cvrt-wire-solid"/>
+          <rect x="444" y="151" width="72" height="84" class="cvrt-wire-muted"/><rect x="549" y="151" width="72" height="84" class="cvrt-wire-muted"/><rect x="654" y="151" width="72" height="84" class="cvrt-wire-muted"/>
+          <text x="446" y="258" class="cvrt-wire-small">Product name</text><text x="551" y="258" class="cvrt-wire-small">Product name</text><text x="656" y="258" class="cvrt-wire-small">Product name</text>
+          <text x="433" y="329" class="cvrt-wire-label">Grid remains browsable</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 2</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>US Collection Currency</h3>
+        <p class="cvrt-page"><a href="https://sharland-england.com/collections/now-in-the-us" target="_blank" rel="noopener">US Collection</a></p>
+        <p class="cvrt-description">Offer-focused US traffic lands on a collection that displays GBP prices, including £185, £395, and £1,075. The page also omits the tariff reassurance presented before the visit, leaving a comprehension and trust gap.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 370" role="img" aria-label="US collection product grid with GBP pricing compared with localized USD presentation">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="290" class="cvrt-wire"/><rect x="415" y="45" width="360" height="290" class="cvrt-wire"/>
+          <text x="45" y="78" class="cvrt-wire-text">Shipped from our US warehouse</text>
+          <rect x="45" y="97" width="145" height="146" class="cvrt-wire-solid"/><rect x="208" y="97" width="145" height="146" class="cvrt-wire-solid"/>
+          <rect x="56" y="108" width="123" height="79" class="cvrt-wire-muted"/><rect x="219" y="108" width="123" height="79" class="cvrt-wire-muted"/>
+          <text x="56" y="210" class="cvrt-wire-small">Hadley Tray</text><text x="56" y="230" class="cvrt-wire-text">£185</text><text x="219" y="210" class="cvrt-wire-small">Tablecloth</text><text x="219" y="230" class="cvrt-wire-text">£395</text>
+          <rect x="45" y="264" width="308" height="43" class="cvrt-wire-highlight"/><text x="69" y="291" class="cvrt-wire-label">US visit, GBP prices</text>
+          <text x="435" y="78" class="cvrt-wire-text">Shipped from our US warehouse</text>
+          <rect x="435" y="91" width="320" height="35" class="cvrt-wire-highlight"/><text x="451" y="114" class="cvrt-wire-small">Prices shown in USD · Switch currency</text>
+          <rect x="435" y="144" width="145" height="146" class="cvrt-wire-solid"/><rect x="598" y="144" width="145" height="146" class="cvrt-wire-solid"/>
+          <rect x="446" y="155" width="123" height="79" class="cvrt-wire-muted"/><rect x="609" y="155" width="123" height="79" class="cvrt-wire-muted"/>
+          <text x="446" y="256" class="cvrt-wire-small">Hadley Tray</text><text x="446" y="278" class="cvrt-wire-text">$ USD</text><text x="609" y="256" class="cvrt-wire-small">Tablecloth</text><text x="609" y="278" class="cvrt-wire-text">$ USD</text>
+          <text x="435" y="318" class="cvrt-wire-label">Localized price context</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 3</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Hadley Tray Shipping Clarity</h3>
+        <p class="cvrt-page"><a href="https://sharland-england.com/products/hadley-tray" target="_blank" rel="noopener">Hadley Tray</a></p>
+        <p class="cvrt-description">The buy box shows £185.00, 23 five-star reviews, product selectors, and a global-shipping icon, but no delivery timeline or returns window. US reviews document shipping concern before purchase even when delivery later exceeded expectations.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 450" role="img" aria-label="Hadley Tray buy box with shipping details buried compared with key timelines placed near add to cart">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="370" class="cvrt-wire"/><rect x="415" y="45" width="360" height="370" class="cvrt-wire"/>
+          <text x="48" y="78" class="cvrt-wire-small">Rattan</text><text x="48" y="108" class="cvrt-wire-text">Hadley Tray</text><text x="48" y="136" class="cvrt-wire-text">£185.00</text><text x="48" y="164" class="cvrt-wire-small">★★★★★ 23 reviews</text>
+          <text x="48" y="197" class="cvrt-wire-small">Colour: Berry</text><circle cx="64" cy="220" r="11" fill="#7b342f"/><circle cx="96" cy="220" r="11" fill="#9a5b31"/><circle cx="128" cy="220" r="11" fill="#45513c"/>
+          <rect x="48" y="250" width="75" height="43" class="cvrt-wire-solid"/><text x="70" y="277" class="cvrt-wire-small">− 1 +</text><rect x="135" y="250" width="218" height="43" class="cvrt-wire-accent"/><text x="191" y="277" class="cvrt-wire-white">ADD TO CART</text>
+          <rect x="48" y="322" width="305" height="38" class="cvrt-wire-solid"/><text x="64" y="346" class="cvrt-wire-small">Shipping &amp; Returns</text><text x="327" y="346" class="cvrt-wire-text">+</text>
+          <text x="48" y="390" class="cvrt-wire-label">Timeline hidden</text>
+          <text x="438" y="78" class="cvrt-wire-small">Rattan</text><text x="438" y="108" class="cvrt-wire-text">Hadley Tray</text><text x="438" y="136" class="cvrt-wire-text">£185.00</text><text x="438" y="164" class="cvrt-wire-small">★★★★★ 23 reviews</text>
+          <text x="438" y="197" class="cvrt-wire-small">Colour: Berry</text><circle cx="454" cy="220" r="11" fill="#7b342f"/><circle cx="486" cy="220" r="11" fill="#9a5b31"/><circle cx="518" cy="220" r="11" fill="#45513c"/>
+          <rect x="438" y="250" width="75" height="43" class="cvrt-wire-solid"/><text x="460" y="277" class="cvrt-wire-small">− 1 +</text><rect x="525" y="250" width="225" height="43" class="cvrt-wire-accent"/><text x="585" y="277" class="cvrt-wire-white">ADD TO CART</text>
+          <rect x="438" y="309" width="312" height="67" class="cvrt-wire-highlight"/><text x="452" y="333" class="cvrt-wire-small">UK: 3–5 business days</text><text x="452" y="353" class="cvrt-wire-small">US: 3–5 days · Free returns within 30 days</text>
+          <text x="438" y="402" class="cvrt-wire-label">Key policy near the decision</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 4</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Cart Shipping and Returns</h3>
+        <p class="cvrt-page"><a href="https://sharland-england.com/cart" target="_blank" rel="noopener">Cart</a></p>
+        <p class="cvrt-description">The cart states that shipping is calculated at checkout and provides no returns promise. This leaves shipping cost unresolved at the highest-intent stage, while the only documented one-star review concerns returns communication.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 410" role="img" aria-label="Cart summary with shipping calculated at checkout compared with a clearer policy area pending audit">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="330" class="cvrt-wire"/><rect x="415" y="45" width="360" height="330" class="cvrt-wire"/>
+          <text x="48" y="82" class="cvrt-wire-text">Shopping cart</text><rect x="48" y="104" width="74" height="74" class="cvrt-wire-muted"/><text x="142" y="126" class="cvrt-wire-text">Hadley Tray</text><text x="142" y="149" class="cvrt-wire-small">Berry · Quantity 2</text><text x="299" y="126" class="cvrt-wire-text">£370.00</text>
+          <line x1="48" y1="199" x2="353" y2="199" stroke="#8d7f76" stroke-dasharray="7 6"/>
+          <text x="48" y="228" class="cvrt-wire-text">Subtotal</text><text x="286" y="228" class="cvrt-wire-text">£370.00</text>
+          <rect x="48" y="244" width="305" height="48" class="cvrt-wire-highlight"/><text x="62" y="273" class="cvrt-wire-small">Shipping calculated at checkout</text>
+          <rect x="48" y="308" width="305" height="43" class="cvrt-wire-accent"/><text x="159" y="335" class="cvrt-wire-white">CHECK OUT</text>
+          <text x="438" y="82" class="cvrt-wire-text">Shopping cart</text><rect x="438" y="104" width="74" height="74" class="cvrt-wire-muted"/><text x="532" y="126" class="cvrt-wire-text">Hadley Tray</text><text x="532" y="149" class="cvrt-wire-small">Berry · Quantity 2</text><text x="688" y="126" class="cvrt-wire-text">£370.00</text>
+          <line x1="438" y1="199" x2="748" y2="199" stroke="#8d7f76" stroke-dasharray="7 6"/>
+          <text x="438" y="228" class="cvrt-wire-text">Subtotal</text><text x="678" y="228" class="cvrt-wire-text">£370.00</text>
+          <rect x="438" y="244" width="310" height="65" class="cvrt-wire-highlight"/><text x="452" y="270" class="cvrt-wire-small">Shipping estimate: policy needed</text><text x="452" y="292" class="cvrt-wire-small">Returns window: policy needed</text>
+          <rect x="438" y="325" width="310" height="43" class="cvrt-wire-accent"/><text x="551" y="352" class="cvrt-wire-white">CHECK OUT</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 5</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Collection Card Reviews</h3>
+        <p class="cvrt-page">All Collection Pages</p>
+        <p class="cvrt-description">Collection cards show imagery, names, prices, and colour swatches without ratings or review counts. The Hadley Tray has 23 five-star reviews on its product page, but none of that proof appears while shoppers browse.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 430" role="img" aria-label="Collection product cards without ratings compared with cards that surface existing review proof">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="35" y="48" width="155" height="335" class="cvrt-wire"/><rect x="210" y="48" width="155" height="335" class="cvrt-wire"/>
+          <rect x="50" y="65" width="125" height="190" class="cvrt-wire-muted"/><rect x="225" y="65" width="125" height="190" class="cvrt-wire-muted"/>
+          <text x="50" y="280" class="cvrt-wire-text">Hadley Tray</text><text x="50" y="306" class="cvrt-wire-small">£185.00</text><circle cx="58" cy="334" r="7" fill="#7b342f"/><circle cx="79" cy="334" r="7" fill="#9a5b31"/><circle cx="100" cy="334" r="7" fill="#45513c"/>
+          <text x="225" y="280" class="cvrt-wire-text">Coquillage Dish</text><text x="225" y="306" class="cvrt-wire-small">£38.00</text><circle cx="233" cy="334" r="7" fill="#d49a8e"/><circle cx="254" cy="334" r="7" fill="#bf9473"/>
+          <rect x="425" y="48" width="155" height="335" class="cvrt-wire"/><rect x="600" y="48" width="155" height="335" class="cvrt-wire"/>
+          <rect x="440" y="65" width="125" height="190" class="cvrt-wire-muted"/><rect x="615" y="65" width="125" height="190" class="cvrt-wire-muted"/>
+          <text x="440" y="280" class="cvrt-wire-text">Hadley Tray</text><text x="440" y="306" class="cvrt-wire-small">£185.00</text>
+          <rect x="440" y="320" width="125" height="34" class="cvrt-wire-highlight"/><text x="451" y="342" class="cvrt-wire-small">★★★★★ (23)</text>
+          <text x="615" y="280" class="cvrt-wire-text">Coquillage Dish</text><text x="615" y="306" class="cvrt-wire-small">£38.00</text><text x="615" y="342" class="cvrt-wire-small">No reviews shown</text>
+          <text x="425" y="410" class="cvrt-wire-label">Existing proof at browse stage</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 6</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Homepage Trust Block</h3>
+        <p class="cvrt-page"><a href="https://sharland-england.com/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">The homepage leads with the Juliette Collection and moves into Bestsellers without a customer rating, review count, quote, or shipping promise. Strong press logos sit later in the page, while the 4.7 Trustpilot rating and specific customer advocacy remain absent.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 390" role="img" aria-label="Homepage flow without social proof compared with a trust block between hero and bestsellers">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="310" class="cvrt-wire"/><rect x="415" y="45" width="360" height="310" class="cvrt-wire"/>
+          <rect x="43" y="63" width="319" height="160" class="cvrt-wire-muted"/><text x="62" y="155" class="cvrt-wire-text">Juliette Collection</text><rect x="62" y="174" width="152" height="31" class="cvrt-wire-solid"/><text x="78" y="195" class="cvrt-wire-small">SHOP GARDEN FURNITURE</text>
+          <text x="43" y="253" class="cvrt-wire-text">Bestsellers</text><rect x="43" y="270" width="94" height="62" class="cvrt-wire-solid"/><rect x="151" y="270" width="94" height="62" class="cvrt-wire-solid"/><rect x="259" y="270" width="94" height="62" class="cvrt-wire-solid"/>
+          <rect x="433" y="63" width="324" height="120" class="cvrt-wire-muted"/><text x="452" y="132" class="cvrt-wire-text">Juliette Collection</text>
+          <rect x="433" y="198" width="324" height="76" class="cvrt-wire-highlight"/><text x="451" y="225" class="cvrt-wire-text">4.7 Trustpilot ★★★★★</text><text x="451" y="252" class="cvrt-wire-small">“It completely makes the entire room!”</text>
+          <text x="433" y="302" class="cvrt-wire-text">Bestsellers</text><rect x="433" y="315" width="94" height="25" class="cvrt-wire-solid"/><rect x="541" y="315" width="94" height="25" class="cvrt-wire-solid"/><rect x="649" y="315" width="94" height="25" class="cvrt-wire-solid"/>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 7</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Cart Shipping Threshold</h3>
+        <p class="cvrt-page"><a href="https://sharland-england.com/cart" target="_blank" rel="noopener">Cart</a></p>
+        <p class="cvrt-description">The cart offers a passive “You May Also Like” section but no threshold, bundle, or volume incentive. Existing accessories priced from £55 to £95 already appear as complementary products on the Hadley Tray page.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 440" role="img" aria-label="Passive cart recommendations compared with a free shipping progress area and inline accessory adds">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="355" class="cvrt-wire"/><rect x="415" y="45" width="360" height="355" class="cvrt-wire"/>
+          <text x="45" y="80" class="cvrt-wire-text">Shopping cart</text><rect x="45" y="101" width="70" height="70" class="cvrt-wire-muted"/><text x="132" y="126" class="cvrt-wire-text">Hadley Tray</text><text x="132" y="151" class="cvrt-wire-small">£185.00</text>
+          <text x="45" y="212" class="cvrt-wire-text">You May Also Like</text><rect x="45" y="229" width="135" height="96" class="cvrt-wire-solid"/><rect x="196" y="229" width="135" height="96" class="cvrt-wire-solid"/><text x="58" y="348" class="cvrt-wire-small">Pinet Plant Pot</text><text x="209" y="348" class="cvrt-wire-small">Concha Dish</text><text x="45" y="378" class="cvrt-wire-label">View only</text>
+          <text x="435" y="80" class="cvrt-wire-text">Shopping cart</text><rect x="435" y="98" width="320" height="76" class="cvrt-wire-highlight"/><text x="452" y="124" class="cvrt-wire-text">You’re £X away from free shipping</text><rect x="452" y="143" width="286" height="10" rx="5" fill="#dfd2c7"/><rect x="452" y="143" width="186" height="10" rx="5" fill="#7b342f"/>
+          <rect x="435" y="194" width="320" height="72" class="cvrt-wire-solid"/><rect x="448" y="206" width="48" height="48" class="cvrt-wire-muted"/><text x="510" y="225" class="cvrt-wire-small">Pinet Plant Pot · From £95</text><rect x="673" y="217" width="65" height="31" class="cvrt-wire-accent"/><text x="693" y="237" class="cvrt-wire-white">ADD</text>
+          <rect x="435" y="278" width="320" height="72" class="cvrt-wire-solid"/><rect x="448" y="290" width="48" height="48" class="cvrt-wire-muted"/><text x="510" y="309" class="cvrt-wire-small">Concha Dish · From £80</text><rect x="673" y="301" width="65" height="31" class="cvrt-wire-accent"/><text x="693" y="321" class="cvrt-wire-white">ADD</text>
+          <text x="435" y="383" class="cvrt-wire-label">Milestone with one-click add</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span>Slot 8</span><span class="cvrt-slot-type">A/B Test</span></div>
+        <h3>Outdoor Collection Message Match</h3>
+        <p class="cvrt-page"><a href="https://sharland-england.com/collections/outdoor-collection" target="_blank" rel="noopener">Outdoor Collection</a></p>
+        <p class="cvrt-description">Offer-focused paid traffic arrives with a promise of antique-inspired Juliette pieces, but the landing page opens on a general outdoor collection. Juliette products are mixed into the wider grid without the collection name or “timeless charm” message.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 800 420" role="img" aria-label="General outdoor collection arrival compared with a Juliette-specific collection banner above the product grid">
+          <text x="28" y="28" class="cvrt-wire-label">Current</text><text x="418" y="28" class="cvrt-wire-label">Variation</text>
+          <rect x="25" y="45" width="355" height="335" class="cvrt-wire"/><rect x="415" y="45" width="360" height="335" class="cvrt-wire"/>
+          <text x="45" y="80" class="cvrt-wire-text">Outdoor Collection</text><rect x="45" y="99" width="310" height="42" class="cvrt-wire-solid"/><text x="59" y="126" class="cvrt-wire-small">Collection · Product Type · Sort By</text>
+          <rect x="45" y="158" width="94" height="166" class="cvrt-wire-solid"/><rect x="153" y="158" width="94" height="166" class="cvrt-wire-solid"/><rect x="261" y="158" width="94" height="166" class="cvrt-wire-solid"/>
+          <rect x="55" y="169" width="74" height="92" class="cvrt-wire-muted"/><rect x="163" y="169" width="74" height="92" class="cvrt-wire-muted"/><rect x="271" y="169" width="74" height="92" class="cvrt-wire-muted"/>
+          <text x="55" y="284" class="cvrt-wire-small">Juliette</text><text x="163" y="284" class="cvrt-wire-small">Emerson</text><text x="271" y="284" class="cvrt-wire-small">Outdoor</text><text x="45" y="355" class="cvrt-wire-label">General arrival</text>
+          <rect x="435" y="65" width="320" height="126" class="cvrt-wire-highlight"/><text x="455" y="101" class="cvrt-wire-small">NEW IN</text><text x="455" y="133" class="cvrt-wire-text">The Juliette Collection</text><text x="455" y="158" class="cvrt-wire-small">Timeless charm for outdoor spaces</text><rect x="631" y="116" width="104" height="36" class="cvrt-wire-accent"/><text x="650" y="139" class="cvrt-wire-white">SHOP JULIETTE</text>
+          <rect x="435" y="211" width="94" height="130" class="cvrt-wire-solid"/><rect x="548" y="211" width="94" height="130" class="cvrt-wire-solid"/><rect x="661" y="211" width="94" height="130" class="cvrt-wire-solid"/>
+          <rect x="445" y="221" width="74" height="72" class="cvrt-wire-muted"/><rect x="558" y="221" width="74" height="72" class="cvrt-wire-muted"/><rect x="671" y="221" width="74" height="72" class="cvrt-wire-muted"/>
+          <text x="435" y="368" class="cvrt-wire-label">Promise continues on arrival</text>
+        </svg>
+        <p class="cvrt-wireframe-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-panel cvrt-insights-panel">
+    <div class="cvrt-insights-wrap">
+      <section class="cvrt-killers">
+        <h2>Biggest Killers of Conversion Rate</h2>
+        <ul class="cvrt-killer-list">
+          <li>Trust is concentrated on the Hadley Tray product page. The homepage has no reviews, collection cards have no review counts, and the cart has no trust copy.</li>
+          <li>Shipping remains unresolved before purchase. US customers describe pre-purchase concern, the buy box has no timeline, and cart shipping cost stays unknown until checkout.</li>
+          <li>Mobile page performance blocks product discovery. Homepage LCP is 27.3 seconds and Hadley Tray LCP is 29.0 seconds, with time to interactive reaching 30.9 and 33.5 seconds.</li>
+        </ul>
+      </section>
+
+      <section class="cvrt-insight-section">
+        <h2>Data Sources Used</h2>
+        <div class="cvrt-source-grid">
+          <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+          <div class="cvrt-source-chip">Google Ads</div>
+          <div class="cvrt-source-chip">Reviews and UGC</div>
+          <div class="cvrt-source-chip">Page Speed Insights</div>
+          <div class="cvrt-source-chip">Site Screenshots</div>
+          <div class="cvrt-source-chip">Live Site</div>
+          <div class="cvrt-source-chip">Competitor Research</div>
+        </div>
+      </section>
+
+      <section class="cvrt-insight-section">
+        <h2>What the Data Shows</h2>
+        <div class="cvrt-source-block">
+          <h3>Meta Ads and Landing Pages</h3>
+          <ul class="cvrt-source-list">
+            <li>Paid creative built around the Juliette collection lands on a general outdoor page where Juliette products are mixed with unrelated pieces and the collection story disappears.</li>
+            <li>US-focused creative promises faster shipping and no tariffs, while the landing page displays GBP prices and does not repeat the tariff reassurance.</li>
+            <li>Collection landings open with a newsletter popup over the product grid. The Hadley Tray product landing avoids that interruption and has stronger message continuity.</li>
+          </ul>
+        </div>
+        <div class="cvrt-source-block">
+          <h3>Google Ads</h3>
+          <ul class="cvrt-source-list">
+            <li>Search advertising makes the 10% first-order offer more prominent than paid social.</li>
+            <li>Shopping ads use GBP pricing with both lifestyle and product-on-white imagery.</li>
+            <li>A competitor display ad appeared beside Sharland England search activity, showing that brand-search attention is not fully protected.</li>
+          </ul>
+        </div>
+        <div class="cvrt-source-block">
+          <h3>Reviews and UGC</h3>
+          <ul class="cvrt-source-list">
+            <li>Customers remember service staff by name, including Quinn, Katherine, and Celia.</li>
+            <li>Packaging and personal notes recur in positive reviews, including praise for meticulous packing and Louise’s thank-you card.</li>
+            <li>US customers praise shipping speed but also describe concern about international logistics before ordering.</li>
+            <li>The documented one-star review concerns a returned item with no acknowledgement and no phone number for support.</li>
+          </ul>
+        </div>
+        <div class="cvrt-source-block">
+          <h3>Page Speed Insights</h3>
+          <ul class="cvrt-source-list">
+            <li>Mobile LCP measured 27.3 seconds on the homepage and 29.0 seconds on the Hadley Tray product page.</li>
+            <li>Time to interactive measured 30.9 seconds on the homepage and 33.5 seconds on the product page.</li>
+            <li>The product page recorded zero layout shift, while the homepage measured 0.124.</li>
+          </ul>
+        </div>
+        <div class="cvrt-source-block">
+          <h3>Site Screenshots</h3>
+          <ul class="cvrt-source-list">
+            <li>The homepage leads with editorial imagery and later displays press logos from Vogue, The Telegraph, The Wall Street Journal, The New York Times, House &amp; Garden, AD, Veranda, and Interiors.</li>
+            <li>Collection cards show images, product names, GBP prices, and colour swatches without review counts.</li>
+            <li>The Hadley Tray buy box shows £185.00, 23 reviews, Berry selected, a full-width add-to-cart button, and a collapsed Shipping &amp; Returns section.</li>
+            <li>The cart shows £370.00 for two Hadley Trays, states that shipping is calculated at checkout, and includes passive recommendations without a threshold or bundle.</li>
+          </ul>
+        </div>
+        <div class="cvrt-source-block">
+          <h3>Live Site</h3>
+          <ul class="cvrt-source-list">
+            <li>The live site includes a 4.7 Trustpilot reference.</li>
+            <li>The product range spans tabletop, linens, vases, ceramics, accessories, and furniture.</li>
+          </ul>
+        </div>
+        <div class="cvrt-source-block">
+          <h3>Competitor Research</h3>
+          <ul class="cvrt-source-list">
+            <li>Sharland England sits between accessible Birdie Fortescue and ultra-premium Soane Britain in market position.</li>
+            <li>The Hadley Tray at £185 is priced three to five times above the comparable Birdie Fortescue rattan tray range of £38 to £54.</li>
+            <li>The premium depends on design authority, provenance, and trust, while those signals are concentrated mainly on the product page.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <footer class="cvrt-footer">July 2026</footer>
+</div>
