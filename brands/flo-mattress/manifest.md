@@ -71,6 +71,11 @@
 
 - None.
 
+## Audit
+
+- flo-mattress-research-audit.md
+- roadmap-seed.md
+
 ## Next Step
 
-Run `/cro-audit` to generate the research audit.
+Run `/cro-research-roadmap` to generate the testing roadmap.
