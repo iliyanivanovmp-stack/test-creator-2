@@ -1,0 +1,490 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap {
+  --cvrt-ink: #080909;
+  --cvrt-paper: #f4f5f2;
+  --cvrt-white: #ffffff;
+  --cvrt-grey: #dfe2df;
+  --cvrt-muted: #606760;
+  --cvrt-mint: #9ee6c8;
+  --cvrt-lime: #d7ff4f;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-paper);
+  color: var(--cvrt-ink);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-display { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: -0.025em; }
+#cvrt-roadmap .cvrt-hero { position: relative; background: #e8eae7; min-height: 610px; border: 1px solid #cfd3cf; }
+#cvrt-roadmap .cvrt-hero-grid { display: grid; grid-template-columns: minmax(420px, 0.92fr) minmax(520px, 1.08fr); min-height: 610px; }
+#cvrt-roadmap .cvrt-hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 54px clamp(40px, 6vw, 110px) 118px; background: rgba(244,245,242,0.94); }
+#cvrt-roadmap .cvrt-logo { width: 150px; height: auto; display: block; margin-bottom: 56px; }
+#cvrt-roadmap .cvrt-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 13px; font-size: 12px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-kicker-mark { width: 28px; height: 8px; background: var(--cvrt-mint); border-radius: 99px; }
+#cvrt-roadmap .cvrt-hero-title { max-width: 610px; font-size: clamp(62px, 7.2vw, 112px); font-weight: 900; line-height: 0.82; }
+#cvrt-roadmap .cvrt-hero-title span { display: block; color: #58605b; }
+#cvrt-roadmap .cvrt-summary { max-width: 560px; margin-top: 25px; color: #303531; font-size: 17px; line-height: 1.55; }
+#cvrt-roadmap .cvrt-hero-image { position: relative; min-width: 0; overflow: hidden; background: #dedfdd; }
+#cvrt-roadmap .cvrt-hero-image img { width: 100%; height: 100%; min-height: 610px; object-fit: cover; object-position: 56% center; display: block; }
+#cvrt-roadmap .cvrt-hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(232,234,231,0.3), transparent 28%); pointer-events: none; }
+#cvrt-roadmap .cvrt-tabs { position: absolute; z-index: 3; left: clamp(40px, 6vw, 110px); bottom: 34px; display: inline-flex; padding: 5px; background: var(--cvrt-ink); border-radius: 999px; }
+#cvrt-roadmap .cvrt-tab-label { min-width: 128px; padding: 12px 22px; border-radius: 999px; color: #fff; cursor: pointer; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: background .2s ease, color .2s ease; }
+#cvrt-roadmap .cvrt-tab-input { position: absolute; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-tab-panel { display: none; }
+#cvrt-roadmap .cvrt-tab-input-one:checked ~ .cvrt-hero .cvrt-tabs .cvrt-tab-tests,
+#cvrt-roadmap .cvrt-tab-input-two:checked ~ .cvrt-hero .cvrt-tabs .cvrt-tab-insights { background: var(--cvrt-mint); color: var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-tab-input-one:checked ~ .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-tab-input-two:checked ~ .cvrt-panel-insights { display: block; }
+#cvrt-roadmap .cvrt-panel { padding: 66px clamp(24px, 5vw, 80px) 74px; }
+#cvrt-roadmap .cvrt-panel-heading { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 30px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+#cvrt-roadmap .cvrt-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cvrt-muted); }
+#cvrt-roadmap .cvrt-section-title { margin-top: 4px; font-size: clamp(42px, 5vw, 66px); font-weight: 800; line-height: .96; }
+#cvrt-roadmap .cvrt-section-note { max-width: 260px; color: var(--cvrt-muted); font-size: 13px; line-height: 1.45; text-align: right; }
+#cvrt-roadmap .cvrt-slot { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 26px; overflow: hidden; background: var(--cvrt-white); border: 1px solid #d7dad7; border-radius: 18px; box-shadow: 0 12px 38px rgba(8,9,9,0.055); break-inside: avoid; }
+#cvrt-roadmap .cvrt-slot-copy { max-width: 680px; padding: 38px 42px 32px; }
+#cvrt-roadmap .cvrt-slot-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+#cvrt-roadmap .cvrt-slot-number { font-family: "Barlow Condensed", sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-type { display: inline-flex; align-items: center; min-height: 25px; padding: 4px 10px; border-radius: 99px; background: #edf0ed; color: #303530; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-type-fix { background: var(--cvrt-lime); }
+#cvrt-roadmap .cvrt-slot-title { font-size: clamp(35px, 4.2vw, 52px); font-weight: 800; line-height: .95; }
+#cvrt-roadmap .cvrt-page { margin-top: 13px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #697069; }
+#cvrt-roadmap .cvrt-page a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { margin-top: 16px; color: #333834; font-size: 15px; line-height: 1.65; }
+#cvrt-roadmap .cvrt-wireframe { padding: 26px 24px 22px; background: #f0f2ef; border-top: 1px solid #d7dad7; }
+#cvrt-roadmap .cvrt-wireframe svg { width: 100%; height: auto; display: block; }
+#cvrt-roadmap .cvrt-caption { margin-top: 12px; color: #111312; font-size: 11px; font-style: italic; line-height: 1.4; }
+#cvrt-roadmap .cvrt-svg-frame { fill: #fff; stroke: #9ba39d; stroke-width: 1.5; stroke-dasharray: 6 5; }
+#cvrt-roadmap .cvrt-svg-soft { fill: #e7eae7; }
+#cvrt-roadmap .cvrt-svg-dark { fill: #0a0b0a; }
+#cvrt-roadmap .cvrt-svg-accent { fill: var(--cvrt-mint); }
+#cvrt-roadmap .cvrt-svg-alert { fill: var(--cvrt-lime); }
+#cvrt-roadmap .cvrt-svg-line { stroke: #6f7771; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+#cvrt-roadmap .cvrt-svg-copy { fill: #101210; font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 700; }
+#cvrt-roadmap .cvrt-svg-small { fill: #4f5751; font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 700; }
+#cvrt-roadmap .cvrt-svg-white { fill: #fff; font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 700; }
+#cvrt-roadmap .cvrt-svg-label { fill: #101210; font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 800; letter-spacing: .06em; }
+#cvrt-roadmap .cvrt-insights-wrap { width: 100%; }
+#cvrt-roadmap .cvrt-killers,
+#cvrt-roadmap .cvrt-sources,
+#cvrt-roadmap .cvrt-source-findings { max-width: 860px; margin-left: auto; margin-right: auto; }
+#cvrt-roadmap .cvrt-killers { padding: 42px; background: var(--cvrt-ink); color: white; border-radius: 18px; }
+#cvrt-roadmap .cvrt-killers-head { display: grid; grid-template-columns: .65fr 1.35fr; gap: 38px; align-items: start; }
+#cvrt-roadmap .cvrt-killers-title { font-size: clamp(44px, 5vw, 64px); font-weight: 800; line-height: .9; color: #fff; }
+#cvrt-roadmap .cvrt-killer-list { display: grid; gap: 12px; }
+#cvrt-roadmap .cvrt-killer-list li { padding: 18px 20px; background: #171a18; border: 1px solid #2c312d; border-radius: 10px; color: #eff2ee; font-size: 14px; line-height: 1.55; }
+#cvrt-roadmap .cvrt-sources { margin-top: 46px; }
+#cvrt-roadmap .cvrt-insight-heading { font-size: 34px; font-weight: 800; line-height: 1; }
+#cvrt-roadmap .cvrt-source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 19px; }
+#cvrt-roadmap .cvrt-source-chip { min-height: 70px; display: flex; align-items: center; padding: 17px 19px; background: #fff; border: 1px solid #d7dad7; border-radius: 11px; font-size: 13px; font-weight: 700; }
+#cvrt-roadmap .cvrt-source-findings { margin-top: 48px; }
+#cvrt-roadmap .cvrt-source-block { margin-top: 14px; padding: 29px 32px; background: #fff; border: 1px solid #d7dad7; border-radius: 14px; break-inside: avoid; }
+#cvrt-roadmap .cvrt-source-name { font-size: 27px; font-weight: 800; line-height: 1; }
+#cvrt-roadmap .cvrt-source-list { display: grid; gap: 12px; margin-top: 17px; }
+#cvrt-roadmap .cvrt-source-list li { padding: 14px 16px; background: #f2f4f1; border-radius: 8px; color: #303531; font-size: 14px; line-height: 1.55; }
+#cvrt-roadmap .cvrt-footer { padding: 25px clamp(24px, 5vw, 80px); background: #e7e9e6; color: #5b625d; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 820px) {
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-copy { min-height: 490px; padding: 36px 25px 110px; }
+  #cvrt-roadmap .cvrt-logo { width: 125px; margin-bottom: 40px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: clamp(58px, 17vw, 82px); }
+  #cvrt-roadmap .cvrt-summary { font-size: 15px; }
+  #cvrt-roadmap .cvrt-hero-image img { min-height: 350px; height: 350px; object-position: 58% center; }
+  #cvrt-roadmap .cvrt-tabs { left: 25px; bottom: 382px; }
+  #cvrt-roadmap .cvrt-tab-label { min-width: 114px; padding: 11px 15px; }
+  #cvrt-roadmap .cvrt-panel { padding: 48px 16px 54px; }
+  #cvrt-roadmap .cvrt-panel-heading { align-items: start; flex-direction: column; }
+  #cvrt-roadmap .cvrt-section-note { text-align: left; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 29px 24px 25px; }
+  #cvrt-roadmap .cvrt-slot-title { font-size: 39px; }
+  #cvrt-roadmap .cvrt-wireframe { padding: 18px 10px; overflow-x: auto; }
+  #cvrt-roadmap .cvrt-wireframe svg { min-width: 720px; }
+  #cvrt-roadmap .cvrt-caption { padding-left: 8px; }
+  #cvrt-roadmap .cvrt-killers { padding: 28px 22px; }
+  #cvrt-roadmap .cvrt-killers-head { grid-template-columns: 1fr; gap: 23px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+  #cvrt-roadmap .cvrt-source-block { padding: 24px 20px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-tab-input-one:checked ~ .cvrt-panel-insights { display: block; }
+  #cvrt-roadmap .cvrt-tab-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-slot { box-shadow: none; page-break-inside: avoid; }
+  #cvrt-roadmap .cvrt-tabs { display: none; }
+  #cvrt-roadmap .cvrt-panel { padding-top: 38px; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input cvrt-tab-input-one" type="radio" name="cvrt-tabs" id="cvrt-tests" checked>
+  <input class="cvrt-tab-input cvrt-tab-input-two" type="radio" name="cvrt-tabs" id="cvrt-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://takeultra.com/cdn/shop/files/ultra-site-black.png?v=1738686817&amp;width=400" alt="Ultra">
+        <div class="cvrt-kicker"><span class="cvrt-kicker-mark"></span>Conversion testing roadmap</div>
+        <h1 class="cvrt-hero-title cvrt-display">July <span>2026</span></h1>
+        <p class="cvrt-summary">Ultra has a differentiated product and strong credibility, but structural friction interrupts the path to purchase. The biggest opportunities are to make price and purchase terms clear, reduce mobile landing page delay, and support efficacy expectations at the decision point.</p>
+      </div>
+      <div class="cvrt-hero-image">
+        <img src="https://takeultra.com/cdn/shop/files/Ultra_ThreeCans_3_2_-Photoroom_1.jpg" alt="Ultra Focus Pouches in Cool Mint, Tropical, and Wintergreen">
+      </div>
+    </div>
+    <div class="cvrt-tabs" role="tablist" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label cvrt-tab-tests" for="cvrt-tests">Tests</label>
+      <label class="cvrt-tab-label cvrt-tab-insights" for="cvrt-insights">Data insights</label>
+    </div>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-panel cvrt-panel-tests">
+    <div class="cvrt-panel-heading">
+      <div>
+        <div class="cvrt-eyebrow">Testing plan</div>
+        <h2 class="cvrt-section-title cvrt-display">Where we focus</h2>
+      </div>
+      <p class="cvrt-section-note">Eight high-priority opportunities across product feeds, paid landing pages, and the Focus Pouches buy box.</p>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 1</span><span class="cvrt-type cvrt-type-fix">Immediate fix</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Google Shopping Price Rendering</h3>
+        <div class="cvrt-page">Page: Google Shopping product feed</div>
+        <p class="cvrt-description">At least one Shopping product card shows “[Price]” instead of an actual amount. The broken field prevents shoppers from making a basic price comparison and needs correction across active Focus and Sleep Pouches SKUs.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 330" role="img" aria-label="Current and corrected Google Shopping product cards">
+          <text x="28" y="30" class="cvrt-svg-label">CURRENT</text><text x="432" y="30" class="cvrt-svg-label">FIXED FEED</text>
+          <rect x="28" y="48" width="360" height="244" rx="13" class="cvrt-svg-frame"/>
+          <rect x="47" y="67" width="132" height="156" rx="9" class="cvrt-svg-soft"/>
+          <circle cx="113" cy="141" r="47" fill="#fff" stroke="#919a93" stroke-dasharray="5 4"/>
+          <text x="83" y="146" class="cvrt-svg-copy">ULTRA</text>
+          <text x="199" y="91" class="cvrt-svg-small">FOCUS POUCHES</text><text x="199" y="119" class="cvrt-svg-copy">Cool Mint</text>
+          <text x="199" y="156" class="cvrt-svg-copy">[Price]</text>
+          <rect x="194" y="173" width="142" height="37" rx="19" class="cvrt-svg-dark"/><text x="224" y="197" class="cvrt-svg-white">VIEW PRODUCT</text>
+          <rect x="187" y="139" width="92" height="27" rx="6" class="cvrt-svg-alert"/><text x="201" y="158" class="cvrt-svg-small">BROKEN FIELD</text>
+          <rect x="432" y="48" width="360" height="244" rx="13" class="cvrt-svg-frame"/>
+          <rect x="451" y="67" width="132" height="156" rx="9" fill="#d8f2e7"/>
+          <circle cx="517" cy="141" r="47" fill="#fff" stroke="#5c9f84" stroke-dasharray="5 4"/>
+          <text x="487" y="146" class="cvrt-svg-copy">ULTRA</text>
+          <text x="603" y="91" class="cvrt-svg-small">FOCUS POUCHES</text><text x="603" y="119" class="cvrt-svg-copy">Cool Mint</text>
+          <text x="603" y="158" class="cvrt-svg-copy">Actual price</text>
+          <rect x="598" y="173" width="142" height="37" rx="19" class="cvrt-svg-dark"/><text x="628" y="197" class="cvrt-svg-white">VIEW PRODUCT</text>
+          <path d="M380 246 C409 246 410 246 436 246" class="cvrt-svg-line"/><path d="M425 238 L438 246 L425 254" class="cvrt-svg-line"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 2</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Landing Page Speed</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/pages/intro-offer-2" target="_blank" rel="noopener">Intro Offer Landing Page</a></div>
+        <p class="cvrt-description">The primary paid landing page records an 11.1s mobile LCP and a 40.4s time to interactive. All paid-social creative sends visitors here, so the delay affects the funnel before the headline and CTA can do their work.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 340" role="img" aria-label="Current slow landing page compared with an optimized variation">
+          <text x="30" y="30" class="cvrt-svg-label">CURRENT</text><text x="430" y="30" class="cvrt-svg-label">VARIATION</text>
+          <rect x="30" y="49" width="360" height="252" rx="13" class="cvrt-svg-frame"/><rect x="430" y="49" width="360" height="252" rx="13" class="cvrt-svg-frame"/>
+          <rect x="48" y="68" width="324" height="38" rx="6" class="cvrt-svg-soft"/><text x="63" y="92" class="cvrt-svg-small">ULTRA</text>
+          <rect x="48" y="121" width="324" height="105" rx="8" fill="#e0e3e0"/><text x="150" y="164" class="cvrt-svg-copy">HERO LOADING</text><text x="136" y="190" class="cvrt-svg-small">LCP 11.1s  •  TTI 40.4s</text>
+          <rect x="48" y="242" width="324" height="40" rx="20" fill="#c9ceca"/><text x="165" y="267" class="cvrt-svg-small">CTA WAITING</text>
+          <rect x="448" y="68" width="324" height="38" rx="6" class="cvrt-svg-soft"/><text x="463" y="92" class="cvrt-svg-small">ULTRA</text>
+          <rect x="448" y="121" width="324" height="105" rx="8" fill="#d8f2e7"/>
+          <text x="475" y="157" class="cvrt-svg-label">A SMARTER WAY TO FOCUS</text><text x="475" y="181" class="cvrt-svg-small">Above-fold content renders first</text>
+          <rect x="475" y="192" width="144" height="25" rx="13" class="cvrt-svg-dark"/><text x="504" y="209" class="cvrt-svg-white">GET 45% OFF</text>
+          <rect x="448" y="242" width="324" height="40" rx="20" class="cvrt-svg-accent"/><text x="552" y="267" class="cvrt-svg-copy">READY TO INTERACT</text>
+          <path d="M389 174 H431" class="cvrt-svg-line"/><path d="M420 166 L433 174 L420 182" class="cvrt-svg-line"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 3</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Price Reveal in Buy Box</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/products/focus-pouches-v2-1" target="_blank" rel="noopener">Focus Pouches Product Page</a></div>
+        <p class="cvrt-description">Price does not appear anywhere on the product page and first surfaces in the cart as $48 reduced to $31.20. Reviews repeatedly identify price as a reorder objection, making the timing and context of the first price encounter especially important.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 390" role="img" aria-label="Focus Pouches buy box without price compared with visible pricing">
+          <text x="28" y="29" class="cvrt-svg-label">CURRENT</text><text x="427" y="29" class="cvrt-svg-label">VARIATION</text>
+          <rect x="28" y="48" width="365" height="304" rx="13" class="cvrt-svg-frame"/><rect x="427" y="48" width="365" height="304" rx="13" class="cvrt-svg-frame"/>
+          <text x="48" y="79" class="cvrt-svg-small">★★★★★  52,032 HAPPY CUSTOMERS</text><text x="48" y="108" class="cvrt-svg-label">FOCUS POUCHES</text><text x="48" y="139" class="cvrt-svg-small">SELECT YOUR FLAVORS</text>
+          <rect x="48" y="153" width="325" height="36" rx="7" class="cvrt-svg-soft"/><text x="62" y="176" class="cvrt-svg-copy">Cool Mint</text><text x="318" y="176" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="48" y="199" width="325" height="36" rx="7" class="cvrt-svg-soft"/><text x="62" y="222" class="cvrt-svg-copy">Wintergreen</text><text x="318" y="222" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="48" y="248" width="325" height="46" rx="23" fill="#cdd1ce"/><text x="146" y="276" class="cvrt-svg-copy">ADD 3 MORE CANS</text><text x="143" y="324" class="cvrt-svg-small">Price appears after add to cart</text>
+          <text x="447" y="79" class="cvrt-svg-small">★★★★★  52,032 HAPPY CUSTOMERS</text><text x="447" y="108" class="cvrt-svg-label">FOCUS POUCHES</text><text x="447" y="139" class="cvrt-svg-small">SELECT YOUR FLAVORS</text>
+          <rect x="447" y="153" width="325" height="36" rx="7" class="cvrt-svg-soft"/><text x="461" y="176" class="cvrt-svg-copy">Cool Mint</text><text x="717" y="176" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="447" y="199" width="325" height="36" rx="7" class="cvrt-svg-soft"/><text x="461" y="222" class="cvrt-svg-copy">Wintergreen</text><text x="717" y="222" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="447" y="245" width="325" height="49" rx="8" class="cvrt-svg-accent"/><text x="461" y="265" class="cvrt-svg-copy">Subscribe: $31.20 / 3 cans</text><text x="461" y="284" class="cvrt-svg-small">One-time: $48.00 / 3 cans</text>
+          <rect x="447" y="305" width="325" height="33" rx="17" class="cvrt-svg-dark"/><text x="549" y="327" class="cvrt-svg-white">ADD 3 MORE CANS</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 4</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Risk Reversal Near Buy Box</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/products/focus-pouches-v2-1" target="_blank" rel="noopener">Focus Pouches Product Page</a></div>
+        <p class="cvrt-description">No guarantee, return policy, or money-back assurance appears near the product decision area, while reviews document both price sensitivity and variable perceived efficacy. The current post-CTA message covers refill cadence and cancellation but not first-purchase risk.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 350" role="img" aria-label="Buy box post-CTA reassurance with current and variation states">
+          <text x="28" y="30" class="cvrt-svg-label">CURRENT</text><text x="427" y="30" class="cvrt-svg-label">VARIATION</text>
+          <rect x="28" y="50" width="365" height="255" rx="13" class="cvrt-svg-frame"/><rect x="427" y="50" width="365" height="255" rx="13" class="cvrt-svg-frame"/>
+          <rect x="51" y="76" width="319" height="45" rx="22" class="cvrt-svg-accent"/><text x="151" y="104" class="cvrt-svg-copy">ADD 3 MORE CANS</text>
+          <text x="99" y="151" class="cvrt-svg-small">REFILLS MONTHLY  |  CANCEL ANYTIME</text>
+          <rect x="51" y="176" width="319" height="99" rx="8" class="cvrt-svg-soft"/><text x="70" y="205" class="cvrt-svg-small">JULY 22ND</text><text x="261" y="205" class="cvrt-svg-small">97% RESERVED</text><path d="M70 224 H350" class="cvrt-svg-line"/><text x="70" y="252" class="cvrt-svg-small">AUGUST 1ST</text><text x="268" y="252" class="cvrt-svg-small">UPCOMING</text>
+          <rect x="450" y="76" width="319" height="45" rx="22" class="cvrt-svg-dark"/><text x="550" y="104" class="cvrt-svg-white">ADD 3 MORE CANS</text>
+          <rect x="450" y="136" width="319" height="63" rx="9" class="cvrt-svg-accent"/><circle cx="477" cy="168" r="14" fill="#fff"/><text x="472" y="173" class="cvrt-svg-copy">✓</text><text x="501" y="160" class="cvrt-svg-copy">30-Day Money-Back Guarantee</text><text x="501" y="181" class="cvrt-svg-small">Free Shipping  |  Cancel Anytime</text>
+          <rect x="450" y="214" width="319" height="61" rx="8" class="cvrt-svg-soft"/><text x="469" y="240" class="cvrt-svg-small">JULY 22ND  •  97% RESERVED</text><text x="469" y="261" class="cvrt-svg-small">AUGUST 1ST  •  UPCOMING</text>
+          <path d="M393 175 H429" class="cvrt-svg-line"/><path d="M418 167 L431 175 L418 183" class="cvrt-svg-line"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 5</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Default Buy Box Selection</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/products/focus-pouches-v2-1" target="_blank" rel="noopener">Focus Pouches Product Page</a></div>
+        <p class="cvrt-description">All six flavor steppers start at zero, leaving the CTA disabled until shoppers configure a bundle and scroll. Cool Mint and Wintergreen receive consistent praise in reviews, while Tropical has repeated off-flavor complaints and is not a strong default candidate.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 430" role="img" aria-label="Flavor selectors at zero compared with a preselected starter configuration">
+          <text x="29" y="29" class="cvrt-svg-label">CURRENT</text><text x="428" y="29" class="cvrt-svg-label">VARIATION</text>
+          <rect x="29" y="48" width="364" height="344" rx="13" class="cvrt-svg-frame"/><rect x="428" y="48" width="364" height="344" rx="13" class="cvrt-svg-frame"/>
+          <text x="50" y="80" class="cvrt-svg-small">SELECT YOUR FLAVORS</text>
+          <rect x="50" y="94" width="322" height="42" rx="7" class="cvrt-svg-soft"/><text x="65" y="120" class="cvrt-svg-copy">Cool Mint</text><text x="310" y="120" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="50" y="146" width="322" height="42" rx="7" class="cvrt-svg-soft"/><text x="65" y="172" class="cvrt-svg-copy">Wintergreen</text><text x="310" y="172" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="50" y="198" width="322" height="42" rx="7" class="cvrt-svg-soft"/><text x="65" y="224" class="cvrt-svg-copy">Tropical</text><text x="310" y="224" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="50" y="250" width="322" height="42" rx="7" class="cvrt-svg-soft"/><text x="65" y="276" class="cvrt-svg-copy">Watermelon</text><text x="310" y="276" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="50" y="310" width="322" height="45" rx="23" fill="#c9ceca"/><text x="144" y="338" class="cvrt-svg-copy">ADD 3 MORE CANS</text><text x="138" y="377" class="cvrt-svg-small">Disabled until configured</text>
+          <text x="449" y="80" class="cvrt-svg-small">STARTER CONFIGURATION</text>
+          <rect x="449" y="94" width="322" height="42" rx="7" fill="#d8f2e7"/><text x="464" y="120" class="cvrt-svg-copy">Cool Mint</text><text x="709" y="120" class="cvrt-svg-copy">− 1 +</text>
+          <rect x="449" y="146" width="322" height="42" rx="7" fill="#d8f2e7"/><text x="464" y="172" class="cvrt-svg-copy">Wintergreen</text><text x="709" y="172" class="cvrt-svg-copy">− 1 +</text>
+          <rect x="449" y="198" width="322" height="42" rx="7" fill="#d8f2e7"/><text x="464" y="224" class="cvrt-svg-copy">Watermelon</text><text x="709" y="224" class="cvrt-svg-copy">− 1 +</text>
+          <rect x="449" y="250" width="322" height="42" rx="7" class="cvrt-svg-soft"/><text x="464" y="276" class="cvrt-svg-copy">Other flavors</text><text x="709" y="276" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="449" y="310" width="322" height="45" rx="23" class="cvrt-svg-dark"/><text x="543" y="338" class="cvrt-svg-white">ADD 3 MORE CANS</text><text x="553" y="377" class="cvrt-svg-small">Change flavors</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 6</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Landing Page Offer Clarity</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/pages/intro-offer-2" target="_blank" rel="noopener">Intro Offer Landing Page</a></div>
+        <p class="cvrt-description">Offer-focused traffic arrives with a 35% discount promise, while the landing page presents 45%, 50%, and 25% messages and a $0.00 pricing field. The competing numbers create an unclear offer before the shopper can evaluate the product.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 350" role="img" aria-label="Conflicting landing page discount messages compared with one dollar-anchored offer">
+          <text x="28" y="30" class="cvrt-svg-label">CURRENT OFFER PATH</text><text x="454" y="30" class="cvrt-svg-label">VARIATION</text>
+          <rect x="28" y="49" width="390" height="261" rx="13" class="cvrt-svg-frame"/>
+          <rect x="50" y="74" width="150" height="55" rx="8" class="cvrt-svg-soft"/><text x="69" y="96" class="cvrt-svg-small">TRAFFIC PROMISE</text><text x="92" y="118" class="cvrt-svg-copy">35% OFF</text>
+          <path d="M200 102 H244" class="cvrt-svg-line"/>
+          <rect x="244" y="74" width="150" height="55" rx="8" fill="#fff3be"/><text x="264" y="96" class="cvrt-svg-small">FLOATING CTA</text><text x="287" y="118" class="cvrt-svg-copy">45% OFF</text>
+          <rect x="50" y="153" width="150" height="55" rx="8" fill="#fff3be"/><text x="83" y="175" class="cvrt-svg-small">INLINE CTA</text><text x="92" y="197" class="cvrt-svg-copy">50% OFF</text>
+          <path d="M200 181 H244" class="cvrt-svg-line"/>
+          <rect x="244" y="153" width="150" height="55" rx="8" fill="#fff3be"/><text x="271" y="175" class="cvrt-svg-small">PROMOTION</text><text x="287" y="197" class="cvrt-svg-copy">25% OFF</text>
+          <rect x="50" y="232" width="344" height="49" rx="8" class="cvrt-svg-alert"/><text x="72" y="254" class="cvrt-svg-small">PRICING FIELD</text><text x="293" y="261" class="cvrt-svg-copy">$0.00</text>
+          <rect x="454" y="49" width="338" height="261" rx="13" class="cvrt-svg-frame"/>
+          <text x="478" y="84" class="cvrt-svg-small">ONE OFFER ACROSS EVERY CTA</text>
+          <rect x="478" y="103" width="290" height="82" rx="12" class="cvrt-svg-accent"/><text x="507" y="135" class="cvrt-svg-copy">YOUR FIRST 3 CANS</text><text x="524" y="165" class="cvrt-svg-label">FOR $31.20</text>
+          <rect x="478" y="204" width="290" height="48" rx="24" class="cvrt-svg-dark"/><text x="524" y="233" class="cvrt-svg-white">GET YOUR FIRST 3 CANS</text>
+          <text x="547" y="279" class="cvrt-svg-small">ONE PRICE  •  ONE PROMISE</text>
+          <path d="M418 178 H455" class="cvrt-svg-line"/><path d="M444 170 L457 178 L444 186" class="cvrt-svg-line"/>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 7</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Purchase Type Selector</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/products/focus-pouches-v2-1" target="_blank" rel="noopener">Focus Pouches Product Page</a></div>
+        <p class="cvrt-description">The product page shows no visible choice between subscription and one-time purchase, while the cart confirms an “Every 4 Weeks” subscription default. Reviews identify price as a major reorder concern, increasing the importance of clear purchase terms for first-time buyers.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 390" role="img" aria-label="Subscription-only implied state compared with a subscription and one-time selector">
+          <text x="28" y="30" class="cvrt-svg-label">CURRENT</text><text x="428" y="30" class="cvrt-svg-label">VARIATION</text>
+          <rect x="28" y="49" width="365" height="303" rx="13" class="cvrt-svg-frame"/><rect x="428" y="49" width="365" height="303" rx="13" class="cvrt-svg-frame"/>
+          <text x="49" y="81" class="cvrt-svg-label">FOCUS POUCHES</text><text x="49" y="112" class="cvrt-svg-small">SELECT YOUR FLAVORS</text>
+          <rect x="49" y="128" width="323" height="42" rx="7" class="cvrt-svg-soft"/><text x="63" y="154" class="cvrt-svg-copy">Cool Mint</text><text x="309" y="154" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="49" y="183" width="323" height="48" rx="24" class="cvrt-svg-accent"/><text x="143" y="212" class="cvrt-svg-copy">ADD 3 MORE CANS</text>
+          <text x="99" y="260" class="cvrt-svg-small">REFILLS MONTHLY  |  CANCEL ANYTIME</text><rect x="102" y="277" width="216" height="35" rx="6" class="cvrt-svg-alert"/><text x="127" y="300" class="cvrt-svg-small">PURCHASE TYPE IMPLIED</text>
+          <text x="449" y="81" class="cvrt-svg-label">FOCUS POUCHES</text>
+          <rect x="449" y="101" width="323" height="70" rx="9" fill="#d8f2e7" stroke="#5c9f84" stroke-dasharray="5 4"/><circle cx="470" cy="124" r="8" fill="#111"/><text x="489" y="127" class="cvrt-svg-copy">Subscribe and Save</text><text x="489" y="151" class="cvrt-svg-small">$31.20 / 3 cans  •  45% OFF</text>
+          <rect x="449" y="181" width="323" height="58" rx="9" class="cvrt-svg-soft"/><circle cx="470" cy="210" r="8" fill="#fff" stroke="#69716b"/><text x="489" y="207" class="cvrt-svg-copy">One-Time Purchase</text><text x="650" y="226" class="cvrt-svg-small">$48.00 / 3 cans</text>
+          <rect x="449" y="255" width="323" height="48" rx="24" class="cvrt-svg-dark"/><text x="538" y="284" class="cvrt-svg-white">ADD 3 CANS + SUBSCRIBE</text><text x="508" y="330" class="cvrt-svg-small">Free shipping  •  Refill monthly  •  Cancel anytime</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-number">Slot 8</span><span class="cvrt-type">A/B test</span></div>
+        <h3 class="cvrt-slot-title cvrt-display">Efficacy Proof Near Buy Box</h3>
+        <div class="cvrt-page">Page: <a href="https://takeultra.com/products/focus-pouches-v2-1" target="_blank" rel="noopener">Focus Pouches Product Page</a></div>
+        <p class="cvrt-description">The buy box includes customer-count proof but no nearby explanation of how or when the product works. The 90% focus-improvement stat appears later on the landing page, while low-rated reviews repeatedly describe unmet expectations about feeling an effect.</p>
+      </div>
+      <div class="cvrt-wireframe">
+        <svg viewBox="0 0 820 390" role="img" aria-label="Efficacy proof moved into the Focus Pouches decision area">
+          <text x="28" y="30" class="cvrt-svg-label">CURRENT</text><text x="428" y="30" class="cvrt-svg-label">VARIATION</text>
+          <rect x="28" y="49" width="365" height="304" rx="13" class="cvrt-svg-frame"/><rect x="428" y="49" width="365" height="304" rx="13" class="cvrt-svg-frame"/>
+          <text x="49" y="80" class="cvrt-svg-small">★★★★★  52,032 HAPPY CUSTOMERS</text><text x="49" y="108" class="cvrt-svg-label">SELECT YOUR FLAVORS</text>
+          <rect x="49" y="126" width="323" height="38" rx="7" class="cvrt-svg-soft"/><text x="63" y="150" class="cvrt-svg-copy">Cool Mint</text><text x="309" y="150" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="49" y="174" width="323" height="38" rx="7" class="cvrt-svg-soft"/><text x="63" y="198" class="cvrt-svg-copy">Wintergreen</text><text x="309" y="198" class="cvrt-svg-copy">− 0 +</text>
+          <path d="M49 234 H372" class="cvrt-svg-line"/><text x="109" y="262" class="cvrt-svg-small">NO MECHANISM OR TIMING HERE</text>
+          <rect x="49" y="280" width="323" height="45" rx="23" fill="#cbd0cc"/><text x="143" y="308" class="cvrt-svg-copy">ADD 3 MORE CANS</text>
+          <text x="449" y="80" class="cvrt-svg-small">★★★★★  52,032 HAPPY CUSTOMERS</text><text x="449" y="108" class="cvrt-svg-label">SELECT YOUR FLAVORS</text>
+          <rect x="449" y="126" width="323" height="38" rx="7" class="cvrt-svg-soft"/><text x="463" y="150" class="cvrt-svg-copy">Cool Mint</text><text x="709" y="150" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="449" y="174" width="323" height="38" rx="7" class="cvrt-svg-soft"/><text x="463" y="198" class="cvrt-svg-copy">Wintergreen</text><text x="709" y="198" class="cvrt-svg-copy">− 0 +</text>
+          <rect x="449" y="226" width="323" height="66" rx="9" class="cvrt-svg-accent"/><text x="465" y="250" class="cvrt-svg-copy">90% report improved focus</text><text x="465" y="272" class="cvrt-svg-small">Enfinity® PX  •  starts in 15 minutes</text><text x="465" y="287" class="cvrt-svg-small">Effects last 1–2 hours  •  no crash</text>
+          <rect x="449" y="305" width="323" height="34" rx="17" class="cvrt-svg-dark"/><text x="551" y="327" class="cvrt-svg-white">ADD 3 MORE CANS</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-panel cvrt-panel-insights">
+    <div class="cvrt-insights-wrap">
+      <div class="cvrt-killers">
+        <div class="cvrt-killers-head">
+          <h2 class="cvrt-killers-title cvrt-display">Biggest killers of conversion rate</h2>
+          <ul class="cvrt-killer-list">
+            <li>Price stays hidden across the homepage, product page, and landing page until the cart. The first visible price arrives with no nearby guarantee or return assurance.</li>
+            <li>The primary paid landing page records an 11.1s mobile LCP and 40.4s time to interactive, delaying the first meaningful page experience.</li>
+            <li>The majority of 2 to 3 star reviews report no noticeable effect. The purchase area provides customer-count proof but no nearby mechanism or expectation-setting content.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cvrt-sources">
+        <div class="cvrt-eyebrow">Research coverage</div>
+        <h2 class="cvrt-insight-heading cvrt-display">Data sources used</h2>
+        <div class="cvrt-source-grid">
+          <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+          <div class="cvrt-source-chip">Google Ads</div>
+          <div class="cvrt-source-chip">Reviews and UGC</div>
+          <div class="cvrt-source-chip">Page Speed Insights</div>
+          <div class="cvrt-source-chip">Competitor Analysis</div>
+          <div class="cvrt-source-chip">Site Screenshots</div>
+          <div class="cvrt-source-chip">Landing Page Live Text</div>
+        </div>
+      </div>
+
+      <div class="cvrt-source-findings">
+        <div class="cvrt-eyebrow">What the data says</div>
+        <h2 class="cvrt-insight-heading cvrt-display">Findings by source</h2>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Meta Ads and Landing Pages</h3>
+          <ul class="cvrt-source-list">
+            <li>Paid-social creative sends traffic to one landing page, but the creative promises and landing page headline do not consistently match.</li>
+            <li>Discount messaging changes from 35% in paid creative to 45%, 50%, and 25% on the landing page.</li>
+            <li>The landing page uses athlete reviews, investor and technology logos, and celebrity endorsers, but no guarantee or return assurance is visible in the first three folds.</li>
+          </ul>
+        </section>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Google Ads</h3>
+          <ul class="cvrt-source-list">
+            <li>Search messaging centers on clean energy, no crash, focus without caffeine, and credibility with high performers.</li>
+            <li>At least one Shopping card displays “[Price]” as a literal placeholder instead of an actual product price.</li>
+            <li>Focus Pouches and Sleep Pouches both appear in Shopping, including Cool Mint, Wintergreen, Tropical, Blue Razz, and Honey Lemon.</li>
+          </ul>
+        </section>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Reviews and UGC</h3>
+          <ul class="cvrt-source-list">
+            <li>The majority of 2 to 3 star reviews report no noticeable effect, including several reviews with 20 to 40 or more helpful votes.</li>
+            <li>Price is the second most common complaint. Reviewers repeatedly cite $1 per pouch and $45 for three cans.</li>
+            <li>Cool Mint and Wintergreen receive consistent praise, while Tropical has recurring metallic, bitter, and off-flavor complaints.</li>
+            <li>Multiple positive reviews credit Ultra with helping reduce nicotine, vaping, coffee, or energy drink use.</li>
+          </ul>
+        </section>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Page Speed Insights</h3>
+          <ul class="cvrt-source-list">
+            <li>The homepage scores 48/100 on mobile with a 7.6s LCP and 29.5s time to interactive.</li>
+            <li>The primary paid landing page scores 47/100 on mobile with an 11.1s LCP and 40.4s time to interactive.</li>
+            <li>Desktop performance was not collected in this audit cycle.</li>
+          </ul>
+        </section>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Competitor Analysis</h3>
+          <ul class="cvrt-source-list">
+            <li>Reviewer estimates place Ultra at roughly $1 per pouch, two to three times higher than the closest nootropic alternatives cited in the audit.</li>
+            <li>Ultra’s clearest formula distinction is 100mg of Enfinity® PX alongside L-Theanine, Alpha GPC, Ginseng, B6, and B12.</li>
+            <li>Direct current pricing for NZE, Fully Loaded Alpha, and Dialed In was not independently verified.</li>
+          </ul>
+        </section>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Site Screenshots</h3>
+          <ul class="cvrt-source-list">
+            <li>No price appears across the reviewed homepage, product page, or landing page folds. The cart first reveals $48 reduced to $31.20.</li>
+            <li>All six product-page flavor steppers default to zero, and the “ADD 3 MORE CANS” CTA remains disabled until a shopper changes a quantity.</li>
+            <li>The buy box shows no visible one-time purchase option. The cart identifies the selected item as an “Every 4 Weeks” subscription.</li>
+            <li>No guarantee or return policy is visible near the reviewed product-page action, and no security assurance is visible in the reviewed cart.</li>
+          </ul>
+        </section>
+
+        <section class="cvrt-source-block">
+          <h3 class="cvrt-source-name cvrt-display">Landing Page Live Text</h3>
+          <ul class="cvrt-source-list">
+            <li>The pricing field renders as “$0.00” instead of an actual product price.</li>
+            <li>Separate promotions mention 25% off and 45% off plus free shipping without a dollar anchor.</li>
+            <li>The 90% focus-improvement claim appears in the third fold and is absent from the product page.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cvrt-footer">July 2026</footer>
+</div>
