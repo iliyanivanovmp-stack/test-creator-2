@@ -1,0 +1,771 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Barlow+Condensed:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3, #cvrt-roadmap h4,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div, #cvrt-roadmap a,
+#cvrt-roadmap label, #cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li {
+  font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit;
+  margin: 0; padding: 0; text-decoration: none;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important; display: none !important;
+}
+
+#cvrt-roadmap {
+  --cvrt-navy: #06265f;
+  --cvrt-deep: #031b47;
+  --cvrt-blue: #7fa8d6;
+  --cvrt-coral: #f44867;
+  --cvrt-orange: #ff9500;
+  --cvrt-cream: #fff7e9;
+  --cvrt-paper: #fffdf8;
+  --cvrt-sand: #f1e7d8;
+  --cvrt-ink: #08265c;
+  --cvrt-muted: #5c6880;
+  --cvrt-line: #dfd0bc;
+
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-cream);
+  color: var(--cvrt-ink);
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+#cvrt-roadmap .cvrt-tab-input {
+  position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;
+}
+#cvrt-roadmap .cvrt-panel { display: none; }
+#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-panel-insights { display: block; }
+#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-hero .cvrt-tab-tests,
+#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-hero .cvrt-tab-insights {
+  color: var(--cvrt-deep); background: var(--cvrt-cream);
+}
+
+#cvrt-roadmap .cvrt-hero {
+  position: relative;
+  background: var(--cvrt-navy);
+  color: var(--cvrt-cream);
+}
+#cvrt-roadmap .cvrt-hero-grid {
+  min-height: 510px;
+  display: grid;
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+}
+#cvrt-roadmap .cvrt-hero-copy {
+  position: relative; z-index: 2;
+  padding: 58px 7vw 50px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+#cvrt-roadmap .cvrt-logo {
+  width: 214px; height: auto; display: block; margin-bottom: 46px;
+}
+#cvrt-roadmap .cvrt-eyebrow {
+  display: block;
+  color: var(--cvrt-orange);
+  font: 700 13px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-hero-title {
+  font: 900 clamp(58px, 6vw, 94px)/.87 "Barlow Condensed", sans-serif;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+  max-width: 650px;
+}
+#cvrt-roadmap .cvrt-hero-title span {
+  display: block; color: var(--cvrt-blue);
+}
+#cvrt-roadmap .cvrt-hero-summary {
+  max-width: 590px;
+  margin-top: 28px;
+  color: #f9f5ec;
+  font-size: 17px;
+  line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-hero-photo {
+  position: relative; min-height: 510px; overflow: hidden;
+}
+#cvrt-roadmap .cvrt-hero-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 48%;
+  display: block;
+}
+#cvrt-roadmap .cvrt-hero-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(6,38,95,.38), transparent 28%);
+}
+#cvrt-roadmap .cvrt-tab-nav {
+  display: flex; gap: 8px; align-items: flex-end;
+  padding: 0 7vw;
+  background: var(--cvrt-deep);
+}
+#cvrt-roadmap .cvrt-tab {
+  cursor: pointer;
+  padding: 17px 28px 15px;
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+  font: 800 16px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background .18s ease, color .18s ease;
+}
+#cvrt-roadmap .cvrt-tab:hover { background: rgba(255,247,233,.1); }
+
+#cvrt-roadmap .cvrt-panel {
+  padding: 54px 6vw 64px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(127,168,214,.12), transparent 23%),
+    var(--cvrt-cream);
+}
+#cvrt-roadmap .cvrt-intro {
+  width: min(860px, 100%);
+  margin-left: auto; margin-right: auto; margin-bottom: 28px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 30px;
+}
+#cvrt-roadmap .cvrt-section-kicker {
+  color: var(--cvrt-coral);
+  font: 800 13px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .14em; text-transform: uppercase; margin-bottom: 9px;
+}
+#cvrt-roadmap .cvrt-section-title {
+  color: var(--cvrt-navy);
+  font: 900 clamp(40px, 5vw, 62px)/.93 "Barlow Condensed", sans-serif;
+  letter-spacing: -.02em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-section-note {
+  max-width: 280px; color: var(--cvrt-muted); font-size: 14px; line-height: 1.45;
+}
+
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
+  overflow: hidden;
+  border: 1px solid var(--cvrt-line);
+  border-radius: 18px;
+  background: var(--cvrt-paper);
+  box-shadow: 0 14px 34px rgba(6,38,95,.07);
+  break-inside: avoid;
+}
+#cvrt-roadmap .cvrt-slot-copy {
+  max-width: 640px;
+  padding: 28px 30px 27px;
+}
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-slot-label {
+  color: var(--cvrt-coral);
+  font: 800 13px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-type {
+  padding: 5px 9px;
+  color: var(--cvrt-navy);
+  background: #e8f0fa;
+  border-radius: 6px;
+  font: 700 11px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-type-fix { background: #fff0d9; color: #8f5200; }
+#cvrt-roadmap .cvrt-slot-title {
+  font: 900 34px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: -.01em; text-transform: uppercase; color: var(--cvrt-navy);
+}
+#cvrt-roadmap .cvrt-page {
+  margin-top: 9px; color: var(--cvrt-muted);
+  font-size: 13px; font-weight: 600;
+}
+#cvrt-roadmap .cvrt-page a {
+  color: var(--cvrt-navy); text-decoration: underline; text-underline-offset: 3px;
+}
+#cvrt-roadmap .cvrt-description {
+  margin-top: 14px; color: #263751; font-size: 15.5px; line-height: 1.62;
+}
+#cvrt-roadmap .cvrt-wire-wrap {
+  background: #f7f1e8;
+  border-top: 1px solid var(--cvrt-line);
+  padding: 20px 22px 15px;
+}
+#cvrt-roadmap .cvrt-wire {
+  width: 100%; height: auto; display: block;
+}
+#cvrt-roadmap .cvrt-wire text {
+  font-family: "Barlow", sans-serif; fill: #12294f; font-weight: 600;
+}
+#cvrt-roadmap .cvrt-wire .cvrt-svg-title {
+  font-family: "Barlow Condensed", sans-serif; font-weight: 800; fill: var(--cvrt-navy);
+  letter-spacing: .05em;
+}
+#cvrt-roadmap .cvrt-wire .cvrt-svg-muted { fill: #667187; }
+#cvrt-roadmap .cvrt-wire .cvrt-svg-light { fill: #fffdf8; }
+#cvrt-roadmap .cvrt-wire .cvrt-svg-coral { fill: var(--cvrt-coral); }
+#cvrt-roadmap .cvrt-wire .cvrt-svg-orange { fill: #c56f00; }
+#cvrt-roadmap .cvrt-caption {
+  margin-top: 9px; color: #151515; font-size: 12px; font-style: italic;
+}
+
+#cvrt-roadmap .cvrt-killers {
+  width: min(860px, 100%);
+  margin-left: auto; margin-right: auto; margin-bottom: 28px;
+  padding: 34px;
+  border-radius: 18px;
+  background: var(--cvrt-navy);
+  color: #fff;
+  box-shadow: 0 18px 38px rgba(3,27,71,.16);
+}
+#cvrt-roadmap .cvrt-killers h2 {
+  font: 900 42px/.95 "Barlow Condensed", sans-serif;
+  text-transform: uppercase; color: #fff;
+}
+#cvrt-roadmap .cvrt-killer-list {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  margin-top: 24px;
+}
+#cvrt-roadmap .cvrt-killer-list li {
+  min-height: 126px; padding: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  color: #f9f5ec; font-size: 14px; line-height: 1.5;
+}
+#cvrt-roadmap .cvrt-killer-list span {
+  display: block; margin-bottom: 10px; color: var(--cvrt-orange);
+  font: 800 13px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-sources {
+  width: min(860px, 100%);
+  margin-left: auto; margin-right: auto; margin-bottom: 26px;
+}
+#cvrt-roadmap .cvrt-subtitle {
+  font: 900 31px/1 "Barlow Condensed", sans-serif;
+  text-transform: uppercase; color: var(--cvrt-navy); margin-bottom: 15px;
+}
+#cvrt-roadmap .cvrt-source-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+#cvrt-roadmap .cvrt-source-chip {
+  padding: 15px 16px; border: 1px solid var(--cvrt-line); border-radius: 11px;
+  background: var(--cvrt-paper); color: var(--cvrt-navy);
+  font: 700 15px/1.2 "Barlow", sans-serif;
+}
+#cvrt-roadmap .cvrt-findings {
+  width: min(860px, 100%);
+  margin-left: auto; margin-right: auto;
+}
+#cvrt-roadmap .cvrt-source-block {
+  margin-bottom: 14px; padding: 25px 28px;
+  border: 1px solid var(--cvrt-line); border-radius: 14px;
+  background: var(--cvrt-paper);
+}
+#cvrt-roadmap .cvrt-source-block h3 {
+  font: 800 24px/1 "Barlow Condensed", sans-serif;
+  text-transform: uppercase; color: var(--cvrt-navy); margin-bottom: 15px;
+}
+#cvrt-roadmap .cvrt-source-list {
+  display: grid; gap: 10px;
+}
+#cvrt-roadmap .cvrt-source-list li {
+  padding: 12px 14px; border-radius: 8px;
+  background: #f7f1e8; color: #263751; font-size: 14.5px; line-height: 1.5;
+}
+#cvrt-roadmap .cvrt-footer {
+  padding: 22px 6vw; text-align: center;
+  background: var(--cvrt-deep); color: #dce8f5;
+  font: 700 13px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-copy { padding: 42px 24px 38px; }
+  #cvrt-roadmap .cvrt-logo { width: 176px; margin-bottom: 34px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: clamp(52px, 16vw, 74px); }
+  #cvrt-roadmap .cvrt-hero-photo { min-height: 310px; }
+  #cvrt-roadmap .cvrt-hero-photo::after {
+    background: linear-gradient(180deg, rgba(6,38,95,.28), transparent 25%);
+  }
+  #cvrt-roadmap .cvrt-tab-nav { padding: 0 18px; }
+  #cvrt-roadmap .cvrt-tab { flex: 1; text-align: center; padding: 16px 10px 14px; }
+  #cvrt-roadmap .cvrt-panel { padding: 38px 16px 48px; }
+  #cvrt-roadmap .cvrt-intro { align-items: flex-start; flex-direction: column; }
+  #cvrt-roadmap .cvrt-section-note { max-width: 420px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 24px 22px; }
+  #cvrt-roadmap .cvrt-slot-title { font-size: 30px; }
+  #cvrt-roadmap .cvrt-wire-wrap { padding: 12px 10px; overflow-x: auto; }
+  #cvrt-roadmap .cvrt-wire { min-width: 700px; }
+  #cvrt-roadmap .cvrt-killers { padding: 26px 22px; }
+  #cvrt-roadmap .cvrt-killer-list { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-killers h2 { font-size: 36px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot,
+  #cvrt-roadmap .cvrt-killers { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-tab-nav { display: none; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-panel-insights { break-before: page; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input cvrt-tab-input-tests" type="radio" name="cvrt-roadmap-tabs" id="cvrt-radio-tests" checked>
+  <input class="cvrt-tab-input cvrt-tab-input-insights" type="radio" name="cvrt-roadmap-tabs" id="cvrt-radio-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://betterwild.com/cdn/shop/files/bw-logo-landscape-beige.svg?v=1723222665&amp;width=340" alt="BetterWild">
+        <span class="cvrt-eyebrow">CRO Testing Roadmap</span>
+        <h1 class="cvrt-hero-title">August <span>2026</span></h1>
+        <p class="cvrt-hero-summary">BetterWild has strong product outcomes and a distinct scientific story, but paid traffic meets a slow landing page with broken narrative continuity. The roadmap focuses first on removing technical friction, then strengthening price context, purchase confidence, and cart value.</p>
+      </div>
+      <div class="cvrt-hero-photo">
+        <img src="https://assets.replocdn.com/projects/3f07cfd2-fe82-4565-8548-280bf7d254fe/c863906b-39ea-48c1-b92d-74e82e7a6079?width=1800" alt="Two dogs enjoying BetterWild chews outdoors">
+      </div>
+    </div>
+    <nav class="cvrt-tab-nav" aria-label="Roadmap sections">
+      <label class="cvrt-tab cvrt-tab-tests" for="cvrt-radio-tests">Testing Roadmap</label>
+      <label class="cvrt-tab cvrt-tab-insights" for="cvrt-radio-insights">Data Insights</label>
+    </nav>
+  </section>
+
+  <main class="cvrt-panel cvrt-panel-tests">
+    <div class="cvrt-intro">
+      <div>
+        <p class="cvrt-section-kicker">Eight priority opportunities</p>
+        <h2 class="cvrt-section-title">Where we test</h2>
+      </div>
+      <p class="cvrt-section-note">Technical fixes establish a clean baseline before landing page, product page, and cart experiments.</p>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type cvrt-type-fix">Immediate Fix</span></div>
+        <h3 class="cvrt-slot-title">Landing Page Speed</h3>
+        <p class="cvrt-page">Page: <a href="https://betterwild.com/pages/lf" target="_blank" rel="noopener">Ads Landing Page</a></p>
+        <p class="cvrt-description">The paid-traffic landing page records a 13.7s mobile LCP and 38.3s TTI. This technical failure weakens every downstream landing-page experiment and must be resolved before the page can produce a clean testing signal.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 330" role="img" aria-label="Current and optimized landing page loading sequence">
+          <rect x="12" y="12" width="796" height="306" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="46" font-size="18">MOBILE LANDING PAGE LOAD</text>
+          <rect x="38" y="68" width="344" height="214" rx="11" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="58" y="96" font-size="17">CURRENT</text>
+          <rect x="58" y="114" width="304" height="72" rx="8" fill="#e1e4e8"/>
+          <text x="210" y="145" text-anchor="middle" font-size="15">Hero image waiting</text>
+          <text class="cvrt-svg-muted" x="210" y="168" text-anchor="middle" font-size="13">LCP 13.7s</text>
+          <rect x="58" y="200" width="304" height="48" rx="24" fill="#d6d9df"/>
+          <text x="210" y="230" text-anchor="middle" font-size="15">Page interactive at 38.3s</text>
+          <rect x="438" y="68" width="344" height="214" rx="11" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="458" y="96" font-size="17">FIXED BASELINE</text>
+          <rect x="458" y="114" width="304" height="72" rx="8" fill="#7fa8d6"/>
+          <path d="M590 133l20 18 25-27 35 35" fill="none" stroke="#fffdf8" stroke-width="3"/>
+          <circle cx="557" cy="137" r="9" fill="#fffdf8"/>
+          <text class="cvrt-svg-light" x="610" y="174" text-anchor="middle" font-size="13">Hero prioritized</text>
+          <rect x="458" y="200" width="304" height="48" rx="24" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="610" y="230" text-anchor="middle" font-size="15">SHOP NOW</text>
+          <path d="M397 174h26" stroke="#f44867" stroke-width="4" stroke-linecap="round"/>
+          <path d="M416 165l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4" stroke-linecap="round"/>
+          <text class="cvrt-svg-orange" x="410" y="302" text-anchor="middle" font-size="14">Performance prerequisite</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Founder Message Match</h3>
+        <p class="cvrt-page">Page: <a href="https://betterwild.com/pages/lf" target="_blank" rel="noopener">Ads Landing Page</a></p>
+        <p class="cvrt-description">Founder-led paid traffic promises a secret reveal, while the landing page opens on generic root-cause positioning with no founder or reveal. The page leaves that high-curiosity promise unresolved.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 360" role="img" aria-label="Current and founder-led landing page hero wireframes">
+          <rect x="12" y="12" width="796" height="336" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">LANDING PAGE HERO</text>
+          <rect x="38" y="66" width="352" height="245" rx="12" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="58" y="94" font-size="17">CURRENT</text>
+          <text x="58" y="128" font-size="18">ALLERGY RELIEF THAT FIXES</text>
+          <text x="58" y="151" font-size="18">THE ROOT CAUSE</text>
+          <rect x="58" y="171" width="135" height="92" rx="8" fill="#d8dde3"/>
+          <path d="M72 244l34-30 25 19 22-27 27 38" fill="none" stroke="#8d98a8" stroke-width="3"/>
+          <rect x="210" y="171" width="154" height="42" rx="21" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="287" y="198" text-anchor="middle" font-size="14">SHOP NOW</text>
+          <text class="cvrt-svg-muted" x="210" y="240" font-size="13">No founder narrative</text>
+          <text class="cvrt-svg-muted" x="210" y="260" font-size="13">No reveal</text>
+          <rect x="430" y="66" width="352" height="245" rx="12" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="450" y="94" font-size="17">VARIATION</text>
+          <rect x="450" y="112" width="116" height="151" rx="8" fill="#7fa8d6"/>
+          <circle cx="508" cy="153" r="25" fill="#fffdf8"/>
+          <path d="M468 238c8-38 72-38 80 0" fill="#fffdf8"/>
+          <text x="586" y="128" font-size="18">THE BETTERWILD</text>
+          <text x="586" y="151" font-size="18">FOUNDER STORY</text>
+          <text class="cvrt-svg-muted" x="586" y="181" font-size="13">The promised reveal</text>
+          <text class="cvrt-svg-muted" x="586" y="201" font-size="13">continues here</text>
+          <rect x="586" y="221" width="172" height="42" rx="21" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="672" y="248" text-anchor="middle" font-size="14">SHOP NOW</text>
+          <path d="M398 177h24" stroke="#f44867" stroke-width="4"/>
+          <path d="M415 168l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-orange" x="410" y="332" text-anchor="middle" font-size="14">Close the narrative gap</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Price and Guarantee Context</h3>
+        <p class="cvrt-page">Page: <a href="https://betterwild.com/pages/lf" target="_blank" rel="noopener">Ads Landing Page</a></p>
+        <p class="cvrt-description">The first landing-page CTA shows neither price context nor the 30-day guarantee. Customer reviews repeatedly identify price as friction, making the first action a high-stakes commitment without visible risk reversal.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 330" role="img" aria-label="Current and enhanced landing page call to action">
+          <rect x="12" y="12" width="796" height="306" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">FOLD 1 ACTION AREA</text>
+          <rect x="52" y="78" width="304" height="190" rx="12" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="76" y="108" font-size="17">CURRENT</text>
+          <text x="204" y="146" text-anchor="middle" font-size="14">100,000+ Happy Dogs</text>
+          <rect x="76" y="168" width="256" height="54" rx="27" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="204" y="201" text-anchor="middle" font-size="16">SHOP NOW</text>
+          <text class="cvrt-svg-muted" x="204" y="248" text-anchor="middle" font-size="13">No price or guarantee</text>
+          <rect x="464" y="68" width="304" height="214" rx="12" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="488" y="99" font-size="17">VARIATION</text>
+          <text x="616" y="137" text-anchor="middle" font-size="14">100,000+ Happy Dogs</text>
+          <rect x="488" y="158" width="256" height="54" rx="27" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="616" y="191" text-anchor="middle" font-size="16">SHOP NOW</text>
+          <rect x="488" y="225" width="256" height="36" rx="8" fill="#fff7e9" stroke="#ff9500" stroke-dasharray="5 4"/>
+          <text class="cvrt-svg-orange" x="616" y="248" text-anchor="middle" font-size="14">From $1/day + 30-Day Guarantee</text>
+          <path d="M374 173h72" stroke="#f44867" stroke-width="4"/>
+          <path d="M439 164l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-muted" x="410" y="302" text-anchor="middle" font-size="13">Cost and risk context at the decision point</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">PDP Sticky Add to Cart</h3>
+        <p class="cvrt-page">Page: <a href="https://betterwild.com/products/allergy-relief" target="_blank" rel="noopener">Allergy Relief Product Page</a></p>
+        <p class="cvrt-description">The buy box requires a dog-count choice and supply choice before the add-to-cart button appears near the bottom of the second fold. No sticky action remains available once the primary purchase controls move out of view.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 410" role="img" aria-label="Product page with a sticky add to cart bar">
+          <rect x="12" y="12" width="796" height="386" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">MOBILE PRODUCT PAGE</text>
+          <rect x="94" y="66" width="260" height="290" rx="14" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="114" y="94" font-size="16">CURRENT SCROLLED VIEW</text>
+          <text x="114" y="127" font-size="16">HOW MANY DOGS?</text>
+          <circle cx="124" cy="151" r="8" fill="#06265f"/><text x="143" y="156" font-size="13">1 dog</text>
+          <circle cx="210" cy="151" r="8" fill="#fff" stroke="#8d98a8"/><text x="229" y="156" font-size="13">2 dogs</text>
+          <text x="114" y="191" font-size="16">SELECT YOUR SUPPLY</text>
+          <rect x="114" y="207" width="220" height="52" rx="8" fill="#fffdf8" stroke="#8d98a8"/>
+          <text x="130" y="230" font-size="13">2 Pack 60 Chews</text>
+          <text class="cvrt-svg-muted" x="130" y="248" font-size="12">$1.00/day</text>
+          <path d="M114 290h220" stroke="#c8bdad" stroke-dasharray="5 5"/>
+          <text class="cvrt-svg-muted" x="224" y="320" text-anchor="middle" font-size="13">CTA below viewport</text>
+          <rect x="466" y="66" width="260" height="290" rx="14" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="486" y="94" font-size="16">VARIATION SCROLLED VIEW</text>
+          <text x="486" y="127" font-size="16">HOW MANY DOGS?</text>
+          <circle cx="496" cy="151" r="8" fill="#06265f"/><text x="515" y="156" font-size="13">1 dog</text>
+          <text x="486" y="191" font-size="16">SELECT YOUR SUPPLY</text>
+          <rect x="486" y="207" width="220" height="52" rx="8" fill="#fffdf8" stroke="#8d98a8"/>
+          <text x="502" y="230" font-size="13">2 Pack 60 Chews</text>
+          <text class="cvrt-svg-muted" x="502" y="248" font-size="12">$1.00/day</text>
+          <rect x="476" y="286" width="240" height="58" rx="12" fill="#06265f"/>
+          <text class="cvrt-svg-light" x="492" y="309" font-size="12">ALLERGY RELIEF</text>
+          <rect x="572" y="298" width="132" height="34" rx="17" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="638" y="320" text-anchor="middle" font-size="12">ADD TO CART · $59.98</text>
+          <path d="M378 201h64" stroke="#f44867" stroke-width="4"/>
+          <path d="M435 192l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-orange" x="410" y="383" text-anchor="middle" font-size="14">Purchase action stays in reach</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">First Purchase Default</h3>
+        <p class="cvrt-page">Page: <a href="https://betterwild.com/products/allergy-relief" target="_blank" rel="noopener">Allergy Relief Product Page</a></p>
+        <p class="cvrt-description">Subscribe and Save is pre-selected, while one-time purchase is secondary text beneath the main CTA. Reviews document at least one customer who moved to subscription after seeing results, supporting a lower-commitment entry path for new buyers.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 430" role="img" aria-label="Current subscription default and one-time purchase variation">
+          <rect x="12" y="12" width="796" height="406" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">PURCHASE OPTIONS</text>
+          <rect x="40" y="70" width="350" height="310" rx="12" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="62" y="99" font-size="17">CURRENT</text>
+          <rect x="62" y="119" width="306" height="85" rx="9" fill="#eef5fa" stroke="#06265f"/>
+          <circle cx="84" cy="147" r="9" fill="#06265f"/>
+          <text x="105" y="145" font-size="16">Subscribe &amp; Save</text>
+          <text class="cvrt-svg-muted" x="105" y="169" font-size="13">33% Off First Order</text>
+          <text class="cvrt-svg-muted" x="105" y="188" font-size="13">25% renewals · Free Shipping · Cancel anytime</text>
+          <rect x="62" y="222" width="306" height="52" rx="26" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="215" y="254" text-anchor="middle" font-size="15">ADD TO CART · $59.98</text>
+          <text x="215" y="305" text-anchor="middle" font-size="14" text-decoration="underline">Or buy once at $79.98</text>
+          <text class="cvrt-svg-muted" x="215" y="327" text-anchor="middle" font-size="12">no discount, $5 shipping</text>
+          <rect x="430" y="62" width="350" height="326" rx="12" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="452" y="91" font-size="17">NEW VISITOR VARIATION</text>
+          <rect x="452" y="111" width="306" height="68" rx="9" fill="#fffdf8" stroke="#06265f"/>
+          <circle cx="474" cy="139" r="9" fill="#06265f"/>
+          <text x="495" y="143" font-size="16">One-time purchase · $79.98</text>
+          <rect x="452" y="192" width="306" height="108" rx="9" fill="#fffdf8" stroke="#8d98a8"/>
+          <circle cx="474" cy="220" r="9" fill="#fff" stroke="#8d98a8"/>
+          <text x="495" y="224" font-size="16">Subscribe &amp; Save</text>
+          <text class="cvrt-svg-muted" x="474" y="250" font-size="13">Subscribe after your first order</text>
+          <text class="cvrt-svg-muted" x="474" y="270" font-size="13">and save on future orders.</text>
+          <text class="cvrt-svg-muted" x="474" y="290" font-size="13">Includes free US shipping.</text>
+          <rect x="452" y="316" width="306" height="52" rx="26" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="605" y="348" text-anchor="middle" font-size="15">ADD TO CART · $79.98</text>
+          <path d="M398 211h24" stroke="#f44867" stroke-width="4"/>
+          <path d="M415 202l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-orange" x="410" y="406" text-anchor="middle" font-size="14">Trial first, subscription remains visible</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Cart Guarantee and Trust</h3>
+        <p class="cvrt-page">Page: Cart Drawer</p>
+        <p class="cvrt-description">The cart drawer carries no trust signals, although the product page presents both the 30-day money-back guarantee and free US shipping near the main CTA. Reviews also show that some customers perceive the product as non-returnable.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 390" role="img" aria-label="Current cart drawer and cart drawer with guarantee strip">
+          <rect x="12" y="12" width="796" height="366" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">CART DRAWER CHECKOUT AREA</text>
+          <rect x="90" y="66" width="250" height="270" rx="12" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="110" y="94" font-size="16">CURRENT</text>
+          <rect x="110" y="111" width="210" height="82" rx="8" fill="#fffdf8" stroke="#cdbda8"/>
+          <rect x="124" y="126" width="44" height="52" rx="5" fill="#d8dde3"/>
+          <text x="181" y="145" font-size="13">ALLERGY RELIEF</text>
+          <text x="181" y="167" font-size="13">$59.98</text>
+          <text x="110" y="226" font-size="15">Subtotal</text>
+          <text x="320" y="226" text-anchor="end" font-size="15">$59.98</text>
+          <rect x="110" y="242" width="210" height="52" rx="26" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="215" y="274" text-anchor="middle" font-size="15">CHECKOUT</text>
+          <rect x="480" y="58" width="250" height="286" rx="12" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="500" y="86" font-size="16">VARIATION</text>
+          <rect x="500" y="103" width="210" height="82" rx="8" fill="#fffdf8" stroke="#cdbda8"/>
+          <rect x="514" y="118" width="44" height="52" rx="5" fill="#d8dde3"/>
+          <text x="571" y="137" font-size="13">ALLERGY RELIEF</text>
+          <text x="571" y="159" font-size="13">$59.98</text>
+          <text x="500" y="212" font-size="15">Subtotal</text>
+          <text x="710" y="212" text-anchor="end" font-size="15">$59.98</text>
+          <rect x="500" y="228" width="210" height="42" rx="8" fill="#fff7e9" stroke="#ff9500" stroke-dasharray="5 4"/>
+          <text class="cvrt-svg-orange" x="605" y="246" text-anchor="middle" font-size="12">30-Day Money-Back Guarantee</text>
+          <text class="cvrt-svg-orange" x="605" y="262" text-anchor="middle" font-size="12">Free US Shipping</text>
+          <rect x="500" y="282" width="210" height="44" rx="22" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="605" y="309" text-anchor="middle" font-size="15">CHECKOUT</text>
+          <path d="M364 195h92" stroke="#f44867" stroke-width="4"/>
+          <path d="M449 186l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-muted" x="410" y="365" text-anchor="middle" font-size="13">Risk reversal follows the buyer into cart</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Cart Cross-Sell</h3>
+        <p class="cvrt-page">Page: Cart Drawer</p>
+        <p class="cvrt-description">The cart currently contains the selected line item, shelter selector, subtotal, and checkout action, with no complementary product exposure. BetterWild’s collection includes Joint Support, Dental and Multivitamin, and Paw Balm at $29.99.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 430" role="img" aria-label="Cart drawer with complementary product card">
+          <rect x="12" y="12" width="796" height="406" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">CART DRAWER PRODUCT FLOW</text>
+          <rect x="194" y="62" width="432" height="314" rx="14" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="218" y="91" font-size="17">VARIATION</text>
+          <rect x="218" y="108" width="384" height="72" rx="9" fill="#fffdf8" stroke="#cdbda8"/>
+          <rect x="232" y="120" width="48" height="48" rx="6" fill="#d8dde3"/>
+          <text x="297" y="139" font-size="14">ALLERGY RELIEF</text>
+          <text class="cvrt-svg-muted" x="297" y="161" font-size="13">Single Pack · $59.98</text>
+          <text x="587" y="144" text-anchor="end" font-size="14">Qty 2</text>
+          <rect x="218" y="196" width="384" height="102" rx="10" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="6 4"/>
+          <text class="cvrt-svg-title" x="234" y="219" font-size="14">COMPLETE THE ROUTINE</text>
+          <rect x="234" y="231" width="54" height="54" rx="7" fill="#7fa8d6"/>
+          <text x="303" y="250" font-size="14">JOINT SUPPORT</text>
+          <text class="cvrt-svg-muted" x="303" y="271" font-size="13">$29.99</text>
+          <rect x="511" y="235" width="74" height="42" rx="21" fill="#f44867"/>
+          <text class="cvrt-svg-light" x="548" y="261" text-anchor="middle" font-size="14">ADD</text>
+          <text x="218" y="329" font-size="15">Subtotal</text>
+          <text x="602" y="329" text-anchor="end" font-size="15">$59.98</text>
+          <rect x="218" y="340" width="384" height="24" rx="12" fill="#06265f"/>
+          <text class="cvrt-svg-light" x="410" y="357" text-anchor="middle" font-size="12">CHECKOUT</text>
+          <path d="M145 246h48" stroke="#f44867" stroke-width="4"/>
+          <path d="M186 237l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-orange" x="74" y="226" font-size="13">One relevant</text>
+          <text class="cvrt-svg-orange" x="74" y="245" font-size="13">add-on at the</text>
+          <text class="cvrt-svg-orange" x="74" y="264" font-size="13">highest-intent</text>
+          <text class="cvrt-svg-orange" x="74" y="283" font-size="13">moment</text>
+          <text class="cvrt-svg-muted" x="410" y="402" text-anchor="middle" font-size="13">Compact product anatomy preserves a clear checkout path</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type cvrt-type-fix">Immediate Fix</span></div>
+        <h3 class="cvrt-slot-title">Three-Pack Copy Error</h3>
+        <p class="cvrt-page">Page: <a href="https://betterwild.com/products/allergy-relief" target="_blank" rel="noopener">Allergy Relief Product Page</a></p>
+        <p class="cvrt-description">The recommended three-pack is labeled as a 90-day supply, but its supporting copy describes a 60-day supply for one dog. The contradiction sits inside the highest-priced displayed pack choice and weakens confidence at selection.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire" viewBox="0 0 820 330" role="img" aria-label="Three-pack supply card copy correction">
+          <rect x="12" y="12" width="796" height="306" rx="14" fill="#fffdf8" stroke="#cdbda8" stroke-dasharray="7 6"/>
+          <text class="cvrt-svg-title" x="38" y="45" font-size="18">SUPPLY SELECTOR</text>
+          <rect x="52" y="76" width="316" height="194" rx="12" fill="#f3ece2" stroke="#96a1b1" stroke-dasharray="6 5"/>
+          <text class="cvrt-svg-title" x="72" y="105" font-size="16">CURRENT</text>
+          <circle cx="84" cy="139" r="10" fill="#fff" stroke="#8d98a8"/>
+          <text x="108" y="143" font-size="17">3 Pack 90 Chews</text>
+          <rect x="246" y="120" width="96" height="28" rx="14" fill="#ff9500"/>
+          <text class="cvrt-svg-light" x="294" y="139" text-anchor="middle" font-size="12">Recommended</text>
+          <text x="108" y="171" font-size="14">$1.00/day · 90-day supply</text>
+          <rect x="72" y="190" width="270" height="58" rx="8" fill="#fffdf8" stroke="#f44867" stroke-width="2"/>
+          <text class="cvrt-svg-coral" x="86" y="214" font-size="13">A 60-day supply for 1 dog</text>
+          <text class="cvrt-svg-coral" x="86" y="234" font-size="13">covers two months...</text>
+          <rect x="452" y="68" width="316" height="210" rx="12" fill="#eef5fa" stroke="#f44867" stroke-width="2" stroke-dasharray="7 5"/>
+          <text class="cvrt-svg-title" x="472" y="97" font-size="16">CORRECTED</text>
+          <circle cx="484" cy="131" r="10" fill="#06265f"/>
+          <text x="508" y="135" font-size="17">3 Pack 90 Chews</text>
+          <rect x="646" y="112" width="96" height="28" rx="14" fill="#ff9500"/>
+          <text class="cvrt-svg-light" x="694" y="131" text-anchor="middle" font-size="12">Recommended</text>
+          <text x="508" y="163" font-size="14">$1.00/day · 90-day supply</text>
+          <rect x="472" y="182" width="270" height="72" rx="8" fill="#fff7e9" stroke="#ff9500" stroke-dasharray="5 4"/>
+          <text class="cvrt-svg-orange" x="486" y="207" font-size="13">A 90-day supply for 1 dog</text>
+          <text class="cvrt-svg-orange" x="486" y="227" font-size="13">three months of consistent daily support</text>
+          <text class="cvrt-svg-orange" x="486" y="247" font-size="13">at the best per-day value.</text>
+          <path d="M385 170h50" stroke="#f44867" stroke-width="4"/>
+          <path d="M428 161l9 9-9 9" fill="none" stroke="#f44867" stroke-width="4"/>
+          <text class="cvrt-svg-muted" x="410" y="302" text-anchor="middle" font-size="13">Pack label and supporting copy agree</text>
+        </svg>
+        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </main>
+
+  <section class="cvrt-panel cvrt-panel-insights">
+    <div class="cvrt-killers">
+      <p class="cvrt-section-kicker">Cross-source consensus</p>
+      <h2>Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li><span>Message continuity</span>Distinct paid-social promises all resolve to the same category-generic landing page, leaving the founder reveal and customer stories behind.</li>
+        <li><span>Mobile speed</span>The paid-traffic landing page has a 13.7s LCP and 38.3s TTI, making technical performance the prerequisite for meaningful testing.</li>
+        <li><span>Premium-price risk</span>Price objections recur in reviews while the 30-day guarantee disappears in the cart and is absent from the Amazon listing.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-sources">
+      <h2 class="cvrt-subtitle">Data Sources Used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">PageSpeed and Core Web Vitals</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Live Site Review</div>
+        <div class="cvrt-source-chip">Competitor Research</div>
+      </div>
+    </div>
+
+    <div class="cvrt-findings">
+      <h2 class="cvrt-subtitle">What the Data Shows</h2>
+
+      <article class="cvrt-source-block">
+        <h3>Meta Ads and Landing Pages</h3>
+        <ul class="cvrt-source-list">
+          <li>Founder-led creative promises a secret reveal, but the shared landing page has no founder reference, Cody mention, or reveal.</li>
+          <li>Rescue-story traffic reaches a page with no rescue or foster narrative, creating only broad allergy alignment.</li>
+          <li>The landing-page hero shows a Shop Now action with no price or guarantee visible.</li>
+        </ul>
+      </article>
+
+      <article class="cvrt-source-block">
+        <h3>Reviews and UGC</h3>
+        <ul class="cvrt-source-list">
+          <li>29 of 34 Amazon reviews are five-star, and repeated outcomes include reduced scratching, healed skin, and coat regrowth.</li>
+          <li>Customers repeatedly describe BetterWild working after vet and over-the-counter options failed.</li>
+          <li>Price is a repeated objection. A smaller subset also reports complete taste rejection or frustration with the time needed to see results.</li>
+          <li>One customer explicitly describes continuing on subscription after seeing a clear change.</li>
+        </ul>
+      </article>
+
+      <article class="cvrt-source-block">
+        <h3>PageSpeed and Core Web Vitals</h3>
+        <ul class="cvrt-source-list">
+          <li>The paid-traffic landing page scores 41/100 on mobile, with 13.7s LCP, 4.7s FCP, 690ms TBT, and 38.3s TTI.</li>
+          <li>The homepage scores 45/100 on mobile, with 6.8s LCP, 3.8s FCP, 670ms TBT, and 39.5s TTI.</li>
+          <li>CLS remains good on both pages, while load and interactivity are the dominant performance problems.</li>
+        </ul>
+      </article>
+
+      <article class="cvrt-source-block">
+        <h3>Site Screenshots</h3>
+        <ul class="cvrt-source-list">
+          <li>The Allergy Relief buy box requires dog-count and supply selections before the $59.98 add-to-cart action appears in the second fold.</li>
+          <li>Subscribe and Save is pre-selected, while the $79.98 one-time purchase appears as secondary text beneath the CTA.</li>
+          <li>The three-pack says 90-day supply but repeats 60-day supporting copy from the two-pack.</li>
+          <li>The cart has no guarantee, free-shipping reinforcement, upsell, or cross-sell.</li>
+        </ul>
+      </article>
+
+      <article class="cvrt-source-block">
+        <h3>Live Site Review</h3>
+        <ul class="cvrt-source-list">
+          <li>The live homepage showed Allergy Relief from $39.99, while the collection screenshot showed from $29.99.</li>
+          <li>A live landing-page fetch returned the embedded product state as sold out. This remains unconfirmed by screenshots and requires a manual incognito check.</li>
+        </ul>
+      </article>
+
+      <article class="cvrt-source-block">
+        <h3>Competitor Research</h3>
+        <ul class="cvrt-source-list">
+          <li>BetterWild’s subscribe price is approximately $1.00 per chew versus $0.37 to $0.48 per chew for PetHonesty and Zesty Paws.</li>
+          <li>Wolf-sourced probiotics and founder-led positioning have no direct parallel in the comparison set, but neither appears in the landing-page hero.</li>
+          <li>The root-cause gut, immunity, and skin story is more prominent than the positioning used by the compared competitors.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="cvrt-footer">August 2026</footer>
+</div>
