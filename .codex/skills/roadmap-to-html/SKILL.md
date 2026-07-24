@@ -238,6 +238,16 @@ These are the content and layout requirements. The visual styling comes from the
 
 **SVG caption.** The caption below each SVG ("* Concept illustration only. Final design will differ.") must always use black or near-black text. It is a disclaimer that needs to be readable, not decorative.
 
+**Responsive SVG composition.** Desktop and mobile require separate wireframe compositions. Do not make mobile users horizontally scroll, swipe, or pan to see the full concept.
+- Keep the desktop SVG optimized for presentation and screen sharing. For A/B tests, current and variation may remain side by side.
+- Add a dedicated mobile-only SVG for every slot. At the mobile breakpoint, hide the desktop SVG and show the mobile SVG.
+- In mobile A/B wireframes, stack "Current" or "Control" first and "Variation" second in one vertical flow. Use a downward arrow or another clear vertical transition cue between them.
+- For single-state fixes or projects, stack the problem state above the corrected or proposed state when both are shown. If only one state is needed, use a narrow mobile composition that fits fully within the viewport.
+- Preserve the same source-backed labels, metrics, component anatomy, changed zone, and disclaimer across desktop and mobile. The mobile version may simplify surrounding UI, but it must not omit the evidence or interface detail needed to understand the concept.
+- Mobile SVG text must remain readable without zooming. Use a mobile-specific viewBox and larger relative type rather than scaling the desktop canvas down.
+- The mobile wireframe must fit the slot card width with `width: 100%` and `min-width: 0`. Never use a large `min-width`, horizontal overflow, or an overflow container as a substitute for a responsive composition.
+- Keep the desktop view visually unchanged when adding the mobile composition. Scope all visibility and layout switching to the mobile media query.
+
 **SVG pre-planning.** Before writing each SVG, silently define:
 
 1. the real page surface being changed
@@ -284,7 +294,7 @@ Do not output this planning text. Use it to design the wireframe.
 - No empty spacer elements. Whitespace comes from `padding` and `margin` on real elements, not from blank `div`s with fixed heights.
 - The card should feel like a well-designed slide: easy to read at a glance, not spread thin across the viewport.
 
-Mobile styles can collapse to single-column, but do not let mobile layout constraints drive the desktop design.
+Mobile styles must collapse to a single vertical reading flow without horizontal swiping. Current or control appears above the variation in mobile wireframes. Do not let mobile layout constraints alter the desktop design.
 
 **Light content surfaces.** Slot-card copy areas, SVG areas, and long-form insight blocks must use light, high-contrast surfaces. The hero and the "Biggest Killers of Conversion Rate" block may use dark or image-led brand treatments.
 
@@ -353,6 +363,12 @@ Before saving, verify silently:
 - [ ] SVG text: high contrast, full opacity, no overlapping elements, heavy enough weight to read at screen resolution
 - [ ] SVG text is readable without zooming during a screen share — if any label looks small, increase font-size and expand the viewBox
 - [ ] SVG caption ("* Concept illustration only. Final design will differ.") is black or near-black, not gray or muted
+- [ ] Every slot has a dedicated mobile SVG composition, not a scaled-down or horizontally scrollable desktop SVG
+- [ ] Mobile A/B wireframes stack Current or Control above Variation in one vertical flow
+- [ ] Mobile single-state or fix wireframes fit fully within the slot card width without swiping
+- [ ] Mobile SVG text and concrete labels remain readable without zooming
+- [ ] Mobile wireframe containers use `width: 100%` and `min-width: 0`, with no large `min-width` or horizontal overflow
+- [ ] Desktop SVG composition and desktop layout remain unchanged by the mobile implementation
 - [ ] Data Insights tab: "Biggest Killers of Conversion Rate" section appears at the top, before data sources and per-source findings
 - [ ] "Biggest Killers of Conversion Rate" is the strongest visual block in Data Insights
 - [ ] Data Insights lists have no theme-injected bullets, tiny colored dashes, checkmarks, or decorative `li::before` markers. Reset `ul`, `ol`, `li`, `li::marker`, and Data Insights list `li::before`/`li::after` inside `#cvrt-roadmap`
