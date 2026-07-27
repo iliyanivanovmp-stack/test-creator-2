@@ -29,7 +29,7 @@ Normalize brand name: lowercase, replace spaces with hyphens, remove special cha
 
 If no manifest found, say: "No collection found for [brand-name]. Run `/cro-collect` first."
 
-Confirm from the manifest: sources collected, screenshots present, missing data warnings.
+Confirm from the manifest: sources collected, screenshots present, missing data warnings, and slot count. Record the slot count — it controls how many Top Test Opportunities to write in Step 2.
 
 ---
 
@@ -43,7 +43,7 @@ Build the audit section by section. Follow the action instructions below before 
 
 **Before writing Reviews:** Read `raw/reviews.md`. Structure notes as: what customers love, what frustrates them, client-actionable insights (product/ops/support fixes — not test ideas). Write findings.
 
-**Before writing PageSpeed:** Read `raw/pagespeed.md`. If it contains a URL marked `[fetch during audit]`, WebFetch the page and check for performance signals. Write findings with scores and slow-page issues.
+**Before writing PageSpeed:** Read `raw/pagespeed.md`. If it contains a URL marked `[fetch during audit]`, WebFetch `https://pagespeed.web.dev/report?url=[encoded-store-url]` for both mobile and desktop to retrieve real CWV scores (LCP, CLS, INP). Do not WebFetch the store page itself — it cannot return CWV data. Write findings with scores and slow-page issues.
 
 **Before writing Competitor Analysis:** Read `raw/competitors.md` if present (user-provided, labeled as such). Then always run WebSearch to find the top 2-3 direct competitors — note which data came from user vs. self-research. Include research date.
 
@@ -102,10 +102,6 @@ When the audit is complete, proceed to Step 3 before updating the manifest.
 
 [Table comparing price, key features, weaknesses. Note what came from user vs. self-research. Include research date.]
 
-### Google Ads
-
-[Message match with Meta ads, consistency, gaps.]
-
 ### Emails
 
 [Subject lines, CTAs, messaging themes, message match.]
@@ -139,7 +135,7 @@ Rank top 3 themes by:
 
 Ranked by evidence strength x revenue potential x fixability. The roadmap command reads this list first to select slots.
 
-Write 5 entries max. Each entry is one specific, testable opportunity — not a broad theme.
+Write max(5, slot count + 2) entries — enough to fill every slot plus two backup options. If slot count is 5 or fewer, write 5 entries. If slot count is 6, write 8. Each entry is one specific, testable opportunity — not a broad theme.
 
 Before finalizing, deduplicate by test mechanic. If two opportunities use the same intervention on the same component, keep one broader opportunity and mention the narrower case as the strongest example.
 
@@ -161,7 +157,7 @@ Format each entry as:
 
 Write `brands/[brand-name]/roadmap-seed.md`. This is the only file the roadmap command reads — make it dense and complete.
 
-**Constraints:** 400-600 words max. No general prose. Every sentence is a specific, citable fact pulled from the audit you just wrote.
+**Constraints:** 400-600 words for slot counts of 5 or fewer; 600-900 words for slot counts of 6 or more. No general prose. Every sentence is a specific, citable fact pulled from the audit you just wrote.
 
 ```markdown
 # [Brand Name] Roadmap Seed
@@ -187,7 +183,7 @@ Example: "On the showerhead PDP, the buy box stacks three pricing tiers vertical
 **Key data:** [Specific metrics, quotes, benchmark stats]
 **Est. lift:** [conservative CR lift] x [sessions/mo] x [AOV] = [$]
 
-[Repeat for opportunities 2-5]
+[Repeat for all opportunities up to the count determined in Step 2]
 
 ## Unused Findings
 

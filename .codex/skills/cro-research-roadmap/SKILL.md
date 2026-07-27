@@ -11,10 +11,10 @@ Run `/cro-collect` then `/cro-audit` before this command. This command reads the
 
 ## Data Integrity
 
-- Every claim must trace back to the roadmap seed.
-- Do not open raw source files. Do not open screenshots. Do not open the full audit file.
+- Every claim must trace back to the roadmap seed or the research audit.
+- Do not open raw source files. Do not open screenshots.
 - Web research is limited to ebook grep and community research for ideation only (see Step 1b). Do not cite these as audit data.
-- If a claim cannot be sourced to the roadmap seed, omit it.
+- If a claim cannot be sourced to the seed or audit, omit it.
 - Always include time periods on metrics.
 - No em dashes anywhere.
 
@@ -45,10 +45,11 @@ Say in chat: "What's the brand name?"
 Wait for reply. Then read:
 1. `brands/[brand-name]/manifest.md`
 2. `brands/[brand-name]/roadmap-seed.md`
+3. `brands/[brand-name]/[brand-name]-research-audit.md`
 
 Normalize the brand name for file paths: lowercase, replace spaces with hyphens, remove special characters. Example: 'Defender Shield' → `defender-shield`. Use this normalized form as `[brand-name]` in all file paths.
 
-Do not open any other files. Do not open the full audit file. Do not open raw/ source files. Do not open screenshots.
+Do not open raw/ source files. Do not open screenshots. The audit is already vetted output — reading it is the highest-density ideation context available and costs far fewer tokens than any image.
 
 If no roadmap seed is found, say: "No roadmap seed found for [brand-name]. Run `/cro-audit` first."
 
@@ -64,9 +65,19 @@ Run these two searches after reading the audit. They sharpen variation ideas —
 
 **CRO Ebook:** If `resources/cro-ebook/cro-ebook.md` exists, grep for terms matching the seed's Top Test Opportunities. Read only the matching sections — do NOT load the full ebook file, it is too large. Use the patterns and frameworks from those sections to sharpen how you write variations — not to invent new problems.
 
-**CRO Community:** Use WebSearch to find practitioner discussions on Reddit (r/ecommerce, r/shopify, r/CRO) and X/Twitter relevant to the brand's category and top friction points. Real discussions only, not blog posts. Use findings to shape variation specs — not to add new claims to the roadmap.
+**CRO Community:** Use WebSearch to find practitioner discussions relevant to the brand's category and top friction points. Priority sources: X/Twitter, CXL, GoodUI, Baymard Institute, and practitioner case studies. Reddit is often blocked — search via general WebSearch results (e.g. "site:reddit.com r/ecommerce [topic]") rather than fetching Reddit directly. Real practitioner discussions only, not generic blog posts. Use findings to shape variation specs — not to add new claims to the roadmap.
 
 Do not mention ebook or community sources in the roadmap output.
+
+---
+
+## Step 2a: Variation Ideation (run before filling slots)
+
+For each opportunity selected from the seed's Top Test Opportunities, generate 2-3 mechanically distinct solution approaches before committing to one. Approaches should differ in mechanism, not just copy — for example, a price-anchoring test on the buy box could be: (1) reorder tiers so the mid option is pre-selected, (2) add a "most popular" badge with per-day cost breakdown, or (3) collapse the comparison table and lead with the subscription benefit headline. Score each approach on three axes (evidence fit, expected impact, build effort) and select the strongest. This selection step is internal — only the chosen approach goes into the slot write-up.
+
+When the manifest allows 2+ variations, use the runner-up approach(es) as V2/V3 instead of inventing cosmetic copy variants.
+
+Do not write this step's workings into the roadmap file. It is thinking only.
 
 ---
 

@@ -207,6 +207,8 @@ Write `brands/[brand-name]/raw/meta-ads-visual-summary.md`:
 **Landing Page Fold 1:** [Hero layout, primary headline, main CTA, above-fold offer]
 **Landing Page Fold 2:** [Trust signals, product details, secondary elements visible]
 **Landing Page Fold 3:** [Social proof, lower-funnel content, secondary CTAs]
+**LP CTA:** [CTA label and position. Sticky bar on mobile?]
+**LP trust signals:** [Review count, star rating, guarantee, shipping promise — where visible relative to CTA. State "not visible" if absent.]
 **Message Match:** [Does the ad promise match what the landing page delivers? Note specific gaps.]
 
 [Repeat for each ad present. If a landing page fold is missing, write "Not collected."]
@@ -240,28 +242,40 @@ Write `brands/[brand-name]/raw/site-visual-summary.md`:
 **Fold 1:** [Hero layout, primary headline, CTA placement, trust signals above the fold]
 **Fold 2:** [Navigation, featured sections, secondary offers visible]
 **Fold 3:** [Social proof, product grid or content blocks, additional CTAs]
+**CTA behavior:** [Sticky header or CTA bar visible on mobile? Above or below fold?]
+**Trust signals:** [Exactly which trust elements are visible and where — review count, star rating, badges, guarantee copy, shipping promise. State what is present; state "not visible" if absent.]
 **Layout notes:** [Specific elements, their position, visual treatment — describe what exists, not what should change]
 
 ## Collection Page
 **Fold 1:** [Header, filter controls, product card layout and content]
 **Fold 2:** [Card density, imagery style, price display, CTA buttons]
 **Fold 3:** [Pagination, sorting UI, anything below the initial grid]
+**Price display:** [Compare-at / strikethrough pricing visible on cards? Per-unit pricing? Sale badge?]
 **Layout notes:** [Specific layout details]
 
 ## PDP (if present)
 **Fold 1:** [Product images, buy box structure, price display, primary CTA]
 **Fold 2:** [Description, specs, trust signals, secondary CTAs]
 **Fold 3:** [Reviews placement, upsells, related products, FAQ if visible]
-**Layout notes:** [Specific buy box and conversion element details]
+**Buy box detail:** [How many purchase options are shown (one-time / subscription / bundle)? Which option is pre-selected? What is the price of each option? Is there a visual hierarchy between them?]
+**Price display:** [Compare-at / strikethrough pricing? Per-unit or per-day cost shown? Installment option visible?]
+**CTA behavior:** [Is the Add to Cart / Buy Now button sticky on mobile? Where does it sit on initial page load?]
+**Trust signals:** [Review count and star rating placement relative to the buy box. Badges, guarantees, or shipping copy visible in or near the buy box. State "not visible" if absent.]
+**Upsell mechanics:** [Any frequently-bought-together, bundle, or post-add upsell visible?]
+**Layout anomalies:** [Any visible layout shift, broken image, template placeholder text, or JS error?]
 
 ## Cart (if present)
 **Layout:** [Cart structure — drawer or page, item summary, upsell placement, CTA]
-**AOV elements:** [Any upsell, cross-sell, bundle, or threshold mechanics visible]
+**CTA:** [CTA label and position. Sticky or static?]
+**AOV elements:** [Any upsell, cross-sell, bundle, or free-shipping threshold mechanic visible? Describe exactly what is shown and where.]
+**Trust signals:** [Any guarantee, returns copy, or trust badge visible in the cart? State "not visible" if absent.]
 
 ## Landing Pages (if present)
 **Fold 1:** [Hero, headline, primary CTA]
 **Fold 2:** [Offer details, trust signals, secondary elements]
 **Fold 3:** [Social proof, lower-funnel content]
+**CTA behavior:** [Sticky CTA bar on mobile? CTA label copy?]
+**Trust signals:** [Review count, guarantee, shipping promise visible? Where relative to the CTA?]
 **Message match:** [Does the LP deliver on what the ad promised?]
 ```
 
