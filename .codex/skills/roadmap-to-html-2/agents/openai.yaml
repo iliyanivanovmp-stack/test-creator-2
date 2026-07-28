@@ -1,0 +1,4 @@
+interface:
+  display_name: "Roadmap to HTML 2"
+  short_description: "Create branded CRO roadmap concept boards"
+  default_prompt: "Use $roadmap-to-html-2 to convert this CRO roadmap into a branded client-facing HTML concept board."
