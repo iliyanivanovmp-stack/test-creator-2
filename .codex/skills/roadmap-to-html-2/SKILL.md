@@ -12,12 +12,12 @@ The goal: the client scans the HTML in 60 seconds, understands which pages/compo
 Ask the user for:
 
 1. **Client name, roadmap file, and data audit.** List the markdown files in the brand's folder under `brands/[brand-name]/` and let them pick the roadmap and data audit. The data audit is required for the Data Insights tab. If only one of each exists, confirm them.
-2. **Homepage screenshot.** Ask the user to paste or provide a screenshot of the client's homepage. This is required both as a visual reference and as the default branded picture used in the hero. Use it to extract:
+2. **Homepage screenshot.** Ask the user to paste or provide a screenshot of the client's homepage. This is required as a visual reference and serves as the hero fallback when no stronger brand-owned image is available. Use it to extract:
    - Primary brand color (hex)
    - Secondary/accent color if present
    - Overall visual style (light/dark, minimal/bold)
    - **Typography style**: condensed vs. regular weight, uppercase vs. mixed case, geometric vs. humanist, serif vs. sans-serif. Match the brand's typographic character while preserving strong web readability.
-3. **Hero brand image** (optional). Ask for a preferred product, lifestyle, campaign, or homepage image to feature in the hero. If none is provided, use the homepage screenshot as the hero picture. Do not replace the picture with a generic illustration, texture, gradient, or abstract decoration.
+3. **Hero brand image** (optional). Ask for a preferred product, lifestyle, campaign, or homepage image to feature in the hero. If the user leaves the choice to you, run the hero-image selection process in Step 2. Use the homepage screenshot only as the fallback after inspecting better brand-owned candidates. Do not replace the picture with a generic illustration, texture, gradient, or abstract decoration.
 4. **Logo URL or logo file.** Prefer a transparent SVG or PNG. If no usable logo is available, render the brand name as text rather than using a broken or low-quality asset. Do not automatically invert or recolor a logo. Choose a hero treatment that preserves the logo's intended appearance.
 5. **Estimated launch dates** (optional). Per-slot timelines, e.g., "2 weeks after confirmation". If not provided, omit the launch date UI.
 
@@ -25,6 +25,15 @@ Ask the user for:
 
 - Read the selected roadmap markdown file and the data audit file.
 - Inspect every available screenshot for each tested surface, not only the homepage. Use PDP, collection, cart, checkout, popup, quiz, landing-page, and mobile screenshots when they exist.
+- **Select the hero image before choosing the hero layout.** When the user does not provide a preferred image:
+  1. Collect at least three brand-owned candidates when available. Inspect the live site's Open Graph or social-share image, campaign and lifestyle banners, theme hero assets, featured product photography, and the homepage screenshot.
+  2. Open every candidate visually. Do not choose from filenames, HTML attributes, or dimensions alone.
+  3. Rank candidates by: clear product or use-case relevance, complete and recognizable subject, sufficient resolution, compatibility with an editorial crop, useful negative space, and consistency with the brand.
+  4. Prefer a purpose-built wide social-share, campaign, or lifestyle image over a vertical theme crop or full-page screenshot when it shows the product clearly and suits the roadmap hero.
+  5. Reject images whose main subject will be cut off in the intended frame, whose baked-in text competes with the roadmap title, whose resolution is visibly weak, or whose subject does not represent the core product.
+  6. Choose the hero composition from the winning image's aspect ratio. Use wide images in wide split or full-bleed frames. Use portrait images in narrower editorial frames. Never force a portrait asset into a wide landscape panel or a wide asset into a near-square crop.
+  7. Record the intended desktop and mobile focal point and set `object-position` separately when needed.
+  8. If no suitable brand-owned image exists or the live site cannot be inspected, use the homepage screenshot as an editorial crop.
 - Analyze the homepage screenshot, hero brand image, and logo together to determine brand colors, visual tone, imagery treatment, and typography. Pay close attention to whether the brand uses serif or sans-serif fonts, condensed or regular weights, uppercase or mixed case. The roadmap's visual system must feel related to the brand, not like a generic skin applied afterward.
 - Identify two or three repeatable brand cues to carry through the roadmap, such as corner shape, border treatment, type scale, image crop, label style, or restrained decorative motif. Use them consistently without imitating the storefront page-for-page.
 - For every slot, identify the exact screenshot or source artifact that documents the current surface. Record its recognizable interface anatomy, real labels, product names, imagery, controls, colors, and hierarchy before designing the illustration.
@@ -141,8 +150,9 @@ Do not treat creativity as permission for random asymmetry, excessive motion, ov
 
 The hero is the main branded moment and must include a real brand picture.
 
-- Feature the provided hero brand image. If none was provided, use the homepage screenshot.
+- Feature the provided hero brand image. If the user left the image choice open, use the highest-ranked candidate from the Step 2 selection process.
 - If using the homepage screenshot as the hero picture (no separate brand image provided), treat it as an editorial crop rather than a full-bleed background. Frame a meaningful portion of it, apply an overlay or surface alongside it, or use a split-layout composition. Do not stretch a UI screenshot across the full hero width.
+- Design the image frame around the source aspect ratio and focal point. The hero layout must preserve the product, person, vehicle, or other main subject without accidental cropping.
 - Use the picture as a full-bleed background, split-layout image, framed editorial crop, or another brand-appropriate composition.
 - Apply an overlay, crop, or adjacent surface as needed so the roadmap title and summary remain highly readable.
 - Include the logo when it improves the composition. Preserve its aspect ratio and intended colors.
@@ -150,6 +160,7 @@ The hero is the main branded moment and must include a real brand picture.
 - Do not place explanatory labels, captions, or internal notes on the hero image, such as "homepage visual reference", "hero image", "brand screenshot", or similar. These are production/client-facing pages, not annotated design drafts.
 - Keep the hero purposeful. Do not add decorative metrics, test-count pills, fake UI previews, or visual clutter unless they communicate useful roadmap information and genuinely fit the brand.
 - The picture must remain visible and meaningful on desktop and mobile. Do not hide it entirely behind an opaque overlay.
+- Render the completed hero at a standard laptop viewport and a mobile viewport before finalizing. If the main subject is cropped, too small, obscured, or visually secondary at either size, change the crop, frame proportions, `object-position`, or image candidate. Do not ship the first technically valid image.
 
 The rest of the page should support the hero rather than compete with it.
 
@@ -386,6 +397,10 @@ Before saving, verify silently:
 - [ ] Brand color from the screenshot is applied consistently
 - [ ] The design visibly reflects the brand's imagery, typography, logo, palette, and visual character rather than only swapping an accent color
 - [ ] The hero contains a real brand picture, and the picture remains meaningfully visible on desktop and mobile
+- [ ] When the user left the hero choice open, at least three brand-owned candidates were visually inspected when available, including the live site's social-share or Open Graph image
+- [ ] The chosen image was selected for product relevance, composition, resolution, and crop compatibility, not from its filename or availability alone
+- [ ] The hero frame matches the source image aspect ratio closely enough to preserve the main subject
+- [ ] The desktop and mobile hero renders were visually checked, and the subject remains recognizable without accidental cropping
 - [ ] The hero image has no explanatory labels, captions, or internal notes such as "homepage visual reference"
 - [ ] The logo is sharp, correctly proportioned, and readable without automatic inversion or a visible matte
 - [ ] Hero title and summary remain readable over or beside the picture
