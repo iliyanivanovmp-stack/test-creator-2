@@ -36,7 +36,7 @@ Ask the user for:
   8. If no suitable brand-owned image exists or the live site cannot be inspected, use the homepage screenshot as an editorial crop.
 - Analyze the homepage screenshot, hero brand image, and logo together to determine brand colors, visual tone, imagery treatment, and typography. Pay close attention to whether the brand uses serif or sans-serif fonts, condensed or regular weights, uppercase or mixed case. The roadmap's visual system must feel related to the brand, not like a generic skin applied afterward.
 - Identify two or three repeatable brand cues to carry through the roadmap, such as corner shape, border treatment, type scale, image crop, label style, or restrained decorative motif. Use them consistently without imitating the storefront page-for-page.
-- For every slot, identify the exact screenshot or source artifact that documents the current surface. Record its recognizable interface anatomy, real labels, product names, imagery, controls, colors, and hierarchy before designing the illustration.
+- For every slot, create a silent source map before designing the illustration. Record: the exact screenshot or artifact, the tested surface, recognizable interface anatomy, real labels, product names, available local or public image assets, three or more brand cues, the changed zone, and the planned current-versus-variation composition. Do not start the SVG until this map is complete.
 - Identify the roadmap structure: does it have an Insights/What We Found section? How many slots? A/B tests vs dev projects?
 - Identify the data audit structure: which data sources were collected, what are the key findings per source, and what are the cross-source themes?
 
@@ -114,7 +114,7 @@ This command controls the roadmap's information architecture, Shopify requiremen
 
 Treat every slot illustration as a miniature branded product mockup that explains the test.
 
-The illustration must look like a simplified reconstruction of the client's real website, not a diagram documenting where boxes move. Aim for Dose-level visual specificity and explanatory clarity while preserving this skill's restraint: no evidence tables in the Tests tab, no long internal reasoning, no technical brief, and no tiny unreadable microcopy.
+The illustration must look like a simplified reconstruction of the client's real website, not a diagram documenting where boxes move. Use the strongest available source assets and preserve this skill's restraint: no evidence tables in the Tests tab, no long internal reasoning, no technical brief, and no tiny unreadable microcopy.
 
 The client should be able to recognize their own interface and understand the proposed change within three seconds.
 
@@ -253,7 +253,13 @@ These are the content and layout requirements. The visual styling comes from the
 - Use at least three recognizable brand or interface cues inside each SVG. Examples: logo treatment, product colors, orange selected states, distinctive buttons, serif offer headings, pale-blue reassurance panels, thumbnail style, icon treatment, or the actual storefront spacing rhythm.
 - Use real documented copy wherever it fits: product names, offer language, coupon codes, prices, ratings, selectors, CTA text, review counts, policy labels, error text, and friction points. Do not replace known content with generic labels.
 - When a screenshot exists, do not use placeholders such as `Hero image`, `Bedroom image`, `Gallery`, `Product content`, `Matched promise`, `Relevant proof line`, `Buy box`, or `Product card`. Draw a simplified visual representation of the documented content instead.
-- Represent documented imagery with simplified vector artwork, clipped image crops, embedded data-URI assets, or public CDN assets. A mattress can look like a mattress; a bottle can look like a bottle; a product thumbnail can use the real product image. Do not use a blank rectangle with an image label when the source image is available.
+- **Use an asset-first hierarchy for documented imagery.** Apply this order:
+  1. Use the real public or embedded product, campaign, lifestyle, logo, or interface asset when it is available and remains recognizable at mockup scale.
+  2. If the original asset cannot be isolated safely, use a clipped crop from the documented screenshot.
+  3. Use simplified vector artwork only as a last resort when no usable asset exists, an asset would make the composition technically fragile, or abstraction communicates a non-visual state more clearly.
+- Actively look for usable local originals, public Shopify/CDN URLs, and screenshot crops before choosing vectors. Do not choose vector artwork merely because it is faster to draw. For product-led and image-led surfaces, authentic imagery is the default.
+- Across a typical multi-slot roadmap, vector-led mockups should be exceptions rather than the overall visual strategy. One or two vector-led slots are acceptable when their source or concept requires them. More are acceptable only when assets are genuinely unavailable or unsuitable. Never turn an asset-rich roadmap into an all-vector board.
+- When vectors are necessary, reconstruct the documented subject with enough silhouette, color, material, and interface context to remain recognizable. Do not use a blank rectangle with an image label when the source image is available.
 - Reproduce logos accurately when a usable asset exists. If embedding the logo would create a broken or unsafe asset, use a carefully typeset brand name rather than an empty logo box.
 - For A/B tests, default to a current-vs-variation composition, but choose the composition that best explains the idea. Use three-state comparisons, interaction sequences, funnels, scroll states, or one enlarged annotated component when those communicate the concept better.
 - Make the changed zone obvious within three seconds. Preserve enough identical surrounding interface in current and variation states that the client can see exactly what changed.
@@ -263,6 +269,7 @@ These are the content and layout requirements. The visual styling comes from the
 - Do not invent client facts, interface labels, prices, products, proof, or metrics. Every concrete detail must trace to the roadmap, audit, screenshot, or verified page. If the surface is undocumented, produce an honest generic concept state and say it needs visual confirmation.
 - Keep the result medium fidelity. It should feel like a reduced-scale branded interface mockup, not a final production design and not a grey-box wireframe. Avoid photorealistic fabrication, decorative scenes, and unrelated illustration.
 - Avoid a universal SVG template. Vary composition according to the idea while keeping the roadmap's overall visual system coherent.
+- When several slots affect the same surface, reuse the accurate base interface but vary the explanatory scale or composition. Use a full-surface comparison, a focused component enlargement, a state sequence, or a contextual journey view as appropriate. Do not repeat the same two-panel layout more than twice unless no other composition explains the change clearly.
 - Avoid over-dense microcopy. Simplify surrounding UI before shrinking text. Preserve the changed zone and the most recognizable source-backed details.
 
 **Visual reconstruction sequence.** Perform this sequence for every slot:
@@ -296,6 +303,13 @@ These are the content and layout requirements. The visual styling comes from the
 - Mobile SVG text must remain readable without zooming. Use a mobile-specific viewBox and larger relative type rather than scaling the desktop canvas down.
 - The mobile concept mockup must fit the slot card width with `width: 100%` and `min-width: 0`. Never use a large `min-width`, horizontal overflow, or an overflow container as a substitute for a responsive composition.
 - Keep the desktop view visually unchanged when adding the mobile composition. Scope all visibility and layout switching to the mobile media query.
+
+**Rendered concept-board QA.** Do not validate the SVGs only by reading the markup.
+- Render the complete Tests tab at a standard laptop viewport and a mobile viewport after all slots are assembled.
+- Review every slot together. Check whether the board feels like one quality level, whether authentic imagery is used wherever practical, and whether repeated surfaces have distinct explanatory compositions.
+- Score every desktop concept mockup from 1 to 5 on: source resemblance, brand/interface cues, asset fidelity when imagery exists, changed-zone clarity, presentation-scale readability, and composition distinctness. Treat asset fidelity as not applicable only when the concept genuinely has no useful visual asset.
+- Require a score of at least 4 in every applicable category. Revise any failing mockup, then render again.
+- Even when all mockups pass, identify the two weakest concepts relative to the rest of the board and improve them before finalizing. Do not allow one polished hero or one exceptional slot to hide weaker middle-of-page work.
 
 **SVG pre-planning.** Before writing each SVG, silently define:
 
@@ -417,11 +431,16 @@ Before saving, verify silently:
 - [ ] Each SVG includes concrete source-backed UI details where documented: labels, coupon codes, prices, ratings, selectors, CTA text, error text, or friction points
 - [ ] Each SVG reproduces at least three recognizable brand/interface cues from the source surface
 - [ ] Each SVG was designed from the exact relevant screenshot or source asset when one exists
-- [ ] Known imagery is represented visually with vector artwork, a clipped crop, an embedded asset, or a public asset, not a blank labeled rectangle
+- [ ] A silent source map was completed for every slot before SVG generation
+- [ ] Known imagery follows the asset-first hierarchy: real or embedded asset first, screenshot crop second, simplified vector only as a justified last resort
+- [ ] Product-led and image-led surfaces use authentic imagery wherever a safe usable asset exists
+- [ ] Vector-led mockups are exceptions across the board, not the default strategy when the source set is asset-rich
+- [ ] Necessary vectors preserve the documented subject's recognizable silhouette, color, material, and interface context
 - [ ] Each SVG makes the changed zone obvious within 3 seconds through a highlight, conflict marker, removed space, moved module, before/after alignment, or callout
 - [ ] No SVG is merely a symbolic icon, abstract concept diagram, decorative scene, or generic box layout
 - [ ] Placeholder labels such as "Hero image", "Gallery", "Product content", "Matched promise", "Product card", or "Buy box" are absent when the documented element can be drawn
 - [ ] The current and variation states look like the same branded interface, with the tested region visibly changed
+- [ ] Repeated surfaces use distinct explanatory scales or compositions; the same two-panel layout is not repeated more than twice without a clear reason
 - [ ] SVG styling uses the client's typography character, palette, control shapes, imagery treatment, and UI hierarchy rather than a universal grey wireframe system
 - [ ] SVG text: high contrast, full opacity, no overlapping elements, heavy enough weight to read at screen resolution
 - [ ] SVG text is readable without zooming during a screen share — if any label looks small, increase font-size and expand the viewBox
@@ -432,6 +451,9 @@ Before saving, verify silently:
 - [ ] Mobile SVG text and concrete labels remain readable without zooming
 - [ ] Mobile concept-mockup containers use `width: 100%` and `min-width: 0`, with no large `min-width` or horizontal overflow
 - [ ] Desktop SVG composition and desktop layout remain unchanged by the mobile implementation
+- [ ] The complete Tests tab was rendered and reviewed at standard laptop and mobile viewports
+- [ ] Every desktop concept mockup scored at least 4/5 for source resemblance, brand cues, applicable asset fidelity, changed-zone clarity, readability, and composition distinctness
+- [ ] The two weakest concept mockups were improved after the full-board comparison and the board was rendered again
 - [ ] Data Insights tab: "Biggest Killers of Conversion Rate" section appears at the top, before data sources and per-source findings
 - [ ] "Biggest Killers of Conversion Rate" is the strongest visual block in Data Insights
 - [ ] Data Insights lists have no theme-injected bullets, tiny colored dashes, checkmarks, or decorative `li::before` markers. Reset `ul`, `ol`, `li`, `li::marker`, and Data Insights list `li::before`/`li::after` inside `#cvrt-roadmap`
