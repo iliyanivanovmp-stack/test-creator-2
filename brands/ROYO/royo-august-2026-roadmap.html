@@ -1,0 +1,683 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap {
+  --cvrt-ink: #0a0a08;
+  --cvrt-cream: #fff9ed;
+  --cvrt-paper: #fffdf8;
+  --cvrt-yellow: #ffd20a;
+  --cvrt-red: #c83d36;
+  --cvrt-green: #48a900;
+  --cvrt-blue: #a9c9ee;
+  --cvrt-orange: #ff7424;
+  --cvrt-pink: #e99ad7;
+  --cvrt-muted: #6f6b63;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-cream);
+  color: var(--cvrt-ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+#cvrt-roadmap .cvrt-tab-input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-hero { background: var(--cvrt-yellow); }
+#cvrt-roadmap .cvrt-hero-grid { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(440px, 1.08fr); min-height: 590px; }
+#cvrt-roadmap .cvrt-hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: clamp(54px, 7vw, 104px) clamp(28px, 6vw, 92px) 48px; }
+#cvrt-roadmap .cvrt-logo { width: 164px; height: auto; display: block; margin-bottom: 58px; mix-blend-mode: multiply; }
+#cvrt-roadmap .cvrt-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 15px; }
+#cvrt-roadmap .cvrt-hero-title { font-family: "Archivo Black", sans-serif; font-size: clamp(46px, 6vw, 82px); line-height: .94; letter-spacing: -.055em; max-width: 700px; }
+#cvrt-roadmap .cvrt-hero-summary { max-width: 610px; font-size: 18px; line-height: 1.55; margin-top: 26px; }
+#cvrt-roadmap .cvrt-hero-image { position: relative; min-width: 0; background: #ece9e4; overflow: hidden; }
+#cvrt-roadmap .cvrt-hero-image img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 48%; }
+#cvrt-roadmap .cvrt-checker { position: absolute; right: 24px; top: 24px; width: 88px; height: 88px; background: conic-gradient(var(--cvrt-yellow) 25%, var(--cvrt-ink) 0 50%, var(--cvrt-yellow) 0 75%, var(--cvrt-ink) 0) 0 0 / 22px 22px; border: 8px solid var(--cvrt-paper); }
+#cvrt-roadmap .cvrt-tabbar { display: grid; grid-template-columns: 1fr 1fr; background: var(--cvrt-ink); color: white; }
+#cvrt-roadmap .cvrt-tab-label { cursor: pointer; text-align: center; padding: 20px 24px; font-family: "Archivo Black", sans-serif; font-size: 15px; letter-spacing: .02em; transition: background .2s ease, color .2s ease; }
+#cvrt-roadmap .cvrt-tab-label + .cvrt-tab-label { box-shadow: inset 1px 0 rgba(255,255,255,.22); }
+#cvrt-roadmap .cvrt-tab-label:hover { background: #282824; }
+#cvrt-roadmap .cvrt-tab-panel { display: none; padding: 62px 24px 78px; background: var(--cvrt-cream); }
+#cvrt-roadmap #cvrt-tests-toggle:checked ~ .cvrt-hero .cvrt-tabbar .cvrt-tests-label,
+#cvrt-roadmap #cvrt-insights-toggle:checked ~ .cvrt-hero .cvrt-tabbar .cvrt-insights-label { background: var(--cvrt-paper); color: var(--cvrt-ink); }
+#cvrt-roadmap #cvrt-tests-toggle:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-insights-toggle:checked ~ .cvrt-insights-panel { display: block; }
+#cvrt-roadmap .cvrt-section-intro { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 32px; }
+#cvrt-roadmap .cvrt-section-kicker { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+#cvrt-roadmap .cvrt-section-title { font-family: "Archivo Black", sans-serif; font-size: clamp(32px, 4vw, 48px); line-height: 1; letter-spacing: -.04em; }
+#cvrt-roadmap .cvrt-slot { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 30px; background: var(--cvrt-paper); border: 1px solid rgba(10,10,8,.14); box-shadow: 0 14px 34px rgba(53,41,20,.08); break-inside: avoid; }
+#cvrt-roadmap .cvrt-slot-copy { max-width: 650px; padding: 34px 38px 32px; }
+#cvrt-roadmap .cvrt-slot-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+#cvrt-roadmap .cvrt-slot-label { font-family: "Archivo Black", sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+#cvrt-roadmap .cvrt-type { display: inline-flex; align-items: center; min-height: 25px; padding: 4px 9px; background: var(--cvrt-yellow); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-slot-title { font-family: "Archivo Black", sans-serif; font-size: clamp(27px, 3vw, 39px); line-height: 1.04; letter-spacing: -.035em; }
+#cvrt-roadmap .cvrt-page { display: block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--cvrt-red); }
+#cvrt-roadmap .cvrt-page a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { margin-top: 17px; font-size: 16px; line-height: 1.66; color: #292823; }
+#cvrt-roadmap .cvrt-concept { padding: 24px; background: #f5f0e6; border-top: 1px solid rgba(10,10,8,.12); }
+#cvrt-roadmap .cvrt-concept svg { display: block; width: 100%; height: auto; background: #fff; }
+#cvrt-roadmap .cvrt-svg-mobile { display: none !important; min-width: 0; }
+#cvrt-roadmap .cvrt-caption { margin-top: 12px; color: #191815; font-size: 12px; line-height: 1.5; font-style: italic; }
+#cvrt-roadmap .cvrt-killers { max-width: 860px; margin-left: auto; margin-right: auto; padding: 42px; background: var(--cvrt-ink); color: white; }
+#cvrt-roadmap .cvrt-killers h2 { font-family: "Archivo Black", sans-serif; font-size: clamp(30px, 4vw, 48px); line-height: 1.02; letter-spacing: -.04em; max-width: 650px; }
+#cvrt-roadmap .cvrt-killer-list { margin-top: 26px; display: grid; gap: 12px; }
+#cvrt-roadmap .cvrt-killer-list li { padding: 17px 19px; background: rgba(255,255,255,.09); font-size: 15px; line-height: 1.5; }
+#cvrt-roadmap .cvrt-sources { max-width: 860px; margin-left: auto; margin-right: auto; padding: 40px 0 22px; }
+#cvrt-roadmap .cvrt-sources h2,
+#cvrt-roadmap .cvrt-findings-title { font-family: "Archivo Black", sans-serif; font-size: 26px; line-height: 1.08; }
+#cvrt-roadmap .cvrt-source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+#cvrt-roadmap .cvrt-source-chip { min-height: 86px; display: flex; align-items: flex-end; padding: 16px; background: var(--cvrt-yellow); font-weight: 700; line-height: 1.25; }
+#cvrt-roadmap .cvrt-source-chip:nth-child(2),
+#cvrt-roadmap .cvrt-source-chip:nth-child(5) { background: var(--cvrt-blue); }
+#cvrt-roadmap .cvrt-source-chip:nth-child(3),
+#cvrt-roadmap .cvrt-source-chip:nth-child(6) { background: var(--cvrt-pink); }
+#cvrt-roadmap .cvrt-findings { max-width: 860px; margin-left: auto; margin-right: auto; padding-top: 26px; }
+#cvrt-roadmap .cvrt-findings-title { margin-bottom: 16px; }
+#cvrt-roadmap .cvrt-source-block { background: var(--cvrt-paper); border: 1px solid rgba(10,10,8,.14); padding: 28px 30px; margin-bottom: 12px; }
+#cvrt-roadmap .cvrt-source-block h3 { font-family: "Archivo Black", sans-serif; font-size: 20px; line-height: 1.12; }
+#cvrt-roadmap .cvrt-source-list { margin-top: 15px; display: grid; gap: 11px; }
+#cvrt-roadmap .cvrt-source-list li { color: #292823; font-size: 15px; line-height: 1.58; }
+#cvrt-roadmap .cvrt-footer { padding: 28px 24px; text-align: center; background: var(--cvrt-yellow); font-family: "Archivo Black", sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 760px) {
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-copy { padding: 34px 22px 32px; }
+  #cvrt-roadmap .cvrt-logo { width: 118px; margin-bottom: 40px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: clamp(42px, 14vw, 60px); }
+  #cvrt-roadmap .cvrt-hero-summary { font-size: 16px; margin-top: 20px; }
+  #cvrt-roadmap .cvrt-hero-image { height: 410px; }
+  #cvrt-roadmap .cvrt-hero-image img { object-position: 50% 43%; }
+  #cvrt-roadmap .cvrt-checker { width: 58px; height: 58px; right: 14px; top: 14px; background-size: 14px 14px; border-width: 5px; }
+  #cvrt-roadmap .cvrt-tab-label { padding: 17px 12px; font-size: 13px; }
+  #cvrt-roadmap .cvrt-tab-panel { padding: 42px 14px 54px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 27px 22px 25px; }
+  #cvrt-roadmap .cvrt-description { font-size: 15px; }
+  #cvrt-roadmap .cvrt-concept { padding: 12px; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: none !important; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: block !important; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-killers { padding: 30px 22px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+  #cvrt-roadmap .cvrt-source-chip { min-height: 74px; padding: 13px; font-size: 13px; }
+  #cvrt-roadmap .cvrt-source-block { padding: 23px 21px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-tabbar { display: none; }
+  #cvrt-roadmap .cvrt-tab-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: block !important; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: none !important; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tests-toggle" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-insights-toggle">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://cdn.shopify.com/s/files/1/0093/1564/7552/files/High_Res_Logo_1.png?v=1683139796" alt="Royo">
+        <p class="cvrt-eyebrow">Conversion testing roadmap</p>
+        <h1 class="cvrt-hero-title">August<br>2026</h1>
+        <p class="cvrt-hero-summary">Royo has a product customers genuinely value, but slow first impressions, conflicting offers, and uneven proof weaken the path to purchase. This roadmap makes the experience faster, clearer, and easier to trust from first click through cart.</p>
+      </div>
+      <div class="cvrt-hero-image">
+        <img src="https://eatroyo.com/cdn/shop/files/new-design-hero.png?v=1767105474" alt="A stack of Royo bagel sandwiches">
+        <span class="cvrt-checker" aria-hidden="true"></span>
+      </div>
+    </div>
+    <nav class="cvrt-tabbar" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label cvrt-tests-label" for="cvrt-tests-toggle">Tests</label>
+      <label class="cvrt-tab-label cvrt-insights-label" for="cvrt-insights-toggle">Data Insights</label>
+    </nav>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-tests-panel">
+    <div class="cvrt-section-intro">
+      <p class="cvrt-section-kicker">Eight focused ideas</p>
+      <h2 class="cvrt-section-title">What we want to test</h2>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Homepage and Landing Page Speed</h2>
+        <span class="cvrt-page">Homepage and paid-traffic landing page</span>
+        <p class="cvrt-description">The homepage and paid-traffic landing page take 11 to 12 seconds to display their main content. That wait interrupts the experience at the moment shoppers expect the promise they clicked to see. The variation keeps the same page but makes the hero visible in under three seconds.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 430" role="img" aria-label="Current slow-loading homepage compared with a fully visible faster variation">
+          <defs><clipPath id="cvrt-s1d-a"><rect x="427" y="70" width="345" height="270"/></clipPath></defs>
+          <rect width="812" height="430" fill="#fff9ed"/>
+          <text x="38" y="42" font-family="DM Sans" font-size="15" font-weight="700" fill="#0a0a08">CURRENT</text>
+          <text x="427" y="42" font-family="DM Sans" font-size="15" font-weight="700" fill="#0a0a08">VARIATION</text>
+          <rect x="38" y="70" width="345" height="270" fill="#fff" stroke="#bdb7aa"/>
+          <rect x="38" y="70" width="345" height="28" fill="#ffd20a"/>
+          <text x="54" y="89" font-family="Archivo Black" font-size="12" fill="#0a0a08">ROYO</text>
+          <text x="119" y="88" font-family="DM Sans" font-size="8" font-weight="700" fill="#0a0a08">OUR STORY   SHOP   BLOG   FAQS</text>
+          <rect x="64" y="127" width="142" height="16" fill="#e4e0d7"/>
+          <rect x="64" y="153" width="225" height="16" fill="#e4e0d7"/>
+          <rect x="64" y="194" width="286" height="104" fill="#f2efe8"/>
+          <circle cx="207" cy="246" r="21" fill="none" stroke="#c83d36" stroke-width="5" stroke-dasharray="28 14"/>
+          <text x="151" y="329" font-family="DM Sans" font-size="14" font-weight="700" fill="#c83d36">11 to 12 second wait</text>
+          <rect x="427" y="70" width="345" height="270" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <rect x="427" y="70" width="345" height="28" fill="#ffd20a"/>
+          <text x="443" y="89" font-family="Archivo Black" font-size="12" fill="#0a0a08">ROYO</text>
+          <text x="508" y="88" font-family="DM Sans" font-size="8" font-weight="700" fill="#0a0a08">OUR STORY   SHOP   BLOG   FAQS</text>
+          <rect x="427" y="98" width="165" height="242" fill="#fff9ed"/>
+          <text x="447" y="149" font-family="Archivo Black" font-size="19" fill="#0a0a08">BUY MORE.</text>
+          <text x="447" y="174" font-family="Archivo Black" font-size="19" fill="#0a0a08">SAVE MORE.</text>
+          <text x="447" y="202" font-family="Archivo Black" font-size="19" fill="#c83d36">UP TO $15 OFF</text>
+          <rect x="447" y="235" width="120" height="27" rx="14" fill="#c83d36"/>
+          <text x="507" y="253" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff">SHOP NOW</text>
+          <image href="https://eatroyo.com/cdn/shop/files/banner-new-year-sale.png?v=1767012515" x="592" y="98" width="180" height="242" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s1d-a)"/>
+          <rect x="509" y="356" width="181" height="38" fill="#0a0a08"/>
+          <text x="600" y="381" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#ffd20a">VISIBLE IN UNDER 3S</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 650" role="img" aria-label="Current slow-loading homepage above a fully visible faster variation">
+          <rect width="360" height="650" fill="#fff9ed"/>
+          <text x="18" y="30" font-family="DM Sans" font-size="14" font-weight="700">CURRENT</text>
+          <rect x="18" y="48" width="324" height="210" fill="#fff" stroke="#bdb7aa"/>
+          <rect x="18" y="48" width="324" height="26" fill="#ffd20a"/>
+          <text x="32" y="66" font-family="Archivo Black" font-size="11">ROYO</text>
+          <text x="94" y="65" font-family="DM Sans" font-size="7" font-weight="700">OUR STORY   SHOP   BLOG   FAQS</text>
+          <rect x="40" y="101" width="190" height="15" fill="#e4e0d7"/>
+          <rect x="40" y="126" width="260" height="15" fill="#e4e0d7"/>
+          <rect x="40" y="158" width="280" height="62" fill="#f2efe8"/>
+          <text x="180" y="244" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="700" fill="#c83d36">11 to 12 second wait</text>
+          <path d="M180 278v36m-12-12 12 12 12-12" fill="none" stroke="#0a0a08" stroke-width="3"/>
+          <text x="18" y="343" font-family="DM Sans" font-size="14" font-weight="700">VARIATION</text>
+          <rect x="18" y="362" width="324" height="230" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <rect x="18" y="362" width="324" height="26" fill="#ffd20a"/>
+          <text x="32" y="380" font-family="Archivo Black" font-size="11">ROYO</text>
+          <text x="94" y="379" font-family="DM Sans" font-size="7" font-weight="700">OUR STORY   SHOP   BLOG   FAQS</text>
+          <image href="https://eatroyo.com/cdn/shop/files/banner-new-year-sale.png?v=1767012515" x="187" y="388" width="155" height="204" preserveAspectRatio="xMidYMid slice"/>
+          <text x="37" y="438" font-family="Archivo Black" font-size="17">BUY MORE.</text>
+          <text x="37" y="461" font-family="Archivo Black" font-size="17">SAVE MORE.</text>
+          <text x="37" y="486" font-family="Archivo Black" font-size="17" fill="#c83d36">$15 OFF</text>
+          <rect x="37" y="513" width="126" height="30" rx="15" fill="#c83d36"/>
+          <text x="100" y="533" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff">SHOP NOW</text>
+          <text x="180" y="624" text-anchor="middle" font-family="Archivo Black" font-size="14">VISIBLE IN UNDER 3S</text>
+        </svg>
+        <p class="cvrt-caption">The same storefront appears before intent cools. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Site-wide Offer Messaging</h2>
+        <span class="cvrt-page">Homepage, product pages, and cart</span>
+        <p class="cvrt-description">The paid landing page promises 26% off with code NY26, the homepage says up to $15 off, and the product page leads with 15% subscription savings. These competing frames make the value harder to follow across pages. The variation carries the 26% offer through the journey while keeping subscription benefits as an additional value layer.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 485" role="img" aria-label="Three conflicting offers unified around one 26 percent discount code">
+          <rect width="812" height="485" fill="#fff9ed"/>
+          <text x="34" y="39" font-family="DM Sans" font-size="14" font-weight="700">CURRENT JOURNEY</text>
+          <g font-family="DM Sans">
+            <rect x="34" y="61" width="222" height="133" fill="#fff" stroke="#bdb7aa"/>
+            <rect x="34" y="61" width="222" height="25" fill="#0a0a08"/>
+            <text x="47" y="78" font-size="10" font-weight="700" fill="#fff">PAID LANDING PAGE</text>
+            <text x="145" y="124" text-anchor="middle" font-family="Archivo Black" font-size="18" fill="#c83d36">26% OFF</text>
+            <text x="145" y="151" text-anchor="middle" font-size="13" font-weight="700">CODE NY26</text>
+            <rect x="295" y="61" width="222" height="133" fill="#fff" stroke="#bdb7aa"/>
+            <rect x="295" y="61" width="222" height="25" fill="#ffd20a"/>
+            <text x="308" y="78" font-size="10" font-weight="700">HOMEPAGE</text>
+            <text x="406" y="124" text-anchor="middle" font-family="Archivo Black" font-size="17">UP TO $15 OFF</text>
+            <text x="406" y="151" text-anchor="middle" font-size="12" font-weight="700">BUY MORE, SAVE MORE</text>
+            <rect x="556" y="61" width="222" height="133" fill="#fff" stroke="#bdb7aa"/>
+            <rect x="556" y="61" width="222" height="25" fill="#48a900"/>
+            <text x="569" y="78" font-size="10" font-weight="700" fill="#fff">PRODUCT PAGE</text>
+            <text x="667" y="124" text-anchor="middle" font-family="Archivo Black" font-size="17">SAVE 15%</text>
+            <text x="667" y="151" text-anchor="middle" font-size="12" font-weight="700">SUBSCRIBE</text>
+          </g>
+          <path d="M406 218v46m-14-14 14 14 14-14" stroke="#0a0a08" stroke-width="3" fill="none"/>
+          <text x="34" y="305" font-family="DM Sans" font-size="14" font-weight="700">VARIATION</text>
+          <rect x="34" y="326" width="744" height="125" fill="#ffd20a" stroke="#0a0a08" stroke-width="2"/>
+          <text x="66" y="372" font-family="Archivo Black" font-size="28">26% OFF WITH CODE NY26</text>
+          <rect x="550" y="344" width="198" height="90" fill="#fff"/>
+          <text x="568" y="367" font-family="DM Sans" font-size="12" font-weight="700">SUBSCRIPTION BENEFITS</text>
+          <text x="568" y="389" font-family="DM Sans" font-size="11" font-weight="700">Save 15% off every order</text>
+          <text x="568" y="406" font-family="DM Sans" font-size="11" font-weight="700">Skip, pause, or cancel anytime</text>
+          <text x="568" y="423" font-family="DM Sans" font-size="11" font-weight="700">Never run out of your favorites</text>
+          <text x="66" y="408" font-family="DM Sans" font-size="14" font-weight="700">One lead offer from first click through cart</text>
+          <text x="66" y="432" font-family="DM Sans" font-size="11" font-weight="700">LANDING PAGE  →  HOMEPAGE  →  PRODUCT PAGE  →  CART</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 760" role="img" aria-label="Conflicting offers stacked above one unified offer">
+          <rect width="360" height="760" fill="#fff9ed"/>
+          <text x="18" y="29" font-family="DM Sans" font-size="14" font-weight="700">CURRENT JOURNEY</text>
+          <g font-family="DM Sans">
+            <rect x="18" y="47" width="324" height="104" fill="#fff" stroke="#bdb7aa"/>
+            <rect x="18" y="47" width="324" height="24" fill="#0a0a08"/>
+            <text x="31" y="64" font-size="10" font-weight="700" fill="#fff">PAID LANDING PAGE</text>
+            <text x="180" y="111" text-anchor="middle" font-family="Archivo Black" font-size="20" fill="#c83d36">26% OFF, CODE NY26</text>
+            <rect x="18" y="167" width="324" height="104" fill="#fff" stroke="#bdb7aa"/>
+            <rect x="18" y="167" width="324" height="24" fill="#ffd20a"/>
+            <text x="31" y="184" font-size="10" font-weight="700">HOMEPAGE</text>
+            <text x="180" y="231" text-anchor="middle" font-family="Archivo Black" font-size="20">UP TO $15 OFF</text>
+            <rect x="18" y="287" width="324" height="104" fill="#fff" stroke="#bdb7aa"/>
+            <rect x="18" y="287" width="324" height="24" fill="#48a900"/>
+            <text x="31" y="304" font-size="10" font-weight="700" fill="#fff">PRODUCT PAGE</text>
+            <text x="180" y="351" text-anchor="middle" font-family="Archivo Black" font-size="20">SUBSCRIBE, SAVE 15%</text>
+          </g>
+          <path d="M180 417v34m-12-12 12 12 12-12" stroke="#0a0a08" stroke-width="3" fill="none"/>
+          <text x="18" y="487" font-family="DM Sans" font-size="14" font-weight="700">VARIATION</text>
+          <rect x="18" y="505" width="324" height="223" fill="#ffd20a" stroke="#0a0a08" stroke-width="2"/>
+          <text x="180" y="552" text-anchor="middle" font-family="Archivo Black" font-size="21">26% OFF</text>
+          <text x="180" y="580" text-anchor="middle" font-family="Archivo Black" font-size="21">WITH CODE NY26</text>
+          <rect x="42" y="606" width="276" height="96" fill="#fff"/>
+          <text x="58" y="629" font-family="DM Sans" font-size="11" font-weight="700">SUBSCRIPTION BENEFITS</text>
+          <text x="58" y="651" font-family="DM Sans" font-size="11" font-weight="700">Save 15% off every order</text>
+          <text x="58" y="668" font-family="DM Sans" font-size="11" font-weight="700">Skip, pause, or cancel anytime</text>
+          <text x="58" y="685" font-family="DM Sans" font-size="11" font-weight="700">Never run out of your favorites</text>
+          <text x="180" y="748" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700">LANDING  →  HOME  →  PRODUCT  →  CART</text>
+        </svg>
+        <p class="cvrt-caption">One offer stays recognizable across the journey, with subscription benefits clearly additive. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Build-Your-Own Starter Pack</h2>
+        <span class="cvrt-page"><a href="https://eatroyo.com/products/4-pack-low-carb-bundle" target="_blank" rel="noopener">Royo Starter Pack product page</a></span>
+        <p class="cvrt-description">The Starter Pack fixes the mix at Plain, Cinnamon, Everything, and Artisan Bread, while reviews explicitly ask to choose the four items. A fixed assortment can turn one disliked flavor into a reason not to reorder. The variation lets shoppers build any four-item pack at the same $45 price.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 500" role="img" aria-label="Fixed Royo Starter Pack transformed into a four-item product picker">
+          <rect width="812" height="500" fill="#fff9ed"/>
+          <text x="30" y="37" font-family="DM Sans" font-size="14" font-weight="700">ROYO STARTER PACK</text>
+          <text x="782" y="37" text-anchor="end" font-family="Archivo Black" font-size="18">$45</text>
+          <rect x="30" y="57" width="300" height="396" fill="#fff" stroke="#bdb7aa"/>
+          <text x="52" y="84" font-family="DM Sans" font-size="12" font-weight="700">CURRENT, FIXED MIX</text>
+          <image href="https://eatroyo.com/cdn/shop/files/image_f1ed61c8-b4ae-4ff9-ada7-cf33093fdc5d.png?v=1708994186" x="50" y="98" width="260" height="220" preserveAspectRatio="xMidYMid meet"/>
+          <g font-family="DM Sans" font-size="12" font-weight="700" fill="#0a0a08">
+            <text x="54" y="352">Everything Bagels</text><text x="54" y="374">Artisan Bread</text><text x="54" y="396">Plain Bagels</text><text x="54" y="418">Cinnamon Raisin Bagels</text>
+          </g>
+          <rect x="365" y="57" width="417" height="396" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <rect x="365" y="57" width="417" height="43" fill="#ffd20a"/>
+          <text x="387" y="84" font-family="Archivo Black" font-size="17">BUILD YOUR OWN, PICK 4</text>
+          <g font-family="DM Sans">
+            <rect x="387" y="124" width="176" height="116" fill="#fff9ed" stroke="#ff7424" stroke-width="3"/>
+            <image href="https://eatroyo.com/cdn/shop/files/Everything_Bagel_1200x.png?v=1714488197" x="397" y="132" width="72" height="72" preserveAspectRatio="xMidYMid meet"/>
+            <text x="481" y="159" font-size="11" font-weight="700">Everything</text><text x="481" y="179" font-size="11">Qty 2</text>
+            <rect x="485" y="194" width="58" height="25" fill="#ff7424"/><text x="514" y="211" text-anchor="middle" font-size="11" font-weight="700">− 2 +</text>
+            <rect x="584" y="124" width="176" height="116" fill="#fff9ed" stroke="#ffd20a" stroke-width="3"/>
+            <image href="https://eatroyo.com/cdn/shop/files/image_1600x.png?v=1708911297" x="594" y="132" width="72" height="72" preserveAspectRatio="xMidYMid meet"/>
+            <text x="678" y="159" font-size="11" font-weight="700">Artisan Bread</text><text x="678" y="179" font-size="11">Qty 1</text>
+            <rect x="682" y="194" width="58" height="25" fill="#ffd20a"/><text x="711" y="211" text-anchor="middle" font-size="11" font-weight="700">− 1 +</text>
+            <rect x="387" y="258" width="176" height="116" fill="#fff9ed" stroke="#a9c9ee" stroke-width="3"/>
+            <text x="409" y="300" font-family="Archivo Black" font-size="17">PLAIN</text><text x="409" y="326" font-size="11">Qty 1</text>
+            <rect x="485" y="328" width="58" height="25" fill="#a9c9ee"/><text x="514" y="345" text-anchor="middle" font-size="11" font-weight="700">− 1 +</text>
+            <rect x="584" y="258" width="176" height="116" fill="#f6f3ec" stroke="#d4d0c8"/>
+            <text x="606" y="300" font-family="Archivo Black" font-size="17" fill="#8b877e">CINNAMON</text><text x="606" y="326" font-size="11" fill="#8b877e">Qty 0</text>
+            <rect x="387" y="396" width="373" height="34" fill="#0a0a08"/>
+            <text x="573" y="418" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4 OF 4 SELECTED, ADD TO CART</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 780" role="img" aria-label="Fixed Royo Starter Pack above a four-item picker">
+          <rect width="360" height="780" fill="#fff9ed"/>
+          <text x="18" y="29" font-family="DM Sans" font-size="14" font-weight="700">CURRENT, FIXED MIX</text>
+          <rect x="18" y="47" width="324" height="270" fill="#fff" stroke="#bdb7aa"/>
+          <image href="https://eatroyo.com/cdn/shop/files/image_f1ed61c8-b4ae-4ff9-ada7-cf33093fdc5d.png?v=1708994186" x="55" y="60" width="250" height="178" preserveAspectRatio="xMidYMid meet"/>
+          <text x="38" y="266" font-family="DM Sans" font-size="12" font-weight="700">Everything, Artisan, Plain, Cinnamon</text>
+          <text x="322" y="295" text-anchor="end" font-family="Archivo Black" font-size="18">$45</text>
+          <path d="M180 337v34m-12-12 12 12 12-12" stroke="#0a0a08" stroke-width="3" fill="none"/>
+          <text x="18" y="407" font-family="DM Sans" font-size="14" font-weight="700">VARIATION</text>
+          <rect x="18" y="425" width="324" height="327" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <rect x="18" y="425" width="324" height="42" fill="#ffd20a"/>
+          <text x="180" y="452" text-anchor="middle" font-family="Archivo Black" font-size="17">BUILD YOUR OWN, PICK 4</text>
+          <g font-family="DM Sans" font-size="12">
+            <rect x="38" y="489" width="284" height="48" fill="#fff9ed" stroke="#ff7424" stroke-width="2"/><text x="54" y="519" font-weight="700">Everything Bagels</text><text x="296" y="519" text-anchor="end" font-weight="700">− 2 +</text>
+            <rect x="38" y="549" width="284" height="48" fill="#fff9ed" stroke="#ffd20a" stroke-width="2"/><text x="54" y="579" font-weight="700">Artisan Bread</text><text x="296" y="579" text-anchor="end" font-weight="700">− 1 +</text>
+            <rect x="38" y="609" width="284" height="48" fill="#fff9ed" stroke="#a9c9ee" stroke-width="2"/><text x="54" y="639" font-weight="700">Plain Bagels</text><text x="296" y="639" text-anchor="end" font-weight="700">− 1 +</text>
+            <rect x="38" y="678" width="284" height="43" fill="#0a0a08"/><text x="180" y="705" text-anchor="middle" font-weight="700" fill="#fff">4 OF 4 SELECTED, $45</text>
+          </g>
+        </svg>
+        <p class="cvrt-caption">Shoppers replace the fixed mix with four products they choose themselves. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Toasting Benefit Message</h2>
+        <span class="cvrt-page">Product pages and paid-traffic landing page</span>
+        <p class="cvrt-description">Dryness appears in more than 15 collected reviews, especially for cinnamon and plain bagels, while customers who toast or add spreads report strong satisfaction. Current product and landing-page copy does not set that texture expectation. The variation adds one practical line: “Best toasted, with your favorite topping.”</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 430" role="img" aria-label="Royo product description with a new best toasted usage message">
+          <defs><clipPath id="cvrt-s4d-a"><rect x="34" y="56" width="330" height="330"/></clipPath></defs>
+          <rect width="812" height="430" fill="#fff9ed"/>
+          <image href="https://eatroyo.com/cdn/shop/files/new-design-hero.png?v=1767105474" x="34" y="56" width="330" height="330" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4d-a)"/>
+          <rect x="388" y="56" width="390" height="330" fill="#fff" stroke="#0a0a08"/>
+          <text x="416" y="91" font-family="DM Sans" font-size="13" font-weight="700">★★★★★ 18,295 REVIEWS</text>
+          <text x="416" y="129" font-family="Archivo Black" font-size="26">ROYO STARTER PACK</text>
+          <text x="416" y="157" font-family="DM Sans" font-size="14">Our best-selling way to taste Royo.</text>
+          <line x1="416" y1="184" x2="748" y2="184" stroke="#d4d0c8"/>
+          <text x="416" y="217" font-family="DM Sans" font-size="12" font-weight="700">NEW USAGE CUE</text>
+          <rect x="416" y="232" width="332" height="68" fill="#ffd20a"/>
+          <text x="438" y="273" font-family="Archivo Black" font-size="19">BEST TOASTED, WITH YOUR</text>
+          <text x="438" y="294" font-family="Archivo Black" font-size="19">FAVORITE TOPPING.</text>
+          <rect x="416" y="323" width="332" height="38" fill="#0a0a08"/>
+          <text x="582" y="348" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#fff">ADD TO CART</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 620" role="img" aria-label="Royo sandwich followed by a best toasted usage message">
+          <rect width="360" height="620" fill="#fff9ed"/>
+          <image href="https://eatroyo.com/cdn/shop/files/new-design-hero.png?v=1767105474" x="18" y="18" width="324" height="292" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="18" y="326" width="324" height="267" fill="#fff" stroke="#0a0a08"/>
+          <text x="38" y="358" font-family="DM Sans" font-size="12" font-weight="700">★★★★★ 18,295 REVIEWS</text>
+          <text x="38" y="393" font-family="Archivo Black" font-size="22">ROYO STARTER PACK</text>
+          <text x="38" y="420" font-family="DM Sans" font-size="13">Our best-selling way to taste Royo.</text>
+          <rect x="38" y="446" width="284" height="73" fill="#ffd20a"/>
+          <text x="180" y="476" text-anchor="middle" font-family="Archivo Black" font-size="16">BEST TOASTED, WITH</text>
+          <text x="180" y="498" text-anchor="middle" font-family="Archivo Black" font-size="16">YOUR FAVORITE TOPPING.</text>
+          <rect x="38" y="537" width="284" height="34" fill="#0a0a08"/>
+          <text x="180" y="559" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#fff">ADD TO CART</text>
+        </svg>
+        <p class="cvrt-caption">A practical serving cue sets the texture expectation before purchase. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Homepage Hero Reviews</h2>
+        <span class="cvrt-page"><a href="https://eatroyo.com/" target="_blank" rel="noopener">Homepage</a></span>
+        <p class="cvrt-description">The homepage hero mentions 250,000 happy customers but shows no rating or review count, while the landing page and product page surface that proof prominently. The homepage therefore gives its highest-visibility space a weaker trust stack. The variation adds “18,000+ verified reviews, 4.8-star average” beside the existing customer count.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 420" role="img" aria-label="Homepage hero with review proof added beside the existing customer count">
+          <defs><clipPath id="cvrt-s5d-a"><rect x="406" y="34" width="372" height="352"/></clipPath></defs>
+          <rect width="812" height="420" fill="#fff9ed"/>
+          <rect x="34" y="34" width="744" height="352" fill="#fff" stroke="#0a0a08"/>
+          <rect x="34" y="34" width="744" height="27" fill="#f2d387"/>
+          <text x="406" y="53" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700">BUY MORE, SAVE MORE. UP TO $15 OFF</text>
+          <image href="https://eatroyo.com/cdn/shop/files/banner-new-year-sale.png?v=1767012515" x="406" y="61" width="372" height="325" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s5d-a)"/>
+          <text x="67" y="113" font-family="Archivo Black" font-size="12">ROYO</text>
+          <text x="67" y="177" font-family="Archivo Black" font-size="25">BUY MORE, SAVE MORE.</text>
+          <text x="67" y="209" font-family="Archivo Black" font-size="25">UP TO <tspan fill="#c83d36">$15 OFF</tspan></text>
+          <text x="67" y="244" font-family="DM Sans" font-size="13">Join over 250,000 happy customers</text>
+          <rect x="67" y="263" width="300" height="54" fill="#ffd20a" stroke="#0a0a08" stroke-width="2"/>
+          <text x="84" y="286" font-family="DM Sans" font-size="15" font-weight="700">★★★★★ 4.8-star average</text>
+          <text x="84" y="306" font-family="DM Sans" font-size="13" font-weight="700">18,000+ verified reviews</text>
+          <rect x="67" y="334" width="230" height="32" rx="16" fill="#c83d36"/>
+          <text x="182" y="355" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#fff">SHOP NOW</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 650" role="img" aria-label="Mobile homepage hero with a rating and verified review count">
+          <rect width="360" height="650" fill="#fff9ed"/>
+          <rect x="18" y="18" width="324" height="614" fill="#fff" stroke="#0a0a08"/>
+          <rect x="18" y="18" width="324" height="28" fill="#f2d387"/>
+          <text x="180" y="37" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700">BUY MORE, SAVE MORE. UP TO $15 OFF</text>
+          <image href="https://eatroyo.com/cdn/shop/files/banner-new-year-sale.png?v=1767012515" x="18" y="46" width="324" height="288" preserveAspectRatio="xMidYMid slice"/>
+          <text x="38" y="370" font-family="Archivo Black" font-size="20">BUY MORE, SAVE MORE.</text>
+          <text x="38" y="396" font-family="Archivo Black" font-size="20">UP TO <tspan fill="#c83d36">$15 OFF</tspan></text>
+          <text x="38" y="428" font-family="DM Sans" font-size="13">Join over 250,000 happy customers</text>
+          <rect x="38" y="451" width="284" height="70" fill="#ffd20a" stroke="#0a0a08" stroke-width="2"/>
+          <text x="56" y="480" font-family="DM Sans" font-size="14" font-weight="700">★★★★★ 4.8-star average</text>
+          <text x="56" y="504" font-family="DM Sans" font-size="13" font-weight="700">18,000+ verified reviews</text>
+          <rect x="38" y="546" width="284" height="40" rx="20" fill="#c83d36"/>
+          <text x="180" y="572" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#fff">SHOP NOW</text>
+        </svg>
+        <p class="cvrt-caption">The existing customer count gains rating quality and verified review volume. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Subscription Switch in Cart</h2>
+        <span class="cvrt-page">Cart drawer</span>
+        <p class="cvrt-description">The product page presents subscription as the best value, but a one-time item in the cart has no way to switch without returning to the product page. The cart drops the value story at the last decision point. The variation adds a switch that saves $6.75 now and 15% on every delivery, with the same skip, pause, and cancellation benefits.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 520" role="img" aria-label="Cart drawer with a subscription switch added beneath a Royo Starter Pack line item">
+          <rect width="812" height="520" fill="#f5f0e6"/>
+          <rect x="178" y="25" width="456" height="470" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <rect x="178" y="25" width="456" height="34" fill="#f2d387"/>
+          <text x="406" y="47" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700">SPEND $50, SAVE $10 | SPEND $70, SAVE $15</text>
+          <text x="204" y="91" font-family="Archivo Black" font-size="23">CART 1</text>
+          <line x1="178" y1="110" x2="634" y2="110" stroke="#d4d0c8"/>
+          <image href="https://eatroyo.com/cdn/shop/files/image_f1ed61c8-b4ae-4ff9-ada7-cf33093fdc5d.png?v=1708994186" x="201" y="128" width="102" height="105" preserveAspectRatio="xMidYMid meet"/>
+          <text x="323" y="151" font-family="DM Sans" font-size="15" font-weight="700">ROYO Starter Pack</text>
+          <text x="323" y="175" font-family="DM Sans" font-size="12">One-time purchase</text>
+          <text x="604" y="151" text-anchor="end" font-family="DM Sans" font-size="15" font-weight="700">$45.00</text>
+          <rect x="323" y="191" width="98" height="31" fill="#fff" stroke="#bdb7aa"/>
+          <text x="372" y="212" text-anchor="middle" font-family="DM Sans" font-size="13">−   1   +</text>
+          <rect x="201" y="251" width="410" height="117" fill="#e9f5dd" stroke="#48a900" stroke-width="3"/>
+          <text x="222" y="277" font-family="Archivo Black" font-size="16">SWITCH TO SUBSCRIPTION</text>
+          <text x="222" y="300" font-family="DM Sans" font-size="13" font-weight="700">Save $6.75 this order + 15% every delivery</text>
+          <text x="222" y="323" font-family="DM Sans" font-size="11" font-weight="700">Save 15% off every order · Never run out</text>
+          <text x="222" y="342" font-family="DM Sans" font-size="11" font-weight="700">Skip, pause, or cancel anytime</text>
+          <rect x="536" y="271" width="52" height="28" rx="14" fill="#48a900"/>
+          <circle cx="573" cy="285" r="10" fill="#fff"/>
+          <text x="201" y="406" font-family="DM Sans" font-size="14">Subtotal</text>
+          <text x="611" y="406" text-anchor="end" font-family="DM Sans" font-size="14" font-weight="700">$38.25</text>
+          <rect x="201" y="426" width="410" height="43" fill="#ffd20a"/>
+          <text x="406" y="453" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="700">CHECKOUT</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 640" role="img" aria-label="Mobile cart drawer with a subscription switch beneath the line item">
+          <rect width="360" height="640" fill="#fff"/>
+          <rect x="0" y="0" width="360" height="34" fill="#f2d387"/>
+          <text x="180" y="22" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700">SPEND $50, SAVE $10 | SPEND $70, SAVE $15</text>
+          <text x="20" y="69" font-family="Archivo Black" font-size="22">CART 1</text>
+          <image href="https://eatroyo.com/cdn/shop/files/image_f1ed61c8-b4ae-4ff9-ada7-cf33093fdc5d.png?v=1708994186" x="20" y="92" width="92" height="105" preserveAspectRatio="xMidYMid meet"/>
+          <text x="126" y="119" font-family="DM Sans" font-size="14" font-weight="700">ROYO Starter Pack</text>
+          <text x="126" y="143" font-family="DM Sans" font-size="12">One-time purchase</text>
+          <text x="334" y="119" text-anchor="end" font-family="DM Sans" font-size="14" font-weight="700">$45.00</text>
+          <rect x="20" y="218" width="320" height="162" fill="#e9f5dd" stroke="#48a900" stroke-width="3"/>
+          <text x="40" y="249" font-family="Archivo Black" font-size="16">SWITCH TO SUBSCRIPTION</text>
+          <text x="40" y="276" font-family="DM Sans" font-size="12" font-weight="700">Save $6.75 now + 15% every delivery</text>
+          <text x="40" y="307" font-family="DM Sans" font-size="11" font-weight="700">Save 15% off every order</text>
+          <text x="40" y="329" font-family="DM Sans" font-size="11" font-weight="700">Skip, pause, or cancel anytime</text>
+          <text x="40" y="351" font-family="DM Sans" font-size="11" font-weight="700">Never run out of your favorites</text>
+          <rect x="267" y="325" width="50" height="27" rx="14" fill="#48a900"/><circle cx="303" cy="338.5" r="9.5" fill="#fff"/>
+          <rect x="20" y="407" width="320" height="82" fill="#f6f3ec"/>
+          <text x="38" y="437" font-family="DM Sans" font-size="13">Shipping</text><text x="322" y="437" text-anchor="end" font-family="DM Sans" font-size="12" font-weight="700">CALCULATED AT CHECKOUT</text>
+          <text x="38" y="470" font-family="DM Sans" font-size="15" font-weight="700">Subtotal</text><text x="322" y="470" text-anchor="end" font-family="DM Sans" font-size="15" font-weight="700">$38.25</text>
+          <rect x="20" y="511" width="320" height="45" fill="#ffd20a"/>
+          <text x="180" y="540" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="700">CHECKOUT</text>
+        </svg>
+        <p class="cvrt-caption">A one-time cart item can become a subscription without sending the shopper backward. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Homepage Shipping Promise</h2>
+        <span class="cvrt-page"><a href="https://eatroyo.com/" target="_blank" rel="noopener">Homepage</a></span>
+        <p class="cvrt-description">The product page says “Ships Monday-Friday,” but the homepage has no shipping message and the cart leaves the cost as “calculated at checkout.” Reviews also describe an $8 freight charge as an unexpected cost. The variation brings the existing shipping-timing promise directly beneath the homepage call to action.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 390" role="img" aria-label="Homepage call to action with Ships Monday-Friday added beneath it">
+          <rect width="812" height="390" fill="#fff9ed"/>
+          <rect x="35" y="33" width="742" height="324" fill="#fff" stroke="#0a0a08"/>
+          <rect x="35" y="33" width="742" height="29" fill="#f2d387"/>
+          <text x="406" y="53" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700">BUY MORE, SAVE MORE. UP TO $15 OFF</text>
+          <text x="67" y="101" font-family="Archivo Black" font-size="13">ROYO</text>
+          <text x="67" y="159" font-family="Archivo Black" font-size="25">BUY MORE, SAVE MORE.</text>
+          <text x="67" y="192" font-family="Archivo Black" font-size="25">UP TO <tspan fill="#c83d36">$15 OFF</tspan></text>
+          <rect x="67" y="224" width="288" height="40" rx="20" fill="#c83d36"/>
+          <text x="211" y="250" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#fff">SHOP NOW</text>
+          <rect x="67" y="278" width="288" height="45" fill="#ffd20a" stroke="#0a0a08" stroke-width="2"/>
+          <circle cx="91" cy="300.5" r="11" fill="#0a0a08"/>
+          <path d="M86 301h10m-5-5v10" stroke="#ffd20a" stroke-width="2"/>
+          <text x="113" y="305" font-family="Archivo Black" font-size="15">SHIPS MONDAY-FRIDAY</text>
+          <image href="https://eatroyo.com/cdn/shop/files/banner-new-year-sale.png?v=1767012515" x="402" y="62" width="375" height="295" preserveAspectRatio="xMidYMid slice"/>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 610" role="img" aria-label="Mobile homepage call to action with Ships Monday-Friday beneath it">
+          <rect width="360" height="610" fill="#fff9ed"/>
+          <rect x="18" y="18" width="324" height="574" fill="#fff" stroke="#0a0a08"/>
+          <image href="https://eatroyo.com/cdn/shop/files/banner-new-year-sale.png?v=1767012515" x="18" y="18" width="324" height="280" preserveAspectRatio="xMidYMid slice"/>
+          <text x="38" y="340" font-family="Archivo Black" font-size="20">BUY MORE, SAVE MORE.</text>
+          <text x="38" y="368" font-family="Archivo Black" font-size="20">UP TO <tspan fill="#c83d36">$15 OFF</tspan></text>
+          <rect x="38" y="403" width="284" height="40" rx="20" fill="#c83d36"/>
+          <text x="180" y="429" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#fff">SHOP NOW</text>
+          <rect x="38" y="461" width="284" height="56" fill="#ffd20a" stroke="#0a0a08" stroke-width="2"/>
+          <text x="180" y="496" text-anchor="middle" font-family="Archivo Black" font-size="15">SHIPS MONDAY-FRIDAY</text>
+          <text x="180" y="553" text-anchor="middle" font-family="DM Sans" font-size="12">Get the same great taste you love</text>
+          <text x="180" y="572" text-anchor="middle" font-family="DM Sans" font-size="12">or your money back.</text>
+        </svg>
+        <p class="cvrt-caption">The homepage CTA gains the same shipping-timing reassurance already used on the product page. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Founder Credentials</h2>
+        <span class="cvrt-page"><a href="https://eatroyo.com/pages/new-design-v1-final" target="_blank" rel="noopener">Paid-traffic landing page</a></span>
+        <p class="cvrt-description">The landing page says “Made By A Nutritionist, Crafted By A Baker” without names or a photo, even though the page later identifies Ronit as a registered dietitian and Yoel as a lifelong baker. The headline makes a credibility claim before it supplies the people behind it. The variation brings their names, roles, and a real founder image into that proof section.</p>
+      </div>
+      <div class="cvrt-concept">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 812 470" role="img" aria-label="Generic nutritionist and baker claim replaced by named founder credentials">
+          <rect width="812" height="470" fill="#fff9ed"/>
+          <text x="35" y="38" font-family="DM Sans" font-size="14" font-weight="700">CURRENT</text>
+          <rect x="35" y="58" width="310" height="365" fill="#fff" stroke="#bdb7aa"/>
+          <path d="M35 58h310v70c-65 35-245 35-310 0z" fill="#ffd20a"/>
+          <text x="190" y="95" text-anchor="middle" font-family="Archivo Black" font-size="15">21,000 VERIFIED REVIEWS</text>
+          <text x="190" y="183" text-anchor="middle" font-family="Archivo Black" font-size="21">MADE BY A NUTRITIONIST,</text>
+          <text x="190" y="211" text-anchor="middle" font-family="Archivo Black" font-size="21">CRAFTED BY A BAKER</text>
+          <text x="190" y="250" text-anchor="middle" font-family="DM Sans" font-size="13">No names, roles, or photo</text>
+          <circle cx="190" cy="318" r="41" fill="#f2efe8"/>
+          <path d="M176 321c7-19 21-19 28 0m-38 28c10-18 38-18 48 0" fill="none" stroke="#bdb7aa" stroke-width="5"/>
+          <path d="M382 238h42m-14-14 14 14-14 14" stroke="#0a0a08" stroke-width="3" fill="none"/>
+          <text x="458" y="38" font-family="DM Sans" font-size="14" font-weight="700">VARIATION</text>
+          <rect x="458" y="58" width="319" height="365" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <image href="https://cdn.shopify.com/s/files/1/0093/1564/7552/files/IMG_0936_1_1.png?v=1681725995" x="458" y="58" width="319" height="178" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="477" y="217" width="281" height="184" fill="#ffd20a"/>
+          <text x="497" y="252" font-family="Archivo Black" font-size="22">THE PEOPLE BEHIND ROYO</text>
+          <text x="497" y="292" font-family="Archivo Black" font-size="17">RONIT</text>
+          <text x="497" y="313" font-family="DM Sans" font-size="13" font-weight="700">Registered dietitian</text>
+          <text x="497" y="350" font-family="Archivo Black" font-size="17">YOEL</text>
+          <text x="497" y="371" font-family="DM Sans" font-size="13" font-weight="700">Lifelong baker</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 810" role="img" aria-label="Generic claim above named founder credentials with a brand image">
+          <rect width="360" height="810" fill="#fff9ed"/>
+          <text x="18" y="29" font-family="DM Sans" font-size="14" font-weight="700">CURRENT</text>
+          <rect x="18" y="47" width="324" height="230" fill="#fff" stroke="#bdb7aa"/>
+          <rect x="18" y="47" width="324" height="54" fill="#ffd20a"/>
+          <text x="180" y="80" text-anchor="middle" font-family="Archivo Black" font-size="13">21,000 VERIFIED REVIEWS</text>
+          <text x="180" y="151" text-anchor="middle" font-family="Archivo Black" font-size="18">MADE BY A NUTRITIONIST,</text>
+          <text x="180" y="176" text-anchor="middle" font-family="Archivo Black" font-size="18">CRAFTED BY A BAKER</text>
+          <text x="180" y="224" text-anchor="middle" font-family="DM Sans" font-size="13">No names, roles, or photo</text>
+          <path d="M180 301v34m-12-12 12 12 12-12" stroke="#0a0a08" stroke-width="3" fill="none"/>
+          <text x="18" y="370" font-family="DM Sans" font-size="14" font-weight="700">VARIATION</text>
+          <rect x="18" y="388" width="324" height="394" fill="#fff" stroke="#0a0a08" stroke-width="2"/>
+          <image href="https://cdn.shopify.com/s/files/1/0093/1564/7552/files/IMG_0936_1_1.png?v=1681725995" x="18" y="388" width="324" height="205" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="38" y="569" width="284" height="189" fill="#ffd20a"/>
+          <text x="58" y="607" font-family="Archivo Black" font-size="18">THE PEOPLE BEHIND ROYO</text>
+          <text x="58" y="650" font-family="Archivo Black" font-size="17">RONIT</text>
+          <text x="58" y="672" font-family="DM Sans" font-size="13" font-weight="700">Registered dietitian</text>
+          <text x="58" y="710" font-family="Archivo Black" font-size="17">YOEL</text>
+          <text x="58" y="732" font-family="DM Sans" font-size="13" font-weight="700">Lifelong baker</text>
+        </svg>
+        <p class="cvrt-caption">The expertise claim becomes specific through real names, roles, and brand-owned imagery. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-insights-panel">
+    <div class="cvrt-killers">
+      <p class="cvrt-section-kicker">Cross-source picture</p>
+      <h2>Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li>The product promise is strong, but dryness and flavor limitations create a gap between “tastes like real bread” and some customers’ first bite.</li>
+        <li>Price is the second most common review frustration, while discount framing changes across the paid landing page, homepage, product page, and search.</li>
+        <li>The homepage and paid landing page both have critical LCP failures, so slow rendering affects the journey before the product story can work.</li>
+        <li>Review volume, guarantees, and shipping promises already exist, but they appear unevenly across the homepage, product page, landing page, and cart.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-sources">
+      <h2>Data sources used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">PageSpeed</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Live Homepage Analysis</div>
+      </div>
+    </div>
+
+    <div class="cvrt-findings">
+      <h2 class="cvrt-findings-title">What each source revealed</h2>
+      <article class="cvrt-source-block">
+        <h3>Meta Ads and Landing Pages</h3>
+        <ul class="cvrt-source-list">
+          <li>Paid-social creative and its landing page align around low-carb, high-protein baked goods, strong taste language, and a 26% discount code.</li>
+          <li>The landing page shows 21,000+ verified reviews, a 5-star rating, a money-back guarantee, and clear calorie and net-carb comparisons.</li>
+          <li>The homepage switches to “Up to $15 OFF,” so shoppers encounter a different offer outside the paid landing experience.</li>
+        </ul>
+      </article>
+      <article class="cvrt-source-block">
+        <h3>Google Ads</h3>
+        <ul class="cvrt-source-list">
+          <li>Search creative leads with low carb, keto-friendly, and high protein, while the paid-social journey leads with emotion and discount.</li>
+          <li>No specific discount is visible in the search-ad screenshots.</li>
+          <li>Search references 10,786 reviews, while the paid landing page displays 21,000+ verified reviews.</li>
+        </ul>
+      </article>
+      <article class="cvrt-source-block">
+        <h3>Reviews and UGC</h3>
+        <ul class="cvrt-source-list">
+          <li>Taste, satiety, guilt-free indulgence, health outcomes, and convenience are recurring strengths.</li>
+          <li>Dryness appears in 15+ reviews, with cinnamon and plain bagels mentioned most often. Toasting and spreads are common workarounds.</li>
+          <li>Price is mentioned negatively in 20+ reviews, and shoppers compare Royo’s $2-or-more bagels with regular bread at $1.25 per bagel.</li>
+          <li>Customers explicitly ask for control over the Starter Pack mix, while 5+ reviews also mention freshness, short counts, or changing product size.</li>
+        </ul>
+      </article>
+      <article class="cvrt-source-block">
+        <h3>PageSpeed</h3>
+        <ul class="cvrt-source-list">
+          <li>Homepage LCP is 12,709 ms and paid landing-page LCP is 11,416 ms, versus the 2,500 ms threshold.</li>
+          <li>Homepage JavaScript bootup takes 2,974 ms. TTFB is 11 ms, which points to rendering rather than server response as the bottleneck.</li>
+          <li>Both pages have good layout stability, with CLS at 0 on the homepage and 0.011 on the paid landing page.</li>
+        </ul>
+      </article>
+      <article class="cvrt-source-block">
+        <h3>Site Screenshots</h3>
+        <ul class="cvrt-source-list">
+          <li>The homepage hero shows 250,000+ happy customers but no rating or review count.</li>
+          <li>The Starter Pack product page shows 18,295 reviews, a 15% subscription option, a 30-day guarantee, and “Ships Monday-Friday” near the add-to-cart area.</li>
+          <li>The cart drawer shows spend-threshold savings and product upsells, but no guarantee, delivery estimate, or subscription switch for one-time items.</li>
+        </ul>
+      </article>
+      <article class="cvrt-source-block">
+        <h3>Live Homepage Analysis</h3>
+        <ul class="cvrt-source-list">
+          <li>The homepage repeats “Buy More, Save More. Up to $15 off” in the announcement bar and hero.</li>
+          <li>The first fold pairs a red Shop Now button with the promise “Get the same great taste you love or your money back.”</li>
+          <li>Shipping timing is not stated in the homepage folds reviewed.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="cvrt-footer">August 2026</footer>
+</div>
