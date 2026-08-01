@@ -1,8 +1,7 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* ===== RESET ===== */
 #cvrt-roadmap,
 #cvrt-roadmap *,
 #cvrt-roadmap *::before,
@@ -12,606 +11,1123 @@
   letter-spacing: normal; text-transform: none;
 }
 #cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
-#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div,
-#cvrt-roadmap a, #cvrt-roadmap label, #cvrt-roadmap ul,
-#cvrt-roadmap ol, #cvrt-roadmap li {
-  font-family: inherit; font-size: inherit; font-weight: inherit;
-  color: inherit; margin: 0; padding: 0;
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
 }
-#cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li { list-style: none; }
-#cvrt-roadmap li::marker { content: ""; }
-#cvrt-roadmap .cvrt-killer-list li::before,
-#cvrt-roadmap .cvrt-killer-list li::after,
-#cvrt-roadmap .cvrt-source-list li::before,
-#cvrt-roadmap .cvrt-source-list li::after {
-  content: none !important; display: none !important;
-}
+
+/* ===== ROOT ===== */
 #cvrt-roadmap {
-  --cvrt-night: #0e191f;
-  --cvrt-ink: #132027;
-  --cvrt-teal: #16aaa4;
-  --cvrt-teal-dark: #0a7774;
-  --cvrt-sand: #f1eee7;
-  --cvrt-paper: #fffefb;
-  --cvrt-line: #d4d6d2;
-  --cvrt-muted: #617078;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  --dark: #111417;
+  --dark-mid: #1b1f24;
+  --dark-card: #1e2329;
+  --teal: #00C9AE;
+  --cream: #ede8df;
+  --cream-card: #f7f4ef;
+  --white: #ffffff;
+  --border: #d4cfc5;
+  --text-dark: #111417;
+  font-family: 'Barlow', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+/* ===== RADIO TABS ===== */
+#cvrt-roadmap .cvrt-tab-radio { display: none; }
+
+/* ===== HERO ===== */
+#cvrt-roadmap .cvrt-hero {
+  background: var(--dark);
+  display: grid;
+  grid-template-columns: 54% 46%;
+  min-height: 92vh;
   overflow: hidden;
-  background: var(--cvrt-sand);
-  color: var(--cvrt-ink);
-  font-family: "Manrope", sans-serif;
+}
+
+#cvrt-roadmap .cvrt-hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 72px 60px 52px 72px;
+  position: relative;
+  z-index: 2;
+}
+
+#cvrt-roadmap .cvrt-hero-image {
+  position: relative;
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+#cvrt-roadmap .cvrt-hero-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--dark) 0%, rgba(17,20,23,0.3) 40%, transparent 100%);
+  z-index: 1;
+}
+
+#cvrt-roadmap .cvrt-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(17,20,23,0.25);
+  z-index: 0;
+}
+
+#cvrt-roadmap .cvrt-hero-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 60px;
+}
+
+#cvrt-roadmap .cvrt-hero-logo img {
+  height: 42px;
+  width: auto;
+}
+
+#cvrt-roadmap .cvrt-hero-logo-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
   font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-}
-#cvrt-roadmap .cvrt-tab-input {
-  position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;
-}
-#cvrt-roadmap .cvrt-panel { display: none; }
-#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-panel-tests,
-#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-panel-insights { display: block; }
-#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-hero .cvrt-tab-tests,
-#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-hero .cvrt-tab-insights {
-  color: var(--cvrt-night); background: var(--cvrt-teal);
-}
-#cvrt-roadmap .cvrt-hero { color: #fff; background: var(--cvrt-night); }
-#cvrt-roadmap .cvrt-hero-grid {
-  min-height: 570px; display: grid; grid-template-columns: minmax(410px, 43%) minmax(0, 57%);
-}
-#cvrt-roadmap .cvrt-hero-copy {
-  position: relative; z-index: 2; padding: 54px 5vw 46px 6vw;
-  display: flex; flex-direction: column; justify-content: center;
-  background:
-    radial-gradient(circle at 84% 16%, rgba(22,170,164,.17) 0 2px, transparent 3px),
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
-    var(--cvrt-night);
-  background-size: 28px 28px, 28px 28px, 28px 28px, auto;
-}
-#cvrt-roadmap .cvrt-hero-copy::after {
-  content: ""; position: absolute; right: -52px; top: 0; bottom: 0; width: 76px;
-  background: var(--cvrt-night); clip-path: polygon(0 0, 34% 0, 100% 100%, 66% 100%);
-}
-#cvrt-roadmap .cvrt-logo {
-  width: 72px; height: auto; display: block; margin-bottom: 42px;
-  padding: 8px; border-radius: 6px; background: var(--cvrt-sand);
-}
-#cvrt-roadmap .cvrt-eyebrow {
-  color: #7ee2dc; font-size: 11px; font-weight: 700; line-height: 1;
-  letter-spacing: .2em; text-transform: uppercase; margin-bottom: 12px;
-}
-#cvrt-roadmap .cvrt-hero-title {
-  max-width: 470px; font: 800 clamp(66px, 7vw, 108px)/.78 "Barlow Condensed", sans-serif;
-  letter-spacing: -.01em; text-transform: uppercase;
-}
-#cvrt-roadmap .cvrt-hero-title span { display: block; color: var(--cvrt-teal); }
-#cvrt-roadmap .cvrt-hero-summary {
-  max-width: 515px; margin-top: 27px; color: #d8e0e3; font-size: 15px; line-height: 1.68;
-}
-#cvrt-roadmap .cvrt-hero-photo {
-  position: relative; min-height: 570px; overflow: hidden; background: #33434a;
-}
-#cvrt-roadmap .cvrt-hero-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 52% 50%; display: block;
-}
-#cvrt-roadmap .cvrt-hero-photo::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(14,25,31,.38), transparent 34%),
-              linear-gradient(0deg, rgba(14,25,31,.22), transparent 35%);
-}
-#cvrt-roadmap .cvrt-tab-nav {
-  display: flex; gap: 1px; padding: 0 6vw; background: #17272f;
-}
-#cvrt-roadmap .cvrt-tab {
-  min-width: 180px; cursor: pointer; padding: 17px 25px;
-  color: #fff; background: #17272f; font-size: 11px; font-weight: 700;
-  line-height: 1; letter-spacing: .16em; text-transform: uppercase; text-align: center;
-}
-#cvrt-roadmap .cvrt-tab:hover { background: #203842; }
-#cvrt-roadmap .cvrt-panel {
-  padding: 46px 6vw 62px;
-  background: linear-gradient(rgba(19,32,39,.025) 1px, transparent 1px), var(--cvrt-sand);
-  background-size: 100% 30px;
-}
-#cvrt-roadmap .cvrt-intro {
-  width: min(860px, 100%); margin-left: auto; margin-right: auto; margin-bottom: 24px;
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 28px;
-}
-#cvrt-roadmap .cvrt-kicker {
-  color: var(--cvrt-teal-dark); font-size: 11px; font-weight: 700;
-  letter-spacing: .18em; text-transform: uppercase; margin-bottom: 6px;
-}
-#cvrt-roadmap .cvrt-section-title {
-  font: 800 clamp(48px, 5.4vw, 70px)/.88 "Barlow Condensed", sans-serif;
-  text-transform: uppercase; letter-spacing: -.01em;
-}
-#cvrt-roadmap .cvrt-section-note { max-width: 285px; color: var(--cvrt-muted); font-size: 13px; }
-#cvrt-roadmap .cvrt-slot {
-  max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 22px;
-  overflow: hidden; border: 1px solid var(--cvrt-line); border-radius: 8px;
-  background: var(--cvrt-paper); box-shadow: 0 12px 30px rgba(14,25,31,.07); break-inside: avoid;
-}
-#cvrt-roadmap .cvrt-slot-copy { max-width: 640px; padding: 28px 31px 25px; }
-#cvrt-roadmap .cvrt-slot-meta { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
-#cvrt-roadmap .cvrt-slot-label {
-  color: var(--cvrt-teal-dark); font-size: 11px; font-weight: 700;
-  letter-spacing: .15em; text-transform: uppercase;
-}
-#cvrt-roadmap .cvrt-type {
-  padding: 5px 8px 4px; color: #fff; background: #3d4d55; border-radius: 3px;
-  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-}
-#cvrt-roadmap .cvrt-type-fix { background: #7a4f2d; }
-#cvrt-roadmap .cvrt-slot-title {
-  font: 800 42px/.95 "Barlow Condensed", sans-serif; text-transform: uppercase;
-}
-#cvrt-roadmap .cvrt-page { margin-top: 8px; color: var(--cvrt-muted); font-size: 12px; font-weight: 600; }
-#cvrt-roadmap .cvrt-page a {
-  color: var(--cvrt-teal-dark); text-decoration: underline; text-underline-offset: 3px;
-}
-#cvrt-roadmap .cvrt-description { margin-top: 13px; color: #2f3b41; font-size: 15px; line-height: 1.7; }
-#cvrt-roadmap .cvrt-wire-wrap { padding: 21px 22px 15px; background: #e8e8e2; }
-#cvrt-roadmap .cvrt-wire { width: 100%; height: auto; display: block; min-width: 0; }
-#cvrt-roadmap .cvrt-wire-mobile { display: none; }
-#cvrt-roadmap .cvrt-wire text {
-  font-family: "Manrope", sans-serif; fill: #132027; font-weight: 600;
-}
-#cvrt-roadmap .cvrt-wire text[fill="#fff"] { fill: #fff; }
-#cvrt-roadmap .cvrt-wire text[fill="#16aaa4"] { fill: #16aaa4; }
-#cvrt-roadmap .cvrt-wire text[fill="#0a7774"] { fill: #0a7774; }
-#cvrt-roadmap .cvrt-wire text[fill="#617078"] { fill: #617078; }
-#cvrt-roadmap .cvrt-wire text[fill="#7ee2dc"] { fill: #7ee2dc; }
-#cvrt-roadmap .cvrt-caption {
-  margin-top: 9px; color: #11191d; font-size: 11px; line-height: 1.35; font-style: italic;
-}
-#cvrt-roadmap .cvrt-killers {
-  margin-bottom: 29px; padding: 34px 36px; color: #fff; border-radius: 8px;
-  background: #17272f;
-  box-shadow: 0 15px 35px rgba(14,25,31,.15);
-}
-#cvrt-roadmap .cvrt-killers .cvrt-kicker { color: #7ee2dc; }
-#cvrt-roadmap .cvrt-killers h2 {
-  max-width: 710px; font: 800 clamp(48px, 5vw, 68px)/.88 "Barlow Condensed", sans-serif;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--white);
 }
+
+#cvrt-roadmap .cvrt-hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+#cvrt-roadmap .cvrt-hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+#cvrt-roadmap .cvrt-hero-subtitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 36px;
+}
+
+#cvrt-roadmap .cvrt-hero-summary {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #c8c4be;
+  max-width: 460px;
+  margin-bottom: 52px;
+}
+
+/* ===== TABS ===== */
+#cvrt-roadmap .cvrt-tabs-nav {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 28px;
+}
+
+#cvrt-roadmap .cvrt-tab-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7090a0;
+  cursor: pointer;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  margin-right: 40px;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+#cvrt-roadmap:has(#cvrt-tab1:checked) .cvrt-tab-label[for="cvrt-tab1"],
+#cvrt-roadmap:has(#cvrt-tab2:checked) .cvrt-tab-label[for="cvrt-tab2"] {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+/* ===== TAB CONTENT SHOW/HIDE ===== */
+#cvrt-roadmap .cvrt-tests-content   { display: block; }
+#cvrt-roadmap .cvrt-insights-content { display: none; }
+
+#cvrt-roadmap:has(#cvrt-tab2:checked) .cvrt-tests-content   { display: none; }
+#cvrt-roadmap:has(#cvrt-tab2:checked) .cvrt-insights-content { display: block; }
+
+/* ===== TESTS SECTION ===== */
+#cvrt-roadmap .cvrt-tests-section {
+  padding: 80px 24px 96px;
+  background: var(--cream);
+}
+
+/* ===== SLOT CARD ===== */
+#cvrt-roadmap .cvrt-slot-card {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#cvrt-roadmap .cvrt-slot-card-body {
+  padding: 40px 48px 32px;
+}
+
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+#cvrt-roadmap .cvrt-slot-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+#cvrt-roadmap .cvrt-slot-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(0,201,174,0.1);
+  padding: 3px 10px 3px;
+  border-radius: 3px;
+}
+
+#cvrt-roadmap .cvrt-slot-badge-fix {
+  color: #c05800;
+  background: rgba(192,88,0,0.1);
+}
+
+#cvrt-roadmap .cvrt-slot-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--dark);
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+#cvrt-roadmap .cvrt-slot-page {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+#cvrt-roadmap .cvrt-slot-page a {
+  color: #555;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(17,20,23,0.25);
+}
+
+#cvrt-roadmap .cvrt-slot-page a:hover {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+#cvrt-roadmap .cvrt-slot-desc {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--dark);
+  max-width: 640px;
+}
+
+#cvrt-roadmap .cvrt-slot-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 48px;
+}
+
+#cvrt-roadmap .cvrt-slot-svg-wrap {
+  padding: 32px 48px 36px;
+  background: var(--cream-card);
+}
+
+#cvrt-roadmap .cvrt-slot-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#cvrt-roadmap .cvrt-slot-caption {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  font-style: italic;
+  color: #111;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ===== INSIGHTS SECTION ===== */
+#cvrt-roadmap .cvrt-killers {
+  background: var(--dark);
+  padding: 80px 24px 88px;
+}
+
+#cvrt-roadmap .cvrt-killers-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+#cvrt-roadmap .cvrt-killers-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+#cvrt-roadmap .cvrt-killers-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 5.5vw, 68px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 52px;
+}
+
 #cvrt-roadmap .cvrt-killer-list {
-  margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 25px;
+  list-style: none;
 }
-#cvrt-roadmap .cvrt-killer-list li { color: #dce4e7; font-size: 14px; line-height: 1.62; }
-#cvrt-roadmap .cvrt-number {
-  display: block; margin-bottom: 8px; color: var(--cvrt-teal);
-  font: 800 35px/1 "Barlow Condensed", sans-serif;
+
+#cvrt-roadmap .cvrt-killer-item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 0;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
 }
-#cvrt-roadmap .cvrt-source-heading {
-  margin-bottom: 14px; font: 800 34px/1 "Barlow Condensed", sans-serif; text-transform: uppercase;
+
+#cvrt-roadmap .cvrt-killer-item:last-child {
+  border-bottom: 1px solid rgba(255,255,255,0.09);
 }
-#cvrt-roadmap .cvrt-source-grid {
-  display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 9px; margin-bottom: 28px;
+
+#cvrt-roadmap .cvrt-killer-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1;
+  color: rgba(0,201,174,0.22);
+  padding-top: 2px;
 }
+
+#cvrt-roadmap .cvrt-killer-text {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--white);
+  padding-top: 6px;
+}
+
+/* ===== SOURCES SECTION ===== */
+#cvrt-roadmap .cvrt-sources-section {
+  padding: 72px 24px 96px;
+  background: var(--cream);
+}
+
+#cvrt-roadmap .cvrt-sources-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+#cvrt-roadmap .cvrt-section-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+#cvrt-roadmap .cvrt-section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--dark);
+  letter-spacing: 0.01em;
+  margin-bottom: 36px;
+}
+
+#cvrt-roadmap .cvrt-sources-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+
 #cvrt-roadmap .cvrt-source-chip {
-  min-height: 70px; padding: 14px; display: flex; align-items: center;
-  border: 1px solid var(--cvrt-line); border-radius: 6px; background: var(--cvrt-paper);
-  color: #314047; font-size: 12px; font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  border: 1.5px solid var(--dark);
+  padding: 7px 16px;
+  border-radius: 4px;
+  display: inline-block;
 }
+
 #cvrt-roadmap .cvrt-source-block {
-  padding: 25px 28px; margin-bottom: 13px; border: 1px solid var(--cvrt-line);
-  border-radius: 7px; background: var(--cvrt-paper);
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
 }
-#cvrt-roadmap .cvrt-source-title {
-  margin-bottom: 13px; font: 800 29px/1 "Barlow Condensed", sans-serif; text-transform: uppercase;
+
+#cvrt-roadmap .cvrt-source-block:last-child {
+  border-bottom: 1px solid var(--border);
 }
-#cvrt-roadmap .cvrt-source-list { display: grid; gap: 10px; }
-#cvrt-roadmap .cvrt-source-list li { color: #3d4a50; font-size: 14px; line-height: 1.62; }
-#cvrt-roadmap .cvrt-source-list li + li { padding-top: 10px; border-top: 1px solid #e4e5e1; }
+
+#cvrt-roadmap .cvrt-source-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: var(--dark);
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+
+#cvrt-roadmap .cvrt-finding-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#cvrt-roadmap .cvrt-finding-item {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--dark);
+  padding-left: 22px;
+  position: relative;
+}
+
+#cvrt-roadmap .cvrt-finding-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+/* ===== FOOTER ===== */
 #cvrt-roadmap .cvrt-footer {
-  padding: 20px 6vw; color: #9eaaaf; background: var(--cvrt-night);
-  font-size: 10px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; text-align: center;
+  background: var(--dark);
+  padding: 28px 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width: 760px) {
-  #cvrt-roadmap .cvrt-hero-grid { min-height: 0; grid-template-columns: 1fr; }
-  #cvrt-roadmap .cvrt-hero-copy { padding: 38px 24px 34px; }
-  #cvrt-roadmap .cvrt-hero-copy::after { display: none; }
-  #cvrt-roadmap .cvrt-logo { width: 58px; margin-bottom: 28px; }
-  #cvrt-roadmap .cvrt-hero-title { font-size: 64px; }
-  #cvrt-roadmap .cvrt-hero-photo { min-height: 250px; order: -1; }
-  #cvrt-roadmap .cvrt-tab-nav { padding: 0; }
-  #cvrt-roadmap .cvrt-tab { min-width: 0; width: 50%; padding: 16px 10px; }
-  #cvrt-roadmap .cvrt-panel { padding: 34px 14px 45px; }
-  #cvrt-roadmap .cvrt-intro { display: block; }
-  #cvrt-roadmap .cvrt-section-note { margin-top: 9px; }
-  #cvrt-roadmap .cvrt-slot-copy { padding: 24px 21px 22px; }
-  #cvrt-roadmap .cvrt-slot-title { font-size: 36px; }
-  #cvrt-roadmap .cvrt-wire-wrap { padding: 14px 12px 13px; }
-  #cvrt-roadmap .cvrt-wire-desktop { display: none; }
-  #cvrt-roadmap .cvrt-wire-mobile { display: block; width: 100%; min-width: 0; }
-  #cvrt-roadmap .cvrt-killers { padding: 28px 22px; }
-  #cvrt-roadmap .cvrt-killer-list { grid-template-columns: 1fr; gap: 20px; }
-  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  #cvrt-roadmap .cvrt-source-block { padding: 22px 20px; }
+
+#cvrt-roadmap .cvrt-footer-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  #cvrt-roadmap .cvrt-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  #cvrt-roadmap .cvrt-hero-image {
+    height: 280px;
+    order: -1;
+  }
+  #cvrt-roadmap .cvrt-hero-left {
+    padding: 40px 28px 48px;
+    justify-content: flex-start;
+  }
+  #cvrt-roadmap .cvrt-hero-logo { margin-bottom: 40px; }
+  #cvrt-roadmap .cvrt-slot-card-body { padding: 28px 24px 24px; }
+  #cvrt-roadmap .cvrt-slot-divider { margin: 0 24px; }
+  #cvrt-roadmap .cvrt-slot-svg-wrap { padding: 24px 20px 28px; }
+  #cvrt-roadmap .cvrt-killer-item { grid-template-columns: 48px 1fr; }
+  #cvrt-roadmap .cvrt-killer-num { font-size: 38px; }
+  #cvrt-roadmap .cvrt-killer-text { font-size: 15px; }
+}
+
 @media print {
-  #cvrt-roadmap .cvrt-slot, #cvrt-roadmap .cvrt-killers { box-shadow: none; break-inside: avoid; }
-  #cvrt-roadmap .cvrt-panel { display: block !important; }
-  #cvrt-roadmap .cvrt-tab-nav { display: none; }
+  #cvrt-roadmap .cvrt-slot-card { break-inside: avoid; box-shadow: none; }
+  #cvrt-roadmap .cvrt-hero-image { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
 </style>
 
 <div id="cvrt-roadmap">
-  <input class="cvrt-tab-input cvrt-tab-input-tests" type="radio" name="cvrt-roadmap-tab" id="cvrt-tests" checked>
-  <input class="cvrt-tab-input cvrt-tab-input-insights" type="radio" name="cvrt-roadmap-tab" id="cvrt-insights">
+  <input type="radio" name="cvrt-tab" id="cvrt-tab1" class="cvrt-tab-radio" checked>
+  <input type="radio" name="cvrt-tab" id="cvrt-tab2" class="cvrt-tab-radio">
 
+  <!-- HERO -->
   <div class="cvrt-hero">
-    <div class="cvrt-hero-grid">
-      <div class="cvrt-hero-copy">
-        <img class="cvrt-logo" src="https://fitprotection.com/cdn/shop/t/114/assets/logo-shield.png?v=31159216399472940791784953069" alt="FIT Protection">
-        <p class="cvrt-eyebrow">FIT Protection CRO Roadmap</p>
-        <h1 class="cvrt-hero-title">August <span>2026</span></h1>
-        <p class="cvrt-hero-summary">Paid traffic arrives with clear expectations around glass protection and exact fit, but the homepage opens with a different problem frame and delays customer proof. The strongest opportunity is a tighter path from traffic intent to fit selection, backed by faster product pages and clearer buyer reassurance.</p>
+    <div class="cvrt-hero-left">
+      <div class="cvrt-hero-logo">
+        <img src="https://fitprotection.com/cdn/shop/t/114/assets/logo-shield-white.png?v=101214306315518540571784953069" alt="FIT Protection">
+        <span class="cvrt-hero-logo-name">FIT Protection</span>
       </div>
-      <div class="cvrt-hero-photo">
-        <img src="https://fitprotection.com/cdn/shop/files/fit-social-share-1200x630.jpg?v=1783743548&amp;width=1200" alt="RV protected by a FIT Protection windshield cover on the road">
+      <div class="cvrt-hero-eyebrow">CRO Testing Roadmap</div>
+      <div class="cvrt-hero-title">August<br>2026</div>
+      <div class="cvrt-hero-subtitle">8 Tests &middot; 1 Fix</div>
+      <p class="cvrt-hero-summary">Three active paid ads arrive at a homepage built around a different problem frame - the hero headline, configurator default, and trust signal order don't match any of the three ad angles driving paid traffic. The product page takes nearly 24 seconds to become interactive on mobile, a technical floor affecting every Google Shopping, retargeting, and organic product visit. These two gaps sit above any UX optimization on the priority stack.</p>
+      <div class="cvrt-tabs-nav">
+        <label for="cvrt-tab1" class="cvrt-tab-label">Tests</label>
+        <label for="cvrt-tab2" class="cvrt-tab-label">Data Insights</label>
       </div>
     </div>
-    <div class="cvrt-tab-nav">
-      <label class="cvrt-tab cvrt-tab-tests" for="cvrt-tests">Testing Roadmap</label>
-      <label class="cvrt-tab cvrt-tab-insights" for="cvrt-insights">Data Insights</label>
+    <div class="cvrt-hero-image">
+      <img src="https://fitprotection.com/cdn/shop/t/114/assets/why-invest-towing.jpg?v=69486179580736401421784953070" alt="FIT Protection - RV on the road">
     </div>
   </div>
 
-  <div class="cvrt-panel cvrt-panel-tests">
-    <div class="cvrt-intro">
-      <div><p class="cvrt-kicker">Eight opportunities</p><h2 class="cvrt-section-title">What We Want To Test</h2></div>
-      <p class="cvrt-section-note">Focused tests across the homepage, product page, and cart.</p>
+  <!-- TESTS TAB -->
+  <div class="cvrt-tests-content">
+    <div class="cvrt-tests-section">
+
+      <!-- SLOT 1 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 1</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">Homepage Hero Headline</h2>
+          <p class="cvrt-slot-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">fitprotection.com</a></p>
+          <p class="cvrt-slot-desc">Ad 3 runs across all Meta placements with "NEVER LET A $2 ROCK RUIN YOUR TRIP" and a Jeep visual. The homepage hero reads "NEVER LOSE ANOTHER COVER" - a cover retention frame that addresses a different buyer fear. Every visitor arriving from that ad lands on a headline that doesn't reflect the problem they clicked on.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <!-- CONTROL panel -->
+            <rect x="16" y="16" width="378" height="368" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="34" y="46" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">CONTROL</text>
+            <!-- nav bar -->
+            <rect x="34" y="58" width="342" height="22" rx="3" fill="#1e2329"/>
+            <rect x="42" y="65" width="56" height="8" rx="2" fill="#2e3540"/>
+            <rect x="282" y="64" width="78" height="10" rx="3" fill="rgba(0,201,174,0.5)"/>
+            <!-- configurator -->
+            <rect x="34" y="88" width="342" height="28" rx="3" fill="#181c22"/>
+            <rect x="42" y="94" width="76" height="16" rx="2" fill="#1e2329" stroke="#333" stroke-width="1"/>
+            <text x="52" y="106" font-family="Barlow, sans-serif" font-size="9" fill="#888">UTV &#9660;</text>
+            <rect x="126" y="94" width="76" height="16" rx="2" fill="#1e2329" stroke="#333" stroke-width="1"/>
+            <text x="136" y="106" font-family="Barlow, sans-serif" font-size="9" fill="#888">Brand &#9660;</text>
+            <rect x="210" y="94" width="76" height="16" rx="2" fill="#1e2329" stroke="#333" stroke-width="1"/>
+            <text x="220" y="106" font-family="Barlow, sans-serif" font-size="9" fill="#888">Model &#9660;</text>
+            <!-- hero content left block -->
+            <rect x="34" y="124" width="222" height="192" rx="3" fill="#181c22"/>
+            <text x="50" y="162" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="21" fill="#ffffff">NEVER LOSE</text>
+            <text x="50" y="188" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="21" fill="#ffffff">ANOTHER</text>
+            <text x="50" y="214" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="21" fill="#ffffff">COVER.</text>
+            <text x="50" y="238" font-family="Barlow, sans-serif" font-size="10" fill="#7090a0">Cover retention frame</text>
+            <!-- product img block -->
+            <rect x="264" y="124" width="112" height="192" rx="3" fill="#1e2329" stroke="#2e3540" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="320" y="218" font-family="Barlow, sans-serif" font-size="9" fill="#555" text-anchor="middle">product</text>
+            <text x="320" y="232" font-family="Barlow, sans-serif" font-size="9" fill="#555" text-anchor="middle">image</text>
+            <!-- CTA -->
+            <rect x="34" y="328" width="110" height="24" rx="3" fill="rgba(0,201,174,0.5)"/>
+            <text x="89" y="344" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#111" text-anchor="middle">FIND MY COVER</text>
+
+            <!-- VARIANT panel -->
+            <rect x="426" y="16" width="378" height="368" rx="6" fill="#111417" stroke="#00C9AE" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="444" y="46" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#00C9AE" letter-spacing="2.5">VARIANT</text>
+            <!-- nav bar -->
+            <rect x="444" y="58" width="342" height="22" rx="3" fill="#1e2329"/>
+            <rect x="452" y="65" width="56" height="8" rx="2" fill="#2e3540"/>
+            <rect x="692" y="64" width="78" height="10" rx="3" fill="rgba(0,201,174,0.5)"/>
+            <!-- configurator -->
+            <rect x="444" y="88" width="342" height="28" rx="3" fill="#181c22"/>
+            <rect x="452" y="94" width="76" height="16" rx="2" fill="#1e2329" stroke="#333" stroke-width="1"/>
+            <text x="462" y="106" font-family="Barlow, sans-serif" font-size="9" fill="#888">UTV &#9660;</text>
+            <rect x="536" y="94" width="76" height="16" rx="2" fill="#1e2329" stroke="#333" stroke-width="1"/>
+            <text x="546" y="106" font-family="Barlow, sans-serif" font-size="9" fill="#888">Brand &#9660;</text>
+            <rect x="620" y="94" width="76" height="16" rx="2" fill="#1e2329" stroke="#333" stroke-width="1"/>
+            <text x="630" y="106" font-family="Barlow, sans-serif" font-size="9" fill="#888">Model &#9660;</text>
+            <!-- hero variant -->
+            <rect x="444" y="124" width="222" height="192" rx="3" fill="#181c22"/>
+            <text x="460" y="158" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="19" fill="#ffffff">ONE $364 COVER.</text>
+            <text x="460" y="183" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="19" fill="#00C9AE">ZERO CRACKED</text>
+            <text x="460" y="208" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="19" fill="#00C9AE">WINDSHIELDS.</text>
+            <text x="460" y="234" font-family="Barlow, sans-serif" font-size="10" fill="#7090a0">Rock chip prevention frame</text>
+            <!-- product img block -->
+            <rect x="674" y="124" width="112" height="192" rx="3" fill="#1e2329" stroke="#2e3540" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="730" y="218" font-family="Barlow, sans-serif" font-size="9" fill="#555" text-anchor="middle">product</text>
+            <text x="730" y="232" font-family="Barlow, sans-serif" font-size="9" fill="#555" text-anchor="middle">image</text>
+            <!-- CTA -->
+            <rect x="444" y="328" width="110" height="24" rx="3" fill="#00C9AE"/>
+            <text x="499" y="344" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#111" text-anchor="middle">FIND MY COVER</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 2 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 2</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">RV Configurator Default</h2>
+          <p class="cvrt-slot-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">fitprotection.com</a></p>
+          <p class="cvrt-slot-desc">Two of three active Meta ads carry RV destination labels, routing RV buyers to a homepage where the configurator pre-selects "UTV." An RV buyer must manually correct the first dropdown before they can search - a required friction step before purchase intent can convert.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 310" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect x="16" y="16" width="788" height="278" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="36" y="46" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">CONFIGURATOR  "FIND MY COVER IN 3 TAPS"</text>
+
+            <!-- CONTROL label -->
+            <text x="36" y="76" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2">CONTROL</text>
+            <!-- Control dropdowns -->
+            <rect x="36" y="85" width="128" height="40" rx="4" fill="#1e2329" stroke="#2e3540" stroke-width="1"/>
+            <text x="50" y="100" font-family="Barlow, sans-serif" font-size="10" fill="#7090a0">Vehicle Type</text>
+            <text x="50" y="118" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#ffffff">UTV &#9660;</text>
+            <rect x="176" y="85" width="128" height="40" rx="4" fill="#1e2329" stroke="#2e3540" stroke-width="1"/>
+            <text x="190" y="100" font-family="Barlow, sans-serif" font-size="10" fill="#7090a0">Brand</text>
+            <text x="190" y="118" font-family="Barlow, sans-serif" font-size="11" fill="#555">Select... &#9660;</text>
+            <rect x="316" y="85" width="128" height="40" rx="4" fill="#1e2329" stroke="#2e3540" stroke-width="1"/>
+            <text x="330" y="100" font-family="Barlow, sans-serif" font-size="10" fill="#7090a0">Model</text>
+            <text x="330" y="118" font-family="Barlow, sans-serif" font-size="11" fill="#555">Select... &#9660;</text>
+            <rect x="456" y="90" width="140" height="30" rx="4" fill="rgba(0,201,174,0.45)"/>
+            <text x="526" y="109" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#111" text-anchor="middle">FIND MY COVER</text>
+
+            <!-- Arrow -->
+            <text x="642" y="113" font-family="Barlow, sans-serif" font-size="28" fill="#2e3540" text-anchor="middle">&#8594;</text>
+
+            <!-- VARIANT label -->
+            <text x="680" y="76" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#00C9AE" letter-spacing="2">VARIANT</text>
+            <rect x="674" y="85" width="114" height="40" rx="4" fill="#1e2e2c" stroke="#00C9AE" stroke-width="1.5"/>
+            <text x="688" y="100" font-family="Barlow, sans-serif" font-size="10" fill="#7090a0">Vehicle Type</text>
+            <text x="688" y="118" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#00C9AE">RV &#9660;</text>
+
+            <!-- Explanation row -->
+            <line x1="36" y1="144" x2="660" y2="144" stroke="#1e2329" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="36" y="166" font-family="Barlow, sans-serif" font-size="12" fill="#7090a0">RV buyer from Ad 1 or Ad 2 must switch "UTV" to "RV" before finding their product.</text>
+            <text x="674" y="160" font-family="Barlow, sans-serif" font-size="12" fill="#00C9AE">Pre-selected</text>
+            <text x="674" y="176" font-family="Barlow, sans-serif" font-size="12" fill="#00C9AE">to "RV" for RV</text>
+            <text x="674" y="192" font-family="Barlow, sans-serif" font-size="12" fill="#00C9AE">ad traffic.</text>
+
+            <!-- Context banner -->
+            <rect x="36" y="202" width="748" height="48" rx="4" fill="#1a1e24"/>
+            <text x="56" y="222" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#ffffff">2 OF 3 ACTIVE META ADS</text>
+            <text x="56" y="240" font-family="Barlow, sans-serif" font-size="12" fill="#7090a0">carry RV destination labels (Ad 1: "RV Glass Protection" / Ad 2: "Exact Fit For Your RV"). All three route to this configurator defaulting to UTV.</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 3 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 3</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">Trust Signal Elevation</h2>
+          <p class="cvrt-slot-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">fitprotection.com</a></p>
+          <p class="cvrt-slot-desc">Fold 1 below the hero features four LOXX industrial credential tiles. The 537 verified reviews at 4.17/5 don't appear until fold 2, a full scroll below the primary conversion area. For a first-time visitor unfamiliar with LOXX, customer proof is the stronger trust signal - and it's buried.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <!-- CONTROL -->
+            <rect x="16" y="16" width="382" height="408" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="34" y="46" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">CONTROL  FOLD 1</text>
+            <!-- hero headline block -->
+            <rect x="34" y="58" width="346" height="82" rx="3" fill="#181c22"/>
+            <text x="50" y="86" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#ffffff">NEVER LOSE</text>
+            <text x="50" y="110" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#ffffff">ANOTHER COVER.</text>
+            <text x="50" y="128" font-family="Barlow, sans-serif" font-size="9" fill="#555">configurator bar above</text>
+            <!-- LOXX tiles row 1 - FIRST in fold 1 -->
+            <rect x="34" y="150" width="346" height="38" rx="3" fill="#1e2329"/>
+            <text x="50" y="164" font-family="Barlow, sans-serif" font-size="9" fill="#7090a0">trust signal</text>
+            <text x="50" y="180" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">100 YR HERITAGE</text>
+            <line x1="207" y1="156" x2="207" y2="182" stroke="#2e3540" stroke-width="1"/>
+            <text x="220" y="164" font-family="Barlow, sans-serif" font-size="9" fill="#7090a0">trust signal</text>
+            <text x="220" y="180" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">MIL-AEROSPACE</text>
+            <rect x="34" y="196" width="346" height="38" rx="3" fill="#1e2329"/>
+            <text x="50" y="210" font-family="Barlow, sans-serif" font-size="9" fill="#7090a0">trust signal</text>
+            <text x="50" y="226" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">300+ LB / FASTENER</text>
+            <line x1="207" y1="202" x2="207" y2="228" stroke="#2e3540" stroke-width="1"/>
+            <text x="220" y="210" font-family="Barlow, sans-serif" font-size="9" fill="#7090a0">trust signal</text>
+            <text x="220" y="226" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">NA EXCLUSIVE</text>
+            <!-- Scroll break -->
+            <line x1="34" y1="252" x2="380" y2="252" stroke="#2e3540" stroke-width="1" stroke-dasharray="5 4"/>
+            <text x="207" y="270" font-family="Barlow, sans-serif" font-size="11" fill="#555" text-anchor="middle">scroll &#8595;</text>
+            <!-- Reviews at fold 2 only -->
+            <rect x="34" y="284" width="346" height="52" rx="3" fill="#1a1e24" stroke="#2e3540" stroke-width="1"/>
+            <text x="50" y="304" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="15" fill="#7090a0">537+ VERIFIED REVIEWS</text>
+            <text x="50" y="322" font-family="Barlow, sans-serif" font-size="11" fill="#555">4.17 / 5 avg  &#8212;  fold 2 only</text>
+
+            <!-- VARIANT -->
+            <rect x="422" y="16" width="382" height="408" rx="6" fill="#111417" stroke="#00C9AE" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="440" y="46" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#00C9AE" letter-spacing="2.5">VARIANT  FOLD 1</text>
+            <!-- hero headline block -->
+            <rect x="440" y="58" width="346" height="82" rx="3" fill="#181c22"/>
+            <text x="456" y="86" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#ffffff">NEVER LOSE</text>
+            <text x="456" y="110" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#ffffff">ANOTHER COVER.</text>
+            <!-- REVIEWS now in fold 1 - elevated and highlighted -->
+            <rect x="440" y="150" width="346" height="38" rx="3" fill="#1e2e2c" stroke="#00C9AE" stroke-width="1.5"/>
+            <text x="456" y="169" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#00C9AE">&#9733;&#9733;&#9733;&#9733;&#9733;  537+ VERIFIED REVIEWS</text>
+            <text x="456" y="184" font-family="Barlow, sans-serif" font-size="10" fill="#00C9AE">4.17 / 5  &bull;  Judge.me certified</text>
+            <!-- LOXX tiles below reviews -->
+            <rect x="440" y="196" width="346" height="38" rx="3" fill="#1e2329"/>
+            <text x="456" y="219" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">100 YR HERITAGE</text>
+            <line x1="617" y1="202" x2="617" y2="228" stroke="#2e3540" stroke-width="1"/>
+            <text x="630" y="219" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">MIL-AEROSPACE</text>
+            <rect x="440" y="242" width="346" height="38" rx="3" fill="#1e2329"/>
+            <text x="456" y="265" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">300+ LB / FASTENER</text>
+            <line x1="617" y1="248" x2="617" y2="274" stroke="#2e3540" stroke-width="1"/>
+            <text x="630" y="265" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#ddd">NA EXCLUSIVE</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 4 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 4</span>
+            <span class="cvrt-slot-badge cvrt-slot-badge-fix">Immediate Fix</span>
+          </div>
+          <h2 class="cvrt-slot-title">PDP Page Speed Remediation</h2>
+          <p class="cvrt-slot-page">Page: Product Detail Page</p>
+          <p class="cvrt-slot-desc">Lighthouse data from July 2026 shows the product page scoring 51/100 with an 8.7-second LCP and 23.9-second TTI. Every Google Shopping click, organic product URL, and retargeting impression lands on a page that is functionally non-interactive for nearly 24 seconds on mobile. Per Google benchmarks, each one-second LCP reduction delivers 2-4% conversion lift.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect x="16" y="16" width="788" height="308" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="36" y="48" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">PRODUCT DETAIL PAGE  MOBILE LOAD STATE</text>
+
+            <!-- LEFT: current state phone frame -->
+            <text x="60" y="80" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#7090a0" letter-spacing="1.5">CURRENT</text>
+            <rect x="40" y="90" width="204" height="210" rx="8" fill="#1a1e24" stroke="#2e3540" stroke-width="1.5"/>
+            <rect x="58" y="108" width="168" height="88" rx="3" fill="#1e2329" stroke="#2e3540" stroke-width="1"/>
+            <text x="142" y="156" font-family="Barlow, sans-serif" font-size="10" fill="#555" text-anchor="middle">product image</text>
+            <text x="142" y="170" font-family="Barlow, sans-serif" font-size="9" fill="#444" text-anchor="middle">loading...</text>
+            <rect x="58" y="206" width="128" height="9" rx="2" fill="#222"/>
+            <rect x="58" y="220" width="88" height="8" rx="2" fill="#1e2329"/>
+            <rect x="58" y="233" width="108" height="8" rx="2" fill="#1e2329"/>
+            <rect x="58" y="258" width="168" height="28" rx="3" fill="#1e2329" stroke="#2e3540" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="142" y="276" font-family="Barlow, sans-serif" font-size="9" fill="#555" text-anchor="middle">ADD TO CART (non-interactive)</text>
+            <text x="142" y="318" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#e05c5c" text-anchor="middle">23.9s TTI  &bull;  8.7s LCP</text>
+
+            <!-- CENTER: metrics block -->
+            <rect x="278" y="90" width="264" height="210" rx="6" fill="#181c22" stroke="#2e3540" stroke-width="1"/>
+            <text x="410" y="138" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="60" fill="#e05c5c" text-anchor="middle">51</text>
+            <text x="410" y="158" font-family="Barlow Condensed, sans-serif" font-weight="600" font-size="12" fill="#7090a0" text-anchor="middle">LIGHTHOUSE SCORE / 100</text>
+            <line x1="298" y1="170" x2="522" y2="170" stroke="#2e3540" stroke-width="1"/>
+            <text x="410" y="192" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="15" fill="#e05c5c" text-anchor="middle">LCP: 8.7s</text>
+            <text x="410" y="210" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0" text-anchor="middle">Good threshold: 2.5s</text>
+            <text x="410" y="230" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="15" fill="#e05c5c" text-anchor="middle">TTI: 23.9s</text>
+            <text x="410" y="248" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0" text-anchor="middle">Every paid click hits this wall</text>
+            <text x="410" y="270" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#00C9AE" text-anchor="middle">TARGET: LCP under 4s</text>
+            <text x="410" y="286" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0" text-anchor="middle">Each 1s reduction = 2-4% CR lift</text>
+
+            <!-- RIGHT: target state phone frame -->
+            <text x="578" y="80" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#00C9AE" letter-spacing="1.5">TARGET</text>
+            <rect x="576" y="90" width="204" height="210" rx="8" fill="#1a1e24" stroke="#00C9AE" stroke-width="1.5"/>
+            <rect x="594" y="108" width="168" height="88" rx="3" fill="#1e2e2c" stroke="#00C9AE" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="678" y="156" font-family="Barlow, sans-serif" font-size="10" fill="#00C9AE" text-anchor="middle">product image</text>
+            <text x="678" y="170" font-family="Barlow, sans-serif" font-size="9" fill="#00C9AE" text-anchor="middle">loaded</text>
+            <rect x="594" y="206" width="128" height="9" rx="2" fill="#1e2e2c" stroke="#00C9AE" stroke-width="0.5"/>
+            <rect x="594" y="220" width="88" height="8" rx="2" fill="#1e2e2c" stroke="#00C9AE" stroke-width="0.5"/>
+            <rect x="594" y="233" width="108" height="8" rx="2" fill="#1e2e2c" stroke="#00C9AE" stroke-width="0.5"/>
+            <rect x="594" y="258" width="168" height="28" rx="3" fill="#00C9AE"/>
+            <text x="678" y="276" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#111" text-anchor="middle">ADD PROTECTION &middot; $364</text>
+            <text x="678" y="318" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#00C9AE" text-anchor="middle">Under 4s LCP  &bull;  interactive</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 5 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 5</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">Support Contact Visibility</h2>
+          <p class="cvrt-slot-page">Page: Product Detail Page</p>
+          <p class="cvrt-slot-desc">Three separate 1-star reviews cite one identical problem: no phone number, no named contact, and unanswered emails. The live site shows email-only support with no phone, chat widget, or named person visible in the header, PDP trust row, or footer. At 4.17/5 across 537 reviews, these 1-star entries sit near the top of Google Shopping review feeds.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect x="16" y="16" width="788" height="268" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="36" y="48" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">PDP  TRUST ROW</text>
+
+            <!-- CONTROL: 3 trust pills -->
+            <text x="36" y="78" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2">CONTROL  3 ELEMENTS</text>
+            <rect x="36" y="88" width="748" height="50" rx="4" fill="#1a1e24" stroke="#2e3540" stroke-width="1"/>
+            <rect x="54" y="98" width="196" height="30" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="152" y="117" font-family="Barlow, sans-serif" font-size="12" fill="#c8c4be" text-anchor="middle">Free ship lower 48</text>
+            <rect x="262" y="98" width="172" height="30" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="348" y="117" font-family="Barlow, sans-serif" font-size="12" fill="#c8c4be" text-anchor="middle">1-Year warranty</text>
+            <rect x="446" y="98" width="196" height="30" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="544" y="117" font-family="Barlow, sans-serif" font-size="12" fill="#c8c4be" text-anchor="middle">Rebuild free if fails</text>
+
+            <!-- Arrow -->
+            <text x="410" y="162" font-family="Barlow, sans-serif" font-size="22" fill="#2e3540" text-anchor="middle">&#8595;</text>
+
+            <!-- VARIANT: 4 trust pills -->
+            <text x="36" y="192" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#00C9AE" letter-spacing="2">VARIANT  4 ELEMENTS</text>
+            <rect x="36" y="202" width="748" height="50" rx="4" fill="#1a1e24" stroke="#00C9AE" stroke-width="1"/>
+            <rect x="54" y="212" width="152" height="30" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="130" y="231" font-family="Barlow, sans-serif" font-size="11" fill="#c8c4be" text-anchor="middle">Free ship lower 48</text>
+            <rect x="218" y="212" width="144" height="30" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="290" y="231" font-family="Barlow, sans-serif" font-size="11" fill="#c8c4be" text-anchor="middle">1-Year warranty</text>
+            <rect x="374" y="212" width="168" height="30" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="458" y="231" font-family="Barlow, sans-serif" font-size="11" fill="#c8c4be" text-anchor="middle">Rebuild free if fails</text>
+            <!-- 4th pill - new, highlighted -->
+            <rect x="554" y="212" width="214" height="30" rx="3" fill="#1e2e2c" stroke="#00C9AE" stroke-width="1.5"/>
+            <text x="661" y="228" font-family="Barlow, sans-serif" font-size="11" fill="#00C9AE" text-anchor="middle">Talk to the team  Mon-Fri 8a-5p</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 6 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 6</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">International Tariff Disclosure</h2>
+          <p class="cvrt-slot-page">Page: Product Detail Page</p>
+          <p class="cvrt-slot-desc">Taryn Lowe paid $183.86 in import tariffs on a $465 order with no advance notice, documenting it as a 1-star review. No tariff or import duty disclosure appears on any product page, in the cart, or at checkout in the live site.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect x="16" y="16" width="788" height="288" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="36" y="48" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">PDP  BUY BOX</text>
+
+            <!-- CONTROL buy box -->
+            <rect x="36" y="62" width="348" height="222" rx="4" fill="#1a1e24" stroke="#2e3540" stroke-width="1"/>
+            <text x="58" y="92" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#ffffff">RV WINDSHIELD COVER</text>
+            <text x="58" y="114" font-family="Barlow, sans-serif" font-size="12" fill="#00C9AE">&#9733;&#9733;&#9733;&#9733;&#9734;  537 reviews</text>
+            <text x="58" y="140" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="24" fill="#ffffff">$364.00</text>
+            <rect x="58" y="152" width="308" height="14" rx="2" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <rect x="58" y="172" width="308" height="14" rx="2" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="58" y="208" font-family="Barlow Condensed, sans-serif" font-weight="600" font-size="11" fill="#7090a0">FREE SHIP  &bull;  1-YR WARRANTY  &bull;  REBUILD FREE</text>
+            <text x="58" y="240" font-family="Barlow, sans-serif" font-size="10" fill="#444" font-style="italic">no tariff disclosure  (control)</text>
+            <rect x="58" y="258" width="308" height="10" rx="2" fill="#2e3540"/>
+
+            <!-- Arrow -->
+            <text x="410" y="178" font-family="Barlow, sans-serif" font-size="28" fill="#2e3540" text-anchor="middle">&#8594;</text>
+
+            <!-- VARIANT buy box -->
+            <rect x="436" y="62" width="348" height="222" rx="4" fill="#1a1e24" stroke="#00C9AE" stroke-width="1"/>
+            <text x="458" y="92" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#ffffff">RV WINDSHIELD COVER</text>
+            <text x="458" y="114" font-family="Barlow, sans-serif" font-size="12" fill="#00C9AE">&#9733;&#9733;&#9733;&#9733;&#9734;  537 reviews</text>
+            <text x="458" y="140" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="24" fill="#ffffff">$364.00</text>
+            <rect x="458" y="152" width="308" height="14" rx="2" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <rect x="458" y="172" width="308" height="14" rx="2" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <text x="458" y="208" font-family="Barlow Condensed, sans-serif" font-weight="600" font-size="11" fill="#7090a0">FREE SHIP  &bull;  1-YR WARRANTY  &bull;  REBUILD FREE</text>
+            <!-- New tariff disclosure line highlighted -->
+            <rect x="458" y="218" width="308" height="26" rx="2" fill="#1e2e2c" stroke="#00C9AE" stroke-width="1"/>
+            <text x="612" y="235" font-family="Barlow, sans-serif" font-size="11" fill="#00C9AE" text-anchor="middle">International orders may be subject to import duties.</text>
+            <rect x="458" y="258" width="308" height="10" rx="2" fill="rgba(0,201,174,0.35)"/>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 7 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 7</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">Cart Accessories Cross-Sell</h2>
+          <p class="cvrt-slot-page">Page: Cart Drawer</p>
+          <p class="cvrt-slot-desc">Three accessories are confirmed live on the site - vinyl cleaner ($25), removable magnets ($39), extended warranty ($39) - none appear in the cart drawer or on the product page. The free shipping bar shows "UNLOCKED" at full green from the first item at $364, removing any incremental add-on incentive.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect x="16" y="16" width="788" height="348" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="36" y="48" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">CART DRAWER  MOBILE</text>
+
+            <!-- CONTROL -->
+            <text x="60" y="80" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#7090a0" letter-spacing="1.5">CONTROL</text>
+            <rect x="36" y="88" width="336" height="240" rx="4" fill="#1a1e24" stroke="#2e3540" stroke-width="1"/>
+            <!-- Cart item row -->
+            <rect x="54" y="104" width="300" height="52" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <rect x="64" y="112" width="38" height="36" rx="2" fill="#2e3540"/>
+            <text x="114" y="128" font-family="Barlow, sans-serif" font-size="11" fill="#c8c4be">RV Windshield Cover</text>
+            <text x="114" y="148" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#ffffff">$364.00</text>
+            <!-- Shipping bar always unlocked -->
+            <rect x="54" y="164" width="300" height="16" rx="8" fill="#00C9AE"/>
+            <text x="204" y="176" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="10" fill="#111" text-anchor="middle">FREE SHIPPING UNLOCKED</text>
+            <!-- LOXX upgrade block -->
+            <rect x="54" y="188" width="300" height="52" rx="3" fill="#111" stroke="#2e3540" stroke-width="1"/>
+            <text x="204" y="210" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#c8c4be" text-anchor="middle">UPGRADE: ALL-LOXX</text>
+            <text x="204" y="230" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0" text-anchor="middle">$409.00  LOXX retention upgrade</text>
+            <!-- No cross-sell gap -->
+            <text x="204" y="296" font-family="Barlow, sans-serif" font-size="10" fill="#444" font-style="italic" text-anchor="middle">no accessory cross-sell (control)</text>
+
+            <!-- Arrow -->
+            <text x="410" y="218" font-family="Barlow, sans-serif" font-size="28" fill="#2e3540" text-anchor="middle">&#8594;</text>
+
+            <!-- VARIANT -->
+            <text x="448" y="80" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#00C9AE" letter-spacing="1.5">VARIANT</text>
+            <rect x="448" y="88" width="336" height="240" rx="4" fill="#1a1e24" stroke="#00C9AE" stroke-width="1"/>
+            <rect x="466" y="104" width="300" height="52" rx="3" fill="#222" stroke="#2e3540" stroke-width="1"/>
+            <rect x="476" y="112" width="38" height="36" rx="2" fill="#2e3540"/>
+            <text x="526" y="128" font-family="Barlow, sans-serif" font-size="11" fill="#c8c4be">RV Windshield Cover</text>
+            <text x="526" y="148" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#ffffff">$364.00</text>
+            <rect x="466" y="164" width="300" height="16" rx="8" fill="#00C9AE"/>
+            <text x="616" y="176" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="10" fill="#111" text-anchor="middle">FREE SHIPPING UNLOCKED</text>
+            <rect x="466" y="188" width="300" height="44" rx="3" fill="#111" stroke="#2e3540" stroke-width="1"/>
+            <text x="616" y="208" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#c8c4be" text-anchor="middle">UPGRADE: ALL-LOXX</text>
+            <text x="616" y="224" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0" text-anchor="middle">$409  LOXX retention upgrade</text>
+            <!-- NEW accessory tile -->
+            <rect x="466" y="240" width="300" height="72" rx="3" fill="#1e2e2c" stroke="#00C9AE" stroke-width="1.5"/>
+            <text x="476" y="260" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" fill="#00C9AE">ADD 2-YEAR WARRANTY  $39</text>
+            <text x="476" y="278" font-family="Barlow, sans-serif" font-size="11" fill="#c8c4be">Covers fit, hold, and materials.</text>
+            <rect x="604" y="260" width="146" height="30" rx="3" fill="#00C9AE"/>
+            <text x="677" y="279" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#111" text-anchor="middle">ADD TO ORDER</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <!-- SLOT 8 -->
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-card-body">
+          <div class="cvrt-slot-meta">
+            <span class="cvrt-slot-number">Slot 8</span>
+            <span class="cvrt-slot-badge">A/B Test</span>
+          </div>
+          <h2 class="cvrt-slot-title">Homepage Desktop Sticky CTA</h2>
+          <p class="cvrt-slot-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">fitprotection.com</a></p>
+          <p class="cvrt-slot-desc">Desktop screenshots confirm no sticky element at any homepage fold. The "Find My Cover" configurator is the only primary CTA and becomes invisible once a visitor scrolls past the hero into the LOXX education section or product grid. There is no floating button, sticky bar, or secondary CTA at any scroll depth on desktop.</p>
+        </div>
+        <div class="cvrt-slot-divider"></div>
+        <div class="cvrt-slot-svg-wrap">
+          <svg viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect x="16" y="16" width="788" height="328" rx="6" fill="#111417" stroke="#2e3540" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="36" y="48" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="11" fill="#7090a0" letter-spacing="2.5">HOMEPAGE  DESKTOP NAV  SCROLLED STATE</text>
+
+            <!-- CONTROL nav -->
+            <text x="36" y="78" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#7090a0" letter-spacing="1.5">CONTROL  NO STICKY CTA</text>
+            <rect x="36" y="88" width="748" height="38" rx="3" fill="#0f1215" stroke="#2e3540" stroke-width="1"/>
+            <rect x="52" y="100" width="28" height="14" rx="2" fill="#1e2329"/>
+            <text x="96" y="112" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0">Shop  &bull;  How It Works  &bull;  Reviews  &bull;  About</text>
+            <text x="756" y="110" font-family="Barlow, sans-serif" font-size="10" fill="#444" text-anchor="end">no CTA accessible</text>
+            <!-- Page content scrolled - LOXX section -->
+            <rect x="36" y="134" width="748" height="90" rx="3" fill="#1a1e24" stroke="#2e3540" stroke-width="1"/>
+            <text x="410" y="172" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#444" text-anchor="middle">LOXX EDUCATION SECTION</text>
+            <text x="410" y="194" font-family="Barlow, sans-serif" font-size="12" fill="#444" text-anchor="middle">User has scrolled past the configurator  /  must scroll back up to use Find My Cover</text>
+
+            <!-- Arrow -->
+            <text x="410" y="254" font-family="Barlow, sans-serif" font-size="18" fill="#2e3540" text-anchor="middle">&#8595;</text>
+
+            <!-- VARIANT nav with sticky CTA -->
+            <text x="36" y="284" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="12" fill="#00C9AE" letter-spacing="1.5">VARIANT  STICKY CTA APPEARS ON SCROLL</text>
+            <rect x="36" y="294" width="748" height="38" rx="3" fill="#0f1215" stroke="#00C9AE" stroke-width="1"/>
+            <rect x="52" y="306" width="28" height="14" rx="2" fill="#1e2329"/>
+            <text x="96" y="318" font-family="Barlow, sans-serif" font-size="11" fill="#7090a0">Shop  &bull;  How It Works  &bull;  Reviews  &bull;  About</text>
+            <!-- Sticky CTA highlighted in nav -->
+            <rect x="616" y="301" width="152" height="26" rx="3" fill="#00C9AE"/>
+            <text x="692" y="318" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="#111" text-anchor="middle">FIND MY COVER &#8594;</text>
+          </svg>
+          <p class="cvrt-slot-caption">* Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
     </div>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">Homepage Hero Message</h3>
-        <p class="cvrt-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">Homepage</a></p>
-        <p class="cvrt-description">Offer-focused paid traffic frames the risk as windshield damage, while the homepage hero leads with cover retention. Aligning the first message with the concern that brought visitors in creates a clearer path into the fit finder.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 360" role="img" aria-label="Current and variation homepage hero message wireframe">
-          <rect x="8" y="8" width="784" height="344" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="34" y="40" font-size="14">HOMEPAGE HERO</text>
-          <rect x="30" y="60" width="350" height="264" rx="7" fill="#fff" stroke="#aab3b6" stroke-dasharray="6 5"/>
-          <text x="50" y="88" font-size="14" fill="#617078">CURRENT</text>
-          <rect x="50" y="104" width="310" height="72" rx="4" fill="#132027"/>
-          <text x="66" y="137" font-size="23" fill="#fff">NEVER LOSE ANOTHER</text><text x="66" y="164" font-size="23" fill="#16aaa4">COVER.</text>
-          <rect x="50" y="190" width="310" height="68" rx="4" fill="#e9ece9"/>
-          <text x="66" y="217" font-size="12">Exact fit. No drilling. No straps.</text><text x="66" y="239" font-size="12">Off in 15 seconds.</text>
-          <rect x="50" y="274" width="154" height="31" rx="3" fill="#16aaa4"/><text x="73" y="295" font-size="11" fill="#fff">FIND MY COVER</text>
-          <rect x="420" y="60" width="350" height="264" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/>
-          <text x="440" y="88" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="440" y="104" width="310" height="72" rx="4" fill="#132027"/>
-          <text x="456" y="137" font-size="23" fill="#fff">ONE ROCK. ONE COVER.</text><text x="456" y="164" font-size="23" fill="#16aaa4">ZERO CRACKED GLASS.</text>
-          <rect x="440" y="190" width="310" height="68" rx="4" fill="#dff4f2" stroke="#16aaa4" stroke-dasharray="5 4"/>
-          <text x="456" y="217" font-size="12">Message reflects the road risk</text><text x="456" y="239" font-size="12">that initiated the visit.</text>
-          <rect x="440" y="274" width="154" height="31" rx="3" fill="#16aaa4"/><text x="463" y="295" font-size="11" fill="#fff">FIND MY COVER</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 660" role="img" aria-label="Stacked current and variation homepage hero message wireframe">
-          <rect x="8" y="8" width="344" height="644" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="38" font-size="14">CURRENT</text><rect x="24" y="54" width="312" height="218" rx="6" fill="#fff" stroke="#aab3b6"/>
-          <rect x="40" y="72" width="280" height="76" rx="4" fill="#132027"/><text x="54" y="105" font-size="20" fill="#fff">NEVER LOSE ANOTHER</text><text x="54" y="132" font-size="20" fill="#16aaa4">COVER.</text>
-          <text x="40" y="178" font-size="12">Exact fit. No drilling. No straps.</text><rect x="40" y="210" width="145" height="35" rx="3" fill="#16aaa4"/><text x="60" y="233" font-size="11" fill="#fff">FIND MY COVER</text>
-          <text x="174" y="310" font-size="28" fill="#0a7774">↓</text><text x="24" y="350" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="24" y="366" width="312" height="250" rx="6" fill="#fff" stroke="#16aaa4" stroke-width="2"/>
-          <rect x="40" y="384" width="280" height="84" rx="4" fill="#132027"/><text x="54" y="417" font-size="19" fill="#fff">ONE ROCK. ONE COVER.</text><text x="54" y="447" font-size="19" fill="#16aaa4">ZERO CRACKED GLASS.</text>
-          <rect x="40" y="484" width="280" height="64" rx="4" fill="#dff4f2"/><text x="54" y="512" font-size="12">Road-risk message matches</text><text x="54" y="532" font-size="12">the visitor's starting concern.</text>
-          <rect x="40" y="564" width="145" height="35" rx="3" fill="#16aaa4"/><text x="60" y="587" font-size="11" fill="#fff">FIND MY COVER</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">RV Configurator Default</h3>
-        <p class="cvrt-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">Homepage</a></p>
-        <p class="cvrt-description">RV-focused paid traffic currently enters a fit finder preselected for UTV. Removing that category correction can reduce friction at the homepage's primary conversion action.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 320" role="img" aria-label="Current and variation fit finder category wireframe">
-          <rect x="8" y="8" width="784" height="304" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="30" y="39" font-size="14">FIND MY COVER IN 3 TAPS</text>
-          <rect x="30" y="58" width="740" height="96" rx="7" fill="#fff" stroke="#aab3b6"/>
-          <text x="46" y="82" font-size="12">CURRENT</text>
-          <rect x="46" y="94" width="170" height="42" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="62" y="120" font-size="13">UTV</text><text x="194" y="120" font-size="16">⌄</text>
-          <rect x="230" y="94" width="170" height="42" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="246" y="120" font-size="13">Brand</text>
-          <rect x="414" y="94" width="170" height="42" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="430" y="120" font-size="13">Model</text>
-          <rect x="598" y="94" width="154" height="42" rx="3" fill="#16aaa4"/><text x="621" y="120" font-size="12" fill="#fff">FIND MY COVER</text>
-          <text x="400" y="185" font-size="27" text-anchor="middle" fill="#0a7774">↓ CATEGORY MATCH</text>
-          <rect x="30" y="208" width="740" height="78" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/>
-          <text x="46" y="232" font-size="12" fill="#0a7774">VARIATION</text>
-          <rect x="150" y="224" width="170" height="44" rx="3" fill="#dff4f2" stroke="#16aaa4"/><text x="166" y="251" font-size="13">RV</text><text x="298" y="251" font-size="16">⌄</text>
-          <rect x="334" y="224" width="170" height="44" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="350" y="251" font-size="13">Brand</text>
-          <rect x="518" y="224" width="154" height="44" rx="3" fill="#16aaa4"/><text x="541" y="251" font-size="12" fill="#fff">FIND MY COVER</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 690" role="img" aria-label="Stacked current and variation fit finder category wireframe">
-          <rect x="8" y="8" width="344" height="674" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">CURRENT</text><rect x="24" y="56" width="312" height="250" rx="6" fill="#fff" stroke="#aab3b6"/>
-          <rect x="42" y="78" width="276" height="47" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="58" y="107" font-size="14">UTV</text><text x="290" y="107" font-size="18">⌄</text>
-          <rect x="42" y="140" width="276" height="47" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="58" y="169" font-size="14">Brand</text>
-          <rect x="42" y="202" width="276" height="47" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="58" y="231" font-size="14">Model</text>
-          <rect x="42" y="260" width="276" height="32" rx="3" fill="#16aaa4"/><text x="180" y="281" font-size="11" fill="#fff" text-anchor="middle">FIND MY COVER</text>
-          <text x="174" y="344" font-size="28" fill="#0a7774">↓</text><text x="24" y="384" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="24" y="400" width="312" height="250" rx="6" fill="#fff" stroke="#16aaa4" stroke-width="2"/>
-          <rect x="42" y="422" width="276" height="47" rx="3" fill="#dff4f2" stroke="#16aaa4"/><text x="58" y="451" font-size="14">RV</text><text x="290" y="451" font-size="18">⌄</text>
-          <rect x="42" y="484" width="276" height="47" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="58" y="513" font-size="14">Brand</text>
-          <rect x="42" y="546" width="276" height="47" rx="3" fill="#f0f1ee" stroke="#aab3b6"/><text x="58" y="575" font-size="14">Model</text>
-          <rect x="42" y="604" width="276" height="32" rx="3" fill="#16aaa4"/><text x="180" y="625" font-size="11" fill="#fff" text-anchor="middle">FIND MY COVER</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">Fold 1 Customer Proof</h3>
-        <p class="cvrt-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">Homepage</a></p>
-        <p class="cvrt-description">The first fold relies on LOXX credentials, while the 537+ review signal appears after a full scroll. Bringing documented customer validation closer to the first decision point can strengthen confidence for visitors unfamiliar with LOXX.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 330" role="img" aria-label="Current and variation homepage trust placement wireframe">
-          <rect x="8" y="8" width="784" height="314" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <rect x="28" y="46" width="352" height="245" rx="7" fill="#fff" stroke="#aab3b6"/><text x="48" y="74" font-size="14">CURRENT</text>
-          <rect x="48" y="92" width="312" height="74" rx="4" fill="#132027"/><text x="64" y="120" font-size="19" fill="#fff">NEVER LOSE</text><text x="64" y="146" font-size="19" fill="#16aaa4">ANOTHER COVER.</text>
-          <g fill="#eef0ed" stroke="#aab3b6"><rect x="48" y="184" width="70" height="72" rx="3"/><rect x="128" y="184" width="70" height="72" rx="3"/><rect x="208" y="184" width="70" height="72" rx="3"/><rect x="288" y="184" width="72" height="72" rx="3"/></g>
-          <text x="83" y="215" font-size="10" text-anchor="middle">100 YR</text><text x="163" y="215" font-size="10" text-anchor="middle">MIL</text><text x="243" y="215" font-size="10" text-anchor="middle">300+ LB</text><text x="324" y="215" font-size="10" text-anchor="middle">PARTNER</text>
-          <text x="204" y="279" font-size="11" text-anchor="middle" fill="#617078">Reviews appear after the next fold</text>
-          <rect x="420" y="46" width="352" height="245" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="440" y="74" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="440" y="92" width="312" height="74" rx="4" fill="#132027"/><text x="456" y="120" font-size="19" fill="#fff">NEVER LOSE</text><text x="456" y="146" font-size="19" fill="#16aaa4">ANOTHER COVER.</text>
-          <rect x="440" y="178" width="312" height="45" rx="4" fill="#dff4f2" stroke="#16aaa4"/><text x="456" y="206" font-size="14">★★★★★ 4.17/5 · 537+ verified reviews</text>
-          <g fill="#eef0ed" stroke="#aab3b6"><rect x="440" y="237" width="70" height="36" rx="3"/><rect x="520" y="237" width="70" height="36" rx="3"/><rect x="600" y="237" width="70" height="36" rx="3"/><rect x="680" y="237" width="72" height="36" rx="3"/></g>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 650" role="img" aria-label="Stacked current and variation homepage trust placement wireframe">
-          <rect x="8" y="8" width="344" height="634" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">CURRENT</text><rect x="24" y="56" width="312" height="228" rx="6" fill="#fff" stroke="#aab3b6"/>
-          <rect x="42" y="76" width="276" height="70" rx="4" fill="#132027"/><text x="56" y="105" font-size="17" fill="#fff">NEVER LOSE</text><text x="56" y="130" font-size="17" fill="#16aaa4">ANOTHER COVER.</text>
-          <g fill="#eef0ed" stroke="#aab3b6"><rect x="42" y="164" width="60" height="60" rx="3"/><rect x="112" y="164" width="60" height="60" rx="3"/><rect x="182" y="164" width="60" height="60" rx="3"/><rect x="252" y="164" width="66" height="60" rx="3"/></g><text x="180" y="258" font-size="11" text-anchor="middle">Customer reviews appear lower</text>
-          <text x="174" y="326" font-size="28" fill="#0a7774">↓</text><text x="24" y="364" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="24" y="380" width="312" height="230" rx="6" fill="#fff" stroke="#16aaa4" stroke-width="2"/>
-          <rect x="42" y="400" width="276" height="70" rx="4" fill="#132027"/><text x="56" y="429" font-size="17" fill="#fff">NEVER LOSE</text><text x="56" y="454" font-size="17" fill="#16aaa4">ANOTHER COVER.</text>
-          <rect x="42" y="488" width="276" height="52" rx="4" fill="#dff4f2" stroke="#16aaa4"/><text x="56" y="520" font-size="13">★★★★★ 4.17/5 · 537+ reviews</text>
-          <g fill="#eef0ed" stroke="#aab3b6"><rect x="42" y="556" width="60" height="34" rx="3"/><rect x="112" y="556" width="60" height="34" rx="3"/><rect x="182" y="556" width="60" height="34" rx="3"/><rect x="252" y="556" width="66" height="34" rx="3"/></g>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type cvrt-type-fix">Immediate Fix</span></div>
-        <h3 class="cvrt-slot-title">PDP Page Speed</h3>
-        <p class="cvrt-page">Page: Product Detail Pages</p>
-        <p class="cvrt-description">The product page scores 51/100, with an 8.7s LCP and 23.9s TTI on mobile. The buying interface remains unavailable long after arrival, making performance a conversion floor issue across product traffic.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 330" role="img" aria-label="Product page loading sequence wireframe">
-          <rect x="8" y="8" width="784" height="314" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="30" y="40" font-size="14">MOBILE PRODUCT PAGE LOAD</text>
-          <line x1="78" y1="94" x2="726" y2="94" stroke="#9aa5aa" stroke-width="3" stroke-dasharray="8 6"/>
-          <circle cx="90" cy="94" r="10" fill="#16aaa4"/><circle cx="330" cy="94" r="10" fill="#d7d9d5"/><circle cx="704" cy="94" r="10" fill="#7a4f2d"/>
-          <text x="90" y="70" font-size="13" text-anchor="middle">0s</text><text x="330" y="70" font-size="13" text-anchor="middle">8.7s LCP</text><text x="704" y="70" font-size="13" text-anchor="middle">23.9s TTI</text>
-          <rect x="42" y="132" width="214" height="154" rx="6" fill="#fff" stroke="#aab3b6"/><rect x="58" y="150" width="182" height="72" rx="3" fill="#e6e8e5"/><text x="149" y="190" font-size="12" text-anchor="middle">PARTIAL PRODUCT MEDIA</text><rect x="58" y="238" width="182" height="28" rx="3" fill="#d7d9d5"/><text x="149" y="257" font-size="11" text-anchor="middle">BUY BOX WAITING</text>
-          <rect x="292" y="132" width="214" height="154" rx="6" fill="#fff" stroke="#7a4f2d" stroke-dasharray="6 5"/><rect x="308" y="150" width="182" height="72" rx="3" fill="#eef0ed"/><text x="399" y="190" font-size="12" text-anchor="middle">MAIN IMAGE PAINTS</text><rect x="308" y="238" width="182" height="28" rx="3" fill="#eadfd4"/><text x="399" y="257" font-size="11" text-anchor="middle">CONTROLS STILL BLOCKED</text>
-          <rect x="542" y="132" width="214" height="154" rx="6" fill="#fff" stroke="#16aaa4"/><text x="558" y="159" font-size="13">CAN-AM DEFENDER</text><text x="558" y="184" font-size="17">$364</text><rect x="558" y="202" width="182" height="42" rx="3" fill="#16aaa4"/><text x="649" y="228" font-size="12" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text><text x="649" y="270" font-size="11" text-anchor="middle">INTERACTIVE</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 600" role="img" aria-label="Vertical product page loading sequence wireframe">
-          <rect x="8" y="8" width="344" height="584" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">PRODUCT PAGE LOAD</text><line x1="50" y1="76" x2="50" y2="548" stroke="#9aa5aa" stroke-width="3" stroke-dasharray="8 6"/>
-          <circle cx="50" cy="94" r="9" fill="#16aaa4"/><text x="76" y="99" font-size="13">0s · navigation begins</text>
-          <rect x="76" y="122" width="250" height="100" rx="6" fill="#fff" stroke="#aab3b6"/><rect x="92" y="140" width="218" height="44" rx="3" fill="#e6e8e5"/><text x="201" y="168" font-size="12" text-anchor="middle">PARTIAL PRODUCT MEDIA</text><text x="201" y="204" font-size="11" text-anchor="middle">BUY BOX WAITING</text>
-          <circle cx="50" cy="272" r="9" fill="#d7d9d5"/><text x="76" y="277" font-size="13">8.7s · main element paints</text>
-          <rect x="76" y="300" width="250" height="86" rx="6" fill="#fff" stroke="#7a4f2d" stroke-dasharray="6 5"/><text x="201" y="336" font-size="12" text-anchor="middle">CONTROLS STILL BLOCKED</text><text x="201" y="362" font-size="11" text-anchor="middle">580ms blocking time</text>
-          <circle cx="50" cy="436" r="9" fill="#7a4f2d"/><text x="76" y="441" font-size="13">23.9s · page becomes interactive</text>
-          <rect x="76" y="468" width="250" height="62" rx="6" fill="#fff" stroke="#16aaa4"/><rect x="92" y="482" width="218" height="34" rx="3" fill="#16aaa4"/><text x="201" y="504" font-size="11" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">Support Contact Visibility</h3>
-        <p class="cvrt-page">Page: Product Detail Pages</p>
-        <p class="cvrt-description">Three separate 1-star reviews cite no phone number, no named contact, or unanswered email as the reason for their rating. A visible human support route near the buy box can answer a repeated trust concern before purchase.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 340" role="img" aria-label="Current and variation product page trust row wireframe">
-          <rect x="8" y="8" width="784" height="324" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <rect x="28" y="48" width="352" height="252" rx="7" fill="#fff" stroke="#aab3b6"/><text x="48" y="76" font-size="14">CURRENT</text><text x="48" y="108" font-size="20">CAN-AM DEFENDER</text><text x="48" y="140" font-size="22">$364</text>
-          <rect x="48" y="158" width="312" height="52" rx="5" fill="#eef0ed"/><text x="64" y="180" font-size="10">FREE SHIP · LOWER 48</text><text x="64" y="198" font-size="10">1-YEAR WARRANTY · REBUILD FREE</text>
-          <rect x="48" y="230" width="312" height="44" rx="4" fill="#16aaa4"/><text x="204" y="257" font-size="12" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-          <rect x="420" y="48" width="352" height="252" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="440" y="76" font-size="14" fill="#0a7774">VARIATION</text><text x="440" y="108" font-size="20">CAN-AM DEFENDER</text><text x="440" y="140" font-size="22">$364</text>
-          <rect x="440" y="158" width="312" height="72" rx="5" fill="#dff4f2" stroke="#16aaa4"/><text x="456" y="180" font-size="10">FREE SHIP · 1-YEAR WARRANTY · REBUILD FREE</text><text x="456" y="206" font-size="11">QUESTIONS? TALK TO THE TEAM</text><text x="456" y="220" font-size="9">MON-FRI 8A-5P MST</text>
-          <rect x="440" y="246" width="312" height="44" rx="4" fill="#16aaa4"/><text x="596" y="273" font-size="12" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 660" role="img" aria-label="Stacked current and variation product page trust row wireframe">
-          <rect x="8" y="8" width="344" height="644" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">CURRENT</text><rect x="24" y="56" width="312" height="224" rx="6" fill="#fff" stroke="#aab3b6"/><text x="42" y="90" font-size="18">CAN-AM DEFENDER</text><text x="42" y="120" font-size="21">$364</text>
-          <rect x="42" y="138" width="276" height="52" rx="4" fill="#eef0ed"/><text x="56" y="160" font-size="10">FREE SHIP · 1-YEAR WARRANTY</text><text x="56" y="178" font-size="10">REBUILD FREE</text><rect x="42" y="208" width="276" height="42" rx="4" fill="#16aaa4"/><text x="180" y="234" font-size="11" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-          <text x="174" y="320" font-size="28" fill="#0a7774">↓</text><text x="24" y="360" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="24" y="376" width="312" height="244" rx="6" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="42" y="410" font-size="18">CAN-AM DEFENDER</text><text x="42" y="440" font-size="21">$364</text>
-          <rect x="42" y="458" width="276" height="78" rx="4" fill="#dff4f2" stroke="#16aaa4"/><text x="56" y="480" font-size="10">FREE SHIP · WARRANTY · REBUILD FREE</text><text x="56" y="506" font-size="11">QUESTIONS? TALK TO THE TEAM</text><text x="56" y="522" font-size="9">MON-FRI 8A-5P MST</text>
-          <rect x="42" y="554" width="276" height="42" rx="4" fill="#16aaa4"/><text x="180" y="580" font-size="11" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">International Duty Notice</h3>
-        <p class="cvrt-page">Page: Product Detail Pages</p>
-        <p class="cvrt-description">One buyer reported $183.86 in import tariffs on a $465 order with no advance notice, and no duty disclosure was found on the product page, cart, or checkout. Clear pre-purchase expectations can reduce post-purchase shock for international buyers.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 330" role="img" aria-label="Current and variation international shipping disclosure wireframe">
-          <rect x="8" y="8" width="784" height="314" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <rect x="28" y="48" width="352" height="244" rx="7" fill="#fff" stroke="#aab3b6"/><text x="48" y="76" font-size="14">CURRENT</text><text x="48" y="111" font-size="20">$364</text>
-          <rect x="48" y="130" width="312" height="49" rx="4" fill="#eef0ed"/><text x="64" y="160" font-size="11">FREE SHIP · LOWER 48</text>
-          <rect x="48" y="199" width="312" height="45" rx="4" fill="#16aaa4"/><text x="204" y="227" font-size="12" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text><text x="48" y="271" font-size="10" fill="#617078">No international duty information shown</text>
-          <rect x="420" y="48" width="352" height="244" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="440" y="76" font-size="14" fill="#0a7774">VARIATION</text><text x="440" y="111" font-size="20">$364</text>
-          <rect x="440" y="130" width="312" height="49" rx="4" fill="#eef0ed"/><text x="456" y="160" font-size="11">FREE SHIP · LOWER 48</text>
-          <rect x="440" y="190" width="312" height="48" rx="4" fill="#dff4f2" stroke="#16aaa4" stroke-dasharray="5 4"/><text x="454" y="210" font-size="9">INTERNATIONAL ORDERS MAY BE SUBJECT TO</text><text x="454" y="226" font-size="9">IMPORT DUTIES AND TAXES AT DELIVERY.</text>
-          <rect x="440" y="248" width="312" height="32" rx="4" fill="#16aaa4"/><text x="596" y="269" font-size="11" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 620" role="img" aria-label="Stacked current and variation international shipping disclosure wireframe">
-          <rect x="8" y="8" width="344" height="604" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">CURRENT</text><rect x="24" y="56" width="312" height="204" rx="6" fill="#fff" stroke="#aab3b6"/><text x="42" y="94" font-size="21">$364</text><rect x="42" y="112" width="276" height="48" rx="4" fill="#eef0ed"/><text x="56" y="141" font-size="11">FREE SHIP · LOWER 48</text><rect x="42" y="180" width="276" height="42" rx="4" fill="#16aaa4"/><text x="180" y="206" font-size="11" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-          <text x="174" y="302" font-size="28" fill="#0a7774">↓</text><text x="24" y="342" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="24" y="358" width="312" height="224" rx="6" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="42" y="396" font-size="21">$364</text><rect x="42" y="414" width="276" height="42" rx="4" fill="#eef0ed"/><text x="56" y="440" font-size="11">FREE SHIP · LOWER 48</text>
-          <rect x="42" y="468" width="276" height="58" rx="4" fill="#dff4f2" stroke="#16aaa4"/><text x="56" y="492" font-size="9">INTERNATIONAL ORDERS MAY HAVE</text><text x="56" y="509" font-size="9">DUTIES AND TAXES AT DELIVERY.</text>
-          <rect x="42" y="538" width="276" height="30" rx="4" fill="#16aaa4"/><text x="180" y="558" font-size="10" fill="#fff" text-anchor="middle">ADD PROTECTION · $364</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">Cart Accessories Cross-Sell</h3>
-        <p class="cvrt-page">Page: Cart Drawer</p>
-        <p class="cvrt-description">The cart offers only the All-LOXX upgrade, while free shipping is already unlocked by the $364 base product. Existing $25 to $39 accessories are absent from the cart, leaving the clearest add-on opportunity unused.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 380" role="img" aria-label="Current and variation cart drawer cross-sell wireframe">
-          <rect x="8" y="8" width="784" height="364" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <rect x="80" y="34" width="270" height="314" rx="8" fill="#fff" stroke="#aab3b6"/><text x="100" y="62" font-size="14">CURRENT CART</text><rect x="100" y="78" width="230" height="35" rx="3" fill="#dff4f2"/><text x="215" y="100" font-size="10" text-anchor="middle">FREE SHIPPING · UNLOCKED</text>
-          <rect x="100" y="128" width="230" height="64" rx="4" fill="#eef0ed"/><text x="116" y="151" font-size="11">WINDSHIELD COVER</text><text x="116" y="174" font-size="13">$364</text>
-          <rect x="100" y="206" width="230" height="64" rx="4" fill="#132027"/><text x="116" y="232" font-size="11" fill="#fff">SWITCH TO ALL-LOXX · $409</text><text x="116" y="251" font-size="9" fill="#7ee2dc">300+ LB HOLD PER FASTENER</text>
-          <rect x="100" y="286" width="230" height="42" rx="4" fill="#16aaa4"/><text x="215" y="312" font-size="11" fill="#fff" text-anchor="middle">SECURE CHECKOUT</text>
-          <rect x="450" y="34" width="270" height="314" rx="8" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="470" y="62" font-size="14" fill="#0a7774">VARIATION CART</text><rect x="470" y="78" width="230" height="35" rx="3" fill="#dff4f2"/><text x="585" y="100" font-size="10" text-anchor="middle">FREE SHIPPING · UNLOCKED</text>
-          <rect x="470" y="128" width="230" height="54" rx="4" fill="#eef0ed"/><text x="486" y="151" font-size="11">WINDSHIELD COVER</text><text x="486" y="170" font-size="13">$364</text>
-          <rect x="470" y="194" width="230" height="52" rx="4" fill="#132027"/><text x="486" y="224" font-size="10" fill="#fff">SWITCH TO ALL-LOXX · $409</text>
-          <rect x="470" y="258" width="230" height="52" rx="4" fill="#dff4f2" stroke="#16aaa4" stroke-dasharray="5 4"/><text x="486" y="279" font-size="9">2-YEAR WARRANTY</text><text x="486" y="298" font-size="10">$39</text><rect x="624" y="272" width="62" height="25" rx="3" fill="#16aaa4"/><text x="655" y="289" font-size="9" fill="#fff" text-anchor="middle">ADD</text>
-          <rect x="470" y="320" width="230" height="18" rx="3" fill="#16aaa4"/><text x="585" y="333" font-size="8" fill="#fff" text-anchor="middle">SECURE CHECKOUT</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 760" role="img" aria-label="Stacked current and variation cart drawer cross-sell wireframe">
-          <rect x="8" y="8" width="344" height="744" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">CURRENT</text><rect x="46" y="56" width="268" height="285" rx="7" fill="#fff" stroke="#aab3b6"/><rect x="64" y="76" width="232" height="34" rx="3" fill="#dff4f2"/><text x="180" y="98" font-size="10" text-anchor="middle">FREE SHIPPING · UNLOCKED</text><rect x="64" y="124" width="232" height="62" rx="4" fill="#eef0ed"/><text x="80" y="149" font-size="11">WINDSHIELD COVER</text><text x="80" y="172" font-size="13">$364</text><rect x="64" y="200" width="232" height="60" rx="4" fill="#132027"/><text x="80" y="228" font-size="10" fill="#fff">SWITCH TO ALL-LOXX · $409</text><rect x="64" y="276" width="232" height="42" rx="4" fill="#16aaa4"/><text x="180" y="302" font-size="11" fill="#fff" text-anchor="middle">SECURE CHECKOUT</text>
-          <text x="174" y="382" font-size="28" fill="#0a7774">↓</text><text x="24" y="420" font-size="14" fill="#0a7774">VARIATION</text>
-          <rect x="46" y="436" width="268" height="286" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/><rect x="64" y="454" width="232" height="32" rx="3" fill="#dff4f2"/><text x="180" y="475" font-size="10" text-anchor="middle">FREE SHIPPING · UNLOCKED</text><rect x="64" y="498" width="232" height="50" rx="4" fill="#eef0ed"/><text x="80" y="520" font-size="10">WINDSHIELD COVER</text><text x="80" y="538" font-size="12">$364</text><rect x="64" y="560" width="232" height="43" rx="4" fill="#132027"/><text x="80" y="586" font-size="10" fill="#fff">ALL-LOXX UPGRADE · $409</text><rect x="64" y="614" width="232" height="54" rx="4" fill="#dff4f2" stroke="#16aaa4"/><text x="78" y="636" font-size="9">2-YEAR WARRANTY</text><text x="78" y="654" font-size="10">$39</text><rect x="230" y="630" width="52" height="25" rx="3" fill="#16aaa4"/><text x="256" y="647" font-size="9" fill="#fff" text-anchor="middle">ADD</text><rect x="64" y="680" width="232" height="28" rx="4" fill="#16aaa4"/><text x="180" y="699" font-size="9" fill="#fff" text-anchor="middle">SECURE CHECKOUT</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
-
-    <article class="cvrt-slot">
-      <div class="cvrt-slot-copy">
-        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type">A/B Test</span></div>
-        <h3 class="cvrt-slot-title">Desktop Sticky CTA</h3>
-        <p class="cvrt-page">Page: <a href="https://fitprotection.com/" target="_blank" rel="noopener">Homepage</a></p>
-        <p class="cvrt-description">The configurator is the homepage's only primary action and disappears once desktop visitors scroll into product and education content. A persistent route back to the fit finder can keep the next step available throughout the page.</p>
-      </div>
-      <div class="cvrt-wire-wrap">
-        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 800 330" role="img" aria-label="Current and variation desktop navigation sticky call to action wireframe">
-          <rect x="8" y="8" width="784" height="314" rx="10" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <rect x="28" y="48" width="352" height="244" rx="7" fill="#fff" stroke="#aab3b6"/><text x="48" y="76" font-size="14">CURRENT · AFTER SCROLL</text><rect x="48" y="92" width="312" height="42" rx="3" fill="#132027"/><rect x="62" y="105" width="28" height="18" rx="2" fill="#16aaa4"/><text x="104" y="119" font-size="9" fill="#fff">SHOP UTV · SHOP RV · LOXX</text><rect x="48" y="150" width="312" height="116" rx="3" fill="#eef0ed"/><text x="204" y="202" font-size="12" text-anchor="middle">PRODUCT AND EDUCATION CONTENT</text><text x="204" y="230" font-size="10" text-anchor="middle" fill="#617078">No primary action visible</text>
-          <rect x="420" y="48" width="352" height="244" rx="7" fill="#fff" stroke="#16aaa4" stroke-width="2"/><text x="440" y="76" font-size="14" fill="#0a7774">VARIATION · AFTER SCROLL</text><rect x="440" y="92" width="312" height="48" rx="3" fill="#132027"/><rect x="454" y="107" width="28" height="18" rx="2" fill="#16aaa4"/><text x="496" y="121" font-size="9" fill="#fff">SHOP UTV · SHOP RV · LOXX</text><rect x="638" y="102" width="100" height="29" rx="3" fill="#16aaa4"/><text x="688" y="121" font-size="9" fill="#fff" text-anchor="middle">FIND MY COVER</text><rect x="440" y="156" width="312" height="110" rx="3" fill="#eef0ed"/><text x="596" y="207" font-size="12" text-anchor="middle">PRODUCT AND EDUCATION CONTENT</text><path d="M688 156 L688 138" stroke="#16aaa4" stroke-width="2"/><text x="596" y="237" font-size="10" text-anchor="middle" fill="#0a7774">Primary action stays available</text>
-        </svg>
-        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 430" role="img" aria-label="Mobile behavior remains unchanged for desktop sticky call to action test">
-          <rect x="8" y="8" width="344" height="414" rx="9" fill="#f9f9f6" stroke="#9aa5aa" stroke-dasharray="7 6"/>
-          <text x="24" y="40" font-size="14">MOBILE · NO CHANGE</text><rect x="52" y="64" width="256" height="322" rx="12" fill="#fff" stroke="#aab3b6"/>
-          <rect x="68" y="84" width="224" height="44" rx="3" fill="#132027"/><rect x="82" y="96" width="28" height="20" rx="2" fill="#16aaa4"/><text x="250" y="112" font-size="13" fill="#fff">☰</text>
-          <rect x="68" y="144" width="224" height="192" rx="4" fill="#eef0ed"/><text x="180" y="225" font-size="12" text-anchor="middle">EXISTING MOBILE</text><text x="180" y="247" font-size="12" text-anchor="middle">SCROLL EXPERIENCE</text>
-          <text x="180" y="366" font-size="11" text-anchor="middle" fill="#617078">Desktop-only test scope</text>
-        </svg>
-        <p class="cvrt-caption">* Concept illustration only. Final design will differ.</p>
-      </div>
-    </article>
   </div>
 
-  <div class="cvrt-panel cvrt-panel-insights">
+  <!-- DATA INSIGHTS TAB -->
+  <div class="cvrt-insights-content">
+
+    <!-- BIGGEST KILLERS -->
     <div class="cvrt-killers">
-      <p class="cvrt-kicker">Cross-source analysis</p>
-      <h2>Biggest Killers of Conversion Rate</h2>
-      <ol class="cvrt-killer-list">
-        <li><span class="cvrt-number">01</span>Paid-social creative uses RV glass protection, rock-chip prevention, and hold-strength frames that are not reflected in the homepage hero. RV-focused traffic also lands on a UTV-default configurator.</li>
-        <li><span class="cvrt-number">02</span>The PDP records an 8.7s LCP and 23.9s TTI. The page that contains the purchase controls has the weakest measured performance.</li>
-        <li><span class="cvrt-number">03</span>The three lowest-rated reviews cite the same support gap: no phone number, no named contact, or unanswered email.</li>
-      </ol>
+      <div class="cvrt-killers-inner">
+        <div class="cvrt-killers-eyebrow">Cross-Source Analysis</div>
+        <div class="cvrt-killers-title">Biggest Killers of<br>Conversion Rate</div>
+        <ul class="cvrt-killer-list">
+          <li class="cvrt-killer-item">
+            <span class="cvrt-killer-num">1</span>
+            <span class="cvrt-killer-text">All three active paid ads use different problem frames - none match the homepage hero headline, configurator default, or trust signal order. Every paid visitor hits this mismatch on arrival.</span>
+          </li>
+          <li class="cvrt-killer-item">
+            <span class="cvrt-killer-num">2</span>
+            <span class="cvrt-killer-text">The product page scores 51/100 with an 8.7-second LCP and 23.9-second TTI. The buy button is functionally unreachable for nearly 24 seconds on mobile, affecting every Shopping click, retargeting impression, and organic product visit.</span>
+          </li>
+          <li class="cvrt-killer-item">
+            <span class="cvrt-killer-num">3</span>
+            <span class="cvrt-killer-text">Three separate 1-star reviews cite one identical problem: no phone, no named contact, no email response. These reviews are visible in Google Shopping feeds alongside the 4.17/5 average.</span>
+          </li>
+          <li class="cvrt-killer-item">
+            <span class="cvrt-killer-num">4</span>
+            <span class="cvrt-killer-text">537 verified reviews don't appear until fold 2. Fold 1 trust relies entirely on LOXX industrial credentials - a brand most first-time visitors have never heard of - before any social proof is visible.</span>
+          </li>
+          <li class="cvrt-killer-item">
+            <span class="cvrt-killer-num">5</span>
+            <span class="cvrt-killer-text">Three accessories are live on the site but cross-sold nowhere. The cart's free shipping bar shows "UNLOCKED" from the first item at $364, removing any incentive to add on.</span>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <h2 class="cvrt-source-heading">Data Sources Used</h2>
-    <div class="cvrt-source-grid">
-      <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
-      <div class="cvrt-source-chip">Google Ads</div>
-      <div class="cvrt-source-chip">Page Speed Insights</div>
-      <div class="cvrt-source-chip">Reviews and UGC</div>
-      <div class="cvrt-source-chip">Site Screenshots</div>
-      <div class="cvrt-source-chip">Live Site Research</div>
-      <div class="cvrt-source-chip">Competitor Research</div>
+    <!-- DATA SOURCES + FINDINGS -->
+    <div class="cvrt-sources-section">
+      <div class="cvrt-sources-inner">
+        <div class="cvrt-section-eyebrow">Research Foundation</div>
+        <div class="cvrt-section-title">Data Sources</div>
+        <div class="cvrt-sources-grid">
+          <span class="cvrt-source-chip">Meta Ads</span>
+          <span class="cvrt-source-chip">Google Ads</span>
+          <span class="cvrt-source-chip">Page Speed Insights</span>
+          <span class="cvrt-source-chip">Reviews and UGC</span>
+          <span class="cvrt-source-chip">Site Screenshots</span>
+          <span class="cvrt-source-chip">Competitor Research</span>
+        </div>
+
+        <div class="cvrt-source-block">
+          <div class="cvrt-source-name">Meta Ads</div>
+          <ul class="cvrt-finding-list">
+            <li class="cvrt-finding-item">All three active ads (as of July 24, 2026) route directly to the homepage. No separate landing pages exist for any ad angle.</li>
+            <li class="cvrt-finding-item">Ad 1 and Ad 2 are RV-focused ("Your machine deserves better than a tarp," "Exact Fit For Your RV"). Ad 3 leads with rock chip prevention and a Jeep visual. All three land on a UTV-first homepage with a cover-retention headline.</li>
+            <li class="cvrt-finding-item">Ad 2 claims "3,000+ LB TOTAL RV HOLD" - a figure that does not appear on the homepage. The trust tiles reference "300+ lb per fastener" and "850 lb mag" separately, not the total-hold number the ad buyer just saw.</li>
+            <li class="cvrt-finding-item">Ad 3 carries a "Built Exact For Your RV" destination label while showing a Jeep visual - an internal creative inconsistency within the ad itself.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-block">
+          <div class="cvrt-source-name">Google Ads</div>
+          <ul class="cvrt-finding-list">
+            <li class="cvrt-finding-item">Video ads run a vague tagline ("THAT'S WHERE FIT PROTECTION Comes In") with no specific benefit claims, hold numbers, or vehicle types - significantly less specific than the Meta creative.</li>
+            <li class="cvrt-finding-item">A Shopping listing for a Yamaha Wolverine UTV cover shows "[Price]" as a literal placeholder. Affected SKUs may be excluded from Shopping auctions or running without a visible price.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-block">
+          <div class="cvrt-source-name">Reviews and UGC</div>
+          <ul class="cvrt-finding-list">
+            <li class="cvrt-finding-item">537 verified reviews at 4.17/5. Highway hold in crosswinds and custom model fit are the most consistently praised features across independent reviews.</li>
+            <li class="cvrt-finding-item">Three separate 1-star reviews share one cause: no phone number, no named contact, and unanswered emails. Bob (1-star, Forest River Nobo): "There is no physical address or phone number. There isn't even a name of a contact person."</li>
+            <li class="cvrt-finding-item">Taryn Lowe (1-star, Coachmen Freedom Express) paid $183.86 in import tariffs on a $465 order with no advance notice, noting she could have replaced three windshields for the same cost.</li>
+            <li class="cvrt-finding-item">Overnight privacy emerges organically across multiple reviews as a key benefit ("dark inside the camper," sleeping at Cracker Barrel parking lots) - not present in any current ad or product copy.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-block">
+          <div class="cvrt-source-name">Page Speed Insights</div>
+          <ul class="cvrt-finding-list">
+            <li class="cvrt-finding-item">Homepage: 68/100, 4.4s LCP, 22.0s TTI. Slow but secondary in priority.</li>
+            <li class="cvrt-finding-item">Product page: 51/100, 8.7s LCP (3.5x above Google's 2.5s threshold), 23.9s TTI. The buy button is unreachable for nearly 24 seconds on mobile.</li>
+            <li class="cvrt-finding-item">Each one-second LCP reduction delivers 2-4% conversion lift per Google benchmarks, making PDP speed the highest-impact technical fix on the list.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-block">
+          <div class="cvrt-source-name">Site Screenshots</div>
+          <ul class="cvrt-finding-list">
+            <li class="cvrt-finding-item">The "Find My Cover" configurator defaults to "UTV" despite two of three active ads targeting RV buyers.</li>
+            <li class="cvrt-finding-item">537+ reviews appear only at fold 2. Fold 1 trust is four LOXX industrial tiles with no customer proof above the scroll break.</li>
+            <li class="cvrt-finding-item">Cart drawer contains one upsell (All-LOXX upgrade at $409). The free shipping bar shows "UNLOCKED" at full green from the $364 base price, creating zero incremental pull from the shipping threshold.</li>
+            <li class="cvrt-finding-item">Collection page price filter places all 22 products under "Under $400," including $409 All-LOXX variants. The "$400-$450" bracket returns zero results.</li>
+          </ul>
+        </div>
+
+        <div class="cvrt-source-block">
+          <div class="cvrt-source-name">Competitor Research</div>
+          <ul class="cvrt-finding-list">
+            <li class="cvrt-finding-item">FIT Protection prices at $364-$409, placing it at 2-3x above established alternatives (BougeRV at $80-$150, Pro Fab Outdoors at $120-$180).</li>
+            <li class="cvrt-finding-item">The exclusive North American LOXX partnership is a genuine technical moat - but LOXX is not a known brand to most buyers, which makes the premium harder to justify on first encounter than a simple spec comparison.</li>
+            <li class="cvrt-finding-item">Buyer forums show active searches for MagneShade alternatives, indicating a motivated segment looking for a premium option. FIT Protection is positioned to capture this if the differentiation is clear on arrival.</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
 
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Meta Ads and Landing Pages</h3>
-      <ul class="cvrt-source-list">
-        <li>Paid-social creative leads with RV glass protection, rock-chip prevention, and hold-strength promises, while the homepage hero leads with cover retention.</li>
-        <li>RV-focused traffic reaches a homepage configurator that preselects UTV.</li>
-        <li>The 537+ review signal appears in fold 2, after LOXX credentials fill the first fold.</li>
-      </ul>
-    </section>
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Google Ads</h3>
-      <ul class="cvrt-source-list">
-        <li>Video creative shows the line “THAT'S WHERE FIT PROTECTION Comes In” without a specific benefit, hold figure, or vehicle type.</li>
-        <li>A Yamaha Wolverine shopping listing displays “[Price]” instead of a rendered product price.</li>
-      </ul>
-    </section>
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Page Speed Insights</h3>
-      <ul class="cvrt-source-list">
-        <li>The homepage scores 68/100, with a 4.4s LCP, 460ms Total Blocking Time, and 22.0s TTI.</li>
-        <li>The PDP scores 51/100, with an 8.7s LCP, 580ms Total Blocking Time, and 23.9s TTI.</li>
-        <li>CLS is 0 on both measured pages.</li>
-      </ul>
-    </section>
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Reviews and UGC</h3>
-      <ul class="cvrt-source-list">
-        <li>29 Judge.me verified reviews in the collected dataset average 4.17/5.</li>
-        <li>Customers repeatedly praise exact fit, highway hold in crosswinds, and easy installation and removal.</li>
-        <li>Three 1-star reviews cite customer support as the sole reason for their low rating.</li>
-        <li>One buyer reported $183.86 in tariffs on a $465 order with no advance notice.</li>
-      </ul>
-    </section>
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Site Screenshots</h3>
-      <ul class="cvrt-source-list">
-        <li>The homepage fit finder is the primary CTA and no sticky desktop CTA appears across the captured folds.</li>
-        <li>The PDP places 537+ verified reviews above the price and uses a four-step configuration flow with a sticky “ADD PROTECTION · $364” bar.</li>
-        <li>The cart shows an All-LOXX upgrade and an already-unlocked free-shipping bar, but no accessory cross-sell.</li>
-      </ul>
-    </section>
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Live Site Research</h3>
-      <ul class="cvrt-source-list">
-        <li>Support is limited to info@fitprotection.com with Mon-Fri 8a-5p MST hours. No phone number, chat widget, or named contact was visible.</li>
-        <li>Vinyl cleaner costs $25, removable magnets cost $39, and the extended warranty costs $39. None appeared in the captured PDP or cart experience.</li>
-        <li>A $20 off first-cover email capture exists but was not visible in the captured homepage folds.</li>
-      </ul>
-    </section>
-    <section class="cvrt-source-block">
-      <h3 class="cvrt-source-title">Competitor Research</h3>
-      <ul class="cvrt-source-list">
-        <li>FIT Protection sits at the premium end of the reviewed market, with model-specific cuts, marine-grade materials, and LOXX fastening as differentiators.</li>
-        <li>DIY alternatives were found under $150, while universal-fit strap or velcro covers were found at $60 to $90.</li>
-      </ul>
-    </section>
   </div>
 
-  <div class="cvrt-footer">August 2026</div>
+  <!-- FOOTER -->
+  <div class="cvrt-footer">
+    <span class="cvrt-footer-text">FIT Protection &middot; August 2026</span>
+  </div>
+
 </div>

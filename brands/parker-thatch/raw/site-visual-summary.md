@@ -1,0 +1,39 @@
+# Site Visual Summary
+
+## Homepage
+**Fold 1:** Full-bleed split hero: two editorial portrait images side by side of a silver-haired older woman holding a cream/ivory pouch bag against warm beige background. Brand logo "PARKER THATCH" top left. Announcement bar at very top: "FREE GROUND SHIPPING US ORDERS OVER $500" scrolling marquee. Navigation: NEW, BAGS, ACCESSORIES, JEWELRY, JOURNAL, PTTV, FIND YOUR PERFECT BAG. PT lion logo watermark centered between the two panels. No headline text overlaid on hero. No CTA button in hero. No product name, no price. Entirely editorial above fold.
+**Fold 2:** Bottom edge of hero panel shows "SHOP NEW" text link on the right image. Below hero: centered brand positioning copy - "Luxury meets utility, classic meets cool. Handbags and accessories that get better with time, telling your story and inspiring you to carry onward." Below copy: "Shop Our Best Sellers" header. Grid begins: 4 product category/collection cards beginning to appear (Heritage "Broken-In" Leather, Small & Mini Bags in blue/red colorway, Sling Bags in tan, Arc Saddle Bag in cream). No prices visible on cards in this fold.
+**Fold 3:** Best Seller collection category grid fully visible with 4 labeled tiles: Heritage "Broken-In" Leather, Small & Mini Bags, Sling Bags, Arc Saddle Bag. These are category links, not individual product cards - no prices shown. Below grid: large editorial split image - left panel shows leopard/cheetah print bag with acrylic chain handle; right panel shows lifestyle shot of woman in striped shirt holding a tan/cognac structured bag outdoors.
+**CTA behavior:** No sticky header CTA. No sticky bar visible on homepage. Only CTA visible in first three folds is "SHOP NEW" text link at the very bottom of the hero panel (fold 2 transition). Cart icon in nav.
+**Trust signals:** Not visible in any homepage fold. No review count, no star rating, no guarantee copy, no badge, no press mention, no celebrity endorsement in first three folds. Free shipping threshold communicated in announcement bar only.
+**Layout notes:** Homepage is editorial-first. Hero occupies nearly the entire first fold with zero conversion intent. Brand positioning copy placed between hero and products. Product tiles in fold 3 are category-level, not individual products with prices or CTAs.
+
+---
+
+## Collection Page
+**Fold 1:** "What's New" collection header centered. Controls: "SHOW FILTERS" (collapsed, left) | "SORT BY" (right). 3-column product card grid. Row 1 visible: Ace Belt Bag - Leather Yellow Boa ($548.00, "3 colors"), Short Wood Bead Strap - Black ($148.00, no color count), Short Wood Bead Strap - Red ($148.00, no color count). Cards: large square image (nearly full card height), product name in small text below, price below name, color count in gray below price. No ATC button visible in default state (hover only).
+**Fold 2:** Row 2: Green & White Beaded Bag Charm ($98.00), Beaded Strap Extender - Yellow Multi ($48.00, "6 colors"), New Mochi Clutch - Leather Stone ($568.00, "3 colors"). Same card format. No badge, no compare-at pricing on any card.
+**Fold 3:** Row 3: Micro Jane - Leather Stone ($398.00, "6 colors") with "QUICK ADD" button visible (dark navy, appears on hover/interaction - visible in screenshot), Big Buddy - Suede Cloud Blue ($328.00, "10 colors"), Big Buddy - Suede Chartreuse ($328.00, "10 colors"). Row 4 partially visible at bottom. No review stars on collection cards. No compare-at or strikethrough pricing. No sale badges.
+**Price display:** No compare-at/strikethrough pricing. No per-unit pricing. No sale badge. No installment option. Color variant count displayed below price on applicable products.
+**Layout notes:** Clean, minimal 3-column grid. Product mix on "What's New" includes accessories (straps, charms, extenders) alongside bags - heterogeneous product types may create navigation confusion for paid traffic. QUICK ADD button appears on hover only for at least some cards.
+
+---
+
+## PDP
+**Fold 1:** Product: Daily Bag - Heritage "Broken-In" Leather Navy With Red. Breadcrumb: Home > What's New > Daily Bag - Heritage "Broken-In" Leather Navy With Red. Layout: left image gallery (large hero + 2 thumbnail rows), right buy box. Price: $728.00. Star rating: ★★★★★ (4 reviews) positioned directly below product title, above price. 9 color swatches visible (Navy selected). Single purchase option only - no subscription, no bundle. Full-width dark navy "ADD TO CART" button. "DROP A HINT" text link below ATC. Description accordion open: brand narrative + bullet specs (size 9"H x 15"W x 6"D, materials, features). ATC button is visible above fold on desktop. Right-rail sticky tab: "GET FREE SHIPPING".
+**Fold 2:** Remaining image gallery: lifestyle shots (model with bag on street, bag on luggage), product detail. Right column: description narrative continues including "What is Heritage 'Broken-In' Leather?" explainer. Expandable sections: Shipping & Returns, Product Care, Style Inspiration, Functional Packaging. "Complete The Look": Adjustable Thick Paracord Strap - Khaki & Black at $128.00 with "Add to Cart". Sticky bottom bar visible: "Daily Bag - Heritage 'Broken-In' Leather Navy With Red • $728.00 | ADD TO CART".
+**Fold 3:** Final image in gallery. "You May Also Like" carousel: Adjustable Thick Paracord Strap Khaki & Black ($128), Links Shoulder Strap Cream ($98), Micro Jane Leather Stone ($398), Daily Bag Leather Cognac Basketweave ($698) - each with full-width dark "Add to Cart" button. "Customer Reviews" section heading visible at bottom with "WRITE A REVIEW" button, but individual review cards not rendered in capture.
+**Buy box detail:** Single purchase option (one-time purchase only). No subscription or bundle option. Price: $728.00 flat. No visual hierarchy between purchase options (only one exists). Color swatch selector present.
+**Price display:** No compare-at/strikethrough pricing. No per-unit or per-day cost. No installment option visible.
+**CTA behavior:** "ADD TO CART" full-width in buy box visible above fold on desktop. Sticky bottom bar on desktop (and likely mobile): product name + price + ADD TO CART. Sticky bar first appears in fold 2 screenshot.
+**Trust signals:** Star rating (★★★★★, 4 reviews) directly below product title, above price - within the buy box area. No guarantee badge, no returns copy, no shipping promise visible in or near the buy box. Free shipping referenced only in announcement bar and right-rail sticky tab.
+**Upsell mechanics:** "Complete The Look" section in fold 2 shows a single accessory (strap) with inline "Add to Cart". "You May Also Like" carousel in fold 3 shows 4 accessory/product cards with ATC buttons.
+**Layout anomalies:** No visible layout shift, broken image, or template placeholder text observed.
+
+---
+
+## Cart
+**Layout:** Slide-in drawer (right side). Header: "CART" (caps) + X close button. Progress indicator at top: text "Congratulations! Your order qualifies for free shipping" with a full dark navy progress bar. Item row: product thumbnail, product name (Daily Bag - Heritage "Broken-In" Leather Navy With Red), Color: Navy, $728.00, quantity stepper (- 1 +) with X remove. Large empty white space below item row (no upsell or cross-sell content in this area). Bottom section: SUBTOTAL $728.00 USD, full-width dark navy "CHECKOUT" button. Fine print below: "Shipping, taxes, and discount codes are calculated at checkout".
+**CTA:** "CHECKOUT" - full-width dark navy button. Static position at bottom of drawer.
+**AOV elements:** None visible. No upsell product, no cross-sell suggestion, no bundle offer, no free-shipping progress bar incentive beyond the congratulations message (threshold already met). The large empty white space in the drawer middle represents an unused opportunity.
+**Trust signals:** Not visible. No guarantee copy, no returns copy, no trust badge in the cart drawer.
