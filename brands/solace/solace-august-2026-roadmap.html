@@ -1,0 +1,395 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@1,6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap {
+  --cvrt-ink: #20201f;
+  --cvrt-ivory: #f8f5f0;
+  --cvrt-paper: #fffdf9;
+  --cvrt-blue: #86a9ba;
+  --cvrt-blue-deep: #577f92;
+  --cvrt-mint: #91afa2;
+  --cvrt-line: #d8d3cc;
+  --cvrt-muted: #6f706e;
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-ivory);
+  color: var(--cvrt-ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+#cvrt-roadmap .cvrt-tab-input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-hero {
+  background: var(--cvrt-ivory);
+  padding: 34px 5vw 0;
+  position: relative;
+}
+#cvrt-roadmap .cvrt-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(330px, .86fr) minmax(480px, 1.14fr);
+  min-height: 510px;
+  border: 1px solid rgba(32,32,31,.16);
+  background: var(--cvrt-paper);
+}
+#cvrt-roadmap .cvrt-hero-copy { padding: clamp(48px, 6vw, 86px); display: flex; flex-direction: column; justify-content: center; }
+#cvrt-roadmap .cvrt-logo { width: 150px; height: auto; display: block; margin-bottom: 54px; }
+#cvrt-roadmap .cvrt-eyebrow { color: var(--cvrt-blue-deep); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 17px; }
+#cvrt-roadmap .cvrt-hero h1 { font-size: clamp(46px, 5.2vw, 76px); line-height: .96; font-weight: 600; letter-spacing: -.055em; max-width: 620px; }
+#cvrt-roadmap .cvrt-hero h1 .cvrt-script { display: block; font-family: "Newsreader", serif; font-style: italic; color: var(--cvrt-blue-deep); font-weight: 500; letter-spacing: -.025em; }
+#cvrt-roadmap .cvrt-summary { max-width: 590px; margin-top: 25px; color: #4f504e; font-size: 16px; line-height: 1.72; }
+#cvrt-roadmap .cvrt-hero-media { position: relative; min-height: 510px; overflow: hidden; background: #111; }
+#cvrt-roadmap .cvrt-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 54% 48%; display: block; }
+#cvrt-roadmap .cvrt-hero-media::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); pointer-events: none; }
+#cvrt-roadmap .cvrt-tabs { display: grid; grid-template-columns: 1fr 1fr; background: var(--cvrt-paper); border: 1px solid rgba(32,32,31,.16); border-top: 0; }
+#cvrt-roadmap .cvrt-tab-label { cursor: pointer; text-align: center; padding: 18px 20px; font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #767775; transition: background .2s ease, color .2s ease; }
+#cvrt-roadmap .cvrt-tab-label + .cvrt-tab-label { border-left: 1px solid rgba(32,32,31,.16); }
+#cvrt-roadmap .cvrt-tab-label:hover { background: #f0ece6; color: var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-panel { display: none; }
+#cvrt-roadmap #cvrt-tests-toggle:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tests-toggle"],
+#cvrt-roadmap #cvrt-insights-toggle:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-insights-toggle"] { background: var(--cvrt-ink); color: white; }
+#cvrt-roadmap #cvrt-tests-toggle:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-insights-toggle:checked ~ .cvrt-insights-panel { display: block; }
+#cvrt-roadmap .cvrt-panel-intro { padding: 58px 5vw 30px; text-align: center; }
+#cvrt-roadmap .cvrt-panel-kicker { color: var(--cvrt-blue-deep); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+#cvrt-roadmap .cvrt-panel-intro h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.08; font-weight: 600; letter-spacing: -.04em; }
+#cvrt-roadmap .cvrt-panel-intro h2 .cvrt-script { font-family: "Newsreader", serif; font-style: italic; color: var(--cvrt-blue-deep); font-weight: 500; }
+#cvrt-roadmap .cvrt-slots { padding: 8px 5vw 68px; }
+#cvrt-roadmap .cvrt-slot-card { max-width: 860px; margin-left: auto; margin-right: auto; margin-top: 24px; background: var(--cvrt-paper); border: 1px solid var(--cvrt-line); box-shadow: 0 12px 40px rgba(47,45,41,.06); }
+#cvrt-roadmap .cvrt-slot-copy { max-width: 640px; padding: 38px 42px 32px; }
+#cvrt-roadmap .cvrt-slot-topline { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+#cvrt-roadmap .cvrt-slot-label { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-badge { border: 1px solid #a9b8b1; color: #4f6f61; padding: 5px 9px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-radius: 999px; }
+#cvrt-roadmap .cvrt-slot-card h3 { font-size: clamp(27px, 3.2vw, 38px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; margin-bottom: 12px; }
+#cvrt-roadmap .cvrt-page { color: var(--cvrt-blue-deep); font-size: 13px; font-weight: 700; margin-bottom: 17px; }
+#cvrt-roadmap .cvrt-page a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { color: #4f504e; font-size: 15px; line-height: 1.72; }
+#cvrt-roadmap .cvrt-visual { padding: 22px; background: #f1eee9; border-top: 1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-svg-desktop, #cvrt-roadmap .cvrt-svg-mobile { width: 100%; height: auto; display: block; background: #fff; }
+#cvrt-roadmap .cvrt-svg-mobile { display: none; min-width: 0; }
+#cvrt-roadmap .cvrt-caption { margin-top: 13px; color: #20201f; font-size: 12px; font-style: italic; line-height: 1.5; }
+#cvrt-roadmap .cvrt-insights-wrap { padding: 54px 5vw 72px; }
+#cvrt-roadmap .cvrt-killers { background: var(--cvrt-ink); color: white; padding: clamp(36px, 5vw, 62px); }
+#cvrt-roadmap .cvrt-killers .cvrt-panel-kicker { color: #afcfdd; }
+#cvrt-roadmap .cvrt-killers h2 { font-size: clamp(34px, 4.6vw, 58px); line-height: 1.02; letter-spacing: -.045em; font-weight: 600; max-width: 780px; margin-bottom: 32px; }
+#cvrt-roadmap .cvrt-killer-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+#cvrt-roadmap .cvrt-killer-list li { border: 1px solid rgba(255,255,255,.2); padding: 22px; font-size: 15px; line-height: 1.58; color: #ecebe8; }
+#cvrt-roadmap .cvrt-insight-section { padding-top: 50px; }
+#cvrt-roadmap .cvrt-insight-section h2 { font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -.03em; margin-bottom: 22px; }
+#cvrt-roadmap .cvrt-source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+#cvrt-roadmap .cvrt-source-chip { background: var(--cvrt-paper); border: 1px solid var(--cvrt-line); min-height: 92px; display: flex; align-items: center; padding: 22px; font-size: 14px; font-weight: 600; }
+#cvrt-roadmap .cvrt-source-block { background: var(--cvrt-paper); border: 1px solid var(--cvrt-line); padding: 30px 34px; margin-top: 12px; }
+#cvrt-roadmap .cvrt-source-block h3 { font-size: 22px; font-weight: 600; letter-spacing: -.025em; margin-bottom: 15px; }
+#cvrt-roadmap .cvrt-source-list { display: grid; gap: 12px; }
+#cvrt-roadmap .cvrt-source-list li { color: #4f504e; font-size: 15px; line-height: 1.65; padding: 0; }
+#cvrt-roadmap .cvrt-footer { background: #ebe5de; text-align: center; padding: 30px 5vw; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: #666561; }
+#cvrt-roadmap .cvrt-svg-label { font-family: "DM Sans", sans-serif; fill: #242422; font-size: 14px; font-weight: 700; }
+#cvrt-roadmap .cvrt-svg-copy { font-family: "DM Sans", sans-serif; fill: #555653; font-size: 12px; font-weight: 600; }
+#cvrt-roadmap .cvrt-svg-small { font-family: "DM Sans", sans-serif; fill: #555653; font-size: 10px; font-weight: 600; }
+#cvrt-roadmap .cvrt-svg-white { fill: #fff; }
+#cvrt-roadmap .cvrt-svg-blue { fill: #6f98aa; }
+#cvrt-roadmap .cvrt-svg-state { font-family: "DM Sans", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+@media (max-width: 760px) {
+  #cvrt-roadmap .cvrt-hero { padding: 16px 16px 0; }
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-copy { padding: 32px 26px 36px; }
+  #cvrt-roadmap .cvrt-logo { width: 124px; margin-bottom: 36px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: 44px; }
+  #cvrt-roadmap .cvrt-summary { font-size: 14px; margin-top: 20px; }
+  #cvrt-roadmap .cvrt-hero-media { min-height: 300px; }
+  #cvrt-roadmap .cvrt-hero-media img { object-position: 55% 48%; }
+  #cvrt-roadmap .cvrt-tabs { margin: 0; }
+  #cvrt-roadmap .cvrt-tab-label { padding: 15px 10px; font-size: 11px; }
+  #cvrt-roadmap .cvrt-panel-intro { padding: 42px 20px 18px; }
+  #cvrt-roadmap .cvrt-slots { padding: 4px 14px 48px; }
+  #cvrt-roadmap .cvrt-slot-card { margin-top: 18px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 28px 24px 24px; }
+  #cvrt-roadmap .cvrt-slot-card h3 { font-size: 29px; }
+  #cvrt-roadmap .cvrt-description { font-size: 14px; }
+  #cvrt-roadmap .cvrt-visual { padding: 12px; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: none; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: block; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-insights-wrap { padding: 26px 16px 52px; }
+  #cvrt-roadmap .cvrt-killers { padding: 34px 24px; }
+  #cvrt-roadmap .cvrt-killer-list, #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-source-chip { min-height: 68px; }
+  #cvrt-roadmap .cvrt-source-block { padding: 24px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot-card { box-shadow: none; break-inside: avoid; page-break-inside: avoid; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: none !important; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: block !important; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-tabs { display: none; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tests-toggle" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-insights-toggle">
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://solacebands.com/cdn/shop/files/Solace_Final_Primary_Logo_Black_1f524786-7caf-4a36-9e2c-5e986cb8e8e4.png?height=108&amp;v=1762447232" alt="Solace">
+        <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+        <h1>August <span class="cvrt-script">2026</span></h1>
+        <p class="cvrt-summary">Solace has a compelling bundle and a distinct PFAS-free promise, but both are easiest to miss at key decision points. This roadmap brings the offer, safety story, sizing help, and trust signals closer to the moments when shoppers choose, while addressing severe mobile delays on the homepage and PDP.</p>
+      </div>
+      <div class="cvrt-hero-media">
+        <img src="https://solacebands.com/cdn/shop/files/DSC09663.jpg?v=1777329347" alt="Person holding a pink Solace Apple Watch band">
+      </div>
+    </div>
+    <nav class="cvrt-tabs" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label" for="cvrt-tests-toggle">Tests</label>
+      <label class="cvrt-tab-label" for="cvrt-insights-toggle">Data Insights</label>
+    </nav>
+  </section>
+
+  <section class="cvrt-panel cvrt-tests-panel">
+    <div class="cvrt-panel-intro">
+      <p class="cvrt-panel-kicker">Eight focused experiments</p>
+      <h2>Make the value easier to <span class="cvrt-script">see and act on</span></h2>
+    </div>
+    <div class="cvrt-slots">
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>PDP Bundle Offer</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/products/imperium-adapt" target="_blank" rel="noopener">Imperium Adapt PDP</a></p>
+          <p class="cvrt-description">The PDP buy box presents one band at $39.99, while the 5 for $99 and Buy 2, Get 1 Free offers appear elsewhere in the journey. That leaves the main value mechanic outside the highest-intent decision area. The variation adds a visible quantity-tier selector above Add to Cart.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 400" role="img" aria-label="Current single purchase buy box compared with a bundle selector variation">
+            <defs><clipPath id="cvrt-s1a"><rect x="22" y="54" width="362" height="318" rx="2"/></clipPath><clipPath id="cvrt-s1b"><rect x="432" y="54" width="362" height="318" rx="2"/></clipPath></defs>
+            <rect width="816" height="400" fill="#e9e5df"/><text x="22" y="32" class="cvrt-svg-state" fill="#747571">CURRENT</text><text x="432" y="32" class="cvrt-svg-state" fill="#5b8293">VARIATION</text>
+            <rect x="22" y="54" width="362" height="318" fill="#fff" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="36" y="83" width="142" height="160" preserveAspectRatio="xMidYMid meet" clip-path="url(#cvrt-s1a)"/>
+            <text x="192" y="86" class="cvrt-svg-label">Imperium Adapt</text><text x="192" y="109" class="cvrt-svg-copy">★★★★★ 3576 reviews</text><text x="192" y="140" class="cvrt-svg-label">$39.99</text><text x="192" y="172" class="cvrt-svg-small">Color: Black</text>
+            <circle cx="201" cy="193" r="9" fill="#171717"/><circle cx="226" cy="193" r="9" fill="#dac9c0"/><circle cx="251" cy="193" r="9" fill="#9eb8b1"/><text x="192" y="226" class="cvrt-svg-small">38/40/41/42MM</text><rect x="192" y="245" width="164" height="42" fill="#191918"/><text x="274" y="271" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><text x="192" y="310" class="cvrt-svg-small">Ships Next Day  ·  Lifetime Quality</text><text x="192" y="330" class="cvrt-svg-small">Money-Back Guarantee</text>
+            <rect x="432" y="54" width="362" height="318" fill="#fff" stroke="#88aaba" stroke-width="2"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="446" y="83" width="126" height="145" preserveAspectRatio="xMidYMid meet" clip-path="url(#cvrt-s1b)"/>
+            <text x="586" y="83" class="cvrt-svg-label">Imperium Adapt</text><text x="586" y="105" class="cvrt-svg-copy">★★★★★ 3576 reviews</text><text x="586" y="134" class="cvrt-svg-label">Choose your offer</text>
+            <rect x="586" y="151" width="180" height="34" fill="#fff" stroke="#bdb9b3"/><text x="598" y="173" class="cvrt-svg-small">1 Band  ·  $39.99</text>
+            <rect x="586" y="191" width="180" height="43" fill="#edf4f1" stroke="#91afa2" stroke-width="2"/><text x="598" y="209" class="cvrt-svg-small">2 Bands</text><text x="598" y="225" class="cvrt-svg-copy">Buy 2, Get 1 Free</text>
+            <rect x="586" y="240" width="180" height="43" fill="#edf2f5" stroke="#86a9ba"/><text x="598" y="258" class="cvrt-svg-small">5 Bands  ·  $99</text><text x="598" y="274" class="cvrt-svg-small">$19.80 per band</text>
+            <rect x="586" y="297" width="180" height="42" fill="#191918"/><text x="676" y="323" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><path d="M398 201h20" stroke="#6f98aa" stroke-width="2"/><path d="M413 195l7 6-7 6" fill="none" stroke="#6f98aa" stroke-width="2"/>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 720" role="img" aria-label="Mobile current single purchase buy box above a bundle selector variation">
+            <rect width="360" height="720" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT</text><rect x="18" y="42" width="324" height="270" fill="#fff" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="31" y="62" width="110" height="125" preserveAspectRatio="xMidYMid meet"/><text x="156" y="72" class="cvrt-svg-label">Imperium Adapt</text><text x="156" y="95" class="cvrt-svg-copy">★★★★★ 3576 reviews</text><text x="156" y="125" class="cvrt-svg-label">$39.99</text><text x="156" y="155" class="cvrt-svg-small">Color: Black</text><rect x="156" y="178" width="158" height="44" fill="#191918"/><text x="235" y="205" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><text x="36" y="268" class="cvrt-svg-small">Ships Next Day  ·  Lifetime Quality  ·  Guarantee</text><path d="M180 326v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 354l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="391" class="cvrt-svg-state" fill="#5b8293">VARIATION</text><rect x="18" y="406" width="324" height="292" fill="#fff" stroke="#88aaba" stroke-width="2"/><text x="36" y="439" class="cvrt-svg-label">Imperium Adapt</text><text x="36" y="463" class="cvrt-svg-copy">Choose your offer</text><rect x="36" y="481" width="288" height="40" fill="#fff" stroke="#bbb7b1"/><text x="51" y="506" class="cvrt-svg-copy">1 Band  ·  $39.99</text><rect x="36" y="530" width="288" height="50" fill="#edf4f1" stroke="#91afa2" stroke-width="2"/><text x="51" y="550" class="cvrt-svg-small">2 Bands</text><text x="51" y="570" class="cvrt-svg-copy">Buy 2, Get 1 Free</text><rect x="36" y="589" width="288" height="44" fill="#edf2f5" stroke="#86a9ba"/><text x="51" y="616" class="cvrt-svg-copy">5 Bands  ·  $99  ·  $19.80 each</text><rect x="36" y="642" width="288" height="42" fill="#191918"/><text x="180" y="668" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text>
+          </svg>
+          <p class="cvrt-caption">* The bundle becomes a selectable part of the PDP buy box. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>Homepage Load Priority</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-description">The mobile homepage records a 38/100 Lighthouse score, 7.1s LCP, and 38.3s Time to Interactive while autoplay videos and several product carousels load near the top. The delay can keep the first action from responding when a shopper is ready to tap. The variation renders the unchanged hero first, turns UGC into tap-to-play thumbnails, and loads lower carousels as they enter view.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 400" role="img" aria-label="Homepage loading sequence changes from simultaneous heavy loading to prioritized hero and deferred content">
+            <defs><clipPath id="cvrt-s2a"><rect x="25" y="61" width="330" height="264"/></clipPath><clipPath id="cvrt-s2b"><rect x="461" y="61" width="330" height="264"/></clipPath></defs><rect width="816" height="400" fill="#e9e5df"/>
+            <text x="25" y="32" class="cvrt-svg-state" fill="#747571">CURRENT LOAD</text><rect x="25" y="61" width="330" height="264" fill="#fff" stroke="#d6d0c9"/><rect x="25" y="61" width="330" height="24" fill="#20201f"/><text x="190" y="77" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Limited Time: Buy Any 5 Bands For $99!</text><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=750" x="190" y="85" width="165" height="117" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s2a)"/><text x="42" y="111" class="cvrt-svg-small cvrt-svg-blue">2M+ BANDS SOLD</text><text x="42" y="136" class="cvrt-svg-label">Give Your Apple Watch</text><text x="42" y="156" class="cvrt-svg-label">A Makeover</text><rect x="42" y="174" width="85" height="28" fill="#789caf"/><text x="84" y="192" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now</text>
+            <rect x="42" y="222" width="296" height="82" fill="#f5f3ef"/><g fill="#c8c6c1"><rect x="52" y="233" width="63" height="60"/><rect x="123" y="233" width="63" height="60"/><rect x="194" y="233" width="63" height="60"/><rect x="265" y="233" width="63" height="60"/></g><g fill="#262625"><circle cx="83" cy="263" r="12"/><circle cx="154" cy="263" r="12"/><circle cx="225" cy="263" r="12"/><circle cx="296" cy="263" r="12"/></g><text x="190" y="350" text-anchor="middle" class="cvrt-svg-copy">Videos and carousels compete at first load</text>
+            <path d="M381 193h54" stroke="#6f98aa" stroke-width="2"/><path d="M428 187l7 6-7 6" fill="none" stroke="#6f98aa" stroke-width="2"/>
+            <text x="461" y="32" class="cvrt-svg-state" fill="#5b8293">PRIORITIZED LOAD</text><rect x="461" y="61" width="330" height="264" fill="#fff" stroke="#86a9ba" stroke-width="2"/><rect x="461" y="61" width="330" height="24" fill="#20201f"/><text x="626" y="77" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Limited Time: Buy Any 5 Bands For $99!</text><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=750" x="626" y="85" width="165" height="117" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s2b)"/><text x="478" y="111" class="cvrt-svg-small cvrt-svg-blue">2M+ BANDS SOLD</text><text x="478" y="136" class="cvrt-svg-label">Give Your Apple Watch</text><text x="478" y="156" class="cvrt-svg-label">A Makeover</text><rect x="478" y="174" width="85" height="28" fill="#789caf"/><text x="520" y="192" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now</text><rect x="478" y="222" width="296" height="82" fill="#f5f3ef"/><g><rect x="488" y="233" width="63" height="60" fill="#d4c1b7"/><rect x="559" y="233" width="63" height="60" fill="#b4c7c7"/><rect x="630" y="233" width="63" height="60" fill="#dbc8b8"/><rect x="701" y="233" width="63" height="60" fill="#cad3d0"/></g><g fill="#fff"><path d="M512 252l16 11-16 11z"/><path d="M583 252l16 11-16 11z"/><path d="M654 252l16 11-16 11z"/><path d="M725 252l16 11-16 11z"/></g><text x="626" y="350" text-anchor="middle" class="cvrt-svg-copy">Hero first, video only after a tap</text>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 690" role="img" aria-label="Mobile homepage current heavy initial load above prioritized variation">
+            <rect width="360" height="690" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT LOAD</text><rect x="18" y="42" width="324" height="252" fill="#fff" stroke="#d6d0c9"/><rect x="18" y="42" width="324" height="24" fill="#20201f"/><text x="180" y="58" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Buy Any 5 Bands For $99!</text><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=480" x="180" y="66" width="162" height="117" preserveAspectRatio="xMidYMid slice"/><text x="34" y="92" class="cvrt-svg-small cvrt-svg-blue">2M+ BANDS SOLD</text><text x="34" y="118" class="cvrt-svg-label">Give Your Apple</text><text x="34" y="139" class="cvrt-svg-label">Watch A Makeover</text><rect x="34" y="155" width="94" height="29" fill="#789caf"/><text x="81" y="174" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now</text><g fill="#c9c6c0"><rect x="34" y="207" width="64" height="60"/><rect x="105" y="207" width="64" height="60"/><rect x="176" y="207" width="64" height="60"/><rect x="247" y="207" width="64" height="60"/></g><text x="180" y="286" text-anchor="middle" class="cvrt-svg-small">Everything requests at once</text><path d="M180 307v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 335l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="370" class="cvrt-svg-state" fill="#5b8293">PRIORITIZED LOAD</text><rect x="18" y="385" width="324" height="282" fill="#fff" stroke="#86a9ba" stroke-width="2"/><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=480" x="180" y="408" width="144" height="132" preserveAspectRatio="xMidYMid slice"/><text x="34" y="419" class="cvrt-svg-small cvrt-svg-blue">2M+ BANDS SOLD</text><text x="34" y="445" class="cvrt-svg-label">Give Your Apple</text><text x="34" y="466" class="cvrt-svg-label">Watch A Makeover</text><rect x="34" y="482" width="94" height="31" fill="#789caf"/><text x="81" y="502" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now</text><g><rect x="34" y="560" width="64" height="62" fill="#d4c1b7"/><rect x="105" y="560" width="64" height="62" fill="#b4c7c7"/><rect x="176" y="560" width="64" height="62" fill="#dbc8b8"/><rect x="247" y="560" width="64" height="62" fill="#cad3d0"/></g><g fill="#fff"><path d="M57 580l17 11-17 11z"/><path d="M128 580l17 11-17 11z"/><path d="M199 580l17 11-17 11z"/><path d="M270 580l17 11-17 11z"/></g><text x="180" y="646" text-anchor="middle" class="cvrt-svg-small">Tap-to-play thumbnails load on demand</text>
+          </svg>
+          <p class="cvrt-caption">* The hero becomes interactive first, while video and lower carousels wait until needed. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>PDP Load Priority</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/products/imperium-adapt" target="_blank" rel="noopener">Imperium Adapt PDP</a></p>
+          <p class="cvrt-description">The mobile PDP records a 5.4s LCP and 45.6s Time to Interactive while the gallery, a large swatch grid, scripts, and lower lifestyle sections load. The buying controls can remain unresponsive during the moment a shopper tries to add the band. The variation prioritizes the product image and buy box, then loads the lower lifestyle section on scroll.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 400" role="img" aria-label="PDP loading path prioritizes the buy box before lower lifestyle content">
+            <rect width="816" height="400" fill="#e9e5df"/><text x="32" y="34" class="cvrt-svg-state" fill="#747571">CURRENT REQUEST ORDER</text><text x="488" y="34" class="cvrt-svg-state" fill="#5b8293">PROPOSED REQUEST ORDER</text>
+            <rect x="32" y="60" width="316" height="286" fill="#fff" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="49" y="86" width="134" height="142" preserveAspectRatio="xMidYMid meet"/><text x="200" y="88" class="cvrt-svg-label">Imperium Adapt</text><text x="200" y="112" class="cvrt-svg-copy">$39.99</text><g fill="#bfbdb8"><circle cx="208" cy="143" r="8"/><circle cx="230" cy="143" r="8"/><circle cx="252" cy="143" r="8"/><circle cx="274" cy="143" r="8"/><circle cx="296" cy="143" r="8"/><circle cx="318" cy="143" r="8"/><circle cx="208" cy="166" r="8"/><circle cx="230" cy="166" r="8"/><circle cx="252" cy="166" r="8"/><circle cx="274" cy="166" r="8"/></g><rect x="200" y="190" width="126" height="36" fill="#aaa8a3"/><text x="263" y="213" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">WAITING...</text><image href="https://solacebands.com/cdn/shop/files/4.webp?v=1773338920&amp;width=832" x="49" y="251" width="98" height="69" preserveAspectRatio="xMidYMid slice"/><rect x="147" y="251" width="179" height="69" fill="#dedbd6"/><text x="163" y="278" class="cvrt-svg-copy">Over-Engineered section</text><text x="163" y="298" class="cvrt-svg-small">requests with the buy box</text>
+            <path d="M376 194h55" stroke="#6f98aa" stroke-width="2"/><path d="M424 188l7 6-7 6" fill="none" stroke="#6f98aa" stroke-width="2"/>
+            <rect x="460" y="60" width="324" height="286" fill="#fff" stroke="#86a9ba" stroke-width="2"/><circle cx="500" cy="97" r="18" fill="#91afa2"/><text x="500" y="102" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">1</text><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="526" y="72" width="94" height="82" preserveAspectRatio="xMidYMid meet"/><text x="637" y="91" class="cvrt-svg-label">Product + buy box</text><text x="637" y="114" class="cvrt-svg-copy">Interactive first</text><rect x="637" y="126" width="121" height="32" fill="#191918"/><text x="697" y="147" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">ADD TO CART</text><path d="M500 126v66" stroke="#91afa2" stroke-width="3"/>
+            <circle cx="500" cy="218" r="18" fill="#86a9ba"/><text x="500" y="223" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">2</text><rect x="532" y="187" width="226" height="62" fill="#eef2f1"/><text x="550" y="212" class="cvrt-svg-label">Color and size choices</text><text x="550" y="233" class="cvrt-svg-copy">Ready after the primary buy box</text><path d="M500 236v61" stroke="#86a9ba" stroke-width="3"/>
+            <circle cx="500" cy="306" r="18" fill="#cbc8c2"/><text x="500" y="311" text-anchor="middle" class="cvrt-svg-copy">3</text><image href="https://solacebands.com/cdn/shop/files/4.webp?v=1773338920&amp;width=832" x="532" y="274" width="90" height="62" preserveAspectRatio="xMidYMid slice"/><rect x="622" y="274" width="136" height="62" fill="#f3f1ed" stroke="#d6d0c9"/><text x="637" y="299" class="cvrt-svg-label">Lifestyle sections</text><text x="637" y="320" class="cvrt-svg-small">Load on scroll</text>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 700" role="img" aria-label="Mobile PDP current loading problem above a prioritized loading sequence">
+            <rect width="360" height="700" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT</text><rect x="18" y="42" width="324" height="256" fill="#fff" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="34" y="60" width="120" height="120" preserveAspectRatio="xMidYMid meet"/><text x="172" y="69" class="cvrt-svg-label">Imperium Adapt</text><text x="172" y="94" class="cvrt-svg-copy">$39.99</text><g fill="#bfbdb8"><circle cx="180" cy="125" r="8"/><circle cx="202" cy="125" r="8"/><circle cx="224" cy="125" r="8"/><circle cx="246" cy="125" r="8"/><circle cx="268" cy="125" r="8"/><circle cx="290" cy="125" r="8"/></g><rect x="172" y="148" width="150" height="38" fill="#aaa8a3"/><text x="247" y="172" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">WAITING...</text><rect x="34" y="211" width="288" height="60" fill="#dedbd6"/><text x="178" y="238" text-anchor="middle" class="cvrt-svg-copy">Lower imagery also loading</text><text x="178" y="258" text-anchor="middle" class="cvrt-svg-small">45.6s Time to Interactive</text><path d="M180 311v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 339l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="374" class="cvrt-svg-state" fill="#5b8293">PROPOSED SEQUENCE</text><rect x="18" y="389" width="324" height="289" fill="#fff" stroke="#86a9ba" stroke-width="2"/><circle cx="53" cy="433" r="18" fill="#91afa2"/><text x="53" y="438" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">1</text><text x="83" y="426" class="cvrt-svg-label">Product + Add to Cart</text><text x="83" y="449" class="cvrt-svg-copy">Interactive first</text><rect x="83" y="464" width="223" height="39" fill="#191918"/><text x="194" y="489" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">ADD TO CART</text><path d="M53 451v76" stroke="#91afa2" stroke-width="3"/><circle cx="53" cy="548" r="18" fill="#86a9ba"/><text x="53" y="553" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">2</text><text x="83" y="542" class="cvrt-svg-label">Color and size choices</text><text x="83" y="564" class="cvrt-svg-copy">Ready next</text><path d="M53 566v61" stroke="#86a9ba" stroke-width="3"/><circle cx="53" cy="642" r="18" fill="#cbc8c2"/><text x="53" y="647" text-anchor="middle" class="cvrt-svg-copy">3</text><text x="83" y="635" class="cvrt-svg-label">Lifestyle sections</text><text x="83" y="657" class="cvrt-svg-copy">Load on scroll</text>
+            <image href="https://solacebands.com/cdn/shop/files/4.webp?v=1773338920&amp;width=832" x="34" y="211" width="94" height="60" preserveAspectRatio="xMidYMid slice"/><rect x="128" y="211" width="194" height="60" fill="#dedbd6"/><text x="143" y="236" class="cvrt-svg-copy">Over-Engineered section</text><text x="143" y="256" class="cvrt-svg-small">also loading · 45.6s TTI</text>
+          </svg>
+          <p class="cvrt-caption">* The buy box becomes interactive before lower lifestyle content requests begin. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>Homepage Safety Message</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-description">Safety language appears across paid-search headlines, but the homepage first leads with “Give Your Apple Watch A Makeover” and does not surface PFAS-free messaging until later. The promise that brought safety-focused visitors to the site is not the first message they see. The variation leads with a PFAS-free headline while preserving the existing image, proof line, supporting copy, and Shop Now action.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 400" role="img" aria-label="Current lifestyle-led Solace homepage hero compared with a PFAS-free safety-led headline">
+            <defs><clipPath id="cvrt-s4a"><rect x="20" y="54" width="370" height="310"/></clipPath><clipPath id="cvrt-s4b"><rect x="426" y="54" width="370" height="310"/></clipPath></defs><rect width="816" height="400" fill="#e9e5df"/><text x="20" y="32" class="cvrt-svg-state" fill="#747571">CURRENT</text><text x="426" y="32" class="cvrt-svg-state" fill="#5b8293">VARIATION</text>
+            <g><rect x="20" y="54" width="370" height="310" fill="#f8f5f0" stroke="#d6d0c9"/><rect x="20" y="54" width="370" height="22" fill="#20201f"/><text x="205" y="69" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Limited Time: Buy Any 5 Bands For $99!</text><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=750" x="205" y="76" width="185" height="230" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4a)"/><text x="37" y="112" class="cvrt-svg-small cvrt-svg-blue">2M+ BANDS SOLD | 15K+ REVIEWS</text><text x="37" y="148" class="cvrt-svg-label">Give Your Apple Watch A</text><text x="37" y="173" font-family="Newsreader,serif" font-style="italic" fill="#6f98aa" font-size="24" font-weight="500">Makeover</text><text x="37" y="205" class="cvrt-svg-small">Engineered for comfort, durability,</text><text x="37" y="222" class="cvrt-svg-small">and all-day wear.</text><rect x="37" y="242" width="92" height="34" fill="#789caf"/><text x="83" y="264" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now →</text></g>
+            <g><rect x="426" y="54" width="370" height="310" fill="#f8f5f0" stroke="#86a9ba" stroke-width="2"/><rect x="426" y="54" width="370" height="22" fill="#20201f"/><text x="611" y="69" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Limited Time: Buy Any 5 Bands For $99!</text><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=750" x="611" y="76" width="185" height="230" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4b)"/><text x="443" y="112" class="cvrt-svg-small cvrt-svg-blue">2M+ BANDS SOLD | 15K+ REVIEWS</text><text x="443" y="146" class="cvrt-svg-label">Apple Watch Bands,</text><text x="443" y="169" class="cvrt-svg-label">Without the PFAS, BPA,</text><text x="443" y="192" class="cvrt-svg-label">or Phthalates</text><text x="443" y="220" class="cvrt-svg-small">Engineered for comfort, durability,</text><text x="443" y="237" class="cvrt-svg-small">and all-day wear.</text><rect x="443" y="255" width="92" height="34" fill="#789caf"/><text x="489" y="277" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now →</text><rect x="443" y="316" width="152" height="25" rx="13" fill="#edf4f1"/><text x="519" y="333" text-anchor="middle" class="cvrt-svg-small">PFAS-Free · Non-Toxic</text></g>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 700" role="img" aria-label="Mobile current homepage hero above PFAS-free variation">
+            <rect width="360" height="700" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT</text><rect x="18" y="42" width="324" height="270" fill="#f8f5f0" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=480" x="190" y="42" width="152" height="270" preserveAspectRatio="xMidYMid slice"/><text x="34" y="74" class="cvrt-svg-small cvrt-svg-blue">2M+ SOLD | 15K+ REVIEWS</text><text x="34" y="110" class="cvrt-svg-label">Give Your</text><text x="34" y="131" class="cvrt-svg-label">Apple Watch A</text><text x="34" y="158" font-family="Newsreader,serif" font-style="italic" fill="#6f98aa" font-size="24" font-weight="500">Makeover</text><rect x="34" y="190" width="94" height="33" fill="#789caf"/><text x="81" y="212" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now</text><path d="M180 325v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 353l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="388" class="cvrt-svg-state" fill="#5b8293">VARIATION</text><rect x="18" y="403" width="324" height="275" fill="#f8f5f0" stroke="#86a9ba" stroke-width="2"/><image href="https://solacebands.com/cdn/shop/files/Bre-4.webp?v=1785349728&amp;width=480" x="200" y="403" width="142" height="275" preserveAspectRatio="xMidYMid slice"/><text x="34" y="434" class="cvrt-svg-small cvrt-svg-blue">2M+ SOLD | 15K+ REVIEWS</text><text x="34" y="468" class="cvrt-svg-label">Apple Watch</text><text x="34" y="489" class="cvrt-svg-label">Bands, Without</text><text x="34" y="510" class="cvrt-svg-label">PFAS, BPA, or</text><text x="34" y="531" class="cvrt-svg-label">Phthalates</text><rect x="34" y="555" width="94" height="34" fill="#789caf"/><text x="81" y="577" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">Shop Now</text><rect x="34" y="608" width="137" height="26" rx="13" fill="#edf4f1"/><text x="102" y="625" text-anchor="middle" class="cvrt-svg-small">PFAS-Free</text>
+          </svg>
+          <p class="cvrt-caption">* The first headline restates the PFAS-free safety promise while the familiar hero remains intact. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>Collection Card Pricing</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/collections/watch-bands" target="_blank" rel="noopener">All Solace Bands</a></p>
+          <p class="cvrt-description">The 29-item collection grid shows product names, imagery, color swatches, and status badges, but no prices across the captured page. Shoppers must open each product before they can compare a basic purchase detail. The variation places price beneath each product name while preserving the existing imagery and swatch pattern.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 400" role="img" aria-label="Current Imperium Adapt collection card without price compared with a card showing price">
+            <rect width="816" height="400" fill="#e9e5df"/><text x="94" y="32" class="cvrt-svg-state" fill="#747571">CURRENT CARD</text><text x="498" y="32" class="cvrt-svg-state" fill="#5b8293">VARIATION CARD</text>
+            <rect x="84" y="54" width="250" height="314" fill="#fff" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="101" y="69" width="216" height="201" preserveAspectRatio="xMidYMid meet"/><text x="105" y="294" class="cvrt-svg-label">Imperium Adapt</text><circle cx="113" cy="325" r="9" fill="#151515"/><circle cx="139" cy="325" r="9" fill="#d8c6bd"/><circle cx="165" cy="325" r="9" fill="#ece7de"/><text x="184" y="330" class="cvrt-svg-copy">+46</text>
+            <path d="M377 202h62" stroke="#6f98aa" stroke-width="2"/><path d="M432 196l7 6-7 6" fill="none" stroke="#6f98aa" stroke-width="2"/>
+            <rect x="482" y="54" width="250" height="314" fill="#fff" stroke="#86a9ba" stroke-width="2"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="499" y="69" width="216" height="201" preserveAspectRatio="xMidYMid meet"/><text x="503" y="294" class="cvrt-svg-label">Imperium Adapt</text><text x="503" y="320" class="cvrt-svg-copy">$39.99</text><circle cx="511" cy="344" r="9" fill="#151515"/><circle cx="537" cy="344" r="9" fill="#d8c6bd"/><circle cx="563" cy="344" r="9" fill="#ece7de"/><text x="582" y="349" class="cvrt-svg-copy">+46</text><rect x="614" y="300" width="93" height="25" rx="13" fill="#edf2f5"/><text x="660" y="317" text-anchor="middle" class="cvrt-svg-small">PRICE VISIBLE</text>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 720" role="img" aria-label="Mobile current collection card above card with visible price">
+            <rect width="360" height="720" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT CARD</text><rect x="52" y="42" width="256" height="282" fill="#fff" stroke="#d6d0c9"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="75" y="55" width="210" height="184" preserveAspectRatio="xMidYMid meet"/><text x="75" y="263" class="cvrt-svg-label">Imperium Adapt</text><circle cx="83" cy="294" r="9" fill="#151515"/><circle cx="109" cy="294" r="9" fill="#d8c6bd"/><circle cx="135" cy="294" r="9" fill="#ece7de"/><text x="154" y="299" class="cvrt-svg-copy">+46</text><path d="M180 338v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 366l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="401" class="cvrt-svg-state" fill="#5b8293">VARIATION CARD</text><rect x="52" y="416" width="256" height="282" fill="#fff" stroke="#86a9ba" stroke-width="2"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=832" x="75" y="429" width="210" height="168" preserveAspectRatio="xMidYMid meet"/><text x="75" y="620" class="cvrt-svg-label">Imperium Adapt</text><text x="75" y="645" class="cvrt-svg-copy">$39.99</text><circle cx="83" cy="672" r="9" fill="#151515"/><circle cx="109" cy="672" r="9" fill="#d8c6bd"/><circle cx="135" cy="672" r="9" fill="#ece7de"/><text x="154" y="677" class="cvrt-svg-copy">+46</text>
+          </svg>
+          <p class="cvrt-caption">* Price appears directly beneath the product name before the shopper opens the PDP. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>PDP Sizing Guide</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/products/imperium-adapt" target="_blank" rel="noopener">Imperium Adapt PDP</a></p>
+          <p class="cvrt-description">Sizing is the most repeated complaint in the review sample, including microscopic printed instructions, an outdated pin tool, and difficulty finding a comfortable fit. The PDP accordion stack has Features, Description, and Shipping and Warranty, but no dedicated sizing help. The variation adds a first-position Sizing &amp; Fit Guide with legible guidance for removing links, adding links, and checking the fit.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 400" role="img" aria-label="Current PDP accordion stack compared with a new expanded sizing and fit guide">
+            <rect width="816" height="400" fill="#e9e5df"/><text x="28" y="32" class="cvrt-svg-state" fill="#747571">CURRENT ACCORDIONS</text><text x="434" y="32" class="cvrt-svg-state" fill="#5b8293">VARIATION</text>
+            <rect x="28" y="55" width="350" height="305" fill="#fff" stroke="#d6d0c9"/><text x="50" y="88" class="cvrt-svg-label">Imperium Adapt</text><text x="50" y="113" class="cvrt-svg-copy">★★★★★ 3576 reviews</text><rect x="50" y="133" width="306" height="44" fill="#191918"/><text x="203" y="160" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><g fill="none" stroke="#cbc7c1"><rect x="50" y="201" width="306" height="39"/><rect x="50" y="240" width="306" height="39"/><rect x="50" y="279" width="306" height="39"/></g><text x="65" y="225" class="cvrt-svg-copy">Features</text><text x="65" y="264" class="cvrt-svg-copy">Description</text><text x="65" y="303" class="cvrt-svg-copy">Shipping and Warranty</text><g class="cvrt-svg-copy"><text x="337" y="225">+</text><text x="337" y="264">+</text><text x="337" y="303">+</text></g><text x="203" y="342" text-anchor="middle" class="cvrt-svg-small">No sizing accordion</text>
+            <path d="M394 202h24" stroke="#6f98aa" stroke-width="2"/><path d="M411 196l7 6-7 6" fill="none" stroke="#6f98aa" stroke-width="2"/>
+            <rect x="434" y="55" width="354" height="305" fill="#fff" stroke="#86a9ba" stroke-width="2"/><text x="456" y="88" class="cvrt-svg-label">Imperium Adapt</text><rect x="456" y="111" width="310" height="43" fill="#191918"/><text x="611" y="138" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><rect x="456" y="174" width="310" height="145" fill="#edf2f5" stroke="#86a9ba"/><text x="475" y="202" class="cvrt-svg-label">Sizing &amp; Fit Guide</text><text x="739" y="202" class="cvrt-svg-copy">−</text><g><circle cx="483" cy="232" r="14" fill="#86a9ba"/><text x="483" y="237" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">1</text><text x="507" y="237" class="cvrt-svg-copy">How to remove links</text><circle cx="483" cy="266" r="14" fill="#91afa2"/><text x="483" y="271" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">2</text><text x="507" y="271" class="cvrt-svg-copy">How to add links</text><circle cx="483" cy="300" r="14" fill="#20201f"/><text x="483" y="305" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">3</text><text x="507" y="305" class="cvrt-svg-copy">How to check the fit</text></g><rect x="456" y="327" width="310" height="24" fill="#fff" stroke="#cbc7c1"/><text x="470" y="344" class="cvrt-svg-small">Features  ·  Description  ·  Shipping and Warranty</text>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 700" role="img" aria-label="Mobile current accordion stack above an expanded sizing guide variation">
+            <rect width="360" height="700" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT</text><rect x="18" y="42" width="324" height="250" fill="#fff" stroke="#d6d0c9"/><text x="36" y="75" class="cvrt-svg-label">Imperium Adapt</text><rect x="36" y="91" width="288" height="42" fill="#191918"/><text x="180" y="117" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><g fill="none" stroke="#cbc7c1"><rect x="36" y="154" width="288" height="37"/><rect x="36" y="191" width="288" height="37"/><rect x="36" y="228" width="288" height="37"/></g><text x="50" y="177" class="cvrt-svg-copy">Features</text><text x="50" y="214" class="cvrt-svg-copy">Description</text><text x="50" y="251" class="cvrt-svg-copy">Shipping and Warranty</text><path d="M180 306v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 334l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="369" class="cvrt-svg-state" fill="#5b8293">VARIATION</text><rect x="18" y="384" width="324" height="294" fill="#fff" stroke="#86a9ba" stroke-width="2"/><text x="36" y="417" class="cvrt-svg-label">Imperium Adapt</text><rect x="36" y="433" width="288" height="42" fill="#191918"/><text x="180" y="459" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">ADD TO CART</text><rect x="36" y="496" width="288" height="160" fill="#edf2f5" stroke="#86a9ba"/><text x="53" y="524" class="cvrt-svg-label">Sizing &amp; Fit Guide</text><g><circle cx="61" cy="554" r="13" fill="#86a9ba"/><text x="61" y="559" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">1</text><text x="85" y="559" class="cvrt-svg-copy">How to remove links</text><circle cx="61" cy="590" r="13" fill="#91afa2"/><text x="61" y="595" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">2</text><text x="85" y="595" class="cvrt-svg-copy">How to add links</text><circle cx="61" cy="626" r="13" fill="#20201f"/><text x="61" y="631" text-anchor="middle" class="cvrt-svg-copy cvrt-svg-white">3</text><text x="85" y="631" class="cvrt-svg-copy">How to check the fit</text></g>
+          </svg>
+          <p class="cvrt-caption">* A dedicated, expanded sizing guide appears first in the existing accordion stack. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>Cart Drawer Trust Row</h3>
+          <p class="cvrt-page">Cart drawer</p>
+          <p class="cvrt-description">The cart drawer carries the rewards progress bar, line item, and size-matched cross-sell, but no guarantee or trust copy. The PDP already uses three reassurance claims directly below Add to Cart. The variation repeats Ships Next Day, Lifetime Quality, and Money-Back Guarantee above checkout without changing the cart order.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 430" role="img" aria-label="Current Solace cart drawer compared with a drawer containing three trust claims above checkout">
+            <rect width="816" height="430" fill="#e9e5df"/><text x="85" y="30" class="cvrt-svg-state" fill="#747571">CURRENT</text><text x="490" y="30" class="cvrt-svg-state" fill="#5b8293">VARIATION</text>
+            <g><rect x="82" y="48" width="264" height="358" fill="#fff" stroke="#d6d0c9"/><rect x="82" y="48" width="264" height="36" fill="#181817"/><text x="100" y="72" font-family="DM Sans,sans-serif" fill="#fff" font-size="14" font-weight="500">SOLACE</text><text x="330" y="72" class="cvrt-svg-copy cvrt-svg-white">×</text><text x="214" y="110" text-anchor="middle" class="cvrt-svg-label">Add Bands To Unlock Rewards</text><line x1="104" y1="128" x2="324" y2="128" stroke="#c8c5c0" stroke-width="4"/><line x1="104" y1="128" x2="181" y2="128" stroke="#91afa2" stroke-width="4"/><text x="108" y="150" class="cvrt-svg-small">Buy 2, Get 1 Free</text><text x="276" y="150" class="cvrt-svg-small">5 for $99</text><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=300" x="101" y="171" width="68" height="72" preserveAspectRatio="xMidYMid meet"/><text x="177" y="186" class="cvrt-svg-label">Imperium Adapt</text><text x="177" y="207" class="cvrt-svg-small">Black, 38/40/41/42MM</text><text x="177" y="231" class="cvrt-svg-copy">$39.99</text><rect x="101" y="262" width="226" height="66" fill="#f4f2ef" stroke="#d6d0c9"/><text x="113" y="285" class="cvrt-svg-copy">Popular bands match your size</text><text x="113" y="308" class="cvrt-svg-small">Imperium Adapt, Clay Pink  ·  Add</text><text x="103" y="350" class="cvrt-svg-copy">Estimated total</text><text x="291" y="350" class="cvrt-svg-copy">$39.99</text><rect x="101" y="366" width="226" height="28" fill="#191918"/><text x="214" y="385" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">CHECK OUT</text></g>
+            <path d="M375 217h50" stroke="#6f98aa" stroke-width="2"/><path d="M418 211l7 6-7 6" fill="none" stroke="#6f98aa" stroke-width="2"/>
+            <g><rect x="456" y="48" width="278" height="358" fill="#fff" stroke="#86a9ba" stroke-width="2"/><rect x="456" y="48" width="278" height="36" fill="#181817"/><text x="474" y="72" font-family="DM Sans,sans-serif" fill="#fff" font-size="14" font-weight="500">SOLACE</text><text x="718" y="72" class="cvrt-svg-copy cvrt-svg-white">×</text><text x="595" y="108" text-anchor="middle" class="cvrt-svg-label">Add Bands To Unlock Rewards</text><line x1="478" y1="126" x2="712" y2="126" stroke="#c8c5c0" stroke-width="4"/><line x1="478" y1="126" x2="561" y2="126" stroke="#91afa2" stroke-width="4"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=300" x="475" y="146" width="66" height="68" preserveAspectRatio="xMidYMid meet"/><text x="550" y="164" class="cvrt-svg-label">Imperium Adapt</text><text x="550" y="185" class="cvrt-svg-small">Black, 38/40/41/42MM</text><text x="550" y="205" class="cvrt-svg-copy">$39.99</text><rect x="475" y="225" width="240" height="50" fill="#f4f2ef" stroke="#d6d0c9"/><text x="487" y="246" class="cvrt-svg-copy">Popular bands match your size</text><text x="487" y="264" class="cvrt-svg-small">Imperium Adapt, Clay Pink  ·  Add</text><rect x="475" y="285" width="240" height="54" fill="#edf4f1" stroke="#91afa2"/><text x="515" y="307" text-anchor="middle" class="cvrt-svg-small">Ships</text><text x="515" y="324" text-anchor="middle" class="cvrt-svg-small">Next Day</text><text x="595" y="307" text-anchor="middle" class="cvrt-svg-small">Lifetime</text><text x="595" y="324" text-anchor="middle" class="cvrt-svg-small">Quality</text><text x="675" y="307" text-anchor="middle" class="cvrt-svg-small">Money-Back</text><text x="675" y="324" text-anchor="middle" class="cvrt-svg-small">Guarantee</text><circle cx="515" cy="294" r="4" fill="#6f98aa"/><circle cx="595" cy="294" r="4" fill="#6f98aa"/><circle cx="675" cy="294" r="4" fill="#6f98aa"/><text x="475" y="360" class="cvrt-svg-copy">Estimated total</text><text x="677" y="360" class="cvrt-svg-copy">$39.99</text><rect x="475" y="369" width="240" height="27" fill="#191918"/><text x="595" y="387" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">CHECK OUT</text></g>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 790" role="img" aria-label="Mobile current cart drawer above a trust-row variation">
+            <rect width="360" height="790" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT</text><rect x="42" y="42" width="276" height="326" fill="#fff" stroke="#d6d0c9"/><rect x="42" y="42" width="276" height="34" fill="#181817"/><text x="59" y="64" fill="#fff" font-family="DM Sans,sans-serif" font-size="13">SOLACE</text><text x="180" y="99" text-anchor="middle" class="cvrt-svg-label">Add Bands To Unlock Rewards</text><line x1="62" y1="117" x2="298" y2="117" stroke="#c8c5c0" stroke-width="4"/><line x1="62" y1="117" x2="143" y2="117" stroke="#91afa2" stroke-width="4"/><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=300" x="60" y="136" width="66" height="70" preserveAspectRatio="xMidYMid meet"/><text x="136" y="153" class="cvrt-svg-label">Imperium Adapt</text><text x="136" y="176" class="cvrt-svg-small">Black, 38/40/41/42MM</text><text x="136" y="198" class="cvrt-svg-copy">$39.99</text><rect x="60" y="220" width="240" height="58" fill="#f4f2ef"/><text x="74" y="244" class="cvrt-svg-copy">Popular bands match your size</text><text x="74" y="264" class="cvrt-svg-small">Clay Pink  ·  Add</text><rect x="60" y="318" width="240" height="31" fill="#191918"/><text x="180" y="338" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">CHECK OUT</text><path d="M180 381v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 409l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="444" class="cvrt-svg-state" fill="#5b8293">VARIATION</text><rect x="42" y="459" width="276" height="308" fill="#fff" stroke="#86a9ba" stroke-width="2"/><rect x="42" y="459" width="276" height="34" fill="#181817"/><text x="59" y="481" fill="#fff" font-family="DM Sans,sans-serif" font-size="13">SOLACE</text><image href="https://solacebands.com/cdn/shop/files/SOLACE_BANDS.png?v=1773261328&amp;width=300" x="60" y="512" width="66" height="70" preserveAspectRatio="xMidYMid meet"/><text x="136" y="531" class="cvrt-svg-label">Imperium Adapt</text><text x="136" y="554" class="cvrt-svg-small">Black, 38/40/41/42MM</text><text x="136" y="576" class="cvrt-svg-copy">$39.99</text><rect x="60" y="599" width="240" height="62" fill="#edf4f1" stroke="#91afa2"/><text x="100" y="623" text-anchor="middle" class="cvrt-svg-small">Ships</text><text x="100" y="640" text-anchor="middle" class="cvrt-svg-small">Next Day</text><text x="180" y="623" text-anchor="middle" class="cvrt-svg-small">Lifetime</text><text x="180" y="640" text-anchor="middle" class="cvrt-svg-small">Quality</text><text x="260" y="623" text-anchor="middle" class="cvrt-svg-small">Money-Back</text><text x="260" y="640" text-anchor="middle" class="cvrt-svg-small">Guarantee</text><text x="60" y="691" class="cvrt-svg-copy">Estimated total</text><text x="259" y="691" class="cvrt-svg-copy">$39.99</text><rect x="60" y="708" width="240" height="40" fill="#191918"/><text x="180" y="733" text-anchor="middle" class="cvrt-svg-small cvrt-svg-white">CHECK OUT</text>
+          </svg>
+          <p class="cvrt-caption">* The three existing PDP reassurance claims move into view directly above checkout. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-badge">A/B Test</span></div>
+          <h3>Homepage Editorial Proof</h3>
+          <p class="cvrt-page"><a href="https://solacebands.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-description">The homepage trust ticker relies on Solace’s own sales, review, warranty, and product claims. A 2026 Sarasota Magazine roundup calls Solace “the easiest recommendation,” but that third-party recognition is absent from the captured homepage. The variation adds the editorial mention to the existing ticker treatment alongside the current trust statements.</p>
+        </div>
+        <div class="cvrt-visual">
+          <svg class="cvrt-svg-desktop" viewBox="0 0 816 360" role="img" aria-label="Current Solace trust ticker compared with a ticker containing a Sarasota Magazine editorial mention">
+            <rect width="816" height="360" fill="#e9e5df"/><text x="31" y="31" class="cvrt-svg-state" fill="#747571">CURRENT TICKER</text><rect x="31" y="54" width="754" height="110" fill="#ece5d9" stroke="#d0c8bd"/><g fill="#20201f" font-family="DM Sans,sans-serif" font-size="12" font-weight="600"><text x="61" y="105">Over 2 Million Sold</text><text x="240" y="105">15,000+ 5-Star Reviews</text><text x="452" y="105">Machine Washable</text><text x="627" y="105">Money-Back Guarantee</text></g><g fill="none" stroke="#6c6d69" stroke-width="1.5"><circle cx="49" cy="100" r="7"/><circle cx="228" cy="100" r="7"/><circle cx="440" cy="100" r="7"/><circle cx="615" cy="100" r="7"/></g>
+            <path d="M408 180v35" stroke="#6f98aa" stroke-width="2"/><path d="M402 209l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="31" y="245" class="cvrt-svg-state" fill="#5b8293">VARIATION TICKER</text><rect x="31" y="268" width="754" height="64" fill="#20201f" stroke="#86a9ba" stroke-width="2"/><text x="57" y="307" fill="#fff" font-family="DM Sans,sans-serif" font-size="12" font-weight="600">Over 2 Million Sold</text><text x="218" y="307" fill="#fff" font-family="DM Sans,sans-serif" font-size="12" font-weight="600">15,000+ 5-Star Reviews</text><rect x="407" y="280" width="350" height="39" fill="#f8f5f0"/><text x="424" y="298" class="cvrt-svg-small cvrt-svg-blue">AS FEATURED IN SARASOTA MAGAZINE</text><text x="424" y="314" class="cvrt-svg-copy">“The Easiest Recommendation”</text>
+          </svg>
+          <svg class="cvrt-svg-mobile" viewBox="0 0 360 620" role="img" aria-label="Mobile current trust ticker above a ticker containing a Sarasota Magazine editorial mention">
+            <rect width="360" height="620" fill="#e9e5df"/><text x="18" y="27" class="cvrt-svg-state" fill="#747571">CURRENT TICKER</text><rect x="18" y="42" width="324" height="200" fill="#ece5d9" stroke="#d0c8bd"/><g class="cvrt-svg-copy"><text x="50" y="82">Over 2 Million Sold</text><text x="50" y="119">15,000+ 5-Star Reviews</text><text x="50" y="156">Machine Washable</text><text x="50" y="193">PFAS-Free</text><text x="50" y="230">Money-Back Guarantee</text></g><g fill="none" stroke="#6c6d69" stroke-width="1.5"><circle cx="34" cy="77" r="6"/><circle cx="34" cy="114" r="6"/><circle cx="34" cy="151" r="6"/><circle cx="34" cy="188" r="6"/><circle cx="34" cy="225" r="6"/></g><path d="M180 256v34" stroke="#6f98aa" stroke-width="2"/><path d="M174 284l6 7 6-7" fill="none" stroke="#6f98aa" stroke-width="2"/><text x="18" y="319" class="cvrt-svg-state" fill="#5b8293">VARIATION TICKER</text><rect x="18" y="334" width="324" height="264" fill="#20201f" stroke="#86a9ba" stroke-width="2"/><text x="42" y="375" class="cvrt-svg-copy cvrt-svg-white">Over 2 Million Sold</text><text x="42" y="408" class="cvrt-svg-copy cvrt-svg-white">15,000+ 5-Star Reviews</text><text x="42" y="441" class="cvrt-svg-copy cvrt-svg-white">Machine Washable</text><rect x="42" y="466" width="276" height="100" fill="#f8f5f0"/><text x="60" y="493" class="cvrt-svg-small cvrt-svg-blue">AS FEATURED IN</text><text x="60" y="518" class="cvrt-svg-label">Sarasota Magazine</text><text x="60" y="545" class="cvrt-svg-copy">“The Easiest Recommendation”</text>
+          </svg>
+          <p class="cvrt-caption">* The ticker gains a third-party editorial mention alongside the existing Solace proof points. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cvrt-panel cvrt-insights-panel">
+    <div class="cvrt-insights-wrap">
+      <section class="cvrt-killers">
+        <p class="cvrt-panel-kicker">Cross-source patterns</p>
+        <h2>Biggest Killers of Conversion Rate</h2>
+        <ul class="cvrt-killer-list">
+          <li>Mobile performance is severely degraded on the homepage and PDP, with 38.3s and 45.6s Time to Interactive in the collected lab reports.</li>
+          <li>The 5 for $99 and Buy 2, Get 1 Free offer carries through paid search, the homepage, and cart, but is absent from the PDP buy box.</li>
+          <li>Sizing instructions and the included pin tool are the most repeated sources of frustration in the review sample.</li>
+        </ul>
+      </section>
+
+      <section class="cvrt-insight-section">
+        <p class="cvrt-panel-kicker">What informed the roadmap</p>
+        <h2>Data Sources Used</h2>
+        <div class="cvrt-source-grid">
+          <div class="cvrt-source-chip">Google Ads</div>
+          <div class="cvrt-source-chip">PageSpeed Insights</div>
+          <div class="cvrt-source-chip">Site Screenshots</div>
+          <div class="cvrt-source-chip">Reviews and UGC</div>
+          <div class="cvrt-source-chip">Live Site</div>
+          <div class="cvrt-source-chip">Competitor Research</div>
+        </div>
+      </section>
+
+      <section class="cvrt-insight-section">
+        <p class="cvrt-panel-kicker">Source findings</p>
+        <h2>What the Data Shows</h2>
+        <article class="cvrt-source-block"><h3>Google Ads</h3><ul class="cvrt-source-list"><li>Headline themes cluster around product identity and safety language such as “No PFAS, BPA, or Phthalates,” “Non-Toxic Apple Watch Bands,” and “Skin Friendly / Hypoallergenic.”</li><li>Advertised offers include Buy 2, Get 1 Free, 5 Bands For $99 This Week, a 30-day money-back guarantee, and fast shipping.</li><li>The bundle message matches the homepage bar and cart drawer, while the safety message is not the first thing a homepage visitor reads.</li></ul></article>
+        <article class="cvrt-source-block"><h3>PageSpeed Insights</h3><ul class="cvrt-source-list"><li>The mobile homepage scores 38/100, with 7.1s LCP, 38.3s Time to Interactive, and 1,340ms Total Blocking Time.</li><li>The mobile Imperium Adapt PDP scores 50/100, with 5.4s LCP, 45.6s Time to Interactive, and 750ms Total Blocking Time.</li><li>CLS is 0 on both pages, so layout shift is not an issue in the collected reports.</li></ul></article>
+        <article class="cvrt-source-block"><h3>Site Screenshots</h3><ul class="cvrt-source-list"><li>The homepage leads with “Give Your Apple Watch A Makeover,” while PFAS-free messaging appears in a later trust ticker and comparison table.</li><li>None of the 29 collection cards show a price across the three captured folds.</li><li>The PDP buy box has one $39.99 purchase option and no bundle selector. The cart drawer is where the bundle becomes interactive.</li><li>The cart drawer has no guarantee, return-policy, or trust badge in the captured state.</li></ul></article>
+        <article class="cvrt-source-block"><h3>Reviews and UGC</h3><ul class="cvrt-source-list"><li>Comfort, lightweight feel, color variety, and compliments recur in positive reviews.</li><li>Sizing friction is the largest complaint theme, including microscopic instructions, an outdated pin tool, and difficulty finding a comfortable fit.</li><li>Other repeated complaints cover clasp reliability, color accuracy, durability, and a handful of skin reactions.</li></ul></article>
+        <article class="cvrt-source-block"><h3>Live Site</h3><ul class="cvrt-source-list"><li>The live homepage repeats the limited-time 5 for $99 offer, features the main watch-band collection, and carries trust statements including PFAS-Free and Money-Back Guarantee.</li><li>The captured site experience routes shoppers through standard homepage, collection, PDP, and cart surfaces rather than dedicated landing pages.</li></ul></article>
+        <article class="cvrt-source-block"><h3>Competitor Research</h3><ul class="cvrt-source-list"><li>Spigen competes at a lower price point without a PFAS-free health position.</li><li>WizeBand combines PFAS-free positioning with a 3-for-2 promotion and 100-day returns.</li><li>A 2026 Sarasota Magazine roundup names Solace “the easiest recommendation” for most buyers.</li></ul></article>
+      </section>
+    </div>
+  </section>
+  <footer class="cvrt-footer">August 2026</footer>
+</div>
