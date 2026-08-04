@@ -14,8 +14,9 @@
 #cvrt-roadmap .cvrt-source-list li::before, #cvrt-roadmap .cvrt-source-list li::after { content:none !important; display:none !important; }
 #cvrt-roadmap { --cvrt-ink:#090a0b; --cvrt-paper:#f4f1eb; --cvrt-white:#fff; --cvrt-red:#d8272f; --cvrt-blue:#00a6df; --cvrt-ice:#d9f4fa; --cvrt-line:#d8d6d0; width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; overflow:hidden; background:var(--cvrt-paper); color:var(--cvrt-ink); font-family:"Manrope",sans-serif; line-height:1.5; }
 #cvrt-roadmap .cvrt-tab-input { position:absolute; opacity:0; pointer-events:none; }
-#cvrt-roadmap .cvrt-hero { min-height:560px; display:grid; grid-template-columns:minmax(360px, .82fr) minmax(520px, 1.18fr); background:var(--cvrt-ink); color:var(--cvrt-white); }
-#cvrt-roadmap .cvrt-hero-copy { padding:68px 6vw 0; display:flex; flex-direction:column; min-width:0; }
+#cvrt-roadmap .cvrt-hero { min-height:660px; display:grid; grid-template-columns:minmax(360px, .82fr) minmax(520px, 1.18fr); background:var(--cvrt-ink); color:var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-copy { padding:0 6vw; display:flex; flex-direction:column; min-width:0; }
+#cvrt-roadmap .cvrt-hero-content { flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; transform:translateY(50px); }
 #cvrt-roadmap .cvrt-wordmark { display:flex; align-items:baseline; gap:7px; margin-bottom:96px; color:var(--cvrt-white); font-size:19px; line-height:1; letter-spacing:.18em; text-transform:uppercase; }
 #cvrt-roadmap .cvrt-wordmark span:first-child { font-weight:800; }
 #cvrt-roadmap .cvrt-wordmark span:last-child { font-weight:400; color:#bec1c4; }
@@ -23,10 +24,10 @@
 #cvrt-roadmap .cvrt-kicker { color:#8ad9ee; margin-bottom:12px; }
 #cvrt-roadmap .cvrt-hero h1 { font-family:"Archivo Black",sans-serif; font-size:clamp(46px,5.2vw,82px); line-height:.92; letter-spacing:-.055em; text-transform:uppercase; max-width:650px; }
 #cvrt-roadmap .cvrt-summary { font-size:16px; line-height:1.65; color:#d8d8d8; max-width:560px; margin-top:24px; }
-#cvrt-roadmap .cvrt-hero-image { position:relative; min-height:560px; overflow:hidden; background:#e8f4f7; }
+#cvrt-roadmap .cvrt-hero-image { position:relative; min-height:660px; overflow:hidden; background:#e8f4f7; }
 #cvrt-roadmap .cvrt-hero-image img { width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block; }
 #cvrt-roadmap .cvrt-hero-image::after { content:""; position:absolute; inset:0; box-shadow:inset 18px 0 40px rgba(0,0,0,.18); pointer-events:none; }
-#cvrt-roadmap .cvrt-tabs { margin-top:auto; display:flex; gap:28px; min-height:66px; align-items:flex-end; }
+#cvrt-roadmap .cvrt-tabs { display:flex; gap:28px; min-height:66px; align-items:flex-end; }
 #cvrt-roadmap .cvrt-tab-label { cursor:pointer; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:20px 0 17px; color:#8e9194; border-bottom:4px solid transparent; transition:.2s ease; }
 #cvrt-roadmap .cvrt-tab-label:hover { color:var(--cvrt-white); }
 #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-tests"],
@@ -70,13 +71,14 @@
 @media (max-width:760px) {
   #cvrt-roadmap .cvrt-hero { min-height:0; grid-template-columns:1fr; }
   #cvrt-roadmap .cvrt-hero-copy { padding:34px 22px 0; order:2; }
+  #cvrt-roadmap .cvrt-hero-content { flex:0 0 auto; justify-content:flex-start; transform:none; }
   #cvrt-roadmap .cvrt-wordmark { font-size:17px; margin-bottom:52px; }
   #cvrt-roadmap .cvrt-hero h1 { font-size:44px; }
   #cvrt-roadmap .cvrt-summary { font-size:14px; margin-top:18px; }
   #cvrt-roadmap .cvrt-hero-image { min-height:320px; order:1; }
   #cvrt-roadmap .cvrt-hero-image img { object-position:70% 50%; }
   #cvrt-roadmap .cvrt-hero-image::after { box-shadow:inset 0 -30px 50px rgba(0,0,0,.2); }
-  #cvrt-roadmap .cvrt-tabs { min-height:64px; gap:24px; }
+  #cvrt-roadmap .cvrt-tabs { min-height:64px; gap:24px; margin-top:16px; }
   #cvrt-roadmap .cvrt-tests, #cvrt-roadmap .cvrt-insights { padding:38px 14px 54px; }
   #cvrt-roadmap .cvrt-panel-intro { display:block; margin-bottom:22px; }
   #cvrt-roadmap .cvrt-panel-intro h2 { font-size:34px; margin-bottom:10px; }
@@ -103,10 +105,12 @@
   <input class="cvrt-tab-input" type="radio" name="cvrt-tabs" id="cvrt-tab-insights">
   <section class="cvrt-hero">
     <div class="cvrt-hero-copy">
-      <div class="cvrt-wordmark" aria-label="Instant Hydration"><span>Instant</span><span>Hydration</span></div>
-      <p class="cvrt-kicker">CRO Testing Roadmap</p>
-      <h1>August 2026</h1>
-      <p class="cvrt-summary">The strongest opportunity is a cleaner path from promise to purchase. The roadmap aligns the offer across key surfaces, steadies the highest-value landing experience, and answers product questions before they become objections.</p>
+      <div class="cvrt-hero-content">
+        <div class="cvrt-wordmark" aria-label="Instant Hydration"><span>Instant</span><span>Hydration</span></div>
+        <p class="cvrt-kicker">CRO Testing Roadmap</p>
+        <h1>August 2026</h1>
+        <p class="cvrt-summary">The strongest opportunity is a cleaner path from promise to purchase. The roadmap aligns the offer across key surfaces, steadies the highest-value landing experience, and answers product questions before they become objections.</p>
+      </div>
       <nav class="cvrt-tabs" aria-label="Roadmap sections">
         <label class="cvrt-tab-label" for="cvrt-tab-tests">Tests</label>
         <label class="cvrt-tab-label" for="cvrt-tab-insights">Data Insights</label>
