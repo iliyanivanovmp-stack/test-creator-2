@@ -9,7 +9,7 @@
 
 Meta Ad 1 promotes discounted home gym and bench equipment, Meta Ad 2 promotes complete home gym packages, and both use the same "Kuntosalipaketit" collection page. It shows intro, carousel, filters, sorting, sale badges, red prices, compare-at prices, ratings, savings labels, and black "Hinta voimassa vain 7 päivää" strips, but no package chooser, comparison guide, or trust strip near the first decision.
 
-Meta Ad 3 promotes small-space parallel-bar training for chest, shoulders, core, beginners, and advanced users. Its "Parallel Bars" page shows four product cards with -47% to -72% discounts, ratings, prices, and education below the grid, but Fold 1 does not turn those claims into comparison criteria.
+Meta Ad 3 promotes small-space parallel-bar training for chest, shoulders, core, beginners, and advanced users. Its "Parallel Bars" page shows four cards with -47% to -72% discounts, ratings, prices, and education below the grid, but Fold 1 does not turn those claims into comparison criteria.
 
 The homepage shows 4.3 rating, 7000+ reviews, 100,000+ customers, 30-day return, Finnish claim, and AA credit rating. The "Säädettävä käsipainosarja 30 kg" PDP shows 55 reviews, 45.95 EUR sale price, 109.95 EUR compare-at price, sticky add-to-cart, and a 75.85 EUR bundle. Mobile Lighthouse: homepage 55/100, LCP 5.4s, TBT 630ms; collection 61/100, LCP 4.3s, TBT 740ms.
 
