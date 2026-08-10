@@ -75,6 +75,11 @@
 - User believes the shared Ad #1/#2 landing page is the collection page; no separate canonical `collection-f1.png`, `collection-f2.png`, or `collection-f3.png` files were present.
 - `ad3-landing-f3.png` was not present.
 
+## Audit
+
+- gorilla-sports-research-audit.md
+- roadmap-seed.md
+
 ## Next Step
 
-Run `/cro-audit` to generate the research audit.
+Run `/cro-research-roadmap` to generate the testing roadmap.
