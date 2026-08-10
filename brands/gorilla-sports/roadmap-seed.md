@@ -16,7 +16,7 @@ The homepage shows 4.3 rating, 7000+ reviews, 100,000+ customers, 30-day return,
 ## Top Test Opportunities
 
 ### 1. Gym Package Finder Above Product Grid
-**What's broken:** The shared Ad 1/2 "Kuntosalipaketit" page opens with breadcrumb, title, intro, carousel, filters, sorting, and dense grid, but no goal, space, level, budget, or equipment selector.
+**What's broken:** The shared Ad 1/2 "Kuntosalipaketit" page opens with breadcrumb, title, intro, carousel, filters, sorting, and grid, but no goal, space, level, budget, or equipment selector.
 **Evidence:** Meta, site, Google Ads, competitors.
 **Key data:** Same page for Ad 1 and Ad 2; discounts up to -55%.
 **Est. lift:** 3-6% CR x unknown sessions/mo x unknown AOV = unknown EUR
