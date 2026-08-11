@@ -14,6 +14,7 @@
 - Google Ads Transparency
 - Current Site Screenshots
 - Non-Data Context
+- PageSpeed / Core Web Vitals
 
 ## Sources Collected
 
@@ -24,6 +25,9 @@
 - Meta Ads → raw/meta-ads-visual-summary.md
 - Google Ads → raw/google-ads-visual-summary.md
 - Site Screenshots → raw/site-visual-summary.md
+- PageSpeed / Core Web Vitals → raw/pagespeed.md
+- PageSpeed homepage export → raw/homepage-pagespeed-sava.json
+- PageSpeed Best Sellers export → raw/collections-pagespeed-sava.json
 - Screenshot aliases mapped → ad-creative-1.png used as meta-ad-1.png
 - Screenshot aliases mapped → ad-creative-2.png used as meta-ad-2.png
 - Screenshot aliases mapped → ad-creative-3.png used as meta-ad-3.png
@@ -64,7 +68,6 @@
 ## Sources Skipped
 
 - Reviews & UGC
-- PageSpeed / Core Web Vitals
 - Competitor Insights
 - Inspiration Sites
 - Email Campaigns

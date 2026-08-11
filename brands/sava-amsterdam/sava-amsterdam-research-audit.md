@@ -8,6 +8,7 @@
 - Google Ads Transparency notes: `raw/google-ads.md`
 - Google Ads visual summary: `raw/google-ads-visual-summary.md`
 - Current Site visual summary: `raw/site-visual-summary.md`
+- PageSpeed / Core Web Vitals: `raw/pagespeed.md`, `raw/homepage-pagespeed-sava.json`, `raw/collections-pagespeed-sava.json`
 - Non-data context: `raw/context.md`
 - Live page fetches on August 11, 2026: `https://sava-amsterdam.com`, `/en-us/products/cross-chain`, `/en-us/products/cross-bracelet`, `/en-us/collections/best-sellers`
 - Self-researched competitor sources on August 11, 2026: CRAFTD London, JAXXON, Miansai via Ounass, and editorial competitor lists from Vogue, Glamour, and GQ search results
@@ -51,7 +52,9 @@ Google messaging leans more durable and trust-led than Meta. Visible copy mentio
 
 ### PageSpeed / Core Web Vitals
 
-`raw/pagespeed.md` was not present, and PageSpeed / Core Web Vitals was skipped in the manifest. No Lighthouse or CrUX metrics were available on disk, and there was no `[fetch during audit]` URL to resolve through PageSpeed Insights. Therefore mobile and desktop LCP, CLS, INP, and performance scores are missing for this collection period.
+The provided mobile Lighthouse exports were fetched on August 11, 2026. The homepage scored 55 for performance, with 3.5 s FCP, 11.4 s LCP, 9.2 s Speed Index, 240 ms Total Blocking Time, 0 CLS, and 20.0 s Time to Interactive. The report estimated 262 KiB of unused JavaScript savings.
+
+The Best Sellers collection scored 56 for mobile performance, with 3.6 s FCP, 8.2 s LCP, 6.5 s Speed Index, 300 ms Total Blocking Time, 0 CLS, and 18.8 s Time to Interactive. The report estimated 244 KiB of unused JavaScript savings. No desktop PageSpeed export or INP value was included in the provided files.
 
 ### Competitor Analysis
 
@@ -122,7 +125,7 @@ Cart: The collected cart is a drawer. The header reads "YOUR CART" with a close 
 ## Missing Data
 
 - Reviews & UGC was skipped and `raw/reviews.md` is missing; this prevents analysis of customer-love themes, product complaints, delivery concerns, and warranty/support objections.
-- PageSpeed / Core Web Vitals was skipped and `raw/pagespeed.md` is missing; this prevents mobile and desktop LCP, CLS, INP, and performance-score diagnosis.
+- The provided PageSpeed exports cover mobile only, and neither export includes an INP value. Desktop performance and INP remain unavailable.
 - Competitor Insights was skipped and no user-provided `raw/competitors.md` exists; competitor analysis relies on self-research dated August 11, 2026.
 - Inspiration Sites was skipped and `raw/inspiration.md` is missing; no external UX pattern set was available.
 - Email Campaigns was skipped and no email screenshots or `raw/emails.md` exist; lifecycle message match and retention/recovery opportunities cannot be audited.
