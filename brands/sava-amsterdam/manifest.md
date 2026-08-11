@@ -15,6 +15,7 @@
 - Current Site Screenshots
 - Non-Data Context
 - PageSpeed / Core Web Vitals
+- Reviews & UGC
 
 ## Sources Collected
 
@@ -28,6 +29,8 @@
 - PageSpeed / Core Web Vitals → raw/pagespeed.md
 - PageSpeed homepage export → raw/homepage-pagespeed-sava.json
 - PageSpeed Best Sellers export → raw/collections-pagespeed-sava.json
+- Reviews & UGC → raw/reviews.md
+- Review batches → raw/reviews-1.txt, raw/reviews-2.txt, raw/reviews-3.txt
 - Screenshot aliases mapped → ad-creative-1.png used as meta-ad-1.png
 - Screenshot aliases mapped → ad-creative-2.png used as meta-ad-2.png
 - Screenshot aliases mapped → ad-creative-3.png used as meta-ad-3.png
@@ -67,7 +70,6 @@
 
 ## Sources Skipped
 
-- Reviews & UGC
 - Competitor Insights
 - Inspiration Sites
 - Email Campaigns

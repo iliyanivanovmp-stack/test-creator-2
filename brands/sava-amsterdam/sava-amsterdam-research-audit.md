@@ -9,6 +9,7 @@
 - Google Ads visual summary: `raw/google-ads-visual-summary.md`
 - Current Site visual summary: `raw/site-visual-summary.md`
 - PageSpeed / Core Web Vitals: `raw/pagespeed.md`, `raw/homepage-pagespeed-sava.json`, `raw/collections-pagespeed-sava.json`
+- Reviews and UGC: `raw/reviews.md`, `raw/reviews-1.txt`, `raw/reviews-2.txt`, `raw/reviews-3.txt`
 - Non-data context: `raw/context.md`
 - Live page fetches on August 11, 2026: `https://sava-amsterdam.com`, `/en-us/products/cross-chain`, `/en-us/products/cross-bracelet`, `/en-us/collections/best-sellers`
 - Self-researched competitor sources on August 11, 2026: CRAFTD London, JAXXON, Miansai via Ounass, and editorial competitor lists from Vogue, Glamour, and GQ search results
@@ -35,20 +36,25 @@ Google messaging leans more durable and trust-led than Meta. Visible copy mentio
 
 ### Reviews & UGC
 
-`raw/reviews.md` was not present. The manifest says Reviews & UGC was skipped, and `raw/context.md` says all necessary data was collected except reviews.
+Three user-provided review batches were collected on August 11, 2026 and preserved verbatim in `raw/reviews-1.txt`, `raw/reviews-2.txt`, and `raw/reviews-3.txt`.
 
 #### What Customers Love
 
-- No collected review source exists on disk, so customer-love themes cannot be audited from collected reviews.
+- Reviewers repeatedly describe wearing Sava jewelry every day in showers, gyms, beaches, swimming pools, water parks, and saunas without tarnishing, discoloration, scratching, or loss of shine.
+- Reviewers praise the jewelry's understated design, polished finish, comfort, packaging, and the way it looks in person.
+- Customer service is repeatedly described as fast, courteous, and helpful, including free replacements for broken or stolen items and positive lifetime-warranty support.
 
 #### What Frustrates Customers
 
-- No collected review source exists on disk, so complaint themes cannot be audited from collected reviews.
+- Several reviews describe shipping or dispatch taking longer than promised. Examples include paid next-day shipping taking four days to ship, an order purchased July 22 still being unsent July 31 because an item was out of stock, and one delivery taking three weeks.
+- Product complaints include jewelry feeling cheap or low quality, a bracelet clasp repeatedly coming undone and causing the bracelet to be lost, a lobster claw clasp being difficult to operate, a loose bracelet fit, a pendant feeling too feminine, and the Sava tag moving toward the front during activity.
+- One reviewer reported a necklace breaking after a few days, while also praising the free replacement and customer service response.
 
 #### Client-Actionable Insights
 
-- Collect structured review exports before prioritizing product, ops, or support fixes; the current audit cannot separate conversion objections from post-purchase product or fulfillment issues using on-disk review data.
-- If review data is collected later, map it specifically against the site's strongest promises: waterproof durability, lifetime warranty, adjustable sizing, free shipping, and 60-day returns.
+- Use the waterproof and daily-wear experiences as concrete proof for the existing durability promise.
+- Audit the gap between same-day or next-day delivery language and fulfillment reality before amplifying urgency around dispatch.
+- Review bracelet clasp security, self-fastening ease, and fit guidance alongside the isolated perceived-quality complaints.
 
 ### PageSpeed / Core Web Vitals
 
@@ -94,6 +100,7 @@ Cart: The collected cart is a drawer. The header reads "YOUR CART" with a close 
 1. Offer clarity has the strongest evidence and highest funnel impact. Meta ads, landing pages, homepage, collection, PDP, and cart all repeat BOGO/free-shipping/sale messaging, but each area expresses it differently: ads say "BUY 1 GET 1 FREE," homepage says "SUMMER SALE IS NOW LIVE," PDP uses a BOGO module and dispatch timer, collection uses sale hero bullets, and cart confirms the free item after add. This affects ad-to-cart continuity and revenue because every paid visitor is being sold through the offer.
 2. Trust proof exists but is vertically scattered. Google Ads, homepage, PDP, collection, and cart all include trust points such as 180,000+ customers, 4.9 ratings, product review counts, press logos, Trustpilot, lifetime warranty, free shipping, and 60-day returns; however, high-value proof is often lower on the page or split across different components. This matters most on paid landing PDPs and the collection first fold.
 3. Product-choice confidence is underdeveloped relative to the catalog. Product cards show ratings, badges, names, and sale prices, while PDPs show material swatches and benefit icons; however, collection filters/sorting are not visible, per-unit BOGO value is not visible, and no bundle/frequently-bought-together module appears in the PDP screenshots. This affects collection browsing, product selection, and AOV.
+4. Fulfillment promises create a documented expectation gap. The PDP shows same-day dispatch, while collected reviews include paid next-day shipping taking four days to ship, an order purchased July 22 still being unsent July 31 because an item was out of stock, and one delivery taking three weeks. Positive reviews also report fast delivery, so the issue is inconsistency rather than universally slow shipping.
 
 ## Top Test Opportunities
 
@@ -124,7 +131,6 @@ Cart: The collected cart is a drawer. The header reads "YOUR CART" with a close 
 
 ## Missing Data
 
-- Reviews & UGC was skipped and `raw/reviews.md` is missing; this prevents analysis of customer-love themes, product complaints, delivery concerns, and warranty/support objections.
 - The provided PageSpeed exports cover mobile only, and neither export includes an INP value. Desktop performance and INP remain unavailable.
 - Competitor Insights was skipped and no user-provided `raw/competitors.md` exists; competitor analysis relies on self-research dated August 11, 2026.
 - Inspiration Sites was skipped and `raw/inspiration.md` is missing; no external UX pattern set was available.
