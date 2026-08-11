@@ -141,6 +141,7 @@ Maintain these quality anchors across every generation:
 - a small, coherent palette derived from the brand
 - consistent spacing rhythm and component treatment
 - strong contrast and readable supporting copy
+- no muted-gray text anywhere in the client-facing roadmap
 - one primary visual idea per section
 - no visual effect that competes with the roadmap content
 
@@ -363,6 +364,8 @@ Mobile styles must collapse to a single vertical reading flow without horizontal
 
 **Light content surfaces.** Slot-card copy areas, SVG areas, and long-form insight blocks must use light, high-contrast surfaces. The hero and the "Biggest Killers of Conversion Rate" block may use dark or image-led brand treatments.
 
+**No muted-gray text. This is a hard rule.** Never use muted gray, low-opacity text, or washed-out secondary copy anywhere in the client-facing roadmap. On dark surfaces, use white or near-white text. On light surfaces, use black or near-black text. Create secondary hierarchy with type size, weight, spacing, and placement, not reduced-contrast text color. This applies to hero summaries, captions, metadata, footer text, Data Insights, SVG labels, and especially every heading and paragraph inside "Biggest Killers of Conversion Rate."
+
 **No one-sided accent borders. This is a hard rule.** Do not apply a colored border, stripe, or rule to a single edge of a card or container (e.g., a colored left stripe on a slot card, a single-side accent on the executive summary box, a bottom-only divider that looks decorative). Left-side borders in particular are the most recognizable AI design tic and will immediately read as template-generated. Use one of: (a) a consistent thin border on all four sides (1px, neutral grey or low-opacity brand tone), (b) a soft full-perimeter shadow with no border, or (c) no border at all, relying on whitespace and background contrast to separate sections. Pick one approach and apply it consistently across every card on the page. If in doubt, use no border.
 
 **Responsive and print styles:** Include mobile breakpoints and print-friendly styles (no shadows, avoid page breaks inside cards).
@@ -456,6 +459,7 @@ Before saving, verify silently:
 - [ ] The two weakest concept mockups were improved after the full-board comparison and the board was rendered again
 - [ ] Data Insights tab: "Biggest Killers of Conversion Rate" section appears at the top, before data sources and per-source findings
 - [ ] "Biggest Killers of Conversion Rate" is the strongest visual block in Data Insights
+- [ ] No muted-gray or low-opacity text appears anywhere. Dark surfaces use white or near-white text; light surfaces use black or near-black text
 - [ ] Data Insights lists have no theme-injected bullets, tiny colored dashes, checkmarks, or decorative `li::before` markers. Reset `ul`, `ol`, `li`, `li::marker`, and Data Insights list `li::before`/`li::after` inside `#cvrt-roadmap`
 - [ ] Data sources are easy to scan, and per-source findings are not forced into cramped columns
 - [ ] Slot cards: text above, SVG below (single column, SVG spans full card width)
