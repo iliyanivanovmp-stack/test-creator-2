@@ -1,0 +1,473 @@
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,600&amp;family=Barlow:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important;
+  display: none !important;
+}
+#cvrt-roadmap {
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  --cvrt-black: #191817;
+  --cvrt-ink: #211f1d;
+  --cvrt-orange: #ff3510;
+  --cvrt-cream: #f2efea;
+  --cvrt-paper: #fffdfa;
+  --cvrt-line: #c7c0b7;
+  --cvrt-white: #ffffff;
+  font-family: "Barlow", sans-serif;
+  color: var(--cvrt-ink);
+  background: var(--cvrt-cream);
+  line-height: 1.45;
+  overflow: hidden;
+}
+#cvrt-roadmap .cvrt-tab-radio { position: absolute; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: minmax(460px, 46%) 1fr;
+  background: var(--cvrt-black);
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-hero-copy {
+  padding: 56px clamp(36px, 5vw, 76px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+#cvrt-roadmap .cvrt-logo-plate {
+  width: 132px; height: 62px;
+  display: grid; place-items: center;
+  background: var(--cvrt-paper);
+}
+#cvrt-roadmap .cvrt-logo-plate img { width: 94px; height: auto; display: block; }
+#cvrt-roadmap .cvrt-hero-text { padding: 58px 0 48px; max-width: 560px; }
+#cvrt-roadmap .cvrt-eyebrow {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: .19em; text-transform: uppercase;
+  color: var(--cvrt-orange);
+  margin-bottom: 16px;
+}
+#cvrt-roadmap .cvrt-hero h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(58px, 6.7vw, 106px);
+  line-height: .82; font-weight: 800;
+  letter-spacing: -.035em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-hero-brand {
+  display: block; color: var(--cvrt-orange);
+  font-size: .46em; line-height: 1; letter-spacing: .01em;
+  margin-bottom: 18px;
+}
+#cvrt-roadmap .cvrt-hero-summary {
+  max-width: 530px; margin-top: 28px;
+  color: var(--cvrt-white);
+  font-size: 17px; line-height: 1.65; font-weight: 400;
+}
+#cvrt-roadmap .cvrt-tabs-nav {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(255,255,255,.34);
+}
+#cvrt-roadmap .cvrt-tab-label {
+  min-height: 70px; display: flex; align-items: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .13em; color: var(--cvrt-white); cursor: pointer;
+  position: relative;
+}
+#cvrt-roadmap .cvrt-tab-label + .cvrt-tab-label { padding-left: 28px; border-left: 1px solid rgba(255,255,255,.34); }
+#cvrt-roadmap .cvrt-tab-label::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 5px; background: transparent;
+}
+#cvrt-roadmap:has(#cvrt-tab-tests:checked) .cvrt-tab-label[for="cvrt-tab-tests"]::after,
+#cvrt-roadmap:has(#cvrt-tab-insights:checked) .cvrt-tab-label[for="cvrt-tab-insights"]::after { background: var(--cvrt-orange); }
+#cvrt-roadmap .cvrt-hero-image { position: relative; min-width: 0; overflow: hidden; }
+#cvrt-roadmap .cvrt-hero-image img {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover; object-position: 61% 50%;
+}
+#cvrt-roadmap .cvrt-hero-image::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(25,24,23,.24), transparent 36%);
+}
+#cvrt-roadmap .cvrt-tests-content { display: block; }
+#cvrt-roadmap .cvrt-insights-content { display: none; }
+#cvrt-roadmap:has(#cvrt-tab-insights:checked) .cvrt-tests-content { display: none; }
+#cvrt-roadmap:has(#cvrt-tab-insights:checked) .cvrt-insights-content { display: block; }
+#cvrt-roadmap .cvrt-tests-section { padding: 64px 24px 78px; background: var(--cvrt-cream); }
+#cvrt-roadmap .cvrt-section-intro {
+  max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 28px;
+  display: flex; align-items: end; justify-content: space-between; gap: 24px;
+}
+#cvrt-roadmap .cvrt-section-intro h2 {
+  font-family: "Barlow Condensed", sans-serif; font-weight: 800;
+  font-size: 46px; line-height: .95; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-section-intro p { font-size: 15px; line-height: 1.55; max-width: 390px; color: var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-slot-card {
+  max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 30px;
+  background: var(--cvrt-paper); border: 1px solid var(--cvrt-line);
+  border-radius: 2px; overflow: hidden;
+}
+#cvrt-roadmap .cvrt-slot-copy { padding: 34px 42px 30px; max-width: 720px; }
+#cvrt-roadmap .cvrt-slot-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 14px; }
+#cvrt-roadmap .cvrt-slot-label,
+#cvrt-roadmap .cvrt-type-badge {
+  font-family: "Barlow Condensed", sans-serif; font-size: 13px; line-height: 1;
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-slot-label { color: var(--cvrt-orange); }
+#cvrt-roadmap .cvrt-type-badge { color: var(--cvrt-ink); border: 1px solid var(--cvrt-ink); padding: 7px 9px 6px; }
+#cvrt-roadmap .cvrt-slot-copy h3 {
+  font-family: "Barlow Condensed", sans-serif; font-size: 36px; line-height: .98;
+  font-weight: 800; text-transform: uppercase; margin-bottom: 10px;
+}
+#cvrt-roadmap .cvrt-page-label {
+  font-family: "Barlow Condensed", sans-serif; font-size: 15px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-page-label a { color: var(--cvrt-ink); text-decoration: underline; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-slot-description { max-width: 640px; font-size: 16px; line-height: 1.62; color: var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-concept {
+  padding: 24px 28px 20px; background: #f8f5f0;
+  border-top: 1px solid var(--cvrt-line);
+}
+#cvrt-roadmap .cvrt-concept svg { width: 100%; height: auto; display: block; font-family: "Barlow", sans-serif; }
+#cvrt-roadmap .cvrt-mobile-svg { display: none !important; min-width: 0; }
+#cvrt-roadmap .cvrt-caption { margin-top: 13px; font-size: 13px; line-height: 1.5; font-style: italic; color: var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-insights-section { padding: 58px 24px 72px; background: var(--cvrt-cream); }
+#cvrt-roadmap .cvrt-killers {
+  padding: 46px clamp(30px, 6vw, 74px); background: var(--cvrt-black); color: var(--cvrt-white);
+  margin-bottom: 46px;
+}
+#cvrt-roadmap .cvrt-killers-wrap { max-width: 980px; margin-left: auto; margin-right: auto; }
+#cvrt-roadmap .cvrt-killers h2 {
+  font-family: "Barlow Condensed", sans-serif; font-size: 50px; line-height: .92;
+  font-weight: 800; text-transform: uppercase; max-width: 620px; margin-bottom: 28px;
+}
+#cvrt-roadmap .cvrt-killer-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; counter-reset: killers; }
+#cvrt-roadmap .cvrt-killer-list li {
+  border: 1px solid rgba(255,255,255,.5); padding: 22px; color: var(--cvrt-white);
+  font-size: 15px; line-height: 1.55; counter-increment: killers;
+}
+#cvrt-roadmap .cvrt-killer-list li span {
+  display: block; color: var(--cvrt-orange); font-family: "Barlow Condensed", sans-serif;
+  font-size: 27px; line-height: 1; font-weight: 800; margin-bottom: 12px;
+}
+#cvrt-roadmap .cvrt-insights-inner { padding: 0 24px; }
+#cvrt-roadmap .cvrt-insights-heading { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 18px; }
+#cvrt-roadmap .cvrt-insights-heading h2 {
+  font-family: "Barlow Condensed", sans-serif; font-size: 40px; line-height: 1;
+  font-weight: 800; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-grid {
+  max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 42px;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+}
+#cvrt-roadmap .cvrt-source-chip {
+  min-height: 74px; display: flex; align-items: center; padding: 16px;
+  background: var(--cvrt-paper); border: 1px solid var(--cvrt-line);
+  color: var(--cvrt-ink); font-family: "Barlow Condensed", sans-serif;
+  font-size: 17px; line-height: 1.15; font-weight: 700; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-findings { max-width: 860px; margin-left: auto; margin-right: auto; }
+#cvrt-roadmap .cvrt-source-block { background: var(--cvrt-paper); border: 1px solid var(--cvrt-line); padding: 28px 32px; margin-bottom: 12px; }
+#cvrt-roadmap .cvrt-source-block h3 {
+  font-family: "Barlow Condensed", sans-serif; font-size: 27px; line-height: 1;
+  font-weight: 800; text-transform: uppercase; margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-source-list { display: grid; gap: 10px; }
+#cvrt-roadmap .cvrt-source-list li { color: var(--cvrt-ink); font-size: 15px; line-height: 1.55; padding-top: 10px; border-top: 1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-source-list li:first-child { padding-top: 0; border-top: 0; }
+#cvrt-roadmap .cvrt-footer {
+  background: var(--cvrt-black); color: var(--cvrt-white); padding: 22px 24px;
+  text-align: center; font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em;
+}
+@media (max-width: 760px) {
+  #cvrt-roadmap .cvrt-hero { min-height: 0; grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-image { grid-row: 1; height: 310px; }
+  #cvrt-roadmap .cvrt-hero-image img { object-position: 60% 52%; }
+  #cvrt-roadmap .cvrt-hero-image::after { background: linear-gradient(0deg, var(--cvrt-black) 0%, transparent 38%); }
+  #cvrt-roadmap .cvrt-hero-copy { grid-row: 2; padding: 0 22px; }
+  #cvrt-roadmap .cvrt-logo-plate { position: absolute; top: -282px; left: 22px; width: 102px; height: 48px; }
+  #cvrt-roadmap .cvrt-logo-plate img { width: 72px; }
+  #cvrt-roadmap .cvrt-hero-text { padding: 12px 0 34px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: 64px; }
+  #cvrt-roadmap .cvrt-hero-summary { font-size: 15px; line-height: 1.55; }
+  #cvrt-roadmap .cvrt-tab-label { min-height: 62px; font-size: 13px; }
+  #cvrt-roadmap .cvrt-tests-section { padding: 42px 12px 52px; }
+  #cvrt-roadmap .cvrt-section-intro { display: block; margin-bottom: 22px; }
+  #cvrt-roadmap .cvrt-section-intro h2 { font-size: 38px; margin-bottom: 10px; }
+  #cvrt-roadmap .cvrt-slot-card { margin-bottom: 20px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 26px 22px 24px; }
+  #cvrt-roadmap .cvrt-slot-copy h3 { font-size: 31px; }
+  #cvrt-roadmap .cvrt-slot-description { font-size: 15px; line-height: 1.57; }
+  #cvrt-roadmap .cvrt-concept { padding: 16px 12px 16px; min-width: 0; }
+  #cvrt-roadmap .cvrt-desktop-svg { display: none !important; }
+  #cvrt-roadmap .cvrt-mobile-svg { display: block !important; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-caption { font-size: 12px; }
+  #cvrt-roadmap .cvrt-insights-section { padding: 36px 0 50px; }
+  #cvrt-roadmap .cvrt-killers { padding: 34px 22px; margin-bottom: 34px; }
+  #cvrt-roadmap .cvrt-killers h2 { font-size: 42px; }
+  #cvrt-roadmap .cvrt-killer-list { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-insights-inner { padding: 0 12px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+  #cvrt-roadmap .cvrt-source-chip { min-height: 66px; font-size: 15px; }
+  #cvrt-roadmap .cvrt-source-block { padding: 24px 20px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot-card, #cvrt-roadmap .cvrt-source-block { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-hero { min-height: 620px; }
+  #cvrt-roadmap .cvrt-insights-content { display: block !important; }
+  #cvrt-roadmap .cvrt-tests-content { display: block !important; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-radio" type="radio" name="cvrt-tabs" id="cvrt-tab-tests" checked>
+  <input class="cvrt-tab-radio" type="radio" name="cvrt-tabs" id="cvrt-tab-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-copy">
+      <div class="cvrt-logo-plate"><img src="https://shop.performancegolf.com/cdn/shop/files/PG-Logo.svg?v=1770845489&amp;width=400" alt="Performance Golf"></div>
+      <div class="cvrt-hero-text">
+        <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+        <h1><span class="cvrt-hero-brand">Performance Golf</span>August<br>2026</h1>
+        <p class="cvrt-hero-summary">Mobile performance breaks across home and product journeys while high-value products lack consistent proof, offer framing, and cross-sell support. This roadmap stabilizes the shopping experience first, then closes the message and merchandising gaps around the products carrying the business.</p>
+      </div>
+      <nav class="cvrt-tabs-nav" aria-label="Roadmap sections">
+        <label class="cvrt-tab-label" for="cvrt-tab-tests">Testing Roadmap</label>
+        <label class="cvrt-tab-label" for="cvrt-tab-insights">Data Insights</label>
+      </nav>
+    </div>
+    <div class="cvrt-hero-image">
+      <img src="https://shop.performancegolf.com/cdn/shop/files/J260353.jpg?v=1772039925&amp;width=1920" alt="Golfer training at a Performance Golf school">
+    </div>
+  </section>
+
+  <div class="cvrt-tests-content">
+    <section class="cvrt-tests-section">
+      <div class="cvrt-section-intro">
+        <h2>Testing roadmap</h2>
+        <p>Eight focused opportunities across mobile performance, product proof, offer clarity, and merchandising.</p>
+      </div>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type-badge">Immediate Fix</span></div>
+          <h3>Club PDP Mobile Stability</h3>
+          <p class="cvrt-page-label">Page: Product detail pages, all club templates</p>
+          <p class="cvrt-slot-description">The 357 product page scored 21/100 on mobile, with CLS at 0.637 and time to interactive at 43.4 seconds. The buy box and sticky purchase bar sit inside this unstable load experience. The corrected page reserves their space from first paint so selectors and the Add to Cart action stay fixed while content loads.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 360" role="img" aria-label="Current shifting 357 buy box compared with stable proposed buy box">
+            <defs><clipPath id="cvrt-s1a"><rect x="28" y="54" width="350" height="274" rx="2"/></clipPath><clipPath id="cvrt-s1b"><rect x="422" y="54" width="350" height="274" rx="2"/></clipPath></defs>
+            <rect width="800" height="360" fill="#f8f5f0"/><text x="28" y="30" font-size="17" font-weight="700" fill="#211f1d">CURRENT</text><text x="422" y="30" font-size="17" font-weight="700" fill="#ff3510">STABLE LOAD</text>
+            <rect x="28" y="54" width="350" height="274" fill="#fff" stroke="#c7c0b7"/><g clip-path="url(#cvrt-s1a)"><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="40" y="76" width="154" height="142" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" font-size="21" font-weight="800" fill="#211f1d"><tspan x="208" dy="0">357 SUPER</tspan><tspan x="208" dy="22">7-WOOD</tspan></text><text x="208" y="126" font-size="20" font-weight="600" fill="#211f1d">$249.00</text><text x="208" y="151" font-size="14" font-weight="700" fill="#f59d16">★★★★★ 4.8</text><rect x="208" y="166" width="142" height="34" fill="#fff" stroke="#211f1d"/><text x="220" y="188" font-size="13" font-weight="700" fill="#211f1d">RIGHT HAND</text><rect x="190" y="210" width="164" height="42" fill="none" stroke="#ff3510" stroke-width="2" stroke-dasharray="7 5"/><text x="208" y="239" font-size="13" font-weight="700" fill="#ff3510">SELECTORS SHIFT DOWN</text><rect x="208" y="268" width="142" height="44" fill="#ff3510"/><text x="244" y="296" font-size="14" font-weight="700" fill="#fff">ADD TO CART</text></g>
+            <path d="M390 181h20" stroke="#211f1d" stroke-width="3"/><path d="M403 174l8 7-8 7" fill="none" stroke="#211f1d" stroke-width="3"/>
+            <rect x="422" y="54" width="350" height="274" fill="#fff" stroke="#211f1d"/><g clip-path="url(#cvrt-s1b)"><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="434" y="76" width="154" height="142" preserveAspectRatio="xMidYMid meet"/><text x="602" y="80" font-size="21" font-weight="800" fill="#211f1d"><tspan x="602" dy="0">357 SUPER</tspan><tspan x="602" dy="22">7-WOOD</tspan></text><text x="602" y="126" font-size="20" font-weight="600" fill="#211f1d">$249.00</text><text x="602" y="151" font-size="14" font-weight="700" fill="#f59d16">★★★★★ 4.8</text><rect x="602" y="166" width="142" height="34" fill="#fff" stroke="#211f1d"/><text x="614" y="188" font-size="13" font-weight="700" fill="#211f1d">RIGHT HAND</text><rect x="602" y="205" width="142" height="34" fill="#fff" stroke="#211f1d"/><text x="614" y="227" font-size="13" font-weight="700" fill="#211f1d">SHAFT: STIFF</text><rect x="602" y="251" width="142" height="48" fill="#ff3510"/><text x="638" y="281" font-size="14" font-weight="700" fill="#fff">ADD TO CART</text><rect x="434" y="304" width="310" height="6" fill="#211f1d"/></g>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 640" role="img" aria-label="Mobile current shifting 357 buy box above stable proposed buy box">
+            <rect width="360" height="640" fill="#f8f5f0"/><text x="14" y="25" font-size="16" font-weight="700" fill="#211f1d">CURRENT</text><rect x="14" y="39" width="332" height="244" fill="#fff" stroke="#c7c0b7"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="24" y="55" width="112" height="112" preserveAspectRatio="xMidYMid meet"/><text x="149" y="73" font-size="20" font-weight="800" fill="#211f1d">357 SUPER 7-WOOD</text><text x="149" y="100" font-size="18" font-weight="600" fill="#211f1d">$249.00</text><text x="149" y="126" font-size="13" font-weight="700" fill="#f59d16">★★★★★ 4.8</text><rect x="149" y="144" width="176" height="40" fill="none" stroke="#ff3510" stroke-width="2" stroke-dasharray="6 4"/><text x="162" y="169" font-size="13" font-weight="700" fill="#ff3510">SELECTORS SHIFT</text><rect x="24" y="206" width="301" height="48" fill="#ff3510"/><text x="119" y="236" font-size="15" font-weight="700" fill="#fff">ADD TO CART</text><text x="170" y="314" font-size="28" font-weight="700" fill="#211f1d">↓</text><text x="14" y="350" font-size="16" font-weight="700" fill="#ff3510">STABLE LOAD</text><rect x="14" y="364" width="332" height="256" fill="#fff" stroke="#211f1d"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="24" y="380" width="112" height="112" preserveAspectRatio="xMidYMid meet"/><text x="149" y="398" font-size="20" font-weight="800" fill="#211f1d">357 SUPER 7-WOOD</text><text x="149" y="425" font-size="18" font-weight="600" fill="#211f1d">$249.00</text><text x="149" y="450" font-size="13" font-weight="700" fill="#f59d16">★★★★★ 4.8</text><rect x="149" y="467" width="176" height="34" fill="#fff" stroke="#211f1d"/><text x="162" y="489" font-size="12" font-weight="700" fill="#211f1d">RIGHT HAND · STIFF</text><rect x="24" y="523" width="301" height="50" fill="#ff3510"/><text x="119" y="554" font-size="15" font-weight="700" fill="#fff">ADD TO CART</text><text x="24" y="601" font-size="12" font-weight="700" fill="#211f1d">RESERVED SPACE FROM FIRST PAINT</text>
+          </svg>
+          <p class="cvrt-caption">* The product buy box holds its shape while every purchase control loads. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type-badge">Immediate Fix</span></div>
+          <h3>Homepage Mobile Stability</h3>
+          <p class="cvrt-page-label">Page: <a href="https://shop.performancegolf.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-slot-description">The homepage scored 20/100 on mobile, with CLS at 0.638 and time to interactive at 46.2 seconds. Its hero, trust row, and technology sections load into the same unstable environment. The corrected experience keeps the hero and primary action locked in place from first paint.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 350" role="img" aria-label="Homepage hero load sequence corrected into one stable frame">
+            <rect width="800" height="350" fill="#191817"/><image href="https://shop.performancegolf.com/cdn/shop/files/BP_1994.jpg?v=1772658412&amp;width=1200" x="0" y="0" width="800" height="350" preserveAspectRatio="xMidYMid slice" opacity=".44"/><rect x="28" y="28" width="88" height="43" fill="#fff"/><text x="47" y="58" font-size="27" font-weight="800" fill="#191817">PG</text><text x="38" y="134" font-size="34" font-weight="800" fill="#fff">YOUR STROKE ISN'T</text><text x="38" y="172" font-size="34" font-weight="800" fill="#fff">THE PROBLEM.</text><text x="38" y="206" font-size="22" font-weight="700" fill="#fff">YOUR PUTTER IS.</text><rect x="38" y="239" width="176" height="48" fill="#ff3510"/><text x="62" y="269" font-size="14" font-weight="700" fill="#fff">SEE HOW IT WORKS →</text><rect x="510" y="256" width="250" height="60" fill="#fff"/><text x="530" y="280" font-size="13" font-weight="700" fill="#211f1d">4.8 AVG RATING · 1M+ SUBSCRIBERS</text><text x="530" y="302" font-size="12" font-weight="600" fill="#211f1d">RESERVED FROM FIRST PAINT</text><path d="M510 242h250" stroke="#ff3510" stroke-width="5"/>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 590" role="img" aria-label="Stable mobile homepage hero and trust row">
+            <rect width="360" height="590" fill="#191817"/><image href="https://shop.performancegolf.com/cdn/shop/files/BP_1994.jpg?v=1772658412&amp;width=1200" x="0" y="0" width="360" height="590" preserveAspectRatio="xMidYMid slice" opacity=".42"/><rect x="18" y="18" width="78" height="38" fill="#fff"/><text x="35" y="45" font-size="24" font-weight="800" fill="#191817">PG</text><text x="20" y="110" font-size="31" font-weight="800" fill="#fff">YOUR STROKE ISN'T</text><text x="20" y="145" font-size="31" font-weight="800" fill="#fff">THE PROBLEM.</text><text x="20" y="178" font-size="22" font-weight="700" fill="#fff">YOUR PUTTER IS.</text><rect x="20" y="214" width="202" height="52" fill="#ff3510"/><text x="44" y="246" font-size="15" font-weight="700" fill="#fff">SEE HOW IT WORKS →</text><rect x="20" y="448" width="320" height="112" fill="#fff"/><text x="38" y="481" font-size="17" font-weight="800" fill="#211f1d">4.8 AVG RATING</text><text x="38" y="511" font-size="17" font-weight="800" fill="#211f1d">1M+ SUBSCRIBERS</text><text x="38" y="541" font-size="13" font-weight="700" fill="#ff3510">STABLE FROM FIRST PAINT</text>
+          </svg>
+          <p class="cvrt-caption">* The hero, primary action, and proof row appear in one stable load. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type-badge">A/B Test</span></div>
+          <h3>Cart Drawer Cross-Sell</h3>
+          <p class="cvrt-page-label">Page: Cart drawer, site-wide</p>
+          <p class="cvrt-slot-description">The cart drawer shows “YOU MAY ALSO LIKE” with no products beneath it, while only 6.0% of club orders contain more than one club. Multi-club orders average $556.69 compared with $346.03 for single-club orders. The variation turns the empty area into a compact complementary-club recommendation without changing the existing cart.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 390" role="img" aria-label="Empty current cart cross-sell compared with populated recommendation">
+            <rect width="800" height="390" fill="#f8f5f0"/><text x="95" y="27" font-size="16" font-weight="700" fill="#211f1d">CURRENT</text><text x="487" y="27" font-size="16" font-weight="700" fill="#ff3510">VARIATION</text>
+            <g><rect x="70" y="42" width="280" height="328" fill="#fff" stroke="#c7c0b7"/><text x="88" y="73" font-size="19" font-weight="800" fill="#211f1d">CART (2)</text><text x="88" y="99" font-size="12" font-weight="600" fill="#211f1d">Congratulations! Your order qualifies for free shipping</text><rect x="88" y="111" width="244" height="4" fill="#ff3510"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="88" y="131" width="72" height="72" preserveAspectRatio="xMidYMid meet"/><text x="172" y="151" font-size="17" font-weight="800" fill="#211f1d">357 Super 7-Wood</text><text x="172" y="176" font-size="15" font-weight="600" fill="#211f1d">$249.00</text><text x="88" y="239" font-size="14" font-weight="600" fill="#211f1d">YOU MAY ALSO LIKE</text><rect x="88" y="250" width="244" height="45" fill="#f2efea" stroke="#c7c0b7" stroke-dasharray="5 4"/><text x="143" y="278" font-size="13" font-weight="700" fill="#211f1d">NO PRODUCTS SHOWN</text><text x="88" y="328" font-size="15" font-weight="700" fill="#211f1d">TOTAL</text><text x="282" y="328" font-size="15" font-weight="700" fill="#211f1d">$249.00</text><rect x="88" y="338" width="244" height="24" fill="#ff3510"/></g>
+            <path d="M373 196h36" stroke="#211f1d" stroke-width="3"/><path d="M401 188l9 8-9 8" fill="none" stroke="#211f1d" stroke-width="3"/>
+            <g><rect x="432" y="42" width="298" height="328" fill="#fff" stroke="#211f1d"/><text x="450" y="73" font-size="19" font-weight="800" fill="#211f1d">CART (2)</text><text x="450" y="99" font-size="12" font-weight="600" fill="#211f1d">Congratulations! Your order qualifies for free shipping</text><rect x="450" y="111" width="262" height="4" fill="#ff3510"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="450" y="127" width="66" height="66" preserveAspectRatio="xMidYMid meet"/><text x="526" y="147" font-size="16" font-weight="800" fill="#211f1d">357 Super 7-Wood</text><text x="526" y="172" font-size="14" font-weight="600" fill="#211f1d">$249.00</text><text x="450" y="216" font-size="14" font-weight="700" fill="#211f1d">YOU MAY ALSO LIKE</text><rect x="450" y="226" width="262" height="72" fill="#f2efea" stroke="#ff3510" stroke-width="2"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="458" y="233" width="58" height="58" preserveAspectRatio="xMidYMid meet"/><text x="526" y="248" font-size="15" font-weight="800" fill="#211f1d">SF2 Driver</text><text x="526" y="271" font-size="13" font-weight="600" fill="#211f1d">$299.00</text><rect x="632" y="242" width="70" height="38" fill="#ff3510"/><text x="649" y="266" font-size="12" font-weight="700" fill="#fff">ADD +</text><text x="450" y="328" font-size="15" font-weight="700" fill="#211f1d">TOTAL</text><text x="662" y="328" font-size="15" font-weight="700" fill="#211f1d">$249.00</text><rect x="450" y="338" width="262" height="24" fill="#ff3510"/></g>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 710" role="img" aria-label="Mobile empty current cart cross-sell above populated variation">
+            <rect width="360" height="710" fill="#f8f5f0"/><text x="18" y="25" font-size="16" font-weight="700" fill="#211f1d">CURRENT</text><rect x="18" y="39" width="324" height="268" fill="#fff" stroke="#c7c0b7"/><text x="34" y="67" font-size="18" font-weight="800" fill="#211f1d">CART (2)</text><rect x="34" y="81" width="292" height="4" fill="#ff3510"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="34" y="98" width="76" height="76" preserveAspectRatio="xMidYMid meet"/><text x="122" y="119" font-size="17" font-weight="800" fill="#211f1d">357 Super 7-Wood</text><text x="122" y="145" font-size="15" font-weight="600" fill="#211f1d">$249.00</text><text x="34" y="204" font-size="14" font-weight="700" fill="#211f1d">YOU MAY ALSO LIKE</text><rect x="34" y="216" width="292" height="55" fill="#f2efea" stroke="#c7c0b7" stroke-dasharray="5 4"/><text x="96" y="249" font-size="13" font-weight="700" fill="#211f1d">NO PRODUCTS SHOWN</text><text x="170" y="339" font-size="28" font-weight="700" fill="#211f1d">↓</text><text x="18" y="377" font-size="16" font-weight="700" fill="#ff3510">VARIATION</text><rect x="18" y="391" width="324" height="295" fill="#fff" stroke="#211f1d"/><text x="34" y="419" font-size="18" font-weight="800" fill="#211f1d">CART (2)</text><rect x="34" y="433" width="292" height="4" fill="#ff3510"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="34" y="448" width="66" height="66" preserveAspectRatio="xMidYMid meet"/><text x="112" y="468" font-size="17" font-weight="800" fill="#211f1d">357 Super 7-Wood</text><text x="112" y="493" font-size="14" font-weight="600" fill="#211f1d">$249.00</text><text x="34" y="539" font-size="14" font-weight="700" fill="#211f1d">YOU MAY ALSO LIKE</text><rect x="34" y="551" width="292" height="96" fill="#f2efea" stroke="#ff3510" stroke-width="2"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="44" y="561" width="76" height="76" preserveAspectRatio="xMidYMid meet"/><text x="132" y="582" font-size="17" font-weight="800" fill="#211f1d">SF2 Driver</text><text x="132" y="608" font-size="14" font-weight="600" fill="#211f1d">$299.00</text><rect x="247" y="574" width="66" height="42" fill="#ff3510"/><text x="263" y="600" font-size="13" font-weight="700" fill="#fff">ADD +</text>
+          </svg>
+          <p class="cvrt-caption">* The empty recommendation area becomes a compact complementary-club offer. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type-badge">A/B Test</span></div>
+          <h3>357 Landing Page Message Match</h3>
+          <p class="cvrt-page-label">Page: <a href="https://performancegolf.com/357-fairway/media/hybrid-sc" target="_blank" rel="noopener">357 Fairway and Hybrid Landing Page</a></p>
+          <p class="cvrt-slot-description">Offer-focused traffic arrives with the promise that this club is built for golfers over 55, but the first three landing-page folds lead only with Tri-Fusion technology. The age-specific reason to believe disappears at the handoff. The variation restores “Built for Golfers Over 55” beside the existing technology headline and video.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 390" role="img" aria-label="357 landing hero gains built for golfers over 55 message">
+            <rect width="800" height="390" fill="#fff"/><rect width="800" height="34" fill="#3d8f62"/><text x="272" y="23" font-size="13" font-weight="700" fill="#fff">SUMMER SALE ENDS SOON! SAVE 50%</text><text x="262" y="88" font-size="14" font-weight="600" font-style="italic" fill="#211f1d">Introducing...</text><text x="128" y="129" font-size="31" font-weight="800" font-style="italic" fill="#211f1d">THE FIRST-EVER <tspan fill="#e50000">SUPER 7-WOOD</tspan></text><text x="154" y="166" font-size="31" font-weight="800" font-style="italic" fill="#211f1d">WITH TRI-FUSION TECHNOLOGY!</text><rect x="232" y="185" width="336" height="38" fill="#ff3510"/><text x="280" y="210" font-size="17" font-weight="800" fill="#fff">BUILT FOR GOLFERS OVER 55</text><rect x="170" y="246" width="460" height="122" fill="#191817"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="188" y="254" width="142" height="106" preserveAspectRatio="xMidYMid meet"/><text x="357" y="285" font-size="23" font-weight="800" fill="#fff">LAUNCH HIGHER.</text><text x="357" y="315" font-size="23" font-weight="800" fill="#fff">REACH MORE GREENS.</text><circle cx="556" cy="312" r="23" fill="#ff3510"/><path d="M550 300l17 12-17 12z" fill="#fff"/>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 570" role="img" aria-label="Mobile 357 landing hero with built for golfers over 55 message">
+            <rect width="360" height="570" fill="#fff"/><rect width="360" height="42" fill="#3d8f62"/><text x="53" y="27" font-size="12" font-weight="700" fill="#fff">SUMMER SALE ENDS SOON! SAVE 50%</text><text x="132" y="85" font-size="14" font-weight="600" font-style="italic" fill="#211f1d">Introducing...</text><text x="28" y="127" font-size="25" font-weight="800" font-style="italic" fill="#211f1d">THE FIRST-EVER</text><text x="59" y="159" font-size="25" font-weight="800" font-style="italic" fill="#e50000">SUPER 7-WOOD</text><text x="31" y="191" font-size="25" font-weight="800" font-style="italic" fill="#211f1d">WITH TRI-FUSION</text><text x="83" y="223" font-size="25" font-weight="800" font-style="italic" fill="#211f1d">TECHNOLOGY!</text><rect x="24" y="246" width="312" height="48" fill="#ff3510"/><text x="60" y="276" font-size="17" font-weight="800" fill="#fff">BUILT FOR GOLFERS OVER 55</text><rect x="24" y="320" width="312" height="218" fill="#191817"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="64" y="338" width="232" height="162" preserveAspectRatio="xMidYMid meet"/><circle cx="180" cy="488" r="24" fill="#ff3510"/><path d="M174 476l17 12-17 12z" fill="#fff"/>
+          </svg>
+          <p class="cvrt-caption">* The hero keeps its Tri-Fusion story and restores the “Golfers Over 55” promise above the fold. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type-badge">A/B Test</span></div>
+          <h3>RS1 and SF2 Review Proof</h3>
+          <p class="cvrt-page-label">Page: RS1 Putter and SF2 Driver product detail pages</p>
+          <p class="cvrt-slot-description">RS1 and SF2 produce 70.0% of gross revenue, yet neither captured page shows an on-site review widget. The lower-revenue 357 page already places a 4.8 rating and review count inside its buy box. The variation brings the same proof pattern below each flagship title once verified on-site ratings and counts are available.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 360" role="img" aria-label="RS1 and SF2 buy boxes gain visible rating rows">
+            <rect width="800" height="360" fill="#191817"/><text x="31" y="31" font-size="15" font-weight="700" fill="#fff">FLAGSHIP BUY BOXES</text><g><rect x="30" y="52" width="358" height="276" fill="#fff"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/RS1_1a.jpg?v=1779127592" x="44" y="72" width="156" height="150" preserveAspectRatio="xMidYMid meet"/><text x="217" y="91" font-size="28" font-weight="800" fill="#211f1d">RS1 PUTTER</text><rect x="217" y="112" width="144" height="48" fill="#fff5df" stroke="#ff3510" stroke-width="2"/><text x="229" y="132" font-size="14" font-weight="700" fill="#f59d16">★★★★★</text><text x="229" y="151" font-size="10" font-weight="700" fill="#211f1d">VERIFIED COUNT REQUIRED</text><text x="217" y="188" font-size="21" font-weight="700" fill="#211f1d">From $399.00</text><rect x="217" y="210" width="144" height="48" fill="#ff3510"/><text x="248" y="240" font-size="14" font-weight="700" fill="#fff">ADD TO CART</text><text x="44" y="297" font-size="12" font-weight="700" fill="#211f1d">FORWARD AXIS WEIGHTING</text></g><g><rect x="412" y="52" width="358" height="276" fill="#fff"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="426" y="72" width="156" height="150" preserveAspectRatio="xMidYMid meet"/><text x="599" y="91" font-size="28" font-weight="800" fill="#211f1d">SF2 DRIVER</text><rect x="599" y="112" width="144" height="48" fill="#fff5df" stroke="#ff3510" stroke-width="2"/><text x="611" y="132" font-size="14" font-weight="700" fill="#f59d16">★★★★★</text><text x="611" y="151" font-size="10" font-weight="700" fill="#211f1d">VERIFIED COUNT REQUIRED</text><text x="599" y="188" font-size="21" font-weight="700" fill="#211f1d">$299.00</text><rect x="599" y="210" width="144" height="48" fill="#ff3510"/><text x="630" y="240" font-size="14" font-weight="700" fill="#fff">ADD TO CART</text><text x="426" y="297" font-size="12" font-weight="700" fill="#211f1d">76,744 HAPPY GOLFERS</text></g>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 680" role="img" aria-label="Mobile RS1 and SF2 buy boxes with visible rating rows">
+            <rect width="360" height="680" fill="#191817"/><text x="18" y="28" font-size="15" font-weight="700" fill="#fff">FLAGSHIP BUY BOXES</text><rect x="18" y="46" width="324" height="288" fill="#fff"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/RS1_1a.jpg?v=1779127592" x="34" y="62" width="130" height="130" preserveAspectRatio="xMidYMid meet"/><text x="180" y="86" font-size="25" font-weight="800" fill="#211f1d">RS1 PUTTER</text><rect x="180" y="105" width="143" height="50" fill="#fff5df" stroke="#ff3510" stroke-width="2"/><text x="191" y="126" font-size="14" font-weight="700" fill="#f59d16">★★★★★</text><text x="191" y="146" font-size="10" font-weight="700" fill="#211f1d">VERIFIED COUNT REQUIRED</text><text x="180" y="184" font-size="19" font-weight="700" fill="#211f1d">From $399.00</text><rect x="34" y="220" width="289" height="52" fill="#ff3510"/><text x="119" y="252" font-size="15" font-weight="700" fill="#fff">ADD TO CART</text><text x="18" y="365" font-size="26" font-weight="700" fill="#fff">↓</text><rect x="18" y="386" width="324" height="276" fill="#fff"/><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="34" y="402" width="130" height="130" preserveAspectRatio="xMidYMid meet"/><text x="180" y="426" font-size="25" font-weight="800" fill="#211f1d">SF2 DRIVER</text><rect x="180" y="445" width="143" height="50" fill="#fff5df" stroke="#ff3510" stroke-width="2"/><text x="191" y="466" font-size="14" font-weight="700" fill="#f59d16">★★★★★</text><text x="191" y="486" font-size="10" font-weight="700" fill="#211f1d">VERIFIED COUNT REQUIRED</text><text x="180" y="524" font-size="19" font-weight="700" fill="#211f1d">$299.00</text><rect x="34" y="558" width="289" height="52" fill="#ff3510"/><text x="119" y="590" font-size="15" font-weight="700" fill="#fff">ADD TO CART</text><text x="34" y="637" font-size="12" font-weight="700" fill="#211f1d">76,744 HAPPY GOLFERS</text>
+          </svg>
+          <p class="cvrt-caption">* Both flagship buy boxes gain a visible rating row beside the purchase decision. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type-badge">A/B Test</span></div>
+          <h3>SF2 $100 Off Message Match</h3>
+          <p class="cvrt-page-label">Page: <a href="https://shop.performancegolf.com/pages/sf2-driver-media-info-sc" target="_blank" rel="noopener">SF2 Driver Landing Page</a></p>
+          <p class="cvrt-slot-description">Offer-focused paid traffic promises $100 off, while the captured landing-page folds show $299 reduced from $399 without stating the discount amount. The math is present, but the promise is not repeated. The variation places a clear “$100 OFF” callout beside the existing price without changing the offer.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 370" role="img" aria-label="SF2 landing buy box gains explicit 100 dollars off callout">
+            <rect width="800" height="370" fill="#1d1b1b"/><rect width="800" height="40" fill="#ff3510"/><text x="340" y="26" font-size="14" font-weight="700" fill="#fff">FREE USA SHIPPING</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="42" y="70" width="300" height="260" preserveAspectRatio="xMidYMid meet"/><text x="386" y="93" font-size="14" font-weight="700" fill="#ff3510">KILL THE SLICE. KEEP THE SPEED.</text><text x="386" y="155" font-size="64" font-weight="800" fill="#fff">SF2</text><text x="386" y="194" font-size="26" font-weight="600" fill="#fff">WORLD'S LONGEST SLICE FIX DRIVER</text><rect x="386" y="217" width="132" height="44" fill="#ff3510"/><text x="410" y="245" font-size="20" font-weight="800" fill="#fff">$100 OFF</text><text x="536" y="244" font-size="26" font-weight="800" fill="#fff">$299</text><text x="606" y="244" font-size="19" font-weight="600" text-decoration="line-through" fill="#fff">$399</text><rect x="386" y="282" width="328" height="52" fill="#ff3510"/><text x="456" y="314" font-size="17" font-weight="700" fill="#fff">GET MY SF2 DRIVER NOW</text>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 610" role="img" aria-label="Mobile SF2 landing buy box with explicit 100 dollars off callout">
+            <rect width="360" height="630" fill="#1d1b1b"/><rect width="360" height="42" fill="#ff3510"/><text x="111" y="27" font-size="14" font-weight="700" fill="#fff">FREE USA SHIPPING</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="34" y="65" width="292" height="242" preserveAspectRatio="xMidYMid meet"/><text x="26" y="338" font-size="13" font-weight="700" fill="#ff3510">KILL THE SLICE. KEEP THE SPEED.</text><text x="26" y="405" font-size="62" font-weight="800" fill="#fff">SF2</text><text x="26" y="438" font-size="19" font-weight="600" fill="#fff"><tspan x="26" dy="0">WORLD'S LONGEST</tspan><tspan x="26" dy="24">SLICE FIX DRIVER</tspan></text><rect x="26" y="482" width="138" height="48" fill="#ff3510"/><text x="50" y="513" font-size="20" font-weight="800" fill="#fff">$100 OFF</text><text x="184" y="512" font-size="25" font-weight="800" fill="#fff">$299</text><text x="250" y="512" font-size="18" font-weight="600" text-decoration="line-through" fill="#fff">$399</text><rect x="26" y="552" width="308" height="54" fill="#ff3510"/><text x="79" y="585" font-size="16" font-weight="700" fill="#fff">GET MY SF2 DRIVER NOW</text>
+          </svg>
+          <p class="cvrt-caption">* The existing $299 and $399 price treatment gains the exact “$100 OFF” promise. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type-badge">A/B Test</span></div>
+          <h3>RS1 Collection Discount Badge</h3>
+          <p class="cvrt-page-label">Page: <a href="https://shop.performancegolf.com/collections/golf-clubs" target="_blank" rel="noopener">Golf Clubs Collection</a></p>
+          <p class="cvrt-slot-description">The 357 and SF2 collection cards carry savings badges, while the RS1 card shows only “From $399.00.” That leaves the highest-revenue product as the visual exception in the same grid. The variation gives RS1 the same top-left savings treatment already used by neighboring clubs, based on the live discount applied at checkout.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 390" role="img" aria-label="Three product collection grid with RS1 gaining a matching savings badge">
+            <rect width="800" height="390" fill="#fff"/><text x="304" y="34" font-size="27" font-weight="800" fill="#211f1d">GOLF CLUBS</text><g><rect x="25" y="62" width="238" height="298" fill="#fff" stroke="#c7c0b7"/><rect x="38" y="76" width="117" height="35" fill="#f7e8dc"/><text x="50" y="99" font-size="14" font-weight="600" fill="#211f1d">Save up to 17%</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="46" y="116" width="194" height="170" preserveAspectRatio="xMidYMid meet"/><text x="42" y="315" font-size="18" font-weight="800" fill="#211f1d">357 Super 7-Wood</text><text x="42" y="341" font-size="15" font-weight="600" fill="#211f1d">$249.00</text></g><g><rect x="281" y="62" width="238" height="298" fill="#fff" stroke="#ff3510" stroke-width="2"/><rect x="294" y="76" width="117" height="35" fill="#f7e8dc"/><text x="306" y="99" font-size="14" font-weight="600" fill="#211f1d">Save up to 15%</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/RS1_1a.jpg?v=1779127592" x="302" y="116" width="194" height="170" preserveAspectRatio="xMidYMid meet"/><text x="298" y="315" font-size="18" font-weight="800" fill="#211f1d">RS1 Putter</text><text x="298" y="341" font-size="15" font-weight="600" fill="#211f1d">From $399.00</text></g><g><rect x="537" y="62" width="238" height="298" fill="#fff" stroke="#c7c0b7"/><rect x="550" y="76" width="117" height="35" fill="#f7e8dc"/><text x="562" y="99" font-size="14" font-weight="600" fill="#211f1d">Save up to 25%</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/SF2_Image2.jpg?v=1775752390" x="558" y="116" width="194" height="170" preserveAspectRatio="xMidYMid meet"/><text x="554" y="315" font-size="18" font-weight="800" fill="#211f1d">SF2 Driver</text><text x="554" y="341" font-size="15" font-weight="600" fill="#211f1d">From $299.00</text></g>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 700" role="img" aria-label="Mobile collection cards with RS1 gaining a matching savings badge">
+            <rect width="360" height="700" fill="#fff"/><text x="105" y="34" font-size="27" font-weight="800" fill="#211f1d">GOLF CLUBS</text><rect x="22" y="58" width="316" height="286" fill="#fff" stroke="#c7c0b7"/><rect x="38" y="73" width="125" height="37" fill="#f7e8dc"/><text x="50" y="97" font-size="15" font-weight="600" fill="#211f1d">Save up to 17%</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/357-carousel-01.webp?v=1772127987" x="90" y="105" width="180" height="172" preserveAspectRatio="xMidYMid meet"/><text x="38" y="309" font-size="19" font-weight="800" fill="#211f1d">357 Super 7-Wood</text><text x="38" y="332" font-size="15" font-weight="600" fill="#211f1d">$249.00</text><text x="168" y="379" font-size="28" font-weight="700" fill="#211f1d">↓</text><rect x="22" y="405" width="316" height="268" fill="#fff" stroke="#ff3510" stroke-width="2"/><rect x="38" y="420" width="125" height="37" fill="#f7e8dc"/><text x="50" y="444" font-size="15" font-weight="600" fill="#211f1d">Save up to 15%</text><image href="https://cdn.shopify.com/s/files/1/0680/3020/2177/files/RS1_1a.jpg?v=1779127592" x="90" y="454" width="180" height="152" preserveAspectRatio="xMidYMid meet"/><text x="38" y="636" font-size="19" font-weight="800" fill="#211f1d">RS1 Putter</text><text x="38" y="659" font-size="15" font-weight="600" fill="#211f1d">From $399.00</text>
+          </svg>
+          <p class="cvrt-caption">* RS1 gains the same top-left savings treatment already used by adjacent club cards. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot-card">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type-badge">A/B Test</span></div>
+          <h3>Homepage Hero Offer Framing</h3>
+          <p class="cvrt-page-label">Page: <a href="https://shop.performancegolf.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-slot-description">The homepage hero leads with the RS1 technology story but shows no price, discount, or urgency, while every captured offer-focused landing page leads with those signals. Returning visitors can move from a direct-response offer to a colder homepage experience. The variation adds a concise sale line beneath the existing headline while preserving the putter image and “SEE HOW IT WORKS” action.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-desktop-svg" viewBox="0 0 800 365" role="img" aria-label="Homepage RS1 hero gains price and urgency line">
+            <rect width="800" height="365" fill="#41582d"/><image href="https://shop.performancegolf.com/cdn/shop/files/BP_1994.jpg?v=1772658412&amp;width=1200" x="0" y="0" width="800" height="365" preserveAspectRatio="xMidYMid slice" opacity=".52"/><rect x="30" y="24" width="84" height="42" fill="#fff"/><text x="49" y="54" font-size="26" font-weight="800" fill="#191817">PG</text><text x="42" y="126" font-size="38" font-weight="800" fill="#fff">YOUR STROKE ISN'T THE PROBLEM.</text><text x="42" y="168" font-size="38" font-weight="800" fill="#fff">YOUR PUTTER IS.</text><rect x="42" y="192" width="395" height="48" fill="#fff"/><text x="58" y="213" font-size="13" font-weight="700" fill="#ff3510">LIMITED-TIME RS1 OFFER</text><text x="58" y="231" font-size="15" font-weight="700" fill="#211f1d">FROM $399 · SALE ENDS SOON</text><rect x="42" y="264" width="191" height="52" fill="#ff3510"/><text x="66" y="296" font-size="15" font-weight="700" fill="#fff">SEE HOW IT WORKS →</text>
+          </svg>
+          <svg class="cvrt-mobile-svg" viewBox="0 0 360 590" role="img" aria-label="Mobile homepage RS1 hero with price and urgency line">
+            <rect width="360" height="590" fill="#41582d"/><image href="https://shop.performancegolf.com/cdn/shop/files/BP_1994.jpg?v=1772658412&amp;width=1200" x="0" y="0" width="360" height="590" preserveAspectRatio="xMidYMid slice" opacity=".5"/><rect x="18" y="18" width="78" height="38" fill="#fff"/><text x="35" y="45" font-size="24" font-weight="800" fill="#191817">PG</text><text x="20" y="126" font-size="31" font-weight="800" fill="#fff">YOUR STROKE ISN'T</text><text x="20" y="161" font-size="31" font-weight="800" fill="#fff">THE PROBLEM.</text><text x="20" y="194" font-size="23" font-weight="800" fill="#fff">YOUR PUTTER IS.</text><rect x="20" y="224" width="300" height="70" fill="#fff"/><text x="36" y="250" font-size="13" font-weight="700" fill="#ff3510">LIMITED-TIME RS1 OFFER</text><text x="36" y="278" font-size="16" font-weight="700" fill="#211f1d">FROM $399 · SALE ENDS SOON</text><rect x="20" y="320" width="215" height="54" fill="#ff3510"/><text x="47" y="353" font-size="16" font-weight="700" fill="#fff">SEE HOW IT WORKS →</text>
+          </svg>
+          <p class="cvrt-caption">* The existing RS1 hero gains a concise price and urgency line between the headline and CTA. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <div class="cvrt-insights-content">
+    <section class="cvrt-insights-section">
+      <div class="cvrt-killers">
+        <div class="cvrt-killers-wrap">
+          <p class="cvrt-eyebrow">Cross-source view</p>
+          <h2>Biggest killers of conversion rate</h2>
+          <ol class="cvrt-killer-list">
+            <li><span>01. Mobile instability</span>Homepage and PDP mobile scores sit near 20/100, with CLS more than six times Google’s good threshold and interaction delayed beyond 43 seconds.</li>
+            <li><span>02. Missing cross-sell</span>Only 6.0% of club orders contain more than one club, even though multi-club orders average $210.66 more and the cart recommendation area is empty.</li>
+            <li><span>03. Broken continuity</span>Paid promises disappear at key landing-page handoffs, while RS1 and SF2 lack the visible review proof shown on the 357 page.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="cvrt-insights-inner">
+        <div class="cvrt-insights-heading"><h2>Data sources used</h2></div>
+        <div class="cvrt-source-grid">
+          <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+          <div class="cvrt-source-chip">Google Ads</div>
+          <div class="cvrt-source-chip">Reviews and UGC</div>
+          <div class="cvrt-source-chip">PageSpeed Insights</div>
+          <div class="cvrt-source-chip">Site Screenshots</div>
+          <div class="cvrt-source-chip">Shopify Business Summary</div>
+        </div>
+        <div class="cvrt-insights-heading"><h2>What the data says</h2></div>
+        <div class="cvrt-source-findings">
+          <article class="cvrt-source-block"><h3>Meta Ads and Landing Pages</h3><ul class="cvrt-source-list"><li>Senior-focused creative promises a club for golfers over 55, but the captured 357 landing-page folds replace that framing with Tri-Fusion technology.</li><li>Offer-focused creative promises $100 off the SF2. The shared landing page shows $299 reduced from $399 but no explicit “$100 OFF” callout in the captured folds.</li><li>Paid landing pages use direct-response structures, bonus stacks, and guarantees that differ sharply from the organic homepage experience.</li></ul></article>
+          <article class="cvrt-source-block"><h3>Google Ads</h3><ul class="cvrt-source-list"><li>Search creative repeats senior distance, slice-fix, and no-swing-change angles across the club range.</li><li>Google also introduces putter and instructional angles that were not present in the paid-social sample.</li><li>One display treatment positions the fairway hybrid as replacing a 3, 5, and 7 wood.</li></ul></article>
+          <article class="cvrt-source-block"><h3>Reviews and UGC</h3><ul class="cvrt-source-list"><li>357 reviewers repeatedly praise bag simplification, easier contact, and forgiveness for seniors and higher handicappers.</li><li>Distance underperformance against the advertising promise is the most repeated complaint theme.</li><li>Shaft durability and shipping damage appear unprompted in the review sample.</li><li>No review data was collected for RS1 or SF2, despite the two products producing 70.0% of gross revenue.</li></ul></article>
+          <article class="cvrt-source-block"><h3>PageSpeed Insights</h3><ul class="cvrt-source-list"><li>The homepage scored 20/100 on mobile, with 5.6s LCP, 0.638 CLS, and 46.2s time to interactive.</li><li>The 357 PDP scored 21/100 on mobile, with 4.6s LCP, 0.637 CLS, and 43.4s time to interactive.</li><li>Total blocking time measured 1,100ms on the homepage and 1,780ms on the PDP.</li></ul></article>
+          <article class="cvrt-source-block"><h3>Site Screenshots</h3><ul class="cvrt-source-list"><li>The homepage delays its 4.8 rating, 1M+ subscribers, and 800K clubs sold proof until the third fold.</li><li>The cart drawer renders the “YOU MAY ALSO LIKE” heading with no products beneath it.</li><li>The RS1 collection card lacks the savings badge shown on the 357, SF2, and ONE.1 cards.</li><li>The 357 buy box includes visible rating proof, selectors, a full-width Add to Cart action, and a sticky purchase bar deeper on the page.</li></ul></article>
+          <article class="cvrt-source-block"><h3>Shopify Business Summary</h3><ul class="cvrt-source-list"><li>Orders rose 30% week over week while AOV fell from $282.09 to $196.60 and weekly revenue stayed between $555K and $637K.</li><li>RS1 produces 49.4% of gross revenue. RS1 and SF2 together produce 70.0%.</li><li>Only 6.0% of club orders contain more than one club. Those orders average $556.69 compared with $346.03 for single-club orders.</li><li>Checkouts from $300 to $500 represent 46.9% of abandonments but 28.2% of completed orders.</li></ul></article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="cvrt-footer">August 2026</footer>
+</div>
