@@ -85,6 +85,11 @@
 - User explicitly requested no tests on the collection page. Collection screenshots are reference context only for the audit.
 - No dev/project reserved slots were provided; recorded as 0.
 
+## Audit
+
+- eureka-pet-research-audit.md
+- roadmap-seed.md
+
 ## Next Step
 
-Run `/cro-audit` to generate the research audit.
+Run `/cro-research-roadmap` to generate the testing roadmap.

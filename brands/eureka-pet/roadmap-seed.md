@@ -1,59 +1,80 @@
 # Eureka Pet Roadmap Seed
 
 **Store:** https://eurekapet.co/
-**AOV:** Unknown (product range: $6 sample → $359 variety pack; estimated blended AOV $80–120 for non-sample orders)
-**Monthly sessions:** Unknown — not in collected data
-**Data sources:** Meta Ads visual summary + live LP fetch, Google Ads visual summary, Trustpilot reviews (2026-06-15, 50k char sample), Lighthouse mobile PageSpeed (2026-06-15), Site visual summary (homepage, collection, PDP, cart), Live site fetch, Competitor research (self-researched 2026-06-15)
-
----
+**AOV:** unknown; visible prices: Taste Tester $19.99, Starter Pack autoship $169.15, one-time $199.00.
+**Monthly sessions:** unknown
+**Data sources:** Manifest, Meta summaries, live PDP text, Google Ads, Trustpilot 2026-06-15, PageSpeed 2026-08-18, context, site summary, live homepage, competitor research 2026-08-18.
 
 ## Key Insights
 
-Price sensitivity is the primary conversion barrier and a recurring churn driver. Multiple Trustpilot reviews (1-3 star) cite price as the reason customers won't continue despite loving the product: "for a Rottweiler X Great Dane at $300+ for about 5kgs — TOTALLY unaffordable." A separate complaint reports perceived price-gouging when a $97 first order (which included a $30 welcome discount not labeled as one-time) renewed at $126. Large breed owners, multi-dog households, and pensioners are the most explicitly price-blocked segments — none have a dedicated on-site solution (large-breed bundle, topper pricing frame, per-day cost framing).
+Meta traffic intent is not fully continued. Ad 1 asks "What food do you use in your training?" but lands on a Starter Pack PDP with gallery, "Starter Pack - 3x 800g," 4.9/303 reviews, recipe selector, frequency selector, autoship panel, quantity controls, and black CTA. Reviews cite treat pouches, Kongs, scatter mats, toppers, rewards.
 
-The $6 sample funnel is the strongest acquisition path by evidence: the Taste Tester PDP has 335 Trustpilot reviews vs 75 on the Variety Pack, confirming where new customer volume concentrates. Yet the post-click infrastructure is thin. The Taste Tester PDP has no subscription widget despite a "Subscribe & Save 15%" announcement bar running at the top of the page. The cart following a $6 sample add has one static cross-sell ("Cluckin Good Chews $18.95"), no free-shipping bar (threshold $59, leaving $53 of untapped motivation), and no subscription upsell. The funnel driving the most new customers drops them at checkout with minimal LTV infrastructure.
+Taste Tester ads sell health improvement and symptom relief, but the fold mainly sells sampling. Ad 2 says 86% health improvement and "$19.99"; Ad 3 says "Say Bye to Gut, Itching, Joint Problems." The fold shows 4.9/3707 reviews, $19.99, seven 20g samples, free delivery, $20 credit, quantity controls, and black CTA. Reviews mention shinier coats, sleep, energy, weight, stomach trouble.
 
-Homepage prioritizes brand story over purchase intent. First three folds are origin story, mission ("starting from the seed of an idea on our family farm in Eureka, NSW"), and a "No fillers. No preservatives." manifesto block. The only above-fold CTA is "Discover More" — an outline (unfilled) button with no price, no product, and no social proof visible in the hero column. Google Ads sends intent-based traffic ("air dried dog food Australia") to this page. The why-air-dried landing page receiving Meta Ad 1 traffic runs a filled orange "Try a Sample - $6" CTA with star ratings in the same hero position — the homepage does not.
-
----
+Price and trust are the main objections. Reviews say "beyond my budget," "ridiculously expensive," and unaffordable for large dogs; positives cite no fillers, no crumbs, smaller feeds, flexible subscriptions, and dogs eating it. Frontier Pets frames cost at about $4.50/day for a 10kg dog; Eureka lacks daily/topper/no-waste economics near CTA. Negatives mention subscription concern, couriers, contact, login codes, small-dog gifts.
 
 ## Top Test Opportunities
 
-### 1. Homepage Hero — Primary CTA Swap
-**What's broken:** The homepage hero is a two-column layout. Left column: headline "All natural Aussie made air dried dog food," subtext "90% Aussie protein, 10% fruit, veg & seeds. No fillers, no preservatives, no nonsense!" followed by a single outline (unfilled/transparent) button labeled "Discover More" — no price, no product name, no star rating. Right column: lifestyle photo of a grey/white dog on a couch next to a yellow Eureka bag. Below the hero is a warm-amber brand story section — no product grid, no pricing, and no subscription offer appear until below fold 3. The why-air-dried page (Ad 1 landing page) runs a dual-CTA hero in the same layout: "Try a Sample - $6" (filled warm orange) + "Shop the Recipes" (outline), with a social proof bar (★★★★★ 4.8 | 6,000+ Happy Dogs) below the CTAs. The homepage has none of this.
-**Evidence:** Site visual summary (homepage fold 1), live site fetch, Google Ads (intent keywords landing on homepage), meta-ads-visual-summary (Ad 1 landing page has conversion-optimized hero).
-**Key data:** Homepage Lighthouse mobile score 46/100, TTI 35.7s. For visitors who do load the page, the only entry point is a low-weight outline button. Taste Tester PDP has 335 reviews — the $6 sample offer is the most-proven conversion entry point in the business.
-**Est. lift:** Unknown sessions × $80+ blended AOV — even a 10% improvement in homepage CTR to product would be material given paid traffic volume.
+### 1. Ad 3 Symptom-Match Taste Tester Hero
+**What's broken:** Taste Tester fold has gallery left and buy box right with title, 4.9/3707 reviews, "Sample" pill, seven-sample copy, free delivery, $20 credit, $19.99, quantity controls, and black CTA; it does not repeat gut, itching, or joint language.
+**Evidence:** Meta Ad 3, Taste Tester screenshots/live text, reviews.
+**Key data:** Ad says gut/itching/joint; reviews cite stomach, coat, energy, vitality, joints.
+**Est. lift:** 3-6% x unknown sessions/mo x unknown AOV = unknown.
 
-### 2. Cart — Free Shipping Bar + Subscription Upsell
-**What's broken:** The slide-out cart drawer shows: one line item (e.g., Taste Tester $6.00 with qty controls and delete icon), a large empty white space, then a single cross-sell product ("Cluckin Good Chews $18.95") under the label "I'm even better with" in a carousel — no explanation for why this product was recommended. Below that: a discount code field ("Got a discount code? Enter it here!"). Sticky checkout button at bottom: "Checkout • $6.00." There is no free-shipping progress bar. Free shipping unlocks at $59 (stated elsewhere on site) — a $6 sample order sits $53 below the threshold with no visual indicator. No subscription upsell, no bundle, no frequently-bought-together, no minimum order incentive.
-**Evidence:** Site visual summary (cart), live site fetch ($59 free shipping threshold), Trustpilot reviews (5+ reviewers explicitly praise subscription flexibility — validates subscribe-and-save appeal).
-**Key data:** $53 gap between sample price and free-shipping threshold. Cart has one cross-sell vs. zero subscription touchpoints.
-**Est. lift:** 10–20% AOV increase on cart orders (industry benchmark for free-shipping bar implementations on DTC Shopify stores).
+### 2. Ad 1 Training/Topper Starter Pack Hero
+**What's broken:** Starter Pack fold shows gallery, title, 4.9/303 reviews, recipe selector, frequency selector, autoship at $169.15, quantity controls, and black CTA, but no training/topper/treat-pouch use case.
+**Evidence:** Meta Ad 1, Starter Pack screenshots/live text, reviews.
+**Key data:** Ad is trainer-led; reviews cite treat pouch, rewards, Kongs, scatter mats, toppers.
+**Est. lift:** 3-5% x unknown sessions/mo x unknown AOV = unknown.
 
-### 3. Taste Tester PDP — Add Subscribe & Save Option
-**What's broken:** The Taste Tester PDP buy box shows: "Taste Tester" title, ★★★★★ 4.9 (335 reviews), short fussy-dog copy, price $6.00 (standalone, no compare-at), qty selector (−/+), and a black full-width "Add to cart" button. The "Subscribe & Save 15%" announcement bar runs persistently at the top of the page. There is no subscription widget in the buy box — no subscribe/one-time radio toggle, no frequency selector. By contrast, the Variety Pack PDP shows a subscribe/one-time toggle with subscription price ($305.15, "SAVE $53.85" badge) and frequency dropdown ("Every 2 Weeks") above the Add to Cart button. The tech is live on-site — it is simply not deployed on the primary sample PDP.
-**Evidence:** Site visual summary (PDP fold 1, layout notes), meta-ads-visual-summary (Ad 3 sends highest-volume sample traffic to this page), Variety Pack PDP confirms subscription widget is active.
-**Key data:** 335 Taste Tester reviews vs 75 Variety Pack reviews — sample funnel is primary acquisition. A $6 one-time buyer generates near-zero LTV without a subscription conversion path.
-**Est. lift:** 3–5% of sample buyers converting to subscription from this page represents outsized LTV improvement vs a one-time $6 transaction.
+### 3. Homepage Sample-First Path Above The Fold
+**What's broken:** Homepage hero shows sticky nav, promo bar, split image/text, "Real Food Real Easy," "One less thing to think about.", orange "Shop Now," Trustpilot "Excellent," and 76,000+ dogs, but not Taste Tester.
+**Evidence:** Homepage screenshots/live text, Meta Ads 2/3, Taste Tester, reviews.
+**Key data:** Taste Tester has 3707 reviews, seven 20g samples, free delivery, $20 credit.
+**Est. lift:** 2-4% x unknown sessions/mo x unknown AOV = unknown.
 
-### 4. Ad 2 — Savings Claim Alignment
-**What's broken:** Meta Ad 2 copy: "save $77 and give your best mate 3 x different Eureka Recipes — the ultimate high protein, wild caught feast." Variety Pack landing page shows "SAVE $53.85" badge (subscription $305.15 vs one-time $359.00). The ad also uses "limited time only" urgency language; the landing page has no scarcity or urgency signal. The $23 discrepancy between the ad's savings claim and the page's savings display is a trust gap at the point of highest transaction value in the funnel.
-**Evidence:** meta-ads-visual-summary (Ad 2, message match: partial), live fetch of variety-pack page (subscription $305.15 / regular $359.00 / $53.85 saving shown).
-**Key data:** $77 claimed vs $53.85 shown — $23 gap. Variety Pack is the highest-ticket product ($359 one-time). Only 75 reviews vs Taste Tester's 335, suggesting this funnel underperforms.
-**Est. lift:** 5–10% Variety Pack PDP conversion improvement by eliminating trust friction.
+### 4. Premium Value Cost-Framing Block Near PDP CTA
+**What's broken:** PDP purchase areas show prices, discounts, and perks, but not daily-cost, topper-cost, no-crumbs, no-waste, or partial-feed economics.
+**Evidence:** Reviews, Frontier competitor research, PDP screenshots.
+**Key data:** Reviews object to price; Frontier shows ~$4.50/day for a 10kg dog.
+**Est. lift:** 2-5% x unknown sessions/mo x unknown AOV = unknown.
 
-### 5. Taste Tester PDP — Trust Icons Above Buy Button
-**What's broken:** On the Taste Tester PDP, the buy box order is: product title → rating → copy → price ($6.00) → qty selector → "Add to cart" (black full-width button) → [trust icons below]. The four trust icons — 100% Australian Made & Owned / 100% Money Back Guarantee / 68°C gentle air drying / No Fillers or Additives — appear after the CTA, not between the price and the button. A visitor deciding whether to click sees the price and the CTA before seeing any reassurance signals. On the Ad 1 landing page (why-air-dried), trust icons appear as a horizontal row directly between the buy copy and the CTAs.
-**Evidence:** Site visual summary (PDP fold 1), meta-ads-visual-summary (Ad 1 LP positions trust icons above CTAs), Trustpilot reviews (Australian provenance and money-back guarantee cited as explicit purchase drivers by multiple reviewers).
-**Key data:** "100% money back guarantee" and "100% Australian owned" are recurring decision factors in reviews. Positioning these above the CTA places reassurance at the point of decision rather than after it.
-**Est. lift:** 3–8% PDP conversion improvement (per CRO placement benchmarks for trust icon positioning).
+### 5. Autoship Clarity And Consent Panel
+**What's broken:** Starter Pack frequency selector has Autoship & Save selected with perks and one-time below, but renewal, cancellation, consent, and control are under-explained.
+**Evidence:** Starter Pack screenshots/live text, reviews.
+**Key data:** One reviewer said they "never signed up for more"; positives praise delay, pause, and support.
+**Est. lift:** 2-4% x unknown sessions/mo x unknown AOV = unknown.
 
----
+### 6. Cart Drawer Risk-Reversal And Credit Reminder
+**What's broken:** Cart drawer shows "Cart - 1," sample notice, Taste Tester $19.99, quantity controls, discount field, checkout CTA, and cross-sell; it omits guarantee, free delivery, help, and $20 credit.
+**Evidence:** Cart screenshot, Taste Tester PDP text, reviews.
+**Key data:** Reviews cite delivery, contact, subscription anxiety; PDP promises free delivery and $20 credit.
+**Est. lift:** 1.5-3% checkout lift x unknown sessions/mo x unknown AOV = unknown.
+
+### 7. Health Proof Strip Above Taste Tester CTA
+**What's broken:** Taste Tester fold has rating, price, sample contents, and CTA, but not Ad 2's 86% health-improvement proof near the button.
+**Evidence:** Meta Ad 2, Taste Tester screenshots/live text, reviews.
+**Key data:** Ad says 86%; PDP shows 12,000+ buyers lower down and 4.9/3707 near title.
+**Est. lift:** 2-4% x unknown sessions/mo x unknown AOV = unknown.
+
+### 8. Homepage Hero Proof Upgrade
+**What's broken:** Homepage proof is Trustpilot "Excellent" and 76,000+ dogs; it omits fussy-dog acceptance, coat/energy/digestion outcomes, fillers, and subscription control.
+**Evidence:** Homepage screenshots/live testimonials, reviews, Google Ads.
+**Key data:** Testimonials cite topper use, ingredients, service, coat/vitality, and fussy-pup acceptance.
+**Est. lift:** 2-3.5% x unknown sessions/mo x unknown AOV = unknown.
+
+### 9. Small-Dog Gift Fit Reassurance
+**What's broken:** Autoship perks promote welcome pack and free treats for life, but do not reassure owners that gifts match dog size or chewing ability.
+**Evidence:** Reviews, Starter Pack screenshots/live text.
+**Key data:** Reviews call goat horn/croissant gifts unsuitable for small dogs.
+**Est. lift:** 1-2.5% subscription selection lift x unknown sessions/mo x unknown AOV = unknown.
+
+### 10. PDP Performance Stabilization Test
+**What's broken:** Homepage/PDP rely on rich visuals and sticky CTAs, but speed metrics show delayed engagement: homepage LCP 11.8s, CLS 0.641; Taste Tester LCP 4.6s, Speed Index 20.3s.
+**Evidence:** PageSpeed 2026-08-18, Lighthouse JSON, screenshots.
+**Key data:** Homepage performance 25/100; PDP 54/100; unused JS savings ~1,223 KiB+.
+**Est. lift:** 1-3% x unknown sessions/mo x unknown AOV = unknown.
 
 ## Unused Findings
 
-- "Smaller Poos, Better Guts" health-outcome language is used in Google Ads and is absent from every landing page — a proven-in-market headline not yet applied on-site.
-- petfoodreviews.com.au 9.5/10 rating is used in Google Ad copy but does not appear on the website or any Meta landing page.
-- Carbon-neutral claim (NOCO2 partnership, visible on live homepage) has not been tested in any ad creative — untested differentiator for eco-conscious segment.
-- Large breed pricing gap: multiple 1-3 star reviews explicitly cite structural unaffordability for large dogs — no large-breed bundle, per-day cost frame, or topper-use positioning exists on site.
+See audit.
