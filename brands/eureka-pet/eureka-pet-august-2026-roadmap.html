@@ -1,0 +1,454 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&amp;display=swap" rel="stylesheet">
+
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3, #cvrt-roadmap h4,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div, #cvrt-roadmap a,
+#cvrt-roadmap label, #cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li {
+  font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit;
+  margin: 0; padding: 0; text-decoration: none;
+}
+#cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+
+#cvrt-roadmap {
+  --cvrt-orange: #ffad49;
+  --cvrt-orange-deep: #e78a18;
+  --cvrt-cream: #fef9f3;
+  --cvrt-paper: #ffffff;
+  --cvrt-ink: #11110f;
+  --cvrt-charcoal: #3d3b35;
+  --cvrt-sand: #f3e7d6;
+  --cvrt-yellow: #ffb400;
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-cream);
+  color: var(--cvrt-ink);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+#cvrt-roadmap .cvrt-tab-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-panel { display: none; }
+#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-panel-insights { display: block; }
+#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-hero .cvrt-tab-tests,
+#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-hero .cvrt-tab-insights {
+  color: var(--cvrt-ink); background: var(--cvrt-cream);
+}
+#cvrt-roadmap .cvrt-hero { background: var(--cvrt-orange); color: var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-hero-grid { min-height: 530px; display: grid; grid-template-columns: minmax(0, 48%) minmax(0, 52%); }
+#cvrt-roadmap .cvrt-hero-copy {
+  padding: 58px 7vw 52px; display: flex; flex-direction: column; justify-content: center;
+  background: var(--cvrt-cream); position: relative;
+}
+#cvrt-roadmap .cvrt-wordmark { color: var(--cvrt-orange-deep); font: 800 39px/.9 "Fraunces", serif; margin-bottom: 52px; }
+#cvrt-roadmap .cvrt-wordmark small { display: block; color: var(--cvrt-charcoal); font: 700 9px/1 "DM Sans", sans-serif; letter-spacing: .24em; margin: 8px 0 0 64px; }
+#cvrt-roadmap .cvrt-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; margin-bottom: 13px; }
+#cvrt-roadmap .cvrt-hero-title { max-width: 610px; font: 800 clamp(52px, 6vw, 88px)/.93 "Fraunces", serif; letter-spacing: -.035em; }
+#cvrt-roadmap .cvrt-hero-title span { display: block; color: var(--cvrt-orange-deep); }
+#cvrt-roadmap .cvrt-hero-summary { max-width: 590px; margin-top: 24px; font-size: 17px; line-height: 1.62; }
+#cvrt-roadmap .cvrt-hero-photo { min-height: 530px; overflow: hidden; position: relative; background: var(--cvrt-charcoal); }
+#cvrt-roadmap .cvrt-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; }
+#cvrt-roadmap .cvrt-tab-nav { display: flex; gap: 8px; padding: 0 7vw; background: var(--cvrt-charcoal); }
+#cvrt-roadmap .cvrt-tab { cursor: pointer; padding: 17px 27px 16px; border-radius: 16px 16px 0 0; color: #fff; font-weight: 700; }
+#cvrt-roadmap .cvrt-tab:hover { background: #56534b; }
+#cvrt-roadmap .cvrt-panel { padding: 48px 6vw 64px; background: var(--cvrt-cream); }
+#cvrt-roadmap .cvrt-intro { width: min(860px, 100%); margin-left: auto; margin-right: auto; margin-bottom: 28px; }
+#cvrt-roadmap .cvrt-section-kicker { color: var(--cvrt-orange-deep); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+#cvrt-roadmap .cvrt-section-title { font: 800 clamp(38px, 5vw, 58px)/.98 "Fraunces", serif; letter-spacing: -.025em; }
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 24px;
+  overflow: hidden; border: 1px solid #d6c8b5; border-radius: 22px; background: var(--cvrt-paper);
+  box-shadow: 0 16px 38px rgba(61,59,53,.08); break-inside: avoid;
+}
+#cvrt-roadmap .cvrt-slot-copy { max-width: 640px; padding: 29px 31px 28px; }
+#cvrt-roadmap .cvrt-slot-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 13px; }
+#cvrt-roadmap .cvrt-slot-label { color: var(--cvrt-orange-deep); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-type { padding: 5px 9px; border-radius: 999px; background: var(--cvrt-sand); font-size: 11px; font-weight: 700; }
+#cvrt-roadmap .cvrt-slot-title { font: 750 32px/1.08 "Fraunces", serif; letter-spacing: -.018em; }
+#cvrt-roadmap .cvrt-page { margin-top: 10px; font-size: 13px; font-weight: 600; }
+#cvrt-roadmap .cvrt-page a { text-decoration: underline; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { margin-top: 14px; font-size: 15.5px; line-height: 1.64; }
+#cvrt-roadmap .cvrt-wire-wrap { background: #f8f1e8; padding: 22px 22px 16px; }
+#cvrt-roadmap .cvrt-wire { display: block; width: 100%; height: auto; }
+#cvrt-roadmap .cvrt-wire-mobile { display: none; width: 100%; min-width: 0; }
+#cvrt-roadmap .cvrt-wire text { font-family: "DM Sans", sans-serif; fill: #11110f; font-weight: 600; }
+#cvrt-roadmap .cvrt-wire .cvrt-svg-display { font-family: "Fraunces", serif; font-weight: 700; }
+#cvrt-roadmap .cvrt-wire .cvrt-svg-light { fill: #ffffff; }
+#cvrt-roadmap .cvrt-caption { margin-top: 10px; color: #11110f; font-size: 12px; font-style: italic; }
+#cvrt-roadmap .cvrt-killers {
+  width: min(860px, 100%); margin-left: auto; margin-right: auto; margin-bottom: 28px;
+  padding: 34px; border-radius: 22px; background: var(--cvrt-charcoal); color: #fff;
+  box-shadow: 0 18px 40px rgba(17,17,15,.16);
+}
+#cvrt-roadmap .cvrt-killers h2 { color: #fff; font: 750 42px/1 "Fraunces", serif; }
+#cvrt-roadmap .cvrt-killer-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 23px; }
+#cvrt-roadmap .cvrt-killer-list li { min-height: 142px; padding: 18px; border: 1px solid #817c70; border-radius: 16px; color: #fff; font-size: 14px; line-height: 1.5; }
+#cvrt-roadmap .cvrt-killer-list span { display: block; margin-bottom: 10px; color: var(--cvrt-orange); font-weight: 700; }
+#cvrt-roadmap .cvrt-sources { width: min(860px, 100%); margin-left: auto; margin-right: auto; margin-bottom: 28px; }
+#cvrt-roadmap .cvrt-sources h2, #cvrt-roadmap .cvrt-findings h2 { font: 750 32px/1.08 "Fraunces", serif; }
+#cvrt-roadmap .cvrt-source-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+#cvrt-roadmap .cvrt-source-chip { min-height: 78px; display: flex; align-items: center; padding: 15px; border: 1px solid #d6c8b5; border-radius: 15px; background: #fff; font-size: 13px; font-weight: 700; }
+#cvrt-roadmap .cvrt-findings { width: min(860px, 100%); margin-left: auto; margin-right: auto; }
+#cvrt-roadmap .cvrt-finding { margin-top: 15px; padding: 24px 26px; border: 1px solid #d6c8b5; border-radius: 18px; background: #fff; }
+#cvrt-roadmap .cvrt-finding h3 { font: 700 23px/1.1 "Fraunces", serif; }
+#cvrt-roadmap .cvrt-source-list { margin-top: 12px; display: grid; gap: 10px; }
+#cvrt-roadmap .cvrt-source-list li { padding: 13px 15px; border-radius: 11px; background: var(--cvrt-cream); color: #11110f; font-size: 14px; line-height: 1.52; }
+#cvrt-roadmap .cvrt-footer { padding: 21px 6vw; text-align: center; background: var(--cvrt-orange); color: var(--cvrt-ink); font-weight: 700; }
+
+@media (max-width: 760px) {
+  #cvrt-roadmap .cvrt-hero-grid { min-height: 0; grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-copy { padding: 40px 22px 34px; }
+  #cvrt-roadmap .cvrt-wordmark { margin-bottom: 34px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: clamp(46px, 15vw, 66px); }
+  #cvrt-roadmap .cvrt-hero-summary { font-size: 15px; }
+  #cvrt-roadmap .cvrt-hero-photo { min-height: 310px; }
+  #cvrt-roadmap .cvrt-hero-photo img { object-position: 50% 48%; }
+  #cvrt-roadmap .cvrt-tab-nav { padding: 0 14px; }
+  #cvrt-roadmap .cvrt-tab { flex: 1; text-align: center; padding: 15px 10px 14px; }
+  #cvrt-roadmap .cvrt-panel { padding: 36px 14px 48px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 24px 21px 23px; }
+  #cvrt-roadmap .cvrt-slot-title { font-size: 28px; }
+  #cvrt-roadmap .cvrt-wire-wrap { padding: 14px 12px 14px; }
+  #cvrt-roadmap .cvrt-wire-desktop { display: none; }
+  #cvrt-roadmap .cvrt-wire-mobile { display: block; }
+  #cvrt-roadmap .cvrt-killers { padding: 25px 20px; }
+  #cvrt-roadmap .cvrt-killers h2 { font-size: 34px; }
+  #cvrt-roadmap .cvrt-killer-list { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-killer-list li { min-height: 0; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+  #cvrt-roadmap .cvrt-source-chip { min-height: 68px; }
+  #cvrt-roadmap .cvrt-finding { padding: 21px 18px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot, #cvrt-roadmap .cvrt-killers { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-tab-nav { display: none; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input cvrt-tab-input-tests" type="radio" name="cvrt-tabs" id="cvrt-tests" checked>
+  <input class="cvrt-tab-input cvrt-tab-input-insights" type="radio" name="cvrt-tabs" id="cvrt-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <div class="cvrt-wordmark">eureka<small>PET CO</small></div>
+        <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+        <h1 class="cvrt-hero-title">August <span>2026</span></h1>
+        <p class="cvrt-hero-summary">Paid traffic arrives with clear training, health, and sampling intent, but the first purchase areas often lead with configuration instead. This roadmap carries those promises into the decision point, strengthens premium value, and makes trust easier to see.</p>
+      </div>
+      <div class="cvrt-hero-photo">
+        <img src="https://eurekapet.co/cdn/shop/files/Eureak3.png?v=1690243966" alt="A woman sharing a treat with her dog beside a bag of Eureka dog food">
+      </div>
+    </div>
+    <nav class="cvrt-tab-nav" aria-label="Roadmap sections">
+      <label class="cvrt-tab cvrt-tab-tests" for="cvrt-tests">Tests</label>
+      <label class="cvrt-tab cvrt-tab-insights" for="cvrt-insights">Data Insights</label>
+    </nav>
+  </section>
+
+  <section class="cvrt-panel cvrt-panel-tests">
+    <div class="cvrt-intro">
+      <p class="cvrt-section-kicker">Eight focused experiments</p>
+      <h2 class="cvrt-section-title">The testing roadmap</h2>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Taste Tester Symptom Match</h3>
+        <p class="cvrt-page">Page: <a href="https://eurekapet.co/products/natural-dog-food-sample" target="_blank" rel="noopener">Taste Tester PDP</a></p>
+        <p class="cvrt-description">Health-focused traffic arrives with a gut, itching, and joint promise, while the first purchase area leads with the sample mechanics. The reason for the click is separated from the buying decision. The variation adds a compact digestion, skin and coat, and joint-support block above the offer.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 430" role="img" aria-label="Current Taste Tester buy box compared with a symptom-matched variation">
+          <defs><clipPath id="cvrt-s1a"><rect x="24" y="45" width="365" height="350" rx="16"/></clipPath><clipPath id="cvrt-s1b"><rect x="427" y="45" width="365" height="350" rx="16"/></clipPath></defs>
+          <rect width="816" height="430" rx="18" fill="#f8f1e8"/>
+          <text x="24" y="27" font-size="15">CURRENT</text><text x="427" y="27" font-size="15">VARIATION</text>
+          <rect x="24" y="45" width="365" height="350" rx="16" fill="#fff" stroke="#cdbda8"/>
+          <image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="38" y="64" width="142" height="142" preserveAspectRatio="xMidYMid meet" clip-path="url(#cvrt-s1a)"/>
+          <text class="cvrt-svg-display" x="196" y="82" font-size="24">Taste Tester</text><text x="196" y="110" font-size="13">★★★★★ 4.9 (3707)</text>
+          <rect x="196" y="126" width="64" height="27" rx="13" fill="#f3e7d6"/><text x="215" y="144" font-size="12">Sample</text>
+          <text x="196" y="178" font-size="14">Seven 20g samples</text><text x="196" y="201" font-size="14">Free delivery + $20 credit</text><text x="196" y="235" font-size="16">Price: $19.99</text>
+          <rect x="52" y="302" width="74" height="48" rx="24" fill="#fff" stroke="#111"/><text x="76" y="332" font-size="16">− 1 +</text>
+          <rect x="138" y="302" width="223" height="48" rx="24" fill="#111"/><text class="cvrt-svg-light" x="211" y="332" font-size="15">Add to cart</text>
+          <rect x="427" y="45" width="365" height="350" rx="16" fill="#fff" stroke="#e78a18" stroke-width="2"/>
+          <image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="441" y="64" width="142" height="142" preserveAspectRatio="xMidYMid meet" clip-path="url(#cvrt-s1b)"/>
+          <text class="cvrt-svg-display" x="599" y="82" font-size="24">Taste Tester</text><text x="599" y="110" font-size="13">★★★★★ 4.9 (3707)</text>
+          <rect x="599" y="126" width="64" height="27" rx="13" fill="#f3e7d6"/><text x="618" y="144" font-size="12">Sample</text>
+          <rect x="599" y="163" width="169" height="88" rx="12" fill="#ffad49"/>
+          <text x="615" y="187" font-size="13">Find the right recipe for:</text><text x="615" y="211" font-size="13">Digestion  •  Skin &amp; coat</text><text x="615" y="234" font-size="13">Joint support</text>
+          <text x="455" y="274" font-size="14">Seven 20g samples • Free delivery</text><text x="455" y="296" font-size="14">$20 credit • Price: $19.99</text>
+          <rect x="455" y="318" width="74" height="48" rx="24" fill="#fff" stroke="#111"/><text x="479" y="348" font-size="16">− 1 +</text>
+          <rect x="541" y="318" width="223" height="48" rx="24" fill="#111"/><text class="cvrt-svg-light" x="614" y="348" font-size="15">Add to cart</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 750" role="img" aria-label="Mobile current and variation Taste Tester buy boxes stacked vertically">
+          <rect width="360" height="750" rx="16" fill="#f8f1e8"/><text x="16" y="27" font-size="15">CURRENT</text>
+          <rect x="16" y="43" width="328" height="280" rx="15" fill="#fff" stroke="#cdbda8"/><image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="28" y="58" width="105" height="105" preserveAspectRatio="xMidYMid meet"/>
+          <text class="cvrt-svg-display" x="145" y="77" font-size="22">Taste Tester</text><text x="145" y="103" font-size="13">★★★★★ 4.9 (3707)</text><text x="32" y="190" font-size="14">Seven 20g samples</text><text x="32" y="214" font-size="14">Free delivery + $20 credit • $19.99</text><rect x="32" y="246" width="296" height="48" rx="24" fill="#111"/><text class="cvrt-svg-light" x="131" y="276" font-size="15">Add to cart</text>
+          <text x="174" y="360" font-size="25">↓</text><text x="16" y="397" font-size="15">VARIATION</text>
+          <rect x="16" y="413" width="328" height="314" rx="15" fill="#fff" stroke="#e78a18" stroke-width="2"/><image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="28" y="428" width="105" height="105" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="145" y="447" font-size="22">Taste Tester</text><text x="145" y="473" font-size="13">★★★★★ 4.9 (3707)</text>
+          <rect x="32" y="550" width="296" height="82" rx="12" fill="#ffad49"/><text x="48" y="574" font-size="13">Find the right recipe for digestion,</text><text x="48" y="598" font-size="13">skin and coat, and joint support.</text><text x="48" y="619" font-size="12">Seven samples • Free delivery • $20 credit</text><rect x="32" y="653" width="296" height="48" rx="24" fill="#111"/><text class="cvrt-svg-light" x="131" y="683" font-size="15">Add to cart</text>
+        </svg>
+        <p class="cvrt-caption">The health promise moves into the first purchase area. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Starter Pack Use Cases</h3>
+        <p class="cvrt-page">Page: <a href="https://eurekapet.co/products/starter-pack?selling_plan=703440912668" target="_blank" rel="noopener">Starter Pack PDP</a></p>
+        <p class="cvrt-description">Trainer-led traffic reaches a buy box that asks shoppers to choose recipe and autoship before it explains the relevant use case. Reviews already describe Eureka as a treat, topper, and enrichment food. The variation adds those three uses directly under the review row.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 430" role="img" aria-label="Starter Pack buy box with a new training, topper, and enrichment strip">
+          <rect width="816" height="430" rx="18" fill="#f8f1e8"/><text x="26" y="29" font-size="15">VARIATION</text>
+          <rect x="26" y="46" width="764" height="355" rx="17" fill="#fff" stroke="#cdbda8"/>
+          <image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/TheStarterPacke90_1200px_00.webp?v=1784178177" x="48" y="72" width="320" height="280" preserveAspectRatio="xMidYMid meet"/>
+          <text class="cvrt-svg-display" x="404" y="84" font-size="28">Starter Pack - 3x 800g</text><text x="404" y="114" font-size="14">★★★★★ 4.9 (303)</text>
+          <rect x="404" y="137" width="358" height="74" rx="13" fill="#ffad49" stroke="#111"/>
+          <text x="424" y="162" font-size="13">TRAINING REWARDS</text><text x="424" y="187" font-size="13">TOPPERS</text><text x="600" y="162" font-size="13">ENRICHMENT</text><text x="600" y="187" font-size="12">Three easy ways to serve</text>
+          <text x="404" y="239" font-size="13">1. Select Your Recipe</text><rect x="404" y="252" width="173" height="52" rx="11" fill="#ffad49" stroke="#111"/><text x="458" y="276" font-size="13">Eureka 90</text><text x="463" y="294" font-size="12">3x 800g</text><rect x="589" y="252" width="173" height="52" rx="11" fill="#fff" stroke="#cdbda8"/><text x="643" y="283" font-size="13">Eureka 75</text>
+          <rect x="404" y="325" width="104" height="48" rx="24" fill="#fff" stroke="#111"/><text x="437" y="355" font-size="16">− 1 +</text><rect x="520" y="325" width="242" height="48" rx="24" fill="#111"/><text class="cvrt-svg-light" x="599" y="355" font-size="15">Add to cart</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 570" role="img" aria-label="Mobile Starter Pack buy box with use case strip">
+          <rect width="360" height="570" rx="16" fill="#f8f1e8"/><rect x="16" y="16" width="328" height="538" rx="15" fill="#fff" stroke="#e78a18"/>
+          <image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/TheStarterPacke90_1200px_00.webp?v=1784178177" x="45" y="30" width="270" height="200" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="32" y="256" font-size="23">Starter Pack - 3x 800g</text><text x="32" y="283" font-size="13">★★★★★ 4.9 (303)</text>
+          <rect x="32" y="304" width="296" height="90" rx="12" fill="#ffad49"/><text x="49" y="331" font-size="13">TRAINING REWARDS</text><text x="196" y="331" font-size="13">TOPPERS</text><text x="49" y="361" font-size="13">ENRICHMENT</text><text x="156" y="361" font-size="12">Three easy ways to serve</text>
+          <text x="32" y="426" font-size="13">1. Select Your Recipe</text><rect x="32" y="440" width="142" height="48" rx="10" fill="#ffad49" stroke="#111"/><text x="73" y="470" font-size="13">Eureka 90</text><rect x="186" y="440" width="142" height="48" rx="10" fill="#fff" stroke="#cdbda8"/><text x="227" y="470" font-size="13">Eureka 75</text><rect x="32" y="501" width="296" height="40" rx="20" fill="#111"/><text class="cvrt-svg-light" x="132" y="526" font-size="14">Add to cart</text>
+        </svg>
+        <p class="cvrt-caption">Training rewards, toppers, and enrichment become visible before product configuration. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Sample-First Homepage Hero</h3>
+        <p class="cvrt-page">Page: <a href="https://eurekapet.co/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">The homepage hero sends every visitor to a generic shop path, while the Taste Tester offers a smaller first step for fussy-dog shoppers. The variation keeps the split layout and dog imagery, but leads with the $19.99 Taste Tester and moves the general shop path to a text link.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 380" role="img" aria-label="Homepage hero changing from Shop Now to a Taste Tester offer">
+          <defs><clipPath id="cvrt-s3"><rect x="27" y="46" width="762" height="307" rx="17"/></clipPath></defs><rect width="816" height="380" rx="18" fill="#f8f1e8"/><text x="27" y="29" font-size="15">VARIATION</text>
+          <rect x="27" y="46" width="762" height="307" rx="17" fill="#fef9f3" stroke="#cdbda8"/><rect x="27" y="46" width="762" height="35" fill="#ffad49" clip-path="url(#cvrt-s3)"/><text x="330" y="69" font-size="12">Made in Australia</text>
+          <text x="53" y="108" font-size="13">Shop   Why air dried?   Reviews   Help Centre</text><text class="cvrt-svg-display" x="363" y="111" font-size="23" fill="#e78a18">eureka</text>
+          <rect x="420" y="126" width="369" height="227" fill="#3d3b35" clip-path="url(#cvrt-s3)"/><image href="https://eurekapet.co/cdn/shop/files/preview_images/0a446457a1854ae39244b94d424900ad.thumbnail.0000000000.jpg?v=1783666205" x="420" y="126" width="369" height="227" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s3)"/>
+          <text x="62" y="161" font-size="14">TASTE TESTER</text><text class="cvrt-svg-display" x="62" y="198" font-size="34">Real Food.</text><text class="cvrt-svg-display" x="62" y="232" font-size="34">Real Easy.</text><text x="62" y="258" font-size="13">Seven recipes. Free delivery.</text><text x="62" y="280" font-size="13">$20 credit toward your first subscription.</text><rect x="62" y="298" width="208" height="42" rx="21" fill="#ffad49" stroke="#111"/><text x="100" y="325" font-size="14">Try all seven for $19.99</text><text x="288" y="324" font-size="12" text-decoration="underline">Shop all food</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 610" role="img" aria-label="Mobile sample-first homepage hero">
+          <rect width="360" height="610" rx="16" fill="#f8f1e8"/><text x="16" y="27" font-size="15">VARIATION</text><rect x="16" y="43" width="328" height="548" rx="15" fill="#fef9f3" stroke="#e78a18"/><rect x="16" y="43" width="328" height="36" rx="15" fill="#ffad49"/><text x="126" y="67" font-size="12">Made in Australia</text><text class="cvrt-svg-display" x="136" y="112" font-size="25">eureka</text>
+          <image href="https://eurekapet.co/cdn/shop/files/preview_images/0a446457a1854ae39244b94d424900ad.thumbnail.0000000000.jpg?v=1783666205" x="32" y="132" width="296" height="210" preserveAspectRatio="xMidYMid slice"/>
+          <text x="32" y="374" font-size="13">TASTE TESTER</text><text class="cvrt-svg-display" x="32" y="410" font-size="32">Real Food. Real Easy.</text><text x="32" y="439" font-size="13">Seven recipes • Free delivery • $20 credit</text><rect x="32" y="462" width="296" height="49" rx="24" fill="#ffad49" stroke="#111"/><text x="83" y="492" font-size="14">Try all seven for $19.99</text><text x="138" y="544" font-size="13" text-decoration="underline">Shop all food</text><text x="58" y="574" font-size="12">Excellent ★ Trustpilot | Join 76,000+ happy dogs!</text>
+        </svg>
+        <p class="cvrt-caption">The Taste Tester becomes the primary homepage path, with the general shop link retained. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Premium Value Block</h3>
+        <p class="cvrt-page">Pages: Starter Pack and Taste Tester PDPs</p>
+        <p class="cvrt-description">Price is the clearest objection in reviews, even when customers still want the product as a treat or topper. Positive reviews justify the cost through no fillers, no crumbs, smaller feeds, and dogs eating it. The variation adds a compact value block for full meals, toppers, training, and enrichment near price.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 390" role="img" aria-label="Premium value options shown between PDP price and quantity controls">
+          <rect width="816" height="390" rx="18" fill="#f8f1e8"/><text x="26" y="29" font-size="15">VALUE BLOCK DETAIL</text><rect x="26" y="46" width="764" height="316" rx="17" fill="#fff" stroke="#cdbda8"/>
+          <image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/TheStarterPacke90_1200px_00.webp?v=1784178177" x="48" y="72" width="264" height="246" preserveAspectRatio="xMidYMid meet"/>
+          <text class="cvrt-svg-display" x="352" y="85" font-size="27">Starter Pack - 3x 800g</text><text x="352" y="115" font-size="14">★★★★★ 4.9 (303)</text><text x="352" y="148" font-size="17">Autoship &amp; Save  $169.15</text>
+          <rect x="352" y="168" width="410" height="104" rx="14" fill="#f3e7d6" stroke="#e78a18"/>
+          <text class="cvrt-svg-display" x="372" y="197" font-size="19">Make every bag work your way</text><text x="372" y="224" font-size="13">Full meal  •  Topper  •  Training reward</text><text x="372" y="248" font-size="13">Enrichment  •  No crumbs  •  No fillers</text>
+          <rect x="352" y="295" width="112" height="45" rx="22" fill="#fff" stroke="#111"/><text x="390" y="323" font-size="15">− 1 +</text><rect x="478" y="295" width="284" height="45" rx="22" fill="#111"/><text class="cvrt-svg-light" x="576" y="323" font-size="14">Add to cart</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 555" role="img" aria-label="Mobile PDP with premium value block">
+          <rect width="360" height="555" rx="16" fill="#f8f1e8"/><rect x="16" y="16" width="328" height="523" rx="15" fill="#fff" stroke="#e78a18"/><image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/TheStarterPacke90_1200px_00.webp?v=1784178177" x="52" y="30" width="256" height="205" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="32" y="266" font-size="23">Starter Pack - 3x 800g</text><text x="32" y="294" font-size="13">★★★★★ 4.9 (303)</text><text x="32" y="326" font-size="16">Autoship &amp; Save  $169.15</text>
+          <rect x="32" y="347" width="296" height="105" rx="13" fill="#f3e7d6"/><text class="cvrt-svg-display" x="48" y="376" font-size="18">Make every bag work your way</text><text x="48" y="405" font-size="13">Full meal • Topper • Training reward</text><text x="48" y="429" font-size="13">Enrichment • No crumbs • No fillers</text><rect x="32" y="472" width="296" height="47" rx="23" fill="#111"/><text class="cvrt-svg-light" x="132" y="501" font-size="14">Add to cart</text>
+        </svg>
+        <p class="cvrt-caption">The premium price is paired with concrete ways to use every bag. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Autoship Consent and Control</h3>
+        <p class="cvrt-page">Page: <a href="https://eurekapet.co/products/starter-pack?selling_plan=703440912668" target="_blank" rel="noopener">Starter Pack PDP</a></p>
+        <p class="cvrt-description">Autoship is selected with perks, but renewal, cancellation, and shopper control are under-explained at the decision point. A negative review says the shopper never signed up for more, while positive reviews praise pause and delay controls. The variation makes recurring delivery and account control explicit inside the selected panel.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 435" role="img" aria-label="Expanded Autoship and Save panel with clear recurring delivery and control terms">
+          <rect width="816" height="435" rx="18" fill="#f8f1e8"/><text x="26" y="29" font-size="15">SELECTED AUTOSHIP PANEL</text><text class="cvrt-svg-display" x="118" y="65" font-size="20">Starter Pack - 3x 800g</text><text x="527" y="65" font-size="12">★★★★★ 4.9 (303)</text><rect x="118" y="80" width="580" height="320" rx="18" fill="#fff" stroke="#111"/>
+          <rect x="144" y="101" width="44" height="25" rx="13" fill="#ffad49" stroke="#111"/><circle cx="176" cy="113.5" r="9" fill="#111"/><text class="cvrt-svg-display" x="205" y="121" font-size="24">Autoship &amp; Save</text><text x="590" y="120" font-size="18">$169.15</text><rect x="548" y="86" width="124" height="31" rx="15" fill="#ffad49"/><text x="570" y="106" font-size="13">Save $29.85</text>
+          <rect x="144" y="142" width="528" height="40" rx="20" fill="#ffad49" stroke="#111"/><text x="163" y="167" font-size="14">Every 4 Weeks</text><text x="645" y="167" font-size="16">⌄</text>
+          <rect x="144" y="198" width="528" height="91" rx="13" fill="#f3e7d6"/>
+          <text x="165" y="222" font-size="13">Recurring delivery every 4 weeks</text><text x="165" y="247" font-size="13">Delay or pause from your account</text><text x="165" y="272" font-size="13">Support can help you change or cancel</text>
+          <text x="165" y="317" font-size="13">Free Welcome Pack</text><text x="588" y="317" font-size="13">FREE</text><line x1="165" y1="330" x2="651" y2="330" stroke="#cdbda8"/>
+          <text x="165" y="357" font-size="13">Free Treats for Life</text><text x="588" y="357" font-size="13">FREE</text>
+          <rect x="144" y="365" width="528" height="25" rx="12" fill="#3d3b35"/><text class="cvrt-svg-light" x="291" y="382" font-size="11">Commitment free. Modify or cancel anytime.</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 515" role="img" aria-label="Mobile expanded Autoship and Save consent panel">
+          <rect width="360" height="515" rx="16" fill="#f8f1e8"/><text x="16" y="27" font-size="15">SELECTED AUTOSHIP PANEL</text><rect x="16" y="43" width="328" height="452" rx="15" fill="#fff" stroke="#111"/><rect x="32" y="64" width="42" height="24" rx="12" fill="#ffad49" stroke="#111"/><circle cx="63" cy="76" r="8" fill="#111"/><text class="cvrt-svg-display" x="88" y="84" font-size="21">Autoship &amp; Save</text><text x="249" y="114" font-size="16">$169.15</text><rect x="32" y="129" width="296" height="39" rx="19" fill="#ffad49" stroke="#111"/><text x="49" y="154" font-size="13">Every 4 Weeks</text>
+          <rect x="32" y="184" width="296" height="115" rx="12" fill="#f3e7d6"/><text x="48" y="211" font-size="13">Recurring delivery every 4 weeks</text><text x="48" y="240" font-size="13">Delay or pause from your account</text><text x="48" y="269" font-size="13">Support can help you change or cancel</text><text x="48" y="334" font-size="13">Free Welcome Pack</text><text x="272" y="334" font-size="13">FREE</text><line x1="48" y1="350" x2="312" y2="350" stroke="#cdbda8"/><text x="48" y="382" font-size="13">Free Treats for Life</text><text x="272" y="382" font-size="13">FREE</text><rect x="32" y="419" width="296" height="45" rx="22" fill="#111"/><text class="cvrt-svg-light" x="95" y="447" font-size="13">Commitment free. Cancel anytime.</text>
+        </svg>
+        <p class="cvrt-caption">Renewal and shopper controls become part of the selected autoship choice. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Taste Tester Health Proof</h3>
+        <p class="cvrt-page">Page: <a href="https://eurekapet.co/products/natural-dog-food-sample" target="_blank" rel="noopener">Taste Tester PDP</a></p>
+        <p class="cvrt-description">Offer-focused traffic carries an 86% health-improvement claim, but the first purchase area does not show that proof near the button. Shoppers see the sample offer without the strongest reason to believe behind it. The variation pairs the 86% claim with the 4.9 rating directly above Add to cart.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 385" role="img" aria-label="Taste Tester health proof strip placed above Add to cart">
+          <rect width="816" height="385" rx="18" fill="#f8f1e8"/><text x="26" y="29" font-size="15">BUY BOX PROOF SEQUENCE</text><rect x="26" y="47" width="764" height="310" rx="17" fill="#fff" stroke="#cdbda8"/>
+          <image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="50" y="69" width="258" height="242" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="350" y="83" font-size="28">Taste Tester</text><text x="350" y="114" font-size="14">★★★★★ 4.9 (3707)</text><text x="350" y="151" font-size="16">Price: $19.99</text><text x="350" y="181" font-size="13">Seven recipes • Free delivery • $20 credit</text>
+          <rect x="350" y="202" width="412" height="66" rx="13" fill="#ffad49"/><text class="cvrt-svg-display" x="370" y="232" font-size="20">86% say their dog's health improved</text><text x="370" y="254" font-size="12">Backed by 4.9 from 3,707 reviews</text>
+          <rect x="350" y="288" width="100" height="44" rx="22" fill="#fff" stroke="#111"/><text x="382" y="316" font-size="15">− 1 +</text><rect x="464" y="288" width="298" height="44" rx="22" fill="#111"/><text class="cvrt-svg-light" x="568" y="316" font-size="14">Add to cart</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 530" role="img" aria-label="Mobile Taste Tester health proof strip above Add to cart">
+          <rect width="360" height="530" rx="16" fill="#f8f1e8"/><rect x="16" y="16" width="328" height="498" rx="15" fill="#fff" stroke="#e78a18"/><image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="55" y="30" width="250" height="220" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="32" y="280" font-size="25">Taste Tester</text><text x="32" y="308" font-size="13">★★★★★ 4.9 (3707)</text><text x="32" y="338" font-size="15">$19.99 • Seven recipes • Free delivery</text><rect x="32" y="358" width="296" height="79" rx="12" fill="#ffad49"/><text class="cvrt-svg-display" x="49" y="388" font-size="19">86% say their dog's</text><text class="cvrt-svg-display" x="49" y="413" font-size="19">health improved</text><rect x="32" y="453" width="296" height="44" rx="22" fill="#111"/><text class="cvrt-svg-light" x="132" y="481" font-size="14">Add to cart</text>
+        </svg>
+        <p class="cvrt-caption">The health-improvement claim and review proof sit directly above the purchase button. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">Homepage Proof Upgrade</h3>
+        <p class="cvrt-page">Page: <a href="https://eurekapet.co/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">The hero proof shows Trustpilot and 76,000+ dogs, but omits the review themes that make Eureka distinctive. Reviews repeatedly mention fussy dogs eating it, shinier coats, reduced stomach trouble, no fillers, and flexible subscriptions. The variation adds a compact proof row beneath the existing trust line.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 370" role="img" aria-label="Homepage hero with an expanded proof row beneath the existing Trustpilot line">
+          <rect width="816" height="370" rx="18" fill="#f8f1e8"/><text x="26" y="29" font-size="15">PROOF ROW DETAIL</text><rect x="26" y="47" width="764" height="296" rx="17" fill="#fef9f3" stroke="#cdbda8"/>
+          <text class="cvrt-svg-display" x="59" y="103" font-size="37">Real Food</text><text class="cvrt-svg-display" x="59" y="143" font-size="37">Real Easy</text><text x="59" y="172" font-size="14">One less thing to think about.</text><rect x="59" y="194" width="217" height="45" rx="22" fill="#ffad49" stroke="#111"/><text x="132" y="222" font-size="14">Shop Now</text><text x="59" y="268" font-size="13">Excellent ★ Trustpilot | Join 76,000+ happy dogs!</text>
+          <rect x="352" y="75" width="397" height="220" rx="16" fill="#fff" stroke="#e78a18"/><text class="cvrt-svg-display" x="376" y="107" font-size="20">Why dogs and their people stay</text>
+          <rect x="376" y="127" width="161" height="58" rx="12" fill="#ffad49"/><text x="394" y="151" font-size="13">Fussy-dog</text><text x="394" y="172" font-size="13">acceptance</text><rect x="552" y="127" width="173" height="58" rx="12" fill="#f3e7d6"/><text x="570" y="151" font-size="13">Coat and digestion</text><text x="570" y="172" font-size="13">outcomes</text><rect x="376" y="199" width="161" height="58" rx="12" fill="#f3e7d6"/><text x="394" y="234" font-size="13">No fillers</text><rect x="552" y="199" width="173" height="58" rx="12" fill="#ffad49"/><text x="570" y="224" font-size="13">Flexible autoship</text><text x="570" y="245" font-size="13">controls</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 535" role="img" aria-label="Mobile homepage hero with review-backed proof row">
+          <rect width="360" height="535" rx="16" fill="#f8f1e8"/><rect x="16" y="16" width="328" height="503" rx="15" fill="#fef9f3" stroke="#e78a18"/><text class="cvrt-svg-display" x="32" y="72" font-size="34">Real Food</text><text class="cvrt-svg-display" x="32" y="110" font-size="34">Real Easy</text><text x="32" y="140" font-size="14">One less thing to think about.</text><rect x="32" y="161" width="296" height="47" rx="23" fill="#ffad49" stroke="#111"/><text x="145" y="190" font-size="14">Shop Now</text><text x="32" y="238" font-size="12">Excellent ★ Trustpilot | 76,000+ happy dogs</text>
+          <text class="cvrt-svg-display" x="32" y="279" font-size="20">Why dogs and their people stay</text><rect x="32" y="300" width="142" height="70" rx="12" fill="#ffad49"/><text x="48" y="328" font-size="13">Fussy-dog</text><text x="48" y="349" font-size="13">acceptance</text><rect x="186" y="300" width="142" height="70" rx="12" fill="#f3e7d6"/><text x="202" y="328" font-size="13">Coat and</text><text x="202" y="349" font-size="13">digestion</text><rect x="32" y="384" width="142" height="70" rx="12" fill="#f3e7d6"/><text x="48" y="426" font-size="13">No fillers</text><rect x="186" y="384" width="142" height="70" rx="12" fill="#ffad49"/><text x="202" y="412" font-size="13">Flexible</text><text x="202" y="433" font-size="13">autoship</text>
+        </svg>
+        <p class="cvrt-caption">Review-backed reasons to believe join the existing Trustpilot proof. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type">A/B Test</span></div>
+        <h3 class="cvrt-slot-title">First-Fold Performance</h3>
+        <p class="cvrt-page">Pages: Homepage and Taste Tester PDP</p>
+        <p class="cvrt-description">The homepage recorded 11.8s LCP and 0.641 CLS, while the Taste Tester recorded 20.3s Speed Index and 1,223 KiB of estimated unused JavaScript. Slow completion and layout movement can delay the content shoppers need first. The test keeps the visible experience intact while stabilizing first-fold media and prioritizing the hero, buy box, quantity controls, and CTA.</p>
+      </div>
+      <div class="cvrt-wire-wrap">
+        <svg class="cvrt-wire cvrt-wire-desktop" viewBox="0 0 816 395" role="img" aria-label="Stable first-fold loading sequence for the homepage and Taste Tester PDP">
+          <rect width="816" height="395" rx="18" fill="#f8f1e8"/><text x="26" y="29" font-size="15">FIRST-FOLD LOADING SEQUENCE</text>
+          <rect x="26" y="49" width="232" height="311" rx="16" fill="#fff" stroke="#cdbda8"/><text x="47" y="77" font-size="13">0.0s • FRAME RESERVED</text><rect x="47" y="96" width="190" height="30" rx="8" fill="#ffad49"/><image href="https://eurekapet.co/cdn/shop/files/preview_images/0a446457a1854ae39244b94d424900ad.thumbnail.0000000000.jpg?v=1783666205" x="47" y="143" width="86" height="85" preserveAspectRatio="xMidYMid slice"/><rect x="146" y="143" width="91" height="16" rx="7" fill="#3d3b35"/><rect x="146" y="171" width="73" height="11" rx="5" fill="#cdbda8"/><rect x="146" y="195" width="91" height="33" rx="16" fill="#111"/><text class="cvrt-svg-light" x="166" y="216" font-size="10">Add to cart</text><text x="47" y="272" font-size="12">The hero, media, and CTA keep</text><text x="47" y="292" font-size="12">their final dimensions.</text>
+          <text x="278" y="205" font-size="25">→</text><rect x="310" y="49" width="232" height="311" rx="16" fill="#fff" stroke="#e78a18"/><text x="331" y="77" font-size="13">FIRST CONTENT READY</text><image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="331" y="96" width="105" height="105" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="448" y="119" font-size="19">Taste Tester</text><text x="448" y="145" font-size="11">★★★★★ 4.9</text><text x="448" y="169" font-size="12">$19.99</text><rect x="331" y="220" width="190" height="39" rx="19" fill="#111"/><text class="cvrt-svg-light" x="393" y="245" font-size="12">Add to cart</text><text x="331" y="294" font-size="12">Only critical first-fold</text><text x="331" y="314" font-size="12">content loads first.</text>
+          <text x="562" y="205" font-size="25">→</text><rect x="594" y="49" width="196" height="311" rx="16" fill="#3d3b35"/><text class="cvrt-svg-light" x="615" y="77" font-size="13">VISIBLE DESIGN</text><text class="cvrt-svg-light cvrt-svg-display" x="615" y="124" font-size="24">Unchanged.</text><text class="cvrt-svg-light" x="615" y="158" font-size="12">Less shifting.</text><text class="cvrt-svg-light" x="615" y="183" font-size="12">Faster first interaction.</text><rect x="615" y="220" width="154" height="44" rx="22" fill="#ffad49"/><text x="654" y="248" font-size="12">Ready to shop</text>
+        </svg>
+        <svg class="cvrt-wire cvrt-wire-mobile" viewBox="0 0 360 730" role="img" aria-label="Mobile stable first-fold loading sequence">
+          <rect width="360" height="730" rx="16" fill="#f8f1e8"/><text x="16" y="27" font-size="15">FIRST-FOLD LOADING SEQUENCE</text><rect x="16" y="43" width="328" height="185" rx="15" fill="#fff" stroke="#cdbda8"/><text x="32" y="70" font-size="13">0.0s • FRAME RESERVED</text><image href="https://eurekapet.co/cdn/shop/files/preview_images/0a446457a1854ae39244b94d424900ad.thumbnail.0000000000.jpg?v=1783666205" x="32" y="88" width="92" height="92" preserveAspectRatio="xMidYMid slice"/><rect x="140" y="88" width="171" height="17" rx="7" fill="#3d3b35"/><rect x="140" y="119" width="125" height="11" rx="5" fill="#cdbda8"/><rect x="140" y="145" width="171" height="35" rx="17" fill="#111"/><text class="cvrt-svg-light" x="192" y="168" font-size="11">Add to cart</text><text x="174" y="262" font-size="25">↓</text>
+          <rect x="16" y="288" width="328" height="218" rx="15" fill="#fff" stroke="#e78a18"/><text x="32" y="316" font-size="13">FIRST CONTENT READY</text><image href="https://cdn.shopify.com/s/files/1/0768/0376/8604/files/Taste_Tester_04_copy.webp?v=1785283427" x="32" y="329" width="126" height="126" preserveAspectRatio="xMidYMid meet"/><text class="cvrt-svg-display" x="176" y="357" font-size="21">Taste Tester</text><text x="176" y="386" font-size="13">★★★★★ 4.9</text><text x="176" y="415" font-size="14">$19.99</text><rect x="176" y="435" width="145" height="40" rx="20" fill="#111"/><text class="cvrt-svg-light" x="216" y="460" font-size="12">Add to cart</text><text x="174" y="540" font-size="25">↓</text>
+          <rect x="16" y="566" width="328" height="145" rx="15" fill="#3d3b35"/><text class="cvrt-svg-light cvrt-svg-display" x="32" y="603" font-size="24">Visible design unchanged.</text><text class="cvrt-svg-light" x="32" y="634" font-size="13">Less shifting. Faster first interaction.</text><rect x="32" y="655" width="296" height="40" rx="20" fill="#ffad49"/><text x="128" y="680" font-size="13">Ready to shop</text>
+        </svg>
+        <p class="cvrt-caption">Critical first-fold elements load into reserved space without changing the visible design. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-panel cvrt-panel-insights">
+    <div class="cvrt-killers">
+      <p class="cvrt-section-kicker">Cross-source themes</p>
+      <h2>Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li><span>Message continuation</span>Training and health promises from paid traffic are not consistently repeated in the corresponding PDP first folds.</li>
+        <li><span>Premium-price anxiety</span>Reviews repeatedly call Eureka expensive, while positive reviews justify the cost through no waste, smaller feeds, and flexible use.</li>
+        <li><span>Trust at risk points</span>Strong ratings and Australian-made proof sit alongside concerns about subscription misunderstanding, delivery, support access, login, and gift fit.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-sources">
+      <p class="cvrt-section-kicker">Evidence base</p>
+      <h2>Data sources used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Live PDP Text</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Page Speed Insights</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Brand Context</div>
+        <div class="cvrt-source-chip">Competitor Research</div>
+      </div>
+    </div>
+
+    <div class="cvrt-findings">
+      <p class="cvrt-section-kicker">What the evidence says</p>
+      <h2>Source findings</h2>
+      <article class="cvrt-finding"><h3>Meta Ads and Landing Pages</h3><ul class="cvrt-source-list">
+        <li>Trainer-led traffic reaches the Starter Pack PDP, where recipe and subscription choices appear before training use cases.</li>
+        <li>The $19.99 sample offer matches the Taste Tester PDP, but the 86% health-improvement proof is not visible in the collected first three folds.</li>
+        <li>Gut, itching, and joint language appears in paid creative, while related benefit copy sits below the early purchase area.</li>
+      </ul></article>
+      <article class="cvrt-finding"><h3>Google Ads</h3><ul class="cvrt-source-list">
+        <li>Search messaging covers feeding calculators, Australian ownership, all-natural food, high-protein treats, air-dried food, and sample offers.</li>
+        <li>Offers include 17% off Starter Pack, 24% discount badges, Buy 4 Get 15% Off, and Try a sample today.</li>
+        <li>Search messaging emphasizes category, origin, and range, while paid-social messaging emphasizes health improvement, trial, and the $19.99 sample.</li>
+      </ul></article>
+      <article class="cvrt-finding"><h3>Reviews and UGC</h3><ul class="cvrt-source-list">
+        <li>Customers repeatedly mention fussy dogs eating Eureka and improvements in coat, digestion, energy, weight, and vitality.</li>
+        <li>Price is the clearest barrier. Review language includes “beyond my budget,” “still very expensive,” and “ridiculously expensive.”</li>
+        <li>Treat, topper, training, scatter-mat, Kong, and enrichment use gives budget-sensitive customers more ways to adopt the product.</li>
+        <li>Subscription flexibility earns praise, while one reviewer said they “never signed up for more.”</li>
+      </ul></article>
+      <article class="cvrt-finding"><h3>Page Speed Insights</h3><ul class="cvrt-source-list">
+        <li>Homepage performance scored 25/100, with 11.8s LCP, 0.641 CLS, 560ms TBT, and 1,229 KiB of estimated unused JavaScript.</li>
+        <li>Taste Tester performance scored 54/100, with 4.6s LCP, 20.3s Speed Index, 550ms TBT, and 1,223 KiB of estimated unused JavaScript.</li>
+        <li>Lighthouse linked homepage layout shift to main content, the hero bottom group, and media elements without explicit sizes.</li>
+      </ul></article>
+      <article class="cvrt-finding"><h3>Site Screenshots and Live Pages</h3><ul class="cvrt-source-list">
+        <li>The homepage hero uses “Real Food Real Easy,” an orange Shop Now CTA, Trustpilot proof, and 76,000+ happy dogs, but no Taste Tester path.</li>
+        <li>The Starter Pack buy box includes 4.9 from 303 reviews, recipe choice, autoship at $169.15, one-time purchase at $199.00, and a black Add to cart CTA.</li>
+        <li>The Taste Tester buy box includes 4.9 from 3,707 reviews, seven 20g samples, free delivery, $20 subscription credit, and a $19.99 CTA path.</li>
+      </ul></article>
+      <article class="cvrt-finding"><h3>Competitor Research</h3><ul class="cvrt-source-list">
+        <li>Frontier Pets shows daily-cost framing, including an approximate $4.50 per day example for a 10kg dog.</li>
+        <li>Lyka leads with personalized portions, clinical gut and stool proof, and a delivery subscription.</li>
+        <li>Eureka can distinguish itself through Australian sourcing, sample-first trial, shelf-stable convenience, and subscription perks.</li>
+      </ul></article>
+      <article class="cvrt-finding"><h3>Brand Context</h3><ul class="cvrt-source-list">
+        <li>The requested test scope stays on the homepage, Starter Pack landing page, and shared Taste Tester landing page.</li>
+        <li>Collection-page screenshots are reference context only and are excluded from this roadmap.</li>
+      </ul></article>
+    </div>
+  </section>
+
+  <footer class="cvrt-footer">August 2026</footer>
+</div>
