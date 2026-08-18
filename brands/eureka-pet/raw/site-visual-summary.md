@@ -1,43 +1,50 @@
 # Site Visual Summary
 
+## Audit Scope Note
+
+User explicitly requested no tests on the collection page. Collection screenshots are reference context only. Test focus should be Ad 1 landing page, Ad 2/3 landing page/PDP, and homepage.
+
 ## Homepage
 
-**Fold 1:** Announcement bar (top): "Feeding Guidelines | Buy 4 Get 15% Off Natural Treats → | Made in Australia." Nav: Shop (dropdown), Why air dried?, Reviews, Help center. Logo centered. Login / Search / Cart icons right. Hero: Left column — headline "All natural Aussie made air dried dog food" (large, bold). Subtext: "90% Aussie protein, 10% fruit, veg & seeds. No fillers, no preservatives, no nonsense!" Single CTA: "Discover More" (outline button, not filled). Right column: lifestyle photo of grey/white dog lying on couch next to yellow Eureka bag. No product imagery, no price, no subscription offer above the fold.
-
-**Fold 2:** Brand story section. Left: lifestyle photo of woman on farm holding Eureka product near a young lamb. Right: headline "A high protein, low carb ancestral diet." Body copy: "We are 100% Australian owned and operated, starting from the seed of an idea on our family farm in Eureka, NSW. Our lamb is grass-fed, our chicken is free-range, and we integrate ethically wild-caught game in every recipe. Supplemented by a purposeful blend of fruits, vegetables and seeds. All gently air-dried at 68 degrees to keep the nutrients in. Just what your dog need to thrive!" Partial CTA button visible at bottom.
-
-**Fold 3:** "About Us" button visible. Below: brand mission section with large warm-amber organic wave background. Header: "Our Mission." Large white display text begins: "No fillers. No preservatives. No [continues below fold]." Page is still on brand story — no product grid or shop entry visible at this scroll depth.
-
-**Layout notes:** Warm off-white/cream background throughout. Homepage is brand-story focused — no product grid, no pricing, no subscription CTA visible within first three folds. The only conversion entry point above the fold is "Discover More" (outline button, low visual weight). The announcement bar is the only place a deal (15% off natural treats) appears.
-
----
+**Fold 1:** Header has promo bar with "Feeding Calculator," "Autoship & Save on every order," and "Made in Australia." Main navigation includes Shop, Why air dried?, Reviews, Help Centre, centered Eureka logo, Login, search, and cart. Hero is split text/image: "Real Food Real Easy," subcopy "One less thing to think about.", orange "Shop Now" CTA, Trustpilot line, and a dog image on the right.
+**Fold 2:** Sticky header remains visible. Section shows image of a dog with a Eureka bag on the left and headline text about a high protein, low carb ancestral diet on the right. Copy says the brand is 100% Australian owned and operated and mentions grass-fed lamb, free-range chicken, fruits, vegetables, seeds, and air-drying at 68 degrees. CTA is "About Us."
+**Fold 3:** Top of a mission/slider section is visible with orange background and partial large text ending in "nonsense." Below, "Our Recipes" section appears with explanatory copy, "Discover Our Food" CTA, and partial product bag images.
+**CTA behavior:** Header remains sticky while scrolling. No homepage sticky CTA bar is visible in the collected desktop screenshots.
+**Trust signals:** Trustpilot "Excellent" and "Join 76,000+ happy dogs!" appear beneath the hero CTA. "Made in Australia" appears in the top promo bar. Other trust badges are not visible in the homepage folds.
+**Layout notes:** Homepage uses large two-column sections, orange brand color bands, product/dog lifestyle imagery, centered navigation, and a floating chat widget at bottom right.
 
 ## Collection Page
 
-**Fold 1:** Announcement bar: "Subscribe & Save 15% on every order →." Left sidebar: Protein Source filters (Beef, Chicken, Fish, Goat, Kangaroo, Lamb, Venison). Main content: breadcrumb "Home / All." Page description: "Explore the entire Eureka range! All Australian made whole food goodness with zero preservatives or nasties to help your best mate thrive." Count: 47 products. Sort by: Featured (default). First visible product cards: Taste Tester (SAMPLE badge, orange — yellow bags held by hands), Mighty Liver Munchies (pink bag, BUY 4 GET 15% OFF badge), Cognitive + Vitality Functional Treat (green bag, Sold Out overlay — no price showing).
+**Fold 1:** Screenshot named `pdp-f1.png` shows a collection page titled "All" with intro copy, "50 products," sort control set to Featured, and left sidebar filters for Protein Source and Health Benefits. Product grid shows three columns with cards for Taste Tester, Mighty Liver Munchies, Cognitive + Vitality Functional Treat, and more.
+**Fold 2:** Screenshot named `pdp-f2.png` continues the product grid with star ratings, review counts, price lines, and product badges such as "AUTOSHIP & SAVE" and "BUY 4, GET 15% OFF." Header remains sticky.
+**Fold 3:** Screenshot named `pdp-f3.png` continues the collection grid with cards for The Breath Freshener, Starter Pack - 3x 800g, Single Protein Chicken, Rockin Roo Tendon, The Everything Treat Pack - 10 pack Mix Protein, and Mini Roo Burgers.
+**Price display:** Prices include "$19.99," "$33.95," "$79.95" with a struck-through "$99.75," "$139.95" with a struck-through "$199.50," and "From" price formats. Sale/promo badges appear on cards, including "SAMPLE," "BUY 4, GET 15% OFF," "AUTOSHIP & SAVE," "BUNDLE & SAVE," "NEW - SAVE $19.80," "Deal," and "SAVE $44.64."
+**Layout notes:** Product cards use large product images on pale grey tiles, product titles, star rows, review counts in parentheses, price text, and a floating chat widget at bottom right. The collected files are named as PDP screenshots but visually show a collection page.
 
-**Fold 2:** Second filter group appears in sidebar: Health Benefits (Digestive Care, Joint Health, Low Fat, Single Protein, Skin Coat Health). Product cards with prices visible: Taste Tester ★★★★★ (335) $6.00 / Mighty Liver Munchies ★★★★★ (119) From $18.95 / Cognitive + Vitality ★★★★★ (2) $33.95 Sold Out / Wild Venison & Grass Fed Lamb (SUBSCRIBE & SAVE 15% badge) / Joint & Mobility Bone Broth / Wild Venison Chews.
+## PDP
 
-**Fold 3:** Product grid continues. Wild Venison & Grass Fed Lamb ★★★★★ (1236) From $74.37 / [additional product] ★★★★★ (31) $33.90 / [additional] ★★★★★ (165) From $18.95 / Wild Kangaroo & Grass Fed Lamb ★★★★★ (977) From $74.37 / Cluckin Good Jerky ★★★★★ (88) $18.95 / Calming + Restore Functional Treat ★★★★★ (32) $33.95.
-
-**Layout notes:** Three-column product grid. Review counts visible on all cards. Promotional badges used selectively (SAMPLE, SUBSCRIBE & SAVE 15%, BUY 4 GET 15% OFF). No quick-add to cart on cards — click-through required to add. Sold Out product visible in top row with no price displayed. Subscribe & Save announcement bar is persistent.
-
----
-
-## PDP (Taste Tester — primary)
-
-**Fold 1:** Announcement bar: "Subscribe & Save 15% on every order." Breadcrumb: Air Dried Food > Taste Tester. Left: main product image (hands holding three yellow Eureka sample bags), with thumbnail gallery of 4+ images below. Right: "Taste Tester" title. Rating: ★★★★★ 4.9 (335 reviews — linked, orange). Short copy: "Got a fussy dog? Or just want to confirm which flavour your dog loves the most? The Eureka Taste Tester includes 3 x 20g samples of all three air-dried dog food recipes, plus Australia wide shipping." Price: $6.00 (standalone, no compare-at or crossed-out price). Qty selector + "Add to cart" (black full-width button). Trust icon row below button: 100% Australian Made & Owned / 100% Money Back Guarantee / 68°C (gentle air drying) / NO Fillers or Additives. Product Details accordion (closed) beneath.
-
-**Fold 2:** Left: continues product image area. Right: Product Details expanded: full copy about the taste tester concept and $6 flat rate. Key Features listed: Type: Dry Dog Food (Air-Dried) / Size: 3 x 20g samples (1 of each recipe). Read More link visible. Feeding Guidelines accordion (closed). Shipping & Delivery accordion (closed). "See it in action!" heading — UGC lifestyle photo grid begins below.
-
-**Fold 3:** Left: additional product images (hands, packaging). Right: UGC photo grid (dogs eating from bowls, lifestyle shots). Below the gallery: "No fuss dog food. (Even fussy dogs agree.)" in large bold serif display text. Partial food type comparison visual (Eureka vs kibble vs raw) appears below. Persistent sticky bar at bottom: Taste Tester thumbnail + "Add To Cart - $6.00" black full-width button.
-
-**Layout notes:** No variant/size selector (single SKU). No subscription option on this PDP — unlike the Variety Pack page. Reviews link in nav highlighted orange. Review widget (★ Reviews tab) visible as persistent left-side element. No free shipping threshold indicator visible. Trust icons positioned below the buy button, not above.
-
----
+**Fold 1:** Ad 1 landing page shows a Starter Pack PDP with product image gallery, headline "Starter Pack - 3x 800g," 4.9 rating with 303 reviews, recipe selector, frequency selector, autoship panel, quantity selector, black "Add to cart" CTA, and trust badges. Ad 2/3 landing page shows a Taste Tester PDP with product image gallery, 4.9 rating with 3707 reviews, $19.99 price, quantity selector, black "Add to cart" CTA, and sample-focused trust badges.
+**Fold 2:** Starter Pack PDP shows trust badges, guarantee copy, product detail accordions, and UGC/video tiles. Taste Tester PDP shows media thumbnails, "See it in action!" tiles, "No fuss dog food." section, and comparison table.
+**Fold 3:** Starter Pack PDP shows comparison content, rating band, "Why Air-dried?" section, and sticky subscription CTA. Taste Tester PDP shows rating band, "Why Air-dried?" section, real ingredient/process icons, and sticky "Add To Cart - $19.99" CTA.
+**Buy box detail:** Starter Pack shows recipe options Eureka 90 and Eureka 75, with Eureka 90 selected. Frequency section shows Autoship & Save selected at $169.15 with "Save $29.85," free welcome pack, free treats for life, and Buy One Time shown below at $199.00. Taste Tester shows one sample option at $19.99 with no substitutions note.
+**Price display:** Starter Pack shows $169.15 autoship and $199.00 one-time, with struck-through prices for included free items and sticky bar showing $169.15 with $199.00 struck through. Taste Tester shows $19.99 in the buy box and sticky CTA.
+**CTA behavior:** PDPs show primary black add-to-cart buttons near the buy box. Sticky bottom CTA bars appear lower on page for both Starter Pack and Taste Tester.
+**Trust signals:** Starter Pack shows 4.9 (303), guarantee/shipping/Australian-owned badges, satisfaction guarantee text, and 12,000+ verified buyers band. Taste Tester shows 4.9 (3707), sample/free-shipping/Australian-owned badges, and 12,000+ verified buyers band.
+**Upsell mechanics:** Starter Pack autoship panel includes free welcome pack and free treats for life. Taste Tester copy mentions $20 credit toward first subscription order. No post-add upsell is visible in PDP screenshots.
+**Layout anomalies:** Files named `pdp-f1.png`, `pdp-f2.png`, and `pdp-f3.png` visually show a collection page rather than a PDP. No visible JS error or broken image appears in the screenshots reviewed.
 
 ## Cart
 
-**Layout:** Slide-out drawer. Header: "Cart • 1." Single line item: Taste Tester / Size: Sample / $6.00 with qty controls (−/+) and delete icon. Large empty white space below the item line. Then cross-sell section: "I'm even better with" — carousel format showing "Cluckin Good Chews $18.95" with "+ Quick Add" (black CTA). Discount code field: "Got a discount code? Enter it here!" with Apply button. Sticky checkout CTA at bottom: "Checkout • $6.00" (black full-width button).
+**Layout:** Cart is a drawer. It shows heading "Cart - 1," close icon, notice "Your Sample is On the Way!," item summary for Taste Tester size Sample at $19.99, quantity controls, remove icon, discount code field, and checkout CTA.
+**CTA:** Black "Checkout - $19.99" button is static at the bottom of the cart drawer in the screenshot.
+**AOV elements:** Cross-sell area appears with "I'm even better with" and a product carousel showing Fillet O Fish at $19.95 with a black "+ Quick Add" button and carousel arrows.
+**Trust signals:** The notice "Your Sample is On the Way!" appears near the top. Guarantee, returns copy, or trust badges are not visible in the cart drawer screenshot.
 
-**AOV elements:** One cross-sell product in a carousel ("I'm even better with"). No free shipping progress bar. No subscription upsell. No bundle mechanic. No "frequently bought together." No minimum order incentive visible. The cross-sell is a single product shown at $18.95 — no context for why it was recommended.
+## Landing Pages
+
+**Fold 1:** Ad 1 landing page is the Starter Pack PDP. Ad 2 and Ad 3 share the Taste Tester PDP. Both use a product-image-left and buy-box-right desktop layout with primary black add-to-cart CTAs.
+**Fold 2:** Starter Pack shows trust badges, guarantee copy, accordions, and UGC/video tiles. Taste Tester shows lower gallery, UGC/video tiles, and a comparison section.
+**Fold 3:** Starter Pack shows a rating band and "Why Air-dried?" content. Taste Tester shows a rating band, "Why Air-dried?" content, ingredient/process icons, and sticky CTA.
+**CTA behavior:** Both landing pages use black primary CTAs and sticky bottom CTAs lower on the page.
+**Trust signals:** Starter Pack includes 4.9/303 reviews, money-back guarantee, free shipping Australia wide, Australian-owned badge, and 12,000+ verified buyers band. Taste Tester includes 4.9/3707 reviews, free shipping on samples, sample-choice badge, Australian-owned badge, and 12,000+ verified buyers band.
+**Message match:** Ad 1 references training food use while the landing page is a Starter Pack PDP. Ad 2 references health improvement and $19.99 sampling while the landing page presents the $19.99 Taste Tester. Ad 3 references gut, itching, and joint problems while the collected landing page folds show broader Taste Tester sampling and air-dried/ingredient messaging.

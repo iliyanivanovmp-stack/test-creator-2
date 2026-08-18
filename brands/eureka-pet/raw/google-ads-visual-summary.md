@@ -1,23 +1,8 @@
 # Google Ads Visual Summary
 
-**Screenshots reviewed:** google-ads-1.png, google-ads-2.png, google-ads-3.png
-
-**Ads visible:** Mix of search text ads, Shopping product cards, Performance Max display ads, and sitelink extensions. Multiple ad formats running simultaneously.
-
-**Headline themes:**
-- Sample funnel: "Try A Sample Today - Eureka Pet Co" / "Taste Tester Sample"
-- Health outcomes: "All Natural, Nutrient Dense - Smaller Poos, Better Guts" / "Your dog's health transformation"
-- Recipe-specific: "Grass Fed Lamb & Kangaroo | Air-Dried Dog Food | Eureka Pet Co"
-- Educational: "Dog Food Calculator | Dog Feeding Guide Calculator - Eureka Pet Co" / "Ingredients to Avoid in Dog Food"
-- Brand claim: "Eureka Pet Co - Proudly Australian Owned"
-- Product line: "The Everything Free Pack" / "Premium Dog Food"
-
-**Offers and CTAs:**
-- $6 Taste Tester sample
-- 15% off subscription (announced via "Subscribe & Save 15%")
-- 17% off Starter Pack sitelink
-- "Shop Now" / "Try A Sample Today" as primary CTAs
-
-**Visual approach:** Shopping ads feature yellow branded packaging prominently. Display ads use lifestyle imagery — woman in yellow top matching brand palette, product close-ups. Review ratings and third-party source (petfoodreviews.com.au, 9.5/10) used in ad copy. Star ratings visible in shopping cards (4.9 ★).
-
-**Gaps vs. Meta:** Google ads run a wider range of messaging angles than Meta — educational content (feeding guide, ingredients to avoid), health outcome language (smaller poos, better guts), and recipe-specific keywords appear in Google only. Meta focuses tightly on three offers: education (why air-dried), variety pack deal, and $6 sample. No "limited time only" urgency visible in Google ads.
+**Screenshots reviewed:** google-ads-1.png, google-ads-2.png
+**Ads visible:** Multiple Google Ads Transparency tiles are visible, including search-style text ads, display/product image ads, shopping-style product cards, and video-style tiles.
+**Headline themes:** Visible headlines include dog food calculator/feeding guide, proudly Australian owned, all-natural dog food, high-quality/high-protein dog treats, raw without the thaw, Aussie owned/Aussie made dog treats, bully/chomper beef dog treats, and Eureka air-dried dog food.
+**Offers and CTAs:** Visible offers include 17% off Starter Pack, 24% discount badge on product tiles, Buy 4 Get 15% Off, "Try a sample today," and "Open" CTAs on some tiles.
+**Visual approach:** Product imagery uses bright packaged food bags/treat packs on light backgrounds, UGC-style video stills with dogs/people, and simple search ad cards with blue headline links and star ratings.
+**Gaps vs. Meta:** Meta ads emphasize health improvement after switching, try-risk-free sampling, $19.99 sample, and specific problem language in Ad 3. Google Ads screenshots show broader category, Australian-made, product, treat, feeding calculator, and all-natural messaging.

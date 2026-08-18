@@ -1,9 +1,11 @@
-# Meta Ads — Eureka Pet
+# Meta Ads
 
 ## Landing Page URLs
 
-- Ad 1: https://eurekapet.co/pages/why-air-dried
-- Ad 2: https://eurekapet.co/products/variety-pack?selling_plan=703440847132
-- Ad 3: https://eurekapet.co/products/natural-dog-food-sample?utm_source=fb&utm_medium=paid-social&utm_campaign=%7B%7Bcampaign.name%7D%7D&utm_content=%7B%7Bad.name%7D%7D
+- Ad 1: https://eurekapet.co/products/starter-pack?selling_plan=703440912668
+- Ad 2: https://eurekapet.co/products/natural-dog-food-sample
+- Ad 3: https://eurekapet.co/products/natural-dog-food-sample
 
-Note: Ad 3 landing page is the same as the primary PDP.
+## Notes
+
+- User-provided context: ad 2 and ad 3 have shared screenshots, so three screenshots in total, not six, because they land on the same landing page, which is also the PDP.

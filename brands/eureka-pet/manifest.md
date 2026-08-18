@@ -1,13 +1,12 @@
-# Eureka Pet CRO Collection Manifest
+# Eureka CRO Collection Manifest
 
 ## Brand Info
 
-- Store name: Eureka Pet
+- Store name: Eureka
 - Store URL: https://eurekapet.co/
-- Primary PDP: https://eurekapet.co/products/natural-dog-food-sample
-- Slots: 8 total, 0 dev/project slots
-- Variations per test: 1 variation vs. control (all A/B tests)
-- Areas of focus: None specified
+- Slots: 8 total, 0 dev/project slots provided
+- Variations per test: 1
+- Areas of focus: User-provided case-specific context: ad 2 and ad 3 have shared screenshots, so three screenshots in total, not six, because they land on the same landing page, which is also the PDP. Do not create any tests on the collection page. Test focus should be Ad 1 landing page, Ad 2/3 landing page/PDP, and homepage. The folder `ignore` must be completely ignored.
 
 ## Sources Selected
 
@@ -15,24 +14,41 @@
 - Google Ads Transparency
 - Reviews & UGC
 - PageSpeed / Core Web Vitals
-- Current Site Screenshots (homepage, collection, PDP, cart)
+- Non-Data Context
+- Current Site Screenshots
 
 ## Sources Collected
 
-- Meta Ads (URLs) → raw/meta-ads.md
-- Meta Ads (visual) → raw/meta-ads-visual-summary.md
-- Google Ads (visual) → raw/google-ads-visual-summary.md
-- Reviews & UGC → raw/reviews.md
-- PageSpeed / Core Web Vitals → raw/pagespeed.md (parsed from Lighthouse JSON)
-- Site Screenshots → raw/site-visual-summary.md
-- Screenshot aliases mapped:
-  - ad-creative-1.png / ad-creative-2.png / ad-creative-3.png used as meta-ad-N creative
-  - ad1-landing-f1/f2/f3.png, ad2-landing-f1/f2/f3.png, ad3-landing-f1/f2/f3.png used as meta-ad-N-lp-fM
-  - google-ads-1.png / google-ads-2.png / google-ads-3.png used as google-ads screenshots
-  - collections-f1/f2/f3.png used as collection-fM
-  - cart-drawer.png used as cart
+- PageSpeed / Core Web Vitals -> raw/pagespeed.md
+- PageSpeed / Core Web Vitals -> raw/eurekapet-pagespeed-homepage.json
+- PageSpeed / Core Web Vitals -> raw/pdp-pagespeed-eureka.json
+- Meta Ads and Landing Pages -> raw/meta-ads.md
+- Meta Ads and Landing Pages -> screenshots in folder
+- Reviews & UGC -> raw/reviews.md
+- Non-Data Context -> raw/context.md
+- Meta Ads -> raw/meta-ads-visual-summary.md
+- Google Ads -> screenshots in folder
+- Google Ads -> raw/google-ads-visual-summary.md
+- Site Screenshots -> screenshots in folder
+- Site Screenshots -> raw/site-visual-summary.md
+- Cart screenshot collected -> cart-drawer.png
+- Screenshot aliases mapped -> ad-creative-1.png used as meta-ad-1.png
+- Screenshot aliases mapped -> ad-creative-2.png used as meta-ad-2.png
+- Screenshot aliases mapped -> ad-creative-3.png used as meta-ad-3.png
+- Screenshot aliases mapped -> ad1-landing-f1.png used as meta-ad-1-lp-f1.png
+- Screenshot aliases mapped -> ad1-landing-f2.png used as meta-ad-1-lp-f2.png
+- Screenshot aliases mapped -> ad1-landing-f3.png used as meta-ad-1-lp-f3.png
+- Screenshot aliases mapped -> ad2,3- landing-f1.png used as meta-ad-2-lp-f1.png and meta-ad-3-lp-f1.png
+- Screenshot aliases mapped -> ad2,3- landing-f2.png used as meta-ad-2-lp-f2.png and meta-ad-3-lp-f2.png
+- Screenshot aliases mapped -> ad2,3- landing-f3.png used as meta-ad-2-lp-f3.png and meta-ad-3-lp-f3.png
+- Screenshot aliases mapped -> google-ads-1.png used as google-ads-1.png
+- Screenshot aliases mapped -> google-ads-2.png used as google-ads-2.png
+- Screenshot aliases mapped -> hompage-f1.png used as homepage-f1.png
+- Screenshot aliases mapped -> hompage-f2.png used as homepage-f2.png
+- Screenshot aliases mapped -> hompage-f3.png used as homepage-f3.png
+- Screenshot aliases mapped -> cart-drawer.png used as cart.png
 
-## Screenshots Present (in data-collection/screenshots/)
+## Screenshots Present
 
 - ad-creative-1.png
 - ad-creative-2.png
@@ -40,48 +56,35 @@
 - ad1-landing-f1.png
 - ad1-landing-f2.png
 - ad1-landing-f3.png
-- ad2-landing-f1.png
-- ad2-landing-f2.png
-- ad2-landing-f3.png
-- ad3-landing-f1.png
-- ad3-landing-f2.png
-- ad3-landing-f3.png
+- ad2,3- landing-f1.png
+- ad2,3- landing-f2.png
+- ad2,3- landing-f3.png
 - cart-drawer.png
-- collections-f1.png
-- collections-f2.png
-- collections-f3.png
 - google-ads-1.png
 - google-ads-2.png
-- google-ads-3.png
-- homepage-f1.png
-- homepage-f2.png
-- homepage-f3.png
+- hompage-f1.png
+- hompage-f2.png
+- hompage-f3.png
 - pdp-f1.png
 - pdp-f2.png
 - pdp-f3.png
 
 ## Sources Skipped
 
-- Competitor Insights (will research during audit)
+- Competitor Insights
 - Inspiration Sites
 - Email Campaigns
-- Non-Data Context
 
 ## Missing Data Warnings
 
-- None. All primary sources collected.
+- MISSING_DATA: collection_canonical_filenames - no files named collection-f1.png, collection-f2.png, or collection-f3.png were present. Files named pdp-f1.png, pdp-f2.png, and pdp-f3.png visually show collection-grid content.
 
 ## Open Questions
 
-- Review feed was truncated at 50,000 characters during collection — additional reviews may exist beyond what is saved.
-- Screenshots are stored in data-collection/screenshots/ (not raw/screenshots/) — audit should reference that path.
-- Ad 3 landing page is the same URL as the primary PDP (natural-dog-food-sample). Both the PDP screenshots (pdp-f1/f2/f3) and ad3-landing-f1/f2/f3 show the same page.
-
-## Audit
-
-- eureka-pet-research-audit.md
-- roadmap-seed.md
+- Files named pdp-f1.png, pdp-f2.png, and pdp-f3.png visually show a collection page rather than a PDP buy box; they were summarized as collection screenshots.
+- User explicitly requested no tests on the collection page. Collection screenshots are reference context only for the audit.
+- No dev/project reserved slots were provided; recorded as 0.
 
 ## Next Step
 
-Run `/cro-research-roadmap` to generate the testing roadmap.
+Run `/cro-audit` to generate the research audit.
