@@ -1,0 +1,474 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=Barlow:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3, #cvrt-roadmap h4,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div, #cvrt-roadmap a,
+#cvrt-roadmap label, #cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li {
+  font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit;
+  margin: 0; padding: 0; text-decoration: none;
+}
+#cvrt-roadmap ul, #cvrt-roadmap ol, #cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+
+#cvrt-roadmap {
+  --cvrt-green: #4caf43;
+  --cvrt-green-deep: #248a2b;
+  --cvrt-red: #c45443;
+  --cvrt-black: #101211;
+  --cvrt-ink: #171917;
+  --cvrt-snow: #f7f8f5;
+  --cvrt-mist: #edf1ed;
+  --cvrt-line: #cbd2cb;
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-snow);
+  color: var(--cvrt-ink);
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+#cvrt-roadmap .cvrt-tab-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-panel { display: none; }
+#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-panel-tests,
+#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-panel-insights { display: block; }
+#cvrt-roadmap .cvrt-tab-input-tests:checked ~ .cvrt-hero .cvrt-tab-tests,
+#cvrt-roadmap .cvrt-tab-input-insights:checked ~ .cvrt-hero .cvrt-tab-insights { background: var(--cvrt-green); color: #071007; }
+
+#cvrt-roadmap .cvrt-hero { background: var(--cvrt-black); color: #fff; }
+#cvrt-roadmap .cvrt-hero-grid { display: grid; grid-template-columns: minmax(420px, 45%) minmax(0, 55%); min-height: 570px; }
+#cvrt-roadmap .cvrt-hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 56px 6vw; background: var(--cvrt-black); }
+#cvrt-roadmap .cvrt-hero-copy::after { content: ""; position: absolute; top: 0; right: -44px; width: 90px; height: 100%; background: var(--cvrt-black); clip-path: polygon(0 0, 52% 0, 100% 100%, 48% 100%); }
+#cvrt-roadmap .cvrt-logo { width: 112px; height: auto; display: block; margin-bottom: 46px; }
+#cvrt-roadmap .cvrt-eyebrow { color: #b9f3b3; font-size: 12px; font-weight: 800; line-height: 1; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 13px; }
+#cvrt-roadmap .cvrt-hero-title { max-width: 540px; font: 800 clamp(66px, 7.4vw, 110px)/.79 "Barlow Condensed", sans-serif; letter-spacing: -.01em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-hero-title span { display: block; color: var(--cvrt-green); }
+#cvrt-roadmap .cvrt-hero-summary { max-width: 520px; margin-top: 28px; color: #fff; font-size: 17px; line-height: 1.58; }
+#cvrt-roadmap .cvrt-hero-photo { position: relative; min-height: 570px; overflow: hidden; background: #1a1c1a; }
+#cvrt-roadmap .cvrt-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 48%; display: block; }
+#cvrt-roadmap .cvrt-hero-photo::after { content: ""; position: absolute; inset: 0; box-shadow: inset 68px 0 90px rgba(0,0,0,.42); pointer-events: none; }
+#cvrt-roadmap .cvrt-tab-nav { display: flex; gap: 2px; padding: 0 6vw; background: #202320; }
+#cvrt-roadmap .cvrt-tab { min-width: 184px; padding: 17px 28px; cursor: pointer; color: #fff; background: #202320; font-size: 12px; font-weight: 800; line-height: 1; letter-spacing: .13em; text-transform: uppercase; text-align: center; }
+#cvrt-roadmap .cvrt-tab:hover { background: #303530; }
+
+#cvrt-roadmap .cvrt-panel { padding: 46px 6vw 58px; background: var(--cvrt-mist); }
+#cvrt-roadmap .cvrt-intro { width: min(860px, 100%); margin-left: auto; margin-right: auto; margin-bottom: 22px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+#cvrt-roadmap .cvrt-section-kicker { color: var(--cvrt-green-deep); font-size: 12px; font-weight: 800; line-height: 1; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 8px; }
+#cvrt-roadmap .cvrt-section-title { color: var(--cvrt-black); font: 800 clamp(44px, 5vw, 66px)/.88 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-section-note { max-width: 300px; color: var(--cvrt-black); font-size: 13px; line-height: 1.45; }
+#cvrt-roadmap .cvrt-slot { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 22px; overflow: hidden; border: 1px solid var(--cvrt-line); border-radius: 12px; background: #fff; box-shadow: 0 10px 28px rgba(16,18,17,.06); }
+#cvrt-roadmap .cvrt-slot-copy { max-width: 680px; padding: 30px 34px 28px; }
+#cvrt-roadmap .cvrt-slot-topline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+#cvrt-roadmap .cvrt-slot-label { color: var(--cvrt-green-deep); font-size: 12px; font-weight: 800; line-height: 1; letter-spacing: .14em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-type { padding: 6px 9px; border-radius: 5px; background: var(--cvrt-black); color: #fff; font-size: 11px; font-weight: 700; line-height: 1; letter-spacing: .08em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-slot h3 { color: var(--cvrt-black); font: 800 clamp(34px, 4vw, 48px)/.92 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-page { margin-top: 10px; color: var(--cvrt-black); font-size: 12px; font-weight: 700; line-height: 1.35; letter-spacing: .08em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-page a { color: var(--cvrt-green-deep); text-decoration: underline; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { margin-top: 15px; color: var(--cvrt-black); font-size: 16px; line-height: 1.62; }
+#cvrt-roadmap .cvrt-visual { padding: 22px; background: #f6f8f5; border-top: 1px solid var(--cvrt-line); }
+#cvrt-roadmap .cvrt-svg-desktop, #cvrt-roadmap .cvrt-svg-mobile { width: 100%; height: auto; display: block; }
+#cvrt-roadmap .cvrt-svg-mobile { display: none; min-width: 0; }
+#cvrt-roadmap .cvrt-caption { margin-top: 13px; color: var(--cvrt-black); font-size: 13px; font-style: italic; line-height: 1.45; }
+
+#cvrt-roadmap .cvrt-killers { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 26px; padding: 36px; border-radius: 12px; background: var(--cvrt-black); color: #fff; }
+#cvrt-roadmap .cvrt-killers h2 { color: #fff; font: 800 clamp(42px, 5vw, 62px)/.9 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-killer-list { margin-top: 22px; display: grid; gap: 14px; }
+#cvrt-roadmap .cvrt-killer-list li { padding: 15px 17px; border: 1px solid #5f685f; border-radius: 8px; color: #fff; font-size: 15px; line-height: 1.5; }
+#cvrt-roadmap .cvrt-insight-block { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 22px; padding: 30px 34px; border: 1px solid var(--cvrt-line); border-radius: 12px; background: #fff; }
+#cvrt-roadmap .cvrt-insight-block h3 { color: var(--cvrt-black); font: 800 35px/.95 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-source-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+#cvrt-roadmap .cvrt-source-chip { min-height: 62px; display: flex; align-items: center; padding: 13px 15px; border: 1px solid var(--cvrt-line); border-radius: 8px; background: var(--cvrt-snow); color: var(--cvrt-black); font-size: 13px; font-weight: 700; line-height: 1.25; }
+#cvrt-roadmap .cvrt-source-list { margin-top: 18px; display: grid; gap: 12px; }
+#cvrt-roadmap .cvrt-source-list li { padding: 13px 15px; border: 1px solid var(--cvrt-line); border-radius: 8px; color: var(--cvrt-black); font-size: 15px; line-height: 1.52; }
+#cvrt-roadmap .cvrt-footer { padding: 22px 6vw; background: var(--cvrt-black); color: #fff; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  #cvrt-roadmap { font-size: 15px; }
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-copy { min-height: 430px; padding: 38px 24px 34px; }
+  #cvrt-roadmap .cvrt-hero-copy::after { display: none; }
+  #cvrt-roadmap .cvrt-logo { width: 92px; margin-bottom: 32px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: 67px; }
+  #cvrt-roadmap .cvrt-hero-summary { margin-top: 22px; font-size: 15px; }
+  #cvrt-roadmap .cvrt-hero-photo { min-height: 330px; }
+  #cvrt-roadmap .cvrt-hero-photo img { object-position: 49% 43%; }
+  #cvrt-roadmap .cvrt-hero-photo::after { box-shadow: inset 0 45px 65px rgba(0,0,0,.24); }
+  #cvrt-roadmap .cvrt-tab-nav { padding: 0; }
+  #cvrt-roadmap .cvrt-tab { flex: 1; min-width: 0; padding: 16px 8px; }
+  #cvrt-roadmap .cvrt-panel { padding: 32px 14px 42px; }
+  #cvrt-roadmap .cvrt-intro { display: block; margin-bottom: 18px; }
+  #cvrt-roadmap .cvrt-section-note { margin-top: 10px; max-width: none; }
+  #cvrt-roadmap .cvrt-slot { border-radius: 9px; margin-bottom: 16px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 25px 20px 23px; }
+  #cvrt-roadmap .cvrt-slot h3 { font-size: 37px; }
+  #cvrt-roadmap .cvrt-description { font-size: 15px; }
+  #cvrt-roadmap .cvrt-visual { padding: 12px; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: none; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: block; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-killers, #cvrt-roadmap .cvrt-insight-block { border-radius: 9px; padding: 25px 20px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr 1fr; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-tab-nav { display: none; }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input cvrt-tab-input-tests" type="radio" name="cvrt-evo-tab" id="cvrt-evo-tests" checked>
+  <input class="cvrt-tab-input cvrt-tab-input-insights" type="radio" name="cvrt-evo-tab" id="cvrt-evo-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://www.evo.com/cdn/shop/files/logo_desktop.svg?v=1752521391&amp;width=112" alt="evo">
+        <p class="cvrt-eyebrow">Conversion testing roadmap</p>
+        <h1 class="cvrt-hero-title">evo <span>August 2026</span></h1>
+        <p class="cvrt-hero-summary">The storefront has strong policy terms and clear product merchandising, but severe load delays stop shoppers before those strengths can work. This roadmap starts with speed, then brings trust, proof, and clearer purchase guidance into the moments closest to action.</p>
+      </div>
+      <div class="cvrt-hero-photo">
+        <img src="https://www.evo.com/cdn/shop/files/this-is-evo.jpg?v=1758812086&amp;width=1000" alt="Mountain bikers at sunset">
+      </div>
+    </div>
+    <nav class="cvrt-tab-nav" aria-label="Roadmap sections">
+      <label class="cvrt-tab cvrt-tab-tests" for="cvrt-evo-tests">Tests</label>
+      <label class="cvrt-tab cvrt-tab-insights" for="cvrt-evo-insights">Data Insights</label>
+    </nav>
+  </section>
+
+  <section class="cvrt-panel cvrt-panel-tests">
+    <div class="cvrt-intro">
+      <div><p class="cvrt-section-kicker">Testing sequence</p><h2 class="cvrt-section-title">Where we start</h2></div>
+      <p class="cvrt-section-note">Eight focused changes across speed, PDP confidence, cart reassurance, paid creative, and the homepage.</p>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">Immediate Fix</span></div>
+        <h3>Homepage and PDP Load Time</h3>
+        <p class="cvrt-page">Pages: Homepage and product detail pages</p>
+        <p class="cvrt-description">The homepage and tested PDP remain non-interactive for 45.5 and 49.8 seconds in the collected Lighthouse reports. That delay blocks every offer and purchase control on these templates. The proposed experience loads the core product surface first and becomes responsive within the good interaction range.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 430" role="img" aria-label="Current slow loading product page compared with a responsive proposed state">
+          <rect width="816" height="430" rx="12" fill="#e8ede8"/>
+          <text x="28" y="38" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#171917">CURRENT</text>
+          <text x="436" y="38" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">PROPOSED EXPERIENCE</text>
+          <g transform="translate(28 58)">
+            <rect width="352" height="318" rx="9" fill="#fff" stroke="#aeb7ae"/>
+            <rect width="352" height="35" rx="9" fill="#101211"/><circle cx="19" cy="17" r="5" fill="#4caf43"/><rect x="35" y="10" width="130" height="14" rx="7" fill="#fff"/>
+            <rect x="18" y="58" width="158" height="155" rx="7" fill="#eef1ee"/>
+            <rect x="194" y="60" width="112" height="13" rx="6" fill="#171917"/><rect x="194" y="83" width="86" height="9" rx="4" fill="#c45443"/>
+            <rect x="194" y="111" width="140" height="13" rx="6" fill="#d9ded9"/><rect x="194" y="136" width="140" height="13" rx="6" fill="#d9ded9"/>
+            <rect x="194" y="170" width="140" height="40" rx="20" fill="#b8beb8"/>
+            <rect x="18" y="235" width="316" height="58" rx="7" fill="#f1f3f1"/>
+            <circle cx="97" cy="136" r="38" fill="none" stroke="#4caf43" stroke-width="8" stroke-dasharray="82 170"/>
+            <text x="74" y="143" font-family="Barlow Condensed, sans-serif" font-size="28" font-weight="800" fill="#171917">49.8s</text>
+            <text x="74" y="166" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">INTERACTIVE</text>
+          </g>
+          <path d="M393 217h28" stroke="#171917" stroke-width="3"/><path d="M414 208l9 9-9 9" fill="none" stroke="#171917" stroke-width="3"/>
+          <g transform="translate(436 58)">
+            <rect width="352" height="318" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/>
+            <rect width="352" height="35" rx="9" fill="#101211"/><circle cx="19" cy="17" r="5" fill="#4caf43"/><rect x="35" y="10" width="130" height="14" rx="7" fill="#fff"/>
+            <image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="18" y="50" width="158" height="175" preserveAspectRatio="xMidYMid meet"/>
+            <text x="194" y="66" font-family="Barlow Condensed, sans-serif" font-size="19" font-weight="800" fill="#171917">NANO PUFF HOODIE</text>
+            <text x="194" y="92" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#c45443">$201.99</text>
+            <text x="194" y="120" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#248a2b">★★★★★ Read 59 Reviews</text>
+            <rect x="194" y="143" width="140" height="40" rx="20" fill="#101211"/><text x="230" y="168" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text>
+            <rect x="18" y="240" width="316" height="53" rx="7" fill="#e6f5e4"/>
+            <text x="34" y="263" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">CORE CONTENT FIRST</text>
+            <text x="34" y="283" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Responsive within the good interaction range</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 690" role="img" aria-label="Current slow loading state above a responsive proposed state">
+          <rect width="340" height="690" rx="10" fill="#e8ede8"/><text x="18" y="32" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#171917">CURRENT</text>
+          <g transform="translate(18 48)"><rect width="304" height="250" rx="8" fill="#fff" stroke="#aeb7ae"/><rect width="304" height="30" rx="8" fill="#101211"/><rect x="15" y="52" width="126" height="145" rx="6" fill="#eef1ee"/><circle cx="78" cy="124" r="35" fill="none" stroke="#4caf43" stroke-width="8" stroke-dasharray="82 170"/><text x="56" y="131" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="800" fill="#171917">49.8s</text><rect x="159" y="58" width="126" height="14" rx="7" fill="#171917"/><rect x="159" y="88" width="126" height="40" rx="20" fill="#b8beb8"/><text x="159" y="160" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">PAGE IS VISIBLE</text><text x="159" y="180" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#c45443">NOT INTERACTIVE</text></g>
+          <text x="166" y="337" text-anchor="middle" font-family="Barlow, sans-serif" font-size="28" font-weight="800" fill="#171917">↓</text><text x="18" y="375" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">PROPOSED EXPERIENCE</text>
+          <g transform="translate(18 392)"><rect width="304" height="264" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><rect width="304" height="30" rx="8" fill="#101211"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="14" y="44" width="122" height="145" preserveAspectRatio="xMidYMid meet"/><text x="153" y="60" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="800" fill="#171917">NANO PUFF HOODIE</text><text x="153" y="86" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#c45443">$201.99</text><text x="153" y="112" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#248a2b">★★★★★ 59 Reviews</text><rect x="153" y="132" width="132" height="40" rx="20" fill="#101211"/><text x="185" y="157" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text><rect x="14" y="205" width="271" height="40" rx="6" fill="#e6f5e4"/><text x="29" y="230" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">CORE PRODUCT SURFACE LOADS FIRST</text></g>
+        </svg>
+        <p class="cvrt-caption">* Core product content and controls become usable before nonessential page elements. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Cart Drawer Trust Signals</h3>
+        <p class="cvrt-page">Page: Cart drawer</p>
+        <p class="cvrt-description">The cart drawer keeps the product, scarcity note, recommendations, promo code, and checkout button, but drops the shipping, returns, and price-guarantee terms shown on the PDP. Those answers disappear when the shopper is closest to checkout. The variation restores all three policies in one compact reassurance panel above the promo code.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 470" role="img" aria-label="Current cart drawer compared with cart drawer containing trust signals">
+          <rect width="816" height="470" rx="12" fill="#e8ede8"/>
+          <text x="42" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#171917">CURRENT</text><text x="448" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">VARIATION</text>
+          <g transform="translate(42 52)"><rect width="326" height="382" rx="9" fill="#fff" stroke="#b9c1b9"/><text x="18" y="30" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="800" fill="#171917">CART (1)</text><text x="292" y="30" font-family="Barlow, sans-serif" font-size="22" font-weight="500" fill="#171917">×</text>
+            <rect x="18" y="50" width="72" height="82" rx="7" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="23" y="54" width="62" height="74" preserveAspectRatio="xMidYMid meet"/>
+            <text x="103" y="67" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Patagonia Nano Puff Hoodie</text><text x="103" y="87" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">Black · XXS</text><text x="103" y="108" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#c45443">$201.99</text><text x="103" y="128" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Sell Out Risk: Medium (4 remaining)</text>
+            <rect x="18" y="153" width="290" height="94" rx="7" fill="#f4f5f3"/><text x="32" y="177" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">YOU MAY ALSO LIKE</text><rect x="32" y="191" width="78" height="40" rx="5" fill="#fff"/><rect x="119" y="191" width="78" height="40" rx="5" fill="#fff"/>
+            <text x="18" y="278" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Promo Code</text><path d="M294 273l6 6 6-6" fill="none" stroke="#171917" stroke-width="2"/>
+            <rect x="18" y="304" width="290" height="48" rx="24" fill="#101211"/><text x="88" y="334" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#fff">Checkout · $201.99</text><text x="71" y="371" font-family="Barlow, sans-serif" font-size="11" font-weight="600" fill="#171917">Shipping and taxes calculated at checkout</text>
+          </g>
+          <path d="M384 240h34" stroke="#171917" stroke-width="3"/><path d="M410 231l9 9-9 9" fill="none" stroke="#171917" stroke-width="3"/>
+          <g transform="translate(448 52)"><rect width="326" height="382" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/><text x="18" y="30" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="800" fill="#171917">CART (1)</text><text x="292" y="30" font-family="Barlow, sans-serif" font-size="22" font-weight="500" fill="#171917">×</text>
+            <rect x="18" y="50" width="72" height="82" rx="7" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="23" y="54" width="62" height="74" preserveAspectRatio="xMidYMid meet"/>
+            <text x="103" y="67" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Patagonia Nano Puff Hoodie</text><text x="103" y="87" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">Black · XXS</text><text x="103" y="108" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#c45443">$201.99</text><text x="103" y="128" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Sell Out Risk: Medium (4 remaining)</text>
+            <rect x="18" y="150" width="290" height="82" rx="7" fill="#e6f5e4" stroke="#4caf43"/><text x="32" y="174" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">▣ Free shipping over $50</text><text x="32" y="196" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">↺ 366-day returns</text><text x="32" y="218" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">◇ Lowest price guarantee</text>
+            <text x="18" y="260" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Promo Code</text><path d="M294 255l6 6 6-6" fill="none" stroke="#171917" stroke-width="2"/>
+            <rect x="18" y="283" width="290" height="48" rx="24" fill="#101211"/><text x="88" y="313" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#fff">Checkout · $201.99</text><text x="71" y="351" font-family="Barlow, sans-serif" font-size="11" font-weight="600" fill="#171917">Shipping and taxes calculated at checkout</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 850" role="img" aria-label="Current cart above variation with trust signals">
+          <rect width="340" height="850" rx="10" fill="#e8ede8"/><text x="18" y="31" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#171917">CURRENT</text>
+          <g transform="translate(18 46)"><rect width="304" height="332" rx="8" fill="#fff" stroke="#b9c1b9"/><text x="16" y="28" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="800" fill="#171917">CART (1)</text><rect x="16" y="44" width="68" height="78" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="20" y="48" width="60" height="70" preserveAspectRatio="xMidYMid meet"/><text x="96" y="61" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Patagonia Nano Puff Hoodie</text><text x="96" y="83" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#c45443">$201.99</text><text x="96" y="105" font-family="Barlow, sans-serif" font-size="11" font-weight="700" fill="#171917">Medium · 4 remaining</text><rect x="16" y="144" width="272" height="72" rx="6" fill="#f4f5f3"/><text x="29" y="170" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">YOU MAY ALSO LIKE</text><text x="16" y="247" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Promo Code</text><rect x="16" y="267" width="272" height="46" rx="23" fill="#101211"/><text x="74" y="296" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#fff">Checkout · $201.99</text></g>
+          <text x="170" y="414" text-anchor="middle" font-family="Barlow, sans-serif" font-size="28" font-weight="800" fill="#171917">↓</text><text x="18" y="451" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">VARIATION</text>
+          <g transform="translate(18 467)"><rect width="304" height="354" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><text x="16" y="28" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="800" fill="#171917">CART (1)</text><rect x="16" y="44" width="68" height="78" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="20" y="48" width="60" height="70" preserveAspectRatio="xMidYMid meet"/><text x="96" y="61" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Patagonia Nano Puff Hoodie</text><text x="96" y="83" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#c45443">$201.99</text><text x="96" y="105" font-family="Barlow, sans-serif" font-size="11" font-weight="700" fill="#171917">Medium · 4 remaining</text><rect x="16" y="141" width="272" height="88" rx="6" fill="#e6f5e4" stroke="#4caf43"/><text x="30" y="166" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">▣ Free shipping over $50</text><text x="30" y="190" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">↺ 366-day returns</text><text x="30" y="214" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">◇ Lowest price guarantee</text><text x="16" y="260" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Promo Code</text><rect x="16" y="280" width="272" height="46" rx="23" fill="#101211"/><text x="74" y="309" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#fff">Checkout · $201.99</text></g>
+        </svg>
+        <p class="cvrt-caption">* Shipping, returns, and price protection stay visible inside the cart drawer. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>PDP Trust Near Add to Cart</h3>
+        <p class="cvrt-page">Page: Product detail pages</p>
+        <p class="cvrt-description">Across the captured PDPs, shipping, returns, rewards, and price protection appear after Add to Cart and outside the first fold. The shopper must decide before seeing the strongest reassurance. The variation adds a concise policy summary directly under Add to Cart while preserving the full block below.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 440" role="img" aria-label="PDP buy box with trust summary moved directly below Add to Cart">
+          <rect width="816" height="440" rx="12" fill="#e8ede8"/><rect x="32" y="31" width="752" height="378" rx="10" fill="#fff" stroke="#c1c8c1"/>
+          <rect x="32" y="31" width="752" height="37" rx="10" fill="#101211"/><image href="https://www.evo.com/cdn/shop/files/logo_desktop.svg?v=1752521391&amp;width=112" x="49" y="40" width="42" height="20"/>
+          <g transform="translate(55 88)"><rect width="286" height="270" rx="8" fill="#f5f6f4"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="18" y="8" width="250" height="252" preserveAspectRatio="xMidYMid meet"/></g>
+          <g transform="translate(378 88)"><text x="0" y="17" font-family="Barlow, sans-serif" font-size="13" font-weight="600" fill="#171917">Patagonia</text><text x="0" y="50" font-family="Barlow Condensed, sans-serif" font-size="28" font-weight="800" fill="#171917">NANO PUFF HOODIE · WOMEN'S</text><text x="0" y="76" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#248a2b">★★★★★ Read 59 Reviews</text><text x="0" y="105" font-family="Barlow, sans-serif" font-size="20" font-weight="800" fill="#c45443">$201.99</text><text x="92" y="105" font-family="Barlow, sans-serif" font-size="15" font-weight="600" fill="#171917" text-decoration="line-through">$289.00</text><text x="0" y="137" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Size: XXS</text><rect x="0" y="150" width="46" height="39" rx="6" fill="#101211"/><text x="12" y="175" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#fff">XXS</text><text x="0" y="214" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Sell Out Risk: Medium (4 remaining)</text><rect x="0" y="230" width="348" height="48" rx="24" fill="#101211"/><text x="128" y="260" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#fff">Add to Cart</text>
+            <rect x="0" y="291" width="348" height="50" rx="7" fill="#e6f5e4" stroke="#4caf43"/><text x="16" y="312" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Free shipping $50+ · 366-day returns</text><text x="16" y="332" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Lowest price guarantee</text>
+          </g>
+          <path d="M739 362v-72" stroke="#248a2b" stroke-width="3"/><path d="M731 300l8-10 8 10" fill="none" stroke="#248a2b" stroke-width="3"/><text x="648" y="389" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#248a2b">REASSURANCE MOVES UP</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 660" role="img" aria-label="Mobile PDP with trust summary under Add to Cart">
+          <rect width="340" height="660" rx="10" fill="#e8ede8"/><rect x="16" y="18" width="308" height="624" rx="8" fill="#fff" stroke="#4caf43"/><rect x="16" y="18" width="308" height="34" rx="8" fill="#101211"/><image href="https://www.evo.com/cdn/shop/files/logo_desktop.svg?v=1752521391&amp;width=112" x="31" y="25" width="44" height="20"/>
+          <rect x="33" y="70" width="274" height="220" rx="7" fill="#f5f6f4"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="50" y="75" width="240" height="210" preserveAspectRatio="xMidYMid meet"/>
+          <text x="33" y="324" font-family="Barlow, sans-serif" font-size="13" font-weight="600" fill="#171917">Patagonia</text><text x="33" y="354" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800" fill="#171917">NANO PUFF HOODIE · WOMEN'S</text><text x="33" y="380" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#248a2b">★★★★★ Read 59 Reviews</text><text x="33" y="411" font-family="Barlow, sans-serif" font-size="19" font-weight="800" fill="#c45443">$201.99</text><text x="33" y="444" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Size: XXS · Medium risk, 4 remaining</text><rect x="33" y="462" width="274" height="47" rx="24" fill="#101211"/><text x="123" y="492" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#fff">Add to Cart</text><rect x="33" y="522" width="274" height="70" rx="7" fill="#e6f5e4" stroke="#4caf43"/><text x="49" y="548" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Free shipping $50+ · 366-day returns</text><text x="49" y="572" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Lowest price guarantee</text><text x="84" y="621" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#248a2b">REASSURANCE IS PART OF THE DECISION</text>
+        </svg>
+        <p class="cvrt-caption">* The policy summary sits directly beneath Add to Cart without removing the full detail block below. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Review Proof for Bundle PDPs</h3>
+        <p class="cvrt-page">Page: <a href="https://www.evo.com/products/281270-gnu-young-money-c2e-snowboard-bent-metal-bmx-snowboard-bindings-union-cadet-snowboard-boots-kids" target="_blank" rel="noopener">GNU Young Money kids' bundle PDP</a></p>
+        <p class="cvrt-description">The captured bundle PDP moves from its long product title straight into price and configuration, while the other reviewed PDPs show ratings beneath the title. The highest-priced item in the set therefore shows the least proof. The variation adds a review row in the established evo position, using bundle reviews or documented component review totals when available.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 420" role="img" aria-label="Bundle product title without reviews compared with variation containing review proof">
+          <rect width="816" height="420" rx="12" fill="#e8ede8"/><text x="34" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#171917">CURRENT</text><text x="432" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">VARIATION</text>
+          <g transform="translate(34 52)"><rect width="350" height="332" rx="9" fill="#fff" stroke="#b9c1b9"/><image href="https://www.evo.com/cdn/shop/files/product-image-1290283.jpg?v=1775638848&amp;width=800" x="17" y="18" width="156" height="286" preserveAspectRatio="xMidYMid meet"/><text x="188" y="35" font-family="Barlow, sans-serif" font-size="12" font-weight="600" fill="#171917">GNU</text><text x="188" y="62" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">YOUNG MONEY C2E</text><text x="188" y="85" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">SNOWBOARD BUNDLE</text><text x="188" y="119" font-family="Barlow, sans-serif" font-size="18" font-weight="800" fill="#c45443">$537.64</text><line x1="188" y1="141" x2="330" y2="141" stroke="#cbd2cb"/><text x="188" y="167" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Snowboard size: 135 cm</text><text x="188" y="194" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Binding color: Black</text><text x="188" y="221" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Boot size: 5</text><rect x="188" y="248" width="142" height="42" rx="21" fill="#101211"/><text x="224" y="274" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text></g>
+          <path d="M393 216h28" stroke="#171917" stroke-width="3"/><path d="M414 207l9 9-9 9" fill="none" stroke="#171917" stroke-width="3"/>
+          <g transform="translate(432 52)"><rect width="350" height="332" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/><image href="https://www.evo.com/cdn/shop/files/product-image-1290283.jpg?v=1775638848&amp;width=800" x="17" y="18" width="156" height="286" preserveAspectRatio="xMidYMid meet"/><text x="188" y="35" font-family="Barlow, sans-serif" font-size="12" font-weight="600" fill="#171917">GNU</text><text x="188" y="62" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">YOUNG MONEY C2E</text><text x="188" y="85" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">SNOWBOARD BUNDLE</text><rect x="188" y="100" width="142" height="39" rx="6" fill="#e6f5e4"/><text x="199" y="117" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#248a2b">★★★★★</text><text x="199" y="132" font-family="Barlow, sans-serif" font-size="11" font-weight="800" fill="#171917">Reviews from included gear</text><text x="188" y="166" font-family="Barlow, sans-serif" font-size="18" font-weight="800" fill="#c45443">$537.64</text><text x="188" y="197" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Snowboard size: 135 cm</text><text x="188" y="222" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Binding color: Black</text><text x="188" y="247" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Boot size: 5</text><rect x="188" y="267" width="142" height="42" rx="21" fill="#101211"/><text x="224" y="293" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 810" role="img" aria-label="Current bundle PDP above variation with review proof">
+          <rect width="340" height="810" rx="10" fill="#e8ede8"/><text x="18" y="31" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#171917">CURRENT</text><g transform="translate(18 46)"><rect width="304" height="308" rx="8" fill="#fff" stroke="#b9c1b9"/><image href="https://www.evo.com/cdn/shop/files/product-image-1290283.jpg?v=1775638848&amp;width=800" x="13" y="14" width="130" height="270" preserveAspectRatio="xMidYMid meet"/><text x="154" y="33" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">YOUNG MONEY C2E</text><text x="154" y="54" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">SNOWBOARD BUNDLE</text><text x="154" y="86" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#c45443">$537.64</text><text x="154" y="126" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">135 cm · Black · Size 5</text><rect x="154" y="158" width="132" height="42" rx="21" fill="#101211"/><text x="186" y="184" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text><text x="154" y="240" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#c45443">NO REVIEW PROOF</text></g>
+          <text x="170" y="390" text-anchor="middle" font-family="Barlow, sans-serif" font-size="28" font-weight="800" fill="#171917">↓</text><text x="18" y="428" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">VARIATION</text><g transform="translate(18 444)"><rect width="304" height="334" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><image href="https://www.evo.com/cdn/shop/files/product-image-1290283.jpg?v=1775638848&amp;width=800" x="13" y="14" width="130" height="292" preserveAspectRatio="xMidYMid meet"/><text x="154" y="33" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">YOUNG MONEY C2E</text><text x="154" y="54" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="800" fill="#171917">SNOWBOARD BUNDLE</text><rect x="154" y="68" width="132" height="52" rx="6" fill="#e6f5e4"/><text x="166" y="89" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#248a2b">★★★★★</text><text x="166" y="108" font-family="Barlow, sans-serif" font-size="11" font-weight="800" fill="#171917">Included gear reviews</text><text x="154" y="151" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#c45443">$537.64</text><text x="154" y="183" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">135 cm · Black · Size 5</text><rect x="154" y="209" width="132" height="42" rx="21" fill="#101211"/><text x="186" y="235" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text></g>
+        </svg>
+        <p class="cvrt-caption">* Review proof appears beneath the bundle title using verified bundle or included-product reviews. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Bundle Configuration Steps</h3>
+        <p class="cvrt-page">Page: <a href="https://www.evo.com/products/281270-gnu-young-money-c2e-snowboard-bent-metal-bmx-snowboard-bindings-union-cadet-snowboard-boots-kids" target="_blank" rel="noopener">GNU Young Money kids' bundle PDP</a></p>
+        <p class="cvrt-description">The bundle buy box stacks snowboard size, binding color, boot size, and quantity in one continuous block with no grouping. Three products read like one long selector. The variation turns the same choices into a numbered configuration path so shoppers can see what they have completed and what remains.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 470" role="img" aria-label="Ungrouped bundle selectors compared with numbered configuration steps">
+          <rect width="816" height="470" rx="12" fill="#e8ede8"/><text x="29" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#171917">CURRENT</text><text x="326" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">VARIATION</text>
+          <g transform="translate(29 52)"><rect width="255" height="382" rx="9" fill="#fff" stroke="#b9c1b9"/><image href="https://www.evo.com/cdn/shop/files/product-image-1264931.jpg?v=1771374600&amp;width=800" x="16" y="17" width="92" height="170" preserveAspectRatio="xMidYMid meet"/><text x="120" y="36" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="800" fill="#171917">YOUNG MONEY BUNDLE</text><text x="120" y="62" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#c45443">$537.64</text><line x1="16" y1="201" x2="239" y2="201" stroke="#cbd2cb"/><text x="16" y="226" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Snowboard size</text><rect x="16" y="238" width="74" height="35" rx="5" fill="#101211"/><text x="31" y="260" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#fff">135 cm</text><text x="16" y="300" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Binding color: Black</text><text x="16" y="327" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Boot size: 5</text><rect x="16" y="344" width="223" height="30" rx="15" fill="#101211"/><text x="89" y="364" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#fff">Add to Cart</text></g>
+          <path d="M294 240h21" stroke="#171917" stroke-width="3"/><path d="M308 232l8 8-8 8" fill="none" stroke="#171917" stroke-width="3"/>
+          <g transform="translate(326 52)"><rect width="461" height="382" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/><image href="https://www.evo.com/cdn/shop/files/product-image-1264931.jpg?v=1771374600&amp;width=800" x="19" y="19" width="157" height="344" preserveAspectRatio="xMidYMid meet"/><text x="196" y="36" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="800" fill="#171917">BUILD YOUR KIDS' SNOWBOARD KIT</text><text x="196" y="66" font-family="Barlow, sans-serif" font-size="18" font-weight="800" fill="#c45443">$537.64</text>
+            <rect x="196" y="88" width="246" height="70" rx="8" fill="#e6f5e4"/><circle cx="221" cy="112" r="15" fill="#4caf43"/><text x="217" y="117" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#071007">1</text><text x="247" y="111" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Snowboard size</text><text x="247" y="137" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">135 cm selected</text>
+            <rect x="196" y="169" width="246" height="70" rx="8" fill="#f3f5f2" stroke="#cbd2cb"/><circle cx="221" cy="193" r="15" fill="#101211"/><text x="217" y="198" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#fff">2</text><text x="247" y="192" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Binding color</text><text x="247" y="218" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">Black selected</text>
+            <rect x="196" y="250" width="246" height="70" rx="8" fill="#f3f5f2" stroke="#cbd2cb"/><circle cx="221" cy="274" r="15" fill="#101211"/><text x="217" y="279" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#fff">3</text><text x="247" y="273" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Boot size</text><text x="247" y="299" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">Size 5 selected</text>
+            <rect x="196" y="333" width="246" height="38" rx="19" fill="#101211"/><text x="278" y="357" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add Kit to Cart</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 920" role="img" aria-label="Current ungrouped selectors above numbered bundle configuration steps">
+          <rect width="340" height="920" rx="10" fill="#e8ede8"/><text x="18" y="31" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#171917">CURRENT</text><g transform="translate(18 46)"><rect width="304" height="350" rx="8" fill="#fff" stroke="#b9c1b9"/><image href="https://www.evo.com/cdn/shop/files/product-image-1264931.jpg?v=1771374600&amp;width=800" x="14" y="14" width="110" height="230" preserveAspectRatio="xMidYMid meet"/><text x="138" y="35" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="800" fill="#171917">YOUNG MONEY BUNDLE</text><text x="138" y="64" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#c45443">$537.64</text><text x="138" y="110" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Snowboard size: 135 cm</text><text x="138" y="140" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Binding color: Black</text><text x="138" y="170" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Boot size: 5</text><rect x="18" y="276" width="268" height="44" rx="22" fill="#101211"/><text x="105" y="304" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add to Cart</text></g>
+          <text x="170" y="435" text-anchor="middle" font-family="Barlow, sans-serif" font-size="28" font-weight="800" fill="#171917">↓</text><text x="18" y="474" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">VARIATION</text><g transform="translate(18 490)"><rect width="304" height="397" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><text x="18" y="34" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="800" fill="#171917">BUILD YOUR KIDS' KIT</text><text x="18" y="62" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#c45443">$537.64</text><rect x="18" y="82" width="268" height="74" rx="7" fill="#e6f5e4"/><circle cx="44" cy="108" r="15" fill="#4caf43"/><text x="40" y="113" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#071007">1</text><text x="70" y="108" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Snowboard size</text><text x="70" y="133" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">135 cm selected</text><rect x="18" y="166" width="268" height="74" rx="7" fill="#f3f5f2" stroke="#cbd2cb"/><circle cx="44" cy="192" r="15" fill="#101211"/><text x="40" y="197" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#fff">2</text><text x="70" y="192" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Binding color</text><text x="70" y="217" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">Black selected</text><rect x="18" y="250" width="268" height="74" rx="7" fill="#f3f5f2" stroke="#cbd2cb"/><circle cx="44" cy="276" r="15" fill="#101211"/><text x="40" y="281" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#fff">3</text><text x="70" y="276" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Boot size</text><text x="70" y="301" font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#171917">Size 5 selected</text><rect x="18" y="338" width="268" height="43" rx="22" fill="#101211"/><text x="101" y="365" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Add Kit to Cart</text></g>
+        </svg>
+        <p class="cvrt-caption">* The same three product choices become a visible, numbered configuration path. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Price-Led Paid Creative</h3>
+        <p class="cvrt-page">Surface: Paid-social creative and landing pages</p>
+        <p class="cvrt-description">The reviewed paid-social copy uses broad seasonal language even when the creative shows one low-price accessory. Google creative states price and policy terms before the click, creating a sharper expectation. The variation leads with the exact product, price, original price, and one guarantee while keeping the same image and destination.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 470" role="img" aria-label="Generic paid creative compared with product and price-led copy">
+          <rect width="816" height="470" rx="12" fill="#e8ede8"/><text x="71" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#171917">CURRENT</text><text x="468" y="35" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">VARIATION</text>
+          <g transform="translate(71 52)"><rect width="278" height="382" rx="9" fill="#fff" stroke="#b9c1b9"/><circle cx="25" cy="28" r="15" fill="#4caf43"/><text x="18" y="33" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#fff">evo</text><text x="49" y="25" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">evo</text><text x="49" y="42" font-family="Barlow, sans-serif" font-size="11" font-weight="600" fill="#171917">Sponsored</text><text x="16" y="75" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Make your powder dreams come true</text><text x="16" y="94" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">with the latest skis, snowboards and more.</text><rect x="16" y="114" width="246" height="190" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-470103.jpg?v=1767740529&amp;width=800" x="25" y="120" width="228" height="178" preserveAspectRatio="xMidYMid meet"/><text x="16" y="328" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Burton Over-The-Toe Strap Set</text><rect x="188" y="342" width="74" height="30" rx="6" fill="#eef0ee"/><text x="203" y="362" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Shop Now</text></g>
+          <path d="M369 240h43" stroke="#171917" stroke-width="3"/><path d="M404 231l9 9-9 9" fill="none" stroke="#171917" stroke-width="3"/>
+          <g transform="translate(468 52)"><rect width="278" height="382" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/><circle cx="25" cy="28" r="15" fill="#4caf43"/><text x="18" y="33" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#fff">evo</text><text x="49" y="25" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">evo</text><text x="49" y="42" font-family="Barlow, sans-serif" font-size="11" font-weight="600" fill="#171917">Sponsored</text><text x="16" y="73" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Burton Toe Strap Set · $14.99</text><text x="16" y="94" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#c45443">Was $29.95 · 366-day returns</text><rect x="16" y="114" width="246" height="190" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-470103.jpg?v=1767740529&amp;width=800" x="25" y="120" width="228" height="178" preserveAspectRatio="xMidYMid meet"/><rect x="16" y="317" width="246" height="44" rx="7" fill="#e6f5e4"/><text x="29" y="337" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Lowest price guarantee</text><text x="29" y="353" font-family="Barlow, sans-serif" font-size="11" font-weight="700" fill="#171917">See the exact product and offer</text></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 870" role="img" aria-label="Current generic paid creative above a price-led variation">
+          <rect width="340" height="870" rx="10" fill="#e8ede8"/><text x="18" y="31" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#171917">CURRENT</text><g transform="translate(31 46)"><rect width="278" height="346" rx="8" fill="#fff" stroke="#b9c1b9"/><circle cx="25" cy="27" r="15" fill="#4caf43"/><text x="17" y="32" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#fff">evo</text><text x="49" y="31" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">evo · Sponsored</text><text x="16" y="67" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Make your powder dreams come true with</text><text x="16" y="85" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">the latest skis, snowboards and more.</text><rect x="16" y="104" width="246" height="185" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-470103.jpg?v=1767740529&amp;width=800" x="25" y="111" width="228" height="170" preserveAspectRatio="xMidYMid meet"/><text x="16" y="316" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Burton Over-The-Toe Strap Set</text></g>
+          <text x="170" y="430" text-anchor="middle" font-family="Barlow, sans-serif" font-size="28" font-weight="800" fill="#171917">↓</text><text x="18" y="469" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">VARIATION</text><g transform="translate(31 485)"><rect width="278" height="350" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><circle cx="25" cy="27" r="15" fill="#4caf43"/><text x="17" y="32" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#fff">evo</text><text x="49" y="31" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">evo · Sponsored</text><text x="16" y="67" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">Burton Toe Strap Set · $14.99</text><text x="16" y="88" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#c45443">Was $29.95 · 366-day returns</text><rect x="16" y="104" width="246" height="185" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-470103.jpg?v=1767740529&amp;width=800" x="25" y="111" width="228" height="170" preserveAspectRatio="xMidYMid meet"/><rect x="16" y="302" width="246" height="34" rx="6" fill="#e6f5e4"/><text x="30" y="324" font-family="Barlow, sans-serif" font-size="12" font-weight="800" fill="#171917">Lowest price guarantee</text></g>
+        </svg>
+        <p class="cvrt-caption">* The product, exact price, original price, and return promise appear before the click. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Free-Shipping Progress in Cart</h3>
+        <p class="cvrt-page">Page: Cart drawer</p>
+        <p class="cvrt-description">The cart recommendation carousel offers more products without showing how the next item changes shipping eligibility. evo already promises free shipping over $50, but the drawer gives no progress cue. The variation turns that threshold into a live bar above recommendations and switches to a clear unlocked state once the cart qualifies.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 430" role="img" aria-label="Cart recommendation area without shipping progress compared with a progress bar variation">
+          <rect width="816" height="430" rx="12" fill="#e8ede8"/><text x="37" y="34" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#171917">CURRENT CART</text><text x="427" y="34" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">VARIATION</text>
+          <g transform="translate(37 51)"><rect width="352" height="338" rx="9" fill="#fff" stroke="#b9c1b9"/><text x="18" y="30" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="800" fill="#171917">CART (1)</text><rect x="18" y="48" width="70" height="76" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="23" y="52" width="60" height="68" preserveAspectRatio="xMidYMid meet"/><text x="101" y="66" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Patagonia Nano Puff Hoodie</text><text x="101" y="91" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#c45443">$201.99</text><rect x="18" y="145" width="316" height="122" rx="7" fill="#f4f5f3"/><text x="32" y="171" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">YOU MAY ALSO LIKE</text><rect x="32" y="188" width="88" height="59" rx="5" fill="#fff"/><rect x="131" y="188" width="88" height="59" rx="5" fill="#fff"/><rect x="18" y="282" width="316" height="42" rx="21" fill="#101211"/><text x="106" y="308" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Checkout · $201.99</text></g>
+          <path d="M396 220h22" stroke="#171917" stroke-width="3"/><path d="M411 212l8 8-8 8" fill="none" stroke="#171917" stroke-width="3"/>
+          <g transform="translate(427 51)"><rect width="352" height="338" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/><text x="18" y="30" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="800" fill="#171917">CART (1)</text><rect x="18" y="48" width="70" height="76" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="23" y="52" width="60" height="68" preserveAspectRatio="xMidYMid meet"/><text x="101" y="66" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Patagonia Nano Puff Hoodie</text><text x="101" y="91" font-family="Barlow, sans-serif" font-size="15" font-weight="800" fill="#c45443">$201.99</text><rect x="18" y="140" width="316" height="71" rx="7" fill="#e6f5e4" stroke="#4caf43"/><text x="32" y="164" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">YOU'VE UNLOCKED FREE SHIPPING</text><rect x="32" y="181" width="288" height="12" rx="6" fill="#cbd2cb"/><rect x="32" y="181" width="288" height="12" rx="6" fill="#4caf43"/><circle cx="316" cy="187" r="9" fill="#101211"/><text x="312" y="191" font-family="Barlow, sans-serif" font-size="10" font-weight="800" fill="#fff">✓</text><text x="18" y="237" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">YOU MAY ALSO LIKE</text><rect x="18" y="249" width="88" height="49" rx="5" fill="#f4f5f3"/><rect x="117" y="249" width="88" height="49" rx="5" fill="#f4f5f3"/><rect x="18" y="307" width="316" height="19" rx="10" fill="#101211"/></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 760" role="img" aria-label="Current cart above variation with shipping threshold bar">
+          <rect width="340" height="760" rx="10" fill="#e8ede8"/><text x="18" y="31" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#171917">CURRENT CART</text><g transform="translate(18 46)"><rect width="304" height="286" rx="8" fill="#fff" stroke="#b9c1b9"/><text x="16" y="28" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="800" fill="#171917">CART (1)</text><rect x="16" y="46" width="64" height="70" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="20" y="49" width="56" height="64" preserveAspectRatio="xMidYMid meet"/><text x="92" y="65" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Nano Puff Hoodie</text><text x="92" y="88" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#c45443">$201.99</text><rect x="16" y="136" width="272" height="82" rx="6" fill="#f4f5f3"/><text x="30" y="162" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">YOU MAY ALSO LIKE</text><rect x="16" y="231" width="272" height="42" rx="21" fill="#101211"/><text x="75" y="257" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#fff">Checkout · $201.99</text></g>
+          <text x="170" y="370" text-anchor="middle" font-family="Barlow, sans-serif" font-size="28" font-weight="800" fill="#171917">↓</text><text x="18" y="408" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">VARIATION</text><g transform="translate(18 424)"><rect width="304" height="304" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><text x="16" y="28" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="800" fill="#171917">CART (1)</text><rect x="16" y="46" width="64" height="70" rx="6" fill="#f4f5f3"/><image href="https://www.evo.com/cdn/shop/files/product-image-1044763.jpg?v=1767730968&amp;width=800" x="20" y="49" width="56" height="64" preserveAspectRatio="xMidYMid meet"/><text x="92" y="65" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">Nano Puff Hoodie</text><text x="92" y="88" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#c45443">$201.99</text><rect x="16" y="132" width="272" height="78" rx="6" fill="#e6f5e4" stroke="#4caf43"/><text x="30" y="158" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">YOU'VE UNLOCKED FREE SHIPPING</text><rect x="30" y="177" width="244" height="12" rx="6" fill="#4caf43"/><circle cx="270" cy="183" r="9" fill="#101211"/><text x="266" y="187" font-family="Barlow, sans-serif" font-size="10" font-weight="800" fill="#fff">✓</text><text x="16" y="238" font-family="Barlow, sans-serif" font-size="13" font-weight="800" fill="#171917">YOU MAY ALSO LIKE</text><rect x="16" y="252" width="272" height="37" rx="19" fill="#101211"/></g>
+        </svg>
+        <p class="cvrt-caption">* The cart shows progress toward $50 free shipping and confirms when the benefit is unlocked. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Homepage Brand Promise Row</h3>
+        <p class="cvrt-page">Page: <a href="https://www.evo.com/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">The captured homepage opens with a sitewide sale bar and a second sale message in the hero, while evo's shipping, returns, price match, and membership promises appear much farther down the page. The first screen is strong on discount but quiet on why evo is safer to buy from. The variation keeps the campaign hero and adds the four evergreen promises before the category carousel.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 420" role="img" aria-label="Homepage campaign hero followed by new four-column brand promise row">
+          <defs><clipPath id="cvrt-evo-hero-clip"><rect x="30" y="51" width="756" height="220" rx="9"/></clipPath></defs><rect width="816" height="420" rx="12" fill="#e8ede8"/><text x="30" y="34" font-family="Barlow, sans-serif" font-size="17" font-weight="800" fill="#248a2b">VARIATION</text><rect x="30" y="51" width="756" height="337" rx="9" fill="#fff" stroke="#4caf43" stroke-width="2"/><g clip-path="url(#cvrt-evo-hero-clip)"><image href="https://www.evo.com/cdn/shop/files/26-lds-bike-homepage-hero-dsk_1.jpg?v=1787171944&amp;width=1920" x="30" y="51" width="756" height="237" preserveAspectRatio="xMidYMid slice"/></g>
+          <g transform="translate(48 289)"><rect width="169" height="79" rx="7" fill="#f3f5f2"/><text x="15" y="29" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">FAST FREE SHIPPING</text><text x="15" y="52" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Get your gear on time</text></g><g transform="translate(231 289)"><rect width="169" height="79" rx="7" fill="#f3f5f2"/><text x="15" y="29" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">EASY RETURNS</text><text x="15" y="52" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Online or in stores</text></g><g transform="translate(414 289)"><rect width="169" height="79" rx="7" fill="#f3f5f2"/><text x="15" y="29" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">PRICE MATCH</text><text x="15" y="52" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Find it lower, we'll match it</text></g><g transform="translate(597 289)"><rect width="169" height="79" rx="7" fill="#e6f5e4"/><text x="15" y="29" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">MEMBERSHIP PERKS</text><text x="15" y="52" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Exclusive rewards and access</text></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 340 670" role="img" aria-label="Mobile homepage campaign hero followed by vertically stacked brand promises">
+          <defs><clipPath id="cvrt-evo-hero-mobile-clip"><rect x="16" y="44" width="308" height="250" rx="8"/></clipPath></defs><rect width="340" height="670" rx="10" fill="#e8ede8"/><text x="18" y="30" font-family="Barlow, sans-serif" font-size="16" font-weight="800" fill="#248a2b">VARIATION</text><rect x="16" y="44" width="308" height="597" rx="8" fill="#fff" stroke="#4caf43" stroke-width="2"/><g clip-path="url(#cvrt-evo-hero-mobile-clip)"><image href="https://www.evo.com/cdn/shop/files/26-lds-bike-homepage-hero-mbl_1.jpg?v=1787171944&amp;width=832" x="16" y="44" width="308" height="250" preserveAspectRatio="xMidYMid slice"/></g><text x="31" y="327" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="800" fill="#171917">WHY SHOP EVO</text><g transform="translate(31 347)"><rect width="278" height="59" rx="7" fill="#f3f5f2"/><text x="15" y="25" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">FAST FREE SHIPPING</text><text x="15" y="44" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Get your gear on time</text></g><g transform="translate(31 416)"><rect width="278" height="59" rx="7" fill="#f3f5f2"/><text x="15" y="25" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">EASY RETURNS</text><text x="15" y="44" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Online or in stores</text></g><g transform="translate(31 485)"><rect width="278" height="59" rx="7" fill="#f3f5f2"/><text x="15" y="25" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">LOWEST PRICE GUARANTEE</text><text x="15" y="44" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Find it lower, we'll match it</text></g><g transform="translate(31 554)"><rect width="278" height="59" rx="7" fill="#e6f5e4"/><text x="15" y="25" font-family="Barlow, sans-serif" font-size="14" font-weight="800" fill="#171917">MEMBERSHIP REWARDS</text><text x="15" y="44" font-family="Barlow, sans-serif" font-size="12" font-weight="700" fill="#171917">Exclusive perks and VIP access</text></g>
+        </svg>
+        <p class="cvrt-caption">* The campaign hero stays intact while evo's four evergreen promises move directly beneath it. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-panel cvrt-panel-insights">
+    <div class="cvrt-killers">
+      <p class="cvrt-section-kicker">Cross-source signal</p>
+      <h2>Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li>Homepage and PDP performance is the clearest systemic risk. The homepage scored 34/100 with a 45.5s Time to Interactive, while the PDP scored 30/100 with a 49.8s Time to Interactive.</li>
+        <li>evo's free-shipping threshold, return window, and price guarantee are competitive, but the policy block sits below Add to Cart and is absent from the cart drawer.</li>
+        <li>Google ads state price, discount, and guarantee terms directly. The reviewed paid-social creative uses broad seasonal copy and leaves those details for the landing page.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Research coverage</p>
+      <h3>Data Sources Used</h3>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">PageSpeed and Core Web Vitals</div>
+        <div class="cvrt-source-chip">Current Site Screenshots</div>
+        <div class="cvrt-source-chip">Live Homepage</div>
+        <div class="cvrt-source-chip">Competitor Research</div>
+      </div>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Acquisition experience</p>
+      <h3>Meta Ads and Landing Pages</h3>
+      <ul class="cvrt-source-list">
+        <li>The kids' snowboard bundle matches its product image to the landing page, but its buy box stacks snowboard size, binding color, boot size, and quantity without visual grouping.</li>
+        <li>The Burton toe strap creative uses broad seasonal ski and snowboard language for a $14.99 accessory.</li>
+        <li>The Patagonia apparel creative uses the same ski and snowboard language, while its landing page shows 5 stars, Read 59 Reviews, and Sell Out Risk: Medium (4 remaining).</li>
+        <li>The captured PDPs place rewards, free shipping over $50, the lowest price guarantee, and 366-day returns after Add to Cart.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Acquisition experience</p>
+      <h3>Google Ads</h3>
+      <ul class="cvrt-source-list">
+        <li>Google creative states Up To 50% Off, We Beat Prices by 5%, 366 Day No Hassle Returns, Lowest Price Guarantee, and Fast FREE SHIPPING.</li>
+        <li>Search headlines name specific products and brands, including Arc'teryx, Salomon, Atomic, and Round Fit Ski Helmets.</li>
+        <li>Price and policy information appears before the click instead of waiting for the landing page.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Technical performance</p>
+      <h3>PageSpeed and Core Web Vitals</h3>
+      <ul class="cvrt-source-list">
+        <li>The homepage scored 34/100, with 12.9s LCP, 1,110ms Total Blocking Time, 4.4s FCP, 12.4s Speed Index, and 45.5s Time to Interactive.</li>
+        <li>The tested PDP scored 30/100, with 11.1s LCP, 1,610ms Total Blocking Time, 4.5s FCP, 15.8s Speed Index, and 49.8s Time to Interactive.</li>
+        <li>CLS is 0 on both pages. Layout stability is not the issue in these reports. Load and interactivity are.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Storefront anatomy</p>
+      <h3>Current Site Screenshots</h3>
+      <ul class="cvrt-source-list">
+        <li>The homepage opens with a Labor Day sale banner and a second Up To 50% Off sale message in the hero.</li>
+        <li>The sale collection shows 9758 items, a four-column product grid, sidebar filters, and no pagination control in the captured folds.</li>
+        <li>The cart drawer carries the Patagonia product, sale price, scarcity note, recommendations, promo code, and checkout button, but no shipping threshold, returns, or price-guarantee copy.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Brand promises</p>
+      <h3>Live Homepage</h3>
+      <ul class="cvrt-source-list">
+        <li>The live homepage includes fast free shipping, easy returns, price matching, and membership rewards as brand-value callouts.</li>
+        <li>Those four promises sit below the folds captured in the homepage screenshots.</li>
+        <li>Free shipping is tied to a $50 order threshold.</li>
+      </ul>
+    </div>
+
+    <div class="cvrt-insight-block">
+      <p class="cvrt-section-kicker">Market context</p>
+      <h3>Competitor Research</h3>
+      <ul class="cvrt-source-list">
+        <li>evo offers free shipping over $50. Christy Sports offers free shipping over $99 for account holders, with oversized-item exclusions.</li>
+        <li>evo's 366-day return window closely matches Christy Sports at 367 days and exceeds Backcountry's 90-day window.</li>
+        <li>evo states a Lowest Price Guarantee. Backcountry states that it beats a competitor price by 5%, while Christy Sports handles price matches case by case.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="cvrt-footer">August 2026</footer>
+</div>
