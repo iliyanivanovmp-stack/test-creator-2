@@ -19,17 +19,17 @@
   overflow:hidden; background:var(--cvrt-paper); color:var(--cvrt-ink); font-family:"DM Sans",sans-serif; line-height:1.55;
 }
 #cvrt-roadmap .cvrt-radio { position:absolute; opacity:0; pointer-events:none; }
-#cvrt-roadmap .cvrt-hero { background:var(--cvrt-cream); min-height:620px; display:grid; grid-template-columns:minmax(0,46%) minmax(0,54%); }
-#cvrt-roadmap .cvrt-hero-copy { padding:72px clamp(28px,6vw,104px) 34px; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:2; }
-#cvrt-roadmap .cvrt-logo { width:76px; height:76px; object-fit:contain; margin-bottom:42px; }
+#cvrt-roadmap .cvrt-hero { background:var(--cvrt-cream); min-height:400px; display:grid; grid-template-columns:minmax(0,46%) minmax(0,54%); }
+#cvrt-roadmap .cvrt-hero-copy { padding:40px clamp(28px,6vw,104px) 30px; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:2; }
+#cvrt-roadmap .cvrt-logo { width:58px; height:58px; object-fit:contain; margin-bottom:22px; }
 #cvrt-roadmap .cvrt-eyebrow { font-size:13px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cvrt-rust); }
-#cvrt-roadmap .cvrt-hero h1 { margin-top:12px; font-family:"Barlow Condensed",sans-serif; font-size:clamp(58px,7vw,100px); font-weight:800; line-height:.88; text-transform:uppercase; color:var(--cvrt-cocoa); max-width:650px; }
-#cvrt-roadmap .cvrt-summary { max-width:610px; margin-top:26px; font-size:18px; line-height:1.6; color:var(--cvrt-ink); }
-#cvrt-roadmap .cvrt-hero-media { min-height:620px; overflow:hidden; position:relative; background:#e9dfd2; }
-#cvrt-roadmap .cvrt-hero-media img { width:100%; height:100%; display:block; object-fit:cover; object-position:50% 42%; }
+#cvrt-roadmap .cvrt-hero h1 { margin-top:9px; font-family:"Barlow Condensed",sans-serif; font-size:clamp(54px,6vw,78px); font-weight:800; line-height:.88; text-transform:uppercase; color:var(--cvrt-cocoa); max-width:650px; }
+#cvrt-roadmap .cvrt-summary { max-width:590px; margin-top:18px; font-size:16px; line-height:1.5; color:var(--cvrt-ink); }
+#cvrt-roadmap .cvrt-hero-media { min-height:400px; height:400px; overflow:hidden; position:relative; background:#e9dfd2; }
+#cvrt-roadmap .cvrt-hero-media img { position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:cover; object-position:50% 42%; }
 #cvrt-roadmap .cvrt-hero-media::after { content:""; position:absolute; inset:0; box-shadow:inset 22px 0 38px rgba(90,43,31,.15); pointer-events:none; }
 #cvrt-roadmap .cvrt-tabs { grid-column:1/-1; display:flex; align-items:stretch; background:var(--cvrt-cocoa); padding-left:clamp(28px,6vw,104px); }
-#cvrt-roadmap .cvrt-tab { min-width:170px; padding:20px 28px; color:#fff; font-family:"Barlow Condensed",sans-serif; font-size:19px; font-weight:700; letter-spacing:.06em; text-align:center; text-transform:uppercase; cursor:pointer; }
+#cvrt-roadmap .cvrt-tab { min-width:170px; padding:16px 28px; color:#fff; font-family:"Barlow Condensed",sans-serif; font-size:18px; font-weight:700; letter-spacing:.06em; text-align:center; text-transform:uppercase; cursor:pointer; }
 #cvrt-roadmap .cvrt-tab:hover { background:var(--cvrt-rust); }
 #cvrt-tests:checked ~ .cvrt-hero .cvrt-tab-tests,
 #cvrt-insights:checked ~ .cvrt-hero .cvrt-tab-insights { color:var(--cvrt-ink); background:var(--cvrt-blue); }
@@ -53,6 +53,7 @@
 #cvrt-roadmap .cvrt-svg-mobile { display:none !important; min-width:0; }
 #cvrt-roadmap .cvrt-caption { margin-top:12px; font-size:13px; font-style:italic; line-height:1.5; color:var(--cvrt-ink); }
 #cvrt-roadmap svg text { font-family:"DM Sans",sans-serif; fill:#17110f; opacity:1; }
+#cvrt-roadmap svg text[fill="#fff"] { fill:#fff; }
 #cvrt-roadmap svg .cvrt-svg-display { font-family:"Barlow Condensed",sans-serif; font-weight:800; }
 #cvrt-roadmap .cvrt-killers { max-width:860px; margin-left:auto; margin-right:auto; padding:36px; background:var(--cvrt-cocoa); color:#fff; border-radius:18px; }
 #cvrt-roadmap .cvrt-killers h2 { font-family:"Barlow Condensed",sans-serif; font-size:44px; line-height:1; font-weight:800; text-transform:uppercase; color:#fff; }
@@ -69,15 +70,15 @@
 #cvrt-roadmap .cvrt-footer { padding:24px; background:var(--cvrt-cocoa); color:#fff; font-family:"Barlow Condensed",sans-serif; font-size:18px; font-weight:700; text-align:center; text-transform:uppercase; }
 @media (max-width:760px) {
   #cvrt-roadmap .cvrt-hero { min-height:0; grid-template-columns:1fr; }
-  #cvrt-roadmap .cvrt-hero-copy { padding:38px 22px 34px; }
-  #cvrt-roadmap .cvrt-logo { width:58px; height:58px; margin-bottom:28px; }
-  #cvrt-roadmap .cvrt-hero h1 { font-size:58px; }
-  #cvrt-roadmap .cvrt-summary { font-size:16px; margin-top:20px; }
-  #cvrt-roadmap .cvrt-hero-media { min-height:390px; }
+  #cvrt-roadmap .cvrt-hero-copy { padding:28px 22px 26px; }
+  #cvrt-roadmap .cvrt-logo { width:48px; height:48px; margin-bottom:18px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size:50px; }
+  #cvrt-roadmap .cvrt-summary { font-size:14px; line-height:1.45; margin-top:14px; }
+  #cvrt-roadmap .cvrt-hero-media { min-height:0; height:240px; max-height:240px; }
   #cvrt-roadmap .cvrt-hero-media img { object-position:50% 46%; }
   #cvrt-roadmap .cvrt-hero-media::after { box-shadow:inset 0 18px 30px rgba(90,43,31,.12); }
   #cvrt-roadmap .cvrt-tabs { padding-left:0; }
-  #cvrt-roadmap .cvrt-tab { flex:1; min-width:0; padding:17px 10px; font-size:17px; }
+  #cvrt-roadmap .cvrt-tab { flex:1; min-width:0; padding:14px 10px; font-size:16px; }
   #cvrt-roadmap .cvrt-panel { padding:38px 12px 50px; }
   #cvrt-roadmap .cvrt-panel-intro { padding:0 8px; }
   #cvrt-roadmap .cvrt-panel-intro h2, #cvrt-roadmap .cvrt-insights-title { font-size:35px; }
@@ -139,7 +140,7 @@
     <article class="cvrt-slot">
       <div class="cvrt-slot-copy"><div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-badge">Immediate Fix</span></div><h3>Homepage Core Web Vitals</h3><div class="cvrt-page"><a href="https://www.bakedbags.com/" target="_blank" rel="noopener">Homepage</a></div><p class="cvrt-description">The homepage records an 8.1-second LCP and 49.2-second Time to Interactive on mobile. The main product promise and Shop Legal THC action can appear before the page is ready to respond. The fixed experience prioritizes the hero product image, headline, and CTA before the product grids and secondary modules.</p></div>
       <div class="cvrt-art">
-        <svg class="cvrt-svg-desktop" viewBox="0 0 816 410" role="img" aria-label="Homepage loading sequence comparison"><rect width="816" height="410" fill="#fffaf0"/><text x="38" y="40" font-size="18" font-weight="800">CURRENT LOAD ORDER</text><rect x="38" y="64" width="740" height="130" rx="12" fill="#fff1cd" stroke="#cfaa87"/><text class="cvrt-svg-display" x="58" y="101" font-size="23">THE LEADING CAUSE OF RED EYES</text><text x="58" y="126" font-size="11" font-weight="700">FULL-STRENGTH EDIBLES, SHIPPED DISCREETLY</text><rect x="58" y="143" width="144" height="28" rx="5" fill="#e8e2dc"/><text x="76" y="162" font-size="10" font-weight="800">SHOP LEGAL THC →</text><image href="https://www.bakedbags.com/cdn/shop/files/Group_181_9ebaecda-21cd-439a-878b-6c399e2f4a6c.png?v=1757332551&amp;width=500" x="548" y="72" width="202" height="112" preserveAspectRatio="xMidYMid meet"/><rect x="316" y="82" width="210" height="86" rx="8" fill="#5a2b1f"/><text x="336" y="111" font-size="14" font-weight="800" fill="#fff">8.1s IMAGE LOAD</text><text x="336" y="140" font-size="14" font-weight="800" fill="#fff">49.2s TAPS RESPOND</text><text x="38" y="242" font-size="18" font-weight="800">PERFORMANCE-FIRST ORDER</text><rect x="38" y="264" width="740" height="110" rx="12" fill="#fff1cd" stroke="#93492f"/><text class="cvrt-svg-display" x="64" y="300" font-size="24">THE LEADING CAUSE OF RED EYES</text><text x="64" y="326" font-size="12" font-weight="700">FULL-STRENGTH EDIBLES, SHIPPED DISCREETLY</text><rect x="64" y="340" width="150" height="26" rx="5" fill="#72c9e7"/><text x="82" y="358" font-size="11" font-weight="800">SHOP LEGAL THC →</text><image href="https://www.bakedbags.com/cdn/shop/files/Group_181_9ebaecda-21cd-439a-878b-6c399e2f4a6c.png?v=1757332551&amp;width=600" x="510" y="273" width="240" height="92" preserveAspectRatio="xMidYMid slice"/><path d="M408 194v42" stroke="#93492f" stroke-width="4"/><path d="m399 228 9 10 9-10" fill="none" stroke="#93492f" stroke-width="4"/></svg>
+        <svg class="cvrt-svg-desktop" viewBox="0 0 816 410" role="img" aria-label="Homepage loading sequence comparison"><rect width="816" height="410" fill="#fffaf0"/><text x="38" y="40" font-size="18" font-weight="800">CURRENT LOAD ORDER</text><rect x="38" y="64" width="740" height="130" rx="12" fill="#fff1cd" stroke="#cfaa87"/><text class="cvrt-svg-display" x="58" y="94" font-size="21">THE LEADING CAUSE</text><text class="cvrt-svg-display" x="58" y="116" font-size="21">OF RED EYES</text><text x="58" y="138" font-size="10" font-weight="700">FULL-STRENGTH EDIBLES</text><rect x="58" y="151" width="136" height="27" rx="5" fill="#e8e2dc"/><text x="74" y="169" font-size="10" font-weight="800">SHOP LEGAL THC →</text><rect x="292" y="82" width="224" height="86" rx="8" fill="#5a2b1f"/><text x="314" y="111" font-size="14" font-weight="800" fill="#fff">8.1s IMAGE LOAD</text><text x="314" y="140" font-size="14" font-weight="800" fill="#fff">49.2s TAPS RESPOND</text><image href="https://www.bakedbags.com/cdn/shop/files/Group_181_9ebaecda-21cd-439a-878b-6c399e2f4a6c.png?v=1757332551&amp;width=500" x="548" y="72" width="202" height="112" preserveAspectRatio="xMidYMid meet"/><text x="38" y="242" font-size="18" font-weight="800">PERFORMANCE-FIRST ORDER</text><rect x="38" y="264" width="740" height="110" rx="12" fill="#fff1cd" stroke="#93492f"/><text class="cvrt-svg-display" x="64" y="300" font-size="24">THE LEADING CAUSE OF RED EYES</text><text x="64" y="326" font-size="12" font-weight="700">FULL-STRENGTH EDIBLES, SHIPPED DISCREETLY</text><rect x="64" y="340" width="150" height="26" rx="5" fill="#72c9e7"/><text x="82" y="358" font-size="11" font-weight="800">SHOP LEGAL THC →</text><image href="https://www.bakedbags.com/cdn/shop/files/Group_181_9ebaecda-21cd-439a-878b-6c399e2f4a6c.png?v=1757332551&amp;width=600" x="510" y="273" width="240" height="92" preserveAspectRatio="xMidYMid slice"/><path d="M408 194v42" stroke="#93492f" stroke-width="4"/><path d="m399 228 9 10 9-10" fill="none" stroke="#93492f" stroke-width="4"/></svg>
         <svg class="cvrt-svg-mobile" viewBox="0 0 360 620" role="img" aria-label="Mobile homepage loading sequence"><rect width="360" height="620" fill="#fffaf0"/><text x="20" y="30" font-size="17" font-weight="800">CURRENT LOAD ORDER</text><rect x="20" y="48" width="320" height="210" rx="12" fill="#fff1cd" stroke="#cfaa87"/><text class="cvrt-svg-display" x="40" y="83" font-size="23">THE LEADING CAUSE</text><text class="cvrt-svg-display" x="40" y="108" font-size="23">OF RED EYES</text><text x="40" y="132" font-size="11" font-weight="700">FULL-STRENGTH EDIBLES</text><image href="https://www.bakedbags.com/cdn/shop/files/Group_181_9ebaecda-21cd-439a-878b-6c399e2f4a6c.png?v=1757332551&amp;width=400" x="194" y="94" width="130" height="108" preserveAspectRatio="xMidYMid meet"/><rect x="40" y="158" width="145" height="38" rx="6" fill="#e8e2dc"/><text x="56" y="182" font-size="11" font-weight="800">SHOP LEGAL THC →</text><rect x="40" y="208" width="284" height="35" rx="6" fill="#5a2b1f"/><text x="57" y="231" font-size="12" font-weight="800" fill="#fff">8.1s IMAGE · 49.2s TAPS RESPOND</text><text x="170" y="299" font-size="26" font-weight="800" fill="#93492f">↓</text><text x="20" y="344" font-size="17" font-weight="800">PERFORMANCE-FIRST</text><rect x="20" y="362" width="320" height="230" rx="12" fill="#fff1cd" stroke="#93492f"/><text class="cvrt-svg-display" x="40" y="399" font-size="24">THE LEADING CAUSE</text><text class="cvrt-svg-display" x="40" y="426" font-size="24">OF RED EYES</text><text x="40" y="450" font-size="11" font-weight="700">FULL-STRENGTH EDIBLES</text><rect x="40" y="470" width="145" height="38" rx="6" fill="#72c9e7"/><text x="56" y="494" font-size="11" font-weight="800">SHOP LEGAL THC →</text><image href="https://www.bakedbags.com/cdn/shop/files/Group_181_9ebaecda-21cd-439a-878b-6c399e2f4a6c.png?v=1757332551&amp;width=500" x="185" y="455" width="145" height="116" preserveAspectRatio="xMidYMid meet"/></svg>
         <p class="cvrt-caption">* The homepage hero and primary CTA load before secondary merchandising. Concept illustration only. Final design will differ.</p>
       </div>
