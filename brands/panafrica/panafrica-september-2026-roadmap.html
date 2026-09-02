@@ -1,0 +1,1175 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,600;0,700;0,900;1,500&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+#cvrt-roadmap h1,
+#cvrt-roadmap h2,
+#cvrt-roadmap h3,
+#cvrt-roadmap p,
+#cvrt-roadmap span,
+#cvrt-roadmap div {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li {
+  list-style: none;
+}
+#cvrt-roadmap li::marker {
+  content: "";
+}
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important;
+  display: none !important;
+}
+#cvrt-roadmap {
+  --cvrt-yellow: #f4e967;
+  --cvrt-black: #090909;
+  --cvrt-cream: #f8f5e9;
+  --cvrt-white: #ffffff;
+  --cvrt-red: #de2028;
+  --cvrt-blue: #6bc7e4;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-cream);
+  color: var(--cvrt-black);
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+#cvrt-roadmap .cvrt-tab-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+#cvrt-roadmap .cvrt-hero {
+  background: var(--cvrt-black);
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-hero-grid {
+  min-height: 560px;
+  display: grid;
+  grid-template-columns: minmax(380px, 42%) minmax(0, 58%);
+}
+#cvrt-roadmap .cvrt-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 46px clamp(32px, 5vw, 78px) 38px;
+  background: var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-logo {
+  display: block;
+  width: 210px;
+  height: auto;
+}
+#cvrt-roadmap .cvrt-eyebrow {
+  display: inline-block;
+  width: fit-content;
+  background: var(--cvrt-yellow);
+  color: var(--cvrt-black);
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-hero-title {
+  margin-top: 18px;
+  font-size: clamp(48px, 6.5vw, 92px);
+  line-height: 0.87;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-hero-brand {
+  display: block;
+  color: var(--cvrt-yellow);
+}
+#cvrt-roadmap .cvrt-hero-summary {
+  margin-top: 25px;
+  max-width: 500px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-hero-image {
+  min-width: 0;
+  min-height: 560px;
+  position: relative;
+  overflow: hidden;
+  background: #241817;
+}
+#cvrt-roadmap .cvrt-hero-image picture,
+#cvrt-roadmap .cvrt-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#cvrt-roadmap .cvrt-hero-image img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: 58% center;
+}
+#cvrt-roadmap .cvrt-hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 14px solid var(--cvrt-white);
+  pointer-events: none;
+}
+#cvrt-roadmap .cvrt-ticker {
+  overflow: hidden;
+  background: var(--cvrt-yellow);
+  color: var(--cvrt-black);
+  border-top: 1px solid var(--cvrt-black);
+  border-bottom: 1px solid var(--cvrt-black);
+  white-space: nowrap;
+  padding: 13px 0 11px;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-ticker span {
+  display: inline-block;
+  padding-right: 42px;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--cvrt-white);
+  border-bottom: 1px solid var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-tab-label {
+  display: block;
+  padding: 20px 28px;
+  text-align: center;
+  color: var(--cvrt-black);
+  background: var(--cvrt-white);
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+#cvrt-roadmap .cvrt-tab-label + .cvrt-tab-label {
+  border-left: 1px solid var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-panel {
+  display: none;
+}
+#cvrt-roadmap .cvrt-tab-input:nth-of-type(1):checked ~ .cvrt-tab-panels .cvrt-tests-panel,
+#cvrt-roadmap .cvrt-tab-input:nth-of-type(2):checked ~ .cvrt-tab-panels .cvrt-insights-panel {
+  display: block;
+}
+#cvrt-roadmap .cvrt-tab-input:nth-of-type(1):checked ~ .cvrt-hero .cvrt-tab-label:nth-child(1),
+#cvrt-roadmap .cvrt-tab-input:nth-of-type(2):checked ~ .cvrt-hero .cvrt-tab-label:nth-child(2) {
+  background: var(--cvrt-yellow);
+}
+#cvrt-roadmap .cvrt-tests-panel,
+#cvrt-roadmap .cvrt-insights-panel {
+  padding: 54px clamp(18px, 4.5vw, 76px) 72px;
+}
+#cvrt-roadmap .cvrt-section-heading {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 0.95;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  background: var(--cvrt-white);
+  border: 1px solid var(--cvrt-black);
+  box-shadow: 9px 9px 0 var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-slot-copy {
+  max-width: 640px;
+  padding: 30px 32px 28px;
+}
+#cvrt-roadmap .cvrt-slot-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+#cvrt-roadmap .cvrt-slot-label {
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-type {
+  background: var(--cvrt-yellow);
+  color: var(--cvrt-black);
+  padding: 5px 9px;
+  border: 1px solid var(--cvrt-black);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-slot-title {
+  font-size: clamp(27px, 4vw, 43px);
+  line-height: 0.98;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-page-label {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-page-label a {
+  color: var(--cvrt-black);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+#cvrt-roadmap .cvrt-slot-description {
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-concept {
+  padding: 22px;
+  background: #f1f1ec;
+}
+#cvrt-roadmap .cvrt-concept svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#cvrt-roadmap .cvrt-concept svg.cvrt-concept-mobile {
+  display: none;
+  width: 100%;
+  min-width: 0;
+}
+#cvrt-roadmap .cvrt-caption {
+  margin-top: 14px;
+  color: var(--cvrt-black);
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 500;
+  font-style: italic;
+}
+#cvrt-roadmap .cvrt-killers {
+  margin-bottom: 38px;
+  padding: clamp(30px, 5vw, 58px);
+  background: var(--cvrt-black);
+  color: var(--cvrt-white);
+  border: 1px solid var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-kickers-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  background: var(--cvrt-yellow);
+  color: var(--cvrt-black);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-killers-title {
+  max-width: 900px;
+  font-size: clamp(35px, 6vw, 70px);
+  line-height: 0.92;
+  font-weight: 900;
+  color: var(--cvrt-white);
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-killer-list {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+#cvrt-roadmap .cvrt-killer-list li {
+  min-height: 150px;
+  padding: 22px;
+  background: var(--cvrt-yellow);
+  color: var(--cvrt-black);
+  border: 1px solid var(--cvrt-yellow);
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+#cvrt-roadmap .cvrt-insights-section-title {
+  margin: 38px 0 18px;
+  font-size: clamp(27px, 4vw, 44px);
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+#cvrt-roadmap .cvrt-source-chip {
+  min-height: 86px;
+  display: flex;
+  align-items: flex-end;
+  padding: 17px;
+  background: var(--cvrt-yellow);
+  border: 1px solid var(--cvrt-black);
+  color: var(--cvrt-black);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-block {
+  margin-bottom: 16px;
+  padding: 27px 30px;
+  background: var(--cvrt-white);
+  border: 1px solid var(--cvrt-black);
+}
+#cvrt-roadmap .cvrt-source-title {
+  margin-bottom: 14px;
+  font-size: 24px;
+  line-height: 1.05;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-list {
+  display: grid;
+  gap: 10px;
+}
+#cvrt-roadmap .cvrt-source-list li {
+  color: var(--cvrt-black);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+#cvrt-roadmap .cvrt-footer {
+  padding: 26px;
+  background: var(--cvrt-yellow);
+  border-top: 1px solid var(--cvrt-black);
+  text-align: center;
+  color: var(--cvrt-black);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+@media (max-width: 760px) {
+  #cvrt-roadmap .cvrt-hero-grid {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+  #cvrt-roadmap .cvrt-hero-copy {
+    order: 2;
+    padding: 28px 20px 30px;
+  }
+  #cvrt-roadmap .cvrt-logo {
+    width: 175px;
+    margin-bottom: 58px;
+  }
+  #cvrt-roadmap .cvrt-hero-title {
+    font-size: clamp(43px, 13.3vw, 52px);
+    overflow-wrap: anywhere;
+  }
+  #cvrt-roadmap .cvrt-hero-summary {
+    font-size: 16px;
+  }
+  #cvrt-roadmap .cvrt-hero-image {
+    order: 1;
+    min-height: 72vw;
+  }
+  #cvrt-roadmap .cvrt-hero-image img {
+    object-position: center 58%;
+  }
+  #cvrt-roadmap .cvrt-hero-image::after {
+    border-width: 8px;
+  }
+  #cvrt-roadmap .cvrt-ticker {
+    font-size: 20px;
+  }
+  #cvrt-roadmap .cvrt-tab-label {
+    padding: 17px 10px;
+    font-size: 12px;
+  }
+  #cvrt-roadmap .cvrt-tests-panel,
+  #cvrt-roadmap .cvrt-insights-panel {
+    padding: 38px 14px 52px;
+  }
+  #cvrt-roadmap .cvrt-killers,
+  #cvrt-roadmap .cvrt-source-grid,
+  #cvrt-roadmap .cvrt-source-block {
+    width: 100%;
+    min-width: 0;
+  }
+  #cvrt-roadmap .cvrt-killers-title {
+    font-size: 34px;
+    overflow-wrap: anywhere;
+  }
+  #cvrt-roadmap .cvrt-slot {
+    margin-bottom: 24px;
+    box-shadow: 5px 5px 0 var(--cvrt-black);
+  }
+  #cvrt-roadmap .cvrt-slot-copy {
+    padding: 24px 20px 22px;
+  }
+  #cvrt-roadmap .cvrt-slot-description {
+    font-size: 16px;
+  }
+  #cvrt-roadmap .cvrt-concept {
+    padding: 12px;
+  }
+  #cvrt-roadmap .cvrt-concept svg.cvrt-concept-desktop {
+    display: none;
+  }
+  #cvrt-roadmap .cvrt-concept svg.cvrt-concept-mobile {
+    display: block;
+  }
+  #cvrt-roadmap .cvrt-killer-list,
+  #cvrt-roadmap .cvrt-source-grid {
+    grid-template-columns: 1fr;
+  }
+  #cvrt-roadmap .cvrt-killer-list li {
+    min-height: 0;
+  }
+  #cvrt-roadmap .cvrt-source-block {
+    padding: 23px 20px;
+  }
+  #cvrt-roadmap .cvrt-source-title,
+  #cvrt-roadmap .cvrt-source-list li {
+    overflow-wrap: anywhere;
+  }
+  #cvrt-roadmap .cvrt-source-title {
+    font-size: 21px;
+  }
+}
+@media print {
+  #cvrt-roadmap .cvrt-panel {
+    display: block !important;
+  }
+  #cvrt-roadmap .cvrt-tabs {
+    display: none;
+  }
+  #cvrt-roadmap .cvrt-slot,
+  #cvrt-roadmap .cvrt-source-block,
+  #cvrt-roadmap .cvrt-killers {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+  #cvrt-roadmap .cvrt-concept svg.cvrt-concept-desktop {
+    display: block !important;
+  }
+  #cvrt-roadmap .cvrt-concept svg.cvrt-concept-mobile {
+    display: none !important;
+  }
+}
+</style>
+
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tab" id="cvrt-tests-tab" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tab" id="cvrt-insights-tab">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://panafrica-store.com/cdn/shop/files/Panafrica-logo-horizontal-blanc.png?v=1695122680&amp;width=1000" alt="Panafrica">
+        <div>
+          <span class="cvrt-eyebrow">CRO testing roadmap</span>
+          <h1 class="cvrt-hero-title"><span class="cvrt-hero-brand">Panafrica</span>September<br>2026</h1>
+          <p class="cvrt-hero-summary">Panafrica pairs a distinctive product and strong customer love for comfort and color with a storefront that delays the buying path and sends inconsistent offer signals. This roadmap removes technical and messaging breakpoints, then brings products, trust, fit guidance and recommendations closer to the decision.</p>
+        </div>
+      </div>
+      <div class="cvrt-hero-image">
+        <picture>
+          <source media="(max-width: 760px)" srcset="https://panafrica-store.com/cdn/shop/files/Header_Mobile_Nouvelle_collection_AH26.png?v=1787822797&amp;width=1200">
+          <img src="https://panafrica-store.com/cdn/shop/files/Header_Desktop_Nouvelle_collection_AH26.png?v=1787822768&amp;width=2800" alt="Panafrica new collection campaign">
+        </picture>
+      </div>
+    </div>
+    <div class="cvrt-ticker"><span>Consciously made in Africa</span><span>Consciously made in Africa</span><span>Consciously made in Africa</span></div>
+    <nav class="cvrt-tabs" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label" for="cvrt-tests-tab">Tests</label>
+      <label class="cvrt-tab-label" for="cvrt-insights-tab">Data Insights</label>
+    </nav>
+  </section>
+
+  <div class="cvrt-tab-panels">
+    <section class="cvrt-panel cvrt-tests-panel">
+      <h2 class="cvrt-section-heading">The Roadmap</h2>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">Immediate Fix</span></div>
+          <h3 class="cvrt-slot-title">Homepage Load Experience</h3>
+          <p class="cvrt-page-label">Page: <a href="https://panafrica-store.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-slot-description">The homepage hero takes 16.6 seconds to become the largest visible element on mobile, while the page takes 23.4 seconds to become interactive. The delay keeps the collection and its shop path from appearing promptly. The proposed experience makes the existing campaign hero and controls visible quickly, with mobile LCP targeted below 4 seconds.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 430" role="img" aria-label="Current slow homepage load compared with a faster proposed experience">
+            <defs>
+              <clipPath id="cvrt-s1-left"><rect x="18" y="48" width="370" height="344" rx="4"/></clipPath>
+              <clipPath id="cvrt-s1-right"><rect x="428" y="48" width="370" height="344" rx="4"/></clipPath>
+            </defs>
+            <rect width="816" height="430" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">CURRENT</text>
+            <text x="428" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">PROPOSED</text>
+            <rect x="18" y="48" width="370" height="344" rx="4" fill="#ffffff" stroke="#090909"/>
+            <rect x="34" y="64" width="338" height="28" fill="#f4e967"/>
+            <text x="203" y="83" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">PANAFRICA</text>
+            <rect x="34" y="103" width="338" height="213" fill="#deded7"/>
+            <rect x="50" y="122" width="306" height="175" fill="#d3d3cc"/>
+            <path d="M73 246h240" stroke="#9a9a92" stroke-width="8"/>
+            <path d="M73 267h176" stroke="#9a9a92" stroke-width="8"/>
+            <circle cx="204" cy="202" r="24" fill="#f4e967" stroke="#090909"/>
+            <text x="204" y="208" text-anchor="middle" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#090909">...</text>
+            <text x="52" y="344" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">LCP 16.6s</text>
+            <text x="52" y="367" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Hero and controls arrive late</text>
+            <rect x="428" y="48" width="370" height="344" rx="4" fill="#ffffff" stroke="#090909"/>
+            <rect x="444" y="64" width="338" height="28" fill="#f4e967"/>
+            <text x="613" y="83" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">PANAFRICA</text>
+            <g clip-path="url(#cvrt-s1-right)">
+              <image href="https://panafrica-store.com/cdn/shop/files/Header_Desktop_Nouvelle_collection_AH26.png?v=1787822768&amp;width=1200" x="444" y="103" width="338" height="188" preserveAspectRatio="xMidYMid slice"/>
+            </g>
+            <rect x="462" y="208" width="166" height="70" fill="#090909"/>
+            <text x="475" y="230" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Découvrez les nouveautés</text>
+            <text x="475" y="251" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#ffffff">NOUVELLE</text>
+            <text x="475" y="271" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#ffffff">COLLECTION</text>
+            <rect x="444" y="306" width="338" height="70" fill="#ffffff"/>
+            <rect x="460" y="320" width="124" height="40" fill="#f4e967" stroke="#090909"/>
+            <text x="522" y="345" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+            <text x="604" y="335" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">Target: under 4s</text>
+            <text x="604" y="355" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Ready to shop</text>
+            <path d="M395 216h22" stroke="#090909" stroke-width="3"/>
+            <path d="m410 208 8 8-8 8" fill="none" stroke="#090909" stroke-width="3"/>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 760" role="img" aria-label="Mobile comparison of current and proposed homepage load experience">
+            <rect width="360" height="760" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CURRENT</text>
+            <rect x="18" y="44" width="324" height="278" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="58" width="296" height="28" fill="#f4e967"/>
+            <text x="180" y="77" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">PANAFRICA</text>
+            <rect x="32" y="99" width="296" height="144" fill="#d8d8d1"/>
+            <circle cx="180" cy="171" r="24" fill="#f4e967" stroke="#090909"/>
+            <text x="180" y="177" text-anchor="middle" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#090909">...</text>
+            <text x="34" y="273" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">LCP 16.6s</text>
+            <text x="34" y="299" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">Hero and controls arrive late</text>
+            <path d="M180 338v36" stroke="#090909" stroke-width="3"/>
+            <path d="m172 365 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="407" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">PROPOSED</text>
+            <rect x="18" y="423" width="324" height="315" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="437" width="296" height="28" fill="#f4e967"/>
+            <text x="180" y="456" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">PANAFRICA</text>
+            <image href="https://panafrica-store.com/cdn/shop/files/Header_Mobile_Nouvelle_collection_AH26.png?v=1787822797&amp;width=700" x="32" y="478" width="296" height="160" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="49" y="559" width="154" height="62" fill="#090909"/>
+            <text x="60" y="581" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#ffffff">NOUVELLE</text>
+            <text x="60" y="601" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#ffffff">COLLECTION</text>
+            <rect x="32" y="653" width="118" height="42" fill="#f4e967" stroke="#090909"/>
+            <text x="91" y="679" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+            <text x="168" y="671" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">Target: under 4s</text>
+            <text x="168" y="692" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Ready to shop</text>
+          </svg>
+          <p class="cvrt-caption">The same campaign surface becomes visible and usable much sooner. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
+          <h3 class="cvrt-slot-title">Homepage First Fold</h3>
+          <p class="cvrt-page-label">Page: <a href="https://panafrica-store.com/" target="_blank" rel="noopener">Homepage</a></p>
+          <p class="cvrt-slot-description">The opening fold shows lifestyle imagery and one “DÉCOUVRIR” CTA, while product prices and trust remain absent across the first three folds. Shoppers must scroll before they can see what is for sale or the proof already used on PDPs. The variation keeps the campaign image and adds a compact featured-product strip with prices and a review line beside the CTA.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 456" role="img" aria-label="Homepage first fold control compared with a shoppable variation">
+            <defs>
+              <clipPath id="cvrt-s2a"><rect x="16" y="47" width="374" height="372"/></clipPath>
+              <clipPath id="cvrt-s2b"><rect x="426" y="47" width="374" height="372"/></clipPath>
+            </defs>
+            <rect width="816" height="456" fill="#f1f1ec"/>
+            <text x="16" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">CONTROL</text>
+            <text x="426" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">VARIATION</text>
+            <rect x="16" y="47" width="374" height="372" fill="#ffffff" stroke="#090909"/>
+            <rect x="31" y="62" width="344" height="26" fill="#f4e967"/>
+            <text x="51" y="79" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">PANAFRICA</text>
+            <g clip-path="url(#cvrt-s2a)"><image href="https://panafrica-store.com/cdn/shop/files/Header_Desktop_Nouvelle_collection_AH26.png?v=1787822768&amp;width=1000" x="31" y="99" width="344" height="245" preserveAspectRatio="xMidYMid slice"/></g>
+            <rect x="49" y="210" width="178" height="112" fill="#090909"/>
+            <text x="63" y="237" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#ffffff">Découvrez les nouveautés</text>
+            <text x="63" y="264" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#ffffff">NOUVELLE</text>
+            <text x="63" y="289" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#ffffff">COLLECTION</text>
+            <rect x="49" y="306" width="112" height="28" fill="#f4e967"/>
+            <text x="105" y="324" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+            <text x="31" y="378" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">No product, price or review proof</text>
+            <rect x="426" y="47" width="374" height="372" fill="#ffffff" stroke="#090909"/>
+            <rect x="441" y="62" width="344" height="26" fill="#f4e967"/>
+            <text x="461" y="79" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">PANAFRICA</text>
+            <g clip-path="url(#cvrt-s2b)"><image href="https://panafrica-store.com/cdn/shop/files/Header_Desktop_Nouvelle_collection_AH26.png?v=1787822768&amp;width=1000" x="441" y="99" width="344" height="170" preserveAspectRatio="xMidYMid slice"/></g>
+            <rect x="458" y="159" width="158" height="94" fill="#090909"/>
+            <text x="471" y="184" font-family="Jost, sans-serif" font-size="19" font-weight="900" fill="#ffffff">NOUVELLE</text>
+            <text x="471" y="207" font-family="Jost, sans-serif" font-size="19" font-weight="900" fill="#ffffff">COLLECTION</text>
+            <rect x="471" y="217" width="100" height="26" fill="#f4e967"/>
+            <text x="521" y="234" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+            <rect x="441" y="278" width="164" height="125" fill="#eaeeed" stroke="#090909"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=500" x="450" y="286" width="78" height="78" preserveAspectRatio="xMidYMid slice"/>
+            <text x="537" y="306" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">SAHARA</text>
+            <text x="537" y="321" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">OLIVE</text>
+            <text x="537" y="342" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">135€</text>
+            <text x="537" y="362" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">★★★★★</text>
+            <text x="537" y="380" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">Avis clients</text>
+            <rect x="615" y="278" width="170" height="125" fill="#eaeeed" stroke="#090909"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=500" x="624" y="286" width="78" height="78" preserveAspectRatio="xMidYMid slice"/>
+            <text x="710" y="306" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">AKANDA</text>
+            <text x="710" y="321" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">KARMEL</text>
+            <text x="710" y="342" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">159€</text>
+            <text x="710" y="362" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">★★★★★</text>
+            <text x="710" y="380" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">Avis clients</text>
+            <path d="M397 226h22" stroke="#090909" stroke-width="3"/><path d="m412 218 8 8-8 8" fill="none" stroke="#090909" stroke-width="3"/>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 914" role="img" aria-label="Mobile homepage first fold control stacked above shoppable variation">
+            <rect width="360" height="914" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CONTROL</text>
+            <rect x="18" y="44" width="324" height="345" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="58" width="296" height="26" fill="#f4e967"/>
+            <text x="48" y="75" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">PANAFRICA</text>
+            <image href="https://panafrica-store.com/cdn/shop/files/Header_Mobile_Nouvelle_collection_AH26.png?v=1787822797&amp;width=700" x="32" y="96" width="296" height="210" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="49" y="186" width="158" height="104" fill="#090909"/>
+            <text x="62" y="214" font-family="Jost, sans-serif" font-size="20" font-weight="900" fill="#ffffff">NOUVELLE</text>
+            <text x="62" y="238" font-family="Jost, sans-serif" font-size="20" font-weight="900" fill="#ffffff">COLLECTION</text>
+            <rect x="62" y="252" width="106" height="26" fill="#f4e967"/>
+            <text x="115" y="269" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+            <text x="32" y="339" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">No product, price or review proof</text>
+            <path d="M180 404v35" stroke="#090909" stroke-width="3"/><path d="m172 430 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="470" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">VARIATION</text>
+            <rect x="18" y="486" width="324" height="406" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="500" width="296" height="26" fill="#f4e967"/>
+            <text x="48" y="517" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">PANAFRICA</text>
+            <image href="https://panafrica-store.com/cdn/shop/files/Header_Mobile_Nouvelle_collection_AH26.png?v=1787822797&amp;width=700" x="32" y="538" width="296" height="150" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="47" y="602" width="151" height="72" fill="#090909"/>
+            <text x="59" y="627" font-family="Jost, sans-serif" font-size="17" font-weight="900" fill="#ffffff">NOUVELLE</text>
+            <text x="59" y="649" font-family="Jost, sans-serif" font-size="17" font-weight="900" fill="#ffffff">COLLECTION</text>
+            <rect x="32" y="704" width="296" height="82" fill="#eaeeed" stroke="#090909"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=400" x="40" y="712" width="66" height="66" preserveAspectRatio="xMidYMid slice"/>
+            <text x="117" y="729" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">SAHARA OLIVE</text>
+            <text x="117" y="751" font-family="Jost, sans-serif" font-size="14" font-weight="700" fill="#090909">135€</text>
+            <text x="117" y="772" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">★★★★★ Avis clients</text>
+            <rect x="32" y="800" width="296" height="72" fill="#090909"/>
+            <text x="180" y="829" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#ffffff">VOIR LES BASKETS</text>
+            <text x="180" y="851" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Products, prices and proof in fold one</text>
+          </svg>
+          <p class="cvrt-caption">Featured sneakers, prices and customer proof enter the first fold without replacing the campaign image. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">Immediate Fix</span></div>
+          <h3 class="cvrt-slot-title">Offer Message Match</h3>
+          <p class="cvrt-page-label">Pages: Paid acquisition and onsite offers</p>
+          <p class="cvrt-slot-description">Paid and onsite surfaces currently show -10€, 15€ and up to -40%, including a dated offer that is still serving. The conflict makes the promotion change as the shopper moves from promise to page. The proposed experience uses one current offer and repeats the same wording across each touchpoint.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 420" role="img" aria-label="Conflicting promotional messages converging into one consistent offer">
+            <rect width="816" height="420" fill="#f1f1ec"/>
+            <text x="20" y="29" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">CURRENT JOURNEY</text>
+            <rect x="20" y="50" width="230" height="155" fill="#ffffff" stroke="#090909"/>
+            <rect x="33" y="63" width="204" height="65" fill="#df2461"/>
+            <text x="46" y="88" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#ffffff">Paid creative</text>
+            <text x="46" y="114" font-family="Jost, sans-serif" font-size="24" font-weight="900" fill="#ffffff">JUSQU'À -40%</text>
+            <text x="34" y="154" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">Jusqu'au 28 juillet</text>
+            <text x="34" y="179" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Dated promotion still visible</text>
+            <rect x="293" y="50" width="230" height="155" fill="#ffffff" stroke="#090909"/>
+            <rect x="306" y="63" width="204" height="35" fill="#f4e967"/>
+            <text x="408" y="86" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">CLUB WHATSAPP</text>
+            <text x="408" y="133" text-anchor="middle" font-family="Jost, sans-serif" font-size="30" font-weight="900" fill="#090909">15€</text>
+            <text x="408" y="158" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">de réduction</text>
+            <rect x="546" y="50" width="250" height="155" fill="#ffffff" stroke="#090909"/>
+            <text x="561" y="77" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Onsite bubble</text>
+            <circle cx="671" cy="132" r="48" fill="#ffffff" stroke="#090909" stroke-width="2"/>
+            <text x="671" y="140" text-anchor="middle" font-family="Jost, sans-serif" font-size="25" font-weight="900" fill="#090909">-10€</text>
+            <path d="M112 223v31M408 223v31M671 223v31" stroke="#090909" stroke-width="3"/>
+            <path d="m104 246 8 9 8-9M400 246l8 9 8-9M663 246l8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <rect x="20" y="273" width="776" height="124" fill="#090909" stroke="#090909"/>
+            <rect x="38" y="291" width="740" height="88" fill="#f4e967"/>
+            <text x="61" y="321" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">PROPOSED JOURNEY</text>
+            <text x="61" y="347" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#090909">ONE CURRENT OFFER.</text>
+            <text x="61" y="372" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#090909">THE SAME WORDING AT EVERY STEP.</text>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 810" role="img" aria-label="Mobile view of conflicting offers resolving to one consistent message">
+            <rect width="360" height="810" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CURRENT JOURNEY</text>
+            <rect x="18" y="44" width="324" height="126" fill="#ffffff" stroke="#090909"/>
+            <rect x="31" y="57" width="119" height="100" fill="#df2461"/>
+            <text x="42" y="80" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Paid creative</text>
+            <text x="42" y="109" font-family="Jost, sans-serif" font-size="21" font-weight="900" fill="#ffffff">-40%</text>
+            <text x="42" y="137" font-family="Jost, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Jusqu'au 28 juillet</text>
+            <text x="170" y="85" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">Dated promotion</text>
+            <text x="170" y="110" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">One promise</text>
+            <text x="170" y="133" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">before the click</text>
+            <path d="M180 185v28" stroke="#090909" stroke-width="3"/><path d="m172 205 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <rect x="18" y="228" width="324" height="126" fill="#ffffff" stroke="#090909"/>
+            <rect x="31" y="241" width="296" height="34" fill="#f4e967"/>
+            <text x="179" y="263" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">CLUB WHATSAPP: 15€ DE RÉDUCTION</text>
+            <circle cx="89" cy="313" r="28" fill="#ffffff" stroke="#090909" stroke-width="2"/>
+            <text x="89" y="320" text-anchor="middle" font-family="Jost, sans-serif" font-size="17" font-weight="900" fill="#090909">-10€</text>
+            <text x="133" y="305" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">Landing page and bubble</text>
+            <text x="133" y="329" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Two new amounts appear</text>
+            <path d="M180 369v30" stroke="#090909" stroke-width="3"/><path d="m172 391 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="433" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">PROPOSED JOURNEY</text>
+            <rect x="18" y="449" width="324" height="337" fill="#090909" stroke="#090909"/>
+            <rect x="32" y="463" width="296" height="76" fill="#f4e967"/>
+            <text x="48" y="488" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">PAID CREATIVE</text>
+            <text x="48" y="518" font-family="Jost, sans-serif" font-size="20" font-weight="900" fill="#090909">ONE CURRENT OFFER</text>
+            <path d="M180 548v30" stroke="#ffffff" stroke-width="3"/><path d="m172 570 8 9 8-9" fill="none" stroke="#ffffff" stroke-width="3"/>
+            <rect x="32" y="592" width="296" height="76" fill="#f4e967"/>
+            <text x="48" y="617" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">LANDING PAGE</text>
+            <text x="48" y="647" font-family="Jost, sans-serif" font-size="20" font-weight="900" fill="#090909">THE SAME WORDING</text>
+            <path d="M180 677v29" stroke="#ffffff" stroke-width="3"/><path d="m172 698 8 9 8-9" fill="none" stroke="#ffffff" stroke-width="3"/>
+            <rect x="32" y="720" width="296" height="52" fill="#f4e967"/>
+            <text x="180" y="752" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">ONE PROMISE THROUGHOUT</text>
+          </svg>
+          <p class="cvrt-caption">Three conflicting amounts become one current promise repeated across the journey. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">Immediate Fix</span></div>
+          <h3 class="cvrt-slot-title">Paid Creative Feed</h3>
+          <p class="cvrt-page-label">Surface: Paid search creative</p>
+          <p class="cvrt-slot-description">Paid-search tiles display unfilled variables such as &lt;Prix&gt; and &lt;Rating (Reviews)&gt;, while another tile shows a raw 500 error. These are visible broken states inside active creative variants. The fix replaces every placeholder and error state with complete product, price, and destination content.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 430" role="img" aria-label="Broken paid search tiles compared with complete product creative">
+            <rect width="816" height="430" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">BROKEN STATES</text>
+            <rect x="18" y="48" width="238" height="346" fill="#ffffff" stroke="#090909"/>
+            <rect x="34" y="66" width="206" height="124" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=500" x="67" y="77" width="140" height="102" preserveAspectRatio="xMidYMid slice"/>
+            <text x="35" y="223" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#0b57d0">Baskets éthiques</text>
+            <text x="35" y="252" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#090909">&lt;Prix&gt;</text>
+            <text x="35" y="279" font-family="Jost, sans-serif" font-size="15" font-weight="700" fill="#090909">&lt;Rating (Reviews)&gt;</text>
+            <text x="35" y="309" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">panafrica-store.com</text>
+            <rect x="278" y="48" width="238" height="346" fill="#ffffff" stroke="#090909"/>
+            <text x="297" y="103" font-family="Jost, sans-serif" font-size="26" font-weight="900" fill="#090909">500.</text>
+            <text x="297" y="140" font-family="Jost, sans-serif" font-size="19" font-weight="700" fill="#090909">That's an error.</text>
+            <text x="297" y="185" font-family="Jost, sans-serif" font-size="14" font-weight="700" fill="#090909">There was an error.</text>
+            <text x="297" y="210" font-family="Jost, sans-serif" font-size="14" font-weight="700" fill="#090909">Please try again later.</text>
+            <path d="M530 221h34" stroke="#090909" stroke-width="3"/><path d="m556 213 8 8-8 8" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="582" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">COMPLETE FEED</text>
+            <rect x="582" y="48" width="216" height="346" fill="#ffffff" stroke="#090909"/>
+            <rect x="598" y="64" width="184" height="160" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=600" x="612" y="78" width="156" height="132" preserveAspectRatio="xMidYMid slice"/>
+            <text x="598" y="253" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">PANAFRICA</text>
+            <text x="598" y="281" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#0b57d0">Sahara-Safran</text>
+            <text x="598" y="310" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#090909">135€</text>
+            <text x="598" y="334" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">Baskets éthiques et colorées</text>
+            <rect x="598" y="348" width="184" height="30" fill="#f4e967" stroke="#090909"/>
+            <text x="690" y="368" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 880" role="img" aria-label="Mobile stack of broken creative states followed by a complete product tile">
+            <rect width="360" height="880" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">BROKEN STATES</text>
+            <rect x="18" y="44" width="324" height="206" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="58" width="126" height="126" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=400" x="42" y="68" width="106" height="106" preserveAspectRatio="xMidYMid slice"/>
+            <text x="175" y="82" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#0b57d0">Baskets éthiques</text>
+            <text x="175" y="116" font-family="Jost, sans-serif" font-size="19" font-weight="900" fill="#090909">&lt;Prix&gt;</text>
+            <text x="175" y="148" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">&lt;Rating</text>
+            <text x="175" y="169" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">(Reviews)&gt;</text>
+            <text x="32" y="222" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Unfilled product variables</text>
+            <rect x="18" y="267" width="324" height="155" fill="#ffffff" stroke="#090909"/>
+            <text x="36" y="316" font-family="Jost, sans-serif" font-size="27" font-weight="900" fill="#090909">500.</text>
+            <text x="116" y="316" font-family="Jost, sans-serif" font-size="18" font-weight="700" fill="#090909">That's an error.</text>
+            <text x="36" y="352" font-family="Jost, sans-serif" font-size="14" font-weight="700" fill="#090909">There was an error.</text>
+            <text x="36" y="376" font-family="Jost, sans-serif" font-size="14" font-weight="700" fill="#090909">Please try again later.</text>
+            <path d="M180 439v34" stroke="#090909" stroke-width="3"/><path d="m172 465 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="506" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">COMPLETE FEED</text>
+            <rect x="18" y="522" width="324" height="336" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="536" width="296" height="176" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=700" x="70" y="548" width="220" height="152" preserveAspectRatio="xMidYMid slice"/>
+            <text x="34" y="741" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">PANAFRICA</text>
+            <text x="34" y="770" font-family="Jost, sans-serif" font-size="20" font-weight="900" fill="#0b57d0">Sahara-Safran</text>
+            <text x="34" y="801" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#090909">135€</text>
+            <rect x="208" y="777" width="120" height="46" fill="#f4e967" stroke="#090909"/>
+            <text x="268" y="806" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">DÉCOUVRIR</text>
+          </svg>
+          <p class="cvrt-caption">Broken variables and error tiles are replaced by complete product creative with real destinations. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
+          <h3 class="cvrt-slot-title">PDP Size Guidance</h3>
+          <p class="cvrt-page-label">Page: <a href="https://panafrica-store.com/products/sahara-safran" target="_blank" rel="noopener">Sahara-Safran product page</a></p>
+          <p class="cvrt-slot-description">Sizing runs large is the most repeated complaint across more than 90 Sahara reviews, despite the existing fit note on the page. The advice sits below the selector, but it does not clearly lead the size decision. The variation places “Ce modèle taille grand” directly under the size buttons and recommends taking one size down.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 478" role="img" aria-label="Sahara-Safran size selector control compared with prominent fit guidance">
+            <rect width="816" height="478" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">CONTROL</text>
+            <text x="426" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">VARIATION</text>
+            <rect x="18" y="48" width="372" height="394" fill="#ffffff" stroke="#090909"/>
+            <rect x="34" y="64" width="132" height="132" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=500" x="40" y="70" width="120" height="120" preserveAspectRatio="xMidYMid slice"/>
+            <text x="183" y="84" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#090909">SAHARA-SAFRAN</text>
+            <text x="183" y="115" font-family="Jost, sans-serif" font-size="18" font-weight="700" fill="#090909">135€</text>
+            <text x="183" y="145" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#f0cf00">★★★★★</text>
+            <text x="257" y="145" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">(201 avis)</text>
+            <text x="34" y="226" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">CHOISISSEZ VOTRE TAILLE</text>
+            <g fill="#e6e9e8" stroke="#090909"><rect x="34" y="241" width="36" height="36" fill="#ffffff" stroke-width="2"/><rect x="76" y="241" width="36" height="36"/><rect x="118" y="241" width="36" height="36"/><rect x="160" y="241" width="36" height="36"/><rect x="202" y="241" width="36" height="36"/><rect x="244" y="241" width="36" height="36"/><rect x="286" y="241" width="36" height="36"/><rect x="328" y="241" width="36" height="36"/></g>
+            <g font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909" text-anchor="middle"><text x="52" y="264">36</text><text x="94" y="264">37</text><text x="136" y="264">38</text><text x="178" y="264">39</text><text x="220" y="264">40</text><text x="262" y="264">41</text><text x="304" y="264">42</text><text x="346" y="264">43</text></g>
+            <text x="34" y="310" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Modèle unisexe, prendre votre taille habituelle.</text>
+            <text x="34" y="331" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Entre 2 tailles ? Femme: inférieure. Homme: supérieure.</text>
+            <text x="34" y="361" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#de2028">Plus que 3 produits en stock</text>
+            <rect x="34" y="382" width="330" height="42" fill="#f4e967" stroke="#090909"/>
+            <text x="199" y="408" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">AJOUTER AU PANIER</text>
+            <rect x="426" y="48" width="372" height="394" fill="#ffffff" stroke="#090909"/>
+            <rect x="442" y="64" width="132" height="132" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=500" x="448" y="70" width="120" height="120" preserveAspectRatio="xMidYMid slice"/>
+            <text x="591" y="84" font-family="Jost, sans-serif" font-size="22" font-weight="900" fill="#090909">SAHARA-SAFRAN</text>
+            <text x="591" y="115" font-family="Jost, sans-serif" font-size="18" font-weight="700" fill="#090909">135€</text>
+            <text x="591" y="145" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#f0cf00">★★★★★</text>
+            <text x="665" y="145" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">(201 avis)</text>
+            <text x="442" y="226" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">CHOISISSEZ VOTRE TAILLE</text>
+            <g fill="#e6e9e8" stroke="#090909"><rect x="442" y="241" width="36" height="36" fill="#ffffff" stroke-width="2"/><rect x="484" y="241" width="36" height="36"/><rect x="526" y="241" width="36" height="36"/><rect x="568" y="241" width="36" height="36"/><rect x="610" y="241" width="36" height="36"/><rect x="652" y="241" width="36" height="36"/><rect x="694" y="241" width="36" height="36"/><rect x="736" y="241" width="36" height="36"/></g>
+            <g font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909" text-anchor="middle"><text x="460" y="264">36</text><text x="502" y="264">37</text><text x="544" y="264">38</text><text x="586" y="264">39</text><text x="628" y="264">40</text><text x="670" y="264">41</text><text x="712" y="264">42</text><text x="754" y="264">43</text></g>
+            <rect x="442" y="292" width="330" height="64" fill="#f4e967" stroke="#090909" stroke-width="2"/>
+            <text x="458" y="316" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">CE MODÈLE TAILLE GRAND</text>
+            <text x="458" y="339" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">La plupart des clients prennent une taille en dessous.</text>
+            <text x="442" y="379" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#de2028">Plus que 3 produits en stock</text>
+            <rect x="442" y="392" width="330" height="32" fill="#090909"/>
+            <text x="607" y="413" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#ffffff">AJOUTER AU PANIER</text>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 1050" role="img" aria-label="Mobile PDP control stacked above variation with prominent fit guidance">
+            <rect width="360" height="1050" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CONTROL</text>
+            <rect x="18" y="44" width="324" height="438" fill="#ffffff" stroke="#090909"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=500" x="32" y="58" width="112" height="112" preserveAspectRatio="xMidYMid slice"/>
+            <text x="160" y="78" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#090909">SAHARA-SAFRAN</text>
+            <text x="160" y="108" font-family="Jost, sans-serif" font-size="17" font-weight="700" fill="#090909">135€</text>
+            <text x="160" y="138" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#f0cf00">★★★★★</text><text x="230" y="138" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">201 avis</text>
+            <text x="32" y="201" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">CHOISISSEZ VOTRE TAILLE</text>
+            <g fill="#e6e9e8" stroke="#090909"><rect x="32" y="217" width="36" height="38" fill="#ffffff" stroke-width="2"/><rect x="76" y="217" width="36" height="38"/><rect x="120" y="217" width="36" height="38"/><rect x="164" y="217" width="36" height="38"/><rect x="208" y="217" width="36" height="38"/><rect x="252" y="217" width="36" height="38"/></g>
+            <g font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909" text-anchor="middle"><text x="50" y="242">36</text><text x="94" y="242">37</text><text x="138" y="242">38</text><text x="182" y="242">39</text><text x="226" y="242">40</text><text x="270" y="242">41</text></g>
+            <text x="32" y="288" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Modèle unisexe, prenez votre taille habituelle.</text>
+            <text x="32" y="311" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Entre 2 tailles ? Consultez les notes Femme/Homme.</text>
+            <text x="32" y="348" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#de2028">Plus que 3 produits en stock</text>
+            <rect x="32" y="371" width="296" height="48" fill="#f4e967" stroke="#090909"/>
+            <text x="180" y="401" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">AJOUTER AU PANIER</text>
+            <path d="M180 497v34" stroke="#090909" stroke-width="3"/><path d="m172 523 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="564" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">VARIATION</text>
+            <rect x="18" y="580" width="324" height="447" fill="#ffffff" stroke="#090909"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/Sahara_Safran_1-min.jpg?v=1764870372&amp;width=500" x="32" y="594" width="112" height="112" preserveAspectRatio="xMidYMid slice"/>
+            <text x="160" y="614" font-family="Jost, sans-serif" font-size="18" font-weight="900" fill="#090909">SAHARA-SAFRAN</text>
+            <text x="160" y="644" font-family="Jost, sans-serif" font-size="17" font-weight="700" fill="#090909">135€</text>
+            <text x="160" y="674" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#f0cf00">★★★★★</text><text x="230" y="674" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">201 avis</text>
+            <text x="32" y="737" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">CHOISISSEZ VOTRE TAILLE</text>
+            <g fill="#e6e9e8" stroke="#090909"><rect x="32" y="753" width="36" height="38" fill="#ffffff" stroke-width="2"/><rect x="76" y="753" width="36" height="38"/><rect x="120" y="753" width="36" height="38"/><rect x="164" y="753" width="36" height="38"/><rect x="208" y="753" width="36" height="38"/><rect x="252" y="753" width="36" height="38"/></g>
+            <g font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909" text-anchor="middle"><text x="50" y="778">36</text><text x="94" y="778">37</text><text x="138" y="778">38</text><text x="182" y="778">39</text><text x="226" y="778">40</text><text x="270" y="778">41</text></g>
+            <rect x="32" y="809" width="296" height="76" fill="#f4e967" stroke="#090909" stroke-width="2"/>
+            <text x="46" y="835" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">CE MODÈLE TAILLE GRAND</text>
+            <text x="46" y="858" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Prenez une taille en dessous.</text>
+            <text x="32" y="916" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#de2028">Plus que 3 produits en stock</text>
+            <rect x="32" y="939" width="296" height="48" fill="#090909"/>
+            <text x="180" y="969" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#ffffff">AJOUTER AU PANIER</text>
+          </svg>
+          <p class="cvrt-caption">The recurring sizing warning moves directly beneath the size buttons, before the purchase decision. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">Immediate Fix</span></div>
+          <h3 class="cvrt-slot-title">PDP Recommendations</h3>
+          <p class="cvrt-page-label">Pages: Product detail pages</p>
+          <p class="cvrt-slot-description">Arusha product pages show “Nos recommandations” directly after delivery information, while Sahara-Safran does not show the module in the equivalent fold. The same template therefore presents different paths to a second item. The fix makes the recommendation block available consistently across every PDP.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 438" role="img" aria-label="PDP template alignment showing a missing and restored recommendations block">
+            <rect width="816" height="438" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">SAME TEMPLATE, DIFFERENT PATH</text>
+            <rect x="18" y="48" width="360" height="352" fill="#ffffff" stroke="#090909"/>
+            <rect x="34" y="64" width="328" height="46" fill="#090909"/>
+            <text x="198" y="93" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#ffffff">ACHETER EN 1-CLIC</text>
+            <rect x="34" y="121" width="328" height="46" fill="#f4e967" stroke="#090909"/>
+            <text x="198" y="150" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">AJOUTER AU PANIER</text>
+            <text x="34" y="203" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">3X ALMA   Paiement en 3x sans frais</text>
+            <text x="34" y="235" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">Livraison Express disponible</text>
+            <text x="34" y="259" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">Livraison et Retours offerts dès 100€</text>
+            <rect x="34" y="282" width="328" height="64" fill="#f1f1ec" stroke="#090909" stroke-dasharray="7 6"/>
+            <text x="198" y="309" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">SAHARA-SAFRAN</text>
+            <text x="198" y="331" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Recommendation module missing</text>
+            <path d="M389 224h34" stroke="#090909" stroke-width="3"/><path d="m415 216 8 8-8 8" fill="none" stroke="#090909" stroke-width="3"/>
+            <rect x="438" y="48" width="360" height="352" fill="#ffffff" stroke="#090909"/>
+            <rect x="454" y="64" width="328" height="46" fill="#090909"/>
+            <text x="618" y="93" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#ffffff">ACHETER EN 1-CLIC</text>
+            <rect x="454" y="121" width="328" height="46" fill="#f4e967" stroke="#090909"/>
+            <text x="618" y="150" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">AJOUTER AU PANIER</text>
+            <text x="454" y="203" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">3X ALMA   Paiement en 3x sans frais</text>
+            <text x="454" y="235" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">Livraison Express disponible</text>
+            <text x="454" y="259" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">Livraison et Retours offerts dès 100€</text>
+            <text x="454" y="291" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">NOS RECOMMANDATIONS</text>
+            <rect x="454" y="306" width="328" height="76" fill="#ffffff" stroke="#090909" stroke-width="2"/>
+            <rect x="466" y="318" width="53" height="52" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/bag-congres.png?v=1759939218&amp;width=300" x="468" y="320" width="49" height="48" preserveAspectRatio="xMidYMid slice"/>
+            <text x="532" y="333" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">SAC KARIBA CONGRÈS</text>
+            <text x="532" y="358" font-family="Jost, sans-serif" font-size="14" font-weight="700" fill="#090909">20€</text>
+            <rect x="684" y="324" width="84" height="42" fill="#e6e9e8"/>
+            <text x="726" y="350" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">+ AJOUTER</text>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 848" role="img" aria-label="Mobile PDP problem state above corrected state with recommendations">
+            <rect width="360" height="848" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">MISSING ON SAHARA-SAFRAN</text>
+            <rect x="18" y="44" width="324" height="326" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="58" width="296" height="44" fill="#090909"/><text x="180" y="86" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#ffffff">ACHETER EN 1-CLIC</text>
+            <rect x="32" y="113" width="296" height="44" fill="#f4e967" stroke="#090909"/><text x="180" y="141" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">AJOUTER AU PANIER</text>
+            <text x="32" y="191" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">3X ALMA   Paiement en 3x sans frais</text>
+            <text x="32" y="222" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Livraison Express disponible</text>
+            <text x="32" y="245" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">Livraison et Retours offerts dès 100€</text>
+            <rect x="32" y="270" width="296" height="72" fill="#f1f1ec" stroke="#090909" stroke-dasharray="7 6"/>
+            <text x="180" y="300" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">SAHARA-SAFRAN</text>
+            <text x="180" y="325" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">No recommendation block</text>
+            <path d="M180 386v34" stroke="#090909" stroke-width="3"/><path d="m172 412 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="453" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CONSISTENT PDP TEMPLATE</text>
+            <rect x="18" y="469" width="324" height="355" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="483" width="296" height="44" fill="#090909"/><text x="180" y="511" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#ffffff">ACHETER EN 1-CLIC</text>
+            <rect x="32" y="538" width="296" height="44" fill="#f4e967" stroke="#090909"/><text x="180" y="566" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">AJOUTER AU PANIER</text>
+            <text x="32" y="616" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">NOS RECOMMANDATIONS</text>
+            <rect x="32" y="633" width="296" height="116" fill="#ffffff" stroke="#090909" stroke-width="2"/>
+            <rect x="45" y="646" width="76" height="90" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/bag-congres.png?v=1759939218&amp;width=400" x="48" y="650" width="70" height="82" preserveAspectRatio="xMidYMid slice"/>
+            <text x="136" y="660" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">SAC KARIBA</text>
+            <text x="136" y="681" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">CONGRÈS</text>
+            <text x="136" y="710" font-family="Jost, sans-serif" font-size="15" font-weight="700" fill="#090909">20€</text>
+            <rect x="212" y="690" width="102" height="42" fill="#e6e9e8"/>
+            <text x="263" y="716" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">+ AJOUTER</text>
+            <text x="32" y="785" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">The same second-item path on every PDP</text>
+          </svg>
+          <p class="cvrt-caption">The recommendation module appears in the same post-purchase zone on every product template. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
+          <h3 class="cvrt-slot-title">Ratings Across Discovery Pages</h3>
+          <p class="cvrt-page-label">Pages: Homepage and collection pages</p>
+          <p class="cvrt-slot-description">The 5-star review block appears directly below product titles on PDPs, but the homepage and collection cards show no rating or review count. The proof arrives only after a shopper opens a product page. The variation carries a compact rating line into the homepage feature and every collection card.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 510" role="img" aria-label="Collection card row before and after ratings are added">
+            <rect width="816" height="510" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">CONTROL: COLLECTION CARDS</text>
+            <rect x="18" y="48" width="780" height="188" fill="#ffffff" stroke="#090909"/>
+            <g>
+              <rect x="34" y="64" width="172" height="156" fill="#e6e9e8"/><rect x="44" y="74" width="40" height="22" fill="#f4e967"/><text x="64" y="89" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=500" x="48" y="84" width="144" height="91" preserveAspectRatio="xMidYMid slice"/><text x="120" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">SAHARA OLIVE</text><text x="120" y="214" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">135€</text>
+              <rect x="224" y="64" width="172" height="156" fill="#e6e9e8"/><rect x="234" y="74" width="40" height="22" fill="#f4e967"/><text x="254" y="89" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=500" x="238" y="84" width="144" height="91" preserveAspectRatio="xMidYMid slice"/><text x="310" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">AKANDA KARMEL</text><text x="310" y="214" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">159€</text>
+              <rect x="414" y="64" width="172" height="156" fill="#e6e9e8"/><rect x="424" y="74" width="40" height="22" fill="#f4e967"/><text x="444" y="89" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=500" x="428" y="84" width="144" height="91" preserveAspectRatio="xMidYMid slice"/><text x="500" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">KASAÏ BORDEAUX</text><text x="500" y="214" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">125€</text>
+              <rect x="604" y="64" width="178" height="156" fill="#e6e9e8"/><rect x="614" y="74" width="40" height="22" fill="#f4e967"/><text x="634" y="89" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/RUN-692-Arusha_Ndole_01.jpg?v=1783515456&amp;width=500" x="618" y="84" width="150" height="91" preserveAspectRatio="xMidYMid slice"/><text x="693" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">ARUSHA NDOLÉ</text><text x="693" y="214" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">149€</text>
+            </g>
+            <path d="M408 246v34" stroke="#090909" stroke-width="3"/><path d="m400 272 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="309" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">VARIATION: PROOF TRAVELS WITH EACH PRODUCT</text>
+            <rect x="18" y="329" width="780" height="166" fill="#ffffff" stroke="#090909"/>
+            <g>
+              <rect x="34" y="345" width="172" height="134" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=400" x="44" y="354" width="78" height="78" preserveAspectRatio="xMidYMid slice"/><text x="132" y="368" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">SAHARA OLIVE</text><text x="132" y="391" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">135€</text><text x="132" y="415" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">★★★★★</text><text x="132" y="437" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Avis clients</text>
+              <rect x="224" y="345" width="172" height="134" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=400" x="234" y="354" width="78" height="78" preserveAspectRatio="xMidYMid slice"/><text x="322" y="368" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">AKANDA</text><text x="322" y="386" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">KARMEL</text><text x="322" y="409" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">159€</text><text x="322" y="433" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">★★★★★</text><text x="322" y="455" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Avis clients</text>
+              <rect x="414" y="345" width="172" height="134" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=400" x="424" y="354" width="78" height="78" preserveAspectRatio="xMidYMid slice"/><text x="512" y="368" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">KASAÏ</text><text x="512" y="386" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">BORDEAUX</text><text x="512" y="409" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">125€</text><text x="512" y="433" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">★★★★★</text><text x="512" y="455" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Avis clients</text>
+              <rect x="604" y="345" width="178" height="134" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/RUN-692-Arusha_Ndole_01.jpg?v=1783515456&amp;width=400" x="614" y="354" width="78" height="78" preserveAspectRatio="xMidYMid slice"/><text x="702" y="368" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">ARUSHA</text><text x="702" y="386" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">NDOLÉ</text><text x="702" y="409" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">149€</text><text x="702" y="433" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">★★★★★</text><text x="702" y="455" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Avis clients</text>
+            </g>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 914" role="img" aria-label="Mobile collection cards without ratings followed by cards with ratings">
+            <rect width="360" height="914" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CONTROL</text>
+            <rect x="18" y="44" width="324" height="336" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="58" width="142" height="300" fill="#e6e9e8"/><rect x="42" y="68" width="39" height="22" fill="#f4e967"/><text x="61" y="83" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=400" x="42" y="98" width="122" height="170" preserveAspectRatio="xMidYMid slice"/><text x="103" y="294" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">SAHARA OLIVE</text><text x="103" y="319" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">135€</text>
+            <rect x="186" y="58" width="142" height="300" fill="#e6e9e8"/><rect x="196" y="68" width="39" height="22" fill="#f4e967"/><text x="215" y="83" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=400" x="196" y="98" width="122" height="170" preserveAspectRatio="xMidYMid slice"/><text x="257" y="294" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">AKANDA KARMEL</text><text x="257" y="319" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">159€</text>
+            <path d="M180 396v34" stroke="#090909" stroke-width="3"/><path d="m172 422 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="463" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">VARIATION</text>
+            <rect x="18" y="479" width="324" height="411" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="493" width="142" height="375" fill="#e6e9e8"/><rect x="42" y="503" width="39" height="22" fill="#f4e967"/><text x="61" y="518" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=400" x="42" y="533" width="122" height="170" preserveAspectRatio="xMidYMid slice"/><text x="103" y="729" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">SAHARA OLIVE</text><text x="103" y="753" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">135€</text><text x="103" y="780" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">★★★★★</text><text x="103" y="805" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Avis clients</text>
+            <rect x="186" y="493" width="142" height="375" fill="#e6e9e8"/><rect x="196" y="503" width="39" height="22" fill="#f4e967"/><text x="215" y="518" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909">NEW</text><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=400" x="196" y="533" width="122" height="170" preserveAspectRatio="xMidYMid slice"/><text x="257" y="729" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">AKANDA KARMEL</text><text x="257" y="753" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">159€</text><text x="257" y="780" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="900" fill="#090909">★★★★★</text><text x="257" y="805" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Avis clients</text>
+          </svg>
+          <p class="cvrt-caption">The PDP review signal is carried into every discovery card, directly beneath the price. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+
+      <article class="cvrt-slot">
+        <div class="cvrt-slot-copy">
+          <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type">Immediate Fix</span></div>
+          <h3 class="cvrt-slot-title">Collection Quick Add</h3>
+          <p class="cvrt-page-label">Page: <a href="https://panafrica-store.com/collections/nouveautes" target="_blank" rel="noopener">New In collection</a></p>
+          <p class="cvrt-slot-description">One collection card exposes a full size run and “Add to cart,” while every neighboring card shows only image, name and price. The state is not confirmed as a hover effect, a partial rollout or a rendering bug. Audit the interaction, then make every card use the same resolved purchase state.</p>
+        </div>
+        <div class="cvrt-concept">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 816 488" role="img" aria-label="Mixed collection card states followed by two consistent resolution routes">
+            <rect width="816" height="488" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">CURRENT: MIXED GRID STATE</text>
+            <rect x="18" y="48" width="388" height="404" fill="#ffffff" stroke="#090909"/>
+            <rect x="34" y="64" width="164" height="370" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=500" x="46" y="82" width="140" height="170" preserveAspectRatio="xMidYMid slice"/>
+            <text x="116" y="282" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">KASAÏ BORDEAUX</text>
+            <text x="116" y="306" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="700" fill="#090909">125€</text>
+            <rect x="220" y="64" width="170" height="370" fill="#e6e9e8" stroke="#de2028" stroke-width="3"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=500" x="232" y="82" width="146" height="152" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="260" y="244" width="90" height="30" fill="#090909"/>
+            <text x="305" y="264" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#ffffff">ADD TO CART</text>
+            <g font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909" text-anchor="middle"><text x="241" y="297">36</text><text x="269" y="297">37</text><text x="297" y="297">38</text><text x="325" y="297">39</text><text x="353" y="297">40</text><text x="241" y="323">41</text><text x="269" y="323">42</text><text x="297" y="323">43</text><text x="325" y="323">44</text><text x="353" y="323">45</text></g>
+            <text x="305" y="357" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="900" fill="#090909">ONE CARD ONLY</text>
+            <text x="305" y="380" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">Sizes and quick add exposed</text>
+            <text x="305" y="404" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="700" fill="#090909">beside standard cards</text>
+            <text x="438" y="28" font-family="Jost, sans-serif" font-size="16" font-weight="900" fill="#090909">RESOLVED: ONE RULE</text>
+            <rect x="438" y="48" width="360" height="188" fill="#ffffff" stroke="#090909"/>
+            <text x="454" y="75" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">ROUTE A: STANDARD CARDS</text>
+            <rect x="454" y="91" width="101" height="126" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=300" x="462" y="100" width="85" height="77" preserveAspectRatio="xMidYMid slice"/><text x="505" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">SAHARA OLIVE</text><text x="505" y="210" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">135€</text>
+            <rect x="565" y="91" width="101" height="126" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=300" x="573" y="100" width="85" height="77" preserveAspectRatio="xMidYMid slice"/><text x="616" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">AKANDA KARMEL</text><text x="616" y="210" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">159€</text>
+            <rect x="676" y="91" width="106" height="126" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=300" x="684" y="100" width="90" height="77" preserveAspectRatio="xMidYMid slice"/><text x="729" y="195" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">KASAÏ BORDEAUX</text><text x="729" y="210" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">125€</text>
+            <rect x="438" y="252" width="360" height="200" fill="#ffffff" stroke="#090909"/>
+            <text x="454" y="279" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">ROUTE B: QUICK ADD EVERYWHERE</text>
+            <g>
+              <rect x="454" y="295" width="101" height="141" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=300" x="462" y="302" width="85" height="65" preserveAspectRatio="xMidYMid slice"/><text x="505" y="386" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">SAHARA OLIVE</text><text x="505" y="402" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">135€</text><rect x="466" y="410" width="77" height="18" fill="#090909"/><text x="505" y="423" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" font-weight="900" fill="#ffffff">CHOISIR TAILLE</text>
+              <rect x="565" y="295" width="101" height="141" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=300" x="573" y="302" width="85" height="65" preserveAspectRatio="xMidYMid slice"/><text x="616" y="386" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">AKANDA KARMEL</text><text x="616" y="402" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">159€</text><rect x="577" y="410" width="77" height="18" fill="#090909"/><text x="616" y="423" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" font-weight="900" fill="#ffffff">CHOISIR TAILLE</text>
+              <rect x="676" y="295" width="106" height="141" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=300" x="684" y="302" width="90" height="65" preserveAspectRatio="xMidYMid slice"/><text x="729" y="386" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">KASAÏ BORDEAUX</text><text x="729" y="402" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">125€</text><rect x="690" y="410" width="78" height="18" fill="#090909"/><text x="729" y="423" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" font-weight="900" fill="#ffffff">CHOISIR TAILLE</text>
+            </g>
+          </svg>
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 1100" role="img" aria-label="Mobile collection inconsistency followed by two consistent resolution routes">
+            <rect width="360" height="1100" fill="#f1f1ec"/>
+            <text x="18" y="28" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">CURRENT: MIXED STATE</text>
+            <rect x="18" y="44" width="324" height="383" fill="#ffffff" stroke="#090909"/>
+            <rect x="32" y="58" width="142" height="347" fill="#e6e9e8"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=400" x="42" y="74" width="122" height="174" preserveAspectRatio="xMidYMid slice"/>
+            <text x="103" y="278" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">KASAÏ BORDEAUX</text><text x="103" y="302" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="700" fill="#090909">125€</text>
+            <rect x="186" y="58" width="142" height="347" fill="#e6e9e8" stroke="#de2028" stroke-width="3"/>
+            <image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=400" x="196" y="74" width="122" height="140" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="213" y="226" width="88" height="30" fill="#090909"/><text x="257" y="246" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#ffffff">ADD TO CART</text>
+            <g font-family="Jost, sans-serif" font-size="10" font-weight="900" fill="#090909" text-anchor="middle"><text x="207" y="280">36</text><text x="232" y="280">37</text><text x="257" y="280">38</text><text x="282" y="280">39</text><text x="307" y="280">40</text><text x="207" y="304">41</text><text x="232" y="304">42</text><text x="257" y="304">43</text><text x="282" y="304">44</text><text x="307" y="304">45</text></g>
+            <text x="257" y="343" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" font-weight="900" fill="#090909">ONE CARD ONLY</text><text x="257" y="366" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="700" fill="#090909">Quick add exposed</text>
+            <path d="M180 443v34" stroke="#090909" stroke-width="3"/><path d="m172 469 8 9 8-9" fill="none" stroke="#090909" stroke-width="3"/>
+            <text x="18" y="510" font-family="Jost, sans-serif" font-size="15" font-weight="900" fill="#090909">RESOLVED: ONE RULE</text>
+            <rect x="18" y="526" width="324" height="244" fill="#ffffff" stroke="#090909"/>
+            <text x="32" y="553" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">ROUTE A: STANDARD CARDS</text>
+            <rect x="32" y="570" width="90" height="178" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=300" x="40" y="580" width="74" height="110" preserveAspectRatio="xMidYMid slice"/><text x="77" y="712" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">SAHARA</text><text x="77" y="728" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">135€</text>
+            <rect x="135" y="570" width="90" height="178" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=300" x="143" y="580" width="74" height="110" preserveAspectRatio="xMidYMid slice"/><text x="180" y="712" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">AKANDA</text><text x="180" y="728" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">159€</text>
+            <rect x="238" y="570" width="90" height="178" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=300" x="246" y="580" width="74" height="110" preserveAspectRatio="xMidYMid slice"/><text x="283" y="712" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">KASAÏ</text><text x="283" y="728" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="700" fill="#090909">125€</text>
+            <text x="180" y="795" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">OR</text>
+            <rect x="18" y="816" width="324" height="260" fill="#ffffff" stroke="#090909"/>
+            <text x="32" y="843" font-family="Jost, sans-serif" font-size="13" font-weight="900" fill="#090909">ROUTE B: QUICK ADD EVERYWHERE</text>
+            <rect x="32" y="860" width="90" height="194" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/SAH-665_Sahara_Olive.jpg?v=1782994378&amp;width=300" x="40" y="870" width="74" height="94" preserveAspectRatio="xMidYMid slice"/><text x="77" y="985" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">SAHARA</text><rect x="42" y="1005" width="70" height="26" fill="#090909"/><text x="77" y="1022" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" font-weight="900" fill="#ffffff">TAILLE</text>
+            <rect x="135" y="860" width="90" height="194" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/AK-683-Akanda_Karmel_01.jpg?v=1783499053&amp;width=300" x="143" y="870" width="74" height="94" preserveAspectRatio="xMidYMid slice"/><text x="180" y="985" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">AKANDA</text><rect x="145" y="1005" width="70" height="26" fill="#090909"/><text x="180" y="1022" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" font-weight="900" fill="#ffffff">TAILLE</text>
+            <rect x="238" y="860" width="90" height="194" fill="#e6e9e8"/><image href="https://panafrica-store.com/cdn/shop/files/KA-673_Kasai_Bordeaux_01.jpg?v=1783349066&amp;width=300" x="246" y="870" width="74" height="94" preserveAspectRatio="xMidYMid slice"/><text x="283" y="985" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="900" fill="#090909">KASAÏ</text><rect x="248" y="1005" width="70" height="26" fill="#090909"/><text x="283" y="1022" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" font-weight="900" fill="#ffffff">TAILLE</text>
+          </svg>
+          <p class="cvrt-caption">The mixed grid resolves into one consistent card behavior, whether quick add is retained or removed. Concept illustration only. Final design will differ.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cvrt-panel cvrt-insights-panel">
+      <div class="cvrt-killers">
+        <span class="cvrt-kickers-label">Cross-source themes</span>
+        <h2 class="cvrt-killers-title">Biggest Killers of Conversion Rate</h2>
+        <ul class="cvrt-killer-list">
+          <li>Paid and onsite surfaces present different offers, including a dated promotion that remains visible.</li>
+          <li>The homepage combines a 16.6s mobile LCP with no product price or trust signal in its first three folds.</li>
+          <li>Sizing confusion is the dominant repeated complaint across more than 90 Sahara reviews.</li>
+        </ul>
+      </div>
+
+      <h2 class="cvrt-insights-section-title">Data Sources Used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Page Speed Insights</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Competitor Analysis</div>
+      </div>
+
+      <h2 class="cvrt-insights-section-title">What We Found</h2>
+      <div class="cvrt-source-block">
+        <h3 class="cvrt-source-title">Meta Ads and Landing Pages</h3>
+        <ul class="cvrt-source-list">
+          <li>Offer-focused traffic can move from no discount promise to a landing page with a 15€ WhatsApp Club message and a separate -10€ bubble.</li>
+          <li>Every reviewed paid-social landing page used the same 149€ Arusha PDP structure, with a 5-star trust block and the same two-tier purchase buttons.</li>
+          <li>Live review counts and availability states no longer match the collected screenshots, confirming a timing gap between capture and audit.</li>
+        </ul>
+      </div>
+      <div class="cvrt-source-block">
+        <h3 class="cvrt-source-title">Google Ads</h3>
+        <ul class="cvrt-source-list">
+          <li>Search creative leads with ethical, vegan, eco-responsible and unique wax design messages, while paid-social creative leads with color, style and discount.</li>
+          <li>A promotion for up to -40% remained visible after its stated 28 July end date.</li>
+          <li>Several creative tiles show unfilled dynamic variables, and another shows a raw 500 error.</li>
+          <li>No 5-star or review signal appears in the reviewed search creative.</li>
+        </ul>
+      </div>
+      <div class="cvrt-source-block">
+        <h3 class="cvrt-source-title">Reviews and UGC</h3>
+        <ul class="cvrt-source-list">
+          <li>Comfort is repeated across nearly every reviewed Sahara comment.</li>
+          <li>Design originality, color combinations and perceived quality are recurring strengths.</li>
+          <li>Sizing runs large is the most repeated complaint, with multiple customers recommending one size down and some recommending two sizes down.</li>
+          <li>At least two reviewers say the physical colors are paler or duller than the product photography.</li>
+        </ul>
+      </div>
+      <div class="cvrt-source-block">
+        <h3 class="cvrt-source-title">Page Speed Insights</h3>
+        <ul class="cvrt-source-list">
+          <li>The homepage records a 0.49 performance score, 16.6s LCP, 5.6s FCP and 23.4s Time to Interactive.</li>
+          <li>The Sahara-Safran PDP records a 0.64 performance score, 4.2s LCP, 3.2s FCP and 23.3s Time to Interactive.</li>
+          <li>Both pages have near-identical Time to Interactive despite very different LCP results, suggesting a shared render-blocking or third-party script cost.</li>
+        </ul>
+      </div>
+      <div class="cvrt-source-block">
+        <h3 class="cvrt-source-title">Site Screenshots</h3>
+        <ul class="cvrt-source-list">
+          <li>The homepage shows no priced product or trust signal until its third fold.</li>
+          <li>One collection card exposes sizes and Add to cart, while neighboring cards show only image, name and price.</li>
+          <li>The 5-star review block appears high on PDPs but is absent from the reviewed homepage and collection cards.</li>
+          <li>Arusha PDPs show a post-purchase recommendation module in a fold where Sahara-Safran does not.</li>
+        </ul>
+      </div>
+      <div class="cvrt-source-block">
+        <h3 class="cvrt-source-title">Competitor Analysis</h3>
+        <ul class="cvrt-source-list">
+          <li>No direct wax-print sneaker rival with comparable positioning surfaced in the research.</li>
+          <li>Veja is the closest broader ethical French sneaker comparison, with a publicly observed price range of about €125 to €215.</li>
+          <li>Panafrica's competitive pressure appears to come from the broader ethical and sustainable sneaker set rather than a like-for-like rival.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <footer class="cvrt-footer">September 2026</footer>
+</div>
