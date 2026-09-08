@@ -45,18 +45,16 @@
 }
 #cvrt-roadmap .cvrt-tab-input { position: absolute; opacity: 0; pointer-events: none; }
 #cvrt-roadmap .cvrt-hero { background: var(--cvrt-wine); color: var(--cvrt-white); }
-#cvrt-roadmap .cvrt-hero-grid { min-height: 548px; display: grid; grid-template-columns: minmax(410px, .84fr) minmax(610px, 1.16fr); }
-#cvrt-roadmap .cvrt-hero-copy { padding: 46px clamp(34px, 5vw, 82px) 42px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-#cvrt-roadmap .cvrt-hero-copy::after { content: "AS"; position: absolute; right: -20px; bottom: -94px; font: 600 260px/1 'Bodoni Moda', serif; color: rgba(255,255,255,.08); pointer-events: none; }
-#cvrt-roadmap .cvrt-logo-frame { width: 196px; padding: 12px 15px; background: var(--cvrt-white); position: relative; z-index: 1; }
+#cvrt-roadmap .cvrt-hero-grid { height: 570px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(340px, .72fr); }
+#cvrt-roadmap .cvrt-hero-copy { min-width: 0; padding: 48px clamp(34px, 5vw, 82px) 52px; display: flex; flex-direction: column; justify-content: space-between; }
+#cvrt-roadmap .cvrt-logo-frame { width: 196px; padding: 12px 15px; background: var(--cvrt-white); }
 #cvrt-roadmap .cvrt-logo { width: 100%; height: auto; display: block; }
-#cvrt-roadmap .cvrt-hero-title { position: relative; z-index: 1; margin-top: 72px; }
+#cvrt-roadmap .cvrt-hero-title { margin-top: 64px; max-width: 620px; }
 #cvrt-roadmap .cvrt-eyebrow { font-size: 12px; line-height: 1; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--cvrt-white); }
-#cvrt-roadmap .cvrt-hero h1 { margin-top: 15px; font: 500 clamp(64px, 7vw, 102px)/.86 'Bodoni Moda', serif; letter-spacing: -.055em; color: var(--cvrt-white); }
-#cvrt-roadmap .cvrt-summary { margin-top: 24px; max-width: 590px; font-size: 15px; line-height: 1.72; color: var(--cvrt-white); }
-#cvrt-roadmap .cvrt-hero-image { min-height: 548px; position: relative; overflow: hidden; background: #d9dde3; }
-#cvrt-roadmap .cvrt-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: 92% center; display: block; }
-#cvrt-roadmap .cvrt-hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(135,34,59,.18), transparent 24%); }
+#cvrt-roadmap .cvrt-hero h1 { margin-top: 15px; font: 500 clamp(62px, 6.4vw, 94px)/.88 'Bodoni Moda', serif; letter-spacing: -.05em; color: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-summary { margin-top: 24px; max-width: 560px; font-size: 15px; line-height: 1.7; color: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-image { min-width: 0; height: 570px; overflow: hidden; background: #e2e1df; }
+#cvrt-roadmap .cvrt-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
 #cvrt-roadmap .cvrt-tabs { display: flex; min-height: 66px; background: var(--cvrt-white); color: var(--cvrt-ink); }
 #cvrt-roadmap .cvrt-tabs label { width: 50%; padding: 22px 26px 19px; cursor: pointer; text-align: center; font-size: 13px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; border: 1px solid var(--cvrt-line); }
 #cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-tests"],
@@ -99,16 +97,21 @@
 #cvrt-roadmap .cvrt-source-list { margin-top: 18px; display: grid; gap: 10px; }
 #cvrt-roadmap .cvrt-source-list li { padding: 16px 18px; background: var(--cvrt-paper); border: 1px solid var(--cvrt-line); font-size: 13px; line-height: 1.65; color: var(--cvrt-ink); }
 #cvrt-roadmap .cvrt-footer { padding: 25px; background: var(--cvrt-ink); color: var(--cvrt-white); text-align: center; font-size: 11px; line-height: 1; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+@media (max-width: 1040px) {
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr); }
+  #cvrt-roadmap .cvrt-hero-copy { padding-left: 34px; padding-right: 34px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: 64px; }
+}
 @media (max-width: 760px) {
   #cvrt-roadmap { width: 100%; left: 0; right: auto; margin-left: 0; margin-right: 0; }
-  #cvrt-roadmap .cvrt-hero-grid { min-height: 0; grid-template-columns: 1fr; }
-  #cvrt-roadmap .cvrt-hero-copy { width: 100%; min-width: 0; min-height: 440px; padding: 28px 22px 34px; }
+  #cvrt-roadmap .cvrt-hero-grid { height: auto; min-height: 0; grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-hero-copy { width: 100%; min-width: 0; min-height: 420px; padding: 28px 22px 34px; }
   #cvrt-roadmap .cvrt-logo-frame { width: 170px; }
-  #cvrt-roadmap .cvrt-hero-title { margin-top: 54px; }
-  #cvrt-roadmap .cvrt-hero h1 { font-size: 64px; }
+  #cvrt-roadmap .cvrt-hero-title { margin-top: 48px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: 60px; }
   #cvrt-roadmap .cvrt-summary { width: 100%; max-width: 100%; font-size: 13px; line-height: 1.68; }
-  #cvrt-roadmap .cvrt-hero-image { width: 100%; min-width: 0; min-height: 345px; }
-  #cvrt-roadmap .cvrt-hero-image img { object-position: 88% center; }
+  #cvrt-roadmap .cvrt-hero-image { width: 100%; min-width: 0; height: 500px; min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-image img { object-position: center 18%; }
   #cvrt-roadmap .cvrt-tabs { width: 100%; min-width: 0; overflow: hidden; }
   #cvrt-roadmap .cvrt-tabs label { min-width: 0; padding: 20px 8px 18px; font-size: 10px; }
   #cvrt-roadmap .cvrt-panel { padding: 36px 13px 52px; }
@@ -141,11 +144,11 @@
         <div class="cvrt-hero-title">
           <p class="cvrt-eyebrow">CRO testing roadmap</p>
           <h1>September<br>2026</h1>
-          <p class="cvrt-summary">Ashley Stewart’s strongest purchase signals appear on product pages, while the homepage and paid journeys are crowded, inconsistent, or incomplete. This roadmap repairs the clearest funnel breaks, brings trust forward, and gives shoppers more direct paths from discovery to checkout.</p>
+          <p class="cvrt-summary">Ashley Stewart's strongest purchase signals appear on product pages, while the homepage and paid journeys are crowded, inconsistent, or incomplete. This roadmap repairs the clearest funnel breaks, brings trust forward, and gives shoppers more direct paths from discovery to checkout.</p>
         </div>
       </div>
       <div class="cvrt-hero-image">
-<img src="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" alt="Ashley Stewart Fall Edit campaign">
+<img src="https://www.ashleystewart.com/cdn/shop/files/083126_4CATEGORY_DT_2_cf3b4a01-cd44-47c6-9f96-e92d85f8f0b8.jpg" alt="Ashley Stewart denim fashion portrait">
 </div>
     </div>
     <nav class="cvrt-tabs" aria-label="Roadmap sections">
@@ -175,10 +178,21 @@
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 390" role="img" aria-label="Crystal face gems campaign currently leading to a 404 compared with a restored product page">
 <rect width="816" height="390" fill="#f9edf2"/>
-<text x="28" y="32" font-size="14" font-weight="800">CURRENT PATH</text>
-<rect x="28" y="52" width="214" height="296" fill="#fff" stroke="#d8d0d4"/>
-<text x="48" y="82" font-size="10" font-weight="700">ASHLEY STEWART</text>
-<g transform="translate(58 108)">
+<text x="24" y="30" font-size="14" font-weight="800">CURRENT: BROKEN PATH</text>
+<rect x="24" y="48" width="358" height="310" fill="#fff" stroke="#d8d0d4"/>
+<rect x="44" y="68" width="318" height="54" fill="#87223b"/>
+<text x="63" y="91" font-size="11" font-weight="800" class="cvrt-svg-white">CRYSTAL FACE GEMS</text>
+<text x="63" y="108" font-size="9" font-weight="700" class="cvrt-svg-white">CAMPAIGN CLICK</text>
+<rect x="44" y="138" width="318" height="198" fill="#171517"/>
+<text x="64" y="170" font-size="10" font-weight="700" class="cvrt-svg-white">ashleystewart.com</text>
+<text x="151" y="253" font-size="72" font-weight="800" class="cvrt-svg-white">404</text>
+<text x="139" y="282" font-size="12" font-weight="700" class="cvrt-svg-white">PAGE NOT FOUND</text>
+<path d="M395 202h25" stroke="#d92e70" stroke-width="4"/>
+<path d="M412 193l10 9-10 9" fill="none" stroke="#d92e70" stroke-width="4"/>
+<text x="434" y="30" font-size="14" font-weight="800">CORRECTED: LIVE PRODUCT</text>
+<rect x="434" y="48" width="358" height="310" fill="#fff" stroke="#d92e70" stroke-width="2"/>
+<rect x="454" y="68" width="128" height="244" fill="#f4e8ef"/>
+<g transform="translate(462 120)">
 <ellipse cx="58" cy="78" rx="48" ry="24" fill="#f4e8ef" stroke="#171517"/>
 <rect x="10" y="42" width="96" height="38" rx="8" fill="#ece5e9" stroke="#171517"/>
 <ellipse cx="58" cy="43" rx="48" ry="24" fill="#fff" stroke="#171517"/>
@@ -186,43 +200,24 @@
 <circle cx="61" cy="36" r="6" fill="#f0bfd2"/>
 <circle cx="78" cy="47" r="9" fill="#d92e70"/>
 </g>
-<text x="48" y="236" font-size="15" font-weight="700">Crystal Face Gems</text>
-<text x="48" y="258" font-size="11">Mixed sizes</text>
-<rect x="48" y="280" width="174" height="42" fill="#171517"/>
-<text x="92" y="306" font-size="11" font-weight="800" class="cvrt-svg-white">SHOP NOW</text>
-<path d="M258 198h78" stroke="#87223b" stroke-width="4"/>
-<path d="M326 188l12 10-12 10" fill="none" stroke="#87223b" stroke-width="4"/>
-<rect x="354" y="52" width="186" height="296" fill="#171517"/>
-<text x="382" y="110" font-size="12" font-weight="700" class="cvrt-svg-white">ashleystewart.com</text>
-<text x="399" y="215" font-size="72" font-weight="800" class="cvrt-svg-white">404</text>
-<text x="399" y="246" font-size="12" font-weight="700" class="cvrt-svg-white">PAGE NOT FOUND</text>
-<path d="M561 198h67" stroke="#d92e70" stroke-width="4"/>
-<path d="M618 188l12 10-12 10" fill="none" stroke="#d92e70" stroke-width="4"/>
-<text x="652" y="32" font-size="14" font-weight="800">CORRECTED</text>
-<rect x="648" y="52" width="140" height="296" fill="#fff" stroke="#d92e70" stroke-width="2"/>
-<g transform="translate(662 76) scale(.78)">
-<ellipse cx="58" cy="78" rx="48" ry="24" fill="#f4e8ef" stroke="#171517"/>
-<rect x="10" y="42" width="96" height="38" rx="8" fill="#ece5e9" stroke="#171517"/>
-<ellipse cx="58" cy="43" rx="48" ry="24" fill="#fff" stroke="#171517"/>
-<circle cx="40" cy="42" r="8" fill="#d92e70"/>
-<circle cx="61" cy="36" r="6" fill="#f0bfd2"/>
-<circle cx="78" cy="47" r="9" fill="#d92e70"/>
-</g>
-<text x="665" y="195" font-size="12" font-weight="800">CRYSTAL FACE GEMS</text>
-<text x="665" y="216" font-size="10">Mixed sizes</text>
-<rect x="665" y="236" width="106" height="28" fill="#fff" stroke="#171517"/>
-<text x="678" y="255" font-size="9" font-weight="700">SELECT OPTION</text>
-<rect x="665" y="277" width="106" height="40" fill="#d92e70"/>
-<text x="686" y="302" font-size="10" font-weight="800" class="cvrt-svg-white">ADD TO BAG</text>
+<text x="604" y="91" font-size="13" font-weight="800">CRYSTAL FACE</text>
+<text x="604" y="110" font-size="13" font-weight="800">GEMS</text>
+<text x="604" y="136" font-size="10">Mixed sizes</text>
+<rect x="604" y="164" width="160" height="38" fill="#fff" stroke="#171517"/>
+<text x="633" y="188" font-size="9" font-weight="700">SELECT OPTION</text>
+<rect x="604" y="216" width="160" height="44" fill="#d92e70"/>
+<text x="643" y="243" font-size="10" font-weight="800" class="cvrt-svg-white">ADD TO BAG</text>
+<rect x="604" y="278" width="160" height="34" fill="#e9fbf5"/>
+<text x="623" y="299" font-size="9" font-weight="800">LIVE DESTINATION</text>
 </svg>
         <svg class="cvrt-svg-mobile cvrt-svg-ui" viewBox="0 0 340 720" role="img" aria-label="Mobile Crystal Face Gems landing path correction">
 <rect width="340" height="720" fill="#f9edf2"/>
 <text x="16" y="28" font-size="14" font-weight="800">CURRENT</text>
 <rect x="16" y="44" width="308" height="210" fill="#171517"/>
-<text x="37" y="77" font-size="11" font-weight="700" class="cvrt-svg-white">CRYSTAL FACE GEMS · SHOP NOW</text>
+<text x="37" y="77" font-size="11" font-weight="700" class="cvrt-svg-white">CRYSTAL FACE GEMS | SHOP NOW</text>
 <text x="99" y="166" font-size="70" font-weight="800" class="cvrt-svg-white">404</text>
 <text x="105" y="198" font-size="12" font-weight="700" class="cvrt-svg-white">PAGE NOT FOUND</text>
-<text x="158" y="292" font-size="28">↓</text>
+<path d="M170 276v24M160 291l10 10 10-10" fill="none" stroke="#87223b" stroke-width="3"/>
 <text x="16" y="337" font-size="14" font-weight="800">CORRECTED</text>
 <rect x="16" y="354" width="308" height="340" fill="#fff" stroke="#d92e70" stroke-width="2"/>
 <g transform="translate(103 375)">
@@ -234,7 +229,7 @@
 <circle cx="78" cy="47" r="9" fill="#d92e70"/>
 </g>
 <text x="40" y="528" font-size="20" font-weight="800">CRYSTAL FACE GEMS</text>
-<text x="40" y="554" font-size="12">Small container · Mixed sizes</text>
+<text x="40" y="554" font-size="12">Small container | Mixed sizes</text>
 <rect x="40" y="581" width="260" height="38" fill="#fff" stroke="#171517"/>
 <text x="116" y="605" font-size="11" font-weight="700">SELECT OPTION</text>
 <rect x="40" y="634" width="260" height="44" fill="#d92e70"/>
@@ -254,7 +249,7 @@
 <p class="cvrt-page">
 <a href="https://www.ashleystewart.com/products/basiccami-041-ast-8385-cb" target="_blank" rel="noopener">Basic Knit Cami Top PDP</a>
 </p>
-<p class="cvrt-description">The measured PDP scores 39/100 on mobile, with a 19.4-second Largest Contentful Paint and 61.3-second Time to Interactive. The page’s strong buy box cannot work until shoppers can reach it. Resolve the render-blocking load so product imagery, choices, trust, and Add to Cart appear as one usable experience.</p>
+<p class="cvrt-description">The measured PDP scores 39/100 on mobile, with a 19.4-second Largest Contentful Paint and 61.3-second Time to Interactive. The page's strong buy box cannot work until shoppers can reach it. Resolve the render-blocking load so product imagery, choices, trust, and Add to Cart appear as one usable experience.</p>
 </div>
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 390" role="img" aria-label="Slow loading product page compared with a complete product buy box">
@@ -275,17 +270,19 @@
 <path d="M413 192l12 10-12 10" fill="none" stroke="#87223b" stroke-width="4"/>
 <text x="448" y="30" font-size="14" font-weight="800">FIXED EXPERIENCE</text>
 <rect x="448" y="48" width="344" height="310" fill="#fff" stroke="#d92e70" stroke-width="2"/>
-<image href="https://www.ashleystewart.com/cdn/shop/files/041-AST-8385-CB_0918_front.jpg?v=1782891540" x="448" y="48" width="152" height="310" preserveAspectRatio="xMidYMid slice"/>
-<text x="621" y="88" font-size="19" class="cvrt-svg-serif">Basic Knit Cami Top</text>
-<text x="621" y="113" font-size="11" font-weight="700">★★★★★ 4.5 · 67 Reviews</text>
-<text x="621" y="142" font-size="16" font-weight="800" class="cvrt-svg-pink">$10 BASIC TANKS</text>
-<text x="621" y="177" font-size="10" font-weight="700">COLOR · POTTING SOIL</text>
+<rect x="448" y="48" width="152" height="310" fill="#f3f1ef"/>
+<image href="https://www.ashleystewart.com/cdn/shop/files/041-AST-8385-CB_0918_front.jpg?v=1782891540" x="448" y="48" width="152" height="310" preserveAspectRatio="xMidYMid meet"/>
+<text x="621" y="82" font-size="18" class="cvrt-svg-serif">Basic Knit</text>
+<text x="621" y="102" font-size="18" class="cvrt-svg-serif">Cami Top</text>
+<text x="621" y="122" font-size="9" font-weight="700">RATING 4.5 / 5 | 67 REVIEWS</text>
+<text x="621" y="148" font-size="16" font-weight="800" class="cvrt-svg-pink">$10 BASIC TANKS</text>
+<text x="621" y="177" font-size="10" font-weight="700">COLOR | POTTING SOIL</text>
 <g fill="#fff" stroke="#171517">
 <circle cx="633" cy="198" r="10" fill="#674638"/>
 <circle cx="660" cy="198" r="10"/>
 <circle cx="687" cy="198" r="10" fill="#1f2f4c"/>
 </g>
-<text x="621" y="231" font-size="10" font-weight="700">SIZE · 14/16</text>
+<text x="621" y="231" font-size="10" font-weight="700">SIZE | 14/16</text>
 <g fill="#fff" stroke="#d8d0d4">
 <rect x="621" y="242" width="48" height="28"/>
 <rect x="677" y="242" width="48" height="28"/>
@@ -310,14 +307,15 @@
 <rect x="50" y="160" width="170" height="12" fill="#e3dde0"/>
 <text x="32" y="219" font-size="12" font-weight="800" class="cvrt-svg-pink">LCP 19.4 SECONDS</text>
 <text x="32" y="243" font-size="10" font-weight="700">INTERACTIVE AT 61.3 SECONDS</text>
-<text x="157" y="303" font-size="28">↓</text>
+<path d="M170 287v24M160 302l10 10 10-10" fill="none" stroke="#87223b" stroke-width="3"/>
 <text x="14" y="341" font-size="14" font-weight="800">FIXED EXPERIENCE</text>
 <rect x="14" y="358" width="312" height="382" fill="#fff" stroke="#d92e70" stroke-width="2"/>
-<image href="https://www.ashleystewart.com/cdn/shop/files/041-AST-8385-CB_0918_front.jpg?v=1782891540" x="14" y="358" width="312" height="162" preserveAspectRatio="xMidYMid 28% slice"/>
+<rect x="14" y="358" width="312" height="162" fill="#f3f1ef"/>
+<image href="https://www.ashleystewart.com/cdn/shop/files/041-AST-8385-CB_0918_front.jpg?v=1782891540" x="14" y="358" width="312" height="162" preserveAspectRatio="xMidYMid meet"/>
 <text x="34" y="553" font-size="22" class="cvrt-svg-serif">Basic Knit Cami Top</text>
-<text x="34" y="580" font-size="11" font-weight="700">★★★★★ 4.5 · 67 Reviews</text>
+<text x="34" y="580" font-size="10" font-weight="700">RATING 4.5 / 5 | 67 REVIEWS</text>
 <text x="34" y="610" font-size="16" font-weight="800" class="cvrt-svg-pink">$10 BASIC TANKS</text>
-<text x="34" y="637" font-size="10" font-weight="700">COLOR · POTTING SOIL　 SIZE · 14/16</text>
+<text x="34" y="637" font-size="10" font-weight="700">COLOR: POTTING SOIL | SIZE: 14/16</text>
 <rect x="34" y="656" width="272" height="44" fill="#171517"/>
 <text x="119" y="684" font-size="11" font-weight="800" class="cvrt-svg-white">ADD TO CART</text>
 <rect x="34" y="708" width="272" height="20" fill="#e9fbf5"/>
@@ -337,7 +335,7 @@
 <p class="cvrt-page">
 <a href="https://www.ashleystewart.com/" target="_blank" rel="noopener">Homepage</a>
 </p>
-<p class="cvrt-description">Three full-width promotional banners appear before the Fall Edit hero, and the discount popup remains pinned over the page. This pushes Ashley Stewart’s brand imagery lower in the first view. The variation combines the shipping, clearance, and new-arrivals messages into one compact rotating bar so the hero arrives sooner.</p>
+<p class="cvrt-description">Three full-width promotional banners appear before the Fall Edit hero, and the discount popup remains pinned over the page. This pushes Ashley Stewart's brand imagery lower in the first view. The variation combines the shipping, clearance, and new-arrivals messages into one compact rotating bar so the hero arrives sooner.</p>
 </div>
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 410" role="img" aria-label="Homepage with three promo banners compared with one compact promo bar">
@@ -353,7 +351,7 @@
 <text x="22" y="29" font-size="14" font-weight="800">CURRENT</text>
 <rect x="22" y="46" width="360" height="326" fill="#fff" stroke="#d8d0d4"/>
 <rect x="22" y="46" width="360" height="38" fill="#fff"/>
-<text x="40" y="69" font-size="9" font-weight="700">ASHLEY ● STEWART　 NEW ARRIVALS　 DRESSES　 JEANS</text>
+<text x="40" y="69" font-size="9" font-weight="700">ASHLEY | STEWART   NEW ARRIVALS   DRESSES   JEANS</text>
 <rect x="22" y="84" width="360" height="42" fill="#171517"/>
 <text x="98" y="110" font-size="12" font-weight="800" class="cvrt-svg-white">FREE SHIPPING ON ORDERS $89+</text>
 <rect x="22" y="126" width="360" height="40" fill="#d92e70"/>
@@ -364,10 +362,16 @@
 <text x="434" y="29" font-size="14" font-weight="800">VARIATION</text>
 <rect x="434" y="46" width="360" height="326" fill="#fff" stroke="#d92e70" stroke-width="2"/>
 <rect x="434" y="46" width="360" height="38" fill="#fff"/>
-<text x="452" y="69" font-size="9" font-weight="700">ASHLEY ● STEWART　 NEW ARRIVALS　 DRESSES　 JEANS</text>
+<text x="452" y="69" font-size="9" font-weight="700">ASHLEY | STEWART   NEW ARRIVALS   DRESSES   JEANS</text>
 <rect x="434" y="84" width="360" height="19" fill="#171517"/>
-<text x="528" y="98" font-size="8" font-weight="800" class="cvrt-svg-white">FREE SHIPPING ON ORDERS $89+　‹　›</text>
-<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="434" y="103" width="360" height="269" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s3b)"/>
+<text x="528" y="98" font-size="8" font-weight="800" class="cvrt-svg-white">FREE SHIPPING ON ORDERS $89+</text>
+<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="434" y="103" width="360" height="149" preserveAspectRatio="xMidYMid meet"/>
+<rect x="454" y="272" width="150" height="80" fill="#f9edf2" stroke="#d8d0d4"/>
+<text x="477" y="307" font-size="10" font-weight="800">NEW ARRIVALS</text>
+<text x="477" y="327" font-size="8">SHOP THE EDIT</text>
+<rect x="624" y="272" width="150" height="80" fill="#f9edf2" stroke="#d8d0d4"/>
+<text x="661" y="307" font-size="10" font-weight="800">DRESSES</text>
+<text x="651" y="327" font-size="8">EXPLORE STYLES</text>
 <path d="M408 189h-14" stroke="#d92e70" stroke-width="3"/>
 <path d="M399 181l9 8-9 8" fill="none" stroke="#d92e70" stroke-width="3"/>
 </svg>
@@ -376,7 +380,7 @@
 <text x="14" y="27" font-size="14" font-weight="800">CURRENT</text>
 <rect x="14" y="43" width="312" height="302" fill="#fff" stroke="#d8d0d4"/>
 <rect x="14" y="43" width="312" height="30" fill="#fff"/>
-<text x="35" y="62" font-size="9" font-weight="800">ASHLEY ● STEWART　 NEW ARRIVALS　 DRESSES</text>
+<text x="35" y="62" font-size="9" font-weight="800">ASHLEY | STEWART   NEW ARRIVALS   DRESSES</text>
 <rect x="14" y="73" width="312" height="42" fill="#171517"/>
 <text x="60" y="99" font-size="11" font-weight="800" class="cvrt-svg-white">FREE SHIPPING ON ORDERS $89+</text>
 <rect x="14" y="115" width="312" height="42" fill="#d92e70"/>
@@ -384,14 +388,20 @@
 <rect x="14" y="157" width="312" height="40" fill="#87223b"/>
 <text x="63" y="182" font-size="11" font-weight="800" class="cvrt-svg-white">40% OFF NEW ARRIVALS</text>
 <image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="14" y="197" width="312" height="148" preserveAspectRatio="xMaxYMid slice"/>
-<text x="157" y="382" font-size="28">↓</text>
+<path d="M170 366v24M160 381l10 10 10-10" fill="none" stroke="#87223b" stroke-width="3"/>
 <text x="14" y="421" font-size="14" font-weight="800">VARIATION</text>
 <rect x="14" y="438" width="312" height="328" fill="#fff" stroke="#d92e70" stroke-width="2"/>
 <rect x="14" y="438" width="312" height="30" fill="#fff"/>
-<text x="35" y="457" font-size="9" font-weight="800">ASHLEY ● STEWART　 NEW ARRIVALS　 DRESSES</text>
+<text x="35" y="457" font-size="9" font-weight="800">ASHLEY | STEWART   NEW ARRIVALS   DRESSES</text>
 <rect x="14" y="468" width="312" height="22" fill="#171517"/>
-<text x="68" y="484" font-size="8" font-weight="800" class="cvrt-svg-white">FREE SHIPPING ON ORDERS $89+　‹　›</text>
-<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="14" y="490" width="312" height="276" preserveAspectRatio="xMaxYMid slice"/>
+<text x="68" y="484" font-size="8" font-weight="800" class="cvrt-svg-white">FREE SHIPPING ON ORDERS $89+</text>
+<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="14" y="490" width="312" height="129" preserveAspectRatio="xMidYMid meet"/>
+<rect x="30" y="640" width="132" height="94" fill="#f9edf2" stroke="#d8d0d4"/>
+<text x="48" y="681" font-size="10" font-weight="800">NEW ARRIVALS</text>
+<text x="48" y="703" font-size="8">SHOP THE EDIT</text>
+<rect x="178" y="640" width="132" height="94" fill="#f9edf2" stroke="#d8d0d4"/>
+<text x="218" y="681" font-size="10" font-weight="800">DRESSES</text>
+<text x="207" y="703" font-size="8">EXPLORE STYLES</text>
 </svg>
         <p class="cvrt-caption">* Three stacked promotions become one compact bar, bringing the Fall Edit campaign into the first view. Concept illustration only. Final design will differ.</p>
       </div>
@@ -407,45 +417,40 @@
 <p class="cvrt-page">
 <a href="https://www.ashleystewart.com/" target="_blank" rel="noopener">Homepage</a>
 </p>
-<p class="cvrt-description">The captured homepage folds show promotion after promotion, but no rating, review count, guarantee, or trust copy. The PDP already presents returns and installment options near purchase. The variation brings the existing “30-Day Returns &amp; Exchanges” promise and Klarna, Afterpay, and Zip options directly beneath the homepage hero.</p>
+<p class="cvrt-description">The captured homepage folds show promotion after promotion, but no rating, review count, guarantee, or trust copy. The PDP already presents returns and installment options near purchase. The variation brings the existing &quot;30-Day Returns &amp; Exchanges&quot; promise and Klarna, Afterpay, and Zip options directly beneath the homepage hero.</p>
 </div>
       <div class="cvrt-visual">
-        <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 380" role="img" aria-label="Homepage hero with a new returns and installment trust row">
-<rect width="816" height="380" fill="#fff"/>
-<text x="24" y="28" font-size="14" font-weight="800">VARIATION · HOMEPAGE FIRST FOLD</text>
-<rect x="24" y="46" width="768" height="294" fill="#fff" stroke="#d92e70" stroke-width="2"/>
-<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="24" y="46" width="768" height="210" preserveAspectRatio="xMidYMid slice"/>
-<rect x="24" y="256" width="768" height="84" fill="#fff"/>
-<g>
-<rect x="44" y="274" width="222" height="48" fill="#e9fbf5" stroke="#08775f"/>
-<text x="61" y="295" font-size="11" font-weight="800" fill="#08775f">✓ 30-DAY RETURNS</text>
-<text x="61" y="312" font-size="9" font-weight="700">&amp; EXCHANGES</text>
-<rect x="280" y="274" width="148" height="48" rx="10" fill="#ffd8e5"/>
-<text x="318" y="304" font-size="13" font-weight="800">Klarna.</text>
-<rect x="442" y="274" width="148" height="48" rx="18" fill="#b8f5e4"/>
-<text x="477" y="304" font-size="12" font-weight="800">afterpay</text>
-<rect x="604" y="274" width="168" height="48" fill="#f4f0f7"/>
-<text x="661" y="305" font-size="22" font-weight="800">ZIP</text>
-</g>
-<path d="M408 352v20" stroke="#d92e70" stroke-width="3"/>
-<circle cx="408" cy="352" r="5" fill="#d92e70"/>
-<text x="425" y="368" font-size="10" font-weight="800" class="cvrt-svg-pink">EXISTING PDP TRUST, NOW VISIBLE ON HOMEPAGE</text>
+        <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 474" role="img" aria-label="Homepage hero with a new returns and installment trust row">
+<rect width="816" height="474" fill="#fff"/>
+<text x="24" y="28" font-size="14" font-weight="800">VARIATION | HOMEPAGE FIRST FOLD</text>
+<rect x="24" y="46" width="768" height="402" fill="#fff" stroke="#d92e70" stroke-width="2"/>
+<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="24" y="46" width="768" height="318" preserveAspectRatio="xMidYMid meet"/>
+<rect x="24" y="364" width="768" height="84" fill="#fff"/>
+<rect x="44" y="382" width="222" height="48" fill="#e9fbf5" stroke="#08775f"/>
+<text x="61" y="403" font-size="11" font-weight="800" fill="#08775f">30-DAY RETURNS</text>
+<text x="61" y="420" font-size="9" font-weight="700">&amp; EXCHANGES</text>
+<rect x="280" y="382" width="148" height="48" rx="10" fill="#ffd8e5"/>
+<text x="318" y="412" font-size="13" font-weight="800">Klarna.</text>
+<rect x="442" y="382" width="148" height="48" rx="18" fill="#b8f5e4"/>
+<text x="477" y="412" font-size="12" font-weight="800">afterpay</text>
+<rect x="604" y="382" width="168" height="48" fill="#f4f0f7"/>
+<text x="661" y="413" font-size="22" font-weight="800">ZIP</text>
 </svg>
-        <svg class="cvrt-svg-mobile cvrt-svg-ui" viewBox="0 0 340 610" role="img" aria-label="Mobile homepage with trust row below the hero">
-<rect width="340" height="610" fill="#fff"/>
+        <svg class="cvrt-svg-mobile cvrt-svg-ui" viewBox="0 0 340 474" role="img" aria-label="Mobile homepage with trust row below the hero">
+<rect width="340" height="474" fill="#fff"/>
 <text x="14" y="27" font-size="14" font-weight="800">VARIATION</text>
-<rect x="14" y="43" width="312" height="548" fill="#fff" stroke="#d92e70" stroke-width="2"/>
-<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="14" y="43" width="312" height="250" preserveAspectRatio="xMaxYMid slice"/>
-<rect x="30" y="312" width="280" height="74" fill="#e9fbf5" stroke="#08775f"/>
-<text x="53" y="343" font-size="13" font-weight="800">✓ 30-DAY RETURNS &amp; EXCHANGES</text>
-<text x="53" y="366" font-size="10" font-weight="700">Easy returns within 30 days</text>
-<rect x="30" y="403" width="132" height="54" rx="10" fill="#ffd8e5"/>
-<text x="68" y="437" font-size="14" font-weight="800">Klarna.</text>
-<rect x="178" y="403" width="132" height="54" rx="20" fill="#b8f5e4"/>
-<text x="210" y="437" font-size="12" font-weight="800">afterpay</text>
-<rect x="30" y="473" width="280" height="54" fill="#f4f0f7"/>
-<text x="142" y="509" font-size="22" font-weight="800">ZIP</text>
-<text x="61" y="563" font-size="10" font-weight="800" class="cvrt-svg-pink">TRUST MOVES INTO THE HOMEPAGE JOURNEY</text>
+<rect x="14" y="43" width="312" height="412" fill="#fff" stroke="#d92e70" stroke-width="2"/>
+<image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="14" y="43" width="312" height="129" preserveAspectRatio="xMidYMid meet"/>
+<rect x="30" y="192" width="280" height="74" fill="#e9fbf5" stroke="#08775f"/>
+<text x="53" y="223" font-size="12" font-weight="800">30-DAY RETURNS &amp; EXCHANGES</text>
+<text x="53" y="246" font-size="10" font-weight="700">Easy returns within 30 days</text>
+<rect x="30" y="283" width="132" height="54" rx="10" fill="#ffd8e5"/>
+<text x="68" y="317" font-size="14" font-weight="800">Klarna.</text>
+<rect x="178" y="283" width="132" height="54" rx="20" fill="#b8f5e4"/>
+<text x="210" y="317" font-size="12" font-weight="800">afterpay</text>
+<rect x="30" y="353" width="280" height="54" fill="#f4f0f7"/>
+<text x="142" y="389" font-size="22" font-weight="800">ZIP</text>
+<text x="52" y="435" font-size="9" font-weight="800" class="cvrt-svg-pink">TRUST MOVES INTO THE HOMEPAGE JOURNEY</text>
 </svg>
         <p class="cvrt-caption">* Existing returns and installment signals move from the PDP into a clear row beneath the homepage hero. Concept illustration only. Final design will differ.</p>
       </div>
@@ -461,7 +466,7 @@
 <p class="cvrt-page">
 <a href="https://www.ashleystewart.com/collections/new-arrivals" target="_blank" rel="noopener">New Arrivals collection</a>
 </p>
-<p class="cvrt-description">New Arrivals cards mix “New,” “Online Exclusive,” and percentage-off labels without explaining whether those states overlap. The variation keeps every product card unchanged and adds one plain-language key below the collection title: “New = just added · Online Exclusive = web only · % Off = discount applied.”</p>
+<p class="cvrt-description">New Arrivals cards mix &quot;New,&quot; &quot;Online Exclusive,&quot; and percentage-off labels without explaining whether those states overlap. The variation keeps every product card unchanged and adds one plain-language key below the collection title: &quot;New = just added | Online Exclusive = web only | % Off = discount applied.&quot;</p>
 </div>
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 430" role="img" aria-label="New Arrivals collection with a new tag legend above product cards">
@@ -477,10 +482,10 @@
 </clipPath>
 </defs>
 <rect width="816" height="430" fill="#fff"/>
-<text x="32" y="35" font-size="12" font-weight="700">HOME　›　NEW ARRIVALS</text>
+<text x="32" y="35" font-size="12" font-weight="700">HOME / NEW ARRIVALS</text>
 <text x="32" y="78" font-size="34" class="cvrt-svg-serif">Just Dropped: New Arrivals</text>
 <rect x="32" y="98" width="752" height="38" fill="#f9edf2" stroke="#d92e70"/>
-<text x="51" y="122" font-size="11" font-weight="700">NEW = JUST ADDED　·　ONLINE EXCLUSIVE = WEB ONLY　·　% OFF = DISCOUNT APPLIED</text>
+<text x="51" y="122" font-size="10" font-weight="700">NEW = JUST ADDED | ONLINE EXCLUSIVE = WEB ONLY | % OFF = DISCOUNT APPLIED</text>
 <rect x="32" y="154" width="218" height="226" fill="#fff" stroke="#d8d0d4"/>
 <image href="https://www.ashleystewart.com/cdn/shop/files/promo_hero_DT.jpg" x="32" y="154" width="218" height="154" preserveAspectRatio="xMinYMid slice" clip-path="url(#cvrt-s5a)"/>
 <rect x="42" y="164" width="46" height="22" fill="#171517"/>
@@ -508,7 +513,7 @@
 </svg>
         <svg class="cvrt-svg-mobile cvrt-svg-ui" viewBox="0 0 340 790" role="img" aria-label="Mobile New Arrivals collection with a wrapping tag legend">
 <rect width="340" height="790" fill="#fff"/>
-<text x="16" y="28" font-size="11" font-weight="700">HOME　›　NEW ARRIVALS</text>
+<text x="16" y="28" font-size="11" font-weight="700">HOME / NEW ARRIVALS</text>
 <text x="16" y="64" font-size="27" class="cvrt-svg-serif">New Arrivals</text>
 <rect x="16" y="84" width="308" height="92" fill="#f9edf2" stroke="#d92e70"/>
 <text x="32" y="111" font-size="11" font-weight="700">NEW = JUST ADDED</text>
@@ -549,7 +554,7 @@
 <p class="cvrt-page">
 <a href="https://www.ashleystewart.com/cart" target="_blank" rel="noopener">Cart</a>
 </p>
-<p class="cvrt-description">The cart shows a free-shipping progress bar, one line item, and the order summary, but no product recommendation. The PDP already uses a “Ways to Wear It” carousel with “Shop the Look” actions. The variation adds a “Complete the Look” row between the cart item and order summary while leaving the shipping progress in place.</p>
+<p class="cvrt-description">The cart shows a free-shipping progress bar, one line item, and the order summary, but no product recommendation. The PDP already uses a &quot;Ways to Wear It&quot; carousel with &quot;Shop the Look&quot; actions. The variation adds a &quot;Complete the Look&quot; row between the cart item and order summary while leaving the shipping progress in place.</p>
 </div>
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 480" role="img" aria-label="Cart with a Complete the Look cross-sell added before the order summary">
@@ -562,16 +567,17 @@
 <image href="https://www.ashleystewart.com/cdn/shop/files/010-19097XXP_0990_front.jpg?v=1782885813" x="110" y="120" width="90" height="108" preserveAspectRatio="xMidYMid 20% slice"/>
 <text x="218" y="143" font-size="12" font-weight="800">V NECK COLORBLOCK</text>
 <text x="218" y="161" font-size="12" font-weight="800">MAXI DRESS</text>
-<text x="218" y="184" font-size="10">Multi · 14/16</text>
+<text x="218" y="184" font-size="10">Multi | 14/16</text>
 <text x="218" y="213" font-size="10" text-decoration="line-through">$42.99</text>
 <text x="270" y="213" font-size="16" font-weight="800">$15.00</text>
-<rect x="438" y="122" width="246" height="104" fill="#f9edf2"/>
-<text x="458" y="149" font-size="16" class="cvrt-svg-serif">Complete the Look</text>
-<image href="https://www.ashleystewart.com/cdn/shop/files/041-AST-8385-CB_0918_front.jpg?v=1782891540" x="458" y="164" width="50" height="50" preserveAspectRatio="xMidYMid 20% slice"/>
-<text x="520" y="180" font-size="10" font-weight="700">Basic Knit Cami Top</text>
-<text x="520" y="197" font-size="10" font-weight="800">$10</text>
-<rect x="614" y="166" width="54" height="34" fill="#171517"/>
-<text x="626" y="187" font-size="9" font-weight="800" class="cvrt-svg-white">ADD</text>
+<rect x="408" y="116" width="298" height="122" fill="#f9edf2" stroke="#d92e70"/>
+<text x="426" y="143" font-size="16" class="cvrt-svg-serif">Complete the Look</text>
+<image href="https://www.ashleystewart.com/cdn/shop/files/041-AST-8385-CB_0918_front.jpg?v=1782891540" x="426" y="156" width="58" height="66" preserveAspectRatio="xMidYMid 20% slice"/>
+<text x="500" y="171" font-size="10" font-weight="700">BASIC KNIT</text>
+<text x="500" y="187" font-size="10" font-weight="700">CAMI TOP</text>
+<text x="500" y="213" font-size="11" font-weight="800">$10</text>
+<rect x="608" y="194" width="78" height="30" fill="#171517"/>
+<text x="630" y="213" font-size="9" font-weight="800" class="cvrt-svg-white">ADD</text>
 <rect x="110" y="251" width="596" height="160" fill="#fff" stroke="#d8d0d4"/>
 <text x="134" y="282" font-size="18" font-weight="800">ORDER SUMMARY</text>
 <text x="134" y="319" font-size="12" font-weight="700">SUBTOTAL</text>
@@ -580,8 +586,6 @@
 <text x="632" y="349" font-size="14" font-weight="800">$9.95</text>
 <rect x="134" y="369" width="548" height="42" fill="#d92e70"/>
 <text x="350" y="395" font-size="12" font-weight="800" class="cvrt-svg-white">CHECKOUT</text>
-<path d="M561 238v-18" stroke="#d92e70" stroke-width="3"/>
-<text x="577" y="237" font-size="9" font-weight="800" class="cvrt-svg-pink">NEW PDP-STYLE CROSS-SELL</text>
 </svg>
         <svg class="cvrt-svg-mobile cvrt-svg-ui" viewBox="0 0 340 790" role="img" aria-label="Mobile cart with Complete the Look cross-sell">
 <rect width="340" height="790" fill="#fff"/>
@@ -594,7 +598,7 @@
 <image href="https://www.ashleystewart.com/cdn/shop/files/010-19097XXP_0990_front.jpg?v=1782885813" x="28" y="142" width="98" height="132" preserveAspectRatio="xMidYMid 20% slice"/>
 <text x="143" y="165" font-size="14" font-weight="800">V NECK COLORBLOCK</text>
 <text x="143" y="186" font-size="14" font-weight="800">MAXI DRESS</text>
-<text x="143" y="215" font-size="11">Multi · 14/16</text>
+<text x="143" y="215" font-size="11">Multi | 14/16</text>
 <text x="143" y="247" font-size="11" text-decoration="line-through">$42.99</text>
 <text x="201" y="247" font-size="17" font-weight="800">$15.00</text>
 <rect x="14" y="313" width="312" height="212" fill="#f9edf2" stroke="#d92e70" stroke-width="2"/>
@@ -614,7 +618,7 @@
 <rect x="31" y="690" width="278" height="50" fill="#d92e70"/>
 <text x="131" y="721" font-size="11" font-weight="800" class="cvrt-svg-white">CHECKOUT</text>
 </svg>
-        <p class="cvrt-caption">* The PDP’s styling mechanic becomes a focused cart recommendation before the order summary. Concept illustration only. Final design will differ.</p>
+        <p class="cvrt-caption">* The PDP's styling mechanic becomes a focused cart recommendation before the order summary. Concept illustration only. Final design will differ.</p>
       </div>
     </article>
 
@@ -628,7 +632,7 @@
 <p class="cvrt-page">
 <a href="https://www.ashleystewart.com/pages/bridal" target="_blank" rel="noopener">Bridal landing page</a>
 </p>
-<p class="cvrt-description">Bridal traffic arrives with an emotional gown promise, then must continue browsing to reach an individual dress. The landing page has bridal imagery, but no product-level choice in the opening experience. The variation leads with “Say Yes To The Dress” and a curated row of gowns before the general promotional content.</p>
+<p class="cvrt-description">Bridal traffic arrives with an emotional gown promise, then must continue browsing to reach an individual dress. The landing page has bridal imagery, but no product-level choice in the opening experience. The variation leads with &quot;Say Yes To The Dress&quot; and a curated row of gowns before the general promotional content.</p>
 </div>
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 500" role="img" aria-label="Bridal landing path with a curated gown selection added after the campaign promise">
@@ -702,35 +706,35 @@
 </div>
 <h3>PDP Breadcrumb</h3>
 <p class="cvrt-page">All product detail pages</p>
-<p class="cvrt-description">The Basic Knit Cami Top breadcrumb repeats the same category in sequence: “Home › CLOTHING › CLOTHING.” The duplicate reads as a visible template defect near the top of the PDP. Correct the shared breadcrumb so each category level appears once.</p>
+<p class="cvrt-description">The Basic Knit Cami Top breadcrumb repeats the same category in sequence: &quot;Home / CLOTHING / CLOTHING.&quot; The duplicate reads as a visible template defect near the top of the PDP. Correct the shared breadcrumb so each category level appears once.</p>
 </div>
       <div class="cvrt-visual">
         <svg class="cvrt-svg-desktop cvrt-svg-ui" viewBox="0 0 816 310" role="img" aria-label="Duplicated Clothing breadcrumb compared with a corrected breadcrumb">
 <rect width="816" height="310" fill="#f9edf2"/>
 <rect x="34" y="30" width="748" height="246" fill="#fff" stroke="#d8d0d4"/>
-<text x="58" y="61" font-size="10" font-weight="700">ASHLEY ● STEWART　 NEW ARRIVALS　 CLOTHING　 DRESSES　 JEANS</text>
+<text x="58" y="61" font-size="10" font-weight="700">ASHLEY | STEWART   NEW ARRIVALS   CLOTHING   DRESSES   JEANS</text>
 <text x="58" y="99" font-size="12" font-weight="800">CURRENT</text>
 <rect x="58" y="113" width="700" height="54" fill="#f7f4f2"/>
-<text x="78" y="145" font-size="12" font-weight="700">Home　›　CLOTHING　›　CLOTHING　›　Basic Knit Cami Top</text>
-<rect x="266" y="122" width="104" height="36" fill="none" stroke="#d92e70" stroke-width="3"/>
+<text x="78" y="145" font-size="12" font-weight="700">Home / CLOTHING / CLOTHING / Basic Knit Cami Top</text>
+<rect x="194" y="122" width="92" height="36" fill="none" stroke="#d92e70" stroke-width="3"/>
 <path d="M408 178v24" stroke="#87223b" stroke-width="3"/>
 <path d="M400 194l8 9 8-9" fill="none" stroke="#87223b" stroke-width="3"/>
 <text x="58" y="224" font-size="12" font-weight="800">CORRECTED</text>
 <rect x="58" y="237" width="700" height="30" fill="#171517"/>
-<text x="78" y="257" font-size="11" font-weight="700" class="cvrt-svg-white">Home　›　CLOTHING　›　Basic Knit Cami Top</text>
+<text x="78" y="257" font-size="11" font-weight="700" class="cvrt-svg-white">Home / CLOTHING / Basic Knit Cami Top</text>
 </svg>
         <svg class="cvrt-svg-mobile cvrt-svg-ui" viewBox="0 0 340 480" role="img" aria-label="Mobile duplicated Clothing breadcrumb followed by a corrected breadcrumb">
 <rect width="340" height="480" fill="#f9edf2"/>
 <text x="16" y="29" font-size="14" font-weight="800">CURRENT</text>
 <rect x="16" y="47" width="308" height="142" fill="#fff" stroke="#d8d0d4"/>
-<text x="34" y="80" font-size="11" font-weight="700">Home　›　CLOTHING　›</text>
-<text x="34" y="109" font-size="11" font-weight="700">CLOTHING　›</text>
+<text x="34" y="80" font-size="11" font-weight="700">Home / CLOTHING /</text>
+<text x="34" y="109" font-size="11" font-weight="700">CLOTHING /</text>
 <text x="34" y="138" font-size="11" font-weight="700">Basic Knit Cami Top</text>
 <rect x="26" y="90" width="98" height="32" fill="none" stroke="#d92e70" stroke-width="3"/>
-<text x="158" y="229" font-size="28">↓</text>
+<path d="M170 213v24M160 228l10 10 10-10" fill="none" stroke="#87223b" stroke-width="3"/>
 <text x="16" y="274" font-size="14" font-weight="800">CORRECTED</text>
 <rect x="16" y="292" width="308" height="142" fill="#171517"/>
-<text x="34" y="329" font-size="11" font-weight="700" class="cvrt-svg-white">Home　›　CLOTHING　›</text>
+<text x="34" y="329" font-size="11" font-weight="700" class="cvrt-svg-white">Home / CLOTHING /</text>
 <text x="34" y="358" font-size="11" font-weight="700" class="cvrt-svg-white">Basic Knit Cami Top</text>
 <text x="34" y="405" font-size="10" font-weight="800" class="cvrt-svg-pink">ONE CLEAR CATEGORY PATH</text>
 </svg>
@@ -774,7 +778,7 @@
 <h2>Meta Ads and Landing Pages</h2>
 <ul class="cvrt-source-list">
 <li>Crystal Face Gems traffic reaches a product URL that returns a confirmed HTTP 404.</li>
-<li>Berkshire Ultra Sheer Pantyhose creative matches its PDP copy, image, selected color and size, 4.5-star rating, 44 reviews, and “Only 6 Left” message.</li>
+<li>Berkshire Ultra Sheer Pantyhose creative matches its PDP copy, image, selected color and size, 4.5-star rating, 44 reviews, and &quot;Only 6 Left&quot; message.</li>
 <li>Bridal creative carries a specific emotional gown promise, while its destination requires shoppers to browse a collection before reaching a product.</li>
 </ul>
 </section>
@@ -782,8 +786,8 @@
 <p class="cvrt-kicker">Source findings</p>
 <h2>Google Ads</h2>
 <ul class="cvrt-source-list">
-<li>Visible messaging focuses on plus-size fashion, sizes 10-36, “Love Your Curves,” and 40-75% discounts.</li>
-<li>Google’s broad category and discount themes do not visibly reinforce the bridal or face-gem promises found in paid-social creative.</li>
+<li>Visible messaging focuses on plus-size fashion, sizes 10-36, &quot;Love Your Curves,&quot; and 40-75% discounts.</li>
+<li>Google's broad category and discount themes do not visibly reinforce the bridal or face-gem promises found in paid-social creative.</li>
 </ul>
 </section>
     <section class="cvrt-insight-block">
@@ -802,17 +806,17 @@
 <ul class="cvrt-source-list">
 <li>The homepage mobile performance score is 61/100. Largest Contentful Paint is 3.5 seconds, Total Blocking Time is 790 milliseconds, Speed Index is 8.0 seconds, and Time to Interactive is 27.6 seconds.</li>
 <li>The PDP mobile performance score is 39/100. Largest Contentful Paint is 19.4 seconds, Total Blocking Time is 930 milliseconds, Speed Index is 22.8 seconds, and Time to Interactive is 61.3 seconds.</li>
-<li>The PDP run was too slow to complete within Lighthouse’s time limit, so the captured results may be incomplete.</li>
+<li>The PDP run was too slow to complete within Lighthouse's time limit, so the captured results may be incomplete.</li>
 </ul>
 </section>
     <section class="cvrt-insight-block">
 <p class="cvrt-kicker">Source findings</p>
 <h2>Site Screenshots</h2>
 <ul class="cvrt-source-list">
-<li>Three promotional banners appear before the homepage hero, and a persistent “Get 20% off!” popup overlaps content across the captured folds.</li>
+<li>Three promotional banners appear before the homepage hero, and a persistent &quot;Get 20% off!&quot; popup overlaps content across the captured folds.</li>
 <li>No rating, review count, guarantee badge, or trust copy appears in the three captured homepage folds.</li>
-<li>The PDP shows a 4.5-star rating with 67 reviews, Klarna, Afterpay, Zip, and a “30-Day Returns &amp; Exchanges” box near the buy box.</li>
-<li>The cart’s only visible order-value mechanic is the free-shipping progress bar. No cross-sell, upsell, or bundle appears in the captured cart.</li>
+<li>The PDP shows a 4.5-star rating with 67 reviews, Klarna, Afterpay, Zip, and a &quot;30-Day Returns &amp; Exchanges&quot; box near the buy box.</li>
+<li>The cart's only visible order-value mechanic is the free-shipping progress bar. No cross-sell, upsell, or bundle appears in the captured cart.</li>
 </ul>
 </section>
   </section>
