@@ -65,9 +65,17 @@ Run these two searches after reading the audit. They sharpen variation ideas —
 
 **CRO Ebook:** If `resources/cro-ebook/cro-ebook.md` exists, grep for terms matching the seed's Top Test Opportunities. Read only the matching sections — do NOT load the full ebook file, it is too large. Use the patterns and frameworks from those sections to sharpen how you write variations — not to invent new problems.
 
+**CRO Knowledge Base:** Run these two shell commands to refresh the KB before querying it, so every run uses the latest version:
+- If `resources/kb-repo/.git` does not exist: `git clone --quiet https://github.com/JulianSamarjiev/content.git resources/kb-repo`
+- Else: `git -C resources/kb-repo pull --quiet --ff-only`
+
+Then read `resources/kb/INDEX.md` (one line per doc — do not open the linked docs yet). For each of the seed's Top Test Opportunities, check if its topic matches a doc's one-liner (e.g. a buy-box/pricing-tier opportunity matches `cold-friendly-offer-positioning.md` or `pdp-structure.md`; a pre-sell/advertorial opportunity matches `presell-page-structure.md` or `advertorial-structure.md`). Read only the matching docs in full — this KB is small and topic-scoped, unlike the ebook, so a match is usually one or two files. If nothing in the audit connects to any INDEX.md entry, skip this source entirely.
+
+Use matched docs the same way as the ebook: to sharpen mechanism and copy in variation write-ups, never to introduce a new claim or problem the audit didn't find. A KB pattern is not client data — it earns no place in a slot's **Data:** field and cannot be the sole justification for a test. If you adapt a pattern from a matched doc into a variation, note it inline in the **V[N]:** text as `(KB: resources/kb/<file>.md)`, alongside the audit evidence that justified testing this area at all.
+
 **CRO Community:** Use WebSearch to find practitioner discussions relevant to the brand's category and top friction points. Priority sources: X/Twitter, CXL, GoodUI, Baymard Institute, and practitioner case studies. Reddit is often blocked — search via general WebSearch results (e.g. "site:reddit.com r/ecommerce [topic]") rather than fetching Reddit directly. Real practitioner discussions only, not generic blog posts. Use findings to shape variation specs — not to add new claims to the roadmap.
 
-Do not mention ebook or community sources in the roadmap output.
+Do not mention ebook or community sources in the roadmap output. The KB is the one exception: it may appear as an inline `(KB: resources/kb/<file>.md)` tag in a V[N] description, per Step 1b.
 
 ---
 
