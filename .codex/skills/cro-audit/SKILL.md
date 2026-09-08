@@ -53,6 +53,8 @@ Build the audit section by section. Follow the action instructions below before 
 
 **Before writing Non-Data Context:** Read `raw/context.md`. Write as strategic context, not findings.
 
+**Before writing Social & Community Research:** Read `raw/last30days-ecom.md` if present. This is third-party/community research, not first-party data — treat findings as directional unless corroborated by first-party reviews or site evidence found elsewhere in this audit. If the file notes it ran in Fallback Mode, do not cite engagement numbers from it (none exist). If the file is missing, skip this section entirely — do not note it as a gap unless the manifest shows it was selected as a source.
+
 **Before writing Site Screenshots:** WebFetch the store URL from the manifest — this gives text-level analysis of the live site. Then check if `raw/site-visual-summary.md` exists. If yes, read it — do not load any image files. If no summary exists, load screenshots one at a time in this order:
 - `homepage-f1.png`, `homepage-f2.png`, `homepage-f3.png`
 - `collection-f1.png`, `collection-f2.png`, `collection-f3.png`
@@ -113,6 +115,10 @@ When the audit is complete, proceed to Step 3 before updating the manifest.
 ### Non-Data Context
 
 [Strategic priorities, call notes, known objections.]
+
+### Social & Community Research
+
+[Findings by source, labeled directional. Note explicitly which findings are corroborated by first-party reviews or screenshots elsewhere in this audit, and which stand alone as unconfirmed. Omit this section if the file doesn't exist.]
 
 ### Current Site Screenshots
 

@@ -88,7 +88,8 @@ Now — which of these data sources do you have available?
 6. Inspiration Sites
 7. Email Campaigns
 8. Non-Data Context (call notes, strategic priorities)
-9. Current Site Screenshots (homepage, collection, PDP)"
+9. Current Site Screenshots (homepage, collection, PDP)
+10. Social & Community Research (Reddit, X, TikTok, Instagram, Pinterest, Trustpilot, Amazon, web)"
 
 Wait for reply. Note selected sources. Record under `## Sources Selected` in the manifest.
 
@@ -156,6 +157,12 @@ Save to `brands/[brand-name]/raw/context.md`.
 Say: "Drop homepage, collection, and PDP screenshots (top 3 folds each) into the folder using the naming convention above. PDP is optional. Type `done` when they're in place."
 
 Wait for `done`.
+
+**Social & Community Research**
+
+Say: "For social & community research, run `/last30days-ecom` — it's a separate skill, run it now or right after this. It writes its own file to `raw/last30days-ecom.md` and I'll pick it up automatically during `/cro-audit`."
+
+Do not collect anything here. This source is entirely handled by `/last30days-ecom`.
 
 ---
 
@@ -313,6 +320,7 @@ Write `brands/[brand-name]/manifest.md`:
 - Meta Ads (if collected) → raw/meta-ads-visual-summary.md
 - Google Ads (if collected) → raw/google-ads-visual-summary.md
 - Site Screenshots (if collected) → raw/site-visual-summary.md
+- Social & Community Research (if run via /last30days-ecom) → raw/last30days-ecom.md
 - [If screenshots used accepted aliases, add: Screenshot aliases mapped → [actual filename] used as [canonical slot]]
 
 ## Screenshots Present
