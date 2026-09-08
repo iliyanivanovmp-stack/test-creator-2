@@ -436,7 +436,7 @@
       <img class="cvrt-brand-mark" src="https://mindfulsouls.com/cdn/shop/files/new_ms_logo-01_svg.svg?v=1701694888&amp;width=200" alt="Mindful Souls">
       <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
       <h1>September<br>2026</h1>
-      <p class="cvrt-hero-summary">Trust, pricing, and offer promises change across the storefront, while the talisman page adds a severe mobile performance barrier. This roadmap first restores a stable buying experience, then makes the offer and reassurance consistent from first click to checkout.</p>
+      <p class="cvrt-hero-summary">The Labor Day offer requires a promo code, while key reassurance is uneven near purchase decisions. A mobile Lighthouse capture also identifies one measurable outlier on the talisman page. This roadmap clarifies the offer, strengthens reassurance, and validates page stability with specific performance metrics.</p>
     </div>
     <div class="cvrt-hero-visual">
       <img class="cvrt-hero-image" src="https://mindfulsouls.com/cdn/shop/files/box-labor-day-desktop_b8942432-c3ab-4f9c-a961-cc05c0b8b38a.webp?height=1600&amp;v=1787212539" alt="Open Mindful Souls subscription box with crystals and ritual items">
@@ -457,9 +457,9 @@
       <article class="cvrt-slot">
         <div class="cvrt-slot-copy">
           <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type cvrt-type-project">Immediate Fix</span></div>
-          <h3>Talisman Page Performance</h3>
+          <h3>Talisman Mobile LCP and Layout Shift</h3>
           <p class="cvrt-page-label"><a href="https://mindfulsouls.com/products/magical-energy-talisman" target="_blank" rel="noopener">Magnetic Energy Talisman PDP</a></p>
-          <p class="cvrt-slot-description">The talisman page scores 0.13 for mobile performance, with a 13.3-second LCP, 0.897 CLS, and 48.3-second TTI. The product, price, and buy controls visibly move and remain unavailable during the load window. The proposed experience keeps the gallery and purchase area stable and usable as the page appears.</p>
+          <p class="cvrt-slot-description">A mobile Lighthouse capture on September 1, 2026 recorded a 13.3-second LCP and 0.897 CLS on the talisman page, compared with 4.2 seconds and 0 CLS on the homepage. This gives the team a specific page and two repeatable measures to improve. The project targets an earlier main render and a purchase area that holds its position, then verifies both changes with the same Lighthouse profile.</p>
         </div>
         <div class="cvrt-concept">
           <svg class="cvrt-concept-desktop" viewBox="0 0 812 445" role="img" aria-label="Current unstable talisman page compared with a stable proposed page">
@@ -534,12 +534,12 @@
       <article class="cvrt-slot">
         <div class="cvrt-slot-copy">
           <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
-          <h3>Automatic First-Box Price</h3>
+          <h3>First-Box Code Clarity</h3>
           <p class="cvrt-page-label"><a href="https://mindfulsouls.com/products/mindful-soul-box-monthly-subscription-cf" target="_blank" rel="noopener">Mindful Subscription Box</a></p>
-          <p class="cvrt-slot-description">The customer-facing promise says the discount is automatic, but the landing page shows a $39.97 CTA and asks shoppers to enter MYBOX35 for $25.99. The main action contradicts the promise that earned the click. The variation applies the offer in the primary price and removes the manual code step.</p>
+          <p class="cvrt-slot-description">The Labor Day Sale asks shoppers to use LABOR35 for 35% off their first box. Because the saving depends on copying and applying a code, the code should remain explicit at the purchase action. The variation pairs a one-click LABOR35 copy control with the add-to-cart button and keeps the checkout requirement visible.</p>
         </div>
         <div class="cvrt-concept">
-          <svg class="cvrt-concept-desktop" viewBox="0 0 812 430" role="img" aria-label="Manual discount code compared with automatic discounted price">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 812 430" role="img" aria-label="Existing Labor Day code placement compared with a clearer copy-code purchase action">
             <defs>
               <clipPath id="cvrt-s2-a"><rect x="28" y="78" width="310" height="150" rx="8"/></clipPath>
               <clipPath id="cvrt-s2-b"><rect x="474" y="78" width="310" height="150" rx="8"/></clipPath>
@@ -551,8 +551,8 @@
             <rect x="474" y="54" width="310" height="338" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <rect x="28" y="54" width="310" height="30" rx="10" fill="#efffc8"/>
             <rect x="474" y="54" width="310" height="30" rx="10" fill="#efffc8"/>
-            <text x="183" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF • Code applied automatically</text>
-            <text x="629" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF • Code applied automatically</text>
+            <text x="183" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
+            <text x="629" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
             <image href="https://mindfulsouls.com/cdn/shop/files/ms-box-1m-boxes-sold.webp?v=1776676566&amp;width=600" x="28" y="78" width="310" height="150" preserveAspectRatio="xMidYMid contain" clip-path="url(#cvrt-s2-a)"/>
             <image href="https://mindfulsouls.com/cdn/shop/files/ms-box-1m-boxes-sold.webp?v=1776676566&amp;width=600" x="474" y="78" width="310" height="150" preserveAspectRatio="xMidYMid contain" clip-path="url(#cvrt-s2-b)"/>
             <text x="48" y="250" font-size="13" font-weight="800" fill="#202321">Mindful Subscription Box</text>
@@ -561,57 +561,62 @@
             <text x="183" y="295" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">ADD TO CART • $39.97</text>
             <rect x="48" y="326" width="270" height="48" rx="7" fill="#f1ffc5" stroke="#e40b55" stroke-width="2" stroke-dasharray="8 6"/>
             <text x="62" y="346" font-size="11" font-weight="800" fill="#202321">Use code at checkout for $25.99</text>
-            <text x="183" y="364" text-anchor="middle" font-size="13" font-weight="800" fill="#e40b55">MYBOX35</text>
-            <text x="494" y="275" font-size="12" font-weight="800" fill="#202321">First box</text>
-            <text x="494" y="299" font-size="22" font-weight="800" fill="#147b25">$25.99</text>
-            <text x="570" y="299" font-size="13" font-weight="700" fill="#202321" text-decoration="line-through">$39.97</text>
-            <rect x="494" y="318" width="270" height="50" rx="25" fill="#147b25"/>
-            <text x="629" y="349" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">ADD TO CART • $25.99</text>
+            <text x="183" y="364" text-anchor="middle" font-size="13" font-weight="800" fill="#e40b55">LABOR35</text>
+            <rect x="494" y="267" width="270" height="50" rx="7" fill="#f1ffc5" stroke="#e40b55" stroke-width="2"/>
+            <text x="629" y="288" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF YOUR FIRST BOX</text>
+            <text x="629" y="306" text-anchor="middle" font-size="13" font-weight="800" fill="#e40b55">Use code LABOR35 at checkout</text>
+            <rect x="494" y="328" width="128" height="40" rx="20" fill="#ffffff" stroke="#147b25" stroke-width="2"/>
+            <text x="558" y="353" text-anchor="middle" font-size="11" font-weight="800" fill="#147b25">COPY LABOR35</text>
+            <rect x="634" y="328" width="130" height="40" rx="20" fill="#147b25"/>
+            <text x="699" y="353" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">ADD TO CART</text>
             <path d="M381 223 H431" stroke="#db9a2b" stroke-width="3"/>
             <path d="M423 215 L432 223 L423 231" fill="none" stroke="#db9a2b" stroke-width="3"/>
           </svg>
-          <svg class="cvrt-concept-mobile" viewBox="0 0 360 830" role="img" aria-label="Manual discount code stacked above automatic discounted price">
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 830" role="img" aria-label="Existing Labor Day code placement stacked above a clearer copy-code purchase action">
             <rect width="360" height="830" rx="10" fill="#fbf8f2"/>
             <text x="18" y="33" font-size="18" font-weight="800" fill="#202321">Current</text>
             <rect x="18" y="48" width="324" height="340" rx="10" fill="#fff" stroke="#d7ccbc"/>
             <rect x="18" y="48" width="324" height="30" rx="10" fill="#efffc8"/>
-            <text x="180" y="69" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF • Code applied automatically</text>
+            <text x="180" y="69" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
             <image href="https://mindfulsouls.com/cdn/shop/files/ms-box-1m-boxes-sold.webp?v=1776676566&amp;width=600" x="38" y="87" width="284" height="150" preserveAspectRatio="xMidYMid contain"/>
             <text x="36" y="256" font-size="13" font-weight="800" fill="#202321">Mindful Subscription Box</text>
             <rect x="36" y="272" width="288" height="45" rx="23" fill="#147b25"/>
             <text x="180" y="300" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">ADD TO CART • $39.97</text>
             <rect x="36" y="328" width="288" height="45" rx="7" fill="#f1ffc5" stroke="#e40b55" stroke-width="2" stroke-dasharray="8 6"/>
             <text x="180" y="348" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">Use code at checkout for $25.99</text>
-            <text x="180" y="366" text-anchor="middle" font-size="12" font-weight="800" fill="#e40b55">MYBOX35</text>
+            <text x="180" y="366" text-anchor="middle" font-size="12" font-weight="800" fill="#e40b55">LABOR35</text>
             <path d="M180 408 V442" stroke="#db9a2b" stroke-width="3"/>
             <path d="M171 434 L180 443 L189 434" fill="none" stroke="#db9a2b" stroke-width="3"/>
             <text x="18" y="472" font-size="18" font-weight="800" fill="#164e52">Variation</text>
             <rect x="18" y="486" width="324" height="316" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <rect x="18" y="486" width="324" height="30" rx="10" fill="#efffc8"/>
-            <text x="180" y="507" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF • Code applied automatically</text>
+            <text x="180" y="507" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
             <image href="https://mindfulsouls.com/cdn/shop/files/ms-box-1m-boxes-sold.webp?v=1776676566&amp;width=600" x="38" y="525" width="284" height="150" preserveAspectRatio="xMidYMid contain"/>
             <text x="36" y="694" font-size="13" font-weight="800" fill="#202321">Mindful Subscription Box</text>
-            <text x="36" y="727" font-size="22" font-weight="800" fill="#147b25">$25.99</text>
-            <text x="113" y="727" font-size="13" font-weight="700" fill="#202321" text-decoration="line-through">$39.97</text>
-            <rect x="36" y="742" width="288" height="45" rx="23" fill="#147b25"/>
-            <text x="180" y="770" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">ADD TO CART • $25.99</text>
+            <rect x="36" y="707" width="288" height="42" rx="7" fill="#f1ffc5" stroke="#e40b55" stroke-width="2"/>
+            <text x="180" y="726" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">35% OFF YOUR FIRST BOX</text>
+            <text x="180" y="742" text-anchor="middle" font-size="11" font-weight="800" fill="#e40b55">Use LABOR35 at checkout</text>
+            <rect x="36" y="758" width="136" height="32" rx="16" fill="#fff" stroke="#147b25" stroke-width="2"/>
+            <text x="104" y="779" text-anchor="middle" font-size="10" font-weight="800" fill="#147b25">COPY LABOR35</text>
+            <rect x="184" y="758" width="140" height="32" rx="16" fill="#147b25"/>
+            <text x="254" y="779" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">ADD TO CART</text>
           </svg>
-          <p class="cvrt-caption">* The promised first-box price moves into the primary CTA and the manual code step disappears. Concept illustration only. Final design will differ.</p>
+          <p class="cvrt-caption">* LABOR35 remains a required promo code, with a clear copy action beside the purchase button. Concept illustration only. Final design will differ.</p>
         </div>
       </article>
 
       <article class="cvrt-slot">
         <div class="cvrt-slot-copy">
           <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
-          <h3>Site-Wide Trust Number</h3>
+          <h3>Trust Metric Hierarchy</h3>
           <p class="cvrt-page-label"><a href="https://mindfulsouls.com/" target="_blank" rel="noopener">Homepage</a></p>
-          <p class="cvrt-slot-description">The first three homepage folds show 12k+ reviews, 2M+ boxes delivered, and 500k+ happy customers with equal visual weight. The collection page adds 3k+ Trustpilot reviews and 11,388 happy customers. The variation repeats one verified trust treatment across the hero, reassurance strip, and category section.</p>
+          <p class="cvrt-slot-description">The homepage and primary subscription product page both show 12k+ reviews, so review proof is consistent through the core buying journey. The site also uses 2M+ boxes delivered and 500k+ happy customers, but those are different measures rather than conflicting review counts. The variation preserves the consistent 12k+ review figure and gives reviews, customers, and deliveries distinct labels.</p>
         </div>
         <div class="cvrt-concept">
-          <svg class="cvrt-concept-desktop" viewBox="0 0 812 455" role="img" aria-label="Several competing trust figures compared with one consistent verified treatment">
+          <svg class="cvrt-concept-desktop" viewBox="0 0 812 455" role="img" aria-label="Consistent review proof and separate business metrics compared with a clearer metric hierarchy">
             <rect width="812" height="455" rx="12" fill="#fbf8f2"/>
-            <text x="30" y="35" font-size="18" font-weight="800" fill="#202321">Current signals</text>
-            <text x="466" y="35" font-size="18" font-weight="800" fill="#164e52">One verified treatment</text>
+            <text x="30" y="35" font-size="18" font-weight="800" fill="#202321">Current hierarchy</text>
+            <text x="466" y="35" font-size="18" font-weight="800" fill="#164e52">Clear metric roles</text>
             <rect x="30" y="52" width="340" height="350" rx="10" fill="#fff" stroke="#d7ccbc"/>
             <rect x="466" y="52" width="316" height="350" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <rect x="48" y="72" width="304" height="92" rx="8" fill="#f4eee5"/>
@@ -620,57 +625,55 @@
             <text x="176" y="132" font-size="20" font-weight="800" fill="#db9a2b">★★★★★</text>
             <text x="176" y="151" font-size="12" font-weight="800" fill="#202321">4.9 (12k+ reviews)</text>
             <rect x="48" y="178" width="304" height="90" rx="8" fill="#164e52"/>
-            <text x="72" y="210" font-size="12" font-weight="800" fill="#fff">FREE US DELIVERY</text>
-            <text x="72" y="242" font-size="17" font-weight="800" fill="#fff">2M+ Boxes Delivered</text>
+            <text x="72" y="210" font-size="12" font-weight="800" fill="#fff">SUBSCRIPTION PRODUCT PAGE</text>
+            <text x="72" y="242" font-size="17" font-weight="800" fill="#fff">4.9 (12k+ reviews)</text>
             <rect x="48" y="282" width="304" height="98" rx="8" fill="#fff" stroke="#d7ccbc"/>
-            <text x="200" y="318" text-anchor="middle" font-size="16" font-weight="800" fill="#202321">Shop by Category</text>
-            <text x="200" y="349" text-anchor="middle" font-size="15" font-weight="800" fill="#202321">Trusted by 500k+ Happy Customers</text>
+            <text x="200" y="318" text-anchor="middle" font-size="16" font-weight="800" fill="#202321">Additional proof</text>
+            <text x="200" y="349" text-anchor="middle" font-size="13" font-weight="800" fill="#202321">2M+ boxes • 500k+ customers</text>
             <rect x="484" y="72" width="280" height="92" rx="8" fill="#eef6ef"/>
-            <text x="504" y="101" font-size="12" font-weight="800" fill="#164e52">Homepage hero</text>
+            <text x="504" y="101" font-size="12" font-weight="800" fill="#164e52">REVIEWS</text>
             <text x="504" y="128" font-size="17" font-weight="800" fill="#db9a2b">★★★★★</text>
-            <text x="504" y="149" font-size="12" font-weight="800" fill="#202321">4.9/5 • 3k+ Trustpilot reviews</text>
+            <text x="504" y="149" font-size="12" font-weight="800" fill="#202321">4.9 • 12k+ reviews</text>
             <rect x="484" y="178" width="280" height="90" rx="8" fill="#164e52"/>
-            <text x="504" y="210" font-size="12" font-weight="800" fill="#fff">VERIFIED TRUST</text>
-            <text x="504" y="242" font-size="14" font-weight="800" fill="#fff">4.9/5 • 3k+ Trustpilot reviews</text>
+            <text x="504" y="210" font-size="12" font-weight="800" fill="#fff">CUSTOMER REACH</text>
+            <text x="504" y="242" font-size="14" font-weight="800" fill="#fff">500k+ Happy Customers</text>
             <rect x="484" y="282" width="280" height="98" rx="8" fill="#eef6ef"/>
-            <text x="624" y="316" text-anchor="middle" font-size="16" font-weight="800" fill="#202321">Shop by Category</text>
-            <text x="624" y="344" text-anchor="middle" font-size="13" font-weight="800" fill="#202321">4.9/5 • 3k+ Trustpilot reviews</text>
-            <text x="624" y="364" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">by 11,388 happy customers</text>
+            <text x="624" y="316" text-anchor="middle" font-size="16" font-weight="800" fill="#202321">FULFILLMENT SCALE</text>
+            <text x="624" y="350" text-anchor="middle" font-size="14" font-weight="800" fill="#202321">2M+ Boxes Delivered</text>
             <path d="M395 224 H437" stroke="#db9a2b" stroke-width="3"/>
             <path d="M429 216 L438 224 L429 232" fill="none" stroke="#db9a2b" stroke-width="3"/>
           </svg>
-          <svg class="cvrt-concept-mobile" viewBox="0 0 360 920" role="img" aria-label="Several competing trust figures stacked above one consistent verified treatment">
+          <svg class="cvrt-concept-mobile" viewBox="0 0 360 920" role="img" aria-label="Consistent review proof and separate business metrics stacked above a clearer metric hierarchy">
             <rect width="360" height="920" rx="10" fill="#fbf8f2"/>
-            <text x="18" y="33" font-size="18" font-weight="800" fill="#202321">Current signals</text>
+            <text x="18" y="33" font-size="18" font-weight="800" fill="#202321">Current hierarchy</text>
             <rect x="18" y="48" width="324" height="366" rx="10" fill="#fff" stroke="#d7ccbc"/>
             <rect x="34" y="66" width="292" height="96" rx="8" fill="#f4eee5"/>
             <image href="https://mindfulsouls.com/cdn/shop/files/box-labor-day-desktop_b8942432-c3ab-4f9c-a961-cc05c0b8b38a.webp?height=1600&amp;v=1787212539" x="42" y="70" width="106" height="88" preserveAspectRatio="xMidYMid contain"/>
             <text x="164" y="104" font-size="12" font-weight="800" fill="#202321">Homepage hero</text>
             <text x="164" y="135" font-size="12" font-weight="800" fill="#202321">4.9 (12k+ reviews)</text>
             <rect x="34" y="176" width="292" height="86" rx="8" fill="#164e52"/>
-            <text x="54" y="211" font-size="12" font-weight="800" fill="#fff">FREE US DELIVERY</text>
-            <text x="54" y="242" font-size="16" font-weight="800" fill="#fff">2M+ Boxes Delivered</text>
+            <text x="54" y="211" font-size="11" font-weight="800" fill="#fff">SUBSCRIPTION PRODUCT PAGE</text>
+            <text x="54" y="242" font-size="16" font-weight="800" fill="#fff">4.9 (12k+ reviews)</text>
             <rect x="34" y="276" width="292" height="116" rx="8" fill="#fff" stroke="#d7ccbc"/>
-            <text x="180" y="318" text-anchor="middle" font-size="17" font-weight="800" fill="#202321">Shop by Category</text>
-            <text x="180" y="356" text-anchor="middle" font-size="14" font-weight="800" fill="#202321">Trusted by 500k+</text>
-            <text x="180" y="376" text-anchor="middle" font-size="14" font-weight="800" fill="#202321">Happy Customers</text>
+            <text x="180" y="318" text-anchor="middle" font-size="17" font-weight="800" fill="#202321">Additional proof</text>
+            <text x="180" y="356" text-anchor="middle" font-size="13" font-weight="800" fill="#202321">2M+ boxes delivered</text>
+            <text x="180" y="376" text-anchor="middle" font-size="13" font-weight="800" fill="#202321">500k+ happy customers</text>
             <path d="M180 430 V464" stroke="#db9a2b" stroke-width="3"/>
             <path d="M171 456 L180 465 L189 456" fill="none" stroke="#db9a2b" stroke-width="3"/>
-            <text x="18" y="494" font-size="18" font-weight="800" fill="#164e52">One verified treatment</text>
+            <text x="18" y="494" font-size="18" font-weight="800" fill="#164e52">Clear metric roles</text>
             <rect x="18" y="510" width="324" height="382" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <rect x="34" y="528" width="292" height="102" rx="8" fill="#eef6ef"/>
-            <text x="54" y="558" font-size="12" font-weight="800" fill="#164e52">Homepage hero</text>
+            <text x="54" y="558" font-size="12" font-weight="800" fill="#164e52">REVIEWS</text>
             <text x="54" y="586" font-size="17" font-weight="800" fill="#db9a2b">★★★★★</text>
-            <text x="54" y="613" font-size="12" font-weight="800" fill="#202321">4.9/5 • 3k+ Trustpilot reviews</text>
+            <text x="54" y="613" font-size="12" font-weight="800" fill="#202321">4.9 • 12k+ reviews</text>
             <rect x="34" y="644" width="292" height="90" rx="8" fill="#164e52"/>
-            <text x="54" y="676" font-size="12" font-weight="800" fill="#fff">VERIFIED TRUST</text>
-            <text x="54" y="712" font-size="13" font-weight="800" fill="#fff">4.9/5 • 3k+ Trustpilot reviews</text>
+            <text x="54" y="676" font-size="12" font-weight="800" fill="#fff">CUSTOMER REACH</text>
+            <text x="54" y="712" font-size="13" font-weight="800" fill="#fff">500k+ Happy Customers</text>
             <rect x="34" y="748" width="292" height="122" rx="8" fill="#eef6ef"/>
-            <text x="180" y="785" text-anchor="middle" font-size="17" font-weight="800" fill="#202321">Shop by Category</text>
-            <text x="180" y="820" text-anchor="middle" font-size="12" font-weight="800" fill="#202321">4.9/5 • 3k+ Trustpilot reviews</text>
-            <text x="180" y="844" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">by 11,388 happy customers</text>
+            <text x="180" y="785" text-anchor="middle" font-size="16" font-weight="800" fill="#202321">FULFILLMENT SCALE</text>
+            <text x="180" y="825" text-anchor="middle" font-size="13" font-weight="800" fill="#202321">2M+ Boxes Delivered</text>
           </svg>
-          <p class="cvrt-caption">* One verified trust treatment appears in every high-visibility homepage placement. Concept illustration only. Final design will differ.</p>
+          <p class="cvrt-caption">* The consistent 12k+ review figure stays prominent, while customer and delivery figures are labeled as different measures. Concept illustration only. Final design will differ.</p>
         </div>
       </article>
 
@@ -679,7 +682,7 @@
           <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div>
           <h3>Homepage Discount Message</h3>
           <p class="cvrt-page-label"><a href="https://mindfulsouls.com/" target="_blank" rel="noopener">Homepage</a></p>
-          <p class="cvrt-slot-description">LABOR35 appears in the announcement bar, headline, and supporting copy within the first homepage fold, while other offers use different discount mechanics. Repetition makes the hero work harder without adding new information. The variation keeps the code once in the announcement bar and lets the hero focus on the product and savings.</p>
+          <p class="cvrt-slot-description">The homepage names the promotion Labor Day Sale and uses LABOR35 as the promo code for 35% off the first box. The campaign name and code serve different jobs, but repeating the code across the same fold competes with the product promise. The variation keeps Labor Day Sale as the campaign name, places LABOR35 in one clear copyable offer line, and lets the main CTA focus on the box.</p>
         </div>
         <div class="cvrt-concept">
           <svg class="cvrt-concept-desktop" viewBox="0 0 812 420" role="img" aria-label="Repeated homepage code compared with one clear announcement bar placement">
@@ -694,16 +697,16 @@
             <rect x="432" y="52" width="350" height="330" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <rect x="30" y="52" width="350" height="34" fill="#ddecf7"/>
             <rect x="432" y="52" width="350" height="34" fill="#ddecf7"/>
-            <text x="205" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF your First Box • LABOR35</text>
-            <text x="607" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">35% OFF your First Box • LABOR35</text>
+            <text x="205" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
+            <text x="607" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
             <image href="https://mindfulsouls.com/cdn/shop/files/box-labor-day-desktop_b8942432-c3ab-4f9c-a961-cc05c0b8b38a.webp?height=1600&amp;v=1787212539" x="203" y="98" width="164" height="180" preserveAspectRatio="xMidYMid contain" clip-path="url(#cvrt-s4-a)"/>
             <image href="https://mindfulsouls.com/cdn/shop/files/box-labor-day-desktop_b8942432-c3ab-4f9c-a961-cc05c0b8b38a.webp?height=1600&amp;v=1787212539" x="605" y="98" width="164" height="180" preserveAspectRatio="xMidYMid contain" clip-path="url(#cvrt-s4-b)"/>
-            <text x="50" y="127" font-family="Cormorant Garamond, serif" font-size="27" font-weight="700" fill="#202321">LABOR35</text>
+            <text x="50" y="127" font-family="Cormorant Garamond, serif" font-size="27" font-weight="700" fill="#202321">LABOR DAY</text>
             <text x="50" y="153" font-family="Cormorant Garamond, serif" font-size="27" font-weight="700" fill="#202321">SALE</text>
             <text x="50" y="190" font-size="11" font-weight="800" fill="#147b25">35% OFF with code</text>
             <text x="50" y="210" font-size="14" font-weight="800" fill="#147b25">LABOR35</text>
             <rect x="50" y="299" width="300" height="46" rx="23" fill="#147b25"/>
-            <text x="200" y="328" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">GET THE BOX • LABOR35</text>
+            <text x="200" y="328" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">GET THE BOX • 35% OFF</text>
             <text x="452" y="129" font-family="Cormorant Garamond, serif" font-size="25" font-weight="700" fill="#202321">Your Monthly</text>
             <text x="452" y="158" font-family="Cormorant Garamond, serif" font-size="25" font-weight="700" fill="#202321">Ritual for Peace</text>
             <text x="452" y="195" font-size="12" font-weight="800" fill="#147b25">Save 35% on your first box</text>
@@ -718,20 +721,20 @@
             <text x="18" y="33" font-size="18" font-weight="800" fill="#202321">Current</text>
             <rect x="18" y="48" width="324" height="316" rx="10" fill="#fff" stroke="#d7ccbc"/>
             <rect x="18" y="48" width="324" height="32" fill="#ddecf7"/>
-            <text x="180" y="69" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">35% OFF your First Box • LABOR35</text>
+            <text x="180" y="69" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
             <image href="https://mindfulsouls.com/cdn/shop/files/box-labor-day-desktop_b8942432-c3ab-4f9c-a961-cc05c0b8b38a.webp?height=1600&amp;v=1787212539" x="184" y="87" width="140" height="160" preserveAspectRatio="xMidYMid contain"/>
-            <text x="36" y="117" font-family="Cormorant Garamond, serif" font-size="26" font-weight="700" fill="#202321">LABOR35</text>
+            <text x="36" y="117" font-family="Cormorant Garamond, serif" font-size="26" font-weight="700" fill="#202321">LABOR DAY</text>
             <text x="36" y="143" font-family="Cormorant Garamond, serif" font-size="26" font-weight="700" fill="#202321">SALE</text>
             <text x="36" y="180" font-size="11" font-weight="800" fill="#147b25">35% OFF with code</text>
             <text x="36" y="199" font-size="13" font-weight="800" fill="#147b25">LABOR35</text>
             <rect x="36" y="285" width="288" height="44" rx="22" fill="#147b25"/>
-            <text x="180" y="312" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">GET THE BOX • LABOR35</text>
+            <text x="180" y="312" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">GET THE BOX • 35% OFF</text>
             <path d="M180 383 V417" stroke="#db9a2b" stroke-width="3"/>
             <path d="M171 409 L180 418 L189 409" fill="none" stroke="#db9a2b" stroke-width="3"/>
             <text x="18" y="447" font-size="18" font-weight="800" fill="#164e52">Variation</text>
             <rect x="18" y="462" width="324" height="300" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <rect x="18" y="462" width="324" height="32" fill="#ddecf7"/>
-            <text x="180" y="483" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">35% OFF your First Box • LABOR35</text>
+            <text x="180" y="483" text-anchor="middle" font-size="10" font-weight="800" fill="#202321">LABOR DAY SALE • Use code LABOR35</text>
             <image href="https://mindfulsouls.com/cdn/shop/files/box-labor-day-desktop_b8942432-c3ab-4f9c-a961-cc05c0b8b38a.webp?height=1600&amp;v=1787212539" x="206" y="504" width="118" height="150" preserveAspectRatio="xMidYMid contain"/>
             <text x="36" y="539" font-family="Cormorant Garamond, serif" font-size="23" font-weight="700" fill="#202321">Your Monthly</text>
             <text x="36" y="565" font-family="Cormorant Garamond, serif" font-size="23" font-weight="700" fill="#202321">Ritual for Peace</text>
@@ -739,7 +742,7 @@
             <rect x="36" y="686" width="288" height="44" rx="22" fill="#147b25"/>
             <text x="180" y="713" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">GET THE BOX • 35% OFF</text>
           </svg>
-          <p class="cvrt-caption">* The discount code appears once in the announcement bar while the hero carries the product promise. Concept illustration only. Final design will differ.</p>
+          <p class="cvrt-caption">* Labor Day Sale remains the campaign name, while LABOR35 appears once as the code shoppers must copy and use. Concept illustration only. Final design will differ.</p>
         </div>
       </article>
 
@@ -842,7 +845,7 @@
           <div class="cvrt-slot-meta"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
           <h3>Talisman Trust Signals</h3>
           <p class="cvrt-page-label"><a href="https://mindfulsouls.com/products/magical-energy-talisman" target="_blank" rel="noopener">Magnetic Energy Talisman PDP</a></p>
-          <p class="cvrt-slot-description">The talisman page shows one customer review and a Trustpilot badge, but no review count or guarantee copy near the CTA in the captured folds. Subscription landing pages provide a fuller reassurance stack. After the performance fix, the variation adds the documented review count and a compact shipping, returns, guarantee, and checkout strip beside the action.</p>
+          <p class="cvrt-slot-description">The talisman page carries the same 12k+ store-review proof shown on the homepage, so the core journey is consistent on review volume. Near the CTA, however, the captured folds show only one testimonial and a Trustpilot badge, with no guarantee copy. After the performance project, the variation brings the existing 12k+ proof and a compact shipping, returns, guarantee, and checkout strip beside the action.</p>
         </div>
         <div class="cvrt-concept">
           <svg class="cvrt-concept-desktop" viewBox="0 0 812 445" role="img" aria-label="Talisman CTA with thin trust signals compared with a fuller trust stack">
@@ -861,7 +864,7 @@
             <text x="198" y="279" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">SHOP NOW</text>
             <text x="198" y="326" text-anchor="middle" font-size="14" font-weight="800" fill="#164e52">Excellent  ★★★★★  Trustpilot</text>
             <rect x="468" y="244" width="292" height="46" rx="7" fill="#eef6ef"/>
-            <text x="488" y="263" font-size="13" font-weight="800" fill="#202321">★★★★★ 4.8/5 • 886 reviews</text>
+            <text x="488" y="263" font-size="13" font-weight="800" fill="#202321">★★★★★ 4.9 • 12k+ reviews</text>
             <text x="488" y="281" font-size="11" font-weight="800" fill="#164e52">Excellent on Trustpilot</text>
             <rect x="468" y="302" width="292" height="52" rx="7" fill="#f6dfdc"/>
             <text x="489" y="321" font-size="9" font-weight="800" fill="#202321">FREE SHIPPING $60+</text>
@@ -891,7 +894,7 @@
             <rect x="18" y="478" width="324" height="344" rx="10" fill="#fff" stroke="#164e52" stroke-width="2"/>
             <image href="https://mindfulsouls.com/cdn/shop/files/MET_slider_1.webp?v=1781595580&amp;width=720" x="18" y="478" width="324" height="176" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s6m-b)"/>
             <rect x="36" y="670" width="288" height="44" rx="7" fill="#eef6ef"/>
-            <text x="52" y="690" font-size="12" font-weight="800" fill="#202321">★★★★★ 4.8/5 • 886 reviews</text>
+            <text x="52" y="690" font-size="12" font-weight="800" fill="#202321">★★★★★ 4.9 • 12k+ reviews</text>
             <text x="52" y="706" font-size="10" font-weight="800" fill="#164e52">Excellent on Trustpilot</text>
             <rect x="36" y="725" width="288" height="46" rx="7" fill="#f6dfdc"/>
             <text x="53" y="744" font-size="9" font-weight="800" fill="#202321">FREE SHIPPING $60+ • EASY RETURNS</text>
@@ -899,7 +902,7 @@
             <rect x="36" y="781" width="288" height="30" rx="15" fill="#147b25"/>
             <text x="180" y="801" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">SHOP NOW</text>
           </svg>
-          <p class="cvrt-caption">* The documented review count and four reassurance cues move beside the talisman CTA. Concept illustration only. Final design will differ.</p>
+          <p class="cvrt-caption">* The existing 12k+ store-review proof and four reassurance cues move beside the talisman CTA. Concept illustration only. Final design will differ.</p>
         </div>
       </article>
 
@@ -1088,9 +1091,9 @@
       <section class="cvrt-killers">
         <h2>Biggest Killers of Conversion Rate</h2>
         <ul class="cvrt-killer-list">
-          <li>Trust figures do not reconcile across the homepage, collection, landing pages, product page, and paid-search snippet. Each number receives similar visual authority.</li>
+          <li>The cart drawer reaches the checkout action without repeating the 30-day money-back guarantee shown elsewhere on the site.</li>
           <li>LABOR35, SPRING35, MYBOX35, an unlabeled 35% offer, and a 50% off plus free gift offer are live across acquisition surfaces.</li>
-          <li>The Magnetic Energy Talisman page is the severe performance outlier: 0.13 mobile Performance, 13.3-second LCP, 0.897 CLS, and 48.3-second TTI.</li>
+          <li>A September 1 mobile Lighthouse capture measured 13.3-second LCP and 0.897 CLS on the talisman page, versus 4.2-second LCP and 0 CLS on the homepage.</li>
         </ul>
       </section>
 
@@ -1101,7 +1104,6 @@
         <div class="cvrt-source-chip">PageSpeed Insights</div>
         <div class="cvrt-source-chip">Site Screenshots</div>
         <div class="cvrt-source-chip">Live Site</div>
-        <div class="cvrt-source-chip">Customer Reviews</div>
         <div class="cvrt-source-chip">Competitor Research</div>
       </div>
 
@@ -1109,9 +1111,9 @@
         <section class="cvrt-source-block">
           <h3>Meta Ads and Landing Pages</h3>
           <ul class="cvrt-source-list">
-            <li>One offer-focused journey promises automatic pricing, but the page requires MYBOX35 at checkout. The main CTA shows $39.97 while $25.99 sits in a secondary callout.</li>
+            <li>The Labor Day Sale requires shoppers to use LABOR35. The site does not describe this discount as automatic.</li>
             <li>The strongest subscription journey repeats the $25.99 first-box price and the free 18-piece aroma oils gift on the landing page.</li>
-            <li>Subscription pages show 4.9/5 and 13,000 reviews. The talisman page shows one review card and an Excellent Trustpilot badge without a review count in the captured folds.</li>
+            <li>The homepage and primary subscription product page both show 12k+ reviews, keeping the main customer journey consistent on review volume.</li>
           </ul>
         </section>
 
@@ -1136,8 +1138,8 @@
         <section class="cvrt-source-block">
           <h3>Site Screenshots</h3>
           <ul class="cvrt-source-list">
-            <li>The homepage shows 12k+ reviews, 2M+ boxes delivered, and 500k+ happy customers within the first three folds.</li>
-            <li>The collection page shows 3k+ Trustpilot reviews and 4.9/5 by 11,388 happy customers.</li>
+            <li>The homepage and primary subscription product page both show 12k+ reviews, keeping review proof consistent through the core buying journey.</li>
+            <li>The homepage also shows 2M+ boxes delivered and 500k+ happy customers. These are separate measures, not conflicting review counts.</li>
             <li>Collection products with 12 reviews and 886 reviews use identical five-star iconography.</li>
             <li>The cart drawer shows a discount-code note before checkout but no guarantee badge or returns copy.</li>
           </ul>
@@ -1149,13 +1151,6 @@
             <li>The talisman page is a one-time-purchase page with a Buy 1 Get 1 50% OFF bundle option and 886 reviews at 4.8/5.</li>
             <li>The homepage states that its crystals are 100% natural and lab-certified.</li>
             <li>The full talisman page contains product-detail and FAQ content below the captured landing-page folds.</li>
-          </ul>
-        </section>
-
-        <section class="cvrt-source-block">
-          <h3>Customer Reviews</h3>
-          <ul class="cvrt-source-list">
-            <li>Customer reviews were collected across the supplied ads, landing pages, site screenshots, and live site to assess rating consistency, review volume, and the strength of social proof throughout the journey.</li>
           </ul>
         </section>
 
