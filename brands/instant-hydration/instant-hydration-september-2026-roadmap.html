@@ -1,0 +1,1352 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li {
+  list-style: none;
+}
+#cvrt-roadmap li::marker {
+  content: "";
+}
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important;
+  display: none !important;
+}
+#cvrt-roadmap {
+  --cvrt-ink: #0a0a08;
+  --cvrt-paper: #f2f0e9;
+  --cvrt-white: #ffffff;
+  --cvrt-ember: #ff5a28;
+  --cvrt-amber: #f5a400;
+  --cvrt-acid: #c8f52d;
+  --cvrt-green: #1c8d42;
+  --cvrt-red: #cc1f2f;
+  --cvrt-blue: #42b9de;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-paper);
+  color: var(--cvrt-ink);
+  font-family: "Archivo", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+#cvrt-roadmap a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+#cvrt-roadmap .cvrt-tab-radio {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+#cvrt-roadmap .cvrt-hero {
+  position: relative;
+  background: #130a06;
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(430px, 0.88fr) minmax(520px, 1.12fr);
+  min-height: 570px;
+}
+#cvrt-roadmap .cvrt-hero-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px clamp(40px, 6vw, 104px) 112px;
+  background:
+    radial-gradient(circle at 14% 16%, rgba(255,90,40,.18), transparent 26%),
+    #130a06;
+}
+#cvrt-roadmap .cvrt-hero-copy::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background: #130a06;
+  clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+  z-index: -1;
+}
+#cvrt-roadmap .cvrt-logo {
+  display: block;
+  width: 224px;
+  height: auto;
+  margin-bottom: 48px;
+  padding: 12px 14px;
+  border-radius: 3px;
+  background: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-eyebrow {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cvrt-acid);
+  margin-bottom: 16px;
+}
+#cvrt-roadmap .cvrt-hero-title {
+  max-width: 560px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(58px, 6vw, 96px);
+  font-weight: 800;
+  line-height: .86;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-hero-title span {
+  display: block;
+  color: var(--cvrt-ember);
+}
+#cvrt-roadmap .cvrt-hero-summary {
+  max-width: 520px;
+  margin-top: 26px;
+  color: var(--cvrt-white);
+  font-size: 17px;
+  line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-hero-media {
+  position: relative;
+  min-height: 570px;
+  overflow: hidden;
+  background: #4c170a;
+}
+#cvrt-roadmap .cvrt-hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 47% center;
+}
+#cvrt-roadmap .cvrt-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(19,10,6,.3), transparent 34%);
+  pointer-events: none;
+}
+#cvrt-roadmap .cvrt-tabs {
+  position: absolute;
+  z-index: 3;
+  left: clamp(40px, 6vw, 104px);
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+#cvrt-roadmap .cvrt-tab-label {
+  min-width: 168px;
+  padding: 17px 26px 15px;
+  border: 1px solid rgba(255,255,255,.48);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+  color: var(--cvrt-white);
+  cursor: pointer;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background-color .18s ease, color .18s ease;
+}
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tests-label,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-insights-label {
+  background: var(--cvrt-paper);
+  color: var(--cvrt-ink);
+  border-color: var(--cvrt-paper);
+}
+#cvrt-roadmap .cvrt-tab-panel {
+  display: none;
+  padding: 62px clamp(20px, 5vw, 72px) 84px;
+}
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-insights-panel {
+  display: block;
+}
+#cvrt-roadmap .cvrt-panel-intro {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+#cvrt-roadmap .cvrt-panel-kicker {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #9b2509;
+}
+#cvrt-roadmap .cvrt-panel-title {
+  margin-top: 9px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(40px, 5vw, 62px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-panel-note {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: right;
+  color: var(--cvrt-ink);
+}
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 28px;
+  overflow: hidden;
+  border: 1px solid #25251f;
+  border-radius: 18px;
+  background: var(--cvrt-white);
+  box-shadow: 0 14px 0 rgba(10,10,8,.08);
+}
+#cvrt-roadmap .cvrt-slot-copy {
+  padding: 34px 38px 30px;
+}
+#cvrt-roadmap .cvrt-slot-topline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+#cvrt-roadmap .cvrt-slot-label,
+#cvrt-roadmap .cvrt-type-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 7px 12px 6px;
+  border-radius: 999px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-slot-label {
+  background: var(--cvrt-ink);
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-type-badge {
+  border: 1px solid var(--cvrt-ink);
+  color: var(--cvrt-ink);
+  background: var(--cvrt-acid);
+}
+#cvrt-roadmap .cvrt-type-fix {
+  background: var(--cvrt-ember);
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-slot-title {
+  max-width: 640px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.015em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-page {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-description {
+  max-width: 640px;
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--cvrt-ink);
+}
+#cvrt-roadmap .cvrt-visual {
+  padding: 28px 24px 22px;
+  border-top: 1px solid #25251f;
+  background: #f8f7f2;
+}
+#cvrt-roadmap .cvrt-svg-desktop,
+#cvrt-roadmap .cvrt-svg-mobile {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#cvrt-roadmap .cvrt-svg-mobile {
+  display: none;
+  min-width: 0;
+}
+#cvrt-roadmap .cvrt-caption {
+  margin-top: 14px;
+  color: var(--cvrt-ink);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+#cvrt-roadmap .cvrt-killers {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 42px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(255,90,40,.36), transparent 33%),
+    var(--cvrt-ink);
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-killers-kicker {
+  font-family: "Barlow Condensed", sans-serif;
+  color: var(--cvrt-acid);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-killers-title {
+  margin-top: 12px;
+  max-width: 660px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: .93;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  color: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-killer-list {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+#cvrt-roadmap .cvrt-killer-list li {
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 12px;
+  color: var(--cvrt-white);
+  font-size: 14px;
+  line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-killer-number {
+  display: block;
+  margin-bottom: 20px;
+  font-family: "Barlow Condensed", sans-serif;
+  color: var(--cvrt-ember);
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+}
+#cvrt-roadmap .cvrt-data-block {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 28px;
+}
+#cvrt-roadmap .cvrt-data-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+#cvrt-roadmap .cvrt-source-chip {
+  min-height: 76px;
+  display: flex;
+  align-items: end;
+  padding: 14px;
+  border: 1px solid #25251f;
+  border-radius: 10px;
+  background: var(--cvrt-white);
+  color: var(--cvrt-ink);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-sections {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#cvrt-roadmap .cvrt-source-section {
+  padding: 28px 30px;
+  border: 1px solid #25251f;
+  border-radius: 12px;
+  background: var(--cvrt-white);
+}
+#cvrt-roadmap .cvrt-source-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-list {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#cvrt-roadmap .cvrt-source-list li {
+  color: var(--cvrt-ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-footer {
+  padding: 24px;
+  background: var(--cvrt-ink);
+  color: var(--cvrt-white);
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+@media (max-width: 760px) {
+  #cvrt-roadmap { font-size: 15px; }
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-copy { padding: 38px 22px 92px; order: 2; }
+  #cvrt-roadmap .cvrt-hero-copy::after { display: none; }
+  #cvrt-roadmap .cvrt-logo { width: 190px; margin-bottom: 32px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: 58px; }
+  #cvrt-roadmap .cvrt-hero-summary { font-size: 15px; line-height: 1.55; }
+  #cvrt-roadmap .cvrt-hero-media { min-height: 280px; order: 1; }
+  #cvrt-roadmap .cvrt-hero-media img { object-position: 46% center; }
+  #cvrt-roadmap .cvrt-hero-media::after { background: linear-gradient(0deg, rgba(19,10,6,.42), transparent 46%); }
+  #cvrt-roadmap .cvrt-tabs { left: 22px; right: 22px; }
+  #cvrt-roadmap .cvrt-tab-label { flex: 1; min-width: 0; padding: 15px 12px 13px; font-size: 16px; }
+  #cvrt-roadmap .cvrt-tab-panel { padding: 38px 14px 56px; }
+  #cvrt-roadmap .cvrt-panel-intro { display: block; margin-bottom: 22px; }
+  #cvrt-roadmap .cvrt-panel-title { font-size: 42px; }
+  #cvrt-roadmap .cvrt-panel-note { margin-top: 14px; max-width: none; text-align: left; }
+  #cvrt-roadmap .cvrt-slot { margin-bottom: 20px; border-radius: 14px; box-shadow: 0 8px 0 rgba(10,10,8,.08); }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 25px 21px 24px; }
+  #cvrt-roadmap .cvrt-slot-topline { flex-wrap: wrap; }
+  #cvrt-roadmap .cvrt-slot-title { font-size: 32px; }
+  #cvrt-roadmap .cvrt-description { font-size: 15px; line-height: 1.6; }
+  #cvrt-roadmap .cvrt-visual { padding: 17px 10px 18px; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: none; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: block; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-caption { padding: 0 8px; font-size: 11px; }
+  #cvrt-roadmap .cvrt-killers { padding: 29px 22px; border-radius: 14px; }
+  #cvrt-roadmap .cvrt-killers-title { font-size: 42px; }
+  #cvrt-roadmap .cvrt-killer-list { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-killer-list li { padding: 19px; }
+  #cvrt-roadmap .cvrt-killer-number { margin-bottom: 10px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: repeat(2, 1fr); }
+  #cvrt-roadmap .cvrt-source-chip { min-height: 70px; font-size: 16px; }
+  #cvrt-roadmap .cvrt-source-section { padding: 23px 21px; }
+}
+@media print {
+  #cvrt-roadmap { width: 100%; left: 0; right: 0; margin-left: 0; margin-right: 0; }
+  #cvrt-roadmap .cvrt-tabs { display: none; }
+  #cvrt-roadmap .cvrt-tab-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-slot,
+  #cvrt-roadmap .cvrt-source-section,
+  #cvrt-roadmap .cvrt-killers { box-shadow: none; break-inside: avoid; page-break-inside: avoid; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-radio" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tab-tests" checked>
+  <input class="cvrt-tab-radio" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tab-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="data:image/png;base64,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" alt="Instant Hydration">
+        <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+        <h1 class="cvrt-hero-title">September <span>2026</span></h1>
+        <p class="cvrt-hero-summary">The strongest opportunity is to make the path to purchase clearer and more trustworthy. The roadmap pairs a simpler Energy+ buy box with stronger proof, cleaner campaign continuity, faster mobile interaction, and a cart that gives shoppers a reason to add more.</p>
+      </div>
+      <div class="cvrt-hero-media">
+        <img src="https://instanthydration.com/cdn/shop/files/Background_Hero_Desktop_HD.png?format=webp&amp;v=1787093800&amp;width=1920" alt="Athlete drinking Instant Hydration Energy+">
+      </div>
+    </div>
+    <div class="cvrt-tabs" role="tablist" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label cvrt-tests-label" for="cvrt-tab-tests" role="tab">Tests</label>
+      <label class="cvrt-tab-label cvrt-insights-label" for="cvrt-tab-insights" role="tab">Data Insights</label>
+    </div>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-tests-panel">
+    <div class="cvrt-panel-intro">
+      <div>
+        <p class="cvrt-panel-kicker">Testing Queue</p>
+        <h2 class="cvrt-panel-title">Eight focused ideas</h2>
+      </div>
+      <p class="cvrt-panel-note">Each illustration shows the customer-facing change at concept level.</p>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 1</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Default-selected Energy+ flavor</h2>
+        <p class="cvrt-page">Page: <a href="https://instanthydration.com/products/energy-electrolyte-drink-mix" target="_blank" rel="noopener">Energy+ PDP</a></p>
+        <p class="cvrt-description">The Energy+ buy box opens with both flavor quantities at 0, a disabled Select a Flavor button, and locked gifts. That adds a required choice before shoppers see an active purchase path. The variation opens with Sour Green Apple at quantity 1, Subscribe and Save selected, the full benefit stack unlocked, and an active Add to Cart button.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 450" role="img" aria-label="Current Energy Plus buy box compared with a variation that preselects Sour Green Apple and activates Add to Cart">
+          <defs>
+            <clipPath id="cvrt-s1-img-a"><rect x="24" y="61" width="158" height="165" rx="12"/></clipPath>
+            <clipPath id="cvrt-s1-img-b"><rect x="418" y="61" width="158" height="165" rx="12"/></clipPath>
+          </defs>
+          <rect width="800" height="450" rx="14" fill="#090909"/>
+          <rect x="14" y="14" width="378" height="422" rx="14" fill="#11110f" stroke="#ff5a28" stroke-width="2"/>
+          <rect x="408" y="14" width="378" height="422" rx="14" fill="#11110f" stroke="#c8f52d" stroke-width="2"/>
+          <text x="32" y="43" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">CURRENT</text>
+          <text x="426" y="43" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/IH_ENERGY__CAROUSEL_RD2_01.png?format=webp&amp;v=1787347073&amp;width=645" x="24" y="61" width="158" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s1-img-a)"/>
+          <image href="https://instanthydration.com/cdn/shop/files/IH_ENERGY__CAROUSEL_RD2_01.png?format=webp&amp;v=1787347073&amp;width=645" x="418" y="61" width="158" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s1-img-b)"/>
+          <text x="198" y="76" fill="#ffffff" font-family="Archivo, sans-serif" font-size="16" font-weight="800">Energy+ Electrolyte</text>
+          <text x="198" y="96" fill="#ffffff" font-family="Archivo, sans-serif" font-size="16" font-weight="800">Drink Mix</text>
+          <text x="198" y="121" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="700">DAILY ENERGY &#183; ZERO SUGAR</text>
+          <text x="198" y="152" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Bundle &amp; save 50% OFF</text>
+          <text x="198" y="177" fill="#ffffff" font-family="Archivo, sans-serif" font-size="20" font-weight="800">$27.50</text>
+          <text x="592" y="76" fill="#ffffff" font-family="Archivo, sans-serif" font-size="16" font-weight="800">Energy+ Electrolyte</text>
+          <text x="592" y="96" fill="#ffffff" font-family="Archivo, sans-serif" font-size="16" font-weight="800">Drink Mix</text>
+          <text x="592" y="121" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="700">DAILY ENERGY &#183; ZERO SUGAR</text>
+          <text x="592" y="152" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Bundle &amp; save 50% OFF</text>
+          <text x="592" y="177" fill="#ffffff" font-family="Archivo, sans-serif" font-size="20" font-weight="800">$27.50</text>
+          <rect x="24" y="245" width="168" height="63" rx="9" fill="#191917" stroke="#ffffff"/>
+          <circle cx="48" cy="267" r="11" fill="#8ccd36"/>
+          <text x="67" y="270" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sour Green Apple</text>
+          <text x="45" y="295" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">-  0  +</text>
+          <rect x="205" y="245" width="168" height="63" rx="9" fill="#191917" stroke="#ffffff"/>
+          <circle cx="229" cy="267" r="11" fill="#ff763c"/>
+          <text x="248" y="270" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Tropical Crush</text>
+          <text x="226" y="295" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">-  0  +</text>
+          <rect x="418" y="245" width="168" height="63" rx="9" fill="#22301c" stroke="#c8f52d" stroke-width="3"/>
+          <circle cx="442" cy="267" r="11" fill="#8ccd36"/>
+          <text x="461" y="270" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sour Green Apple</text>
+          <text x="439" y="295" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">-  1  +</text>
+          <rect x="599" y="245" width="168" height="63" rx="9" fill="#191917" stroke="#ffffff"/>
+          <circle cx="623" cy="267" r="11" fill="#ff763c"/>
+          <text x="642" y="270" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Tropical Crush</text>
+          <text x="620" y="295" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">-  0  +</text>
+          <rect x="24" y="322" width="349" height="40" rx="20" fill="#232320" stroke="#ff5a28"/>
+          <text x="198.5" y="347" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SELECT A FLAVOR</text>
+          <text x="24" y="388" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">LOCKED: Sampler &#183; Shipping &#183; Water Bottle</text>
+          <rect x="418" y="322" width="349" height="40" rx="20" fill="#c8f52d"/>
+          <text x="592.5" y="347" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">ADD TO CART</text>
+          <text x="418" y="379" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="800">FULL BENEFIT STACK UNLOCKED</text>
+          <text x="418" y="397" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">3 Count Hydration Sampler &#183; $9.99 FREE</text>
+          <text x="418" y="414" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Free Shipping &#183; $6.99 FREE</text>
+          <text x="418" y="431" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Water Bottle with 2+ Boxes &#183; $34.99 FREE</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 940" role="img" aria-label="Mobile comparison of the current Energy Plus buy box and the preselected variation">
+          <rect width="360" height="940" rx="14" fill="#090909"/>
+          <rect x="10" y="10" width="340" height="390" rx="14" fill="#11110f" stroke="#ff5a28" stroke-width="2"/>
+          <text x="28" y="40" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="28" y="58" width="108" height="108" preserveAspectRatio="xMidYMid slice"/>
+          <text x="150" y="76" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Energy+ Electrolyte</text>
+          <text x="150" y="96" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Drink Mix</text>
+          <text x="150" y="124" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="700">50% OFF &#183; $27.50</text>
+          <rect x="28" y="184" width="304" height="58" rx="9" fill="#191917" stroke="#ffffff"/>
+          <circle cx="50" cy="207" r="10" fill="#8ccd36"/>
+          <text x="68" y="210" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Sour Green Apple</text>
+          <text x="255" y="211" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">-  0  +</text>
+          <rect x="28" y="253" width="304" height="58" rx="9" fill="#191917" stroke="#ffffff"/>
+          <circle cx="50" cy="276" r="10" fill="#ff763c"/>
+          <text x="68" y="279" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Tropical Crush</text>
+          <text x="255" y="280" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">-  0  +</text>
+          <rect x="28" y="326" width="304" height="42" rx="21" fill="#232320" stroke="#ff5a28"/>
+          <text x="180" y="352" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SELECT A FLAVOR</text>
+          <text x="180" y="387" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">GIFTS LOCKED</text>
+          <path d="M180 418v40m-12-12 12 12 12-12" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="10" y="478" width="340" height="448" rx="14" fill="#11110f" stroke="#c8f52d" stroke-width="2"/>
+          <text x="28" y="508" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="28" y="526" width="108" height="108" preserveAspectRatio="xMidYMid slice"/>
+          <text x="150" y="544" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Energy+ Electrolyte</text>
+          <text x="150" y="564" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Drink Mix</text>
+          <text x="150" y="592" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="700">SUBSCRIBE &#183; $27.50</text>
+          <rect x="28" y="652" width="304" height="58" rx="9" fill="#22301c" stroke="#c8f52d" stroke-width="3"/>
+          <circle cx="50" cy="675" r="10" fill="#8ccd36"/>
+          <text x="68" y="678" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Sour Green Apple</text>
+          <text x="255" y="679" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">-  1  +</text>
+          <rect x="28" y="724" width="304" height="42" rx="21" fill="#c8f52d"/>
+          <text x="180" y="750" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">ADD TO CART</text>
+          <text x="28" y="796" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="800">GIFTS UNLOCKED</text>
+          <text x="28" y="820" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">3 Count Hydration Sampler &#183; FREE</text>
+          <text x="28" y="844" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Free Shipping &#183; FREE</text>
+          <text x="28" y="868" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Water Bottle with 2+ Boxes &#183; FREE</text>
+          <text x="28" y="903" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Every 30 Days &#183; Adjust, skip, or cancel anytime</text>
+        </svg>
+        <p class="cvrt-caption">Sour Green Apple opens selected, the complete subscriber benefit stack is visible, and Add to Cart is ready. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 2</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Energy+ trust signal</h2>
+        <p class="cvrt-page">Page: <a href="https://instanthydration.com/products/energy-electrolyte-drink-mix" target="_blank" rel="noopener">Energy+ PDP</a></p>
+        <p class="cvrt-description">No star rating or review count appears across the three captured Energy+ PDP folds, while the homepage features 2M+ Orders and 100M+ Servings. Direct PDP visitors therefore reach the purchase decision without that existing proof. The variation places the sourced trust signal directly under the product title.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 420" role="img" aria-label="Energy Plus product title without proof compared with a variation that adds the existing order and serving trust signal">
+          <rect width="800" height="420" rx="14" fill="#0a0a08"/>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="30" y="44" width="252" height="332" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="310" y="44" width="210" height="332" rx="12" fill="#151512" stroke="#ffffff"/>
+          <text x="330" y="76" fill="#ff5a28" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">CURRENT</text>
+          <text x="330" y="119" fill="#ffffff" font-family="Archivo, sans-serif" font-size="19" font-weight="800">Energy+ Electrolyte</text>
+          <text x="330" y="144" fill="#ffffff" font-family="Archivo, sans-serif" font-size="19" font-weight="800">Drink Mix</text>
+          <rect x="330" y="169" width="168" height="30" rx="15" fill="#24241f"/>
+          <text x="414" y="189" text-anchor="middle" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="11" font-weight="800">DAILY ENERGY &#183; ZERO SUGAR</text>
+          <text x="330" y="232" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="700">Bundle &amp; save 50% OFF</text>
+          <text x="330" y="266" fill="#ffffff" font-family="Archivo, sans-serif" font-size="25" font-weight="800">$27.50</text>
+          <rect x="330" y="303" width="168" height="42" rx="21" fill="#24241f" stroke="#ff5a28"/>
+          <text x="414" y="330" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT A FLAVOR</text>
+          <rect x="548" y="44" width="222" height="332" rx="12" fill="#151512" stroke="#c8f52d" stroke-width="2"/>
+          <text x="568" y="76" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">VARIATION</text>
+          <text x="568" y="119" fill="#ffffff" font-family="Archivo, sans-serif" font-size="19" font-weight="800">Energy+ Electrolyte</text>
+          <text x="568" y="144" fill="#ffffff" font-family="Archivo, sans-serif" font-size="19" font-weight="800">Drink Mix</text>
+          <rect x="568" y="162" width="182" height="46" rx="8" fill="#ffffff"/>
+          <text x="581" y="181" fill="#f5a400" font-family="Archivo, sans-serif" font-size="14" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="581" y="198" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="800">2M+ Orders | 100M+ Servings</text>
+          <rect x="568" y="225" width="182" height="30" rx="15" fill="#24241f"/>
+          <text x="659" y="245" text-anchor="middle" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="11" font-weight="800">DAILY ENERGY &#183; ZERO SUGAR</text>
+          <text x="568" y="282" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="700">Bundle &amp; save 50% OFF</text>
+          <text x="568" y="316" fill="#ffffff" font-family="Archivo, sans-serif" font-size="25" font-weight="800">$27.50</text>
+          <rect x="568" y="329" width="182" height="34" rx="17" fill="#c8f52d"/>
+          <text x="659" y="351" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="800">SELECT A FLAVOR</text>
+          <path d="M523 182h20" stroke="#c8f52d" stroke-width="4" stroke-linecap="round"/>
+          <path d="M535 174l8 8-8 8" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 790" role="img" aria-label="Mobile Energy Plus title comparison with the added trust signal">
+          <rect width="360" height="790" rx="14" fill="#0a0a08"/>
+          <rect x="14" y="14" width="332" height="320" rx="14" fill="#151512" stroke="#ff5a28" stroke-width="2"/>
+          <text x="32" y="46" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="32" y="65" width="94" height="94" preserveAspectRatio="xMidYMid slice"/>
+          <text x="142" y="90" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Energy+ Electrolyte</text>
+          <text x="142" y="111" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Drink Mix</text>
+          <rect x="32" y="181" width="296" height="35" rx="17" fill="#24241f"/>
+          <text x="180" y="203" text-anchor="middle" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="800">DAILY ENERGY &#183; MENTAL FOCUS &#183; ZERO SUGAR</text>
+          <text x="32" y="250" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="700">Bundle &amp; save 50% OFF</text>
+          <text x="32" y="286" fill="#ffffff" font-family="Archivo, sans-serif" font-size="26" font-weight="800">$27.50</text>
+          <path d="M180 352v40m-12-12 12 12 12-12" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="414" width="332" height="360" rx="14" fill="#151512" stroke="#c8f52d" stroke-width="2"/>
+          <text x="32" y="446" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="32" y="465" width="94" height="94" preserveAspectRatio="xMidYMid slice"/>
+          <text x="142" y="490" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Energy+ Electrolyte</text>
+          <text x="142" y="511" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Drink Mix</text>
+          <rect x="142" y="526" width="186" height="51" rx="8" fill="#ffffff"/>
+          <text x="154" y="547" fill="#f5a400" font-family="Archivo, sans-serif" font-size="14" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <text x="154" y="566" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="800">2M+ Orders | 100M+ Servings</text>
+          <rect x="32" y="602" width="296" height="35" rx="17" fill="#24241f"/>
+          <text x="180" y="624" text-anchor="middle" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="12" font-weight="800">DAILY ENERGY &#183; MENTAL FOCUS &#183; ZERO SUGAR</text>
+          <text x="32" y="672" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="700">Bundle &amp; save 50% OFF</text>
+          <text x="32" y="710" fill="#ffffff" font-family="Archivo, sans-serif" font-size="26" font-weight="800">$27.50</text>
+          <rect x="176" y="686" width="152" height="42" rx="21" fill="#c8f52d"/>
+          <text x="252" y="712" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT A FLAVOR</text>
+        </svg>
+        <p class="cvrt-caption">The existing 2M+ Orders and 100M+ Servings proof moves directly under the Energy+ title. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 3</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Target retail message match</h2>
+        <p class="cvrt-page">Page: <a href="https://instanthydration.com/products/premium-electrolyte-drink-mix" target="_blank" rel="noopener">Target retail landing page</a></p>
+        <p class="cvrt-description">Retail-focused traffic arrives expecting Target availability, but the page provides only a generic Find in Store link and no Target-specific content. The promise disappears just when the shopper needs the next step. The variation places a Now Available at Target strip below the hero with a Find a Store Near You action.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 450" role="img" aria-label="Target retail promise flowing to the current generic landing page and a variation with Target store-finder content">
+          <defs>
+            <clipPath id="cvrt-s3-current"><rect x="252" y="80" width="218" height="142" rx="10"/></clipPath>
+            <clipPath id="cvrt-s3-var"><rect x="522" y="80" width="250" height="118" rx="10"/></clipPath>
+          </defs>
+          <rect width="800" height="450" rx="14" fill="#f4f2ec"/>
+          <rect x="18" y="55" width="185" height="340" rx="14" fill="#cc1f2f"/>
+          <circle cx="110" cy="121" r="45" fill="#ffffff"/>
+          <circle cx="110" cy="121" r="29" fill="#cc1f2f"/>
+          <circle cx="110" cy="121" r="12" fill="#ffffff"/>
+          <text x="110" y="194" text-anchor="middle" textLength="148" lengthAdjust="spacingAndGlyphs" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="800">NOW AT TARGET</text>
+          <text x="110" y="229" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">French grey sea salt</text>
+          <text x="110" y="251" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Zero sugar</text>
+          <rect x="38" y="286" width="145" height="44" rx="22" fill="#ffffff"/>
+          <text x="110" y="313" text-anchor="middle" fill="#cc1f2f" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SHOP NOW</text>
+          <text x="110" y="371" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="800">RETAIL PROMISE</text>
+          <path d="M211 223h28m-10-10 10 10-10 10" fill="none" stroke="#0a0a08" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="240" y="55" width="242" height="340" rx="14" fill="#ffffff" stroke="#0a0a08"/>
+          <text x="258" y="82" fill="#cc1f2f" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">CURRENT</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Labor-day-Sale-IH.2-web.jpg?format=webp&amp;v=1788360896&amp;width=645" x="252" y="96" width="218" height="126" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s3-current)"/>
+          <text x="258" y="249" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Instant Hydration</text>
+          <text x="258" y="270" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Electrolyte Powder</text>
+          <text x="258" y="295" fill="#f5a400" font-family="Archivo, sans-serif" font-size="13" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733; 25,000+ Reviews</text>
+          <rect x="258" y="313" width="206" height="40" rx="20" fill="#cc1f2f"/>
+          <text x="361" y="338" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT FROM 14 FLAVORS</text>
+          <text x="361" y="378" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">No Target-specific next step</text>
+          <path d="M490 223h20m-8-10 10 10-10 10" fill="none" stroke="#0a0a08" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="510" y="55" width="272" height="340" rx="14" fill="#ffffff" stroke="#cc1f2f" stroke-width="2"/>
+          <text x="528" y="82" fill="#cc1f2f" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Labor-day-Sale-IH.2-web.jpg?format=webp&amp;v=1788360896&amp;width=645" x="522" y="96" width="248" height="102" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s3-var)"/>
+          <rect x="522" y="209" width="248" height="72" rx="10" fill="#cc1f2f"/>
+          <circle cx="554" cy="245" r="20" fill="#ffffff"/>
+          <circle cx="554" cy="245" r="13" fill="#cc1f2f"/>
+          <circle cx="554" cy="245" r="5" fill="#ffffff"/>
+          <text x="584" y="237" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">NOW AVAILABLE</text>
+          <text x="584" y="257" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">AT TARGET</text>
+          <rect x="536" y="298" width="220" height="44" rx="22" fill="#0a0a08"/>
+          <text x="646" y="325" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">FIND A STORE NEAR YOU</text>
+          <text x="646" y="373" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Retail promise continues after the click</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1110" role="img" aria-label="Mobile flow from Target retail promise to current and variation landing-page states">
+          <rect width="360" height="1110" rx="14" fill="#f4f2ec"/>
+          <rect x="14" y="14" width="332" height="252" rx="14" fill="#cc1f2f"/>
+          <circle cx="70" cy="79" r="38" fill="#ffffff"/>
+          <circle cx="70" cy="79" r="24" fill="#cc1f2f"/>
+          <circle cx="70" cy="79" r="9" fill="#ffffff"/>
+          <text x="124" y="72" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="800">NOW AT TARGET</text>
+          <text x="124" y="99" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">French grey sea salt &#183; Zero sugar</text>
+          <rect x="28" y="140" width="304" height="48" rx="24" fill="#ffffff"/>
+          <text x="180" y="169" text-anchor="middle" fill="#cc1f2f" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SHOP NOW</text>
+          <text x="180" y="231" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="800">RETAIL PROMISE</text>
+          <path d="M180 283v38m-12-12 12 12 12-12" fill="none" stroke="#0a0a08" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="341" width="332" height="316" rx="14" fill="#ffffff" stroke="#0a0a08"/>
+          <text x="32" y="373" fill="#cc1f2f" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Labor-day-Sale-IH.2-web.jpg?format=webp&amp;v=1788360896&amp;width=645" x="32" y="390" width="122" height="122" preserveAspectRatio="xMidYMid slice"/>
+          <text x="169" y="414" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Instant Hydration</text>
+          <text x="169" y="434" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Electrolyte Powder</text>
+          <text x="169" y="462" fill="#f5a400" font-family="Archivo, sans-serif" font-size="12" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733; 25,000+</text>
+          <rect x="32" y="532" width="296" height="46" rx="23" fill="#cc1f2f"/>
+          <text x="180" y="560" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT FROM 14 FLAVORS</text>
+          <text x="180" y="618" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">No Target-specific next step</text>
+          <path d="M180 675v38m-12-12 12 12 12-12" fill="none" stroke="#0a0a08" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="733" width="332" height="361" rx="14" fill="#ffffff" stroke="#cc1f2f" stroke-width="2"/>
+          <text x="32" y="765" fill="#cc1f2f" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Labor-day-Sale-IH.2-web.jpg?format=webp&amp;v=1788360896&amp;width=645" x="32" y="782" width="296" height="114" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="32" y="906" width="296" height="84" rx="10" fill="#cc1f2f"/>
+          <circle cx="71" cy="948" r="24" fill="#ffffff"/>
+          <circle cx="71" cy="948" r="15" fill="#cc1f2f"/>
+          <circle cx="71" cy="948" r="6" fill="#ffffff"/>
+          <text x="109" y="940" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">NOW AVAILABLE AT TARGET</text>
+          <text x="109" y="963" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Find it on your next Target run</text>
+          <rect x="32" y="1006" width="296" height="48" rx="24" fill="#0a0a08"/>
+          <text x="180" y="1035" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">FIND A STORE NEAR YOU</text>
+          <text x="180" y="1080" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Retail promise continues after the click</text>
+        </svg>
+        <p class="cvrt-caption">A Target availability strip gives retail-focused visitors a clear in-store next step. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 4</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Collab-specific buy boxes</h2>
+        <p class="cvrt-page">Pages: ICEE and Luigi's landing pages</p>
+        <p class="cvrt-description">The ICEE and Luigi's heroes preserve the collaborations, but each buy box resets to Instant Hydration Electrolyte Powder and Select from 14 Flavors. Shoppers must identify the featured flavor among the full range. The variation carries each collaboration into the title, selected flavor, and CTA.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 530" role="img" aria-label="ICEE and Luigi's collaboration heroes compared with generic and collaboration-specific buy boxes">
+          <defs>
+            <clipPath id="cvrt-s4-icee"><rect x="20" y="58" width="224" height="165" rx="12"/></clipPath>
+            <clipPath id="cvrt-s4-luigi"><rect x="20" y="308" width="224" height="165" rx="12"/></clipPath>
+          </defs>
+          <rect width="800" height="530" rx="14" fill="#0a0a08"/>
+          <text x="264" y="32" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="800">CURRENT BUY BOX</text>
+          <text x="525" y="32" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="800">COLLAB-SPECIFIC VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/IH_ICEE_DESKTOP_BANNER_extended_02.png?format=webp&amp;v=1774909491&amp;width=1200" x="20" y="58" width="224" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4-icee)"/>
+          <rect x="260" y="58" width="236" height="165" rx="12" fill="#ffffff"/>
+          <text x="278" y="87" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Instant Hydration</text>
+          <text x="278" y="107" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Electrolyte Powder</text>
+          <text x="278" y="134" fill="#f5a400" font-family="Archivo, sans-serif" font-size="12" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733; 25,000+ Reviews</text>
+          <text x="278" y="161" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="16" font-weight="800">$27.50</text>
+          <rect x="278" y="176" width="198" height="32" rx="16" fill="#cc1f2f"/>
+          <text x="377" y="197" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SELECT FROM 14 FLAVORS</text>
+          <rect x="514" y="58" width="266" height="165" rx="12" fill="#e9f8ff" stroke="#42b9de" stroke-width="3"/>
+          <image href="https://instanthydration.com/cdn/shop/files/ICEE_Stick_Packs_1_1.png?v=1775082739&amp;width=200" x="528" y="78" width="70" height="110" preserveAspectRatio="xMidYMid meet"/>
+          <text x="610" y="88" fill="#0053a5" font-family="Archivo, sans-serif" font-size="14" font-weight="800">ICEE x Instant Hydration</text>
+          <text x="610" y="108" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">Electrolyte Powder</text>
+          <text x="610" y="135" fill="#0053a5" font-family="Archivo, sans-serif" font-size="11" font-weight="800">BLUE RASPBERRY + CHERRY</text>
+          <rect x="610" y="153" width="152" height="40" rx="20" fill="#0053a5"/>
+          <text x="686" y="178" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">GET THE ICEE FLAVOR</text>
+          <line x1="20" y1="265" x2="780" y2="265" stroke="#ffffff"/>
+          <image href="https://instanthydration.com/cdn/shop/files/Frame_813086_1.jpg?format=webp&amp;v=1785209503&amp;width=1200" x="20" y="308" width="224" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4-luigi)"/>
+          <rect x="260" y="308" width="236" height="165" rx="12" fill="#ffffff"/>
+          <text x="278" y="337" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Instant Hydration</text>
+          <text x="278" y="357" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Electrolyte Powder</text>
+          <text x="278" y="384" fill="#f5a400" font-family="Archivo, sans-serif" font-size="12" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733; 25,000+ Reviews</text>
+          <text x="278" y="411" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="16" font-weight="800">$27.50</text>
+          <rect x="278" y="426" width="198" height="32" rx="16" fill="#05a55a"/>
+          <text x="377" y="447" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SELECT FROM 14 FLAVORS</text>
+          <rect x="514" y="308" width="266" height="165" rx="12" fill="#fff3b0" stroke="#05a55a" stroke-width="3"/>
+          <image href="https://instanthydration.com/cdn/shop/files/luigis-box-stick.jpg?v=1785254324&amp;width=400" x="528" y="326" width="72" height="118" preserveAspectRatio="xMidYMid slice"/>
+          <text x="610" y="338" textLength="150" lengthAdjust="spacingAndGlyphs" fill="#087a3f" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Luigi's x Instant Hydration</text>
+          <text x="610" y="358" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">Electrolyte Powder</text>
+          <text x="610" y="385" textLength="150" lengthAdjust="spacingAndGlyphs" fill="#087a3f" font-family="Archivo, sans-serif" font-size="11" font-weight="800">LEMON ITALIAN ICE SELECTED</text>
+          <rect x="610" y="403" width="152" height="40" rx="20" fill="#05a55a"/>
+          <text x="686" y="428" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">GET LUIGI'S FLAVOR</text>
+          <text x="132" y="247" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="800">ICEE PROMISE</text>
+          <text x="132" y="497" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="800">LUIGI'S PROMISE</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1360" role="img" aria-label="Mobile ICEE and Luigi's collaboration journeys with current and revised buy boxes">
+          <rect width="360" height="1360" rx="14" fill="#0a0a08"/>
+          <text x="18" y="38" fill="#42b9de" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="800">ICEE JOURNEY</text>
+          <image href="https://instanthydration.com/cdn/shop/files/IH_ICEE_DESKTOP_BANNER_extended_02.png?format=webp&amp;v=1774909491&amp;width=800" x="18" y="56" width="324" height="176" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="18" y="250" width="324" height="176" rx="12" fill="#ffffff"/>
+          <text x="36" y="279" fill="#cc1f2f" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="800">CURRENT</text>
+          <text x="36" y="310" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Instant Hydration Electrolyte Powder</text>
+          <text x="36" y="340" fill="#f5a400" font-family="Archivo, sans-serif" font-size="12" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733; 25,000+ Reviews &#183; $27.50</text>
+          <rect x="36" y="363" width="288" height="44" rx="22" fill="#cc1f2f"/>
+          <text x="180" y="390" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT FROM 14 FLAVORS</text>
+          <path d="M180 443v36m-11-11 11 11 11-11" fill="none" stroke="#42b9de" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="18" y="497" width="324" height="194" rx="12" fill="#e9f8ff" stroke="#42b9de" stroke-width="3"/>
+          <text x="36" y="526" fill="#0053a5" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="800">COLLAB-SPECIFIC VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/ICEE_Stick_Packs_1_1.png?v=1775082739&amp;width=200" x="36" y="544" width="68" height="116" preserveAspectRatio="xMidYMid meet"/>
+          <text x="118" y="558" fill="#0053a5" font-family="Archivo, sans-serif" font-size="14" font-weight="800">ICEE x Instant Hydration</text>
+          <text x="118" y="579" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">Electrolyte Powder</text>
+          <text x="118" y="607" fill="#0053a5" font-family="Archivo, sans-serif" font-size="11" font-weight="800">BLUE RASPBERRY + CHERRY</text>
+          <rect x="118" y="624" width="206" height="44" rx="22" fill="#0053a5"/>
+          <text x="221" y="651" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">GET THE ICEE FLAVOR</text>
+          <line x1="18" y1="729" x2="342" y2="729" stroke="#ffffff"/>
+          <text x="18" y="767" fill="#f8c400" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="800">LUIGI'S JOURNEY</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Frame_813086_1.jpg?format=webp&amp;v=1785209503&amp;width=800" x="18" y="785" width="324" height="176" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="18" y="979" width="324" height="176" rx="12" fill="#ffffff"/>
+          <text x="36" y="1008" fill="#05a55a" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="800">CURRENT</text>
+          <text x="36" y="1039" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Instant Hydration Electrolyte Powder</text>
+          <text x="36" y="1069" fill="#f5a400" font-family="Archivo, sans-serif" font-size="12" font-weight="800">&#9733;&#9733;&#9733;&#9733;&#9733; 25,000+ Reviews &#183; $27.50</text>
+          <rect x="36" y="1092" width="288" height="44" rx="22" fill="#05a55a"/>
+          <text x="180" y="1119" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT FROM 14 FLAVORS</text>
+          <path d="M180 1172v34m-11-11 11 11 11-11" fill="none" stroke="#f8c400" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="18" y="1224" width="324" height="120" rx="12" fill="#fff3b0" stroke="#05a55a" stroke-width="3"/>
+          <image href="https://instanthydration.com/cdn/shop/files/luigis-box-stick.jpg?v=1785254324&amp;width=400" x="34" y="1238" width="70" height="92" preserveAspectRatio="xMidYMid slice"/>
+          <text x="118" y="1250" textLength="200" lengthAdjust="spacingAndGlyphs" fill="#087a3f" font-family="Archivo, sans-serif" font-size="13" font-weight="800">LUIGI'S x INSTANT HYDRATION</text>
+          <text x="118" y="1272" textLength="176" lengthAdjust="spacingAndGlyphs" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="800">Lemon Italian Ice selected</text>
+          <rect x="118" y="1288" width="206" height="40" rx="20" fill="#05a55a"/>
+          <text x="221" y="1313" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">GET LUIGI'S FLAVOR</text>
+        </svg>
+        <p class="cvrt-caption">Each campaign name, featured flavor, and CTA remain aligned from hero to selection. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 5</span>
+          <span class="cvrt-type-badge cvrt-type-fix">Immediate Fix</span>
+        </div>
+        <h2 class="cvrt-slot-title">Mobile interaction speed</h2>
+        <p class="cvrt-page">Pages: Homepage and Energy+ PDP</p>
+        <p class="cvrt-description">Mobile lab tests score the homepage at 48/100 with 31.8s Time to Interactive and the Energy+ PDP at 47/100 with 34.1s Time to Interactive. Both pages appear before they are ready for taps, while CLS is 0 on each. This direct fix targets the blocking work so the visible shopping experience becomes interactive sooner.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 455" role="img" aria-label="Mobile homepage and Energy Plus PDP loading timelines showing long gaps between visible content and tap-ready interaction">
+          <defs>
+            <clipPath id="cvrt-s5-home"><rect x="31" y="56" width="152" height="211" rx="18"/></clipPath>
+            <clipPath id="cvrt-s5-pdp"><rect x="421" y="56" width="152" height="211" rx="18"/></clipPath>
+          </defs>
+          <rect width="800" height="455" rx="14" fill="#0a0a08"/>
+          <rect x="18" y="18" width="372" height="309" rx="14" fill="#171714" stroke="#ff5a28" stroke-width="2"/>
+          <text x="30" y="43" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">HOMEPAGE &#183; 48/100</text>
+          <rect x="31" y="56" width="152" height="211" rx="18" fill="#ffffff"/>
+          <image href="https://instanthydration.com/cdn/shop/files/Background_Hero_Mobile.png?format=webp&amp;v=1787080221&amp;width=600" x="37" y="73" width="140" height="133" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s5-home)"/>
+          <rect x="45" y="221" width="124" height="30" rx="15" fill="#0a0a08"/>
+          <text x="107" y="241" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SHOP NOW &#183; SAVE 50%</text>
+          <text x="207" y="82" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">VISIBLE</text>
+          <text x="207" y="106" fill="#ff5a28" font-family="Archivo, sans-serif" font-size="24" font-weight="800">4.4s LCP</text>
+          <line x1="207" y1="139" x2="356" y2="139" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="207" cy="139" r="7" fill="#ff5a28"/>
+          <circle cx="356" cy="139" r="7" fill="#c8f52d"/>
+          <text x="207" y="169" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">TAP-READY</text>
+          <text x="207" y="195" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="24" font-weight="800">31.8s TTI</text>
+          <text x="207" y="229" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">1,410ms Total Blocking Time</text>
+          <text x="207" y="256" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">CLS 0</text>
+          <rect x="408" y="18" width="374" height="309" rx="14" fill="#171714" stroke="#ff5a28" stroke-width="2"/>
+          <text x="420" y="43" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">ENERGY+ PDP &#183; 47/100</text>
+          <rect x="421" y="56" width="152" height="211" rx="18" fill="#ffffff"/>
+          <image href="https://instanthydration.com/cdn/shop/files/IH_ENERGY__CAROUSEL_RD2_01.png?format=webp&amp;v=1787347073&amp;width=430" x="427" y="73" width="140" height="133" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s5-pdp)"/>
+          <rect x="435" y="221" width="124" height="30" rx="15" fill="#0a0a08" stroke="#ff5a28"/>
+          <text x="497" y="241" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SELECT A FLAVOR</text>
+          <text x="597" y="82" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">VISIBLE</text>
+          <text x="597" y="106" fill="#ff5a28" font-family="Archivo, sans-serif" font-size="24" font-weight="800">4.8s LCP</text>
+          <line x1="597" y1="139" x2="746" y2="139" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="597" cy="139" r="7" fill="#ff5a28"/>
+          <circle cx="746" cy="139" r="7" fill="#c8f52d"/>
+          <text x="597" y="169" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">TAP-READY</text>
+          <text x="597" y="195" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="24" font-weight="800">34.1s TTI</text>
+          <text x="597" y="229" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">1,840ms Total Blocking Time</text>
+          <text x="597" y="256" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">CLS 0</text>
+          <rect x="18" y="347" width="764" height="90" rx="14" fill="#c8f52d"/>
+          <text x="42" y="378" fill="#0a0a08" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="800">DIRECT FIX</text>
+          <text x="42" y="405" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Reduce main-thread blocking so visible controls become usable sooner.</text>
+          <rect x="597" y="370" width="157" height="44" rx="22" fill="#0a0a08"/>
+          <text x="675.5" y="397" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">TAP-READY EXPERIENCE</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 940" role="img" aria-label="Mobile stacked performance timelines for homepage and Energy Plus PDP">
+          <rect width="360" height="940" rx="14" fill="#0a0a08"/>
+          <rect x="14" y="14" width="332" height="364" rx="14" fill="#171714" stroke="#ff5a28" stroke-width="2"/>
+          <text x="30" y="46" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">HOMEPAGE &#183; 48/100</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Background_Hero_Mobile.png?format=webp&amp;v=1787080221&amp;width=600" x="30" y="66" width="118" height="174" preserveAspectRatio="xMidYMid slice"/>
+          <text x="166" y="92" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">VISIBLE</text>
+          <text x="166" y="122" fill="#ff5a28" font-family="Archivo, sans-serif" font-size="25" font-weight="800">4.4s LCP</text>
+          <line x1="166" y1="154" x2="318" y2="154" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="166" cy="154" r="7" fill="#ff5a28"/>
+          <circle cx="318" cy="154" r="7" fill="#c8f52d"/>
+          <text x="166" y="185" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">TAP-READY</text>
+          <text x="166" y="215" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="25" font-weight="800">31.8s TTI</text>
+          <text x="30" y="286" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">1,410ms Total Blocking Time</text>
+          <text x="30" y="314" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">CLS 0</text>
+          <rect x="30" y="330" width="300" height="34" rx="17" fill="#24241f"/>
+          <text x="180" y="352" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">VISIBLE LONG BEFORE IT ACCEPTS TAPS</text>
+          <rect x="14" y="398" width="332" height="364" rx="14" fill="#171714" stroke="#ff5a28" stroke-width="2"/>
+          <text x="30" y="430" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">ENERGY+ PDP &#183; 47/100</text>
+          <image href="https://instanthydration.com/cdn/shop/files/IH_ENERGY__CAROUSEL_RD2_01.png?format=webp&amp;v=1787347073&amp;width=430" x="30" y="450" width="118" height="174" preserveAspectRatio="xMidYMid slice"/>
+          <text x="166" y="476" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">VISIBLE</text>
+          <text x="166" y="506" fill="#ff5a28" font-family="Archivo, sans-serif" font-size="25" font-weight="800">4.8s LCP</text>
+          <line x1="166" y1="538" x2="318" y2="538" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="166" cy="538" r="7" fill="#ff5a28"/>
+          <circle cx="318" cy="538" r="7" fill="#c8f52d"/>
+          <text x="166" y="569" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">TAP-READY</text>
+          <text x="166" y="599" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="25" font-weight="800">34.1s TTI</text>
+          <text x="30" y="670" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">1,840ms Total Blocking Time</text>
+          <text x="30" y="698" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">CLS 0</text>
+          <rect x="30" y="714" width="300" height="34" rx="17" fill="#24241f"/>
+          <text x="180" y="736" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">VISIBLE LONG BEFORE IT ACCEPTS TAPS</text>
+          <rect x="14" y="782" width="332" height="144" rx="14" fill="#c8f52d"/>
+          <text x="30" y="818" fill="#0a0a08" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">DIRECT FIX</text>
+          <text x="30" y="850" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">Reduce blocking work so visible controls</text>
+          <text x="30" y="872" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">become usable sooner.</text>
+          <rect x="30" y="890" width="300" height="26" rx="13" fill="#0a0a08"/>
+          <text x="180" y="908" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">TAP-READY EXPERIENCE</text>
+        </svg>
+        <p class="cvrt-caption">The direct fix closes the gap between visible content and usable controls on the two highest-priority mobile pages. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 6</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Explicit subscription choice</h2>
+        <p class="cvrt-page">Page: <a href="https://instanthydration.com/products/energy-electrolyte-drink-mix" target="_blank" rel="noopener">Energy+ PDP</a></p>
+        <p class="cvrt-description">Two 1-star reviews say a one-time order became a recurring subscription without authorization. The current Energy+ flow combines flavor and delivery frequency while gifts are locked behind the selection step. The variation places complete Subscribe and Save and One-Time Purchase terms above the flavors so shoppers see the price, cadence, flexibility, and included benefits before choosing.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 560" role="img" aria-label="Current Energy Plus selection flow compared with an explicit subscription and one-time purchase choice showing complete benefit terms">
+          <rect width="800" height="560" rx="14" fill="#0a0a08"/>
+          <rect x="18" y="18" width="284" height="524" rx="14" fill="#151512" stroke="#ff5a28" stroke-width="2"/>
+          <text x="36" y="50" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="36" y="70" width="104" height="104" preserveAspectRatio="xMidYMid slice"/>
+          <text x="154" y="92" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Energy+ Electrolyte</text>
+          <text x="154" y="113" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Drink Mix</text>
+          <text x="154" y="144" fill="#c8f52d" font-family="Archivo, sans-serif" font-size="13" font-weight="800">$27.50</text>
+          <text x="36" y="208" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">CHOOSE A FLAVOR</text>
+          <rect x="36" y="222" width="248" height="58" rx="9" fill="#23231f" stroke="#ffffff"/>
+          <text x="53" y="247" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Sour Green Apple</text>
+          <text x="214" y="258" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">-  0  +</text>
+          <rect x="36" y="294" width="248" height="44" rx="8" fill="#23231f" stroke="#ffffff"/>
+          <text x="53" y="321" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Delivery: Every 30 Days</text>
+          <rect x="36" y="352" width="248" height="88" rx="8" fill="#11110f" stroke="#ffffff" stroke-dasharray="4 4"/>
+          <text x="53" y="378" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT A FLAVOR TO UNLOCK</text>
+          <text x="53" y="403" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sampler &#183; Shipping &#183; Water Bottle</text>
+          <rect x="36" y="458" width="248" height="44" rx="22" fill="#23231f" stroke="#ff5a28"/>
+          <text x="160" y="485" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT A FLAVOR</text>
+          <text x="160" y="526" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">TRY IT ONCE appears farther down</text>
+          <path d="M315 280h38m-12-12 12 12-12 12" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="366" y="18" width="416" height="524" rx="14" fill="#ffffff" stroke="#c8f52d" stroke-width="3"/>
+          <text x="386" y="50" fill="#1c8d42" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">EXPLICIT PURCHASE CHOICE</text>
+          <rect x="386" y="70" width="376" height="270" rx="12" fill="#eef8e8" stroke="#1c8d42" stroke-width="3"/>
+          <circle cx="410" cy="98" r="9" fill="#1c8d42"/>
+          <circle cx="410" cy="98" r="4" fill="#ffffff"/>
+          <text x="430" y="103" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="17" font-weight="800">Subscribe &amp; Save &#183; $27.50</text>
+          <text x="405" y="133" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Charges every 30 days.</text>
+          <text x="405" y="153" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Adjust flavors, pause, skip, or cancel anytime.</text>
+          <text x="405" y="184" fill="#1c8d42" font-family="Archivo, sans-serif" font-size="12" font-weight="800">INCLUDED</text>
+          <text x="405" y="208" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Water Bottle on First Shipment &#183; $34.99 FREE</text>
+          <text x="405" y="232" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">3 Count Hydration Sampler &#183; $9.99 FREE</text>
+          <text x="405" y="256" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">FREE U.S. Shipping</text>
+          <rect x="405" y="280" width="338" height="42" rx="21" fill="#1c8d42"/>
+          <text x="574" y="306" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SUBSCRIBE &amp; SAVE 50%</text>
+          <rect x="386" y="354" width="376" height="132" rx="12" fill="#ffffff" stroke="#0a0a08"/>
+          <circle cx="410" cy="382" r="9" fill="#ffffff" stroke="#0a0a08" stroke-width="2"/>
+          <text x="430" y="387" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="17" font-weight="800">One-Time Purchase &#183; $49.50</text>
+          <text x="405" y="417" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">No Free Water Bottle &#183; No 3 Count Sampler</text>
+          <text x="405" y="439" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Shipping &#183; $6.99</text>
+          <rect x="405" y="454" width="338" height="22" rx="11" fill="#0a0a08"/>
+          <text x="574" y="470" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">BUY ONCE</text>
+          <text x="386" y="518" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="800">Next: choose Sour Green Apple or Tropical Crush</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1225" role="img" aria-label="Mobile current subscription flow followed by explicit subscription and one-time purchase cards">
+          <rect width="360" height="1225" rx="14" fill="#0a0a08"/>
+          <rect x="14" y="14" width="332" height="390" rx="14" fill="#151512" stroke="#ff5a28" stroke-width="2"/>
+          <text x="30" y="46" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="30" y="64" width="92" height="92" preserveAspectRatio="xMidYMid slice"/>
+          <text x="138" y="87" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Energy+ Electrolyte</text>
+          <text x="138" y="108" fill="#ffffff" font-family="Archivo, sans-serif" font-size="15" font-weight="800">Drink Mix &#183; $27.50</text>
+          <rect x="30" y="180" width="300" height="58" rx="9" fill="#23231f" stroke="#ffffff"/>
+          <text x="47" y="205" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Sour Green Apple</text>
+          <text x="254" y="217" fill="#ffffff" font-family="Archivo, sans-serif" font-size="14" font-weight="800">-  0  +</text>
+          <rect x="30" y="252" width="300" height="44" rx="8" fill="#23231f" stroke="#ffffff"/>
+          <text x="47" y="279" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="700">Delivery: Every 30 Days</text>
+          <rect x="30" y="310" width="300" height="40" rx="20" fill="#23231f" stroke="#ff5a28"/>
+          <text x="180" y="335" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SELECT A FLAVOR</text>
+          <text x="180" y="380" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">TRY IT ONCE appears farther down</text>
+          <path d="M180 424v38m-12-12 12 12 12-12" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="482" width="332" height="727" rx="14" fill="#ffffff" stroke="#c8f52d" stroke-width="3"/>
+          <text x="30" y="516" fill="#1c8d42" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">EXPLICIT PURCHASE CHOICE</text>
+          <rect x="30" y="538" width="300" height="386" rx="12" fill="#eef8e8" stroke="#1c8d42" stroke-width="3"/>
+          <circle cx="53" cy="568" r="9" fill="#1c8d42"/>
+          <circle cx="53" cy="568" r="4" fill="#ffffff"/>
+          <text x="73" y="573" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="16" font-weight="800">Subscribe &amp; Save &#183; $27.50</text>
+          <text x="48" y="609" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Charges every 30 days.</text>
+          <text x="48" y="633" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Adjust flavors, pause, skip, or cancel</text>
+          <text x="48" y="653" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">anytime from your account.</text>
+          <text x="48" y="690" fill="#1c8d42" font-family="Archivo, sans-serif" font-size="12" font-weight="800">INCLUDED</text>
+          <text x="48" y="716" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Water Bottle on First Shipment</text>
+          <text x="48" y="736" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">$34.99 FREE</text>
+          <text x="48" y="770" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">3 Count Hydration Sampler &#183; $9.99 FREE</text>
+          <text x="48" y="804" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">FREE U.S. Shipping</text>
+          <rect x="48" y="836" width="264" height="50" rx="25" fill="#1c8d42"/>
+          <text x="180" y="867" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">SUBSCRIBE &amp; SAVE 50%</text>
+          <rect x="30" y="944" width="300" height="198" rx="12" fill="#ffffff" stroke="#0a0a08"/>
+          <circle cx="53" cy="974" r="9" fill="#ffffff" stroke="#0a0a08" stroke-width="2"/>
+          <text x="73" y="979" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="16" font-weight="800">One-Time Purchase &#183; $49.50</text>
+          <text x="48" y="1015" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">No Free Water Bottle</text>
+          <text x="48" y="1039" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">No 3 Count Hydration Sampler</text>
+          <text x="48" y="1063" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Shipping &#183; $6.99</text>
+          <rect x="48" y="1084" width="264" height="42" rx="21" fill="#0a0a08"/>
+          <text x="180" y="1110" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">BUY ONCE</text>
+          <text x="30" y="1177" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="800">Next: choose Sour Green Apple</text>
+          <text x="30" y="1197" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="800">or Tropical Crush</text>
+        </svg>
+        <p class="cvrt-caption">Subscription cadence, flexibility, gifts, shipping, and one-time terms become visible before flavor selection. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 7</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Cart free-gift progress</h2>
+        <p class="cvrt-page">Page: Cart</p>
+        <p class="cvrt-description">The cart shows one Energy+ line item, then a large empty area before the $27.50 subtotal and Secure Checkout button. It contains no upsell, cross-sell, bundle offer, or progress bar. The variation places a live Add $12 more for a free water bottle goal directly under the item, reusing an incentive already present on the PDP.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 500" role="img" aria-label="Current cart with unused space compared with a variation that adds free water bottle progress below the line item">
+          <rect width="800" height="500" rx="14" fill="#ebe9e1"/>
+          <rect x="40" y="20" width="320" height="460" rx="18" fill="#ffffff" stroke="#0a0a08" stroke-width="2"/>
+          <text x="62" y="54" fill="#0a0a08" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT CART</text>
+          <line x1="40" y1="70" x2="360" y2="70" stroke="#0a0a08"/>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="62" y="92" width="82" height="82" preserveAspectRatio="xMidYMid slice"/>
+          <text x="158" y="107" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Energy+ Electrolyte</text>
+          <text x="158" y="127" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Drink Mix</text>
+          <text x="158" y="149" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sour Green Apple &#183; Every 30 Days</text>
+          <text x="292" y="173" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="16" font-weight="800">$49.50</text>
+          <rect x="62" y="193" width="276" height="116" rx="10" fill="#f6f5f0"/>
+          <text x="200" y="246" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Large unused space</text>
+          <text x="200" y="269" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">before the summary</text>
+          <line x1="40" y1="327" x2="360" y2="327" stroke="#0a0a08"/>
+          <text x="62" y="358" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SUBTOTAL</text>
+          <rect x="153" y="340" width="70" height="27" rx="7" fill="#cc1f2f"/>
+          <text x="188" y="359" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">50% OFF</text>
+          <text x="274" y="360" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="22" font-weight="800">$27.50</text>
+          <rect x="62" y="386" width="276" height="52" rx="26" fill="#0a0a08"/>
+          <text x="200" y="418" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SECURE CHECKOUT</text>
+          <text x="200" y="459" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Over 2M+ Orders &#183; 50 Day Happiness Guarantee</text>
+          <path d="M376 250h38m-12-12 12 12-12 12" fill="none" stroke="#ff5a28" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="428" y="20" width="332" height="460" rx="18" fill="#ffffff" stroke="#1c8d42" stroke-width="3"/>
+          <text x="450" y="54" fill="#1c8d42" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">VARIATION</text>
+          <line x1="428" y1="70" x2="760" y2="70" stroke="#0a0a08"/>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="450" y="92" width="82" height="82" preserveAspectRatio="xMidYMid slice"/>
+          <text x="546" y="107" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Energy+ Electrolyte</text>
+          <text x="546" y="127" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Drink Mix</text>
+          <text x="546" y="149" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sour Green Apple &#183; Every 30 Days</text>
+          <text x="680" y="173" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="16" font-weight="800">$49.50</text>
+          <rect x="450" y="193" width="288" height="100" rx="12" fill="#eef8e8" stroke="#1c8d42"/>
+          <text x="470" y="220" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">Add $12 more for a free water bottle</text>
+          <rect x="470" y="240" width="248" height="14" rx="7" fill="#d8ddcf"/>
+          <rect x="470" y="240" width="172" height="14" rx="7" fill="#1c8d42"/>
+          <path d="M687 264h18v16h-18zm4-8h10v8h-10" fill="none" stroke="#1c8d42" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="428" y1="316" x2="760" y2="316" stroke="#0a0a08"/>
+          <text x="450" y="349" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SUBTOTAL</text>
+          <rect x="541" y="331" width="70" height="27" rx="7" fill="#cc1f2f"/>
+          <text x="576" y="350" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">50% OFF</text>
+          <text x="662" y="351" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="22" font-weight="800">$27.50</text>
+          <rect x="450" y="377" width="288" height="52" rx="26" fill="#0a0a08"/>
+          <text x="594" y="409" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SECURE CHECKOUT</text>
+          <text x="594" y="455" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Over 2M+ Orders &#183; 50 Day Happiness Guarantee</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1080" role="img" aria-label="Mobile current cart stacked above the free-gift progress variation">
+          <rect width="360" height="1080" rx="14" fill="#ebe9e1"/>
+          <rect x="14" y="14" width="332" height="454" rx="16" fill="#ffffff" stroke="#0a0a08" stroke-width="2"/>
+          <text x="32" y="48" fill="#0a0a08" font-family="Barlow Condensed, sans-serif" font-size="21" font-weight="800">CURRENT CART</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="32" y="72" width="80" height="80" preserveAspectRatio="xMidYMid slice"/>
+          <text x="128" y="87" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Energy+ Electrolyte Drink Mix</text>
+          <text x="128" y="112" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sour Green Apple</text>
+          <text x="128" y="135" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Every 30 Days &#183; $49.50</text>
+          <rect x="32" y="172" width="296" height="102" rx="10" fill="#f6f5f0"/>
+          <text x="180" y="217" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Large unused space</text>
+          <text x="180" y="240" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">before the summary</text>
+          <text x="32" y="310" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SUBTOTAL &#183; 50% OFF</text>
+          <text x="249" y="312" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="22" font-weight="800">$27.50</text>
+          <rect x="32" y="336" width="296" height="52" rx="26" fill="#0a0a08"/>
+          <text x="180" y="368" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SECURE CHECKOUT</text>
+          <text x="180" y="420" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Over 2M+ Orders</text>
+          <text x="180" y="443" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">50 Day Happiness Guarantee</text>
+          <path d="M180 487v38m-12-12 12 12 12-12" fill="none" stroke="#ff5a28" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="545" width="332" height="519" rx="16" fill="#ffffff" stroke="#1c8d42" stroke-width="3"/>
+          <text x="32" y="579" fill="#1c8d42" font-family="Barlow Condensed, sans-serif" font-size="21" font-weight="800">VARIATION</text>
+          <image href="https://instanthydration.com/cdn/shop/files/sour-green-apple.jpg?v=1787705518" x="32" y="603" width="80" height="80" preserveAspectRatio="xMidYMid slice"/>
+          <text x="128" y="618" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="14" font-weight="800">Energy+ Electrolyte Drink Mix</text>
+          <text x="128" y="643" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Sour Green Apple</text>
+          <text x="128" y="666" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="12" font-weight="700">Every 30 Days &#183; $49.50</text>
+          <rect x="32" y="703" width="296" height="112" rx="12" fill="#eef8e8" stroke="#1c8d42"/>
+          <text x="50" y="734" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">Add $12 more for a free water bottle</text>
+          <rect x="50" y="758" width="260" height="15" rx="7" fill="#d8ddcf"/>
+          <rect x="50" y="758" width="178" height="15" rx="7" fill="#1c8d42"/>
+          <text x="50" y="797" fill="#1c8d42" font-family="Archivo, sans-serif" font-size="11" font-weight="800">FREE GIFT GOAL IN PROGRESS</text>
+          <text x="32" y="855" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SUBTOTAL &#183; 50% OFF</text>
+          <text x="249" y="857" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="22" font-weight="800">$27.50</text>
+          <rect x="32" y="881" width="296" height="52" rx="26" fill="#0a0a08"/>
+          <text x="180" y="913" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">SECURE CHECKOUT</text>
+          <text x="180" y="967" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Over 2M+ Orders</text>
+          <text x="180" y="990" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="11" font-weight="700">50 Day Happiness Guarantee</text>
+          <text x="180" y="1036" text-anchor="middle" fill="#1c8d42" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="800">THE EMPTY SPACE NOW BUILDS THE BASKET</text>
+        </svg>
+        <p class="cvrt-caption">The empty cart space becomes a live path toward the existing free water bottle incentive. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline">
+          <span class="cvrt-slot-label">Slot 8</span>
+          <span class="cvrt-type-badge">A/B Test</span>
+        </div>
+        <h2 class="cvrt-slot-title">Balanced homepage hero</h2>
+        <p class="cvrt-page">Page: <a href="https://instanthydration.com" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">The homepage hero is entirely Energy+, while the core 14-flavor line first appears as one of two secondary tiles. The core line carries most of the reviews and the dominant paid-search presence reviewed in the audit. The variation gives Energy+ and Electrolytes equal hero-level panels with a direct path into each range.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 500" role="img" aria-label="Current Energy Plus-only homepage hero compared with a split hero for Energy Plus and the core electrolyte line">
+          <defs>
+            <clipPath id="cvrt-s8-current"><rect x="20" y="48" width="760" height="176" rx="14"/></clipPath>
+            <clipPath id="cvrt-s8-left"><rect x="20" y="291" width="374" height="178" rx="14"/></clipPath>
+            <clipPath id="cvrt-s8-right"><rect x="406" y="291" width="374" height="178" rx="14"/></clipPath>
+          </defs>
+          <rect width="800" height="500" rx="14" fill="#0a0a08"/>
+          <text x="20" y="31" fill="#ff5a28" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">CURRENT &#183; SINGLE-PRODUCT HERO</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Background_Hero_Desktop_HD.png?format=webp&amp;v=1787093800&amp;width=1200" x="20" y="48" width="760" height="176" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s8-current)"/>
+          <rect x="508" y="75" width="238" height="122" rx="12" fill="#130a06"/>
+          <text x="527" y="105" fill="#ffffff" font-family="Archivo, sans-serif" font-size="13" font-weight="800">INSTANT HYDRATION</text>
+          <text x="527" y="139" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="34" font-weight="800">ENERGY+</text>
+          <rect x="527" y="155" width="196" height="30" rx="15" fill="#ffffff"/>
+          <text x="625" y="175" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SHOP NOW &#183; SAVE 50%</text>
+          <path d="M400 240v28m-10-10 10 10 10-10" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="20" y="279" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="800">VARIATION &#183; TWO EQUAL PATHS</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Background_Hero_Desktop_HD.png?format=webp&amp;v=1787093800&amp;width=1200" x="20" y="291" width="374" height="178" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s8-left)"/>
+          <rect x="38" y="315" width="154" height="128" rx="10" fill="#130a06"/>
+          <text x="53" y="340" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">REFINED ENERGY</text>
+          <text x="53" y="370" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="29" font-weight="800">ENERGY+</text>
+          <rect x="53" y="392" width="124" height="34" rx="17" fill="#ff5a28"/>
+          <text x="115" y="414" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SHOP ENERGY+</text>
+          <image href="https://instanthydration.com/cdn/shop/files/IH-Summer-2026_04669.jpg?format=webp&amp;v=1787161702&amp;width=1200" x="406" y="291" width="374" height="178" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s8-right)"/>
+          <rect x="590" y="315" width="172" height="128" rx="10" fill="#07191e"/>
+          <text x="605" y="340" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">14 DELICIOUS FLAVORS</text>
+          <text x="605" y="370" textLength="140" lengthAdjust="spacingAndGlyphs" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">ELECTROLYTES</text>
+          <rect x="605" y="392" width="142" height="34" rx="17" fill="#42b9de"/>
+          <text x="676" y="414" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SHOP ELECTROLYTES</text>
+          <text x="207" y="490" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Current strategic focus</text>
+          <text x="593" y="490" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="700">Established core range</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1110" role="img" aria-label="Mobile Energy Plus-only hero followed by stacked Energy Plus and electrolyte hero paths">
+          <rect width="360" height="1110" rx="14" fill="#0a0a08"/>
+          <text x="16" y="38" fill="#ff5a28" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">CURRENT &#183; ONE HERO</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Background_Hero_Mobile.png?format=webp&amp;v=1787080221&amp;width=600" x="16" y="56" width="328" height="318" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="42" y="241" width="276" height="110" rx="12" fill="#130a06"/>
+          <text x="61" y="270" fill="#ffffff" font-family="Archivo, sans-serif" font-size="12" font-weight="800">INSTANT HYDRATION</text>
+          <text x="61" y="308" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="34" font-weight="800">ENERGY+</text>
+          <rect x="189" y="277" width="108" height="42" rx="21" fill="#ffffff"/>
+          <text x="243" y="303" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SHOP NOW</text>
+          <path d="M180 393v40m-12-12 12 12 12-12" fill="none" stroke="#c8f52d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="16" y="469" fill="#c8f52d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="800">VARIATION &#183; TWO EQUAL PATHS</text>
+          <image href="https://instanthydration.com/cdn/shop/files/Background_Hero_Mobile.png?format=webp&amp;v=1787080221&amp;width=600" x="16" y="487" width="328" height="254" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="34" y="604" width="292" height="115" rx="12" fill="#130a06"/>
+          <text x="52" y="632" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">REFINED ENERGY</text>
+          <text x="52" y="672" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="32" font-weight="800">ENERGY+</text>
+          <rect x="198" y="643" width="108" height="42" rx="21" fill="#ff5a28"/>
+          <text x="252" y="669" text-anchor="middle" fill="#ffffff" font-family="Archivo, sans-serif" font-size="10" font-weight="800">SHOP ENERGY+</text>
+          <image href="https://instanthydration.com/cdn/shop/files/IH-Summer-2026_04669.jpg?format=webp&amp;v=1787161702&amp;width=800" x="16" y="760" width="328" height="318" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="34" y="941" width="292" height="115" rx="12" fill="#07191e"/>
+          <text x="52" y="969" fill="#ffffff" font-family="Archivo, sans-serif" font-size="11" font-weight="800">14 DELICIOUS FLAVORS</text>
+          <text x="52" y="1008" textLength="142" lengthAdjust="spacingAndGlyphs" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="29" font-weight="800">ELECTROLYTES</text>
+          <rect x="198" y="980" width="108" height="42" rx="21" fill="#42b9de"/>
+          <text x="252" y="1006" text-anchor="middle" fill="#0a0a08" font-family="Archivo, sans-serif" font-size="9" font-weight="800">SHOP HYDRATION</text>
+        </svg>
+        <p class="cvrt-caption">Energy+ and the established 14-flavor range receive equal hero-level paths on desktop and mobile. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-insights-panel">
+    <section class="cvrt-killers">
+      <p class="cvrt-killers-kicker">Cross-source priorities</p>
+      <h2 class="cvrt-killers-title">Biggest Killers of Conversion Rate</h2>
+      <ol class="cvrt-killer-list">
+        <li><span class="cvrt-killer-number">01</span>Subscription enrollment and cancellation are the most evidence-backed friction. Two reviews describe an unauthorized recurring order, community research flags the same issue, and the PDP gates gifts behind the selection flow.</li>
+        <li><span class="cvrt-killer-number">02</span>Energy+ owns the homepage and the audited PDP, but the PDP carries no star rating or review count. Its on-page priority also outweighs its presence in the paid-search creative reviewed.</li>
+        <li><span class="cvrt-killer-number">03</span>Retail and collaboration promises weaken after the click. Target availability disappears on the landing page, while ICEE and Luigi's branding disappears inside the buy box and CTA.</li>
+      </ol>
+    </section>
+
+    <section class="cvrt-data-block">
+      <h2 class="cvrt-data-title">Data sources used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">PageSpeed and Core Web Vitals</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Social and Community Research</div>
+        <div class="cvrt-source-chip">Competitor Research</div>
+        <div class="cvrt-source-chip">Business Context</div>
+      </div>
+    </section>
+
+    <section class="cvrt-data-block">
+      <h2 class="cvrt-data-title">What the sources show</h2>
+      <div class="cvrt-source-sections">
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Meta Ads and Landing Pages</h3>
+          <ul class="cvrt-source-list">
+            <li>Campaign-themed landing pages reuse the same generic buy box with $27.50 Subscribe and Save, $49.50 One Time, and a Select from 14 Flavors CTA.</li>
+            <li>Target availability is the retail promise, but the destination has no Target-specific information, store-locator prompt, or in-store framing.</li>
+            <li>ICEE and Luigi's imagery carries into each hero. The product title and CTA then drop the collaboration name.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Google Ads</h3>
+          <ul class="cvrt-source-list">
+            <li>Paid-search messaging centers on ingredient credibility, lab testing, alternatives to sugary sports drinks, and price-per-stick value.</li>
+            <li>Collaboration angles do not appear in the reviewed search creative, so the paid channels do not reinforce one shared hero claim.</li>
+            <li>Energy+ appears as one small display unit while the core electrolyte line dominates the reviewed set.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Reviews and UGC</h3>
+          <ul class="cvrt-source-list">
+            <li>Taste and flavor variety are the most repeated positives. Watermelon, raspberry, cherry limeade, and strawberry lemon receive specific praise.</li>
+            <li>Athletes and active users describe hydration and recovery benefits, and zero sugar is repeatedly called out positively.</li>
+            <li>Two 1-star reviews describe an unexpected recurring subscription, including one report of a $99 charge. A separate review says return shipping was charged inside the 50-day guarantee window.</li>
+            <li>Price sensitivity and an undisclosed Cotton Candy reformulation create additional friction.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">PageSpeed and Core Web Vitals</h3>
+          <ul class="cvrt-source-list">
+            <li>Mobile homepage performance is 48/100 with 4.4s LCP, 1,410ms TBT, and 31.8s Time to Interactive.</li>
+            <li>The Energy+ PDP is 47/100 with 4.8s LCP, 1,840ms TBT, and 34.1s Time to Interactive.</li>
+            <li>CLS is 0 on both pages. No desktop test or real-user CrUX data was collected.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Site Screenshots</h3>
+          <ul class="cvrt-source-list">
+            <li>The homepage hero is entirely Energy+, while the core 14-flavor line first appears as one of two secondary category tiles.</li>
+            <li>The Energy+ PDP opens with both flavor quantities at 0, a disabled Select a Flavor CTA, locked gifts, and no visible star rating or review count.</li>
+            <li>The cart shows one line item, a large empty area, then the summary. It contains no upsell, cross-sell, bundle prompt, or progress bar.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Social and Community Research</h3>
+          <ul class="cvrt-source-list">
+            <li>Energy+ is the dominant current theme across the official TikTok account, independent creators, and a LinkedIn post. The homepage and PDP corroborate that priority.</li>
+            <li>Subscription and support friction surfaces independently in the Trustpilot summary and matches the collected reviews and PDP selection mechanic.</li>
+            <li>Taste and mixability praise appears across TikTok, Trustpilot, Social Nature, and the collected reviews.</li>
+            <li>A travel-hydration post reached 18.6K views, the highest-performing organic post in the research window, but the use case is not reflected in the site or reviews collected.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Competitor Research</h3>
+          <ul class="cvrt-source-list">
+            <li>The site's own comparison module positions LMNT and Liquid I.V. as the direct set.</li>
+            <li>Instant Hydration is listed at $0.92 per stick on subscription and $1.65 one time. The audit lists LMNT at about $1.30 on subscription and Liquid I.V. as low as about $0.73 in a Costco multi-pack.</li>
+            <li>Instant Hydration lists 500mg sodium per serving, versus LMNT's 1,000mg positioning. The brand's comparison module emphasizes salt type and formulation quality instead.</li>
+          </ul>
+        </article>
+        <article class="cvrt-source-section">
+          <h3 class="cvrt-source-title">Business Context</h3>
+          <ul class="cvrt-source-list">
+            <li>The Energy+ PDP is the current focus product and the destination of the homepage's main CTA. It is not the site's best-selling product.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <footer class="cvrt-footer">September 2026</footer>
+</div>
