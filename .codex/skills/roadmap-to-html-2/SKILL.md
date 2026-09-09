@@ -89,6 +89,7 @@ The Data Insights tab should be insightful but scannable. A client should be abl
 - Revenue potential lines and calculations
 
 **Content rules:**
+- Keep the final HTML source ASCII-only: encode every non-ASCII character, including accented letters, smart punctuation, currency signs, and stars, as an HTML numeric character reference so Shopify or copy-paste encoding cannot turn it into mojibake.
 - No em dashes. Use periods, commas, or colons.
 - Never mention approval, concepts for approval, approval status, requests for approval, or approval of any kind anywhere in the client-facing HTML. Present the roadmap as testing ideas for client review.
 - Every word earns its place. No filler, no hedging, no fluff.
