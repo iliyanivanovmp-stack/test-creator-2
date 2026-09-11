@@ -17,6 +17,7 @@ Run `/cro-collect` then `/cro-audit` before this command. This command reads the
 - If a claim cannot be sourced to the seed or audit, omit it.
 - Always include time periods on metrics.
 - No em dashes anywhere.
+- Preserve the audit's exact CURRENT scope: URL, capture date, geo/currency, and selected variant. Never turn variant-level or dated evidence into a product-wide or live claim.
 
 ---
 

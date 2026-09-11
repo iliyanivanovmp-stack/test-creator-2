@@ -158,6 +158,8 @@ Say: "Drop homepage, collection, and PDP screenshots (top 3 folds each) into the
 
 Wait for `done`.
 
+For CURRENT evidence, record the capture date, exact URL, shopper geo/currency, and selected/default PDP variant when known. Capture cart evidence only after adding a real buyable SKU. If any context is unknown, say so rather than infer it.
+
 **Social & Community Research**
 
 Say: "For social & community research, run `/last30days-ecom` — it's a separate skill, run it now or right after this. It writes its own file to `raw/last30days-ecom.md` and I'll pick it up automatically during `/cro-audit`."
@@ -244,6 +246,8 @@ Write `brands/[brand-name]/raw/site-visual-summary.md`:
 
 ```markdown
 # Site Visual Summary
+
+**Capture context:** [Date; geo/currency; exact URLs; selected/default PDP variant; cart SKU. Mark unknowns.]
 
 ## Homepage
 **Fold 1:** [Hero layout, primary headline, CTA placement, trust signals above the fold]

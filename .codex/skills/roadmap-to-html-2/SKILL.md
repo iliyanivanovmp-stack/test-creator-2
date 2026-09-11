@@ -39,6 +39,8 @@ Ask the user for:
 - For every slot, create a silent source map before designing the illustration. Record: the exact screenshot or artifact, the tested surface, recognizable interface anatomy, real labels, product names, available local or public image assets, three or more brand cues, the changed zone, and the planned current-versus-variation composition. Do not start the SVG until this map is complete.
 - Identify the roadmap structure: does it have an Insights/What We Found section? How many slots? A/B tests vs dev projects?
 - Identify the data audit structure: which data sources were collected, what are the key findings per source, and what are the cross-source themes?
+- Immediately before production, re-open every exact page used in a CURRENT claim or mockup. Verify stock, default variant/size, price/currency, promos, shipping copy, proof and product/search counts, homepage copy, and cart content/threshold math. Test claimed missing features in the relevant interaction and add a real buyable SKU for cart checks.
+- If live evidence changed, update or reframe the claim and mockup, replace the example, or remove it. Use “fully OOS,” “selected variant OOS,” or “mostly OOS” precisely. Keep unrerun performance data labeled audit-sourced and dated.
 
 ## Step 3: Extract and Condense Content
 
@@ -471,3 +473,4 @@ Before saving, verify silently:
 - [ ] If a logo was provided, it renders visibly against the hero treatment
 - [ ] If estimated launch dates were provided, each slot displays them
 - [ ] Every factual claim in slot descriptions traces to a specific data point in the data audit or internal roadmap. No fabricated data, no misattributed quotes, no unsupported claims about current page state. NEVER hallucinate.
+- [ ] Every CURRENT claim and mockup passed the live exact-URL/state check immediately before production; changed evidence was updated, reframed, replaced, or removed

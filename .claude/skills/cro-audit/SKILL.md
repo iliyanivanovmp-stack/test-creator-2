@@ -16,6 +16,9 @@ Run `/cro-collect` before this command. This command reads everything it produce
 - Always include time periods on metrics.
 - If a source file is missing, note the gap. Do not invent.
 - Do not ask the user for more data. Work with what was collected.
+- Treat CURRENT as live-verified in this run. Recheck the exact URL and state for stock, default variant/size, price/currency, promos, shipping copy, proof and product/search counts, homepage copy, and cart content/threshold math.
+- Before calling a feature missing, check the relevant desktop/mobile interaction. For cart claims, add a real buyable SKU. Distinguish fully OOS, selected-variant OOS, and mostly OOS.
+- If live evidence changed, update or reframe the finding, replace the example, or remove it. Keep unrerun performance data explicitly audit-sourced and dated.
 
 ---
 
