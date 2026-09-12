@@ -1,0 +1,507 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after {
+  content: none !important; display: none !important;
+}
+#cvrt-roadmap {
+  --cvrt-red: #80142d;
+  --cvrt-red-dark: #4b0717;
+  --cvrt-crimson: #bd0f36;
+  --cvrt-gold: #c8a55c;
+  --cvrt-gold-light: #efd99e;
+  --cvrt-cream: #f7f2e9;
+  --cvrt-paper: #fffdf9;
+  --cvrt-ink: #16100f;
+  --cvrt-white: #ffffff;
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-cream);
+  color: var(--cvrt-ink);
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+#cvrt-roadmap a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+#cvrt-roadmap .cvrt-tab-radio {
+  position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+#cvrt-roadmap .cvrt-hero { position: relative; color: var(--cvrt-white); background: var(--cvrt-red-dark); }
+#cvrt-roadmap .cvrt-hero-grid { display: grid; grid-template-columns: minmax(430px,.88fr) minmax(520px,1.12fr); min-height: 610px; }
+#cvrt-roadmap .cvrt-hero-copy {
+  position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center;
+  padding: 58px clamp(42px,6vw,104px) 112px;
+  background: var(--cvrt-red-dark);
+}
+#cvrt-roadmap .cvrt-hero-copy::after {
+  content: ""; position: absolute; z-index: -1; top: 0; right: -72px; width: 74px; height: 100%;
+  background: var(--cvrt-red-dark); clip-path: polygon(0 0,100% 0,0 100%);
+}
+#cvrt-roadmap .cvrt-logo { display: block; width: 220px; height: auto; margin-bottom: 46px; }
+#cvrt-roadmap .cvrt-eyebrow {
+  margin-bottom: 13px; color: var(--cvrt-gold-light); font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px; font-weight: 700; line-height: 1; letter-spacing: .2em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-hero-title {
+  font-family: "Barlow Condensed", sans-serif; font-size: clamp(64px,7vw,104px); font-weight: 600;
+  line-height: .86; letter-spacing: -.02em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-hero-title span { display: block; color: var(--cvrt-gold-light); }
+#cvrt-roadmap .cvrt-hero-summary { max-width: 510px; margin-top: 28px; color: var(--cvrt-white); font-size: 17px; line-height: 1.62; }
+#cvrt-roadmap .cvrt-hero-media { min-height: 610px; overflow: hidden; background: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 54% center; }
+#cvrt-roadmap .cvrt-tabs { position: absolute; z-index: 4; left: clamp(42px,6vw,104px); bottom: 0; display: flex; gap: 8px; align-items: end; }
+#cvrt-roadmap .cvrt-tab-label {
+  min-width: 170px; padding: 17px 25px 15px; border: 1px solid rgba(255,255,255,.72); border-bottom: 0;
+  border-radius: 8px 8px 0 0; color: var(--cvrt-white); cursor: pointer;
+  font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 700; line-height: 1;
+  letter-spacing: .1em; text-transform: uppercase; text-align: center;
+}
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tests-label,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-insights-label {
+  color: var(--cvrt-ink); background: var(--cvrt-cream); border-color: var(--cvrt-cream);
+}
+#cvrt-roadmap .cvrt-tab-panel { display: none; padding: 54px clamp(20px,5vw,72px) 76px; }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests-panel,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-insights-panel { display: block; }
+#cvrt-roadmap .cvrt-panel-intro { margin-bottom: 30px; text-align: center; }
+#cvrt-roadmap .cvrt-panel-kicker {
+  color: var(--cvrt-red); font-family: "Barlow Condensed", sans-serif; font-size: 15px; font-weight: 700;
+  line-height: 1; letter-spacing: .18em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-panel-title {
+  margin-top: 8px; font-family: "Barlow Condensed", sans-serif; font-size: clamp(44px,5vw,66px);
+  font-weight: 600; line-height: .96; letter-spacing: -.015em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-panel-note { margin-top: 12px; color: var(--cvrt-ink); font-size: 14px; }
+#cvrt-roadmap .cvrt-slot {
+  max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 26px;
+  overflow: hidden; background: var(--cvrt-paper); border: 1px solid #2b201e; border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(75,7,23,.08);
+}
+#cvrt-roadmap .cvrt-slot-copy { padding: 34px 38px 31px; }
+#cvrt-roadmap .cvrt-slot-copy-inner { max-width: 650px; }
+#cvrt-roadmap .cvrt-slot-topline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 17px; }
+#cvrt-roadmap .cvrt-slot-label,
+#cvrt-roadmap .cvrt-type-badge {
+  display: inline-flex; align-items: center; min-height: 28px; padding: 5px 11px 4px;
+  border-radius: 999px; font-family: "Barlow Condensed", sans-serif; font-size: 13px;
+  font-weight: 700; line-height: 1; letter-spacing: .1em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-slot-label { color: var(--cvrt-white); background: var(--cvrt-red); }
+#cvrt-roadmap .cvrt-type-badge { color: var(--cvrt-ink); background: var(--cvrt-gold-light); border: 1px solid var(--cvrt-gold); }
+#cvrt-roadmap .cvrt-slot-title {
+  color: var(--cvrt-ink); font-family: "Barlow Condensed", sans-serif; font-size: clamp(34px,4vw,48px);
+  font-weight: 600; line-height: .98; letter-spacing: -.01em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-page { margin-top: 12px; color: var(--cvrt-red-dark); font-size: 13px; font-weight: 600; }
+#cvrt-roadmap .cvrt-description { margin-top: 14px; color: var(--cvrt-ink); font-size: 16px; font-weight: 400; line-height: 1.62; }
+#cvrt-roadmap .cvrt-visual { padding: 28px; background: #f1e9dd; border-top: 1px solid #2b201e; }
+#cvrt-roadmap .cvrt-svg-desktop,
+#cvrt-roadmap .cvrt-svg-mobile { display: block; width: 100%; height: auto; }
+#cvrt-roadmap .cvrt-svg-mobile { display: none; min-width: 0; }
+#cvrt-roadmap .cvrt-caption { margin-top: 14px; color: var(--cvrt-ink); font-size: 13px; font-style: italic; line-height: 1.5; }
+#cvrt-roadmap .cvrt-killers {
+  margin-bottom: 28px; padding: clamp(34px,5vw,64px); color: var(--cvrt-white);
+  background: var(--cvrt-red-dark); border: 1px solid var(--cvrt-gold); border-radius: 14px;
+}
+#cvrt-roadmap .cvrt-killers-kicker {
+  color: var(--cvrt-gold-light); font-family: "Barlow Condensed", sans-serif; font-size: 15px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-killers-title {
+  margin-top: 10px; color: var(--cvrt-white); font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(46px,6vw,74px); font-weight: 600; line-height: .95; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-killer-list { margin-top: 28px; display: grid; gap: 12px; }
+#cvrt-roadmap .cvrt-killer-list li {
+  display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: start;
+  padding: 18px 0; color: var(--cvrt-white); border-top: 1px solid rgba(255,255,255,.5);
+  font-size: 16px; line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-killer-number { color: var(--cvrt-gold-light); font-family: "Barlow Condensed", sans-serif; font-size: 28px; font-weight: 700; line-height: 1; }
+#cvrt-roadmap .cvrt-data-block { margin-bottom: 26px; padding: clamp(28px,4vw,48px); background: var(--cvrt-paper); border: 1px solid #2b201e; border-radius: 14px; }
+#cvrt-roadmap .cvrt-data-title { color: var(--cvrt-ink); font-family: "Barlow Condensed", sans-serif; font-size: 40px; font-weight: 600; line-height: 1; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-source-grid { margin-top: 24px; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
+#cvrt-roadmap .cvrt-source-chip {
+  min-height: 78px; display: flex; align-items: center; justify-content: center; padding: 14px;
+  color: var(--cvrt-ink); background: var(--cvrt-cream); border: 1px solid var(--cvrt-gold);
+  border-radius: 8px; text-align: center; font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px; font-weight: 600; line-height: 1.15; text-transform: uppercase;
+}
+#cvrt-roadmap .cvrt-source-sections { margin-top: 25px; display: grid; gap: 14px; }
+#cvrt-roadmap .cvrt-source-section { padding: 25px 26px; color: var(--cvrt-ink); background: var(--cvrt-cream); border: 1px solid #2b201e; border-radius: 10px; }
+#cvrt-roadmap .cvrt-source-title { color: var(--cvrt-red); font-family: "Barlow Condensed", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-source-list { margin-top: 14px; display: grid; gap: 10px; }
+#cvrt-roadmap .cvrt-source-list li { color: var(--cvrt-ink); font-size: 15px; line-height: 1.55; }
+#cvrt-roadmap .cvrt-footer { padding: 28px; color: var(--cvrt-white); background: var(--cvrt-red-dark); text-align: center; font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+@media (max-width: 860px) {
+  #cvrt-roadmap .cvrt-hero-grid { width: 100vw; min-width: 0; grid-template-columns: minmax(0,1fr); min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-copy { width: 100%; min-width: 0; min-height: 500px; overflow: hidden; padding: 48px 24px 104px; }
+  #cvrt-roadmap .cvrt-hero-copy::after { display: none; }
+  #cvrt-roadmap .cvrt-logo { width: 190px; margin-bottom: 36px; }
+  #cvrt-roadmap .cvrt-hero-title { font-size: clamp(60px,18vw,82px); }
+  #cvrt-roadmap .cvrt-hero-summary { width: 100%; max-width: none; overflow-wrap: anywhere; font-size: 15px; }
+  #cvrt-roadmap .cvrt-hero-media { width: 100%; min-width: 0; min-height: 290px; }
+  #cvrt-roadmap .cvrt-hero-media img { object-position: 51% 58%; }
+  #cvrt-roadmap .cvrt-tabs { left: 0; right: auto; width: 100%; padding: 0 16px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 6px; }
+  #cvrt-roadmap .cvrt-tab-label { width: 100%; min-width: 0; white-space: nowrap; padding: 16px 8px 14px; font-size: 16px; }
+  #cvrt-roadmap .cvrt-tab-panel { padding: 40px 14px 56px; }
+  #cvrt-roadmap .cvrt-slot { border-radius: 10px; margin-bottom: 18px; }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 27px 22px 25px; }
+  #cvrt-roadmap .cvrt-visual { padding: 14px; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: none; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: block; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #cvrt-roadmap .cvrt-killer-list li { grid-template-columns: 42px 1fr; gap: 10px; }
+}
+@media (max-width: 460px) {
+  #cvrt-roadmap .cvrt-hero-summary { width: 315px; max-width: calc(100vw - 64px); overflow-wrap: normal; }
+  #cvrt-roadmap .cvrt-tabs { left: 20px; right: 20px; width: auto; padding: 0; display: flex; }
+  #cvrt-roadmap .cvrt-tab-label { flex: 1 1 0; max-width: calc((100vw - 46px) / 2); font-size: 14px; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-panel-title { font-size: 42px; }
+  #cvrt-roadmap .cvrt-slot-title { font-size: 36px; }
+  #cvrt-roadmap .cvrt-killers { padding: 30px 22px; }
+  #cvrt-roadmap .cvrt-data-block { padding: 26px 18px; }
+}
+@media print {
+  #cvrt-roadmap { background: #ffffff; }
+  #cvrt-roadmap .cvrt-slot, #cvrt-roadmap .cvrt-data-block { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-tab-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-tabs { display: none; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-radio" type="radio" name="cvrt-tabs" id="cvrt-tab-tests" checked>
+  <input class="cvrt-tab-radio" type="radio" name="cvrt-tabs" id="cvrt-tab-insights">
+
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://labareau.nl/cdn/shop/files/Logo_LABAREAU_Gold_2024.png?height=60&amp;v=1709137597" alt="LABAREAU">
+        <p class="cvrt-eyebrow">CRO Testing Roadmap</p>
+        <h1 class="cvrt-hero-title">September <span>2026</span></h1>
+        <p class="cvrt-hero-summary">Conversion is holding steady, but paid traffic is arriving with weaker economics and uneven message match. The strongest opportunities are faster PDP rendering, tighter promise continuity, and proof that makes premium value easier to trust.</p>
+      </div>
+      <div class="cvrt-hero-media">
+        <img src="https://cdn.shopify.com/s/files/1/0817/0186/3750/files/heronew.png?v=1729673778" alt="LABAREAU skincare products in a clinical setting">
+      </div>
+    </div>
+    <div class="cvrt-tabs">
+      <label class="cvrt-tab-label cvrt-tests-label" for="cvrt-tab-tests">Tests</label>
+      <label class="cvrt-tab-label cvrt-insights-label" for="cvrt-tab-insights">Data Insights</label>
+    </div>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-tests-panel">
+    <div class="cvrt-panel-intro">
+      <p class="cvrt-panel-kicker">Priority sequence</p>
+      <h2 class="cvrt-panel-title">What We Test Next</h2>
+      <p class="cvrt-panel-note">Fix the technical ceiling first, then test the visible experience.</p>
+    </div>
+
+    <article class="cvrt-slot" id="cvrt-slot-1">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type-badge">Immediate Fix</span></div>
+        <h2 class="cvrt-slot-title">PDP Load Speed</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/products/the-rich-cream" target="_blank" rel="noopener">The Rich Cream PDP</a></p>
+        <p class="cvrt-description">The September 11 mobile audit measured The Rich Cream PDP at 38/100 with a 19.7-second LCP, versus 5.2 seconds on the homepage. Paid traffic reaches this template before other PDP ideas can be judged cleanly. Live recheck found the product in stock and ATC working; the buy box also lists refill and Toner bundle options. The fix delivers the same buy box and proof with the primary product content visible promptly.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 500" role="img" aria-label="Slow-loading LABAREAU product page compared with a promptly rendered product page">
+          <defs><clipPath id="cvrt-s1-img"><rect x="430" y="92" width="148" height="260" rx="8"/></clipPath></defs>
+          <rect width="800" height="500" rx="12" fill="#fffdf9"/>
+          <text x="28" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">AUDIT STATE</text>
+          <rect x="28" y="55" width="348" height="392" rx="12" fill="#f7f2e9" stroke="#80142d"/>
+          <rect x="28" y="55" width="348" height="34" rx="12" fill="#4b0717"/><text x="202" y="77" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">LABAREAU</text>
+          <rect x="52" y="112" width="145" height="230" rx="8" fill="#ffffff" stroke="#c8a55c"/>
+          <circle cx="124" cy="217" r="31" fill="none" stroke="#80142d" stroke-width="5" stroke-dasharray="48 22"/>
+          <text x="124" y="271" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Primary content waits</text>
+          <rect x="219" y="118" width="120" height="16" rx="4" fill="#e3d7c5"/><rect x="219" y="147" width="92" height="12" rx="4" fill="#e3d7c5"/><rect x="219" y="179" width="112" height="10" rx="4" fill="#e3d7c5"/><rect x="219" y="202" width="106" height="10" rx="4" fill="#e3d7c5"/><rect x="219" y="225" width="116" height="10" rx="4" fill="#e3d7c5"/><rect x="219" y="278" width="120" height="48" rx="5" fill="#80142d"/>
+          <text x="202" y="383" text-anchor="middle" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="34" font-weight="700">19.7s LCP</text><text x="202" y="409" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Mobile Lighthouse audit</text>
+          <path d="M390 248h28m-10-10 10 10-10 10" fill="none" stroke="#c8a55c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="430" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">FIXED EXPERIENCE</text>
+          <rect x="430" y="55" width="342" height="392" rx="12" fill="#ffffff" stroke="#80142d"/>
+          <rect x="430" y="55" width="342" height="34" rx="12" fill="#4b0717"/><text x="601" y="77" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">LABAREAU</text>
+          <image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="430" y="92" width="148" height="260" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s1-img)"/>
+          <text x="599" y="114" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700"><tspan x="599" dy="0">THE RICH</tspan><tspan x="599" dy="25">CREAM</tspan></text><text x="599" y="163" fill="#80142d" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#8364;119,00</text><text x="599" y="189" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733; 2382 Reviews</text>
+          <text x="599" y="218" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Matrixyl Morphomics</text><text x="599" y="241" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Huididentiek collageen</text><text x="599" y="264" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Intensieve hydratatie</text>
+          <rect x="599" y="282" width="146" height="46" rx="5" fill="#80142d"/><text x="672" y="311" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">IN WINKELWAGEN</text>
+          <rect x="454" y="369" width="294" height="48" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="601" y="389" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">Free shipping in Benelux</text><text x="601" y="405" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">15 day returns</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1010" role="img" aria-label="Mobile slow-loading product page followed by the promptly rendered experience">
+          <rect width="360" height="1010" rx="12" fill="#fffdf9"/>
+          <text x="18" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">AUDIT STATE</text>
+          <rect x="18" y="53" width="324" height="370" rx="10" fill="#f7f2e9" stroke="#80142d"/><rect x="18" y="53" width="324" height="38" rx="10" fill="#4b0717"/><text x="180" y="78" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">LABAREAU</text>
+          <rect x="42" y="115" width="276" height="168" rx="8" fill="#ffffff"/><circle cx="180" cy="189" r="29" fill="none" stroke="#80142d" stroke-width="5" stroke-dasharray="44 20"/><text x="180" y="245" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="600">Primary content waits</text>
+          <text x="180" y="336" text-anchor="middle" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="40" font-weight="700">19.7s LCP</text><text x="180" y="363" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="600">Mobile Lighthouse audit</text>
+          <path d="M180 444v42m-12-12 12 12 12-12" fill="none" stroke="#c8a55c" stroke-width="4" stroke-linecap="round"/>
+          <text x="18" y="526" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">FIXED EXPERIENCE</text>
+          <rect x="18" y="545" width="324" height="430" rx="10" fill="#ffffff" stroke="#80142d"/><rect x="18" y="545" width="324" height="38" rx="10" fill="#4b0717"/><text x="180" y="570" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">LABAREAU</text>
+          <image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="40" y="603" width="118" height="230" preserveAspectRatio="xMidYMid slice"/>
+          <text x="177" y="625" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700"><tspan x="177" dy="0">THE RICH</tspan><tspan x="177" dy="24">CREAM</tspan></text><text x="177" y="674" fill="#80142d" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#8364;119,00</text><text x="177" y="700" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">2382 Reviews</text><text x="177" y="733" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Matrixyl Morphomics</text><text x="177" y="756" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Huididentiek collageen</text><rect x="177" y="778" width="142" height="48" rx="5" fill="#80142d"/><text x="248" y="808" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">IN WINKELWAGEN</text>
+          <rect x="40" y="866" width="278" height="68" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="179" y="893" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">Free shipping in Benelux</text><text x="179" y="915" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">15 day returns</text>
+        </svg>
+        <p class="cvrt-caption">The primary product, price, proof, and CTA become visible without the audit&#39;s 19.7-second wait. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot" id="cvrt-slot-2">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type-badge">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Quiz Message Match</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/pages/skin-analyzer" target="_blank" rel="noopener">Skin Analyzer</a> (nav SKIN ANALYZER)</p>
+        <p class="cvrt-description">Offer-focused paid traffic promises a perfect anti-aging match and names fine lines and the skin barrier. The live control is Skin Analyzer: it opens on Wat is de leeftijd van jouw huid? with Start huidanalyse, then asks shoppers to Scan deze QR-code om een foto te maken met je smartphone via Foto uploaden or Maak een foto. No product, price, reviews, or paid-traffic claims appear before that flow. The variation adds a compact message-matched product-and-proof strip above the analyzer entry.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 510" role="img" aria-label="Current LABAREAU Skin Analyzer compared with a message-matched analyzer landing page">
+          <defs><clipPath id="cvrt-s2-strip"><rect x="434" y="91" width="338" height="123" rx="8"/></clipPath></defs>
+          <rect width="800" height="510" rx="12" fill="#4b0717"/>
+          <text x="28" y="36" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">CURRENT</text><text x="428" y="36" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">VARIATION</text>
+          <rect x="28" y="54" width="344" height="420" rx="12" fill="#fffdf9"/>
+          <text x="50" y="86" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">LABAREAU</text><text x="50" y="116" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="700">SKIN ANALYZER</text><text x="50" y="144" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Wat is de leeftijd van jouw huid?</text>
+          <rect x="50" y="160" width="300" height="42" rx="5" fill="#80142d"/><text x="200" y="186" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">Start huidanalyse</text>
+          <rect x="50" y="220" width="300" height="180" rx="8" fill="#f7f2e9" stroke="#c8a55c"/>
+          <rect x="152" y="242" width="96" height="96" rx="6" fill="#ffffff" stroke="#80142d"/>
+          <text x="200" y="296" text-anchor="middle" fill="#80142d" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">QR</text>
+          <text x="200" y="360" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Scan deze QR-code om een foto</text>
+          <text x="200" y="378" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">te maken met je smartphone</text>
+          <rect x="50" y="418" width="142" height="36" rx="4" fill="#4b0717"/><text x="121" y="441" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Foto uploaden</text>
+          <rect x="208" y="418" width="142" height="36" rx="4" fill="#80142d"/><text x="279" y="441" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Maak een foto</text>
+          <rect x="428" y="54" width="344" height="420" rx="12" fill="#fffdf9"/>
+          <image href="https://labareau.nl/cdn/shop/files/Untitled_design_30_750x750.png?v=1733830653" x="434" y="91" width="338" height="123" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s2-strip)"/><rect x="434" y="91" width="338" height="123" fill="#4b0717" fill-opacity=".66"/>
+          <text x="451" y="119" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">JOUW ANTI-AGING ROUTINE</text><text x="451" y="146" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">FIJNE LIJNTJES</text><text x="451" y="169" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">HUIDBARRIERE</text><text x="451" y="190" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="9" font-weight="600">Ontdek welke producten bij jouw huid passen.</text><rect x="451" y="198" width="128" height="14" rx="3" fill="#c8a55c"/><text x="515" y="208" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="8" font-weight="700">BEKIJK DE ROUTINE</text>
+          <text x="450" y="248" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">SKIN ANALYZER</text>
+          <text x="450" y="276" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Wat is de leeftijd van jouw huid?</text>
+          <rect x="450" y="294" width="300" height="42" rx="5" fill="#80142d"/><text x="600" y="320" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">Start huidanalyse</text>
+          <rect x="450" y="352" width="142" height="36" rx="4" fill="#4b0717"/><text x="521" y="375" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Foto uploaden</text>
+          <rect x="608" y="352" width="142" height="36" rx="4" fill="#80142d"/><text x="679" y="375" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Maak een foto</text>
+          <text x="450" y="422" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Proof strip sits above the live analyzer entry.</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1030" role="img" aria-label="Mobile current LABAREAU Skin Analyzer stacked above a message-matched variation">
+          <rect width="360" height="1030" rx="12" fill="#4b0717"/><text x="18" y="36" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">CURRENT</text>
+          <rect x="18" y="52" width="324" height="390" rx="10" fill="#fffdf9"/><text x="40" y="82" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">LABAREAU</text><text x="40" y="112" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">SKIN ANALYZER</text><text x="40" y="140" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Wat is de leeftijd van jouw huid?</text>
+          <rect x="40" y="154" width="280" height="42" rx="5" fill="#80142d"/><text x="180" y="180" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">Start huidanalyse</text>
+          <rect x="40" y="212" width="280" height="160" rx="8" fill="#f7f2e9" stroke="#c8a55c"/>
+          <rect x="132" y="230" width="96" height="90" rx="6" fill="#ffffff" stroke="#80142d"/><text x="180" y="280" text-anchor="middle" fill="#80142d" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">QR</text>
+          <text x="180" y="340" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Scan deze QR-code om een foto</text>
+          <text x="180" y="358" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">te maken met je smartphone</text>
+          <rect x="40" y="388" width="132" height="36" rx="4" fill="#4b0717"/><text x="106" y="411" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Foto uploaden</text>
+          <rect x="188" y="388" width="132" height="36" rx="4" fill="#80142d"/><text x="254" y="411" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Maak een foto</text>
+          <path d="M180 461v38m-11-11 11 11 11-11" fill="none" stroke="#efd99e" stroke-width="4"/>
+          <text x="18" y="540" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">VARIATION</text><rect x="18" y="558" width="324" height="440" rx="10" fill="#fffdf9"/>
+          <image href="https://labareau.nl/cdn/shop/files/Untitled_design_30_750x750.png?v=1733830653" x="18" y="558" width="324" height="160" preserveAspectRatio="xMidYMid slice"/><rect x="18" y="558" width="324" height="160" fill="#4b0717" fill-opacity=".68"/><text x="38" y="586" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">JOUW ANTI-AGING ROUTINE</text><text x="38" y="617" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="700">FIJNE LIJNTJES</text><text x="38" y="646" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="700">HUIDBARRIERE</text><text x="38" y="670" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Ontdek welke producten bij jouw huid passen.</text><rect x="38" y="682" width="144" height="24" rx="3" fill="#c8a55c"/><text x="110" y="698" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">BEKIJK DE ROUTINE</text>
+          <text x="38" y="752" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">SKIN ANALYZER</text>
+          <text x="38" y="782" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Wat is de leeftijd van jouw huid?</text>
+          <rect x="38" y="800" width="284" height="46" rx="5" fill="#80142d"/><text x="180" y="829" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">Start huidanalyse</text>
+          <rect x="38" y="864" width="132" height="42" rx="4" fill="#4b0717"/><text x="104" y="890" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Foto uploaden</text>
+          <rect x="190" y="864" width="132" height="42" rx="4" fill="#80142d"/><text x="256" y="890" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Maak een foto</text>
+          <text x="180" y="940" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Analyzer entry stays intact</text>
+        </svg>
+        <p class="cvrt-caption">The product story and paid-traffic claims appear before the live Skin Analyzer entry. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot" id="cvrt-slot-3">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type-badge">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">The Toner Bundle Buy Box</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/products/the-toner" target="_blank" rel="noopener">The Toner PDP</a></p>
+        <p class="cvrt-description">Bundle-led traffic promises The AHA Peel and The Toner with 14% korting. Live buy box section BUNDEL EN BESPAAR already lists both options: first selected is The Toner at &#8364;49,00, then The Toner &amp; The AHA Peel BESTSELLER BESPAAR 14% at &#8364;102,00 (from &#8364;118/&#8364;119). 1141 Reviews remains true. The variation preselects the AHA bundle first and keeps the single unit secondary.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 520" role="img" aria-label="Current BUNDEL EN BESPAAR buy box with The Toner first compared with a preselected Toner and AHA Peel bundle">
+          <rect width="800" height="520" rx="12" fill="#fffdf9"/>
+          <text x="26" y="35" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">CURRENT BUY BOX</text><text x="418" y="35" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">VARIATION BUY BOX</text>
+          <rect x="26" y="54" width="356" height="432" rx="10" fill="#ffffff" stroke="#80142d"/><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="42" y="72" width="148" height="246" preserveAspectRatio="xMidYMid meet"/><text x="208" y="91" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE TONER</text><text x="208" y="119" fill="#80142d" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#8364;49,00</text><text x="208" y="145" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733; 1141 Reviews</text><text x="208" y="181" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">200ml selected</text><rect x="208" y="202" width="148" height="44" rx="5" fill="#80142d"/><text x="282" y="229" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">IN WINKELWAGEN</text><text x="48" y="338" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">BUNDEL EN BESPAAR</text><rect x="48" y="350" width="310" height="54" rx="6" fill="#f7f2e9" stroke="#80142d" stroke-width="2"/><circle cx="68" cy="377" r="7" fill="#80142d"/><circle cx="68" cy="377" r="3" fill="#ffffff"/><text x="86" y="373" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">The Toner</text><text x="86" y="391" fill="#80142d" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">&#8364;49,00</text><rect x="48" y="412" width="310" height="62" rx="6" fill="#ffffff" stroke="#c8a55c"/><circle cx="68" cy="436" r="7" fill="none" stroke="#80142d" stroke-width="2"/><text x="86" y="432" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">The Toner &amp; The AHA Peel</text><text x="86" y="450" fill="#80142d" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">BESTSELLER BESPAAR 14% &#8364;102,00</text><text x="250" y="466" fill="#16100f" font-family="Work Sans, sans-serif" font-size="9" font-weight="600"><tspan text-decoration="line-through">&#8364;118,00</tspan></text>
+          <rect x="418" y="54" width="356" height="432" rx="10" fill="#ffffff" stroke="#80142d"/><text x="440" y="91" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE TONER</text><text x="440" y="117" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733; 1141 Reviews</text>
+          <rect x="440" y="142" width="312" height="224" rx="8" fill="#f7f2e9" stroke="#80142d" stroke-width="2"/><circle cx="462" cy="168" r="8" fill="#80142d"/><circle cx="462" cy="168" r="3" fill="#ffffff"/><rect x="676" y="153" width="62" height="25" rx="12" fill="#80142d"/><text x="707" y="169" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">14% KORTING</text><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="454" y="185" width="104" height="152" preserveAspectRatio="xMidYMid meet"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-20_at_16.54.27_1.jpg?v=1764693584&amp;width=1100" x="552" y="185" width="104" height="152" preserveAspectRatio="xMidYMid meet"/><text x="672" y="221" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Toner</text><text x="672" y="242" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">+</text><text x="672" y="263" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The AHA Peel</text><rect x="446" y="338" width="300" height="24" rx="3" fill="#80142d"/><text x="596" y="355" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="700">BUNDLE SELECTED &#183; EXACT OFFER FIRST</text>
+          <rect x="440" y="383" width="312" height="48" rx="5" fill="#80142d"/><text x="596" y="413" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">IN WINKELWAGEN</text><text x="440" y="462" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Single unit remains available below</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1110" role="img" aria-label="Mobile current BUNDEL EN BESPAAR buy box stacked above a preselected Toner and AHA Peel bundle">
+          <rect width="360" height="1110" rx="12" fill="#fffdf9"/><text x="18" y="37" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">CURRENT BUY BOX</text>
+          <rect x="18" y="54" width="324" height="424" rx="10" fill="#ffffff" stroke="#80142d"/><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="36" y="75" width="128" height="218" preserveAspectRatio="xMidYMid meet"/><text x="180" y="97" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE TONER</text><text x="180" y="126" fill="#80142d" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#8364;49,00</text><text x="180" y="151" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">1141 Reviews</text><rect x="180" y="181" width="140" height="48" rx="5" fill="#80142d"/><text x="250" y="211" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">IN WINKELWAGEN</text><text x="38" y="318" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">BUNDEL EN BESPAAR</text><rect x="38" y="328" width="284" height="52" rx="6" fill="#f7f2e9" stroke="#80142d" stroke-width="2"/><circle cx="56" cy="354" r="7" fill="#80142d"/><circle cx="56" cy="354" r="3" fill="#ffffff"/><text x="72" y="350" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">The Toner</text><text x="72" y="368" fill="#80142d" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">&#8364;49,00</text><rect x="38" y="388" width="284" height="58" rx="6" fill="#ffffff" stroke="#c8a55c"/><circle cx="56" cy="410" r="7" fill="none" stroke="#80142d" stroke-width="2"/><text x="72" y="406" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">The Toner &amp; The AHA Peel</text><text x="72" y="424" fill="#80142d" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">BESTSELLER BESPAAR 14% &#8364;102,00</text><text x="72" y="438" fill="#16100f" font-family="Work Sans, sans-serif" font-size="9" font-weight="600"><tspan text-decoration="line-through">&#8364;118,00</tspan></text>
+          <path d="M180 500v40m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/><text x="18" y="584" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">VARIATION BUY BOX</text>
+          <rect x="18" y="603" width="324" height="475" rx="10" fill="#ffffff" stroke="#80142d"/><text x="38" y="641" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE TONER</text><text x="38" y="668" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">1141 Reviews</text><rect x="38" y="692" width="284" height="250" rx="8" fill="#f7f2e9" stroke="#80142d" stroke-width="2"/><rect x="224" y="706" width="82" height="27" rx="13" fill="#80142d"/><text x="265" y="723" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">14% KORTING</text><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="52" y="730" width="96" height="156" preserveAspectRatio="xMidYMid meet"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-20_at_16.54.27_1.jpg?v=1764693584&amp;width=1100" x="139" y="730" width="96" height="156" preserveAspectRatio="xMidYMid meet"/><text x="236" y="790" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">The Toner</text><text x="236" y="812" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">+</text><text x="236" y="834" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">The AHA Peel</text><text x="52" y="914" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">BUNDLE SELECTED</text><rect x="38" y="962" width="284" height="50" rx="5" fill="#80142d"/><text x="180" y="993" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">IN WINKELWAGEN</text><text x="38" y="1047" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Single unit remains available below</text>
+        </svg>
+        <p class="cvrt-caption">The AHA bundle becomes the first selected BUNDEL EN BESPAAR choice, while the single Toner remains available. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot" id="cvrt-slot-4">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type-badge">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Evergreen Offer Banner</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">During the live visit the red bar THE TONER 100ML CADEAU &#183; BIJ &#8364;100+ was visible, while WIN 1 VAN 9... was not observed. A white bar rotated Welcome to our store / Proven results for healthier skin / Secure payment. CURRENT is the Toner gift banner plus that rotating trust bar, not stacked giveaway plus gift. Discount share rose from 12% to 20.5% while volume halved. The test compares this system with one fixed, non-expiring gift-at-&#8364;100 message.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 490" role="img" aria-label="Toner gift banner with rotating trust bar compared with one evergreen gift banner">
+          <defs><clipPath id="cvrt-s4-a"><rect x="24" y="97" width="752" height="130" rx="7"/></clipPath><clipPath id="cvrt-s4-b"><rect x="24" y="326" width="752" height="130" rx="7"/></clipPath></defs>
+          <rect width="800" height="490" rx="12" fill="#fffdf9"/><text x="24" y="31" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">CURRENT PROMOTIONAL SYSTEM</text><rect x="24" y="48" width="752" height="24" fill="#bd0f36"/><text x="400" y="64" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">THE TONER 100ML CADEAU &#183; BIJ &#8364;100+</text><rect x="24" y="72" width="752" height="25" fill="#ffffff" stroke="#e3d7c5"/><text x="400" y="89" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">Welcome to our store  &#183;  Proven results  &#183;  Secure payment</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2026-09-03_at_14.15.28.jpg?v=1788437930&amp;width=1920" x="24" y="97" width="752" height="130" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4-a)"/><rect x="54" y="122" width="250" height="80" rx="5" fill="#4b0717" fill-opacity=".92"/><text x="72" y="151" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">THE RICH CREAM</text><text x="72" y="174" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Gift banner + rotating trust bar</text>
+          <path d="M400 245v35m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/>
+          <text x="24" y="307" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">VARIATION &#183; ONE EVERGREEN PROMISE</text><rect x="24" y="326" width="752" height="38" fill="#80142d"/><text x="400" y="350" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">THE TONER 100ML CADEAU BIJ &#8364;100+</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2026-09-03_at_14.15.28.jpg?v=1788437930&amp;width=1920" x="24" y="364" width="752" height="92" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s4-b)"/><rect x="54" y="376" width="250" height="68" rx="5" fill="#4b0717" fill-opacity=".92"/><text x="72" y="403" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="700">THE RICH CREAM</text><text x="72" y="426" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">One stable offer across the visit</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 980" role="img" aria-label="Mobile Toner gift banner with rotating trust bar followed by one evergreen offer banner">
+          <rect width="360" height="980" rx="12" fill="#fffdf9"/><text x="18" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">CURRENT SYSTEM</text><rect x="18" y="54" width="324" height="34" fill="#bd0f36"/><text x="180" y="76" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="8" font-weight="700">THE TONER 100ML CADEAU &#183; BIJ &#8364;100+</text><rect x="18" y="88" width="324" height="34" fill="#ffffff" stroke="#e3d7c5"/><text x="180" y="110" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="8" font-weight="700">Welcome / Proven results / Secure payment</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2026-09-03_at_14.15.28.jpg?v=1788437930&amp;width=1920" x="18" y="122" width="324" height="300" preserveAspectRatio="xMidYMid slice"/><rect x="40" y="307" width="280" height="90" rx="5" fill="#4b0717" fill-opacity=".92"/><text x="58" y="341" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE RICH CREAM</text><text x="58" y="369" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Gift banner + rotating trust bar</text>
+          <path d="M180 446v42m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/><text x="18" y="530" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">ONE EVERGREEN PROMISE</text><rect x="18" y="548" width="324" height="48" fill="#80142d"/><text x="180" y="578" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">THE TONER 100ML CADEAU BIJ &#8364;100+</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2026-09-03_at_14.15.28.jpg?v=1788437930&amp;width=1920" x="18" y="596" width="324" height="320" preserveAspectRatio="xMidYMid slice"/><rect x="40" y="791" width="280" height="92" rx="5" fill="#4b0717" fill-opacity=".92"/><text x="58" y="826" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE RICH CREAM</text><text x="58" y="854" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">One stable offer across the visit</text>
+        </svg>
+        <p class="cvrt-caption">The homepage carries one persistent gift threshold instead of stacking changing promotional mechanics. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot" id="cvrt-slot-5">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type-badge">Candidate Fix</span></div>
+        <h2 class="cvrt-slot-title">Collection Review Proof</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/collections/all" target="_blank" rel="noopener">Alle Producten</a></p>
+        <p class="cvrt-description">The audit capture showed visual stars without printed counts. Live Alle Producten still shows The Rich Cream at &#8364;104,00 / &#8364;119,00 with stars only; no printed 4.9 / 5.0 (77) appeared on the card. The gap is open. A candidate fix adds the printed rating and review count on collection cards.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 470" role="img" aria-label="Audit collection card without a printed review count compared with live stars-only card that still lacks counts">
+          <rect width="800" height="470" rx="12" fill="#fffdf9"/><text x="30" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">AUDIT CAPTURE</text><text x="424" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">LIVE CHECK</text>
+          <rect x="30" y="56" width="346" height="378" rx="10" fill="#ffffff" stroke="#80142d"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="59" y="75" width="288" height="232" preserveAspectRatio="xMidYMid contain"/><text x="57" y="337" fill="#80142d" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">LABAREAU</text><text x="57" y="363" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="700">THE RICH CREAM</text><text x="57" y="390" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">&#8364;104,00  <tspan text-decoration="line-through">&#8364;119,00</tspan></text><text x="57" y="416" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <rect x="424" y="56" width="346" height="378" rx="10" fill="#ffffff" stroke="#80142d"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="453" y="75" width="288" height="232" preserveAspectRatio="xMidYMid contain"/><text x="451" y="337" fill="#80142d" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">LABAREAU</text><text x="451" y="363" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="700">THE RICH CREAM</text><text x="451" y="390" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">&#8364;104,00  <tspan text-decoration="line-through">&#8364;119,00</tspan></text><text x="451" y="416" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733;</text><text x="580" y="416" fill="#80142d" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">STARS ONLY</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 960" role="img" aria-label="Mobile audit collection card without count followed by live stars-only card still missing counts">
+          <rect width="360" height="960" rx="12" fill="#fffdf9"/><text x="18" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">AUDIT CAPTURE</text><rect x="18" y="54" width="324" height="390" rx="10" fill="#ffffff" stroke="#80142d"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="44" y="72" width="272" height="244" preserveAspectRatio="xMidYMid contain"/><text x="43" y="345" fill="#80142d" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">LABAREAU</text><text x="43" y="372" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">THE RICH CREAM</text><text x="43" y="399" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">&#8364;104,00  <tspan text-decoration="line-through">&#8364;119,00</tspan></text><text x="43" y="426" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+          <path d="M180 466v40m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/><text x="18" y="548" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">LIVE CHECK</text><rect x="18" y="566" width="324" height="360" rx="10" fill="#ffffff" stroke="#80142d"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="44" y="584" width="272" height="210" preserveAspectRatio="xMidYMid contain"/><text x="43" y="823" fill="#80142d" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">LABAREAU</text><text x="43" y="850" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">THE RICH CREAM</text><text x="43" y="877" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">&#8364;104,00  <tspan text-decoration="line-through">&#8364;119,00</tspan></text><text x="43" y="908" fill="#c8a55c" font-family="Work Sans, sans-serif" font-size="15" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9733;</text><text x="160" y="908" fill="#80142d" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">STARS ONLY</text>
+        </svg>
+        <p class="cvrt-caption">Live collection cards still show stars only; printed counts remain an open gap and candidate fix. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type-badge">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Cart Drawer Trust Copy</h2>
+        <p class="cvrt-page">Page: Cart drawer</p>
+        <p class="cvrt-description">Live drawer title is Winkelwagen. After Rich Cream ATC it shows The Rich Cream at &#8364;119,00 plus free The Toner 100ml at &#8364;0,00 (&#8364;24,50 struck), with JE GRATIS THE TONER 100ML IS UNLOCKED and The Toner 100ml t.w.v. &#8364;24,50 is van jou. A sample picker sits lower (Kies je gratis sample!, e.g. The Uplift 5ml), then AFREKENEN and payment icons. No shipping or returns block sits by the CTA. The variation adds Free shipping in Benelux / 15 day returns above AFREKENEN.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 560" role="img" aria-label="Current LABAREAU cart drawer compared with a drawer that adds returns and shipping reassurance">
+          <rect width="800" height="560" rx="12" fill="#4b0717"/><text x="30" y="36" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">CURRENT DRAWER</text><text x="426" y="36" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">VARIATION DRAWER</text>
+          <rect x="30" y="54" width="344" height="478" rx="10" fill="#ffffff"/><text x="52" y="88" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">Winkelwagen</text><line x1="52" y1="103" x2="352" y2="103" stroke="#c8a55c"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="52" y="119" width="66" height="86" preserveAspectRatio="xMidYMid contain"/><text x="132" y="141" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Rich Cream</text><text x="132" y="164" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#8364;119,00</text><text x="132" y="189" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">-  1  +</text><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="52" y="217" width="66" height="86" preserveAspectRatio="xMidYMid contain"/><text x="132" y="241" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Toner 100ml</text><text x="132" y="266" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700"><tspan text-decoration="line-through">&#8364;24,50</tspan>  &#8364;0,00</text><rect x="52" y="314" width="300" height="72" rx="6" fill="#80142d"/><text x="68" y="340" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">JE GRATIS THE TONER 100ML IS UNLOCKED</text><text x="68" y="364" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">The Toner 100ml t.w.v. &#8364;24,50 is van jou.</text><rect x="52" y="400" width="300" height="52" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="68" y="421" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Kies je gratis sample!</text><text x="68" y="440" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">The Uplift 5ml</text><rect x="52" y="466" width="300" height="42" rx="5" fill="#80142d"/><text x="202" y="492" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">AFREKENEN</text><text x="202" y="520" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">iDEAL  AMEX  APPLE PAY  VISA</text>
+          <rect x="426" y="54" width="344" height="478" rx="10" fill="#ffffff"/><text x="448" y="88" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">Winkelwagen</text><line x1="448" y1="103" x2="748" y2="103" stroke="#c8a55c"/><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="448" y="119" width="62" height="82" preserveAspectRatio="xMidYMid contain"/><text x="524" y="141" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Rich Cream</text><text x="524" y="164" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#8364;119,00</text><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="448" y="210" width="62" height="82" preserveAspectRatio="xMidYMid contain"/><text x="524" y="233" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Toner 100ml</text><text x="524" y="257" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700"><tspan text-decoration="line-through">&#8364;24,50</tspan>  &#8364;0,00</text><rect x="448" y="300" width="300" height="64" rx="6" fill="#80142d"/><text x="464" y="324" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">JE GRATIS THE TONER 100ML IS UNLOCKED</text><text x="464" y="346" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="9" font-weight="600">The Toner 100ml t.w.v. &#8364;24,50 is van jou.</text><rect x="448" y="376" width="300" height="44" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="464" y="394" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Kies je gratis sample!</text><text x="464" y="412" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">The Uplift 5ml</text><rect x="448" y="432" width="300" height="40" rx="6" fill="#4b0717"/><text x="598" y="457" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">Free shipping Benelux  &#183;  15 day returns</text><rect x="448" y="484" width="300" height="42" rx="5" fill="#80142d"/><text x="598" y="510" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">AFREKENEN</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1160" role="img" aria-label="Mobile current cart drawer stacked above a variation with shipping and returns reassurance">
+          <rect width="360" height="1160" rx="12" fill="#4b0717"/><text x="18" y="36" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">CURRENT DRAWER</text><rect x="18" y="54" width="324" height="470" rx="10" fill="#ffffff"/><text x="40" y="89" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">Winkelwagen</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="40" y="116" width="66" height="88" preserveAspectRatio="xMidYMid contain"/><text x="121" y="141" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Rich Cream</text><text x="121" y="165" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#8364;119,00</text><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="40" y="213" width="66" height="88" preserveAspectRatio="xMidYMid contain"/><text x="121" y="238" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Toner 100ml</text><text x="121" y="263" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700"><tspan text-decoration="line-through">&#8364;24,50</tspan>  &#8364;0,00</text><rect x="40" y="312" width="280" height="70" rx="6" fill="#80142d"/><text x="56" y="338" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">JE GRATIS THE TONER 100ML IS UNLOCKED</text><text x="56" y="362" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="9" font-weight="600">The Toner 100ml t.w.v. &#8364;24,50 is van jou.</text><rect x="40" y="396" width="280" height="52" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="56" y="417" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Kies je gratis sample!</text><text x="56" y="436" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">The Uplift 5ml</text><rect x="40" y="462" width="280" height="42" rx="5" fill="#80142d"/><text x="180" y="488" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">AFREKENEN</text><text x="180" y="516" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">iDEAL  AMEX  APPLE PAY  VISA</text>
+          <path d="M180 545v40m-11-11 11 11 11-11" fill="none" stroke="#efd99e" stroke-width="4"/><text x="18" y="627" fill="#efd99e" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">VARIATION DRAWER</text><rect x="18" y="646" width="324" height="480" rx="10" fill="#ffffff"/><text x="40" y="681" fill="#16100f" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">Winkelwagen</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2025-11-04_at_16.37.01_1.jpg?v=1764630322&amp;width=1100" x="40" y="708" width="62" height="82" preserveAspectRatio="xMidYMid contain"/><text x="117" y="734" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Rich Cream</text><text x="117" y="758" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#8364;119,00</text><image href="https://labareau.nl/cdn/shop/products/The-Toner-001.jpg?v=1764630103&amp;width=1100" x="40" y="798" width="62" height="82" preserveAspectRatio="xMidYMid contain"/><text x="117" y="824" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">The Toner 100ml</text><text x="117" y="848" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700"><tspan text-decoration="line-through">&#8364;24,50</tspan>  &#8364;0,00</text><rect x="40" y="888" width="280" height="64" rx="6" fill="#80142d"/><text x="56" y="912" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">JE GRATIS THE TONER 100ML IS UNLOCKED</text><text x="56" y="934" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="9" font-weight="600">The Toner 100ml t.w.v. &#8364;24,50 is van jou.</text><rect x="40" y="964" width="280" height="44" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="56" y="982" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">Kies je gratis sample!</text><text x="56" y="999" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">The Uplift 5ml</text><rect x="40" y="1020" width="280" height="36" rx="6" fill="#4b0717"/><text x="180" y="1043" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">Free shipping Benelux  &#183;  15 day returns</text><rect x="40" y="1068" width="280" height="42" rx="5" fill="#80142d"/><text x="180" y="1094" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">AFREKENEN</text>
+        </svg>
+        <p class="cvrt-caption">Free shipping Benelux and 15 day returns move directly above AFREKENEN on the gift-unlocked drawer. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot" id="cvrt-slot-7">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type-badge">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Doctor-Authority Proof</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">The homepage still shows Recommended by doctors plus Uitstekend 4.7 uit 5 Trustpilot. The Trustpilot widget also exposes 443 reviews. Google creative pairs the authority claim with a 4-star and 168-review badge. The short line asks visitors to accept the claim without that supporting detail. The variation places the rating detail beside the existing Trustpilot proof.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 530" role="img" aria-label="Current generic doctor recommendation line followed by a detailed doctor-authority proof module">
+          <defs><clipPath id="cvrt-s7-hero"><rect x="24" y="54" width="752" height="190" rx="9"/></clipPath></defs>
+          <rect width="800" height="530" rx="12" fill="#fffdf9"/><text x="24" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">CURRENT HERO PROOF</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2026-09-03_at_14.15.28.jpg?v=1788437930&amp;width=1920" x="24" y="54" width="752" height="190" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s7-hero)"/><rect x="50" y="77" width="274" height="144" rx="6" fill="#4b0717" fill-opacity=".94"/><text x="70" y="111" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="28" font-weight="700">THE RICH CREAM</text><text x="70" y="142" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">Recommended by doctors</text><text x="70" y="170" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">Uitstekend 4.7 uit 5  Trustpilot</text><rect x="70" y="188" width="104" height="23" rx="3" fill="#bd0f36"/><text x="122" y="203" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">SHOP NOW</text>
+          <path d="M400 263v34m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/><text x="24" y="329" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">VARIATION &#183; SPECIFIC AUTHORITY</text><rect x="24" y="349" width="752" height="147" rx="9" fill="#4b0717"/><text x="53" y="380" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">AANGERADEN DOOR ARTSEN</text><text x="53" y="416" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="30" font-weight="700">DOCTOR-AUTHORITY</text><text x="53" y="448" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="30" font-weight="700">WITH PROOF</text><rect x="514" y="373" width="230" height="96" rx="8" fill="#fffdf9" stroke="#c8a55c"/><text x="537" y="402" fill="#80142d" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9734;  4-STAR RATING</text><text x="537" y="429" fill="#16100f" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">168 reviews</text><text x="537" y="452" fill="#16100f" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Placed beside Trustpilot proof</text><text x="53" y="478" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Existing claim, now supported by the detail used in search.</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 960" role="img" aria-label="Mobile generic doctor proof followed by a detailed authority module">
+          <rect width="360" height="960" rx="12" fill="#fffdf9"/><text x="18" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">CURRENT HERO PROOF</text><image href="https://labareau.nl/cdn/shop/files/WhatsApp_Image_2026-09-03_at_14.15.28.jpg?v=1788437930&amp;width=1920" x="18" y="54" width="324" height="330" preserveAspectRatio="xMidYMid slice"/><rect x="38" y="230" width="284" height="130" rx="6" fill="#4b0717" fill-opacity=".94"/><text x="57" y="265" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="27" font-weight="700">THE RICH CREAM</text><text x="57" y="295" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="12" font-weight="700">Recommended by doctors</text><text x="57" y="325" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Uitstekend 4.7 uit 5  Trustpilot</text><path d="M180 408v40m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/><text x="18" y="491" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">SPECIFIC AUTHORITY</text><rect x="18" y="510" width="324" height="410" rx="10" fill="#4b0717"/><text x="42" y="551" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">AANGERADEN DOOR ARTSEN</text><text x="42" y="590" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="29" font-weight="700">DOCTOR-AUTHORITY</text><text x="42" y="621" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="29" font-weight="700">WITH PROOF</text><rect x="42" y="660" width="276" height="128" rx="8" fill="#fffdf9" stroke="#c8a55c"/><text x="64" y="698" fill="#80142d" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">&#9733;&#9733;&#9733;&#9733;&#9734;  4-STAR RATING</text><text x="64" y="730" fill="#16100f" font-family="Work Sans, sans-serif" font-size="13" font-weight="700">168 reviews</text><text x="64" y="758" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="600">Beside Trustpilot proof</text><text x="42" y="832" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">The existing claim gains the detail</text><text x="42" y="855" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="12" font-weight="600">already used in search creative.</text>
+        </svg>
+        <p class="cvrt-caption">The doctor recommendation gains the 4-star and 168-review detail already used in Google creative. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy"><div class="cvrt-slot-copy-inner">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type-badge">A/B Test</span></div>
+        <h2 class="cvrt-slot-title">Earlier Promo-Alert Signup</h2>
+        <p class="cvrt-page">Page: <a href="https://labareau.nl/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">LABAREAU tells customers that promotions are announced in the newsletter first, but the live signup sits near the bottom of the homepage after reviews and FAQ content. That makes a known retention path easy to miss during product discovery. The variation adds a compact promo-alert signup between the hero and product grid while keeping the existing lower-page form.</p>
+      </div></div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 800 520" role="img" aria-label="Long homepage journey to the newsletter compared with an early promo-alert signup after the hero">
+          <defs><clipPath id="cvrt-s8-news"><rect x="510" y="311" width="250" height="150" rx="8"/></clipPath></defs>
+          <rect width="800" height="520" rx="12" fill="#fffdf9"/><text x="26" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">CURRENT JOURNEY</text><rect x="26" y="55" width="338" height="420" rx="10" fill="#ffffff" stroke="#80142d"/><rect x="48" y="79" width="294" height="76" rx="6" fill="#4b0717"/><text x="195" y="109" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">HOMEPAGE HERO</text><text x="195" y="135" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">SHOP NOW</text><rect x="48" y="170" width="294" height="54" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="195" y="202" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">PRODUCT GRID</text><rect x="48" y="239" width="294" height="54" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="195" y="271" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">PROOF + FOUNDER + REVIEWS</text><rect x="48" y="308" width="294" height="54" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="195" y="340" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">FAQ</text><path d="M195 368v26" stroke="#80142d" stroke-width="3"/><rect x="48" y="398" width="294" height="54" rx="6" fill="#80142d"/><text x="195" y="421" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">SIGN UP NOW</text><text x="195" y="439" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="600">Near the bottom of the page</text>
+          <text x="406" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700">VARIATION &#183; EARLY CAPTURE</text><rect x="406" y="55" width="368" height="420" rx="10" fill="#ffffff" stroke="#80142d"/><rect x="428" y="79" width="324" height="102" rx="6" fill="#4b0717"/><text x="590" y="117" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">HOMEPAGE HERO</text><text x="590" y="145" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">SHOP NOW</text><rect x="428" y="196" width="324" height="96" rx="7" fill="#80142d"/><text x="450" y="225" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">PROMOTIES ALS EERSTE ONTVANGEN</text><text x="450" y="250" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">BLIJF OP DE HOOGTE</text><rect x="450" y="263" width="184" height="19" rx="3" fill="#fffdf9"/><text x="459" y="276" fill="#16100f" font-family="Work Sans, sans-serif" font-size="8" font-weight="600">Voer hier uw e-mailadres in</text><rect x="641" y="263" width="88" height="19" rx="3" fill="#c8a55c"/><text x="685" y="276" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="8" font-weight="700">AANMELDEN</text><image href="https://labareau.nl/cdn/shop/files/QX0A1584_2000x2000.jpg?v=1724756315" x="510" y="311" width="250" height="150" preserveAspectRatio="xMidYMid slice" clip-path="url(#cvrt-s8-news)"/><text x="430" y="338" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">PRODUCT GRID</text><text x="430" y="372" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">PROOF</text><text x="430" y="406" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">REVIEWS</text><text x="430" y="440" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">FAQ</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 1060" role="img" aria-label="Mobile long journey to newsletter followed by an early promo-alert signup">
+          <rect width="360" height="1060" rx="12" fill="#fffdf9"/><text x="18" y="36" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">CURRENT JOURNEY</text><rect x="18" y="54" width="324" height="424" rx="10" fill="#ffffff" stroke="#80142d"/><rect x="40" y="78" width="280" height="70" rx="6" fill="#4b0717"/><text x="180" y="106" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">HOMEPAGE HERO</text><text x="180" y="130" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">SHOP NOW</text><rect x="40" y="165" width="280" height="52" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="180" y="196" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">PRODUCT GRID</text><rect x="40" y="232" width="280" height="52" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="180" y="263" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">PROOF + REVIEWS</text><rect x="40" y="299" width="280" height="52" rx="6" fill="#f7f2e9" stroke="#c8a55c"/><text x="180" y="330" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="11" font-weight="700">FAQ</text><rect x="40" y="373" width="280" height="70" rx="6" fill="#80142d"/><text x="180" y="401" text-anchor="middle" fill="#ffffff" font-family="Work Sans, sans-serif" font-size="10" font-weight="700">SIGN UP NOW</text><text x="180" y="424" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">Near the bottom</text><path d="M180 500v40m-11-11 11 11 11-11" fill="none" stroke="#c8a55c" stroke-width="4"/>
+          <text x="18" y="582" fill="#80142d" font-family="Barlow Condensed, sans-serif" font-size="22" font-weight="700">EARLY CAPTURE</text><rect x="18" y="601" width="324" height="425" rx="10" fill="#ffffff" stroke="#80142d"/><rect x="40" y="625" width="280" height="82" rx="6" fill="#4b0717"/><text x="180" y="657" text-anchor="middle" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="700">HOMEPAGE HERO</text><text x="180" y="683" text-anchor="middle" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="10" font-weight="600">SHOP NOW</text><rect x="40" y="721" width="280" height="160" rx="7" fill="#80142d"/><text x="58" y="753" fill="#efd99e" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">PROMOTIES ALS EERSTE ONTVANGEN</text><text x="58" y="788" fill="#ffffff" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700">BLIJF OP DE HOOGTE</text><rect x="58" y="813" width="244" height="28" rx="3" fill="#fffdf9"/><text x="68" y="831" fill="#16100f" font-family="Work Sans, sans-serif" font-size="9" font-weight="600">Voer hier uw e-mailadres in</text><rect x="58" y="847" width="244" height="24" rx="3" fill="#c8a55c"/><text x="180" y="863" text-anchor="middle" fill="#16100f" font-family="Work Sans, sans-serif" font-size="9" font-weight="700">AANMELDEN</text><image href="https://labareau.nl/cdn/shop/files/QX0A1584_2000x2000.jpg?v=1724756315" x="40" y="896" width="280" height="108" preserveAspectRatio="xMidYMid slice"/>
+        </svg>
+        <p class="cvrt-caption">A promo-alert signup appears directly after the hero while the current lower-page form remains. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cvrt-tab-panel cvrt-insights-panel">
+    <section class="cvrt-killers">
+      <p class="cvrt-killers-kicker">Cross-source priorities</p>
+      <h2 class="cvrt-killers-title">Biggest Killers of Conversion Rate</h2>
+      <ol class="cvrt-killer-list">
+        <li><span class="cvrt-killer-number">01</span><span>Message match breaks between paid promises and landing destinations. The Skin Analyzer route is the widest gap, and the Toner AHA bundle is present in BUNDEL EN BESPAAR but not selected first.</span></li>
+        <li><span class="cvrt-killer-number">02</span><span>The Rich Cream PDP measured 38/100 on mobile with a 19.7-second LCP. Paid traffic reaches the slowest audited template before product-level testing can be judged cleanly.</span></li>
+        <li><span class="cvrt-killer-number">03</span><span>Discount dependency is rising while reviews ask for more promotions and bundle-led creative reinforces the pattern. The brand needs one durable value mechanic, not another rotating percentage cut.</span></li>
+      </ol>
+    </section>
+
+    <section class="cvrt-data-block">
+      <h2 class="cvrt-data-title">Data Sources Used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">PageSpeed and Core Web Vitals</div>
+        <div class="cvrt-source-chip">Business Context</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+        <div class="cvrt-source-chip">Social and Community Research</div>
+        <div class="cvrt-source-chip">Competitor Research</div>
+      </div>
+    </section>
+
+    <section class="cvrt-data-block">
+      <h2 class="cvrt-data-title">What the Sources Show</h2>
+      <div class="cvrt-source-sections">
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Meta Ads and Landing Pages</h3><ul class="cvrt-source-list"><li>Bundle-led traffic promises The AHA Peel and The Toner with 14% korting, but live BUNDEL EN BESPAAR preselects The Toner at &#8364;49,00 ahead of The Toner &amp; The AHA Peel BESTSELLER BESPAAR 14% at &#8364;102,00.</li><li>The strongest message match sends collagen and Matrixyl claims to The Rich Cream, whose benefit list repeats those terms.</li><li>Anti-aging discovery traffic reaches Skin Analyzer (Wat is de leeftijd van jouw huid? / Start huidanalyse, then QR photo capture), with no product, price, reviews, or repeated claims before the analyzer entry.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Google Ads</h3><ul class="cvrt-source-list"><li>Search creative uses doctor authority, prestige, and older-skin framing instead of the discount and bundle language used in paid-social creative.</li><li>A doctor-recommendation angle is paired with a 4-star and 168-review badge.</li><li>No visible discount or bundle offer appears across the reviewed Google units.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Reviews and UGC</h3><ul class="cvrt-source-list"><li>Customers describe visible skin changes within three days and one week.</li><li>Repeat-purchase language spans more than two years, with named praise for The Rich Cream and The Toner.</li><li>Price is the recurring complaint, and multiple reviewers ask for more frequent promotions.</li><li>LABAREAU directs customers to the newsletter because promotions are announced there first.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">PageSpeed and Core Web Vitals</h3><ul class="cvrt-source-list"><li>The homepage measured 52/100 on mobile, with 5.2s LCP, 480ms TBT, and 3.6s FCP.</li><li>The Rich Cream PDP measured 38/100, with 19.7s LCP, 790ms TBT, and 4.6s FCP.</li><li>The PDP LCP was roughly four times Google&#39;s 2.5-second poor threshold.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Business Context</h3><ul class="cvrt-source-list"><li>Site conversion held at 2.5%, matching pre-giveaway performance, while AOV was slightly higher.</li><li>CTR fell 36% and CPC rose 43% after the giveaway period, producing a 27% revenue-per-click decline from &#8364;14.49 to &#8364;10.56.</li><li>Discount share of gross revenue rose from 12% to 20.5% while volume halved.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Site Screenshots</h3><ul class="cvrt-source-list"><li>The live homepage shows the red Toner gift banner THE TONER 100ML CADEAU &#183; BIJ &#8364;100+ plus a white rotating trust bar; WIN 1 VAN 9... was not observed during the visit. Doctor, Trustpilot, press, before-and-after, and testimonial proof still repeat through the page.</li><li>The live Alle Producten Rich Cream card shows &#8364;104,00 / &#8364;119,00 and stars only; no printed 4.9 / 5.0 (77). The missing-count gap remains open.</li><li>The live cart drawer shows Winkelwagen, Rich Cream plus unlocked free Toner 100ml, Kies je gratis sample! lower down, AFREKENEN, and payment icons, with no shipping or returns block by the CTA.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Social and Community Research</h3><ul class="cvrt-source-list"><li>A giveaway post reached 61,208 views and 459 likes, the highest engagement in the 30-day research window.</li><li>During the September 11 live visit the WIN 1 VAN 9... giveaway bar was not observed; the red Toner gift banner and rotating trust bar were.</li><li>Trustpilot proof on-site includes Uitstekend 4.7 uit 5 and exposes 443 reviews; Instagram reel content remains a research gap.</li></ul></article>
+        <article class="cvrt-source-section"><h3 class="cvrt-source-title">Competitor Research</h3><ul class="cvrt-source-list"><li>Labareau&#39;s The Rich Cream was listed at &#8364;119, versus about &#8364;265 for Augustinus Bader&#39;s product with the same name.</li><li>Augustinus Bader and Dr. Barbara Sturm use doctor-created clinical positioning at two to three times Labareau&#39;s price point.</li><li>The pricing gap leaves room to make clinical authority more specific without relying only on promotions.</li></ul></article>
+      </div>
+    </section>
+  </section>
+
+  <footer class="cvrt-footer">September 2026</footer>
+</div>
