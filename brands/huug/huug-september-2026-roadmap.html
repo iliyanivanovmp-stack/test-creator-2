@@ -97,6 +97,10 @@
 #cvrt-roadmap .cvrt-footer { padding: 27px clamp(20px, 5vw, 72px); background: var(--cvrt-black); color: var(--cvrt-white); text-align: center; font-size: 12px; line-height: 1; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 #cvrt-roadmap .cvrt-svg-ui { font-family: "DM Sans", sans-serif; }
 #cvrt-roadmap .cvrt-svg-serif { font-family: "Playfair Display", serif; }
+#cvrt-roadmap .cvrt-tests .cvrt-slot:nth-of-type(1) .cvrt-desktop-svg .cvrt-svg-serif { font-size: 19px; }
+#cvrt-roadmap .cvrt-tests .cvrt-slot:nth-of-type(3) .cvrt-desktop-svg .cvrt-svg-serif { font-size: 22px; }
+#cvrt-roadmap .cvrt-tests .cvrt-slot:nth-of-type(2) .cvrt-desktop-svg rect:last-of-type,
+#cvrt-roadmap .cvrt-tests .cvrt-slot:nth-of-type(2) .cvrt-mobile-svg rect:last-of-type { height: 26px; }
 @media (max-width: 760px) {
   #cvrt-roadmap { font-size: 15px; }
   #cvrt-roadmap .cvrt-hero { min-height: 760px; display: block; background: #8f6d53; }
@@ -117,6 +121,8 @@
   #cvrt-roadmap .cvrt-visual { padding: 12px; }
   #cvrt-roadmap .cvrt-desktop-svg { display: none; }
   #cvrt-roadmap .cvrt-mobile-svg { display: block; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-tests .cvrt-slot:nth-of-type(1) .cvrt-mobile-svg .cvrt-svg-serif,
+  #cvrt-roadmap .cvrt-tests .cvrt-slot:nth-of-type(3) .cvrt-mobile-svg .cvrt-svg-serif { font-size: 20px; }
   #cvrt-roadmap .cvrt-killers { padding: 30px 22px; }
   #cvrt-roadmap .cvrt-killer-list li { grid-template-columns: 34px 1fr; gap: 10px; }
   #cvrt-roadmap .cvrt-source-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
