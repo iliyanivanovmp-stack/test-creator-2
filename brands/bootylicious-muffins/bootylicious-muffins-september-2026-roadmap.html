@@ -1,0 +1,569 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+#cvrt-roadmap,
+#cvrt-roadmap *,
+#cvrt-roadmap *::before,
+#cvrt-roadmap *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: inherit; line-height: inherit;
+  letter-spacing: normal; text-transform: none;
+}
+#cvrt-roadmap h1, #cvrt-roadmap h2, #cvrt-roadmap h3,
+#cvrt-roadmap p, #cvrt-roadmap span, #cvrt-roadmap div {
+  font-family: inherit; font-size: inherit;
+  font-weight: inherit; color: inherit;
+  margin: 0; padding: 0;
+}
+#cvrt-roadmap ul,
+#cvrt-roadmap ol,
+#cvrt-roadmap li { list-style: none; }
+#cvrt-roadmap li::marker { content: ""; }
+#cvrt-roadmap .cvrt-killer-list li::before,
+#cvrt-roadmap .cvrt-killer-list li::after,
+#cvrt-roadmap .cvrt-source-list li::before,
+#cvrt-roadmap .cvrt-source-list li::after { content: none !important; display: none !important; }
+#cvrt-roadmap {
+  --cvrt-navy: #0e1732;
+  --cvrt-coral: #fd7457;
+  --cvrt-pink: #ff4f61;
+  --cvrt-yellow: #f6ff54;
+  --cvrt-cyan: #72fff9;
+  --cvrt-cream: #fffaf2;
+  --cvrt-white: #ffffff;
+  --cvrt-black: #0b1022;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background: var(--cvrt-cream);
+  color: var(--cvrt-black);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+#cvrt-roadmap .cvrt-tab-input { position: absolute; opacity: 0; pointer-events: none; }
+#cvrt-roadmap .cvrt-hero { background: var(--cvrt-navy); color: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(520px, 1.08fr); min-height: 570px; }
+#cvrt-roadmap .cvrt-hero-copy { padding: 64px clamp(28px, 6vw, 94px) 52px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+#cvrt-roadmap .cvrt-hero-copy::after { content: ""; position: absolute; width: 78px; height: 15px; border-radius: 50%; background: var(--cvrt-yellow); right: 7%; top: 11%; transform: rotate(-9deg); }
+#cvrt-roadmap .cvrt-logo { width: min(270px, 72%); height: auto; margin-bottom: 46px; }
+#cvrt-roadmap .cvrt-kicker { font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--cvrt-yellow); margin-bottom: 15px; }
+#cvrt-roadmap .cvrt-hero h1 { font-family: "Archivo Black", sans-serif; font-size: clamp(46px, 5.2vw, 78px); line-height: .98; letter-spacing: -.045em; text-transform: uppercase; max-width: 650px; }
+#cvrt-roadmap .cvrt-hero h1 span { display: block; color: var(--cvrt-coral); }
+#cvrt-roadmap .cvrt-summary { max-width: 610px; margin-top: 27px; font-size: 19px; line-height: 1.55; color: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-hero-media { position: relative; min-height: 570px; background: #f8f3ea; overflow: hidden; }
+#cvrt-roadmap .cvrt-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 52% center; display: block; }
+#cvrt-roadmap .cvrt-tabs { display: flex; gap: 10px; align-items: center; padding: 0 clamp(28px, 6vw, 94px) 26px; background: var(--cvrt-navy); }
+#cvrt-roadmap .cvrt-tab-label { cursor: pointer; padding: 14px 25px; border-radius: 999px; border: 2px solid var(--cvrt-white); color: var(--cvrt-white); font-weight: 700; font-size: 15px; }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-tests"],
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-hero .cvrt-tabs label[for="cvrt-tab-insights"] { background: var(--cvrt-yellow); border-color: var(--cvrt-yellow); color: var(--cvrt-navy); }
+#cvrt-roadmap .cvrt-panel { display: none; padding: 52px clamp(22px, 5vw, 72px) 70px; }
+#cvrt-roadmap #cvrt-tab-tests:checked ~ .cvrt-tests,
+#cvrt-roadmap #cvrt-tab-insights:checked ~ .cvrt-insights { display: block; }
+#cvrt-roadmap .cvrt-section-intro { text-align: center; margin-bottom: 34px; }
+#cvrt-roadmap .cvrt-section-intro h2 { font-family: "Archivo Black", sans-serif; font-size: clamp(32px, 4vw, 50px); line-height: 1.05; letter-spacing: -.035em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-section-intro p { margin-top: 10px; font-size: 17px; color: var(--cvrt-black); }
+#cvrt-roadmap .cvrt-slot { max-width: 860px; margin-left: auto; margin-right: auto; margin-bottom: 30px; background: var(--cvrt-white); border: 2px solid var(--cvrt-navy); border-radius: 24px; overflow: hidden; box-shadow: 8px 8px 0 var(--cvrt-navy); }
+#cvrt-roadmap .cvrt-slot-copy { max-width: 640px; padding: 31px 34px 27px; }
+#cvrt-roadmap .cvrt-slot-topline { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+#cvrt-roadmap .cvrt-slot-label { font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-type { display: inline-flex; align-items: center; padding: 5px 11px; border-radius: 999px; background: var(--cvrt-yellow); color: var(--cvrt-navy); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-slot h3 { font-family: "Archivo Black", sans-serif; font-size: clamp(26px, 3vw, 38px); line-height: 1.08; letter-spacing: -.03em; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-page { margin-top: 11px; font-size: 14px; font-weight: 700; color: var(--cvrt-navy); }
+#cvrt-roadmap .cvrt-page a { color: var(--cvrt-navy); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+#cvrt-roadmap .cvrt-description { margin-top: 16px; font-size: 16px; line-height: 1.65; color: var(--cvrt-black); }
+#cvrt-roadmap .cvrt-visual { padding: 26px; background: #fff6e8; border-top: 2px solid var(--cvrt-navy); }
+#cvrt-roadmap .cvrt-svg-desktop,
+#cvrt-roadmap .cvrt-svg-mobile { width: 100%; height: auto; display: block; border-radius: 15px; overflow: hidden; }
+#cvrt-roadmap .cvrt-svg-mobile { display: none; }
+#cvrt-roadmap .cvrt-caption { margin-top: 13px; font-size: 13px; line-height: 1.5; font-style: italic; color: var(--cvrt-black); }
+#cvrt-roadmap .cvrt-insights { background: #ffffff; }
+#cvrt-roadmap .cvrt-killers { padding: 42px; border-radius: 28px; background: var(--cvrt-navy); color: var(--cvrt-white); box-shadow: 9px 9px 0 var(--cvrt-coral); }
+#cvrt-roadmap .cvrt-killers h2 { font-family: "Archivo Black", sans-serif; font-size: clamp(31px, 4vw, 50px); line-height: 1.02; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-killer-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+#cvrt-roadmap .cvrt-killer-list li { padding: 21px; border: 2px solid var(--cvrt-white); border-radius: 17px; color: var(--cvrt-white); font-size: 16px; line-height: 1.5; }
+#cvrt-roadmap .cvrt-killer-list h3 { font-family: "Archivo Black", sans-serif; font-size: 20px; line-height: 1.1; color: var(--cvrt-yellow); text-transform: uppercase; margin-bottom: 9px; }
+#cvrt-roadmap .cvrt-sources { margin-top: 52px; }
+#cvrt-roadmap .cvrt-sources h2,
+#cvrt-roadmap .cvrt-findings > h2 { font-family: "Archivo Black", sans-serif; font-size: 34px; line-height: 1.05; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-source-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+#cvrt-roadmap .cvrt-source-chip { min-height: 84px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; border: 2px solid var(--cvrt-navy); border-radius: 16px; background: var(--cvrt-yellow); color: var(--cvrt-navy); font-weight: 700; }
+#cvrt-roadmap .cvrt-findings { margin-top: 52px; }
+#cvrt-roadmap .cvrt-source-block { margin-top: 17px; padding: 27px 29px; border: 2px solid var(--cvrt-navy); border-radius: 20px; background: var(--cvrt-white); }
+#cvrt-roadmap .cvrt-source-block h3 { font-family: "Archivo Black", sans-serif; font-size: 23px; line-height: 1.1; text-transform: uppercase; }
+#cvrt-roadmap .cvrt-source-list { margin-top: 14px; display: grid; gap: 10px; }
+#cvrt-roadmap .cvrt-source-list li { padding: 12px 14px; border-radius: 12px; background: #fff0df; color: var(--cvrt-black); line-height: 1.55; }
+#cvrt-roadmap .cvrt-footer { padding: 28px; text-align: center; background: var(--cvrt-navy); color: var(--cvrt-white); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: 13px; }
+#cvrt-roadmap .cvrt-svg-bg { fill: #ffffff; }
+#cvrt-roadmap .cvrt-svg-navy { fill: #0e1732; }
+#cvrt-roadmap .cvrt-svg-coral { fill: #fd7457; }
+#cvrt-roadmap .cvrt-svg-pink { fill: #ff4f61; }
+#cvrt-roadmap .cvrt-svg-yellow { fill: #f6ff54; }
+#cvrt-roadmap .cvrt-svg-cyan { fill: #72fff9; }
+#cvrt-roadmap .cvrt-svg-cream { fill: #fffaf2; }
+#cvrt-roadmap .cvrt-svg-line { fill: none; stroke: #0e1732; stroke-width: 2; }
+#cvrt-roadmap .cvrt-svg-label { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; fill: #0e1732; }
+#cvrt-roadmap .cvrt-svg-small { font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 700; fill: #0e1732; }
+#cvrt-roadmap .cvrt-svg-tiny { font-family: "DM Sans", sans-serif; font-size: 10px; font-weight: 700; fill: #0e1732; }
+#cvrt-roadmap .cvrt-svg-white { fill: #ffffff; }
+#cvrt-roadmap .cvrt-svg-head { font-family: "Archivo Black", sans-serif; font-size: 23px; fill: #0e1732; }
+#cvrt-roadmap .cvrt-svg-head-white { font-family: "Archivo Black", sans-serif; font-size: 23px; fill: #ffffff; }
+@media (max-width: 800px) {
+  #cvrt-roadmap .cvrt-hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  #cvrt-roadmap .cvrt-hero-copy { padding: 38px 22px 34px; }
+  #cvrt-roadmap .cvrt-logo { width: 215px; margin-bottom: 31px; }
+  #cvrt-roadmap .cvrt-hero h1 { font-size: clamp(39px, 12vw, 58px); }
+  #cvrt-roadmap .cvrt-summary { font-size: 17px; }
+  #cvrt-roadmap .cvrt-hero-media { min-height: 0; aspect-ratio: 1200 / 630; }
+  #cvrt-roadmap .cvrt-hero-media img { object-position: center center; }
+  #cvrt-roadmap .cvrt-tabs { padding: 16px 22px 22px; }
+  #cvrt-roadmap .cvrt-tab-label { flex: 1; text-align: center; padding: 12px 10px; }
+  #cvrt-roadmap .cvrt-panel { padding: 38px 14px 50px; }
+  #cvrt-roadmap .cvrt-slot { border-radius: 19px; box-shadow: 5px 5px 0 var(--cvrt-navy); }
+  #cvrt-roadmap .cvrt-slot-copy { padding: 25px 20px 23px; }
+  #cvrt-roadmap .cvrt-visual { padding: 14px; }
+  #cvrt-roadmap .cvrt-svg-desktop { display: none; }
+  #cvrt-roadmap .cvrt-svg-mobile { display: block; width: 100%; min-width: 0; }
+  #cvrt-roadmap .cvrt-killers { padding: 28px 20px; border-radius: 21px; box-shadow: 6px 6px 0 var(--cvrt-coral); }
+  #cvrt-roadmap .cvrt-killer-list { grid-template-columns: 1fr; }
+  #cvrt-roadmap .cvrt-source-grid { grid-template-columns: repeat(2, 1fr); }
+  #cvrt-roadmap .cvrt-source-block { padding: 23px 19px; }
+}
+@media print {
+  #cvrt-roadmap .cvrt-slot,
+  #cvrt-roadmap .cvrt-killers { box-shadow: none; break-inside: avoid; }
+  #cvrt-roadmap .cvrt-tabs { display: none; }
+  #cvrt-roadmap .cvrt-panel { display: block !important; }
+  #cvrt-roadmap .cvrt-slot { break-inside: avoid; }
+}
+</style>
+<div id="cvrt-roadmap">
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tab-tests" checked>
+  <input class="cvrt-tab-input" type="radio" name="cvrt-roadmap-tabs" id="cvrt-tab-insights">
+  <section class="cvrt-hero">
+    <div class="cvrt-hero-grid">
+      <div class="cvrt-hero-copy">
+        <img class="cvrt-logo" src="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Logo_New_1.png?v=1750944589&amp;width=660" alt="Bootylicious Muffins">
+        <p class="cvrt-kicker">CRO testing roadmap</p>
+        <h1>September <span>2026</span></h1>
+        <p class="cvrt-summary">Bootylicious has a strong product promise and a standout Build Your Box experience, but key nutrition proof, flavor guidance, and purchase reassurance arrive too late. This roadmap makes the fastest wins visible first, then sharpens the path from paid promise to completed box.</p>
+      </div>
+      <div class="cvrt-hero-media">
+        <img src="https://bootyliciousmuffins.com/cdn/shop/files/bootylicious-social-share-1200x630.png?v=1789247916" alt="Bootylicious Birthday Cake high protein muffin cup">
+      </div>
+    </div>
+    <nav class="cvrt-tabs" aria-label="Roadmap sections">
+      <label class="cvrt-tab-label" for="cvrt-tab-tests">Testing Roadmap</label>
+      <label class="cvrt-tab-label" for="cvrt-tab-insights">Data Insights</label>
+    </nav>
+  </section>
+
+  <main class="cvrt-panel cvrt-tests">
+    <div class="cvrt-section-intro">
+      <h2>Eight focused moves</h2>
+      <p>Each idea turns a documented friction point into a clearer customer experience.</p>
+    </div>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 1</span><span class="cvrt-type">Immediate Fix</span></div>
+        <h3>Mobile Load Speed</h3>
+        <p class="cvrt-page">Page: Homepage and Build Your Box PDP</p>
+        <p class="cvrt-description">The audit measured a 7.3-second homepage LCP and a 6.8-second PDP LCP on mobile, with roughly 800 KiB of unused JavaScript on each page. Fast server response means the delay sits in the front end. Strip nonessential work from the first render so the product promise and primary action appear sooner.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 390" role="img" aria-label="Current slow mobile rendering compared with an optimized first render">
+          <rect class="cvrt-svg-navy" width="808" height="390" rx="18"/>
+          <text class="cvrt-svg-head-white" x="36" y="48">MAKE THE FIRST BITE FASTER</text>
+          <rect x="38" y="76" width="334" height="270" rx="24" fill="#fffaf2"/>
+          <text class="cvrt-svg-label" x="62" y="108">CURRENT MOBILE LOAD</text>
+          <rect x="62" y="126" width="286" height="144" rx="14" fill="#ece9e2"/>
+          <rect x="62" y="126" width="286" height="22" rx="10" fill="#0e1732"/>
+          <circle cx="76" cy="137" r="4" fill="#fd7457"/><circle cx="89" cy="137" r="4" fill="#f6ff54"/>
+          <rect x="84" y="171" width="240" height="14" rx="7" fill="#c9c5bd"/>
+          <rect x="84" y="196" width="183" height="14" rx="7" fill="#c9c5bd"/>
+          <rect x="84" y="231" width="107" height="20" rx="10" fill="#c9c5bd"/>
+          <text class="cvrt-svg-small" x="62" y="299">Homepage LCP 7.3s</text>
+          <text class="cvrt-svg-small" x="62" y="321">PDP LCP 6.8s</text>
+          <path d="M390 211h28" stroke="#f6ff54" stroke-width="5" stroke-linecap="round"/><path d="M410 201l12 10-12 10" fill="none" stroke="#f6ff54" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="438" y="76" width="334" height="270" rx="24" fill="#ffffff"/>
+          <text class="cvrt-svg-label" x="462" y="108">OPTIMIZED FIRST RENDER</text>
+          <rect x="462" y="126" width="286" height="144" rx="14" fill="#fd7457"/>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="598" y="128" width="142" height="142" preserveAspectRatio="xMidYMid meet"/>
+          <text class="cvrt-svg-head" x="480" y="172">25G</text><text class="cvrt-svg-label" x="480" y="194">PROTEIN</text>
+          <rect x="480" y="214" width="106" height="34" rx="17" fill="#f6ff54"/>
+          <text class="cvrt-svg-small" x="494" y="236">BUILD YOUR BOX</text>
+          <text class="cvrt-svg-small" x="462" y="299">Product and CTA render first</text>
+          <text class="cvrt-svg-small" x="462" y="321">Nonessential scripts follow</text>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 620" role="img" aria-label="Current slow mobile rendering stacked above an optimized first render">
+          <rect class="cvrt-svg-navy" width="360" height="620" rx="18"/>
+          <text class="cvrt-svg-head-white" x="22" y="42">FASTER FIRST BITE</text>
+          <rect x="20" y="64" width="320" height="220" rx="20" fill="#fffaf2"/>
+          <text class="cvrt-svg-label" x="40" y="94">CURRENT</text>
+          <rect x="40" y="110" width="280" height="105" rx="13" fill="#e6e2da"/>
+          <rect x="61" y="139" width="226" height="13" rx="7" fill="#bbb7af"/><rect x="61" y="165" width="160" height="13" rx="7" fill="#bbb7af"/>
+          <text class="cvrt-svg-small" x="40" y="244">LCP: 7.3s homepage, 6.8s PDP</text>
+          <path d="M180 294v28" stroke="#f6ff54" stroke-width="5" stroke-linecap="round"/><path d="M170 314l10 12 10-12" fill="none" stroke="#f6ff54" stroke-width="5"/>
+          <rect x="20" y="340" width="320" height="252" rx="20" fill="#ffffff"/>
+          <text class="cvrt-svg-label" x="40" y="372">OPTIMIZED</text>
+          <rect x="40" y="388" width="280" height="148" rx="13" fill="#fd7457"/>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="173" y="390" width="140" height="140" preserveAspectRatio="xMidYMid meet"/>
+          <text class="cvrt-svg-head" x="57" y="440">25G</text><text class="cvrt-svg-small" x="57" y="461">PROTEIN</text>
+          <rect x="57" y="482" width="104" height="34" rx="17" fill="#f6ff54"/><text class="cvrt-svg-tiny" x="69" y="503">BUILD YOUR BOX</text>
+          <text class="cvrt-svg-small" x="40" y="566">Product and CTA appear first.</text>
+        </svg>
+        <p class="cvrt-caption">The optimized first render prioritizes the product promise and primary action. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 2</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Cart Upsell Replacement</h3>
+        <p class="cvrt-page">Page: Cart drawer</p>
+        <p class="cvrt-description">The cart still lists the $5 measuring cup first even though that product is currently unavailable, while the $4 recipe booklet is available. The first upgrade slot leads to a dead end. Put the live recipe booklet first and move the unavailable cup out of the lead position.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 430" role="img" aria-label="Current cart upsell compared with a variation led by an in-stock recipe booklet">
+          <rect width="808" height="430" rx="18" fill="#0e1732"/>
+          <text class="cvrt-svg-head-white" x="34" y="42">UPGRADE YOUR CART</text>
+          <g transform="translate(34 67)">
+            <rect width="350" height="320" rx="20" fill="#182445" stroke="#ffffff" stroke-width="2"/>
+            <text x="22" y="34" class="cvrt-svg-small cvrt-svg-white">CURRENT</text>
+            <rect x="22" y="53" width="306" height="75" rx="14" fill="#ffffff"/>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/bootylicious-muffins.webp?v=1789341820&amp;width=160" x="30" y="59" width="64" height="64"/>
+            <text class="cvrt-svg-label" x="107" y="82">Build Your Box</text><text class="cvrt-svg-small" x="107" y="106">12 Pack  &#183;  $48.00</text>
+            <rect x="22" y="147" width="306" height="138" rx="14" fill="#ffffff"/>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/stainless_steel_measuring_scoop_with_engraving.webp?v=1783450885&amp;width=200" x="34" y="158" width="112" height="112"/>
+            <text class="cvrt-svg-label" x="160" y="178">1/8 Measuring Cup</text><text class="cvrt-svg-small" x="160" y="200">$5.00</text>
+            <rect x="160" y="218" width="137" height="31" rx="15" fill="#ff4f61"/><text x="177" y="239" class="cvrt-svg-small cvrt-svg-white">OUT OF STOCK</text>
+          </g>
+          <path d="M394 224h20" stroke="#f6ff54" stroke-width="5"/><path d="M410 214l12 10-12 10" fill="none" stroke="#f6ff54" stroke-width="5"/>
+          <g transform="translate(424 67)">
+            <rect width="350" height="320" rx="20" fill="#182445" stroke="#f6ff54" stroke-width="3"/>
+            <text x="22" y="34" class="cvrt-svg-small cvrt-svg-white">VARIATION</text>
+            <rect x="22" y="53" width="306" height="75" rx="14" fill="#ffffff"/>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/bootylicious-muffins.webp?v=1789341820&amp;width=160" x="30" y="59" width="64" height="64"/>
+            <text class="cvrt-svg-label" x="107" y="82">Build Your Box</text><text class="cvrt-svg-small" x="107" y="106">12 Pack  &#183;  $48.00</text>
+            <rect x="22" y="147" width="306" height="138" rx="14" fill="#ffffff"/>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/bake-better-buns-product-image.webp?v=1787677282&amp;width=200" x="34" y="158" width="112" height="112"/>
+            <text class="cvrt-svg-label" x="160" y="178">Recipe Booklet</text><text class="cvrt-svg-small" x="160" y="200">$4.00</text>
+            <rect x="160" y="218" width="137" height="36" rx="18" fill="#f6ff54"/><text x="184" y="241" class="cvrt-svg-small">ADD TO CART</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 720" role="img" aria-label="Current cart upsell stacked above a variation led by an in-stock recipe booklet">
+          <rect width="360" height="720" rx="18" fill="#0e1732"/>
+          <text class="cvrt-svg-head-white" x="22" y="42">UPGRADE YOUR CART</text>
+          <rect x="20" y="63" width="320" height="270" rx="20" fill="#182445" stroke="#ffffff" stroke-width="2"/>
+          <text x="40" y="93" class="cvrt-svg-small cvrt-svg-white">CURRENT</text>
+          <rect x="40" y="110" width="280" height="190" rx="14" fill="#ffffff"/>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/stainless_steel_measuring_scoop_with_engraving.webp?v=1783450885&amp;width=200" x="58" y="130" width="120" height="120"/>
+          <text class="cvrt-svg-label" x="190" y="162">1/8 Cup</text><text class="cvrt-svg-small" x="190" y="186">$5.00</text>
+          <rect x="190" y="208" width="112" height="31" rx="15" fill="#ff4f61"/><text x="202" y="229" class="cvrt-svg-tiny cvrt-svg-white">OUT OF STOCK</text>
+          <path d="M180 344v27" stroke="#f6ff54" stroke-width="5"/><path d="M170 363l10 12 10-12" fill="none" stroke="#f6ff54" stroke-width="5"/>
+          <rect x="20" y="390" width="320" height="300" rx="20" fill="#182445" stroke="#f6ff54" stroke-width="3"/>
+          <text x="40" y="420" class="cvrt-svg-small cvrt-svg-white">VARIATION</text>
+          <rect x="40" y="438" width="280" height="218" rx="14" fill="#ffffff"/>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/bake-better-buns-product-image.webp?v=1787677282&amp;width=200" x="58" y="458" width="128" height="128"/>
+          <text class="cvrt-svg-label" x="198" y="490">Recipe Booklet</text><text class="cvrt-svg-small" x="198" y="514">$4.00</text>
+          <rect x="198" y="538" width="102" height="36" rx="18" fill="#f6ff54"/><text x="214" y="561" class="cvrt-svg-tiny">ADD TO CART</text>
+          <text class="cvrt-svg-small" x="58" y="624">A live offer leads the carousel.</text>
+        </svg>
+        <p class="cvrt-caption">The first cart upgrade becomes a live, relevant add-on instead of unavailable inventory. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 3</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Nutrition on PDP Load</h3>
+        <p class="cvrt-page">Page: Single-flavor product pages</p>
+        <p class="cvrt-description">Nutrition Highlights is still closed by default, so the 25g protein, 7g net carbs, and 14-18g fiber claims require another action to find. Those numbers carry the product promise. Open the nutrition section on load while keeping the other product sections collapsed.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 430" role="img" aria-label="Collapsed product accordions compared with expanded nutrition highlights">
+          <rect width="808" height="430" rx="18" fill="#ffffff"/>
+          <text class="cvrt-svg-head" x="34" y="42">S'MORES PRODUCT PAGE</text>
+          <g transform="translate(34 66)">
+            <rect width="348" height="330" rx="20" fill="#fffaf2" stroke="#0e1732" stroke-width="2"/>
+            <text class="cvrt-svg-small" x="22" y="34">CURRENT</text>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=220" x="22" y="50" width="118" height="118"/>
+            <text class="cvrt-svg-label" x="156" y="77">S'mores Protein Muffins</text><text class="cvrt-svg-small" x="156" y="100">4.3 &#9733;  &#183;  52 Reviews</text><text class="cvrt-svg-small" x="156" y="125">$46.00</text>
+            <rect x="22" y="181" width="304" height="34" rx="8" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="35" y="203">Product Description</text><text class="cvrt-svg-label" x="303" y="203">+</text>
+            <rect x="22" y="221" width="304" height="34" rx="8" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="35" y="243">How to Make It</text><text class="cvrt-svg-label" x="303" y="243">+</text>
+            <rect x="22" y="261" width="304" height="34" rx="8" fill="#ffffff" stroke="#ff4f61" stroke-width="3"/><text class="cvrt-svg-small" x="35" y="283">Nutrition Highlights</text><text class="cvrt-svg-label" x="303" y="283">+</text>
+          </g>
+          <g transform="translate(426 66)">
+            <rect width="348" height="330" rx="20" fill="#fffaf2" stroke="#0e1732" stroke-width="2"/>
+            <text class="cvrt-svg-small" x="22" y="34">VARIATION</text>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=220" x="22" y="50" width="118" height="118"/>
+            <text class="cvrt-svg-label" x="156" y="77">S'mores Protein Muffins</text><text class="cvrt-svg-small" x="156" y="100">4.3 &#9733;  &#183;  52 Reviews</text><text class="cvrt-svg-small" x="156" y="125">$46.00</text>
+            <rect x="22" y="181" width="304" height="34" rx="8" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="35" y="203">Product Description</text><text class="cvrt-svg-label" x="303" y="203">+</text>
+            <rect x="22" y="221" width="304" height="87" rx="8" fill="#f6ff54" stroke="#0e1732" stroke-width="2"/>
+            <text class="cvrt-svg-small" x="35" y="245">Nutrition Highlights</text><text class="cvrt-svg-label" x="303" y="245">-</text>
+            <text class="cvrt-svg-small" x="35" y="270">25g protein  &#183;  7g net carbs</text><text class="cvrt-svg-small" x="35" y="292">14-18g dietary fiber</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 770" role="img" aria-label="Collapsed product accordions stacked above expanded nutrition highlights">
+          <rect width="360" height="770" rx="18" fill="#ffffff"/>
+          <text class="cvrt-svg-head" x="22" y="42">NUTRITION UP FRONT</text>
+          <rect x="20" y="62" width="320" height="300" rx="20" fill="#fffaf2" stroke="#0e1732" stroke-width="2"/>
+          <text class="cvrt-svg-small" x="40" y="92">CURRENT</text>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=220" x="40" y="108" width="105" height="105"/>
+          <text class="cvrt-svg-label" x="157" y="143">S'mores Muffins</text><text class="cvrt-svg-small" x="157" y="169">4.3 &#9733;  &#183;  $46.00</text>
+          <rect x="40" y="228" width="280" height="42" rx="8" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="54" y="254">Product Description</text><text class="cvrt-svg-label" x="294" y="254">+</text>
+          <rect x="40" y="278" width="280" height="42" rx="8" fill="#ffffff" stroke="#ff4f61" stroke-width="3"/><text class="cvrt-svg-small" x="54" y="304">Nutrition Highlights</text><text class="cvrt-svg-label" x="294" y="304">+</text>
+          <path d="M180 372v28" stroke="#ff4f61" stroke-width="5"/><path d="M170 392l10 12 10-12" fill="none" stroke="#ff4f61" stroke-width="5"/>
+          <rect x="20" y="420" width="320" height="322" rx="20" fill="#fffaf2" stroke="#0e1732" stroke-width="2"/>
+          <text class="cvrt-svg-small" x="40" y="450">VARIATION</text>
+          <rect x="40" y="469" width="280" height="42" rx="8" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="54" y="495">Product Description</text><text class="cvrt-svg-label" x="294" y="495">+</text>
+          <rect x="40" y="519" width="280" height="166" rx="12" fill="#f6ff54" stroke="#0e1732" stroke-width="2"/>
+          <text class="cvrt-svg-label" x="56" y="548">Nutrition Highlights</text><text class="cvrt-svg-label" x="294" y="548">-</text>
+          <text class="cvrt-svg-label" x="56" y="585">25g protein</text><text class="cvrt-svg-label" x="56" y="618">7g net carbs</text><text class="cvrt-svg-label" x="56" y="651">14-18g dietary fiber</text>
+        </svg>
+        <p class="cvrt-caption">The nutrition promise appears immediately below the buy box instead of behind a closed section. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 4</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Homepage Purchase Path</h3>
+        <p class="cvrt-page">Page: Homepage and product journey</p>
+        <p class="cvrt-description">The hero points shoppers to Build Your Box, but the next product carousel gives single-flavor cards equal weight and a faster Add to Cart path. The page promotes one journey, then undercuts it. Lead the carousel with a larger Build Your Box card and keep single flavors visible as secondary choices.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 510" role="img" aria-label="Current equal-weight best sellers carousel compared with a Build Your Box led variation">
+          <rect width="808" height="510" rx="18" fill="#fd7457"/>
+          <text class="cvrt-svg-head" x="35" y="46">OUR BEST SELLERS</text>
+          <text class="cvrt-svg-small" x="35" y="69">CURRENT: EQUAL-WEIGHT CARDS</text>
+          <rect x="35" y="83" width="160" height="54" rx="13" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="55" y="116">Build Your Box</text>
+          <rect x="207" y="83" width="160" height="54" rx="13" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="225" y="108">Double</text><text class="cvrt-svg-small" x="225" y="124">Chocolate</text>
+          <rect x="379" y="83" width="160" height="54" rx="13" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="397" y="116">Birthday Cake</text>
+          <rect x="551" y="83" width="160" height="54" rx="13" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="569" y="116">Cinnamon Bun</text>
+          <path d="M739 92v36" stroke="#0e1732" stroke-width="4"/><path d="M731 120l8 10 8-10" fill="none" stroke="#0e1732" stroke-width="4"/>
+          <text class="cvrt-svg-small" x="35" y="164">VARIATION: ONE CLEAR ENTRY POINT, FAMILIAR FLAVORS STILL WITHIN REACH</text>
+          <g transform="translate(35 180)">
+            <rect width="326" height="300" rx="22" fill="#f6ff54" stroke="#0e1732" stroke-width="3"/>
+            <rect x="18" y="18" width="116" height="30" rx="15" fill="#0e1732"/><text x="34" y="38" class="cvrt-svg-small cvrt-svg-white">START HERE</text>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="43" y="43" width="240" height="178" preserveAspectRatio="xMidYMid meet"/>
+            <text class="cvrt-svg-head" x="24" y="245">BUILD YOUR BOX</text><text class="cvrt-svg-small" x="24" y="267">Choose every flavor.</text>
+            <rect x="192" y="250" width="112" height="35" rx="17" fill="#0e1732"/><text x="211" y="273" class="cvrt-svg-tiny cvrt-svg-white">CHOOSE FLAVORS</text>
+          </g>
+          <g transform="translate(383 180)">
+            <rect width="182" height="300" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=300" x="12" y="16" width="158" height="158"/>
+            <text class="cvrt-svg-label" x="18" y="202">Double Chocolate</text><text class="cvrt-svg-small" x="18" y="226">$46.00</text>
+            <rect x="18" y="246" width="146" height="36" rx="18" fill="#fd7457"/><text x="52" y="269" class="cvrt-svg-small">ADD TO CART</text>
+          </g>
+          <g transform="translate(585 180)">
+            <rect width="188" height="300" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Birthday_Cake_Product_Photography_Double_Product.webp?v=1789328493&amp;width=300" x="15" y="16" width="158" height="158"/>
+            <text class="cvrt-svg-label" x="18" y="202">Birthday Cake</text><text class="cvrt-svg-small" x="18" y="226">$46.00</text>
+            <rect x="18" y="246" width="152" height="36" rx="18" fill="#fd7457"/><text x="55" y="269" class="cvrt-svg-small">ADD TO CART</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 805" role="img" aria-label="Current equal-weight product cards stacked above a Build Your Box led variation">
+          <rect width="360" height="805" rx="18" fill="#fd7457"/>
+          <text class="cvrt-svg-head" x="22" y="42">OUR BEST SELLERS</text>
+          <text class="cvrt-svg-small" x="22" y="68">CURRENT: EQUAL WEIGHT</text>
+          <rect x="20" y="82" width="96" height="52" rx="12" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-tiny" x="32" y="105">Build Your</text><text class="cvrt-svg-tiny" x="32" y="119">Box</text>
+          <rect x="132" y="82" width="96" height="52" rx="12" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-tiny" x="144" y="105">Double</text><text class="cvrt-svg-tiny" x="144" y="119">Chocolate</text>
+          <rect x="244" y="82" width="96" height="52" rx="12" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-tiny" x="256" y="105">Birthday</text><text class="cvrt-svg-tiny" x="256" y="119">Cake</text>
+          <path d="M180 145v25" stroke="#0e1732" stroke-width="4"/><path d="M172 162l8 10 8-10" fill="none" stroke="#0e1732" stroke-width="4"/>
+          <rect x="20" y="188" width="320" height="344" rx="22" fill="#f6ff54" stroke="#0e1732" stroke-width="3"/>
+          <rect x="40" y="208" width="111" height="30" rx="15" fill="#0e1732"/><text x="55" y="228" class="cvrt-svg-small cvrt-svg-white">START HERE</text>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="61" y="236" width="238" height="190"/>
+          <text class="cvrt-svg-head" x="40" y="452">BUILD YOUR BOX</text><text class="cvrt-svg-small" x="40" y="476">Choose every flavor.</text>
+          <rect x="184" y="450" width="133" height="43" rx="21" fill="#0e1732"/><text x="207" y="477" class="cvrt-svg-tiny cvrt-svg-white">CHOOSE FLAVORS</text>
+          <text class="cvrt-svg-small" x="22" y="570">SINGLE-FLAVOR FAVORITES</text>
+          <rect x="20" y="586" width="151" height="195" rx="18" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=250" x="33" y="599" width="125" height="125"/>
+          <text class="cvrt-svg-small" x="34" y="745">Double Chocolate</text><text class="cvrt-svg-small" x="34" y="766">$46.00</text>
+          <rect x="189" y="586" width="151" height="195" rx="18" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Birthday_Cake_Product_Photography_Double_Product.webp?v=1789328493&amp;width=250" x="202" y="599" width="125" height="125"/>
+          <text class="cvrt-svg-small" x="203" y="745">Birthday Cake</text><text class="cvrt-svg-small" x="203" y="766">$46.00</text>
+        </svg>
+        <p class="cvrt-caption">Build Your Box becomes the unmistakable first step while single-flavor shopping remains available. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 5</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Paid-Promise Hero Match</h3>
+        <p class="cvrt-page">Page: <a href="https://bootyliciousmuffins.com/" target="_blank" rel="noopener">Homepage</a></p>
+        <p class="cvrt-description">Offer-focused paid traffic promises a daily cheat-day feeling and a restock, but the shared homepage does not repeat either message. That specific hook disappears at the click. Show a tailored version of the existing hero that continues the restock and cheat-day promise without changing its layout or CTA.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 410" role="img" aria-label="Current homepage hero compared with message-matched hero copy">
+          <rect width="808" height="410" rx="18" fill="#fd7457"/>
+          <defs><clipPath id="cvrt-hero-a"><rect x="34" y="64" width="350" height="310" rx="20"/></clipPath><clipPath id="cvrt-hero-b"><rect x="424" y="64" width="350" height="310" rx="20"/></clipPath></defs>
+          <text class="cvrt-svg-head" x="34" y="42">SAME HERO. STRONGER CONTINUITY.</text>
+          <g clip-path="url(#cvrt-hero-a)"><rect x="34" y="64" width="350" height="310" fill="#f6ff54"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="190" y="155" width="205" height="205"/><text class="cvrt-svg-small" x="56" y="96">CURRENT</text><text class="cvrt-svg-head" x="56" y="145">THE PERFECT</text><text class="cvrt-svg-head" x="56" y="174">SWEET TREAT</text><text class="cvrt-svg-small" x="56" y="208">25g protein, 7g net carbs</text><text class="cvrt-svg-small" x="56" y="228">and zero regrets.</text><rect x="56" y="253" width="126" height="39" rx="19" fill="#0e1732"/><text x="75" y="278" class="cvrt-svg-small cvrt-svg-white">BUILD YOUR BOX</text></g>
+          <g clip-path="url(#cvrt-hero-b)"><rect x="424" y="64" width="350" height="310" fill="#f6ff54"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="585" y="155" width="205" height="205"/><text class="cvrt-svg-small" x="446" y="96">TAILORED VARIATION</text><rect x="446" y="112" width="191" height="28" rx="14" fill="#ff4f61"/><text x="460" y="131" class="cvrt-svg-tiny cvrt-svg-white">BACK AFTER SELLING OUT</text><text class="cvrt-svg-head" x="446" y="174">CHEAT DAY.</text><text class="cvrt-svg-head" x="446" y="203">EVERY DAY.</text><text class="cvrt-svg-small" x="446" y="232">25g protein. Zero regrets.</text><rect x="446" y="253" width="126" height="39" rx="19" fill="#0e1732"/><text x="465" y="278" class="cvrt-svg-small cvrt-svg-white">BUILD YOUR BOX</text></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 790" role="img" aria-label="Current homepage hero stacked above message-matched hero copy">
+          <rect width="360" height="790" rx="18" fill="#fd7457"/>
+          <text class="cvrt-svg-head" x="22" y="42">MATCH THE PROMISE</text>
+          <rect x="20" y="62" width="320" height="310" rx="20" fill="#f6ff54"/>
+          <text class="cvrt-svg-small" x="40" y="92">CURRENT</text><text class="cvrt-svg-head" x="40" y="132">THE PERFECT</text><text class="cvrt-svg-head" x="40" y="162">SWEET TREAT</text><text class="cvrt-svg-small" x="40" y="190">25g protein, 7g net carbs</text>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="166" y="180" width="160" height="160"/>
+          <rect x="40" y="222" width="120" height="40" rx="20" fill="#0e1732"/><text x="57" y="247" class="cvrt-svg-tiny cvrt-svg-white">BUILD YOUR BOX</text>
+          <path d="M180 382v28" stroke="#0e1732" stroke-width="5"/><path d="M170 402l10 12 10-12" fill="none" stroke="#0e1732" stroke-width="5"/>
+          <rect x="20" y="430" width="320" height="332" rx="20" fill="#f6ff54"/>
+          <text class="cvrt-svg-small" x="40" y="460">TAILORED VARIATION</text><rect x="40" y="478" width="190" height="30" rx="15" fill="#ff4f61"/><text x="54" y="498" class="cvrt-svg-tiny cvrt-svg-white">BACK AFTER SELLING OUT</text>
+          <text class="cvrt-svg-head" x="40" y="548">CHEAT DAY.</text><text class="cvrt-svg-head" x="40" y="578">EVERY DAY.</text><text class="cvrt-svg-small" x="40" y="606">25g protein. Zero regrets.</text>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=500" x="175" y="588" width="150" height="150"/>
+          <rect x="40" y="638" width="120" height="40" rx="20" fill="#0e1732"/><text x="57" y="663" class="cvrt-svg-tiny cvrt-svg-white">BUILD YOUR BOX</text>
+        </svg>
+        <p class="cvrt-caption">The landing hero repeats the promise that brought this traffic to the site. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 6</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Flavor-First Box Builder</h3>
+        <p class="cvrt-page">Page: <a href="https://bootyliciousmuffins.com/products/build-your-box" target="_blank" rel="noopener">Build Your Box</a></p>
+        <p class="cvrt-description">The builder asks shoppers to choose a 12, 24, or 36 pack before they see the flavor grid. That puts price commitment ahead of product discovery. Let shoppers choose flavors first, then present the matching case size and price from the number selected.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 470" role="img" aria-label="Current case-size-first flow compared with flavor-first box building">
+          <rect width="808" height="470" rx="18" fill="#72fff9"/>
+          <text class="cvrt-svg-head" x="34" y="44">BUILD YOUR OWN PROTEIN MUFFIN BOX</text>
+          <g transform="translate(34 70)">
+            <rect width="340" height="365" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+            <text class="cvrt-svg-small" x="22" y="33">CURRENT SEQUENCE</text>
+            <rect x="22" y="51" width="296" height="106" rx="14" fill="#0e1732"/><text x="40" y="80" class="cvrt-svg-small cvrt-svg-white">STEP 1 - SELECT CASE SIZE</text>
+            <rect x="40" y="96" width="76" height="42" rx="10" fill="#f6ff54"/><text class="cvrt-svg-small" x="56" y="122">12 PACK</text><rect x="126" y="96" width="76" height="42" rx="10" fill="#ffffff"/><text class="cvrt-svg-small" x="142" y="122">24 PACK</text><rect x="212" y="96" width="76" height="42" rx="10" fill="#ffffff"/><text class="cvrt-svg-small" x="228" y="122">36 PACK</text>
+            <path d="M170 167v28" stroke="#ff4f61" stroke-width="5"/><path d="M160 187l10 12 10-12" fill="none" stroke="#ff4f61" stroke-width="5"/>
+            <rect x="22" y="211" width="296" height="126" rx="14" fill="#fffaf2" stroke="#0e1732"/><text class="cvrt-svg-small" x="40" y="239">STEP 2 - SELECT FLAVORS</text>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/BirthdayCake.webp?v=1782334060&amp;width=180" x="40" y="253" width="66" height="66"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=180" x="118" y="253" width="66" height="66"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=180" x="196" y="253" width="66" height="66"/>
+          </g>
+          <g transform="translate(434 70)">
+            <rect width="340" height="365" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="3"/>
+            <text class="cvrt-svg-small" x="22" y="33">VARIATION</text>
+            <rect x="22" y="51" width="296" height="156" rx="14" fill="#fffaf2" stroke="#0e1732"/><text class="cvrt-svg-small" x="40" y="79">STEP 1 - SELECT FLAVORS</text>
+            <image href="https://bootyliciousmuffins.com/cdn/shop/files/BirthdayCake.webp?v=1782334060&amp;width=180" x="40" y="93" width="78" height="78"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=180" x="130" y="93" width="78" height="78"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=180" x="220" y="93" width="78" height="78"/>
+            <rect x="40" y="177" width="258" height="12" rx="6" fill="#0e1732"/><rect x="40" y="177" width="129" height="12" rx="6" fill="#ff4f61"/>
+            <path d="M170 217v25" stroke="#ff4f61" stroke-width="5"/><path d="M160 234l10 12 10-12" fill="none" stroke="#ff4f61" stroke-width="5"/>
+            <rect x="22" y="258" width="296" height="79" rx="14" fill="#0e1732"/><text x="40" y="286" class="cvrt-svg-small cvrt-svg-white">STEP 2 - YOUR CASE</text><text x="40" y="316" class="cvrt-svg-label cvrt-svg-white">12 Pack  &#183;  $48.00</text><rect x="217" y="279" width="80" height="34" rx="17" fill="#f6ff54"/><text x="237" y="301" class="cvrt-svg-small">SELECT</text>
+          </g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 800" role="img" aria-label="Current case-size-first flow stacked above flavor-first flow">
+          <rect width="360" height="800" rx="18" fill="#72fff9"/>
+          <text class="cvrt-svg-head" x="22" y="42">FLAVORS FIRST</text>
+          <rect x="20" y="63" width="320" height="300" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+          <text class="cvrt-svg-small" x="40" y="93">CURRENT</text><text class="cvrt-svg-label" x="40" y="126">1. Select case size</text>
+          <rect x="40" y="145" width="82" height="43" rx="10" fill="#f6ff54" stroke="#0e1732"/><text class="cvrt-svg-small" x="57" y="172">12 PACK</text><rect x="131" y="145" width="82" height="43" rx="10" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="148" y="172">24 PACK</text><rect x="222" y="145" width="82" height="43" rx="10" fill="#ffffff" stroke="#0e1732"/><text class="cvrt-svg-small" x="239" y="172">36 PACK</text>
+          <text class="cvrt-svg-label" x="40" y="228">2. Select flavors</text><image href="https://bootyliciousmuffins.com/cdn/shop/files/BirthdayCake.webp?v=1782334060&amp;width=180" x="40" y="245" width="70" height="70"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=180" x="121" y="245" width="70" height="70"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=180" x="202" y="245" width="70" height="70"/>
+          <path d="M180 374v28" stroke="#ff4f61" stroke-width="5"/><path d="M170 394l10 12 10-12" fill="none" stroke="#ff4f61" stroke-width="5"/>
+          <rect x="20" y="423" width="320" height="349" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="3"/>
+          <text class="cvrt-svg-small" x="40" y="453">VARIATION</text><text class="cvrt-svg-label" x="40" y="486">1. Select flavors</text>
+          <image href="https://bootyliciousmuffins.com/cdn/shop/files/BirthdayCake.webp?v=1782334060&amp;width=180" x="40" y="504" width="78" height="78"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=180" x="141" y="504" width="78" height="78"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=180" x="242" y="504" width="78" height="78"/>
+          <rect x="40" y="598" width="280" height="12" rx="6" fill="#0e1732"/><rect x="40" y="598" width="140" height="12" rx="6" fill="#ff4f61"/>
+          <rect x="40" y="632" width="280" height="100" rx="14" fill="#0e1732"/><text x="57" y="661" class="cvrt-svg-small cvrt-svg-white">2. YOUR MATCHING CASE</text><text x="57" y="696" class="cvrt-svg-label cvrt-svg-white">12 Pack  &#183;  $48.00</text>
+        </svg>
+        <p class="cvrt-caption">Flavor discovery comes before case-size commitment, with the progress bar preserving momentum. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 7</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Reassurance at the CTA</h3>
+        <p class="cvrt-page">Page: Homepage and product detail pages</p>
+        <p class="cvrt-description">The audit found no shipping-time or policy line beside the homepage and PDP purchase actions, while the current cart code now carries a money-back banner. Reassurance is present, but inconsistent across the journey. Add one concise, policy-backed line beneath the homepage and PDP CTAs and keep its promise aligned with the cart.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 410" role="img" aria-label="Trust message added consistently beneath homepage and product CTAs">
+          <rect width="808" height="410" rx="18" fill="#f6ff54"/>
+          <text class="cvrt-svg-head" x="34" y="44">ONE PROMISE AT EVERY DECISION</text>
+          <g transform="translate(34 72)"><rect width="226" height="300" rx="20" fill="#fd7457" stroke="#0e1732" stroke-width="2"/><text class="cvrt-svg-small" x="20" y="34">HOMEPAGE</text><text class="cvrt-svg-head" x="20" y="79">THE PERFECT</text><text class="cvrt-svg-head" x="20" y="108">SWEET TREAT</text><image href="https://bootyliciousmuffins.com/cdn/shop/files/12FlavorLineup_PDP_2048_transparent_a82ce423-968b-4828-a4e5-adeae893cd0c.webp?v=1789094978&amp;width=400" x="76" y="110" width="140" height="120"/><rect x="20" y="201" width="145" height="40" rx="20" fill="#0e1732"/><text x="40" y="226" class="cvrt-svg-small cvrt-svg-white">BUILD YOUR BOX</text><rect x="20" y="252" width="186" height="30" rx="8" fill="#ffffff"/><text class="cvrt-svg-tiny" x="32" y="271">LOVE YOUR FIRST BOX OR</text><text class="cvrt-svg-tiny" x="32" y="283">GET YOUR MONEY BACK</text></g>
+          <g transform="translate(291 72)"><rect width="226" height="300" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="2"/><text class="cvrt-svg-small" x="20" y="34">PRODUCT PAGE</text><image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=260" x="20" y="50" width="95" height="95"/><text class="cvrt-svg-label" x="124" y="75">S'mores</text><text class="cvrt-svg-small" x="124" y="99">$46.00</text><rect x="20" y="162" width="186" height="44" rx="22" fill="#ff4f61"/><text x="72" y="189" class="cvrt-svg-small">ADD TO CART</text><rect x="20" y="218" width="186" height="50" rx="8" fill="#fff0df"/><text class="cvrt-svg-tiny" x="31" y="239">LOVE YOUR FIRST BOX OR</text><text class="cvrt-svg-tiny" x="31" y="254">GET YOUR MONEY BACK</text></g>
+          <g transform="translate(548 72)"><rect width="226" height="300" rx="20" fill="#0e1732" stroke="#0e1732" stroke-width="2"/><text x="20" y="34" class="cvrt-svg-small cvrt-svg-white">CART</text><rect x="20" y="53" width="186" height="80" rx="12" fill="#ffffff"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/bootylicious-muffins.webp?v=1789341820&amp;width=160" x="27" y="61" width="64" height="64"/><text class="cvrt-svg-small" x="101" y="84">Build Your Box</text><text class="cvrt-svg-small" x="101" y="107">$48.00</text><rect x="20" y="154" width="186" height="45" rx="22" fill="#ff4f61"/><text x="83" y="182" class="cvrt-svg-small">CHECKOUT</text><rect x="20" y="211" width="186" height="56" rx="8" fill="#f6ff54"/><text class="cvrt-svg-tiny" x="31" y="234">LOVE YOUR FIRST BOX OR</text><text class="cvrt-svg-tiny" x="31" y="250">GET YOUR MONEY BACK</text></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 780" role="img" aria-label="Trust message shown beneath homepage, product, and cart actions">
+          <rect width="360" height="780" rx="18" fill="#f6ff54"/>
+          <text class="cvrt-svg-head" x="22" y="42">ONE CLEAR PROMISE</text>
+          <rect x="20" y="64" width="320" height="202" rx="20" fill="#fd7457" stroke="#0e1732" stroke-width="2"/><text class="cvrt-svg-small" x="40" y="94">HOMEPAGE</text><text class="cvrt-svg-head" x="40" y="132">THE PERFECT SWEET TREAT</text><rect x="40" y="153" width="137" height="40" rx="20" fill="#0e1732"/><text x="59" y="178" class="cvrt-svg-tiny cvrt-svg-white">BUILD YOUR BOX</text><rect x="40" y="207" width="280" height="39" rx="9" fill="#ffffff"/><text class="cvrt-svg-tiny" x="58" y="231">LOVE YOUR FIRST BOX OR GET YOUR MONEY BACK</text>
+          <rect x="20" y="286" width="320" height="216" rx="20" fill="#ffffff" stroke="#0e1732" stroke-width="2"/><text class="cvrt-svg-small" x="40" y="316">PRODUCT PAGE</text><image href="https://bootyliciousmuffins.com/cdn/shop/files/Smores_Muffin_V2.webp?v=1784835718&amp;width=220" x="40" y="334" width="93" height="93"/><text class="cvrt-svg-label" x="151" y="361">S'mores Muffins</text><text class="cvrt-svg-small" x="151" y="385">$46.00</text><rect x="151" y="404" width="152" height="40" rx="20" fill="#ff4f61"/><text class="cvrt-svg-small" x="191" y="429">ADD TO CART</text><text class="cvrt-svg-tiny" x="40" y="476">LOVE YOUR FIRST BOX OR GET YOUR MONEY BACK</text>
+          <rect x="20" y="522" width="320" height="230" rx="20" fill="#0e1732"/><text x="40" y="552" class="cvrt-svg-small cvrt-svg-white">CART</text><rect x="40" y="571" width="280" height="70" rx="12" fill="#ffffff"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/bootylicious-muffins.webp?v=1789341820&amp;width=160" x="49" y="577" width="58" height="58"/><text class="cvrt-svg-small" x="122" y="599">Build Your Box</text><text class="cvrt-svg-small" x="122" y="621">$48.00</text><rect x="40" y="653" width="280" height="40" rx="20" fill="#ff4f61"/><text class="cvrt-svg-small" x="147" y="678">CHECKOUT</text><text x="49" y="721" class="cvrt-svg-tiny cvrt-svg-white">LOVE YOUR FIRST BOX OR GET YOUR MONEY BACK</text>
+        </svg>
+        <p class="cvrt-caption">A single policy-backed promise follows the shopper from product discovery through checkout. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+
+    <article class="cvrt-slot">
+      <div class="cvrt-slot-copy">
+        <div class="cvrt-slot-topline"><span class="cvrt-slot-label">Slot 8</span><span class="cvrt-type">A/B Test</span></div>
+        <h3>Flavor Recommendation Prompt</h3>
+        <p class="cvrt-page">Page: <a href="https://bootyliciousmuffins.com/products/build-your-box" target="_blank" rel="noopener">Build Your Box</a></p>
+        <p class="cvrt-description">The Variety Pack rates 3.7/5 on Amazon versus 4.2/5 for single-flavor products, and on-site reviews also describe first-order flavor mismatch. The open flavor grid gives new shoppers no starting point. Add a Customer Favorites row featuring Double Chocolate, Birthday Cake, Red Velvet, and Cinnamon Bun before the full grid.</p>
+      </div>
+      <div class="cvrt-visual">
+        <svg class="cvrt-svg-desktop" viewBox="0 0 808 455" role="img" aria-label="Build Your Box flavor grid with customer favorites highlighted first">
+          <rect width="808" height="455" rx="18" fill="#fffaf2"/>
+          <text class="cvrt-svg-head" x="34" y="44">STEP 2 - SELECT FLAVORS</text>
+          <rect x="34" y="68" width="740" height="350" rx="22" fill="#ffffff" stroke="#0e1732" stroke-width="2"/>
+          <rect x="54" y="88" width="700" height="58" rx="16" fill="#f6ff54"/><text class="cvrt-svg-label" x="74" y="113">START HERE: CUSTOMER FAVORITES</text><text class="cvrt-svg-small" x="74" y="134">Four proven picks before the full flavor grid.</text>
+          <g transform="translate(54 164)"><rect width="157" height="222" rx="16" fill="#fffaf2" stroke="#0e1732"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=260" x="14" y="14" width="129" height="129"/><text class="cvrt-svg-small" x="14" y="163">Double Chocolate</text><rect x="14" y="179" width="129" height="30" rx="15" fill="#0e1732"/><text x="43" y="199" class="cvrt-svg-small cvrt-svg-white">-  0  +</text></g>
+          <g transform="translate(235 164)"><rect width="157" height="222" rx="16" fill="#fffaf2" stroke="#0e1732"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Birthday_Cake_Product_Photography_Double_Product.webp?v=1789328493&amp;width=260" x="14" y="14" width="129" height="129"/><text class="cvrt-svg-small" x="14" y="163">Birthday Cake</text><rect x="14" y="179" width="129" height="30" rx="15" fill="#0e1732"/><text x="43" y="199" class="cvrt-svg-small cvrt-svg-white">-  0  +</text></g>
+          <g transform="translate(416 164)"><rect width="157" height="222" rx="16" fill="#fffaf2" stroke="#0e1732"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Red_Velvet_Muffin_V2.webp?v=1784835718&amp;width=260" x="14" y="14" width="129" height="129"/><text class="cvrt-svg-small" x="14" y="163">Red Velvet</text><rect x="14" y="179" width="129" height="30" rx="15" fill="#0e1732"/><text x="43" y="199" class="cvrt-svg-small cvrt-svg-white">-  0  +</text></g>
+          <g transform="translate(597 164)"><rect width="157" height="222" rx="16" fill="#fffaf2" stroke="#0e1732"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Cinnamon_Bun_Product_Photography_Double_Product.webp?v=1789328496&amp;width=260" x="14" y="14" width="129" height="129"/><text class="cvrt-svg-small" x="14" y="163">Cinnamon Bun</text><rect x="14" y="179" width="129" height="30" rx="15" fill="#0e1732"/><text x="43" y="199" class="cvrt-svg-small cvrt-svg-white">-  0  +</text></g>
+        </svg>
+        <svg class="cvrt-svg-mobile" viewBox="0 0 360 730" role="img" aria-label="Customer favorites shown as the first flavor choices in the box builder">
+          <rect width="360" height="730" rx="18" fill="#fffaf2"/>
+          <text class="cvrt-svg-head" x="22" y="42">SELECT FLAVORS</text>
+          <rect x="20" y="64" width="320" height="104" rx="18" fill="#f6ff54" stroke="#0e1732" stroke-width="2"/><text class="cvrt-svg-label" x="40" y="97">START HERE</text><text class="cvrt-svg-head" x="40" y="130">CUSTOMER FAVORITES</text><text class="cvrt-svg-small" x="40" y="151">A confident first box starts here.</text>
+          <rect x="20" y="188" width="151" height="235" rx="16" fill="#ffffff" stroke="#0e1732" stroke-width="2"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Double_Chocolate_Product_Photography_Double_Product.webp?v=1789328489&amp;width=260" x="33" y="202" width="125" height="125"/><text class="cvrt-svg-small" x="34" y="351">Double Chocolate</text><rect x="34" y="370" width="123" height="34" rx="17" fill="#0e1732"/><text x="66" y="392" class="cvrt-svg-small cvrt-svg-white">-  0  +</text>
+          <rect x="189" y="188" width="151" height="235" rx="16" fill="#ffffff" stroke="#0e1732" stroke-width="2"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Birthday_Cake_Product_Photography_Double_Product.webp?v=1789328493&amp;width=260" x="202" y="202" width="125" height="125"/><text class="cvrt-svg-small" x="203" y="351">Birthday Cake</text><rect x="203" y="370" width="123" height="34" rx="17" fill="#0e1732"/><text x="235" y="392" class="cvrt-svg-small cvrt-svg-white">-  0  +</text>
+          <rect x="20" y="443" width="151" height="235" rx="16" fill="#ffffff" stroke="#0e1732" stroke-width="2"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Red_Velvet_Muffin_V2.webp?v=1784835718&amp;width=260" x="33" y="457" width="125" height="125"/><text class="cvrt-svg-small" x="34" y="606">Red Velvet</text><rect x="34" y="625" width="123" height="34" rx="17" fill="#0e1732"/><text x="66" y="647" class="cvrt-svg-small cvrt-svg-white">-  0  +</text>
+          <rect x="189" y="443" width="151" height="235" rx="16" fill="#ffffff" stroke="#0e1732" stroke-width="2"/><image href="https://bootyliciousmuffins.com/cdn/shop/files/Bootylicious_Cinnamon_Bun_Product_Photography_Double_Product.webp?v=1789328496&amp;width=260" x="202" y="457" width="125" height="125"/><text class="cvrt-svg-small" x="203" y="606">Cinnamon Bun</text><rect x="203" y="625" width="123" height="34" rx="17" fill="#0e1732"/><text x="235" y="647" class="cvrt-svg-small cvrt-svg-white">-  0  +</text>
+        </svg>
+        <p class="cvrt-caption">A Customer Favorites row gives first-time shoppers a source-backed place to begin. Concept illustration only. Final design will differ.</p>
+      </div>
+    </article>
+  </main>
+
+  <section class="cvrt-panel cvrt-insights">
+    <div class="cvrt-killers">
+      <h2>Biggest Killers of Conversion Rate</h2>
+      <ul class="cvrt-killer-list">
+        <li><h3>Dead cart momentum</h3><p>Subscription is emphasized earlier in the funnel, but the cart leads its upgrade carousel with an unavailable measuring cup.</p></li>
+        <li><h3>Broken message continuity</h3><p>Core protein claims match well, but restock, cheat-day, fiber, payment, and shipping promises do not carry consistently into the shared homepage.</p></li>
+        <li><h3>Flavor discovery risk</h3><p>On-site reviews and Amazon ratings both point to specific flavor mismatch, especially when shoppers sample a mixed selection.</p></li>
+      </ul>
+    </div>
+    <div class="cvrt-sources">
+      <h2>Data Sources Used</h2>
+      <div class="cvrt-source-grid">
+        <div class="cvrt-source-chip">Meta Ads and Landing Pages</div>
+        <div class="cvrt-source-chip">Google Ads</div>
+        <div class="cvrt-source-chip">Reviews and UGC</div>
+        <div class="cvrt-source-chip">Page Speed Insights</div>
+        <div class="cvrt-source-chip">Competitor Analysis</div>
+        <div class="cvrt-source-chip">Social and Community Research</div>
+        <div class="cvrt-source-chip">Site Screenshots</div>
+      </div>
+    </div>
+    <div class="cvrt-findings">
+      <h2>What the Data Shows</h2>
+      <article class="cvrt-source-block"><h3>Meta Ads and Landing Pages</h3><ul class="cvrt-source-list"><li>Protein, calorie, and zero-regret messaging carries cleanly from the dominant paid-social creative into the homepage hero.</li><li>Restock and cheat-day messaging disappears after the click, even though that traffic lands on the same homepage.</li><li>The FIRST15 offer appears in the collected creative and the current homepage announcement content.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Google Ads</h3><ul class="cvrt-source-list"><li>Search and shopping creative reinforces 25g protein and the product's macro positioning.</li><li>Fiber, payment-option, and free-shipping claims appear in Google creative but not in the collected homepage folds.</li><li>Sitelinks route to Create Your Own Box and Variety Pack, which aligns with the site's real shopping paths.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Reviews and UGC</h3><ul class="cvrt-source-list"><li>Shoppers repeatedly praise Build Your Box because it lets them avoid a pre-selected assortment.</li><li>Double Chocolate, Birthday Cake, Red Velvet, and Cinnamon Bun cluster as repeat favorites.</li><li>Carrot Cake, Lemon Poppy Seed, and Blueberry receive repeated criticism for flavor or texture inconsistency.</li><li>One first-order shopper needed support to recalibrate after choosing flavors they disliked.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Page Speed Insights</h3><ul class="cvrt-source-list"><li>Homepage and PDP both scored 54/100 on mobile.</li><li>Largest Contentful Paint measured 7.3s on the homepage and 6.8s on the PDP.</li><li>Server response was 10ms on both pages, while unused JavaScript reached 794 KiB and 816 KiB.</li><li>The PDP recorded 17.9s of main-thread work. Layout shift was not a material issue.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Competitor Analysis</h3><ul class="cvrt-source-list"><li>Bootylicious carries the highest full-price per-cup cost among the reviewed brands, paired with the highest protein claim.</li><li>Kodiak Cakes and Premier Protein do not match the Build Your Box flavor-customization mechanic.</li><li>The flavor picker is the clearest structural differentiator to protect and explain.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Social and Community Research</h3><ul class="cvrt-source-list"><li>The 25g protein, low-net-carb, 60-second-prep story is consistent across creator content and brand messaging.</li><li>Independent creators repeatedly describe the pre-microwave texture as wet or gooey, but the collected on-site reviews did not confirm that concern.</li><li>The Amazon Variety Pack holds a 3.7/5 rating across 1,120 ratings, while reviewed single-flavor products sit at 4.2/5.</li></ul></article>
+      <article class="cvrt-source-block"><h3>Site Screenshots</h3><ul class="cvrt-source-list"><li>The homepage hero leads to Build Your Box, while the next carousel also offers direct single-flavor Add to Cart actions.</li><li>The box builder places case-size selection before flavor selection and preselects Subscribe and Save.</li><li>Product nutrition sections were closed by default, keeping key product facts behind another action.</li><li>The cart drawer led its upgrade carousel with a $5 measuring cup marked out of stock.</li></ul></article>
+    </div>
+  </section>
+  <footer class="cvrt-footer">September 2026</footer>
+</div>
