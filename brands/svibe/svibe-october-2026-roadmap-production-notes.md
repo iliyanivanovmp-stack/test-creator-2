@@ -68,3 +68,9 @@ Limitations retained visibly: captured landing URL unverified; performance not r
 ## Follow-up drift corrections
 
 Slots 01, 04 and 07 revised in response to user review. No live store content was edited. Slot 04 illustrates correcting/linking the accordion rather than claiming the store fix has been made. Slot 07 explicitly distinguishes mobile from desktop and does not infer product intent from shipped scripts. Complete desktop/mobile render checks repeated after the revisions.
+
+## Shopify editor compatibility correction, 24 September 2026
+
+The user-supplied failing paste matched the delivered HTML byte-for-byte apart from one leading newline. No corrupt invisible character was found. The previous 2,122,284-byte file repeated 54 embedded image URIs and used radio inputs/labels for tabs. These were compatibility risks, not a reproduced Shopify server error. Replaced embedded imagery with public Shopify CDN URLs and two source-image crops hosted in this public repository; replaced radio tabs with ordinary anchor links and CSS :target. Reduced repeated SVG attributes without changing composition. Final fragment is 64,180 ASCII bytes, with no data URIs, form elements or JavaScript.
+
+This supersedes the earlier embedded-assets description. Image loading now depends on the public CDN/repository endpoints. The visual board and both views were rendered again at desktop and mobile widths; actual Shopify admin saving was not available for verification. Use Pages > Show HTML. A Custom Liquid field has different restrictions and is not the target of this page-body fragment.
