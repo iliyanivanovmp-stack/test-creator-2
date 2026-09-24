@@ -175,10 +175,24 @@ Use `brands/vyper/march-2026-roadmap-shopify.html` as a reference for the correc
 ### Shopify-Safe Assets
 
 - Do not leave local filesystem paths or repo-relative asset paths in the final HTML.
-- Use public Shopify/CDN URLs or embed assets as `data:` URIs.
-- Prefer a self-contained asset over a broken reference.
+- Use verified, public HTTPS Shopify/CDN URLs for every raster image and externally hosted logo.
+- Never embed base64, `data:`, `blob:`, local-file, or repo-relative assets in the Shopify page export. Repeating embedded imagery across desktop/mobile mockups can turn a small page into megabytes of pasted code.
+- When only a local asset exists, locate its public original or arrange an authorized upload to Shopify Files. Do not invent a URL. Use a typeset brand name for an unavailable logo. A standalone offline preview may embed assets only if separately requested and clearly labeled as unsuitable for Shopify paste.
 - Prefer transparent SVG or PNG logos. Avoid white boxes, baked-in mattes, and visibly low-resolution assets.
 - Do not automatically apply CSS filters to logos. Adapt the surrounding composition to the asset.
+
+### Shopify Page Editor Compatibility Gate
+
+The delivery target is **Online Store > Pages > Add page > Content > Edit code (Show HTML)**. It is not a whole theme, a Liquid template, or a Custom Liquid setting. Never tell the user to paste the source into the visual rich-text view.
+
+- Keep the complete pasted fragment at or below **64,000 UTF-8 bytes**. This is our conservative internal export budget, not a claim that every Shopify surface shares this limit. Check bytes on disk, not image download sizes or character estimates. Theme and Custom Liquid limits are separate.
+- Preserve all tests, source-backed copy, readable labels, and separate mobile compositions when reducing size. Remove repeated binary assets first, then redundant markup. Repeated SVG components may share uniquely `cvrt-`-prefixed definitions within the same root; verify every reference and both responsive views. Do not shrink text or drop content merely to pass the budget.
+- Use public image URLs and compact inline SVG. No JavaScript, document wrappers, iframe workaround, or Liquid expressions in a Pages HTML fragment. `<title>` is permitted inside an SVG for accessibility, never as a document title.
+- Run `python3 .codex/skills/roadmap-to-html-2/scripts/validate_shopify_html.py <output.html>` from this repository. Resolve every failure before delivery. For an installed copy, resolve the script relative to this SKILL.md.
+- Verify public assets return successful image responses. Then check the final artifact, including reused SVGs, CSS tabs, and desktop/mobile illustrations. A browser preview alone does not prove Shopify compatibility.
+- When target-store editor access is available and saving is authorized, verify the full fragment survives pasting and saving, reload the saved HTML, and inspect the storefront result. If Shopify alters SVG, styles, or controls, inspect the stored result and adapt to the observed issue. Never publish a page solely to test a local code fix.
+- If the exact error or editor behavior is unknown, ask for it while doing independent preflight work. Do not state that a size limit or HTML sanitizer caused the failure without evidence. Report which checks passed and whether an actual Shopify save was verified.
+- When delivering a corrected file, tell the user to replace the complete existing HTML in **Edit code** mode, not append it, and report the final byte size. Do not describe a base64-heavy offline file as Shopify-ready.
 
 ### Shopify-Safe CSS Scoping
 
@@ -258,13 +272,13 @@ These are the content and layout requirements. The visual styling comes from the
 - Use real documented copy wherever it fits: product names, offer language, coupon codes, prices, ratings, selectors, CTA text, review counts, policy labels, error text, and friction points. Do not replace known content with generic labels.
 - When a screenshot exists, do not use placeholders such as `Hero image`, `Bedroom image`, `Gallery`, `Product content`, `Matched promise`, `Relevant proof line`, `Buy box`, or `Product card`. Draw a simplified visual representation of the documented content instead.
 - **Use an asset-first hierarchy for documented imagery.** Apply this order:
-  1. Use the real public or embedded product, campaign, lifestyle, logo, or interface asset when it is available and remains recognizable at mockup scale.
+  1. Use the real publicly hosted product, campaign, lifestyle, logo, or interface asset when it is available and remains recognizable at mockup scale.
   2. If the original asset cannot be isolated safely, use a clipped crop from the documented screenshot.
   3. Use simplified vector artwork only as a last resort when no usable asset exists, an asset would make the composition technically fragile, or abstraction communicates a non-visual state more clearly.
 - Actively look for usable local originals, public Shopify/CDN URLs, and screenshot crops before choosing vectors. Do not choose vector artwork merely because it is faster to draw. For product-led and image-led surfaces, authentic imagery is the default.
 - Across a typical multi-slot roadmap, vector-led mockups should be exceptions rather than the overall visual strategy. One or two vector-led slots are acceptable when their source or concept requires them. More are acceptable only when assets are genuinely unavailable or unsuitable. Never turn an asset-rich roadmap into an all-vector board.
 - When vectors are necessary, reconstruct the documented subject with enough silhouette, color, material, and interface context to remain recognizable. Do not use a blank rectangle with an image label when the source image is available.
-- Reproduce logos accurately when a usable asset exists. If embedding the logo would create a broken or unsafe asset, use a carefully typeset brand name rather than an empty logo box.
+- Reproduce logos accurately when a usable asset exists. If referencing the logo would create a broken or unsafe asset, use a carefully typeset brand name rather than an empty logo box.
 - For A/B tests, default to a current-vs-variation composition, but choose the composition that best explains the idea. Use three-state comparisons, interaction sequences, funnels, scroll states, or one enlarged annotated component when those communicate the concept better.
 - Make the changed zone obvious within three seconds. Preserve enough identical surrounding interface in current and variation states that the client can see exactly what changed.
 - Draw the proposal, not a note about the proposal. Render `$27 off`, the email field, the gift, and the CTA instead of a box labeled `Improved offer`. Render the actual suitability rows instead of a box labeled `Suitability guide`.
@@ -403,6 +417,9 @@ After saving, tell the user the file path so they can open it in a browser or sa
 ## Pre-Publish Checklist
 
 Before saving, verify silently:
+- [ ] The exact final fragment is at most 64,000 UTF-8 bytes and passes `scripts/validate_shopify_html.py`
+- [ ] Pasting instructions specify Pages > Content > Edit code and replacement of the entire old fragment
+- [ ] Shopify save verification is reported accurately; local rendering is not presented as a verified store save
 - [ ] No `<!DOCTYPE>`, `<html>`, `<head>`, `<body>` tags. Output starts with Google Fonts `<link>` tags
 - [ ] `#cvrt-roadmap` has full-bleed breakout CSS
 - [ ] No `max-width` or `margin: 0 auto` on page-level content wrappers or tab sections
@@ -438,7 +455,7 @@ Before saving, verify silently:
 - [ ] Each SVG reproduces at least three recognizable brand/interface cues from the source surface
 - [ ] Each SVG was designed from the exact relevant screenshot or source asset when one exists
 - [ ] A silent source map was completed for every slot before SVG generation
-- [ ] Known imagery follows the asset-first hierarchy: real or embedded asset first, screenshot crop second, simplified vector only as a justified last resort
+- [ ] Known imagery follows the asset-first hierarchy: real publicly hosted asset first, screenshot crop second, simplified vector only as a justified last resort
 - [ ] Product-led and image-led surfaces use authentic imagery wherever a safe usable asset exists
 - [ ] Vector-led mockups are exceptions across the board, not the default strategy when the source set is asset-rich
 - [ ] Necessary vectors preserve the documented subject's recognizable silhouette, color, material, and interface context
@@ -469,7 +486,7 @@ Before saving, verify silently:
 - [ ] Slot cards share one coherent card language with clear separation between copy and SVG areas
 - [ ] No empty spacer divs; whitespace comes from element padding/margin only
 - [ ] Layout is tight and scannable on a standard laptop screen at 100% zoom
-- [ ] Every image and logo uses a public URL or embedded `data:` URI. No local or repo-relative paths remain
+- [ ] Every image and logo uses a verified public HTTPS URL. No base64, data:, blob:, local, or repo-relative paths remain
 - [ ] If a logo was provided, it renders visibly against the hero treatment
 - [ ] If estimated launch dates were provided, each slot displays them
 - [ ] Every factual claim in slot descriptions traces to a specific data point in the data audit or internal roadmap. No fabricated data, no misattributed quotes, no unsupported claims about current page state. NEVER hallucinate.
