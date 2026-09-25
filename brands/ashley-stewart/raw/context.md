@@ -1,0 +1,1 @@
+- Ad #1 landing page destination 404s and then automatically redirects to homepage (user-provided, unverified against live site).

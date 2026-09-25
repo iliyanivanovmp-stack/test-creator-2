@@ -1,0 +1,2 @@
+- Homepage PageSpeed report: raw/huug-homepage-pagespeed.json (fetchTime: 2026-09-16T09:47:37.922Z, requestedUrl: https://huug.com/)
+- PDP PageSpeed report: raw/huug-pdp-pagespeed.json

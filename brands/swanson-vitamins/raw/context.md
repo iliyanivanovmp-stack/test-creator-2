@@ -1,0 +1,1 @@
+The collections page shown in the collection screenshots (`collections-f1.png`, `collections-f2.png`, `collections-f3.png`) is the page the homepage's main CTA button links to. That CTA is labeled "Shop Stacks Lands" and is the natural connection point from the homepage to the collections page.

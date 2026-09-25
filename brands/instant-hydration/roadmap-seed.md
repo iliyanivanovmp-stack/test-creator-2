@@ -1,72 +1,84 @@
 # Instant Hydration Roadmap Seed
 
-**Store:** instanthydration.com
-**AOV:** unknown
-**Monthly sessions:** unknown
-**Data sources:** Meta Ads & Landing Pages, Google Ads Transparency, Reviews & UGC, PageSpeed / Core Web Vitals, Current Site Screenshots
+**Store:** https://instanthydration.com
+**AOV:** unknown (proxy $55.00: two subscription boxes at $27.50, or one box at $55.00 list)
+**Monthly sessions:** unknown (lift figures are per 10,000 sessions, illustrative)
+**Data sources:** Meta Ad Library (3 ads) and PDP landing folds, Google Ads Transparency, pasted reviews (25), PageSpeed JSON (homepage, PDP, mobile lab 2026-09-24), homepage/Energy+/cart screenshots, live fetch of homepage and PDP (2026-09-24), competitor web search (2026-09-24), last30days-ecom social research (directional)
 
 ## Key Insights
 
-Message match breaks down in three places across the funnel. The homepage hero CTA ("GET UP TO 50% OFF") links to /products/premium-electrolyte-drink-mix, a different product than the ICEE product nearly all Meta ads (and a share of Google ads) land on, and different from the ICEE card directly below the hero in fold 2. On the ICEE landing page itself, the ad's exact offer phrase "Try Risk Free for 50 Days + FREE GIFT" isn't in the above-the-fold buy box — only "50 Day Happiness Guarantee" appears there; the exact phrase exists further down the page. And Google Ads run 35-55% off messaging across varied creative angles that don't match Meta's consistent risk-free/free-gift framing, so retargeted shoppers see inconsistent offers depending on channel.
+Every buy path starts with a disabled button. The PDP shows "0 BOXES SELECTED" until the shopper picks from 15+ flavors, and the Energy+ page shows an inert "SELECT A FLAVOR". Reviewers ask for a shortcut ("this packet is the way to go if you just cannot decide what flavor to get", Variety Pack review) and TikTok creators recommend the variety pack as the entry point. Flavor dominates the sample: about 20 of 25 pasted reviews name a favorite (Strawberry Lemon 7, Luigi's 5).
 
-The page carrying the most paid traffic also has the worst technical performance. The ICEE landing page scores 36/100 on mobile PageSpeed with LCP 7.0s and CLS 0.546 — more than double the 0.25 "poor" CLS threshold — versus the homepage's 60/100, LCP 4.8s, CLS 0. That CLS score points to visible layout shift in the buy box, pricing table, or comparison table during load, right where a paid-traffic visitor is deciding to buy.
+Paid traffic meets a mismatched, slow page. Ad 1 sells Cotton Candy and ad 3 sells P.O.G., but the PDP announcement bar and gallery lead with Crisp Apple 50% OFF. Ads reference Summer and Spring; Google references a Labor Day promo (Sep 2 to 10, expired). PDP mobile lab data (2026-09-24): performance 45, LCP 9.8 s, weight 8,122 KiB, TBT 790 ms, CLS 0. Homepage: performance 55, LCP 5.4 s.
 
-Across 45 reviews, saltiness is the most repeated complaint by volume, cutting across star ratings: "tasted like straight salt water" (1★), "Tastes like the ocean" (2★), "very, very salty" (3★), and even 4-5★ reviewers report needing to double or triple the recommended water ratio. No captured page — landing page, homepage, PDP substitute, or collection — includes dilution guidance or addresses the taste directly. A secondary theme is stevia aftertaste/sensitivity, distinct from the brand's "monk fruit" sweetener messaging, which several reviewers seem unaware the product also contains.
+Value depends on the subscription. Subscribe & Save is $27.50 ($0.92/stick); One Time is $49.50 ($1.65/stick). Third-party search figures put LMNT near $1.50 and Liquid I.V. near $1.56 per serving (unverified). The cart shows $99.00 on the Energy+ line against a $55.00 subtotal with no explanation.
 
 ## Top Test Opportunities
 
-Top Test Opportunities must be mutually exclusive. If an opportunity is a broader version of another, keep the broader version and mention the narrower case inside it.
+### 1. PDP flavor selection and CTA state
+**What's broken:** On the premium electrolyte PDP, the right column stacks the Subscribe & Save option (pre-selected, 50% OFF, $27.50, $0.92/stick, perks list) over the One Time option ($49.50, $1.65/stick, red X marks for no bottle, sampler or free shipping). Below it sits "Select Your Hydration": a black "Add Energy+" panel (Sour Green Apple, Tropical Crush with steppers), then a horizontal scroller of flavor cards (Crisp Apple limited flavor, Luigi's Lemon Ice, more cut off), each with "View Label" and a quantity stepper. Under that: DELIVERY "Every 30 Days", SUBTOTAL $0.00, and a disabled button "0 BOXES SELECTED" with "50 Day Happiness Guarantee" beneath. Nothing is selected by default, so the buyer must choose from 15+ flavors before the button activates.
+**Evidence:** PDP folds 1 to 2, reviews, social research
+**Key data:** "this packet is the way to go if you just cannot decide what flavor to get" (Variety Pack review); TikTok: "Grab the variety pack, which means I can switch"
+**Est. lift:** +0.3 pp CR x 10,000 sessions x $55 = $1,650 per 10k sessions (illustrative)
 
-### 1. Fix homepage hero CTA product mismatch
-**What's broken:** The homepage hero (fold 1) is a full-bleed video/image of two women outdoors with a green pill CTA button reading "GET UP TO 50% OFF." This button links to /products/premium-electrolyte-drink-mix. Directly below in fold 2, on a dark background, two side-by-side cards sit under the headline "Hydration Starts Here": left card "ICEE x Instant Hydration" and right card "Shop Electrolytes." The hero CTA's destination doesn't match either card's product focus, and doesn't match the ICEE product that nearly all paid ad traffic lands on.
-**Evidence:** site-visual-summary.md (homepage fold 1 URL overlay, fold 2 card descriptions)
-**Key data:** Hero CTA routes to a third, distinct product URL not otherwise referenced on the page.
-**Est. lift:** 1-2% CR lift x unknown sessions/mo x unknown AOV = [needs sizing data]
+### 2. Ad-to-PDP flavor and offer match
+**What's broken:** Ad 1 (Cotton Candy, "IT SOLD OUT FOR A REASON", "Try Risk Free for 50 Days + FREE GIFT") and Ad 3 (P.O.G., Max Holloway, "7x Electrolytes") land on a PDP whose black announcement bar reads "LIMITED TIME FLAVOR: Crisp Apple, 50% OFF + Free Water Bottle with 2+ Box Purchase" and whose first gallery slide repeats that offer. Cotton Candy and P.O.G. are not visible in the first three folds; the flavor scroller is cut off. Ad 2 promises "Up to 50% OFF" spring savings while One Time is only 10% off.
+**Evidence:** Meta ads, PDP folds, live fetch (Cotton Candy and P.O.G. exist), Google Ads
+**Key data:** All three ads started Sep 10, 2026; ad copy references Summer Sale and Spring; Ads 1 and 2 say 6x electrolytes, Ad 3 says 7x
+**Est. lift:** +0.2 pp CR x 10,000 sessions x $55 = $1,100 per 10k sessions (illustrative)
 
-### 2. Surface the ad's exact risk-free offer above the fold on the ICEE landing page
-**What's broken:** The ICEE landing page buy box (fold 1) sits below a hero with the headline "THE ICONIC FLAVOR YOU LOVE. NOW WITH THE ELECTROLYTES YOU NEED." and a stat ticker bar. The buy box itself shows a 3-tier pricing table, a purchase-type selector defaulted to "Subscribe & Save," and a red CTA "SELECT FROM 14 FLAVORS." Nowhere in this fold does the ad's specific promise, "Try Risk Free for 50 Days + FREE GIFT," appear verbatim — the closest text is "50 Day Happiness Guarantee," which appears one fold down, under the CTA, not inside the buy box itself.
-**Evidence:** meta-ads-visual-summary.md, meta-ads.md, live WebFetch of the landing page
-**Key data:** All 3 active Meta ads use the identical offer line; landing page buy box doesn't restate it in matching language.
-**Est. lift:** 0.5-1.5% CR lift on paid landing traffic
+### 3. PDP mobile load speed
+**What's broken:** The PDP, which is the sole Meta landing page, loads at mobile performance 45. LCP is 9.8 s, Speed Index 8.9 s, total weight 8,122 KiB, estimated image savings 935 KiB and unused JavaScript 1,051 KiB. CLS is 0 and server response is 20 ms, so the cost is front-end weight. Buy box renders late for paid mobile visitors.
+**Evidence:** PageSpeed JSON (lab, 2026-09-24)
+**Key data:** Homepage: perf 55, LCP 5.4 s, TBT 660 ms, 6,357 KiB. No field data or desktop run collected.
+**Est. lift:** +0.2 pp CR x 10,000 sessions x $55 = $1,100 per 10k sessions (illustrative)
 
-### 3. Fix Core Web Vitals on the ICEE landing page
-**What's broken:** Mobile Lighthouse on the ICEE product page (the page nearly all paid traffic lands on) scores 36/100 performance, with LCP 7.0s and CLS 0.546 — over double the "poor" threshold of 0.25. This points to visible shifting in the buy box/pricing table/comparison table area as the page loads, likely from unstaged image or table rendering described in the visual summary.
-**Evidence:** raw/instanthydration-importnantpage-pafespeed.json
-**Key data:** Homepage by comparison scores 60/100, LCP 4.8s, CLS 0 — the landing page is meaningfully worse than the site's own baseline.
-**Est. lift:** 2-3% CR lift on paid landing traffic
+### 4. PDP offer stack clarity
+**What's broken:** The PDP describes the free water bottle two ways: as a subscription perk "on first shipment" and via a red bar "FREE WATER BOTTLE WITH 2+ BOXES" plus a gallery slide with the same text. The subscription option also lists a free 3-count sampler and free shipping. The One Time option shows three red X marks. Ad 1 says "FREE GIFT" without naming an item.
+**Evidence:** PDP folds 1 to 2, Ad 1, live fetch
+**Key data:** Subscribe $27.50 (50% off) vs One Time $49.50 (10% off); Energy+ page shows locked perks "Water Bottle with 2+ Boxes ($34.99 FREE)"
+**Est. lift:** +0.2 pp CR x 10,000 sessions x $55 = $1,100 per 10k sessions (illustrative)
 
-### 4. Add pricing to collection page product cards
-**What's broken:** The collection page ("Top Rated Electrolytes") shows a 3-column grid of 6 products across 2 captured folds — Premium Electrolyte Drink Mix, LUIGI'S Lemon Italian Ice, ICEE Blue Raspberry & Cherry, Electrolyte Variety Pack (30ct and 12ct), and MVP Bundle. Each card shows only a badge, product image, and title. No price, compare-at price, or per-unit cost appears on any card in either fold.
-**Evidence:** site-visual-summary.md (collection page, both folds)
-**Key data:** 0 of 6 visible product cards show any price.
-**Est. lift:** 1-2% collection-to-PDP click-through lift
+### 5. Cart drawer AOV and price consistency
+**What's broken:** The "Your Cart" drawer lists a Water Bottle (Black, $34.99 struck, FREE) and Energy+ Sour Green Apple x2, every 30 days, with a $110.00 struck price, $99.00 and "Save $11.00". The subtotal row shows a 50% OFF badge, $110.00 struck and $55.00. The $99.00 line and $55.00 subtotal do not reconcile on screen. A static black "SECURE CHECKOUT" button follows; no upsell, bundle, or free-shipping threshold appears. Under it: "Over 2M+ Orders" and "50 Day Happiness Guarantee". Not re-run live.
+**Evidence:** cart-drawer.png
+**Key data:** Free bottle unlocks at 2+ boxes
+**Est. lift:** +$3 AOV (about 5%) x 10,000 sessions x assumed 3% CR = $900 per 10k sessions (assumption, illustrative)
 
-### 5. Address "too salty" perception on the landing page
-**What's broken:** The landing page's benefit section (fold 2) shows a row of 6 icon+label callouts including "French Grey Sea Salt (Hand-Harvested Sel Gris)" — positioning salt as a premium ingredient, but not addressing taste intensity or serving guidance. No fold captured across the homepage, landing page, or cart references dilution instructions.
-**Evidence:** reviews.md (top complaint by volume across 45 reviews, spanning 1-5 star ratings)
-**Key data:** Reviewers report needing 24-32oz+ of water vs. presumed lower label guidance to make the product palatable.
-**Est. lift:** 0.5-1% CR lift; primary value is reducing post-purchase 1-star reviews
+### 6. Homepage hero and trust strip
+**What's broken:** Fold 1 is a full-width red hero for one limited flavor ("CRISP APPLE", cream button "SHOP NOW AND SAVE UP TO 50%") under a black announcement bar. The header shows MENU, logo, SHOP, CART. No star rating, review count, guarantee or shipping copy appears in the three captured folds; no sticky CTA. Fold 2 splits Hydration and Energy+ cards, then a long Energy+ paraxanthine explainer.
+**Evidence:** Homepage folds, live fetch
+**Key data:** Live copy: "4.5 out of 5", "2 Million+ customer purchases", "50-Day Money-Back Guarantee" exist below the captured folds; live fetch also returned "525,500+ reviews" (likely extraction error, verify)
+**Est. lift:** +0.15 pp CR x 10,000 sessions x $55 = $825 per 10k sessions (illustrative)
 
-### 6. Add a sticky mobile add-to-cart bar on the ICEE landing page
-**What's broken:** The landing page's primary CTA, a red "SELECT FROM 14 FLAVORS" button, is manually repeated at least 3 times across the captured folds (buy box, below the accordion, end of the comparison section) rather than persisting as a fixed bar. The header shows only a static "CART" icon, no add-to-cart bar.
-**Evidence:** meta-ads-visual-summary.md (LP CTA notes), pagespeed data (mobile TTI 35.3s)
-**Key data:** CTA is repeated 3+ times manually across a page with a 35.3s time-to-interactive, increasing scroll distance to the next CTA repeat.
-**Est. lift:** 1-2% CR lift on mobile paid traffic
+### 7. Per-flavor social proof in the flavor selector
+**What's broken:** The PDP shows a single review card ("Tastes Incredible", Alyssa P., 5 stars) under the gallery. The flavor cards in the selector carry only name, "View Label" and a stepper, with no rating or quote.
+**Evidence:** PDP fold 2, reviews
+**Key data:** Strawberry Lemon named in 7 of 25 pasted reviews, Luigi's Lemon Italian Ice in 5; reviews carry benefit tags (Increased Energy, Fewer Headaches, Clearer Thinking)
+**Est. lift:** +0.15 pp CR x 10,000 sessions x $55 = $825 per 10k sessions (illustrative)
 
-### 7. Clarify the auto-added free sampler in the cart drawer
-**What's broken:** The cart drawer (right-side slide-out, header "Your Cart") shows two line items: a "3 Pack Sampler" thumbnail marked "FREE" with no visible add action, and the main product with a strikethrough price and "Every 30 Days" subscription label. Large empty white space sits between the line items and the subtotal.
-**Evidence:** site-visual-summary.md (cart drawer)
-**Key data:** No labeled connection between the auto-added sampler and the ad's "FREE GIFT" promise.
-**Est. lift:** 0.5-1% CR lift from reduced cart-stage confusion
+### 8. Energy+ page proof and one-time path
+**What's broken:** The dark Energy+ page offers two flavor cards (Sour Green Apple, Tropical Crush) with steppers at 0, a locked perks list, and a button "SELECT A FLAVOR". "TRY IT ONCE" ($49.50) sits below fold 2 with "NO FREE GIFT" and $6.99 shipping. No rating or review count appears in the captured folds. The sticky bar appears only at fold 3.
+**Evidence:** Energy+ folds, reviews, social research
+**Key data:** 2 of 25 pasted reviews are Energy+; "Love this flavor with an extra boost of energy"
+**Est. lift:** +0.15 pp CR x 10,000 sessions x $55 = $825 per 10k sessions (illustrative)
 
-### 8. Promote the competitor comparison table higher on the landing page
-**What's broken:** A two-column comparison table (Instant Hydration vs. Liquid I.V. vs. LMNT) on a light blue background sits in fold 3 — the last section before the page's final CTA — after the buy box, accordion, review callout, and three lifestyle photo cards. It shows favorable rows on calories, sugar, and sodium type.
-**Evidence:** meta-ads-visual-summary.md (fold 3), self-researched competitor pricing context (2026-08-04)
-**Key data:** Table already shows favorable positioning (10 cal vs. 45, 0g sugar vs. 11g) but is reached only after 2+ folds of scrolling.
-**Est. lift:** 0.5-1% CR lift by surfacing differentiation earlier for price-comparing shoppers
+### 9. Price-per-serving framing vs competitors
+**What's broken:** The PDP shows $0.92/stick for subscription and $1.65/stick for one-time. Google sitelinks say "Daily Electrolytes < $1.00", true only for subscription. No competitor comparison appears on the PDP folds.
+**Evidence:** PDP, Google Ads, competitor search (third-party, unverified)
+**Key data:** LMNT about $1.50, Liquid I.V. about $1.56, Ultima about $0.47 per serving
+**Est. lift:** +0.1 pp CR x 10,000 sessions x $55 = $550 per 10k sessions (illustrative)
+
+### 10. Taste and salt expectation copy
+**What's broken:** No mixing guidance or taste expectation appears near the buy box. Reviewers split: "not too sweet, not too salty" versus one Amazon review ("Super salty!! ... headaches. Not worth the price") and "I think the powders are a bit strong".
+**Evidence:** Reviews, Amazon (single item, directional)
+**Key data:** Paloma "borderline too sweet"; request for a larger mixing bottle
+**Est. lift:** +0.1 pp CR x 10,000 sessions x $55 = $550 per 10k sessions (illustrative)
 
 ## Unused Findings
 
-- Homepage athlete endorsements (Max Holloway, Shawn Johnson, Jameis Winston) don't appear in any captured Meta ad creative or the ICEE landing page — a trust asset not yet reused in the paid funnel.
-- Stevia aftertaste/sensitivity is a distinct secondary review complaint from saltiness, tied to a labeling gap ("monk fruit" messaging vs. actual stevia content) rather than a UI/CRO fix.
-- Price objections ("$37 for 20 packs") recur across otherwise satisfied 3-5★ reviews; the landing page already shows per-stick pricing but doesn't connect it to a value comparison.
+- Google Ads still reference an expired Labor Day promo (Sep 2 to 10); confirm and refresh.
+- Flavor count is inconsistent (14 on homepage card, 15 on PDP sticky bar, more in the live list).
+- Amazon ratings (4.0 to 4.6) trail on-site 4.5/5; Trustpilot 4.0 from 309 reviews.
+- Google sends five landing paths with ingredient claims versus one Meta PDP; needs Google traffic data.
+- Client fixes: larger bottle SKU, mix-ratio guide, share star ratings and negative reviews.

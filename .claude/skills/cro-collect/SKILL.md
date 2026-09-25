@@ -89,9 +89,10 @@ Now — which of these data sources do you have available?
 7. Email Campaigns
 8. Non-Data Context (call notes, strategic priorities)
 9. Current Site Screenshots (homepage, collection, PDP)
-10. Social & Community Research (Reddit, X, TikTok, Instagram, Pinterest, Trustpilot, Amazon, web)"
 
-Wait for reply. Note selected sources. Record under `## Sources Selected` in the manifest.
+Social & Community Research (Reddit, X, TikTok, Instagram, Pinterest, Trustpilot, Amazon, web) is not on this list — it always runs automatically in Step 3, so there's nothing to opt into."
+
+Wait for reply. Note selected sources. Record under `## Sources Selected` in the manifest — always include Social & Community Research in that list, since it runs unconditionally.
 
 ---
 
@@ -160,11 +161,13 @@ Wait for `done`.
 
 For CURRENT evidence, record the capture date, exact URL, shopper geo/currency, and selected/default PDP variant when known. Capture cart evidence only after adding a real buyable SKU. If any context is unknown, say so rather than infer it.
 
-**Social & Community Research**
+**Social & Community Research (automatic — not gated on user selection)**
 
-Say: "For social & community research, run `/last30days-ecom` — it's a separate skill, run it now or right after this. It writes its own file to `raw/last30days-ecom.md` and I'll pick it up automatically during `/cro-audit`."
+Run this regardless of what the user selected in Step 2. Say: "Running social & community research (Reddit, X, TikTok, Instagram, Pinterest, Trustpilot, Amazon, web) in the background now."
 
-Do not collect anything here. This source is entirely handled by `/last30days-ecom`.
+Then invoke the `last30days-ecom` skill directly (via the Skill tool) using the brand name and store URL already captured in Step 1. Do not re-ask the user for brand name or store URL — pass what you already have. If known handles (X, Instagram, TikTok, Pinterest) or Amazon presence weren't volunteered, pass them as unknown — `last30days-ecom`'s own precheck step falls back to web search for each source and does not require them.
+
+This can run in the background while you continue through the rest of Step 3 and Step 4 — it writes its own file to `raw/last30days-ecom.md`, which `/cro-audit` picks up automatically. Before finishing Step 5 (manifest), confirm `raw/last30days-ecom.md` exists; if the skill is still running, wait for it before writing the manifest so `## Sources Collected` reflects the real outcome. If it genuinely could not be run (skill unavailable), record that explicitly under `## Missing Data Warnings` rather than silently omitting it — this source is required, not optional.
 
 ---
 
@@ -324,7 +327,7 @@ Write `brands/[brand-name]/manifest.md`:
 - Meta Ads (if collected) → raw/meta-ads-visual-summary.md
 - Google Ads (if collected) → raw/google-ads-visual-summary.md
 - Site Screenshots (if collected) → raw/site-visual-summary.md
-- Social & Community Research (if run via /last30days-ecom) → raw/last30days-ecom.md
+- Social & Community Research (automatic via /last30days-ecom) → raw/last30days-ecom.md
 - [If screenshots used accepted aliases, add: Screenshot aliases mapped → [actual filename] used as [canonical slot]]
 
 ## Screenshots Present
@@ -365,6 +368,7 @@ Files saved:
 - brands/[brand-name]/raw/meta-ads-visual-summary.md (if collected)
 - brands/[brand-name]/raw/google-ads-visual-summary.md (if collected)
 - brands/[brand-name]/raw/site-visual-summary.md (if collected)
+- brands/[brand-name]/raw/last30days-ecom.md
 
 Next step: Run /cro-audit.
 ```

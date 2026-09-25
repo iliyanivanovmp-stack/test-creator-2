@@ -1,0 +1,34 @@
+# Site Visual Summary
+
+## Homepage
+**Fold 1:** Top announcement bar rotates "Extra 10% OFF | Use code SHARKTANK10 | Min. cart ₹500" and "AS SEEN ON SHARK TANK." Standard nav below (Women/Men/Accessories dropdowns, centered logo, search bar, account/wishlist/gift/cart icons). Large full-bleed hero image of 8 models in a line wearing varied streetwear (hoodies, tanks, joggers). Text overlay bottom-left: "MADE TO MOVE WITH YOU / FREESTYLE COLLECTION" with a "SHOP NOW" button. Bottom-left corner has a floating "Download our app" QR code widget and a chat bubble icon.
+**Fold 2:** Continues into a two-panel lifestyle image — a man adjusting an earphone wearing a black hoodie with red cursive "Rhythm In Control" text, and a woman in a grey distressed sweatshirt with star patches wearing a blue faux-fur bucket hat. No visible copy or CTA on this fold beyond the carried-over hero text at the very top edge.
+**Fold 3:** Single large lifestyle image of a woman in a black "123 HEAT" graphic top, with "EXPLORE NEW IN" headline and "SHOP NOW" button plus carousel dots at the bottom, indicating multiple hero slides.
+**CTA behavior:** No sticky header or CTA bar observed on mobile. All CTAs are inline "SHOP NOW" buttons embedded in hero imagery.
+**Trust signals:** None visible in folds 1-3 — no star rating, review count, guarantee badge, or shipping promise on the homepage itself. The only recurring trust/offer element is the site-wide announcement bar (Shark Tank mention + SHARKTANK10 code).
+**Layout notes:** Homepage is image-heavy and editorial/lifestyle-led (full-bleed model photography, minimal text) rather than product-grid or offer-led. No product cards, prices, or category tiles visible in the first three folds.
+
+## Collection Page
+Note: files collections-f1/f2/f3.png show homepage-style category promo tiles (large lifestyle imagery with "BOTTOMS," "T-SHIRTS," "ESSENTIAL BOTTOMS," and "DRIFT 2.0" overlay text + Shop Now buttons), not a product-listing grid with individual product cards, prices, or filters. No collection/PLP grid was captured in this set.
+**Fold 1:** Two-panel split — an interior/lifestyle shot (armchair) on the left, and a hero banner on the right showing a model in a two-tone Hot Wheels-branded hoodie with "FUEL YOUR NEED FOR SPEED / DRIFT 2.0" text and a "SHOP NOW" button, plus carousel dots (5 slides).
+**Fold 2:** Two full-width category tiles side by side — "BOTTOMS" (model in wide-leg cargo jeans) and "T-SHIRTS" (model in a graphic tee), each with its own "SHOP NOW" button.
+**Fold 3:** Three-model group shot promoting "ESSENTIAL BOTTOMS" (black sweatpants with white line-art graphics) with a single "SHOP NOW" button.
+**Price display:** Not applicable — no product cards or pricing visible in this set of screenshots.
+**Layout notes:** These appear to be homepage category-navigation sections rather than an actual collection/PLP page. Flag for re-collection if an actual product-grid collection page screenshot is needed.
+
+## PDP
+**Fold 1:** Product "Rev It Up Oversized T-shirt." Large single product image (model wearing an oversized off-white graphic tee, dark red background) on the left; buy box on the right: title, price Rs.999.00 (was Rs.1,199.00, SAVE 17%), star rating (2 reviews), size selector (XS–XXL, XS selected), quantity stepper, full-width "ADD TO CART" button. Below that, a Special Offers box shows "EMI on UPI — Pay ₹333 Now + 2 EMI."
+**Fold 2:** Continued/zoomed product image (close-up of the graphic print). Buy box repeats with a different offer variant: "Prepaid Discounts — Get ₹50 Off on UPI, 5+ Discounts Available." Below: "What You Get for Rs.999" bullets — 240 GSM Heavyweight Fabric, Flexible Payment Options, Fast Delivery (4-7 working days), Free Returns & Exchanges (15 days). Tab row at the bottom: Size & Fit / Fabric & Care / Reviews.
+**Fold 3:** Product image continues (denim/leg crop), then a split two-image "Style Highlights" panel (Composition 100% Cotton, GSM 240, Color Off White, Neckline Round Neck, Sleeve length Half Sleeve, Fit Oversized Fit, Print Graphic, Style Drop Shoulder) alongside two more model shots. Buy box now shows a third offer variant: "Coupons — Get ₹100 Off with SHARKTANK10, 2 Coupons Available." Same tab row (Size & Fit / Fabric & Care / Reviews) visible at page bottom.
+**Buy box detail:** Single purchase option only — no subscription, bundle, or quantity-discount options shown. Only one variant type (size); no color swatches on this PDP (unlike the Meta-ad PDPs, which showed multiple color swatches).
+**Price display:** Compare-at/strikethrough pricing shown (Rs.1,199.00 struck through, Rs.999.00 current, SAVE 17% badge). No per-unit or installment price shown directly next to the main price; EMI installment amount only appears inside the rotating Special Offers box.
+**CTA behavior:** "ADD TO CART" button is inline within the buy box on all three folds captured — no sticky/fixed positioning observed as the page is scrolled.
+**Trust signals:** Star rating with review count (2 reviews) sits directly under the price at the top of the buy box. No guarantee badge (90-Day Guarantee) appears on this PDP, unlike the beige cargo and bottle-green pants PDPs seen in the Meta ad landing pages. No trust badges near the buy box.
+**Upsell mechanics:** None visible on this PDP within the three folds captured — no frequently-bought-together or bundle module.
+**Layout anomalies:** None observed.
+
+## Cart (cart-drawer.png)
+**Layout:** Right-side slide-out drawer, "Your Cart (1 items)" header. Below header, a black banner: "Get 10% off with code SHARKTANK10." Below that, a free-shipping/discount progress bar: "Add items worth ₹5,000.00 more to unlock 15% off with code GOBONKERS15," with three tiered thresholds shown (₹500 → 10% Off, ₹5,999 → 15% Off, ₹9,999 → 20% Off) and a progress slider currently near the first tier. Cart line item shows product thumbnail, name ("Rev It Up Oversized T-shirt"), size selector (XS), strikethrough/sale price (₹1,199 → ₹999, 17% OFF), quantity stepper, and a delete icon.
+**CTA:** "CHECKOUT" button, black, full-width, static at the bottom of the drawer, with a sub-label "5% OFF on Prepaid Orders" beneath it.
+**AOV elements:** "You may also like..." cross-sell carousel below the cart item, showing 2+ product cards (e.g., "Need for Speed White Oversized..." ₹999, 17% off, with a "+Add" quick-add button) partially visible. Tiered discount unlock bar (₹500/₹5,999/₹9,999 thresholds) is the primary AOV mechanic. Estimated Total section shows "₹200.00 Saved so far!" banner, total ₹1,049.00 (from ₹1,199.00, 17% off), shipping note "Incl. ~₹50.00 est. shipping," and "Save up to ₹49.95 on Prepaid" note.
+**Trust signals:** No guarantee, returns, or trust badge visible in the cart drawer — only discount/savings messaging (SHARKTANK10, tiered unlock bar, prepaid savings).

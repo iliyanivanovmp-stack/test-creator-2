@@ -1,0 +1,1 @@
+The PDP used for this analysis (https://instanthydration.com/products/energy-electrolyte-drink-mix) is not the site's best-selling product. It is the brand's current focus product, and it is the destination of the site's main CTA button. Do not describe it as the best-seller anywhere in the audit — describe it as the current focus / main CTA destination.

@@ -1,6 +1,7 @@
-Raw Lighthouse/PageSpeed JSON provided by user, saved as-is:
+# PageSpeed / Core Web Vitals
 
-- Homepage: raw/instanthydration-homepage-pagespeed.json
-- Important page (https://instanthydration.com/products/icee-electrolyte-drink-mix): raw/instanthydration-importnantpage-pafespeed.json
+Data already collected by user as raw PageSpeed JSON. Parse during /cro-audit.
 
-[fetch/parse metrics during audit]
+- Homepage: raw/instant-hydration-homepage-pagespeed.json
+- PDP: raw/instant-hydration-pdp-pagespeed.json
+- Energy page (collection replacement): not collected

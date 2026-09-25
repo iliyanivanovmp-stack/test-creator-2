@@ -1,0 +1,13 @@
+# Google Ads Visual Summary
+
+**Screenshots reviewed:** google-ads-1.png, google-ads-2.png (Google Ads Transparency Center, advertiser "Bootylicious Muffins," listed under "Rene Glandian / Verified")
+
+**Ads visible:** Approximately 14+ distinct ad units visible across the two screenshots, spanning search text ads, shopping/product listing ads, display image ads, and one video ad. Formats seen: text search ads with headline + description + sitelinks, product image cards with price placeholder "[Price]" and "By Google" attribution, a display banner ad ("High Protein - 25G of high quality protein blend per muffin"), and image-based display ads featuring product cup photography (Red Velvet, Carrot Cake, Double Chocolate, Chocolate Lovers).
+
+**Headline themes:** Recurring themes across headlines: protein content ("25g Protein," "Best Protein Muffins - 25g Protein, 0g Regrets"), low-carb/keto positioning ("High Protein, Low Carb Muffins," "Fuel Up w Bootylicious - Insane Macros Muffin"), guilt-free/indulgence framing ("Indulge More, Crave Less - The Perfect Sweet Treat"), and customization ("Create Your Own Box," "Bundles and Multi-Packs"). Body copy repeats fiber content ("14-18g of dietary fiber"), low calorie/sugar claims ("Only 180-200 calories, and 4-5g sugar per muffin"), and "Stay Full Longer" messaging.
+
+**Offers and CTAs:** "Sign Up And Save 15%" headline variant. Sitelink CTAs include "Shop Now," "Shop Product," "Create Your Own Box," "Variety Pack," "The Bootylicious Family." One ad references "Multiple Payment Options" and "Free Shipping Available." No explicit discount code (e.g., FIRST15) visible in the Google Ads text shown, unlike the Meta ads.
+
+**Visual approach:** Product image ads use straightforward packshot photography of the cup product against neutral or colored backgrounds (Red Velvet cup on a cookie-textured red background, Carrot Cake and Chocolate Lovers on branded gradient backgrounds). One shopping card shows a fork lifting a bite of muffin from the cup. Layout is standard Google text-ad and shopping-card templates; one card is marked "Sponsored." One ad slot in google-ads-2.png displays a "500. That's an error. There was an error. Please try again later." message instead of ad content.
+
+**Gaps vs. Meta:** Google Ads copy emphasizes fiber content (14-18g) and "Stay Full Longer" positioning, and references "Multiple Payment Options," none of which appear in the Meta ad creatives reviewed. Meta ads lead with the FIRST15 discount code and "Zero Guilt"/"cheat day" framing, which do not appear in the Google Ads text reviewed. Meta ad 3 references a "RESTOCKED AFTER SELLING OUT" badge; no equivalent restock messaging appears in the Google Ads screenshots.

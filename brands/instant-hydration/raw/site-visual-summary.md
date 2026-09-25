@@ -1,43 +1,32 @@
 # Site Visual Summary
 
+**Capture context:** Captured 2026-09-24 (files modified on collection date; user did not state capture date). Desktop viewport (~2560px wide screenshots). Shopper geo/currency: USD prices, U.S. shipping; geo not stated. Homepage: instanthydration.com. Energy page (collection replacement, per user): https://instanthydration.com/products/energy-electrolyte-drink-mix. Shared PDP URL (confirmed by user): https://instanthydration.com/products/premium-electrolyte-drink-mix. Default PDP variant: Subscribe & Save pre-selected, 0 boxes selected. Cart SKU: Energy+ Sour Green Apple, qty 2, subscription every 30 days. Mobile not captured.
+
+Note: this brand has no collection page. The energy page stands in for the collection slot.
+
 ## Homepage
+**Fold 1:** Black announcement bar "LIMITED TIME FLAVOR: Crisp Apple, 50% OFF + Free Water Bottle with 2+ Box Purchase". Header: MENU, logo, SHOP, CART 01. Full-width red hero, "Fresh-Picked. Limited Drop." tag, headline "CRISP APPLE", subline "The apple you love. The Electrolytes you need.", cream button "SHOP NOW AND SAVE UP TO 50%". Right: bottle and stick pack in crate of apples. Black section begins at bottom with two cards.
+**Fold 2:** Two product-line cards: "Shop Electrolytes: Choose from 14 delicious flavors" (button SHOP HYDRATION) and "Shop Energy+ NEW: Maximize strength and speed up recovery." (button SHOP ENERGY). Below, "INTRODUCING ENERGY+" block with paraxanthine copy and accordion "Powered by Paraxanthine" (open). Cursor hover URL shown: /products/premium-electrolyte-drink-mix.
+**Fold 3:** Accordions "Why Energy + Hydration?" and "Benefits" (collapsed). Two flavor tiles (Sour Green Apple, Tropical Crush) with button "SHOP 2 FLAVORS". Section "BRAND PARTNERSHIPS: Shop Collabs" with Luigi's, ICEE, Shawn Johnson cards.
+**CTA behavior:** No sticky CTA bar visible in the three folds (desktop). Hero CTA at fold 1.
+**Trust signals:** Not visible in the three folds (no review count, star rating, guarantee or shipping copy visible outside the announcement bar).
+**Layout notes:** Hero is single product-flavor focused (Crisp Apple), not the core product line. Two-path split (Hydration vs Energy+) appears at the fold 1/2 boundary.
 
-**Fold 1:** Top announcement bar: "New Flavor: LUIGI'S Lemon Italian Ice." Header nav: Menu (left), Instant Hydration logo (center), Shop + Cart (right). Full-bleed video/image hero of two women in an outdoor courtyard setting. Overlay on the left: star rating badge "★★★★☆ 2M+ Orders | 100M+ Servings," "INSTANT HYDRATION" wordmark, a green "LUIGI'S / REAL ITALIAN ICE" logo lockup, tagline "Summer just got an upgrade. Zero sugar. Iconic Flavor.", a green pill CTA button "GET UP TO 50% OFF," and small text "50-Day Happiness Guarantee · No Risk." A product URL string is visible at the bottom left of the screenshot (https://instanthydration.com/products/premium-electrolyte-drink-mix), indicating the CTA links offsite to a specific product page.
-
-**Fold 2:** Dark/black background section, headline "Hydration Starts Here." Two side-by-side cards: left card "ICEE x Instant Hydration" (badge "NEW FLAVOR," product box + stick packs image, subcopy "The iconic flavor you love. Now with the electrolytes you need."), right card "Shop Electrolytes" (badge "SAVE 50%," lifestyle photo of a man seated outdoors holding a bottle, subcopy "Choose from 14 delicious flavors and get 50% OFF, free shipping & a free sampler pack"). Below, an eyebrow label "FUELING THE ELITE" and headline "Trusted by Athletes. Developed with Doctors." followed by the start of an athlete-endorsement row.
-
-**Fold 3:** Continuation of the athlete row: three cards with headshots — "Max Holloway / Five-time UFC World Champion" (badge "P.O.G."), "Shawn Johnson / Olympic gold medalist" (badge "CHERRY LIMEADE"), "Jameis Winston / Heisman Trophy Winner / NFL Quarterback." Below that, a centered trust-stat row: "★★★★☆ 4.5 out of 5," "25,000+ verified reviews," "2 Million+ customer purchases." Below that, a comparison section on a photo background with headline "How We Compare to the Leading Hydration" and a two-column table (Instant Hydration vs. "Leading Hydration Powders"): Calories/serving (10 cal, badge "78% Less" vs. 45 cal), Salt type (Sel Gris 70+ deep sea minerals, badge "Premium Salt" vs. Standard sodium), Sugar (0g, badge "Zero Sugar" vs. 11g added sugar), Electrolytes blend (1240mg vs. 1240mg, no badge), Sweeteners (Nothing unknown & nothing unsafe, badge "Natural" vs. Artificial) — table cut off at bottom of screenshot.
-
-**CTA behavior:** No sticky/fixed header CTA bar visible across the three folds — header persists with a static "CART" button only, not a persistent buy button. Primary CTAs are in-page buttons ("GET UP TO 50% OFF" in hero, "ICEE x Instant Hydration" / "Shop Electrolytes" cards in fold 2).
-
-**Trust signals:** Star rating + order count appears in hero (fold 1: "2M+ Orders | 100M+ Servings"). A dedicated trust-stat row appears in fold 3 ("4.5 out of 5," "25,000+ verified reviews," "2 Million+ customer purchases"). Athlete endorsements (Max Holloway, Shawn Johnson, Jameis Winston) appear in folds 2-3 as a celebrity/athlete trust section. "50-Day Happiness Guarantee · No Risk" appears as small text under the hero CTA in fold 1.
-
-**Layout notes:** Hero CTA text "GET UP TO 50% OFF" does not state a time limit or condition (e.g., new customers only) in the visible copy. The URL overlay visible at the bottom of the fold-1 screenshot shows the hero links to /products/premium-electrolyte-drink-mix, a different product URL than the ICEE product page referenced in the ad landing pages.
-
-## Collection Page
-
-**Fold 1:** Top announcement bar: "New Flavor: LUIGI'S Lemon Italian Ice." Standard header (Menu, logo, Shop, Cart). Page heading "Top Rated Electrolytes." Three-column product grid begins: (1) "Premium Electrolyte Drink Mix" — badge "14 FLAVORS," product box (Mango Pineapple flavor shown) + stick pack image; (2) "LUIGI'S Lemon Italian Ice Electrolyte Drink Mix" — badge "NEW FLAVOR," lifestyle photo (model holding product box, lemons as prop); (3) "ICEE Blue Raspberry & Cherry Electrolyte Drink Mix" — product box + two stick packs (Cherry, Blue Raspberry) shown.
-
-**Fold 2:** Continuation of the product grid, showing 3 more cards: "Electrolyte Variety Pack - 30ct" (product box + 4 flavor stick packs: Raspberry, Watermelon, Lemon-Lime, Orange), "MVP Bundle" (flat-lay photo of a black box with 5 colored flavor packs + a black sample pack), "Electrolyte Variety Pack - 12ct" (product box, silver/grey design). Below the grid, a full-width dark footer-adjacent section: "Stay in the Loop" headline, subcopy "New flavors, exclusive drops, and up to 50% off your first order," an email input field with a "SIGN UP" button, fine print about recurring automated marketing messages, and the start of the site footer (Instant Hydration logo, Shop/Company/Support column headers).
-
-**Price display:** No visible price, compare-at/strikethrough pricing, or per-unit pricing on any product card in either captured fold. Cards show product name and image only — no price shown above the fold or within the two folds captured.
-
-**Layout notes:** No filter or sort controls visible in either captured fold. Grid appears to be a simple 3-column layout with no visible pagination controls within the two folds captured. Only 6 products shown in total across the two folds; unclear if more exist below fold 2 (not captured — collection page provided as 2 folds only, per user, vs. the standard 3).
-
-## Cart (present, captured as cart-drawer.png)
-
-**Layout:** Right-side slide-out drawer (not a separate cart page). Header "Your Cart" with an X close icon. Two line items: (1) "3 Pack Sampler" with a product thumbnail, marked "FREE"; (2) "Premium Electrolyte Drink Mix — Raspberry" with a recurring-order icon and "Every 30 Days" subscription label, quantity stepper set to 1, price shown as strikethrough "$55.00" next to "$39.72," and a green "Save $15.28" tag. A trash/delete icon sits at the top right of the second line item. Large empty white space occupies the middle of the drawer between line items and the subtotal.
-
-**CTA:** Bottom of drawer shows "SUBTOTAL" label with a red "35% OFF" badge, strikethrough "$55.00," and final price "$35.75," followed by a full-width black pill button "SECURE CHECKOUT" with a lock icon. Not evaluated for stickiness — this is a drawer overlay, not a scrolling page element.
-
-**AOV elements:** A free "3 Pack Sampler" item is automatically included in the cart (no user action shown to add it). The subscription line item defaults to "Every 30 Days" recurring cadence with a visible per-item discount ("Save $15.28"). No cross-sell carousel, bundle upsell, or free-shipping progress bar/threshold messaging is visible anywhere in the captured drawer.
-
-**Trust signals:** Below the checkout button: a star icon with "Over 2M+ Orders" and a shield icon with "50 Day Happiness Guarantee." No returns policy copy or additional guarantee/badge visible elsewhere in the drawer.
+## Collection Page (Energy page replacing collection)
+**Fold 1:** Announcement bar as above. Dark theme. Title "Energy+ Electrolyte Drink Mix", tag row "DAILY ENERGY, MENTAL FOCUS, ZERO SUGAR", copy "Clinically studied paraxanthine plus electrolytes, smoother, longer-lasting energy and sharper focus." "Bundle & save" with 50% OFF badge, $55.00 struck, $27.50, "20 sticks per box". Two flavor cards (Sour Green Apple, Tropical Crush) with quantity steppers at 0. Locked perks list "SELECT A FLAVOR TO UNLOCK": 3 Count Hydration Sampler ($9.99 FREE), Free Shipping ($6.99 FREE), Water Bottle with 2+ Boxes ($34.99 FREE). "DELIVERY: EVERY 30 DAYS". Button "SELECT A FLAVOR". Under it: refill ships every 30/60/90 days, adjust/skip/cancel anytime, FREE gift on first shipment, FREE U.S. shipping. Description accordion open. Left: image gallery with NEW tag and 6 thumbnails.
+**Fold 2:** Description text (paraxanthine explainer), FDA disclaimer, accordions Ingredients and Benefits (collapsed). Secondary button "TRY IT ONCE, $55.00 struck, $49.50", "SHIPPING $6.99 | NO FREE GIFT", copy "We recommend Subscription as most people build a steady daily routine over the first month of use." Below: full-width lifestyle hero begins.
+**Fold 3:** Full-width hero "INSTANT HYDRATION ENERGY+, REFINED ENERGY. PREMIUM ELECTROLYTE BASE." Then "THE SCIENCE BEHIND ENERGY+" copy. Sticky bottom bar: product thumbnail, "Energy+ Electrolyte Drink Mix, $27.50/box, Save 50%", button "SHOP 2 FLAVORS".
+**Price display:** Strikethrough $55.00 with $27.50 shown; 50% OFF badge; one-time price $49.50 struck from $55.00 (10% off). Per-stick price not shown on this page in captured folds.
+**Layout notes:** Only two flavors selectable. No star rating or review count visible in the three folds.
 
 ## PDP
+Not collected as a separate set. The shared ad landing page is the PDP; see meta-ads-visual-summary.md (Shared Landing Page) for its folds and buy box detail (Subscribe & Save pre-selected at $27.50 / $0.92 per stick, One Time $49.50 / $1.65 per stick, flavor scroller, disabled "0 BOXES SELECTED" button, "50 Day Happiness Guarantee", sticky bar with 4.5/5, 25k+ Reviews, 2M+ Orders and "SELECT FROM 15 FLAVORS").
 
-Not collected — no PDP screenshots were provided. MISSING_DATA: pdp_screenshots (see manifest.md).
+## Cart (cart-drawer.png)
+**Layout:** Drawer titled "Your Cart". Line 1: Water Bottle, Black, qty 1, $34.99 struck, FREE, "Save $34.99". Line 2: Energy+ Electrolyte Drink Mix, Sour Green Apple, "Every 30 Days", qty 2 with stepper, $110.00 struck, $99.00, "Save $11.00", trash icon.
+**CTA:** Black full-width "SECURE CHECKOUT" with lock icon at bottom of drawer, static.
+**AOV elements:** No upsell, cross-sell, bundle or free-shipping threshold visible. Free water bottle line shown as gift for 2 boxes. Subtotal row: "50% OFF" badge, $110.00 struck, $55.00.
+**Trust signals:** Below checkout button: "Over 2M+ Orders" and "50 Day Happiness Guarantee". Note: line items total $99.00 while subtotal shows $55.00; discrepancy visible in the capture, cause not determined.
 
 ## Landing Pages
-
-Landing page screenshots collected are the shared ad-landing folds documented in raw/meta-ads-visual-summary.md (ad1,2,3-landing-f1/f2/f3.png), since all three Meta ads point to the same URL. See that file for the fold-by-fold breakdown.
+Not collected separately (Meta landing page is the PDP, covered above).

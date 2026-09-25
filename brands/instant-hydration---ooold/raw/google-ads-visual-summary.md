@@ -1,0 +1,14 @@
+# Google Ads Visual Summary
+
+**Screenshots reviewed:** google-ads-1.png, google-ads-2.png (Google Ads Transparency Center results grid, 20 ad units total across both screenshots)
+**Ads visible:** All text/search-style ad units under "Instant Hydration Inc. — Verified," plus 2-3 image/display units (a red "-50% Energy+ Electrolyte Drink Mix…" display ad, a "No Crushes, All Summer Long" video-style creative, and a "-50% Instant Hydration | Premium…" display ad with a red product shot). Format mix is predominantly responsive search ads with a small number of display/video creatives.
+**Headline themes:** Several repeating angles across the set:
+- Category-displacement: "This Is Real Hydration," "Superior Electrolyte Formula - This Is Real Hydration," positioning against "sugary sports drinks"
+- Ingredient/formula credibility: "70+ Trace Minerals Per Stick," "Improved Brain Function. Enhanced Performance & Recovery," "No Dairy. No Artificial Flavors. No Sucrose. No Lactose. No Gluten. Non GMO. Keto Safe."
+- Price/value: "Daily Electrolytes < $1.00," "Limited-Time 50% Off Today," "Free Shipping on Subscription," "Every stick under $1.50 with up to 50% off subscription"
+- Product-specific: "ICEE Blue Raspberry & Cherry Electrolyte Drink Mix," "Energy+ Electrolyte Drink Mix"
+- Editorial/content angle: "Instant Hydration and Pregnancy: 6 Things Every Mom Should Know"
+- Best-in-category framing: "Best Hydration Powder 2026 - Best Clean Electrolyte Powder"
+**Offers and CTAs:** "Limited-Time 50% Off Today," "Daily Electrolytes < $1.00," "Free Shipping on Subscription," sitelinks such as "Our Science," "View Full Ingredients," "Shop Our 30-Pack Flavors," "MVP Bundle," "Your Daily Hydration Packets," "Easy Mix Hydration." One listing shows a star rating ("4.6 (111)") and "Return policy — Most items 50+ days."
+**Visual approach:** The two display/video creatives use bold, saturated color blocks (red "-50%" badge, orange/red Energy+ packaging) with minimal copy ("Energy+ Electrolyte Drink Mix…", "Instant Hydration | Premium…"). The "No Crushes, All Summer Long" unit is a video-thumbnail style creative with product tubes laid flat on a light background.
+**Gaps vs. Meta:** Google Ads copy leans heavily on ingredient/clinical/comparison language ("70+ Trace Minerals," "Lab-Tested for Superior Taste, Performance, and Safety," category comparisons vs. "sugary sports drinks") and price-per-stick framing, which is more clinical/value-oriented than the Meta creatives reviewed (Ad 1: ICEE flavor collab, Ad 2: Target retail availability, Ad 3: Luigi's summer collab). None of the three Meta ad angles (ICEE, Target, Luigi's) appear among the Google Ads headlines captured here. The Energy+ product, which is a single small display ad in the Google set, is the same product used as the site's current homepage hero and main CTA destination on the live site.
